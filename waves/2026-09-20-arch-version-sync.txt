@@ -6,6 +6,7 @@
 # Phase 0: pacman (new confs), then ALL soname providers (autodeps rebuilds)
 /mnt/lfs/src/kashira/pkgs/pacman
 /mnt/lfs/src/kashira-arch/pkgs/expat
+/mnt/lfs/src/kashira/pkgs/openssl
 /mnt/lfs/src/kashira-arch/pkgs/libarchive
 /mnt/lfs/src/kashira-arch/pkgs/sqlite
 /mnt/lfs/src/kashira-arch/pkgs/autoconf-archive
@@ -29,7 +30,6 @@
 /mnt/lfs/src/kashira-arch/pkgs/libxcrypt
 /mnt/lfs/src/kashira-arch/pkgs/libxml2
 /mnt/lfs/src/kashira/pkgs/llvm-libgcc
-/mnt/lfs/src/kashira/pkgs/openssl
 /mnt/lfs/src/kashira-arch/pkgs/readline
 /mnt/lfs/src/kashira/pkgs/systemd
 /mnt/lfs/src/kashira-arch/pkgs/gtest

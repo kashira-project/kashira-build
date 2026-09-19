@@ -1,0 +1,576 @@
+== build sqlite (deps: glibc readline sqlite tcl zlib )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: readline-8.3-1 is up to date -- skipping
+warning: sqlite-3.53.4-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (1) tcl-8.6.18-1
+
+Total Download Size:    3.03 MiB
+Total Installed Size:  16.02 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ tcl-8.6.18-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing tcl...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: sqlite 3.53.4-1 (Sat Sep 19 20:10:17 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading sqlite-src-3530400.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:05              0  0 13.88M   0  98304   0      0  14304      0   16:57   00:06   16:51  92788  3 13.88M   3 448.0k   0      0  57683      0   04:12   00:07   04:05 209.3k  4 13.88M   4 688.0k   0      0  78236      0   03:06   00:09   02:57 215.5k  6 13.88M   6 928.0k   0      0  94351      0   02:34   00:10   02:24 217.9k  8 13.88M   8  1.15M   0      0 105.6k      0   02:14   00:11   02:03 219.4k  9 13.88M   9  1.34M   0      0 110.9k      0   02:08   00:12   01:56 231.2k 11 13.88M  11  1.54M   0      0 118.1k      0   02:00   00:13   01:47 208.2k 12 13.88M  12  1.70M   0      0 120.8k      0   01:57   00:14   01:43 194.6k 13 13.88M  13  1.82M   0      0 120.7k      0   01:57   00:15   01:42 173.8k 14 13.88M  14  1.96M   0      0 121.8k      0   01:56   00:16   01:40 155.9k 15 13.88M  15  2.10M   0      0 122.0k      0   01:56   00:17   01:39 148.3k 15 13.88M  15  2.18M   0      0 119.8k      0   01:58   00:18   01:40 124.1k 16 13.88M  16  2.26M   0      0 117.6k      0   02:00   00:19   01:41 109.0k 16 13.88M  16  2.35M   0      0 116.3k      0   02:02   00:20   01:42 103.2k 17 13.88M  17  2.45M   0      0 114.9k      0   02:03   00:21   01:42  95537 18 13.88M  18  2.51M   0      0 112.5k      0   02:06   00:22   01:44  81991 18 13.88M  18  2.59M   0      0 111.0k      0   02:08   00:23   01:45  81406 19 13.88M  19  2.67M   0      0 109.7k      0   02:09   00:24   01:45  81540 19 13.88M  19  2.76M   0      0 109.1k      0   02:10   00:25   01:45  82139 20 13.88M  20  2.82M   0      0 107.3k      0   02:12   00:26   01:46  76787 21 13.88M  21  2.93M   0      0 107.2k      0   02:12   00:28   01:44  85797 21 13.88M  21  3.04M   0      0 106.2k      0   02:13   00:29   01:44  87219 22 13.88M  22  3.12M   0      0 105.1k      0   02:15   00:30   01:45  86521 23 13.88M  23  3.21M   0      0 104.8k      0   02:15   00:31   01:44  86778 23 13.88M  23  3.28M   0      0 103.5k      0   02:17   00:32   01:45  86772 24 13.88M  24  3.37M   0      0 103.1k      0   02:17   00:33   01:44  83826 25 13.88M  25  3.48M   0      0 103.2k      0   02:17   00:34   01:43  88242 25 13.88M  25  3.57M   0      0 102.8k      0   02:18   00:35   01:43  91355 26 13.88M  26  3.68M   0      0 102.9k      0   02:18   00:36   01:42  93532 27 13.88M  27  3.85M   0      0 104.2k      0   02:16   00:37   01:39 108.9k 28 13.88M  28  3.95M   0      0 104.0k      0   02:16   00:38   01:38 109.9k 29 13.88M  29  4.03M   0      0 103.3k      0   02:17   00:39   01:38 104.0k 29 13.88M  29  4.12M   0      0 103.0k      0   02:18   00:41   01:37 104.1k 30 13.88M  30  4.23M   0      0 103.0k      0   02:17   00:42   01:35 104.1k 31 13.88M  31  4.34M   0      0 103.1k      0   02:17   00:43   01:34  97141 32 13.88M  32  4.45M   0      0 103.2k      0   02:17   00:44   01:33  99377 33 13.88M  33  4.59M   0      0 104.0k      0   02:16   00:45   01:31 109.6k 34 13.88M  34  4.78M   0      0 105.9k      0   02:14   00:46   01:28 129.0k 36 13.88M  36  5.03M   0      0 108.9k      0   02:10   00:47   01:23 156.5k 38 13.88M  38  5.28M   0      0 111.9k      0   02:07   00:48   01:19 184.3k 39 13.88M  39  5.50M   0      0 114.0k      0   02:04   00:49   01:15 205.8k 40 13.88M  40  5.68M   0      0 115.3k      0   02:03   00:50   01:13 211.6k 41 13.88M  41  5.79M   0      0 115.1k      0   02:03   00:51   01:12 194.9k 42 13.88M  42  5.84M   0      0 113.8k      0   02:04   00:52   01:12 157.7k 42 13.88M  42  5.92M   0      0 113.1k      0   02:05   00:53   01:12 124.1k 43 13.88M  43  6.00M   0      0 112.4k      0   02:06   00:54   01:12  99605 43 13.88M  43  6.09M   0      0 111.9k      0   02:06   00:55   01:11  81481 44 13.88M  44  6.20M   0      0 111.8k      0   02:07   00:56   01:11  81421 46 13.88M  46  6.39M   0      0 113.1k      0   02:05   00:57   01:08 105.9k 47 13.88M  47  6.59M   0      0 114.6k      0   02:03   00:58   01:05 130.2k 48 13.88M  48  6.71M   0      0 114.8k      0   02:03   00:59   01:04 139.3k 49 13.88M  49  6.82M   0      0 114.6k      0   02:03   01:00   01:03 143.0k 50 13.88M  50  6.96M   0      0 115.0k      0   02:03   01:02   01:01 149.1k 51 13.88M  51  7.09M   0      0 115.2k      0   02:03   01:03   01:00 138.0k 51 13.88M  51  7.21M   0      0 115.3k      0   02:03   01:04   00:59 123.8k 52 13.88M  52  7.32M   0      0 115.2k      0   02:03   01:05   00:58 120.3k 53 13.88M  53  7.43M   0      0 115.0k      0   02:03   01:06   00:57 120.2k 54 13.88M  54  7.53M   0      0 114.7k      0   02:03   01:07   00:56 112.0k 54 13.88M  54  7.60M   0      0 114.2k      0   02:04   01:08   00:56 102.0k 55 13.88M  55  7.73M   0      0 114.3k      0   02:04   01:09   00:55 101.8k 56 13.88M  56  7.82M   0      0 114.1k      0   02:04   01:10   00:54 99.82k 57 13.88M  57  7.93M   0      0 114.0k      0   02:04   01:11   00:53 100.6k 57 13.88M  57  8.04M   0      0 114.0k      0   02:04   01:12   00:52 103.6k 58 13.88M  58  8.15M   0      0 113.9k      0   02:04   01:13   00:51 110.4k 59 13.88M  59  8.25M   0      0 113.6k      0   02:05   01:14   00:51 104.2k 60 13.88M  60  8.34M   0      0 113.4k      0   02:05   01:15   00:50 103.9k 60 13.88M  60  8.43M   0      0 113.1k      0   02:05   01:16   00:49 100.3k 61 13.88M  61  8.53M   0      0 112.9k      0   02:05   01:17   00:48  99734 62 13.88M  62  8.60M   0      0 112.4k      0   02:06   01:18   00:48  93109 62 13.88M  62  8.70M   0      0 112.2k      0   02:06   01:19   00:47  93245 63 13.88M  63  8.81M   0      0 112.1k      0   02:06   01:20   00:46  95418 64 13.88M  64  8.92M   0      0 112.0k      0   02:06   01:21   00:45  98259 65 13.88M  65  9.03M   0      0 111.9k      0   02:06   01:22   00:44 97.98k 65 13.88M  65  9.14M   0      0 111.8k      0   02:07   01:23   00:44 103.6k 66 13.88M  66  9.21M   0      0 111.5k      0   02:07   01:24   00:43 100.7k 66 13.88M  66  9.28M   0      0 110.9k      0   02:08   01:25   00:43  94814 67 13.88M  67  9.35M   0      0 110.5k      0   02:08   01:26   00:42  88494 67 13.88M  67  9.43M   0      0 110.1k      0   02:09   01:27   00:42  82310 68 13.88M  68  9.53M   0      0 109.5k      0   02:09   01:29   00:40  75810 69 13.88M  69  9.59M   0      0 109.0k      0   02:10   01:30   00:40  72548 69 13.88M  69  9.65M   0      0 108.5k      0   02:10   01:31   00:39  72215 70 13.88M  70  9.73M   0      0 108.1k      0   02:11   01:32   00:39  72233 70 13.88M  70  9.79M   0      0 107.5k      0   02:12   01:33   00:39  68646 70 13.88M  70  9.84M   0      0 106.8k      0   02:13   01:34   00:39  62310 71 13.88M  71  9.89M   0      0 106.2k      0   02:13   01:35   00:38  58788 71 13.88M  71  9.93M   0      0 105.5k      0   02:14   01:36   00:38  55914 72 13.88M  72 10.00M   0      0 105.1k      0   02:15   01:37   00:38  53274 72 13.88M  72 10.07M   0      0 104.8k      0   02:15   01:38   00:37  57115 73 13.88M  73 10.15M   0      0 104.5k      0   02:15   01:39   00:36  64011 73 13.88M  73 10.23M   0      0 104.2k      0   02:16   01:40   00:36  70420 74 13.88M  74 10.32M   0      0 104.1k      0   02:16   01:41   00:35  79357 74 13.88M  74 10.40M   0      0 103.9k      0   02:16   01:42   00:34  82610 75 13.88M  75 10.45M   0      0 103.3k      0   02:17   01:43   00:34  76624 75 13.88M  75 10.50M   0      0 102.7k      0   02:18   01:44   00:34  69671 75 13.88M  75 10.53M   0      0 102.0k      0   02:19   01:45   00:34  60136 76 13.88M  76 10.57M   0      0 101.5k      0   02:20   01:46   00:34  50690 76 13.88M  76 10.62M   0      0 100.9k      0   02:20   01:47   00:33  43931 76 13.88M  76 10.68M   0      0 100.5k      0   02:21   01:48   00:33  46649 77 13.88M  77 10.73M   0      0 100.0k      0   02:22   01:49   00:33  46621 77 13.88M  77 10.81M   0      0 99.81k      0   02:22   01:50   00:32  55956 78 13.88M  78 10.85M   0      0 99.30k      0   02:23   01:51   00:32  56031 78 13.88M  78 10.92M   0      0 98.98k      0   02:23   01:52   00:31  59567 79 13.88M  79 10.98M   0      0 98.59k      0   02:24   01:54   00:30  59208 79 13.88M  79 11.06M   0      0 98.38k      0   02:24   01:55   00:29  65421 80 13.88M  80 11.15M   0      0 98.32k      0   02:24   01:56   00:28  68539 81 13.88M  81 11.28M   0      0 98.53k      0   02:24   01:57   00:27  83950 82 13.88M  82 11.43M   0      0 98.99k      0   02:23   01:58   00:25 99.32k 83 13.88M  83 11.60M   0      0 99.62k      0   02:22   01:59   00:23 121.8k 84 13.88M  84 11.79M   0      0 100.3k      0   02:21   02:00   00:21 143.1k 86 13.88M  86 12.00M   0      0 101.1k      0   02:20   02:01   00:19 163.2k 87 13.88M  87 12.15M   0      0 101.6k      0   02:19   02:02   00:17 170.5k 89 13.88M  89 12.35M   0      0 102.3k      0   02:18   02:03   00:15 178.2k 89 13.88M  89 12.46M   0      0 102.4k      0   02:18   02:04   00:14 165.6k 90 13.88M  90 12.59M   0      0 102.5k      0   02:18   02:05   00:13 153.2k 91 13.88M  91 12.71M   0      0 102.5k      0   02:18   02:07   00:11 132.7k 92 13.88M  92 12.81M   0      0 102.4k      0   02:18   02:08   00:10 120.6k 92 13.88M  92 12.90M   0      0 102.3k      0   02:18   02:09   00:09 101.5k 93 13.88M  93 13.00M   0      0 102.3k      0   02:18   02:10   00:08 99.36k 94 13.88M  94 13.14M   0      0 102.3k      0   02:18   02:11   00:07 97.66k 95 13.88M  95 13.23M   0      0 102.2k      0   02:18   02:12   00:06  98810 96 13.88M  96 13.35M   0      0 102.4k      0   02:18   02:13   00:05 101.9k 97 13.88M  97 13.48M   0      0 102.5k      0   02:18   02:14   00:04 106.0k 97 13.88M  97 13.54M   0      0 102.1k      0   02:19   02:15   00:04 98.61k 98 13.88M  98 13.60M   0      0 101.8k      0   02:19   02:16   00:03  91130 98 13.88M  98 13.68M   0      0 101.6k      0   02:19   02:17   00:02  88946 99 13.88M  99 13.76M   0      0 101.5k      0   02:20   02:18   00:02  80245 99 13.88M  99 13.84M   0      0 101.3k      0   02:20   02:19   00:01  72123100 13.88M 100 13.88M   0      0 101.4k      0   02:20   02:20          72123100 13.88M 100 13.88M   0      0 101.4k      0   02:20   02:20          72123100 13.88M 100 13.88M   0      0 101.4k      0   02:20   02:20          72123
+  -> Found sqlite-doc-3530400.zip
+  -> Found sqlite-lemon-system-template.patch
+  -> Found license.txt
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    sqlite-src-3530400.zip ... Passed
+    sqlite-doc-3530400.zip ... Passed
+    sqlite-lemon-system-template.patch ... Passed
+    license.txt ... Passed
+==> Extracting sources...
+  -> Extracting sqlite-src-3530400.zip with bsdtar
+  -> Extracting sqlite-doc-3530400.zip with bsdtar
+==> Starting prepare()...
+patching file tool/lemon.c
+Hunk #1 succeeded at 3764 (offset 1 line).
+Hunk #2 succeeded at 3799 (offset 1 line).
+==> Starting build()...
+Configuring SQLite version 3.53.4
+Host System...x86_64-pc-linux-gnu
+Build System...x86_64-pc-linux-gnu
+Source dir = /home/builder/build/src/sqlite-src-3530400
+Build dir  = /home/builder/build/src/sqlite-src-3530400
+C compiler... clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection          -DSQLITE_ENABLE_COLUMN_METADATA=1         -DSQLITE_ENABLE_UNLOCK_NOTIFY         -DSQLITE_ENABLE_DBSTAT_VTAB=1         -DSQLITE_ENABLE_FTS3_PARENTHESIS         -DSQLITE_SECURE_DELETE         -DSQLITE_ENABLE_STMTVTAB         -DSQLITE_ENABLE_STAT4         -DSQLITE_MAX_VARIABLE_NUMBER=250000         -DSQLITE_MAX_EXPR_DEPTH=10000         -DSQLITE_ENABLE_MATH_FUNCTIONS
+C++ compiler... clang++ -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection          -DSQLITE_ENABLE_COLUMN_METADATA=1         -DSQLITE_ENABLE_UNLOCK_NOTIFY         -DSQLITE_ENABLE_DBSTAT_VTAB=1         -DSQLITE_ENABLE_FTS3_PARENTHESIS         -DSQLITE_SECURE_DELETE         -DSQLITE_ENABLE_STMTVTAB         -DSQLITE_ENABLE_STAT4         -DSQLITE_MAX_VARIABLE_NUMBER=250000         -DSQLITE_MAX_EXPR_DEPTH=10000         -DSQLITE_ENABLE_MATH_FUNCTIONS
+Build C compiler...cc
+Checking for stdlib.h...ok
+Checking for sys/types.h...ok
+Checking if -D_FILE_OFFSET_BITS=64 is needed...no
+SQLITE_DEBUG build? no
+Looking for install ... /usr/sbin/install
+Checking for int8_t...ok
+Checking for int16_t...ok
+Checking for int32_t...ok
+Checking for int64_t...ok
+Checking for intptr_t...ok
+Checking for uint8_t...ok
+Checking for uint16_t...ok
+Checking for uint32_t...ok
+Checking for uint64_t...ok
+Checking for uintptr_t...ok
+Checking for gmtime_r...ok
+Checking for isnan...ok
+Checking for localtime_r...ok
+Checking for localtime_s...not found
+Checking for usleep...ok
+Checking for utime...ok
+Checking for pread...ok
+Checking for pread64...ok
+Checking for pwrite...ok
+Checking for pwrite64...ok
+Checking libs for fdatasync...none needed
+Checking libs for nanosleep...none needed
+Checking for sys/types.h...(cached) ok
+Checking for sys/stat.h...ok
+Checking for dlfcn.h...ok
+Checking for unistd.h...ok
+Checking for stdlib.h...ok
+Checking for malloc.h...ok
+Checking for memory.h...ok
+Checking for string.h...ok
+Checking for strings.h...ok
+Checking for inttypes.h...ok
+Checking for zlib.h...ok
+Checking libs for deflate...-lz
+Use amalgamation for builds? yes
+Use gcov? no
+test-runner flags: no
+Use #line macros in the amalgamation: no
+Checking whether the C compiler accepts -fsanitize=address...yes
+Checking whether the C compiler accepts -fsanitize=bounds-strict...no
+Checking for a suitable tcl... 
+Checking for tclsh9.1...no
+Checking for tclsh9.0...no
+Checking for tclsh8.6.../usr/sbin/tclsh8.6
+/usr/sbin/tclsh8.6 recommends the tclConfig.sh from /usr/lib
+Using tclConfig.sh: /usr/lib/tclConfig.sh
+Using tclsh: /usr/sbin/tclsh8.6
+Checking for TCL to use for code generation... 
+Checking for dirent.h...ok
+Checking for sys/time.h...ok
+Checking for realpath...ok
+TCL for code generation: jimsh
+Emscripten SDK? not found
+Statically link tclsqlite3? no
+Statically link CLI shell? no
+Checking whether the C compiler accepts -rpath /usr/lib...yes
+Checking whether the C compiler accepts -Wl,-soname,libsqlite3.so.0...yes
+Setting SONAME using: -Wl,-soname,libsqlite3.so.0
+Support threadsafe operation? Checking for libs...
+Checking libs for pthread_create...none needed
+Checking libs for pthread_mutexattr_init...none needed
+Checking libs for dlopen...none needed
+Loadable extension support enabled. 
+Checking libs for ceil...-lm
+Enabling math SQL functions
+ICU support is disabled.
+Checking for line-editing capability...
+Checking libs for tgetent...-lncurses
+Checking libs for readline...-lreadline
+Using readline flags: -I/usr/include -lreadline -lncurses
+Line-editing support for the sqlite3 shell: readline
+Build shared library? yes
+Build static library? no
+
+    NOTICE: static lib build may be implicitly re-activated by
+    other components, e.g. some test apps.
+
+Feature flags...
+  + fts3
+  + fts4
+  + fts5
+  - geopoly
+  + rtree
+  + session
+  - update-limit
+  - memsys5
+  - memsys3
+  - scanstatus
+  - column-metadata
+  - dbpage
+  - dbstat
+  - carray
+  + json
+Library feature flags: -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1
+Shell options: -DHAVE_READLINE=1 -DSQLITE_DQS=0 -DSQLITE_ENABLE_BYTECODE_VTAB -DSQLITE_ENABLE_DBPAGE_VTAB -DSQLITE_ENABLE_DBSTAT_VTAB -DSQLITE_ENABLE_EXPLAIN_COMMENTS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_OFFSET_SQL_FUNC -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION -DSQLITE_HAVE_ZLIB=1 -DSQLITE_STRICT_SUBTYPE=1
+Created Makefile from Makefile.in
+Created sqlite3.pc from sqlite3.pc.in
+Created sqlite_cfg.h
+cc -g -o jimsh -O1 -DHAVE_REALPATH /home/builder/build/src/sqlite-src-3530400/autosetup/jimsh0.c
+cc -g -o mkkeywordhash -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1   /home/builder/build/src/sqlite-src-3530400/tool/mkkeywordhash.c
+cc -g -o src-verify /home/builder/build/src/sqlite-src-3530400/tool/src-verify.c
+echo 'package ifneeded sqlite3 3.53.4 [list load [file join $dir libsqlite3.53.4.so] Sqlite3]' > pkgIndex.tcl
+Created .tclenv.sh
+touch .main.mk.checks
+cc -g -o mksourceid /home/builder/build/src/sqlite-src-3530400/tool/mksourceid.c
+cc -g -o lemon /home/builder/build/src/sqlite-src-3530400/tool/lemon.c
+/home/builder/build/src/sqlite-src-3530400/autosetup/jimsh0.c:2643:16: warning: assigning to 'char *' from 'const void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+ 2643 |             nl = memchr(pt + offset, '\n', len - offset);
+      |                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./mkkeywordhash > keywordhash.h
+cp /home/builder/build/src/sqlite-src-3530400/tool/lempar.c .
+cp /home/builder/build/src/sqlite-src-3530400/src/parse.y .
+cp /home/builder/build/src/sqlite-src-3530400/ext/fts5/fts5parse.y .
+./lemon -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1   -S parse.y
+rm -f fts5parse.h
+./lemon  -S fts5parse.y
+1 warning generated.
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mksqlite3h.tcl /home/builder/build/src/sqlite-src-3530400 -o sqlite3.h
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkctimec.tcl
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkpragmatab.tcl
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkcombo.tcl /home/builder/build/src/sqlite-src-3530400/ext/qrf/qrf.h /home/builder/build/src/sqlite-src-3530400/ext/qrf/qrf.c /home/builder/build/src/sqlite-src-3530400/src/tclsqlite.c -o tclsqlite-ex.c
+cat parse.h /home/builder/build/src/sqlite-src-3530400/src/vdbe.c | ./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkopcodeh.tcl >opcodes.h
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkshellc.tcl shell.c
+./jimsh /home/builder/build/src/sqlite-src-3530400/ext/fts5/tool/mkfts5c.tcl
+Overwriting ctime.c...
+Overwriting pragma.h with new pragma table...
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkopcodec.tcl opcodes.h >opcodes.c
+cp /home/builder/build/src/sqlite-src-3530400/ext/fts5/fts5.h .
+rm -rf tsrc
+. ./.tclenv.sh || exit $?; clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc -DTCLSH -o tclsqlite-shell.o -c tclsqlite-ex.c $TCL_INCLUDE_SPEC
+. ./.tclenv.sh || exit $?; clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc -DUSE_TCL_STUBS=1 $TCL_INCLUDE_SPEC \
+	-c tclsqlite-ex.c -o tclsqlite.o
+mkdir tsrc
+cp -f /home/builder/build/src/sqlite-src-3530400/src/alter.c /home/builder/build/src/sqlite-src-3530400/src/analyze.c /home/builder/build/src/sqlite-src-3530400/src/attach.c /home/builder/build/src/sqlite-src-3530400/src/auth.c /home/builder/build/src/sqlite-src-3530400/src/backup.c /home/builder/build/src/sqlite-src-3530400/src/bitvec.c /home/builder/build/src/sqlite-src-3530400/src/btmutex.c /home/builder/build/src/sqlite-src-3530400/src/btree.c /home/builder/build/src/sqlite-src-3530400/src/btree.h /home/builder/build/src/sqlite-src-3530400/src/btreeInt.h /home/builder/build/src/sqlite-src-3530400/src/build.c /home/builder/build/src/sqlite-src-3530400/src/callback.c /home/builder/build/src/sqlite-src-3530400/src/carray.c /home/builder/build/src/sqlite-src-3530400/src/complete.c ctime.c /home/builder/build/src/sqlite-src-3530400/src/date.c /home/builder/build/src/sqlite-src-3530400/src/dbpage.c /home/builder/build/src/sqlite-src-3530400/src/dbstat.c /home/builder/build/src/sqlite-src-3530400/src/delete.c /home/builder/build/src/sqlite-src-3530400/src/expr.c /home/builder/build/src/sqlite-src-3530400/src/fault.c /home/builder/build/src/sqlite-src-3530400/src/fkey.c /home/builder/build/src/sqlite-src-3530400/src/func.c /home/builder/build/src/sqlite-src-3530400/src/global.c /home/builder/build/src/sqlite-src-3530400/src/hash.c /home/builder/build/src/sqlite-src-3530400/src/hash.h /home/builder/build/src/sqlite-src-3530400/src/hwtime.h /home/builder/build/src/sqlite-src-3530400/src/insert.c /home/builder/build/src/sqlite-src-3530400/src/json.c /home/builder/build/src/sqlite-src-3530400/src/legacy.c /home/builder/build/src/sqlite-src-3530400/src/loadext.c /home/builder/build/src/sqlite-src-3530400/src/main.c /home/builder/build/src/sqlite-src-3530400/src/malloc.c /home/builder/build/src/sqlite-src-3530400/src/mem0.c /home/builder/build/src/sqlite-src-3530400/src/mem1.c /home/builder/build/src/sqlite-src-3530400/src/mem2.c /home/builder/build/src/sqlite-src-3530400/src/mem3.c /home/builder/build/src/sqlite-src-3530400/src/mem5.c /home/builder/build/src/sqlite-src-3530400/src/memdb.c /home/builder/build/src/sqlite-src-3530400/src/memjournal.c /home/builder/build/src/sqlite-src-3530400/src/msvc.h /home/builder/build/src/sqlite-src-3530400/src/mutex.c /home/builder/build/src/sqlite-src-3530400/src/mutex.h /home/builder/build/src/sqlite-src-3530400/src/mutex_noop.c /home/builder/build/src/sqlite-src-3530400/src/mutex_unix.c /home/builder/build/src/sqlite-src-3530400/src/mutex_w32.c /home/builder/build/src/sqlite-src-3530400/src/notify.c /home/builder/build/src/sqlite-src-3530400/src/os.c /home/builder/build/src/sqlite-src-3530400/src/os.h /home/builder/build/src/sqlite-src-3530400/src/os_common.h /home/builder/build/src/sqlite-src-3530400/src/os_setup.h /home/builder/build/src/sqlite-src-3530400/src/os_kv.c /home/builder/build/src/sqlite-src-3530400/src/os_unix.c /home/builder/build/src/sqlite-src-3530400/src/os_win.c /home/builder/build/src/sqlite-src-3530400/src/os_win.h /home/builder/build/src/sqlite-src-3530400/src/pager.c /home/builder/build/src/sqlite-src-3530400/src/pager.h /home/builder/build/src/sqlite-src-3530400/src/parse.y /home/builder/build/src/sqlite-src-3530400/src/pcache.c /home/builder/build/src/sqlite-src-3530400/src/pcache.h /home/builder/build/src/sqlite-src-3530400/src/pcache1.c /home/builder/build/src/sqlite-src-3530400/src/pragma.c pragma.h /home/builder/build/src/sqlite-src-3530400/src/prepare.c /home/builder/build/src/sqlite-src-3530400/src/printf.c /home/builder/build/src/sqlite-src-3530400/src/random.c /home/builder/build/src/sqlite-src-3530400/src/resolve.c /home/builder/build/src/sqlite-src-3530400/src/rowset.c /home/builder/build/src/sqlite-src-3530400/src/select.c /home/builder/build/src/sqlite-src-3530400/src/status.c /home/builder/build/src/sqlite-src-3530400/src/shell.c.in /home/builder/build/src/sqlite-src-3530400/src/sqlite.h.in /home/builder/build/src/sqlite-src-3530400/src/sqlite3ext.h /home/builder/build/src/sqlite-src-3530400/src/sqliteInt.h /home/builder/build/src/sqlite-src-3530400/src/sqliteLimit.h /home/builder/build/src/sqlite-src-3530400/src/table.c tclsqlite-ex.c /home/builder/build/src/sqlite-src-3530400/src/threads.c /home/builder/build/src/sqlite-src-3530400/src/tokenize.c /home/builder/build/src/sqlite-src-3530400/src/treeview.c /home/builder/build/src/sqlite-src-3530400/src/trigger.c /home/builder/build/src/sqlite-src-3530400/src/utf.c /home/builder/build/src/sqlite-src-3530400/src/update.c /home/builder/build/src/sqlite-src-3530400/src/upsert.c /home/builder/build/src/sqlite-src-3530400/src/util.c /home/builder/build/src/sqlite-src-3530400/src/vacuum.c /home/builder/build/src/sqlite-src-3530400/src/vdbe.c /home/builder/build/src/sqlite-src-3530400/src/vdbe.h /home/builder/build/src/sqlite-src-3530400/src/vdbeapi.c /home/builder/build/src/sqlite-src-3530400/src/vdbeaux.c /home/builder/build/src/sqlite-src-3530400/src/vdbeblob.c /home/builder/build/src/sqlite-src-3530400/src/vdbemem.c /home/builder/build/src/sqlite-src-3530400/src/vdbesort.c /home/builder/build/src/sqlite-src-3530400/src/vdbetrace.c /home/builder/build/src/sqlite-src-3530400/src/vdbevtab.c /home/builder/build/src/sqlite-src-3530400/src/vdbeInt.h /home/builder/build/src/sqlite-src-3530400/src/vtab.c /home/builder/build/src/sqlite-src-3530400/src/vxworks.h /home/builder/build/src/sqlite-src-3530400/src/wal.c /home/builder/build/src/sqlite-src-3530400/src/wal.h /home/builder/build/src/sqlite-src-3530400/src/walker.c /home/builder/build/src/sqlite-src-3530400/src/where.c /home/builder/build/src/sqlite-src-3530400/src/wherecode.c /home/builder/build/src/sqlite-src-3530400/src/whereexpr.c /home/builder/build/src/sqlite-src-3530400/src/whereInt.h /home/builder/build/src/sqlite-src-3530400/src/window.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3.h /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3Int.h /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_aux.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_expr.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_hash.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_hash.h /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_icu.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_porter.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_snippet.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_tokenizer.h /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_tokenizer.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_tokenizer1.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_tokenize_vtab.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_unicode.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_unicode2.c /home/builder/build/src/sqlite-src-3530400/ext/fts3/fts3_write.c /home/builder/build/src/sqlite-src-3530400/ext/icu/sqliteicu.h /home/builder/build/src/sqlite-src-3530400/ext/icu/icu.c /home/builder/build/src/sqlite-src-3530400/ext/rtree/rtree.h /home/builder/build/src/sqlite-src-3530400/ext/rtree/rtree.c /home/builder/build/src/sqlite-src-3530400/ext/rtree/geopoly.c /home/builder/build/src/sqlite-src-3530400/ext/session/sqlite3session.c /home/builder/build/src/sqlite-src-3530400/ext/session/sqlite3session.h /home/builder/build/src/sqlite-src-3530400/ext/rbu/sqlite3rbu.h /home/builder/build/src/sqlite-src-3530400/ext/rbu/sqlite3rbu.c /home/builder/build/src/sqlite-src-3530400/ext/misc/stmt.c keywordhash.h opcodes.c opcodes.h parse.c parse.h sqlite_cfg.h shell.c sqlite3.h tsrc
+rm -f tsrc/sqlite.h.in tsrc/parse.y
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/vdbe-compress.tcl  <tsrc/vdbe.c >vdbe.new
+mv -f vdbe.new tsrc/vdbe.c
+cp fts5.c fts5.h tsrc
+touch .target_source
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mksqlite3c.tcl --linemacros=0 
+cp tsrc/sqlite3ext.h .
+cp /home/builder/build/src/sqlite-src-3530400/ext/session/sqlite3session.h .
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc -c sqlite3.c
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o sqlite3 \
+	shell.c sqlite3.c \
+	 \
+	-I/usr/include -DHAVE_READLINE=1 -DSQLITE_DQS=0 -DSQLITE_ENABLE_BYTECODE_VTAB -DSQLITE_ENABLE_DBPAGE_VTAB -DSQLITE_ENABLE_DBSTAT_VTAB -DSQLITE_ENABLE_EXPLAIN_COMMENTS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_OFFSET_SQL_FUNC -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION -DSQLITE_HAVE_ZLIB=1 -DSQLITE_STRICT_SUBTYPE=1  \
+	 -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -lreadline -lncurses
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -shared -o libsqlite3.so sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd \
+	 -Wl,-soname,libsqlite3.so.0
+. ./.tclenv.sh || exit $?; \
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -shared -o libsqlite3.53.4.so tclsqlite.o \
+	$TCL_INCLUDE_SPEC $TCL_STUB_LIB_SPEC  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd \
+	sqlite3.o -Wl,-rpath,$TCLLIBDIR
+. ./.tclenv.sh || exit $?; clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o tclsqlite3 tclsqlite-shell.o \
+	libsqlite3.so $TCL_INCLUDE_SPEC $TCL_LIB_SPEC \
+	 -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -DDBDUMP_STANDALONE -o dbdump \
+	/home/builder/build/src/sqlite-src-3530400/ext/misc/dbdump.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o dbhash /home/builder/build/src/sqlite-src-3530400/tool/dbhash.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc -o dbtotxt /home/builder/build/src/sqlite-src-3530400/tool/dbtotxt.c -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -DHAVE_READLINE=1 -DSQLITE_DQS=0 -DSQLITE_ENABLE_BYTECODE_VTAB -DSQLITE_ENABLE_DBPAGE_VTAB -DSQLITE_ENABLE_DBSTAT_VTAB -DSQLITE_ENABLE_EXPLAIN_COMMENTS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_OFFSET_SQL_FUNC -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION -DSQLITE_HAVE_ZLIB=1 -DSQLITE_STRICT_SUBTYPE=1 -o index_usage /home/builder/build/src/sqlite-src-3530400/tool/index_usage.c sqlite3.o \
+	 -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o showdb /home/builder/build/src/sqlite-src-3530400/tool/showdb.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o showjournal /home/builder/build/src/sqlite-src-3530400/tool/showjournal.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o showshm /home/builder/build/src/sqlite-src-3530400/tool/showshm.c -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o showstat4 /home/builder/build/src/sqlite-src-3530400/tool/showstat4.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o showwal /home/builder/build/src/sqlite-src-3530400/tool/showwal.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  -o sqldiff /home/builder/build/src/sqlite-src-3530400/tool/sqldiff.c sqlite3.o  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkccode.tcl /home/builder/build/src/sqlite-src-3530400/tool/sqlite3_analyzer.c.in \
+	-DINCLUDE_SQLITE3_C=1 \
+	-DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1  \
+	> sqlite3_analyzer.c
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  /home/builder/build/src/sqlite-src-3530400/ext/expert/sqlite3expert.c \
+	/home/builder/build/src/sqlite-src-3530400/ext/expert/expert.c sqlite3.c -o sqlite3_expert  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc -o sqlite3_rsync -DSQLITE_ENABLE_DBPAGE_VTAB -USQLITE_THREADSAFE -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -DSQLITE_OMIT_DEPRECATED /home/builder/build/src/sqlite-src-3530400/tool/sqlite3_rsync.c sqlite3.c  -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+./jimsh /home/builder/build/src/sqlite-src-3530400/tool/mkccode.tcl /home/builder/build/src/sqlite-src-3530400/tool/sqltclsh.c.in >sqltclsh.c
+. ./.tclenv.sh || exit $?; clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  sqltclsh.c -o sqltclsh $TCL_INCLUDE_SPEC \
+	 -Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd $TCL_LIB_SPEC $TCL_LIBS
+. ./.tclenv.sh || exit $?; clang -DNDEBUG -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=2 -fstack-clash-protection -fcf-protection -DSQLITE_SECURE_DELETE -DSQLITE_MAX_VARIABLE_NUMBER=250000 -DSQLITE_MAX_EXPR_DEPTH=10000 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_MATH_FUNCTIONS -DSQLITE_ENABLE_PERCENTILE -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_STMTVTAB -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_HAVE_ZLIB=1 -DSQLITE_THREADSAFE=1    -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -I. -I/home/builder/build/src/sqlite-src-3530400/src -I/home/builder/build/src/sqlite-src-3530400/ext/rtree -I/home/builder/build/src/sqlite-src-3530400/ext/icu -I/home/builder/build/src/sqlite-src-3530400/ext/fts3 -I/home/builder/build/src/sqlite-src-3530400/ext/session -I/home/builder/build/src/sqlite-src-3530400/ext/misc  sqlite3_analyzer.c -o sqlite3_analyzer \
+	-Wl,-O1,--as-needed -rpath /usr/lib  -lm  -lz   -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd \
+	$TCL_LIB_SPEC $TCL_INCLUDE_SPEC $TCL_LIBS
+/home/builder/build/src/sqlite-src-3530400/tool/showshm.c:44:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   44 |   read(fd, aData, nByte);
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/sqlite-src-3530400/tool/showwal.c:125:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  125 |   read(fd, aData, nByte);
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/sqlite-src-3530400/tool/showwal.c:619:9: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  619 |         truncate(argv[1], newSize);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+sqltclsh.c:35:9: warning: 'SQLITE_MAX_EXPR_DEPTH' macro redefined [-Wmacro-redefined]
+   35 | #define SQLITE_MAX_EXPR_DEPTH 0
+      |         ^
+sqlite3_analyzer.c:22:9: warning: 'SQLITE_MAX_EXPR_DEPTH' macro redefined [-Wmacro-redefined]
+<command line>:4:9: note: previous definition is here
+   22 | #    4d | e#fdienfei nSeQ LSIQTLEI_TMEA_XM_AEXX_PERX_PDRE_PDTEHP T0H
+       1| 0        ^0
+00
+      |         ^
+<command line>:4:9: note: previous definition is here
+    4 | #define SQLITE_MAX_EXPR_DEPTH 10000
+      |         ^
+1 warning generated.
+2 warnings generated.
+1 warning generated.
+1 warning generated.
+==> Entering fakeroot environment...
+==> Starting package_sqlite()...
++ /usr/sbin/install -d /home/builder/build/pkg/sqlite/usr/lib/pkgconfig
++ /usr/sbin/install -d /home/builder/build/pkg/sqlite/usr/lib
++ /usr/sbin/install -d /home/builder/build/pkg/sqlite/usr/include
+. ./.tclenv.sh || exit $?; \
+/usr/sbin/install -d "/home/builder/build/pkg/sqlite$TCLLIBDIR"; \
+/usr/sbin/install libsqlite3.53.4.so "/home/builder/build/pkg/sqlite$TCLLIBDIR"; \
+/usr/sbin/install -m 0644 pkgIndex.tcl "/home/builder/build/pkg/sqlite$TCLLIBDIR"
+/usr/sbin/install -m 0644 sqlite3.pc "/home/builder/build/pkg/sqlite/usr/lib/pkgconfig"
+if [ x != "x" ] && [ -f "" ]; then \
+	/usr/sbin/install  "/home/builder/build/pkg/sqlite/usr/lib"; \
+fi
++ /usr/sbin/install -d /home/builder/build/pkg/sqlite/usr/bin
+/usr/sbin/install libsqlite3.so "/home/builder/build/pkg/sqlite/usr/lib"
++ /usr/sbin/install -d /home/builder/build/pkg/sqlite/usr/share/man/man1
+/usr/sbin/install -m 0644 sqlite3.h "/home/builder/build/src/sqlite-src-3530400/src/sqlite3ext.h" "/home/builder/build/pkg/sqlite/usr/include"
+/usr/sbin/install sqlite3 "/home/builder/build/pkg/sqlite/usr/bin"
+/usr/sbin/install -m 0644 "/home/builder/build/src/sqlite-src-3530400/sqlite3.1" "/home/builder/build/pkg/sqlite/usr/share/man/man1"
+Setting up libsqlite3.so version symlinks...
+lrwxrwxrwx 1 root root      20 Sep 19 20:13 libsqlite3.so -> libsqlite3.so.3.53.4
+lrwxrwxrwx 1 root root      20 Sep 19 20:13 libsqlite3.so.0 -> libsqlite3.so.3.53.4
+-rwxr-xr-x 1 root root 1980344 Sep 19 20:13 libsqlite3.so.3.53.4
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "sqlite"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_sqlite-tcl()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "sqlite-tcl"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_sqlite-analyzer()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "sqlite-analyzer"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_lemon()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/bin/lemon
+==> Creating package "lemon"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_sqlite-doc()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "sqlite-doc"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: sqlite 3.53.4-1 (Sat Sep 19 20:13:34 2026)
