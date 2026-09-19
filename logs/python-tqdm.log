@@ -1,0 +1,258 @@
+== build python-tqdm (deps: git python python-build python-installer python-setuptools-scm python-toml python-wheel )
+resolving dependencies...
+warning: python-3.14.7-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (13) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-setuptools-84.0.0-1  python-vcs-versioning-2.4.1-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-scm-10.3.3-1  python-toml-0.10.2-13  python-wheel-0.48.0-1
+
+Total Download Size:    8.13 MiB
+Total Installed Size:  52.00 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-vcs-versioning-2.4.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-setuptools-scm-10.3.3-1-any downloading...
+ python-toml-0.10.2-13-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-vcs-versioning...
+Optional dependencies for python-vcs-versioning
+    python-rich: formatting of log messages
+installing python-setuptools-scm...
+Optional dependencies for python-setuptools-scm
+    python-rich: use rich as console log handler
+installing python-toml...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-tqdm 4.70.1-1 (Sat Sep 19 22:03:20 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning tqdm git repo...
+Cloning into bare repository '/sources/tqdm'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    tqdm ... Passed
+==> Extracting sources...
+  -> Creating working copy of tqdm git repo...
+Cloning into 'tqdm'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+running egg_info
+creating tqdm.egg-info
+writing tqdm.egg-info/PKG-INFO
+writing dependency_links to tqdm.egg-info/dependency_links.txt
+writing entry points to tqdm.egg-info/entry_points.txt
+writing requirements to tqdm.egg-info/requires.txt
+writing top-level names to tqdm.egg-info/top_level.txt
+writing manifest file 'tqdm.egg-info/SOURCES.txt'
+adding license file 'LICENCE'
+writing manifest file 'tqdm.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+running bdist_wheel
+running build
+running build_py
+creating build/lib/tqdm
+copying tqdm/__init__.py -> build/lib/tqdm
+copying tqdm/__main__.py -> build/lib/tqdm
+copying tqdm/_main.py -> build/lib/tqdm
+copying tqdm/_monitor.py -> build/lib/tqdm
+copying tqdm/_tqdm.py -> build/lib/tqdm
+copying tqdm/_tqdm_gui.py -> build/lib/tqdm
+copying tqdm/_tqdm_notebook.py -> build/lib/tqdm
+copying tqdm/_tqdm_pandas.py -> build/lib/tqdm
+copying tqdm/_utils.py -> build/lib/tqdm
+copying tqdm/asyncio.py -> build/lib/tqdm
+copying tqdm/auto.py -> build/lib/tqdm
+copying tqdm/autonotebook.py -> build/lib/tqdm
+copying tqdm/cli.py -> build/lib/tqdm
+copying tqdm/dask.py -> build/lib/tqdm
+copying tqdm/gui.py -> build/lib/tqdm
+copying tqdm/keras.py -> build/lib/tqdm
+copying tqdm/notebook.py -> build/lib/tqdm
+copying tqdm/rich.py -> build/lib/tqdm
+copying tqdm/std.py -> build/lib/tqdm
+copying tqdm/tk.py -> build/lib/tqdm
+copying tqdm/utils.py -> build/lib/tqdm
+copying tqdm/version.py -> build/lib/tqdm
+creating build/lib/tqdm/contrib
+copying tqdm/contrib/__init__.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/bells.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/concurrent.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/discord.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/itertools.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/logging.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/slack.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/telegram.py -> build/lib/tqdm/contrib
+copying tqdm/contrib/utils_worker.py -> build/lib/tqdm/contrib
+running egg_info
+writing tqdm.egg-info/PKG-INFO
+writing dependency_links to tqdm.egg-info/dependency_links.txt
+writing entry points to tqdm.egg-info/entry_points.txt
+writing requirements to tqdm.egg-info/requires.txt
+writing top-level names to tqdm.egg-info/top_level.txt
+adding license file 'LICENCE'
+writing manifest file 'tqdm.egg-info/SOURCES.txt'
+copying tqdm/completion.sh -> build/lib/tqdm
+copying tqdm/tqdm.1 -> build/lib/tqdm
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/tqdm
+copying build/lib/tqdm/__init__.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/__main__.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_main.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_monitor.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_tqdm.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_tqdm_gui.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_tqdm_notebook.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_tqdm_pandas.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/_utils.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/asyncio.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/auto.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/autonotebook.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/cli.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/dask.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/gui.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/keras.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/notebook.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/rich.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/std.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/tk.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/utils.py -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/version.py -> build/bdist.linux-x86_64/wheel/./tqdm
+creating build/bdist.linux-x86_64/wheel/tqdm/contrib
+copying build/lib/tqdm/contrib/__init__.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/bells.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/concurrent.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/discord.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/itertools.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/logging.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/slack.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/telegram.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/contrib/utils_worker.py -> build/bdist.linux-x86_64/wheel/./tqdm/contrib
+copying build/lib/tqdm/completion.sh -> build/bdist.linux-x86_64/wheel/./tqdm
+copying build/lib/tqdm/tqdm.1 -> build/bdist.linux-x86_64/wheel/./tqdm
+running install_egg_info
+Copying tqdm.egg-info to build/bdist.linux-x86_64/wheel/./tqdm-4.70.1-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/tqdm-4.70.1.dist-info/WHEEL
+creating '/home/builder/build/src/tqdm/dist/.tmp-peyuc75c/tqdm-4.70.1-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'tqdm/__init__.py'
+adding 'tqdm/__main__.py'
+adding 'tqdm/_main.py'
+adding 'tqdm/_monitor.py'
+adding 'tqdm/_tqdm.py'
+adding 'tqdm/_tqdm_gui.py'
+adding 'tqdm/_tqdm_notebook.py'
+adding 'tqdm/_tqdm_pandas.py'
+adding 'tqdm/_utils.py'
+adding 'tqdm/asyncio.py'
+adding 'tqdm/auto.py'
+adding 'tqdm/autonotebook.py'
+adding 'tqdm/cli.py'
+adding 'tqdm/completion.sh'
+adding 'tqdm/dask.py'
+adding 'tqdm/gui.py'
+adding 'tqdm/keras.py'
+adding 'tqdm/notebook.py'
+adding 'tqdm/rich.py'
+adding 'tqdm/std.py'
+adding 'tqdm/tk.py'
+adding 'tqdm/tqdm.1'
+adding 'tqdm/utils.py'
+adding 'tqdm/version.py'
+adding 'tqdm/contrib/__init__.py'
+adding 'tqdm/contrib/bells.py'
+adding 'tqdm/contrib/concurrent.py'
+adding 'tqdm/contrib/discord.py'
+adding 'tqdm/contrib/itertools.py'
+adding 'tqdm/contrib/logging.py'
+adding 'tqdm/contrib/slack.py'
+adding 'tqdm/contrib/telegram.py'
+adding 'tqdm/contrib/utils_worker.py'
+adding 'tqdm-4.70.1.dist-info/licenses/LICENCE'
+adding 'tqdm-4.70.1.dist-info/METADATA'
+adding 'tqdm-4.70.1.dist-info/WHEEL'
+adding 'tqdm-4.70.1.dist-info/entry_points.txt'
+adding 'tqdm-4.70.1.dist-info/top_level.txt'
+adding 'tqdm-4.70.1.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built tqdm-4.70.1-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-tqdm"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-tqdm 4.70.1-1 (Sat Sep 19 22:03:42 2026)

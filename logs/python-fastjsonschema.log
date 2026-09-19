@@ -1,0 +1,180 @@
+== build python-fastjsonschema (deps: python python-build python-installer python-setuptools python-wheel )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:   0.88 MiB
+Total Installed Size:  4.26 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-fastjsonschema 2.21.2-2 (Sat Sep 19 22:23:10 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading fastjsonschema-2.21.2.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100 385.1k   0 385.1k   0      0 302.2k      0           00:01              0100 385.1k   0 385.1k   0      0 302.1k      0           00:01              0100 385.1k   0 385.1k   0      0 302.1k      0           00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    fastjsonschema-2.21.2.tar.gz ... Passed
+==> Validating source files with b2sums...
+    fastjsonschema-2.21.2.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting fastjsonschema-2.21.2.tar.gz with bsdtar
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating fastjsonschema.egg-info
+writing fastjsonschema.egg-info/PKG-INFO
+writing dependency_links to fastjsonschema.egg-info/dependency_links.txt
+writing requirements to fastjsonschema.egg-info/requires.txt
+writing top-level names to fastjsonschema.egg-info/top_level.txt
+writing manifest file 'fastjsonschema.egg-info/SOURCES.txt'
+reading manifest file 'fastjsonschema.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.pyc' found anywhere in distribution
+adding license file 'LICENSE'
+adding license file 'AUTHORS'
+writing manifest file 'fastjsonschema.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/fastjsonschema
+copying fastjsonschema/__init__.py -> build/lib/fastjsonschema
+copying fastjsonschema/__main__.py -> build/lib/fastjsonschema
+copying fastjsonschema/draft04.py -> build/lib/fastjsonschema
+copying fastjsonschema/draft06.py -> build/lib/fastjsonschema
+copying fastjsonschema/draft07.py -> build/lib/fastjsonschema
+copying fastjsonschema/exceptions.py -> build/lib/fastjsonschema
+copying fastjsonschema/generator.py -> build/lib/fastjsonschema
+copying fastjsonschema/indent.py -> build/lib/fastjsonschema
+copying fastjsonschema/ref_resolver.py -> build/lib/fastjsonschema
+copying fastjsonschema/version.py -> build/lib/fastjsonschema
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/fastjsonschema
+copying build/lib/fastjsonschema/__init__.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/__main__.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/draft04.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/draft06.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/draft07.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/exceptions.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/generator.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/indent.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/ref_resolver.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+copying build/lib/fastjsonschema/version.py -> build/bdist.linux-x86_64/wheel/./fastjsonschema
+running install_egg_info
+running egg_info
+writing fastjsonschema.egg-info/PKG-INFO
+writing dependency_links to fastjsonschema.egg-info/dependency_links.txt
+writing requirements to fastjsonschema.egg-info/requires.txt
+writing top-level names to fastjsonschema.egg-info/top_level.txt
+reading manifest file 'fastjsonschema.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.pyc' found anywhere in distribution
+adding license file 'LICENSE'
+adding license file 'AUTHORS'
+writing manifest file 'fastjsonschema.egg-info/SOURCES.txt'
+Copying fastjsonschema.egg-info to build/bdist.linux-x86_64/wheel/./fastjsonschema-2.21.2-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/fastjsonschema-2.21.2.dist-info/WHEEL
+creating '/home/builder/build/src/python-fastjsonschema-2.21.2/dist/.tmp-6joiy553/fastjsonschema-2.21.2-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'fastjsonschema/__init__.py'
+adding 'fastjsonschema/__main__.py'
+adding 'fastjsonschema/draft04.py'
+adding 'fastjsonschema/draft06.py'
+adding 'fastjsonschema/draft07.py'
+adding 'fastjsonschema/exceptions.py'
+adding 'fastjsonschema/generator.py'
+adding 'fastjsonschema/indent.py'
+adding 'fastjsonschema/ref_resolver.py'
+adding 'fastjsonschema/version.py'
+adding 'fastjsonschema-2.21.2.dist-info/licenses/AUTHORS'
+adding 'fastjsonschema-2.21.2.dist-info/licenses/LICENSE'
+adding 'fastjsonschema-2.21.2.dist-info/METADATA'
+adding 'fastjsonschema-2.21.2.dist-info/WHEEL'
+adding 'fastjsonschema-2.21.2.dist-info/top_level.txt'
+adding 'fastjsonschema-2.21.2.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built fastjsonschema-2.21.2-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-fastjsonschema/usr/share'
+install: creating directory '/home/builder/build/pkg/python-fastjsonschema/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/python-fastjsonschema/usr/share/doc/python-fastjsonschema'
+'README.rst' -> '/home/builder/build/pkg/python-fastjsonschema/usr/share/doc/python-fastjsonschema/README.rst'
+install: creating directory '/home/builder/build/pkg/python-fastjsonschema/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-fastjsonschema/usr/share/licenses/python-fastjsonschema'
+'LICENSE' -> '/home/builder/build/pkg/python-fastjsonschema/usr/share/licenses/python-fastjsonschema/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-fastjsonschema"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-fastjsonschema 2.21.2-2 (Sat Sep 19 22:23:19 2026)

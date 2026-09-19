@@ -1,0 +1,175 @@
+== build python-poetry-core (deps: python python-build python-fastjsonschema python-installer python-lark-parser python-packaging )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (7) python-pyproject-hooks-1.2.0-1  python-typing_extensions-4.16.0-1  python-build-1.6.0-1  python-fastjsonschema-2.21.2-2  python-installer-1.0.1-1  python-lark-parser-1.3.1-2  python-packaging-26.3-1
+
+Total Download Size:   0.77 MiB
+Total Installed Size:  3.72 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ python-lark-parser-1.3.1-2-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-typing_extensions-4.16.0-1-any downloading...
+ python-fastjsonschema-2.21.2-2-any downloading...
+ python-build-1.6.0-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-fastjsonschema...
+installing python-installer...
+installing python-typing_extensions...
+installing python-lark-parser...
+Optional dependencies for python-lark-parser
+    python-atomicwrites: for atomic_cache
+    python-regex: for regex support
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-poetry-core 2.5.0-1 (Sat Sep 19 22:24:07 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading poetry-core-2.5.0.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100 523.9k   0 523.9k   0      0 318.2k      0           00:01              0100 523.9k   0 523.9k   0      0 318.2k      0           00:01              0100 523.9k   0 523.9k   0      0 318.2k      0           00:01              0
+  -> Found python-poetry-core-1.9.0-devendor.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    poetry-core-2.5.0.tar.gz ... Passed
+    python-poetry-core-1.9.0-devendor.patch ... Passed
+==> Extracting sources...
+  -> Extracting poetry-core-2.5.0.tar.gz with bsdtar
+==> Starting prepare()...
+patching file src/poetry/core/__init__.py
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/LICENSE'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/__main__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/draft04.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/draft06.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/draft07.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/draft2019.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/exceptions.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/generator.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/indent.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/ref_resolver.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema/version.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/fastjsonschema'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/LICENSE'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/__pyinstaller/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/__pyinstaller/hook-lark.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/__pyinstaller'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/ast_utils.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/common.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/exceptions.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammar.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars/common.lark'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars/lark.lark'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars/python.lark'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars/unicode.lark'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/grammars'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/indenter.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/lark.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/lexer.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/load_grammar.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parse_tree_builder.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parser_frontends.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/cyk.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/earley.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/earley_common.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/earley_forest.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/grammar_analysis.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/lalr_analysis.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/lalr_interactive_parser.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/lalr_parser.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/lalr_parser_state.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers/xearley.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/parsers'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/py.typed'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/reconstruct.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tools/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tools/nearley.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tools/serialize.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tools/standalone.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tools'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tree.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tree_matcher.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/tree_templates.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/utils.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/lark/visitors.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/lark'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/LICENSE'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/LICENSE.APACHE'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/LICENSE.BSD'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_elffile.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_manylinux.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_musllinux.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_parser.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_ranges.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_structures.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/_tokenizer.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/dependency_groups.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/direct_url.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/errors.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/licenses/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/licenses/_spdx.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/licenses'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/markers.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/metadata.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/py.typed'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/pylock.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/ranges.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/requirements.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/specifiers.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/tags.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/utils.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging/version.py'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/packaging'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/LICENSE'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/__init__.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/_parser.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/_re.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/_types.py'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli/py.typed'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor/tomli'
+removed 'poetry-core-2.5.0/src/poetry/core/_vendor/vendor.txt'
+removed directory 'poetry-core-2.5.0/src/poetry/core/_vendor'
+==> Starting build()...
+* Getting build dependencies for wheel...
+* Building wheel...
+Successfully built poetry_core-2.5.0-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-poetry-core"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-poetry-core 2.5.0-1 (Sat Sep 19 22:24:22 2026)

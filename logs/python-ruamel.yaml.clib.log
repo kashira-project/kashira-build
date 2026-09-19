@@ -1,0 +1,428 @@
+== build python-ruamel.yaml.clib (deps: python python-build python-installer python-setuptools python-wheel )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:   0.88 MiB
+Total Installed Size:  4.26 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-ruamel.yaml.clib 0.2.15-2 (Sat Sep 19 22:43:31 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading python-ruamel.yaml.clib-0.2.15.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:02              0 29 162.9k  29  49152   0      0  12551      0   00:13   00:03   00:10  43883 78 162.9k  78 128.0k   0      0  26164      0   00:06   00:05   00:01  59214100 162.9k 100 162.9k   0      0  31030      0   00:05   00:05          59214100 162.9k 100 162.9k   0      0  31029      0   00:05   00:05          59214100 162.9k 100 162.9k   0      0  31028      0   00:05   00:05          59214
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    python-ruamel.yaml.clib-0.2.15.tar.gz ... Passed
+==> Validating source files with b2sums...
+    python-ruamel.yaml.clib-0.2.15.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting python-ruamel.yaml.clib-0.2.15.tar.gz with bsdtar
+==> Starting build()...
+* Building wheel...
+/usr/lib/python3.14/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+  warn(
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib
+copying ./__init__.py -> build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib
+copying ./setup.py -> build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib
+copying ./LICENSE -> build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib
+running build_ext
+building '_ruamel_yaml' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c _ruamel_yaml.c -o build/temp.linux-x86_64-cpython-314/_ruamel_yaml.o
+In file included from _ruamel_yaml.c:1222:
+./_ruamel_yaml.h:10:9: warning: 'PyString_CheckExact' macro redefined [-Wmacro-redefined]
+   10 | #define PyString_CheckExact PyBytes_CheckExact
+      |         ^
+_ruamel_yaml.c:1062:11: note: previous definition is here
+ 1062 |   #define PyString_CheckExact          PyUnicode_CheckExact
+      |           ^
+_ruamel_yaml.c:4089:17: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+ 4089 |   __pyx_v_value = yaml_get_version_string();
+      |                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+_ruamel_yaml.c:6117:59: warning: passing 'char *' to parameter of type 'const unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 6117 |     yaml_parser_set_input_string((&__pyx_v_self->parser), PyString_AS_STRING(__pyx_v_stream), PyString_GET_SIZE(__pyx_v_stream));
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./_ruamel_yaml.h:11:29: note: expanded from macro 'PyString_AS_STRING'
+   11 | #define PyString_AS_STRING  PyBytes_AS_STRING
+      |                             ^
+/usr/include/python3.14/cpython/bytesobject.h:27:31: note: expanded from macro 'PyBytes_AS_STRING'
+   27 | #define PyBytes_AS_STRING(op) PyBytes_AS_STRING(_PyObject_CAST(op))
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./yaml.h:1344:30: note: passing argument to parameter 'input' here
+ 1344 |         const unsigned char *input, size_t size);
+      |                              ^
+_ruamel_yaml.c:7809:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 7809 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.tag_directive.handle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 416, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:7821:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 7821 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.tag_directive.prefix); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:8494:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 8494 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.alias.value); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:8552:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 8552 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.anchor.value); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:8610:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 8610 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.tag.handle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:8622:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 8622 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_token->data.tag.suffix); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:8719:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 8719 |     __pyx_t_2 = PyUnicode_DecodeUTF8(__pyx_v_token->data.scalar.value, __pyx_v_token->data.scalar.length, ((char const *)"strict")); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 459, __pyx_L1_error)
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:434:17: note: passing argument to parameter 'string' here
+  434 |     const char *string,         /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10429:42: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10429 |         __pyx_t_4 = PyUnicode_FromString(__pyx_v_tag_directive->handle); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 573, __pyx_L1_error)
+       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10441:42: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10441 |         __pyx_t_4 = PyUnicode_FromString(__pyx_v_tag_directive->prefix); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 574, __pyx_L1_error)
+       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10624:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10624 |     __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.alias.anchor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 585, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10702:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10702 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.scalar.anchor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 590, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10743:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10743 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.scalar.tag); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 593, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:10764:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 10764 |     __pyx_t_4 = PyUnicode_DecodeUTF8(__pyx_v_event->data.scalar.value, __pyx_v_event->data.scalar.length, ((char const *)"strict")); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 594, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:434:17: note: passing argument to parameter 'string' here
+  434 |     const char *string,         /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:11066:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 11066 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.sequence_start.anchor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 619, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:11107:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 11107 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.sequence_start.tag); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 622, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:11303:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 11303 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.mapping_start.anchor); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 636, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:11344:40: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 11344 |       __pyx_t_4 = PyUnicode_FromString(__pyx_v_event->data.mapping_start.tag); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 639, __pyx_L1_error)
+       |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:13047:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 13047 |     __pyx_t_3 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.alias.anchor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 733, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:13308:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 13308 |     __pyx_t_5 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.scalar.anchor); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 749, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:13364:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 13364 |     __pyx_t_5 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.sequence_start.anchor); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 752, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:13420:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 13420 |     __pyx_t_5 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.mapping_start.anchor); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 755, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:14002:36: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 14002 |   __pyx_t_2 = PyUnicode_DecodeUTF8(__pyx_v_self->parsed_event.data.scalar.value, __pyx_v_self->parsed_event.data.scalar.length, ((char const *)"strict")); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 790, __pyx_L1_error)
+       |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:434:17: note: passing argument to parameter 'string' here
+  434 |     const char *string,         /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:14197:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 14197 |     __pyx_t_2 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.scalar.tag); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 803, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:14677:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 14677 |     __pyx_t_3 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.sequence_start.tag); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 836, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:15243:38: warning: passing 'yaml_char_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 15243 |     __pyx_t_3 = PyUnicode_FromString(__pyx_v_self->parsed_event.data.mapping_start.tag); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 875, __pyx_L1_error)
+       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.14/unicodeobject.h:130:17: note: passing argument to parameter 'u' here
+  130 |     const char *u              /* UTF-8 encoded string */
+      |                 ^
+_ruamel_yaml.c:18098:44: warning: assigning to 'yaml_char_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 18098 |         __pyx_v_tag_directives_end->handle = PyString_AS_STRING(__pyx_v_handle);
+       |                                            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_ruamel_yaml.c:18213:44: warning: assigning to 'yaml_char_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 18213 |         __pyx_v_tag_directives_end->prefix = PyString_AS_STRING(__pyx_v_prefix);
+       |                                            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_ruamel_yaml.c:18548:61: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 18548 |     __pyx_t_2 = (yaml_alias_event_initialize(__pyx_v_event, __pyx_v_anchor) == 0);
+       |                                                             ^~~~~~~~~~~~~~
+./yaml.h:555:63: note: passing argument to parameter 'anchor' here
+  555 | yaml_alias_event_initialize(yaml_event_t *event, yaml_char_t *anchor);
+      |                                                               ^
+_ruamel_yaml.c:19259:62: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 19259 |     __pyx_t_2 = (yaml_scalar_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                              ^~~~~~~~~~~~~~
+./yaml.h:581:22: note: passing argument to parameter 'anchor' here
+  581 |         yaml_char_t *anchor, yaml_char_t *tag,
+      |                      ^
+_ruamel_yaml.c:19259:78: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 19259 |     __pyx_t_2 = (yaml_scalar_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                                              ^~~~~~~~~~~
+./yaml.h:581:43: note: passing argument to parameter 'tag' here
+  581 |         yaml_char_t *anchor, yaml_char_t *tag,
+      |                                           ^
+_ruamel_yaml.c:19259:91: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 19259 |     __pyx_t_2 = (yaml_scalar_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                                                           ^~~~~~~~~~~~~
+./yaml.h:582:22: note: passing argument to parameter 'value' here
+  582 |         yaml_char_t *value, int length,
+      |                      ^
+_ruamel_yaml.c:19690:70: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 19690 |     __pyx_t_2 = (yaml_sequence_start_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_sequence_style) == 0);
+       |                                                                      ^~~~~~~~~~~~~~
+./yaml.h:604:22: note: passing argument to parameter 'anchor' here
+  604 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                      ^
+_ruamel_yaml.c:19690:86: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 19690 |     __pyx_t_2 = (yaml_sequence_start_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_sequence_style) == 0);
+       |                                                                                      ^~~~~~~~~~~
+./yaml.h:604:43: note: passing argument to parameter 'tag' here
+  604 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                                           ^
+_ruamel_yaml.c:20121:69: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 20121 |     __pyx_t_2 = (yaml_mapping_start_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_mapping_style) == 0);
+       |                                                                     ^~~~~~~~~~~~~~
+./yaml.h:636:22: note: passing argument to parameter 'anchor' here
+  636 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                      ^
+_ruamel_yaml.c:20121:85: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 20121 |     __pyx_t_2 = (yaml_mapping_start_event_initialize(__pyx_v_event, __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_mapping_style) == 0);
+       |                                                                                     ^~~~~~~~~~~
+./yaml.h:636:43: note: passing argument to parameter 'tag' here
+  636 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                                           ^
+_ruamel_yaml.c:22008:42: warning: assigning to 'yaml_char_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 22008 |       __pyx_v_tag_directives_end->handle = PyString_AS_STRING(__pyx_v_handle);
+       |                                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_ruamel_yaml.c:22123:42: warning: assigning to 'yaml_char_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 22123 |       __pyx_v_tag_directives_end->prefix = PyString_AS_STRING(__pyx_v_prefix);
+       |                                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_ruamel_yaml.c:23005:64: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 23005 |     __pyx_t_2 = (yaml_alias_event_initialize((&__pyx_v_event), __pyx_v_anchor) == 0);
+       |                                                                ^~~~~~~~~~~~~~
+./yaml.h:555:63: note: passing argument to parameter 'anchor' here
+  555 | yaml_alias_event_initialize(yaml_event_t *event, yaml_char_t *anchor);
+      |                                                               ^
+_ruamel_yaml.c:23735:67: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 23735 |       __pyx_t_2 = (yaml_scalar_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                                   ^~~~~~~~~~~~~~
+./yaml.h:581:22: note: passing argument to parameter 'anchor' here
+  581 |         yaml_char_t *anchor, yaml_char_t *tag,
+      |                      ^
+_ruamel_yaml.c:23735:83: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 23735 |       __pyx_t_2 = (yaml_scalar_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                                                   ^~~~~~~~~~~
+./yaml.h:581:43: note: passing argument to parameter 'tag' here
+  581 |         yaml_char_t *anchor, yaml_char_t *tag,
+      |                                           ^
+_ruamel_yaml.c:23735:96: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 23735 |       __pyx_t_2 = (yaml_scalar_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_value, __pyx_v_length, __pyx_v_plain_implicit, __pyx_v_quoted_implicit, __pyx_v_scalar_style) == 0);
+       |                                                                                                ^~~~~~~~~~~~~
+./yaml.h:582:22: note: passing argument to parameter 'value' here
+  582 |         yaml_char_t *value, int length,
+      |                      ^
+_ruamel_yaml.c:24092:75: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 24092 |       __pyx_t_2 = (yaml_sequence_start_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_sequence_style) == 0);
+       |                                                                           ^~~~~~~~~~~~~~
+./yaml.h:604:22: note: passing argument to parameter 'anchor' here
+  604 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                      ^
+_ruamel_yaml.c:24092:91: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 24092 |       __pyx_t_2 = (yaml_sequence_start_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_sequence_style) == 0);
+       |                                                                                           ^~~~~~~~~~~
+./yaml.h:604:43: note: passing argument to parameter 'tag' here
+  604 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                                           ^
+_ruamel_yaml.c:24605:74: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 24605 |       __pyx_t_2 = (yaml_mapping_start_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_mapping_style) == 0);
+       |                                                                          ^~~~~~~~~~~~~~
+./yaml.h:636:22: note: passing argument to parameter 'anchor' here
+  636 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                      ^
+_ruamel_yaml.c:24605:90: warning: passing 'char *' to parameter of type 'yaml_char_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 24605 |       __pyx_t_2 = (yaml_mapping_start_event_initialize((&__pyx_v_event), __pyx_v_anchor, __pyx_v_tag, __pyx_v_implicit, __pyx_v_mapping_style) == 0);
+       |                                                                                          ^~~~~~~~~~~
+./yaml.h:636:43: note: passing argument to parameter 'tag' here
+  636 |         yaml_char_t *anchor, yaml_char_t *tag, int implicit,
+      |                                           ^
+48 warnings generated.
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c api.c -o build/temp.linux-x86_64-cpython-314/api.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c dumper.c -o build/temp.linux-x86_64-cpython-314/dumper.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c emitter.c -o build/temp.linux-x86_64-cpython-314/emitter.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c loader.c -o build/temp.linux-x86_64-cpython-314/loader.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c parser.c -o build/temp.linux-x86_64-cpython-314/parser.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c reader.c -o build/temp.linux-x86_64-cpython-314/reader.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c scanner.c -o build/temp.linux-x86_64-cpython-314/scanner.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types -fPIC -I/usr/include/python3.14 -c writer.c -o build/temp.linux-x86_64-cpython-314/writer.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=incompatible-pointer-types build/temp.linux-x86_64-cpython-314/_ruamel_yaml.o build/temp.linux-x86_64-cpython-314/api.o build/temp.linux-x86_64-cpython-314/dumper.o build/temp.linux-x86_64-cpython-314/emitter.o build/temp.linux-x86_64-cpython-314/loader.o build/temp.linux-x86_64-cpython-314/parser.o build/temp.linux-x86_64-cpython-314/reader.o build/temp.linux-x86_64-cpython-314/scanner.o build/temp.linux-x86_64-cpython-314/writer.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/_ruamel_yaml.cpython-314-x86_64-linux-gnu.so
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/ruamel
+creating build/bdist.linux-x86_64/wheel/ruamel/yaml
+creating build/bdist.linux-x86_64/wheel/ruamel/yaml/clib
+copying build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib/__init__.py -> build/bdist.linux-x86_64/wheel/./ruamel/yaml/clib
+copying build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib/setup.py -> build/bdist.linux-x86_64/wheel/./ruamel/yaml/clib
+copying build/lib.linux-x86_64-cpython-314/ruamel/yaml/clib/LICENSE -> build/bdist.linux-x86_64/wheel/./ruamel/yaml/clib
+copying build/lib.linux-x86_64-cpython-314/_ruamel_yaml.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/.
+running install_egg_info
+running egg_info
+creating ruamel.yaml.clib.egg-info
+writing ruamel.yaml.clib.egg-info/PKG-INFO
+writing dependency_links to ruamel.yaml.clib.egg-info/dependency_links.txt
+writing top-level names to ruamel.yaml.clib.egg-info/top_level.txt
+writing manifest file 'ruamel.yaml.clib.egg-info/SOURCES.txt'
+reading manifest file 'ruamel.yaml.clib.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'ruamel.yaml.clib.egg-info/SOURCES.txt'
+Copying ruamel.yaml.clib.egg-info to build/bdist.linux-x86_64/wheel/./ruamel.yaml.clib-0.2.15-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/ruamel_yaml_clib-0.2.15.dist-info/WHEEL
+creating '/home/builder/build/src/ruamel.yaml.clib-0.2.15/dist/.tmp-ogza0oy6/ruamel_yaml_clib-0.2.15-cp314-cp314-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding '_ruamel_yaml.cpython-314-x86_64-linux-gnu.so'
+adding 'ruamel_yaml_clib-0.2.15.dist-info/licenses/LICENSE'
+adding 'ruamel_yaml_clib-0.2.15.dist-info/METADATA'
+adding 'ruamel_yaml_clib-0.2.15.dist-info/WHEEL'
+adding 'ruamel_yaml_clib-0.2.15.dist-info/top_level.txt'
+adding 'ruamel_yaml_clib-0.2.15.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+exiting tmpfile {'full_package_name': 'ruamel.yaml.clib', 'version_info': (0, 2, 15), '__version__': '0.2.15', 'version_timestamp': '2025-09-22 18:47:49', 'author': 'Anthon van der Neut', 'author_email': 'a.van.der.neut@ruamel.eu', 'description': 'C version of reader, parser and emitter for ruamel.yaml derived from libyaml', 'license': 'MIT', 'entry_points': None, 'nested': True, 'binary_only': True, 'since': 2019, 'ext_modules': [{'name': '_ruamel_yaml', 'src': ['_ruamel_yaml.c', 'api.c', 'writer.c', 'dumper.c', 'loader.c', 'reader.c', 'scanner.c', 'parser.c', 'emitter.c'], 'lib': [], 'test': '\n            int main(int argc, char* argv[])\n            {\n              /* prevent warning */\n              return 0;\n            }\n            '}], 'classifiers': ['Programming Language :: Python :: Implementation :: CPython', 'Topic :: Software Development :: Libraries :: Python Modules'], 'keywords': 'yaml 1.2 parser c-library config', 'wheels': {'windows': 'appveyor', 'linux': 'libyaml-devel', 'macos': 'builder@macos'}, 'url_doc': 'https://yaml.dev/doc/{full_package_name}/', 'supported': [(3, 9)], 'python_requires': '>=3.9', 'tox': {'env': '*'}, 'manifest': 'include README.md LICENSE setup.py *.c *.h *.pxd *.pyx'}
+Successfully built ruamel_yaml_clib-0.2.15-cp314-cp314-linux_x86_64.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-ruamel.yaml.clib/usr/share'
+install: creating directory '/home/builder/build/pkg/python-ruamel.yaml.clib/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-ruamel.yaml.clib/usr/share/licenses/python-ruamel.yaml.clib'
+'LICENSE' -> '/home/builder/build/pkg/python-ruamel.yaml.clib/usr/share/licenses/python-ruamel.yaml.clib/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-ruamel.yaml.clib"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-ruamel.yaml.clib 0.2.15-2 (Sat Sep 19 22:43:54 2026)

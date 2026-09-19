@@ -1,0 +1,241 @@
+== build python-pluggy (deps: git python python-build python-installer python-setuptools python-setuptools-scm python-wheel )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (12) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-vcs-versioning-2.4.1-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-setuptools-scm-10.3.3-1  python-wheel-0.48.0-1
+
+Total Download Size:    8.09 MiB
+Total Installed Size:  51.81 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-vcs-versioning-2.4.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-setuptools-scm-10.3.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-vcs-versioning...
+Optional dependencies for python-vcs-versioning
+    python-rich: formatting of log messages
+installing python-setuptools-scm...
+Optional dependencies for python-setuptools-scm
+    python-rich: use rich as console log handler
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-pluggy 1.6.0-3 (Sat Sep 19 22:13:43 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning pluggy git repo...
+Cloning into bare repository '/sources/pluggy'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    pluggy ... Passed
+==> Extracting sources...
+  -> Creating working copy of pluggy git repo...
+Cloning into 'pluggy'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating src/pluggy.egg-info
+writing src/pluggy.egg-info/PKG-INFO
+writing dependency_links to src/pluggy.egg-info/dependency_links.txt
+writing requirements to src/pluggy.egg-info/requires.txt
+writing top-level names to src/pluggy.egg-info/top_level.txt
+writing manifest file 'src/pluggy.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'CHANGELOG'
+warning: no files found matching 'setup.py'
+warning: no previously-included files matching '*.pyc' found under directory '*'
+warning: no previously-included files matching '*.pyo' found under directory '*'
+adding license file 'LICENSE'
+writing manifest file 'src/pluggy.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/pluggy
+copying src/pluggy/_warnings.py -> build/lib/pluggy
+copying src/pluggy/__init__.py -> build/lib/pluggy
+copying src/pluggy/_callers.py -> build/lib/pluggy
+copying src/pluggy/_hooks.py -> build/lib/pluggy
+copying src/pluggy/_manager.py -> build/lib/pluggy
+copying src/pluggy/_result.py -> build/lib/pluggy
+copying src/pluggy/_tracing.py -> build/lib/pluggy
+copying src/pluggy/_version.py -> build/lib/pluggy
+running egg_info
+writing src/pluggy.egg-info/PKG-INFO
+writing dependency_links to src/pluggy.egg-info/dependency_links.txt
+writing requirements to src/pluggy.egg-info/requires.txt
+writing top-level names to src/pluggy.egg-info/top_level.txt
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'CHANGELOG'
+warning: no files found matching 'setup.py'
+warning: no previously-included files matching '*.pyc' found under directory '*'
+warning: no previously-included files matching '*.pyo' found under directory '*'
+adding license file 'LICENSE'
+writing manifest file 'src/pluggy.egg-info/SOURCES.txt'
+copying src/pluggy/py.typed -> build/lib/pluggy
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/pluggy
+copying build/lib/pluggy/_warnings.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/__init__.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_callers.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_hooks.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_manager.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_result.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_tracing.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/_version.py -> build/bdist.linux-x86_64/wheel/./pluggy
+copying build/lib/pluggy/py.typed -> build/bdist.linux-x86_64/wheel/./pluggy
+running install_egg_info
+Copying src/pluggy.egg-info to build/bdist.linux-x86_64/wheel/./pluggy-1.6.0-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/pluggy-1.6.0.dist-info/WHEEL
+creating '/home/builder/build/src/pluggy/dist/.tmp-168cz0wq/pluggy-1.6.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'pluggy/__init__.py'
+adding 'pluggy/_callers.py'
+adding 'pluggy/_hooks.py'
+adding 'pluggy/_manager.py'
+adding 'pluggy/_result.py'
+adding 'pluggy/_tracing.py'
+adding 'pluggy/_version.py'
+adding 'pluggy/_warnings.py'
+adding 'pluggy/py.typed'
+adding 'pluggy-1.6.0.dist-info/licenses/LICENSE'
+adding 'pluggy-1.6.0.dist-info/METADATA'
+adding 'pluggy-1.6.0.dist-info/WHEEL'
+adding 'pluggy-1.6.0.dist-info/top_level.txt'
+adding 'pluggy-1.6.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built pluggy-1.6.0-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-pluggy"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-pluggy 1.6.0-3 (Sat Sep 19 22:13:55 2026)

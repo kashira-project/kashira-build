@@ -1,0 +1,269 @@
+== build libyaml (deps: glibc )
+warning: glibc-2.44-2 is up to date -- skipping
+ there is nothing to do
+==> Making package: libyaml 0.2.5-3 (Sat Sep 19 22:10:15 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading yaml-0.2.5.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100 595.1k 100 595.1k   0      0 319.4k      0   00:01   00:01              0100 595.1k 100 595.1k   0      0 319.3k      0   00:01   00:01              0100 595.1k 100 595.1k   0      0 319.3k      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    yaml-0.2.5.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting yaml-0.2.5.tar.gz with bsdtar
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... config/install-sh -c -d
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+checking whether clang understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of clang... gcc3
+checking how to run the C preprocessor... clang -E
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking for ranlib... llvm-ranlib
+checking command to parse llvm-nm output from clang object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang supports -fno-rtti -fno-exceptions... yes
+checking for clang option to produce PIC... -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... yes
+checking if clang static flag -static works... yes
+checking if clang supports -c -o file.o... yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for doxygen... false
+checking for ANSI C header files... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating yaml-0.1.pc
+config.status: creating include/Makefile
+config.status: creating src/Makefile
+config.status: creating Makefile
+config.status: creating tests/Makefile
+config.status: creating include/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+Making all in include
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/include'
+make  all-am
+make[2]: Entering directory '/home/builder/build/src/yaml-0.2.5/include'
+make[2]: Leaving directory '/home/builder/build/src/yaml-0.2.5/include'
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/include'
+Making all in src
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/src'
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT api.lo -MD -MP -MF .deps/api.Tpo -c -o api.lo api.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c -o reader.lo reader.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c -o scanner.lo scanner.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c -o parser.lo parser.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c -o loader.lo loader.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c -o writer.lo writer.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c -o emitter.lo emitter.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c -o dumper.lo dumper.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c writer.c  -fPIC -DPIC -o .libs/writer.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c emitter.c  -fPIC -DPIC -o .libs/emitter.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT api.lo -MD -MP -MF .deps/api.Tpo -c api.c  -fPIC -DPIC -o .libs/api.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c dumper.c  -fPIC -DPIC -o .libs/dumper.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c scanner.c  -fPIC -DPIC -o .libs/scanner.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c loader.c  -fPIC -DPIC -o .libs/loader.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c  -fPIC -DPIC -o .libs/parser.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c reader.c  -fPIC -DPIC -o .libs/reader.o
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c writer.c -o writer.o >/dev/null 2>&1
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c reader.c -o reader.o >/dev/null 2>&1
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c dumper.c -o dumper.o >/dev/null 2>&1
+mv -f .deps/writer.Tpo .deps/writer.Plo
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c loader.c -o loader.o >/dev/null 2>&1
+mv -f .deps/dumper.Tpo .deps/dumper.Plo
+mv -f .deps/reader.Tpo .deps/reader.Plo
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c -o parser.o >/dev/null 2>&1
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT api.lo -MD -MP -MF .deps/api.Tpo -c api.c -o api.o >/dev/null 2>&1
+mv -f .deps/loader.Tpo .deps/loader.Plo
+mv -f .deps/parser.Tpo .deps/parser.Plo
+mv -f .deps/api.Tpo .deps/api.Plo
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c emitter.c -o emitter.o >/dev/null 2>&1
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c scanner.c -o scanner.o >/dev/null 2>&1
+mv -f .deps/emitter.Tpo .deps/emitter.Plo
+mv -f .deps/scanner.Tpo .deps/scanner.Plo
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -no-undefined -release 0 -version-info 2:9:0 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libyaml.la -rpath /usr/lib api.lo reader.lo scanner.lo parser.lo loader.lo writer.lo emitter.lo dumper.lo  
+libtool: link: clang -shared  -fPIC -DPIC  .libs/api.o .libs/reader.o .libs/scanner.o .libs/parser.o .libs/loader.o .libs/writer.o .libs/emitter.o .libs/dumper.o    -march=x86-64-v3 -O2 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd   -Wl,-soname -Wl,libyaml-0.so.2 -o .libs/libyaml-0.so.2.0.9
+libtool: link: (cd ".libs" && rm -f "libyaml-0.so.2" && ln -s "libyaml-0.so.2.0.9" "libyaml-0.so.2")
+libtool: link: (cd ".libs" && rm -f "libyaml.so" && ln -s "libyaml-0.so.2.0.9" "libyaml.so")
+libtool: link: llvm-ar cru .libs/libyaml.a  api.o reader.o scanner.o parser.o loader.o writer.o emitter.o dumper.o
+libtool: link: llvm-ranlib .libs/libyaml.a
+libtool: link: ( cd ".libs" && rm -f "libyaml.la" && ln -s "../libyaml.la" "libyaml.la" )
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/src'
+Making all in .
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5'
+Making all in tests
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/tests'
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-scanner.o -MD -MP -MF .deps/run-scanner.Tpo -c -o run-scanner.o run-scanner.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-parser.o -MD -MP -MF .deps/run-parser.Tpo -c -o run-parser.o run-parser.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-loader.o -MD -MP -MF .deps/run-loader.Tpo -c -o run-loader.o run-loader.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-emitter.o -MD -MP -MF .deps/run-emitter.Tpo -c -o run-emitter.o run-emitter.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-dumper.o -MD -MP -MF .deps/run-dumper.Tpo -c -o run-dumper.o run-dumper.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT example-reformatter.o -MD -MP -MF .deps/example-reformatter.Tpo -c -o example-reformatter.o example-reformatter.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT example-reformatter-alt.o -MD -MP -MF .deps/example-reformatter-alt.Tpo -c -o example-reformatter-alt.o example-reformatter-alt.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT example-deconstructor.o -MD -MP -MF .deps/example-deconstructor.Tpo -c -o example-deconstructor.o example-deconstructor.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT example-deconstructor-alt.o -MD -MP -MF .deps/example-deconstructor-alt.Tpo -c -o example-deconstructor-alt.o example-deconstructor-alt.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-parser-test-suite.o -MD -MP -MF .deps/run-parser-test-suite.Tpo -c -o run-parser-test-suite.o run-parser-test-suite.c
+clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT run-emitter-test-suite.o -MD -MP -MF .deps/run-emitter-test-suite.Tpo -c -o run-emitter-test-suite.o run-emitter-test-suite.c
+mv -f .deps/run-parser.Tpo .deps/run-parser.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-parser run-parser.o ../src/libyaml.la 
+mv -f .deps/run-scanner.Tpo .deps/run-scanner.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-scanner run-scanner.o ../src/libyaml.la 
+mv -f .deps/example-reformatter-alt.Tpo .deps/example-reformatter-alt.Po
+mv -f .deps/example-reformatter.Tpo .deps/example-reformatter.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o example-reformatter-alt example-reformatter-alt.o ../src/libyaml.la 
+mv -f .deps/run-loader.Tpo .deps/run-loader.Po
+mv -f .deps/run-parser-test-suite.Tpo .deps/run-parser-test-suite.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o example-reformatter example-reformatter.o ../src/libyaml.la 
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-parser-test-suite run-parser-test-suite.o ../src/libyaml.la 
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-loader run-loader.o ../src/libyaml.la 
+mv -f .deps/run-emitter.Tpo .deps/run-emitter.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-emitter run-emitter.o ../src/libyaml.la 
+mv -f .deps/run-emitter-test-suite.Tpo .deps/run-emitter-test-suite.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-emitter-test-suite run-emitter-test-suite.o ../src/libyaml.la 
+mv -f .deps/run-dumper.Tpo .deps/run-dumper.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o run-dumper run-dumper.o ../src/libyaml.la 
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-parser run-parser.o  ../src/.libs/libyaml.so
+mv -f .deps/example-deconstructor-alt.Tpo .deps/example-deconstructor-alt.Po
+mv -f .deps/example-deconstructor.Tpo .deps/example-deconstructor.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o example-deconstructor-alt example-deconstructor-alt.o ../src/libyaml.la 
+/bin/sh ../libtool  --tag=CC   --mode=link clang  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o example-deconstructor example-deconstructor.o ../src/libyaml.la 
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-scanner run-scanner.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/example-reformatter-alt example-reformatter-alt.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-loader run-loader.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-emitter run-emitter.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-parser-test-suite run-parser-test-suite.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/example-reformatter example-reformatter.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-emitter-test-suite run-emitter-test-suite.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/run-dumper run-dumper.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/example-deconstructor-alt example-deconstructor-alt.o  ../src/.libs/libyaml.so
+libtool: link: clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/example-deconstructor example-deconstructor.o  ../src/.libs/libyaml.so
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/tests'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in include
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/include'
+make[2]: Entering directory '/home/builder/build/src/yaml-0.2.5/include'
+make[2]: Nothing to be done for 'install-exec-am'.
+ ../config/install-sh -c -d '/home/builder/build/pkg/libyaml/usr/include'
+ /usr/bin/install -c -m 644  yaml.h '/home/builder/build/pkg/libyaml/usr/include/.'
+make[2]: Leaving directory '/home/builder/build/src/yaml-0.2.5/include'
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/include'
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/src'
+make[2]: Entering directory '/home/builder/build/src/yaml-0.2.5/src'
+make[2]: Nothing to be done for 'install-data-am'.
+ ../config/install-sh -c -d '/home/builder/build/pkg/libyaml/usr/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libyaml.la '/home/builder/build/pkg/libyaml/usr/lib'
+libtool: install: /usr/bin/install -c .libs/libyaml-0.so.2.0.9 /home/builder/build/pkg/libyaml/usr/lib/libyaml-0.so.2.0.9
+libtool: install: (cd /home/builder/build/pkg/libyaml/usr/lib && { ln -s -f libyaml-0.so.2.0.9 libyaml-0.so.2 || { rm -f libyaml-0.so.2 && ln -s libyaml-0.so.2.0.9 libyaml-0.so.2; }; })
+libtool: install: (cd /home/builder/build/pkg/libyaml/usr/lib && { ln -s -f libyaml-0.so.2.0.9 libyaml.so || { rm -f libyaml.so && ln -s libyaml-0.so.2.0.9 libyaml.so; }; })
+libtool: install: /usr/bin/install -c .libs/libyaml.lai /home/builder/build/pkg/libyaml/usr/lib/libyaml.la
+libtool: install: /usr/bin/install -c .libs/libyaml.a /home/builder/build/pkg/libyaml/usr/lib/libyaml.a
+libtool: install: chmod 644 /home/builder/build/pkg/libyaml/usr/lib/libyaml.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/libyaml/usr/lib/libyaml.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[2]: Leaving directory '/home/builder/build/src/yaml-0.2.5/src'
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/src'
+Making install in .
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5'
+make[2]: Entering directory '/home/builder/build/src/yaml-0.2.5'
+make[2]: Nothing to be done for 'install-exec-am'.
+ config/install-sh -c -d '/home/builder/build/pkg/libyaml/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 yaml-0.1.pc '/home/builder/build/pkg/libyaml/usr/lib/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/yaml-0.2.5'
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5'
+Making install in tests
+make[1]: Entering directory '/home/builder/build/src/yaml-0.2.5/tests'
+make[2]: Entering directory '/home/builder/build/src/yaml-0.2.5/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/yaml-0.2.5/tests'
+make[1]: Leaving directory '/home/builder/build/src/yaml-0.2.5/tests'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libyaml"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libyaml 0.2.5-3 (Sat Sep 19 22:10:34 2026)

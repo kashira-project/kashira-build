@@ -1,10 +1,1196 @@
-== build meson (deps: bash git ninja python python-aiohttp python-build python-installer python-setuptools python-strictyaml python-tqdm python-wheel )
+== build meson (deps: bash git ninja python python-build python-installer python-setuptools python-strictyaml python-tqdm python-wheel )
+resolving dependencies...
 warning: bash-5.3-1 is up to date -- skipping
 warning: python-3.14.7-1 is up to date -- skipping
-error: target not found: python-aiohttp
-error: target not found: python-build
-error: target not found: python-installer
-error: target not found: python-setuptools
-error: target not found: python-strictyaml
-error: target not found: python-tqdm
-error: target not found: python-wheel
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (16) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-dateutil-2.9.0-8  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-ruamel.yaml.clib-0.2.15-2  python-six-1.17.0-3  git-2.55.0-1  ninja-1.13.2-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-strictyaml-1.7.3-5  python-tqdm-4.70.1-1  python-wheel-0.48.0-1
+
+Total Download Size:    8.80 MiB
+Total Installed Size:  54.66 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-dateutil-2.9.0-8-any downloading...
+ python-strictyaml-1.7.3-5-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ python-ruamel.yaml.clib-0.2.15-2-x86_64 downloading...
+ python-packaging-26.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-six-1.17.0-3-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing ninja...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-six...
+installing python-dateutil...
+installing python-ruamel.yaml.clib...
+installing python-strictyaml...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: meson 1.12.0-1 (Sat Sep 19 22:44:20 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating meson git repo...
+  -> Found arch-meson
+  -> Found arch-meson-check-wraps
+  -> Found cross-lib32
+  -> Found native-clang
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    meson ... Passed
+    arch-meson ... Passed
+    arch-meson-check-wraps ... Passed
+    cross-lib32 ... Passed
+    native-clang ... Passed
+==> Extracting sources...
+  -> Creating working copy of meson git repo...
+Cloning into 'meson'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating meson.egg-info
+writing meson.egg-info/PKG-INFO
+writing dependency_links to meson.egg-info/dependency_links.txt
+writing entry points to meson.egg-info/entry_points.txt
+writing requirements to meson.egg-info/requires.txt
+writing top-level names to meson.egg-info/top_level.txt
+writing manifest file 'meson.egg-info/SOURCES.txt'
+reading manifest file 'meson.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'COPYING'
+writing manifest file 'meson.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/mesonbuild
+copying mesonbuild/__init__.py -> build/lib/mesonbuild
+copying mesonbuild/_pathlib.py -> build/lib/mesonbuild
+copying mesonbuild/_typing.py -> build/lib/mesonbuild
+copying mesonbuild/depfile.py -> build/lib/mesonbuild
+copying mesonbuild/environment.py -> build/lib/mesonbuild
+copying mesonbuild/machinefile.py -> build/lib/mesonbuild
+copying mesonbuild/mcompile.py -> build/lib/mesonbuild
+copying mesonbuild/mconf.py -> build/lib/mesonbuild
+copying mesonbuild/mdevenv.py -> build/lib/mesonbuild
+copying mesonbuild/mesondata.py -> build/lib/mesonbuild
+copying mesonbuild/mesonlib.py -> build/lib/mesonbuild
+copying mesonbuild/mesonmain.py -> build/lib/mesonbuild
+copying mesonbuild/mlog.py -> build/lib/mesonbuild
+copying mesonbuild/munstable_coredata.py -> build/lib/mesonbuild
+copying mesonbuild/programs.py -> build/lib/mesonbuild
+copying mesonbuild/arglist.py -> build/lib/mesonbuild
+copying mesonbuild/build.py -> build/lib/mesonbuild
+copying mesonbuild/cmdline.py -> build/lib/mesonbuild
+copying mesonbuild/coredata.py -> build/lib/mesonbuild
+copying mesonbuild/envconfig.py -> build/lib/mesonbuild
+copying mesonbuild/mdist.py -> build/lib/mesonbuild
+copying mesonbuild/mformat.py -> build/lib/mesonbuild
+copying mesonbuild/minit.py -> build/lib/mesonbuild
+copying mesonbuild/minstall.py -> build/lib/mesonbuild
+copying mesonbuild/mintro.py -> build/lib/mesonbuild
+copying mesonbuild/mparser.py -> build/lib/mesonbuild
+copying mesonbuild/msetup.py -> build/lib/mesonbuild
+copying mesonbuild/msubprojects.py -> build/lib/mesonbuild
+copying mesonbuild/mtest.py -> build/lib/mesonbuild
+copying mesonbuild/optinterpreter.py -> build/lib/mesonbuild
+copying mesonbuild/options.py -> build/lib/mesonbuild
+copying mesonbuild/rewriter.py -> build/lib/mesonbuild
+copying mesonbuild/tooldetect.py -> build/lib/mesonbuild
+creating build/lib/mesonbuild/ast
+copying mesonbuild/ast/__init__.py -> build/lib/mesonbuild/ast
+copying mesonbuild/ast/postprocess.py -> build/lib/mesonbuild/ast
+copying mesonbuild/ast/printer.py -> build/lib/mesonbuild/ast
+copying mesonbuild/ast/visitor.py -> build/lib/mesonbuild/ast
+copying mesonbuild/ast/interpreter.py -> build/lib/mesonbuild/ast
+copying mesonbuild/ast/introspection.py -> build/lib/mesonbuild/ast
+creating build/lib/mesonbuild/backend
+copying mesonbuild/backend/__init__.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/nonebackend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2012backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2013backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2015backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2017backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2019backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2022backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2026backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/backends.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/ninjabackend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/vs2010backend.py -> build/lib/mesonbuild/backend
+copying mesonbuild/backend/xcodebackend.py -> build/lib/mesonbuild/backend
+creating build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/__init__.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/builder.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/raw.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/toml.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/cfg.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/interpreter.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/manifest.py -> build/lib/mesonbuild/cargo
+copying mesonbuild/cargo/version.py -> build/lib/mesonbuild/cargo
+creating build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/__init__.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/executor.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/fileapi.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/toolchain.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/tracetargets.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/common.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/generator.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/interpreter.py -> build/lib/mesonbuild/cmake
+copying mesonbuild/cmake/traceparser.py -> build/lib/mesonbuild/cmake
+creating build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/__init__.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/c_function_attributes.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/java.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/objc.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/objcpp.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/asm.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/c.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/compilers.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/cpp.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/cs.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/cuda.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/cython.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/d.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/detect.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/fortran.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/rust.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/swift.py -> build/lib/mesonbuild/compilers
+copying mesonbuild/compilers/vala.py -> build/lib/mesonbuild/compilers
+creating build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/__init__.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/boost.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/cmake.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/coarrays.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/configtool.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/cuda.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/detect.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/dub.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/factory.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/framework.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/hdf5.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/misc.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/mpi.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/platform.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/scalapack.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/ui.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/base.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/dev.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/pkgconfig.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/python.py -> build/lib/mesonbuild/dependencies
+copying mesonbuild/dependencies/qt.py -> build/lib/mesonbuild/dependencies
+creating build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/__init__.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/compiler.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/decorators.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/dependencyfallbacks.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/interpreter.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/interpreterobjects.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/kwargs.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/mesonmain.py -> build/lib/mesonbuild/interpreter
+copying mesonbuild/interpreter/type_checking.py -> build/lib/mesonbuild/interpreter
+creating build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/_unholder.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/disabler.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/exceptions.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/operator.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/__init__.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/baseobjects.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/decorators.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/helpers.py -> build/lib/mesonbuild/interpreterbase
+copying mesonbuild/interpreterbase/interpreterbase.py -> build/lib/mesonbuild/interpreterbase
+creating build/lib/mesonbuild/linkers
+copying mesonbuild/linkers/__init__.py -> build/lib/mesonbuild/linkers
+copying mesonbuild/linkers/base.py -> build/lib/mesonbuild/linkers
+copying mesonbuild/linkers/detect.py -> build/lib/mesonbuild/linkers
+copying mesonbuild/linkers/linkers.py -> build/lib/mesonbuild/linkers
+creating build/lib/mesonbuild/modules
+copying mesonbuild/modules/qt4.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/qt5.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/qt6.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/__init__.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/_qt.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/cmake.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/codegen.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/cuda.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/dlang.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/external_project.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/fs.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/gnome.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/hotdoc.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/i18n.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/icestorm.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/java.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/keyval.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/modtest.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/pkgconfig.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/python.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/python3.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/rust.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/simd.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/snippets.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/sourceset.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/wayland.py -> build/lib/mesonbuild/modules
+copying mesonbuild/modules/windows.py -> build/lib/mesonbuild/modules
+creating build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/__init__.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/clangformat.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/clangtidy.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/cleantrees.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/cmake_run_ctgt.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/copy.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/coverage.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/delwithsuffix.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/depaccumulate.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/depscan.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/dirchanger.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/env2mfile.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/externalproject.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/gettext.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/gtkdochelper.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/hotdochelper.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/itstool.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/meson_exe.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/msgfmthelper.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/pickle_env.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/pycompile.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/rc.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/regen_checker.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/reprotest.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/rustdoc.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/scanbuild.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/tags.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/test_loaded_modules.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/uninstall.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/yasm.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/clippy.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/depfixer.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/python_info.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/run_tool.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/symbolextractor.py -> build/lib/mesonbuild/scripts
+copying mesonbuild/scripts/vcstagger.py -> build/lib/mesonbuild/scripts
+creating build/lib/mesonbuild/templates
+copying mesonbuild/templates/__init__.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/cpptemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/cstemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/ctemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/cudatemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/dlangtemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/fortrantemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/javatemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/mesontemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/objcpptemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/objctemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/rusttemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/valatemplates.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/samplefactory.py -> build/lib/mesonbuild/templates
+copying mesonbuild/templates/sampleimpl.py -> build/lib/mesonbuild/templates
+creating build/lib/mesonbuild/utils
+copying mesonbuild/utils/__init__.py -> build/lib/mesonbuild/utils
+copying mesonbuild/utils/core.py -> build/lib/mesonbuild/utils
+copying mesonbuild/utils/platform.py -> build/lib/mesonbuild/utils
+copying mesonbuild/utils/universal.py -> build/lib/mesonbuild/utils
+copying mesonbuild/utils/vsenv.py -> build/lib/mesonbuild/utils
+creating build/lib/mesonbuild/wrap
+copying mesonbuild/wrap/__init__.py -> build/lib/mesonbuild/wrap
+copying mesonbuild/wrap/wraptool.py -> build/lib/mesonbuild/wrap
+copying mesonbuild/wrap/wrap.py -> build/lib/mesonbuild/wrap
+creating build/lib/mesonbuild/cmake/data
+copying mesonbuild/cmake/data/__init__.py -> build/lib/mesonbuild/cmake/data
+creating build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/__init__.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/apple.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/ccrx.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/elbrus.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/emscripten.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/intel.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/metrowerks.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/microchip.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/ti.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/arm.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/clang.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/clike.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/compcert.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/gnu.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/islinker.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/pgi.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/tasking.py -> build/lib/mesonbuild/compilers/mixins
+copying mesonbuild/compilers/mixins/visualstudio.py -> build/lib/mesonbuild/compilers/mixins
+creating build/lib/mesonbuild/dependencies/data
+copying mesonbuild/dependencies/data/__init__.py -> build/lib/mesonbuild/dependencies/data
+creating build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/__init__.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/range.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/array.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/boolean.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/dict.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/integer.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/interpreter/primitives/string.py -> build/lib/mesonbuild/interpreter/primitives
+copying mesonbuild/scripts/cmd_or_ps.ps1 -> build/lib/mesonbuild/scripts
+copying mesonbuild/cmake/data/preload.cmake -> build/lib/mesonbuild/cmake/data
+copying mesonbuild/dependencies/data/CMakeLists.txt -> build/lib/mesonbuild/dependencies/data
+copying mesonbuild/dependencies/data/CMakeListsLLVM.txt -> build/lib/mesonbuild/dependencies/data
+copying mesonbuild/dependencies/data/CMakePathInfo.txt -> build/lib/mesonbuild/dependencies/data
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/mesonbuild
+copying build/lib/mesonbuild/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/_pathlib.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/_typing.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/depfile.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/environment.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/machinefile.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mcompile.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mconf.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mdevenv.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mesondata.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mesonlib.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mesonmain.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mlog.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/munstable_coredata.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/programs.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/arglist.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/build.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/cmdline.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/coredata.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/envconfig.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mdist.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mformat.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/minit.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/minstall.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mintro.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mparser.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/msetup.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/msubprojects.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/mtest.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/optinterpreter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/options.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/rewriter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+copying build/lib/mesonbuild/tooldetect.py -> build/bdist.linux-x86_64/wheel/./mesonbuild
+creating build/bdist.linux-x86_64/wheel/mesonbuild/ast
+copying build/lib/mesonbuild/ast/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+copying build/lib/mesonbuild/ast/postprocess.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+copying build/lib/mesonbuild/ast/printer.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+copying build/lib/mesonbuild/ast/visitor.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+copying build/lib/mesonbuild/ast/interpreter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+copying build/lib/mesonbuild/ast/introspection.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/ast
+creating build/bdist.linux-x86_64/wheel/mesonbuild/backend
+copying build/lib/mesonbuild/backend/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/nonebackend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2012backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2013backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2015backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2017backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2019backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2022backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2026backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/backends.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/ninjabackend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/vs2010backend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+copying build/lib/mesonbuild/backend/xcodebackend.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/backend
+creating build/bdist.linux-x86_64/wheel/mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/builder.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/raw.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/toml.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/cfg.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/interpreter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/manifest.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+copying build/lib/mesonbuild/cargo/version.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cargo
+creating build/bdist.linux-x86_64/wheel/mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/executor.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/fileapi.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/toolchain.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/tracetargets.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/common.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/generator.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/interpreter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+copying build/lib/mesonbuild/cmake/traceparser.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake
+creating build/bdist.linux-x86_64/wheel/mesonbuild/cmake/data
+copying build/lib/mesonbuild/cmake/data/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake/data
+copying build/lib/mesonbuild/cmake/data/preload.cmake -> build/bdist.linux-x86_64/wheel/./mesonbuild/cmake/data
+creating build/bdist.linux-x86_64/wheel/mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/c_function_attributes.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/java.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/objc.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/objcpp.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/asm.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/c.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/compilers.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/cpp.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/cs.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/cuda.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/cython.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/d.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/detect.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/fortran.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/rust.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/swift.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+copying build/lib/mesonbuild/compilers/vala.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers
+creating build/bdist.linux-x86_64/wheel/mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/apple.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/ccrx.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/elbrus.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/emscripten.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/intel.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/metrowerks.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/microchip.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/ti.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/arm.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/clang.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/clike.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/compcert.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/gnu.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/islinker.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/pgi.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/tasking.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+copying build/lib/mesonbuild/compilers/mixins/visualstudio.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/compilers/mixins
+creating build/bdist.linux-x86_64/wheel/mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/boost.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/cmake.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/coarrays.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/configtool.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/cuda.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/detect.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/dub.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/factory.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/framework.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/hdf5.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/misc.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/mpi.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/platform.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/scalapack.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/ui.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/base.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/dev.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/pkgconfig.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/python.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+copying build/lib/mesonbuild/dependencies/qt.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies
+creating build/bdist.linux-x86_64/wheel/mesonbuild/dependencies/data
+copying build/lib/mesonbuild/dependencies/data/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies/data
+copying build/lib/mesonbuild/dependencies/data/CMakeLists.txt -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies/data
+copying build/lib/mesonbuild/dependencies/data/CMakeListsLLVM.txt -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies/data
+copying build/lib/mesonbuild/dependencies/data/CMakePathInfo.txt -> build/bdist.linux-x86_64/wheel/./mesonbuild/dependencies/data
+creating build/bdist.linux-x86_64/wheel/mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/compiler.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/decorators.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/dependencyfallbacks.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/interpreter.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/interpreterobjects.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/kwargs.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/mesonmain.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+copying build/lib/mesonbuild/interpreter/type_checking.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter
+creating build/bdist.linux-x86_64/wheel/mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/range.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/array.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/boolean.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/dict.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/integer.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+copying build/lib/mesonbuild/interpreter/primitives/string.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreter/primitives
+creating build/bdist.linux-x86_64/wheel/mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/_unholder.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/disabler.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/exceptions.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/operator.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/baseobjects.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/decorators.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/helpers.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+copying build/lib/mesonbuild/interpreterbase/interpreterbase.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/interpreterbase
+creating build/bdist.linux-x86_64/wheel/mesonbuild/linkers
+copying build/lib/mesonbuild/linkers/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/linkers
+copying build/lib/mesonbuild/linkers/base.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/linkers
+copying build/lib/mesonbuild/linkers/detect.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/linkers
+copying build/lib/mesonbuild/linkers/linkers.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/linkers
+creating build/bdist.linux-x86_64/wheel/mesonbuild/modules
+copying build/lib/mesonbuild/modules/qt4.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/qt5.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/qt6.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/_qt.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/cmake.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/codegen.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/cuda.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/dlang.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/external_project.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/fs.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/gnome.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/hotdoc.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/i18n.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/icestorm.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/java.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/keyval.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/modtest.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/pkgconfig.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/python.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/python3.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/rust.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/simd.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/snippets.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/sourceset.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/wayland.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+copying build/lib/mesonbuild/modules/windows.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/modules
+creating build/bdist.linux-x86_64/wheel/mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/clangformat.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/clangtidy.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/cleantrees.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/cmake_run_ctgt.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/copy.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/coverage.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/delwithsuffix.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/depaccumulate.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/depscan.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/dirchanger.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/env2mfile.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/externalproject.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/gettext.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/gtkdochelper.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/hotdochelper.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/itstool.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/meson_exe.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/msgfmthelper.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/pickle_env.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/pycompile.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/rc.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/regen_checker.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/reprotest.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/rustdoc.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/scanbuild.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/tags.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/test_loaded_modules.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/uninstall.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/yasm.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/clippy.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/depfixer.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/python_info.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/run_tool.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/symbolextractor.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/vcstagger.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+copying build/lib/mesonbuild/scripts/cmd_or_ps.ps1 -> build/bdist.linux-x86_64/wheel/./mesonbuild/scripts
+creating build/bdist.linux-x86_64/wheel/mesonbuild/templates
+copying build/lib/mesonbuild/templates/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/cpptemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/cstemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/ctemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/cudatemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/dlangtemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/fortrantemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/javatemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/mesontemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/objcpptemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/objctemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/rusttemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/valatemplates.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/samplefactory.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+copying build/lib/mesonbuild/templates/sampleimpl.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/templates
+creating build/bdist.linux-x86_64/wheel/mesonbuild/utils
+copying build/lib/mesonbuild/utils/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/utils
+copying build/lib/mesonbuild/utils/core.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/utils
+copying build/lib/mesonbuild/utils/platform.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/utils
+copying build/lib/mesonbuild/utils/universal.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/utils
+copying build/lib/mesonbuild/utils/vsenv.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/utils
+creating build/bdist.linux-x86_64/wheel/mesonbuild/wrap
+copying build/lib/mesonbuild/wrap/__init__.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/wrap
+copying build/lib/mesonbuild/wrap/wraptool.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/wrap
+copying build/lib/mesonbuild/wrap/wrap.py -> build/bdist.linux-x86_64/wheel/./mesonbuild/wrap
+running install_data
+creating build/bdist.linux-x86_64/wheel/meson-1.12.0.data/data
+creating build/bdist.linux-x86_64/wheel/meson-1.12.0.data/data/share/man/man1
+copying man/meson.1 -> build/bdist.linux-x86_64/wheel/meson-1.12.0.data/data/share/man/man1
+creating build/bdist.linux-x86_64/wheel/meson-1.12.0.data/data/share/polkit-1/actions
+copying data/com.mesonbuild.install.policy -> build/bdist.linux-x86_64/wheel/meson-1.12.0.data/data/share/polkit-1/actions
+running install_egg_info
+running egg_info
+writing meson.egg-info/PKG-INFO
+writing dependency_links to meson.egg-info/dependency_links.txt
+writing entry points to meson.egg-info/entry_points.txt
+writing requirements to meson.egg-info/requires.txt
+writing top-level names to meson.egg-info/top_level.txt
+reading manifest file 'meson.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'COPYING'
+writing manifest file 'meson.egg-info/SOURCES.txt'
+Copying meson.egg-info to build/bdist.linux-x86_64/wheel/./meson-1.12.0-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/meson-1.12.0.dist-info/WHEEL
+creating '/home/builder/build/src/meson/dist/.tmp-c6zd3k7k/meson-1.12.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'meson-1.12.0.data/data/share/man/man1/meson.1'
+adding 'meson-1.12.0.data/data/share/polkit-1/actions/com.mesonbuild.install.policy'
+adding 'meson-1.12.0.dist-info/licenses/COPYING'
+adding 'mesonbuild/__init__.py'
+adding 'mesonbuild/_pathlib.py'
+adding 'mesonbuild/_typing.py'
+adding 'mesonbuild/arglist.py'
+adding 'mesonbuild/build.py'
+adding 'mesonbuild/cmdline.py'
+adding 'mesonbuild/coredata.py'
+adding 'mesonbuild/depfile.py'
+adding 'mesonbuild/envconfig.py'
+adding 'mesonbuild/environment.py'
+adding 'mesonbuild/machinefile.py'
+adding 'mesonbuild/mcompile.py'
+adding 'mesonbuild/mconf.py'
+adding 'mesonbuild/mdevenv.py'
+adding 'mesonbuild/mdist.py'
+adding 'mesonbuild/mesondata.py'
+adding 'mesonbuild/mesonlib.py'
+adding 'mesonbuild/mesonmain.py'
+adding 'mesonbuild/mformat.py'
+adding 'mesonbuild/minit.py'
+adding 'mesonbuild/minstall.py'
+adding 'mesonbuild/mintro.py'
+adding 'mesonbuild/mlog.py'
+adding 'mesonbuild/mparser.py'
+adding 'mesonbuild/msetup.py'
+adding 'mesonbuild/msubprojects.py'
+adding 'mesonbuild/mtest.py'
+adding 'mesonbuild/munstable_coredata.py'
+adding 'mesonbuild/optinterpreter.py'
+adding 'mesonbuild/options.py'
+adding 'mesonbuild/programs.py'
+adding 'mesonbuild/rewriter.py'
+adding 'mesonbuild/tooldetect.py'
+adding 'mesonbuild/ast/__init__.py'
+adding 'mesonbuild/ast/interpreter.py'
+adding 'mesonbuild/ast/introspection.py'
+adding 'mesonbuild/ast/postprocess.py'
+adding 'mesonbuild/ast/printer.py'
+adding 'mesonbuild/ast/visitor.py'
+adding 'mesonbuild/backend/__init__.py'
+adding 'mesonbuild/backend/backends.py'
+adding 'mesonbuild/backend/ninjabackend.py'
+adding 'mesonbuild/backend/nonebackend.py'
+adding 'mesonbuild/backend/vs2010backend.py'
+adding 'mesonbuild/backend/vs2012backend.py'
+adding 'mesonbuild/backend/vs2013backend.py'
+adding 'mesonbuild/backend/vs2015backend.py'
+adding 'mesonbuild/backend/vs2017backend.py'
+adding 'mesonbuild/backend/vs2019backend.py'
+adding 'mesonbuild/backend/vs2022backend.py'
+adding 'mesonbuild/backend/vs2026backend.py'
+adding 'mesonbuild/backend/xcodebackend.py'
+adding 'mesonbuild/cargo/__init__.py'
+adding 'mesonbuild/cargo/builder.py'
+adding 'mesonbuild/cargo/cfg.py'
+adding 'mesonbuild/cargo/interpreter.py'
+adding 'mesonbuild/cargo/manifest.py'
+adding 'mesonbuild/cargo/raw.py'
+adding 'mesonbuild/cargo/toml.py'
+adding 'mesonbuild/cargo/version.py'
+adding 'mesonbuild/cmake/__init__.py'
+adding 'mesonbuild/cmake/common.py'
+adding 'mesonbuild/cmake/executor.py'
+adding 'mesonbuild/cmake/fileapi.py'
+adding 'mesonbuild/cmake/generator.py'
+adding 'mesonbuild/cmake/interpreter.py'
+adding 'mesonbuild/cmake/toolchain.py'
+adding 'mesonbuild/cmake/traceparser.py'
+adding 'mesonbuild/cmake/tracetargets.py'
+adding 'mesonbuild/cmake/data/__init__.py'
+adding 'mesonbuild/cmake/data/preload.cmake'
+adding 'mesonbuild/compilers/__init__.py'
+adding 'mesonbuild/compilers/asm.py'
+adding 'mesonbuild/compilers/c.py'
+adding 'mesonbuild/compilers/c_function_attributes.py'
+adding 'mesonbuild/compilers/compilers.py'
+adding 'mesonbuild/compilers/cpp.py'
+adding 'mesonbuild/compilers/cs.py'
+adding 'mesonbuild/compilers/cuda.py'
+adding 'mesonbuild/compilers/cython.py'
+adding 'mesonbuild/compilers/d.py'
+adding 'mesonbuild/compilers/detect.py'
+adding 'mesonbuild/compilers/fortran.py'
+adding 'mesonbuild/compilers/java.py'
+adding 'mesonbuild/compilers/objc.py'
+adding 'mesonbuild/compilers/objcpp.py'
+adding 'mesonbuild/compilers/rust.py'
+adding 'mesonbuild/compilers/swift.py'
+adding 'mesonbuild/compilers/vala.py'
+adding 'mesonbuild/compilers/mixins/__init__.py'
+adding 'mesonbuild/compilers/mixins/apple.py'
+adding 'mesonbuild/compilers/mixins/arm.py'
+adding 'mesonbuild/compilers/mixins/ccrx.py'
+adding 'mesonbuild/compilers/mixins/clang.py'
+adding 'mesonbuild/compilers/mixins/clike.py'
+adding 'mesonbuild/compilers/mixins/compcert.py'
+adding 'mesonbuild/compilers/mixins/elbrus.py'
+adding 'mesonbuild/compilers/mixins/emscripten.py'
+adding 'mesonbuild/compilers/mixins/gnu.py'
+adding 'mesonbuild/compilers/mixins/intel.py'
+adding 'mesonbuild/compilers/mixins/islinker.py'
+adding 'mesonbuild/compilers/mixins/metrowerks.py'
+adding 'mesonbuild/compilers/mixins/microchip.py'
+adding 'mesonbuild/compilers/mixins/pgi.py'
+adding 'mesonbuild/compilers/mixins/tasking.py'
+adding 'mesonbuild/compilers/mixins/ti.py'
+adding 'mesonbuild/compilers/mixins/visualstudio.py'
+adding 'mesonbuild/dependencies/__init__.py'
+adding 'mesonbuild/dependencies/base.py'
+adding 'mesonbuild/dependencies/boost.py'
+adding 'mesonbuild/dependencies/cmake.py'
+adding 'mesonbuild/dependencies/coarrays.py'
+adding 'mesonbuild/dependencies/configtool.py'
+adding 'mesonbuild/dependencies/cuda.py'
+adding 'mesonbuild/dependencies/detect.py'
+adding 'mesonbuild/dependencies/dev.py'
+adding 'mesonbuild/dependencies/dub.py'
+adding 'mesonbuild/dependencies/factory.py'
+adding 'mesonbuild/dependencies/framework.py'
+adding 'mesonbuild/dependencies/hdf5.py'
+adding 'mesonbuild/dependencies/misc.py'
+adding 'mesonbuild/dependencies/mpi.py'
+adding 'mesonbuild/dependencies/pkgconfig.py'
+adding 'mesonbuild/dependencies/platform.py'
+adding 'mesonbuild/dependencies/python.py'
+adding 'mesonbuild/dependencies/qt.py'
+adding 'mesonbuild/dependencies/scalapack.py'
+adding 'mesonbuild/dependencies/ui.py'
+adding 'mesonbuild/dependencies/data/CMakeLists.txt'
+adding 'mesonbuild/dependencies/data/CMakeListsLLVM.txt'
+adding 'mesonbuild/dependencies/data/CMakePathInfo.txt'
+adding 'mesonbuild/dependencies/data/__init__.py'
+adding 'mesonbuild/interpreter/__init__.py'
+adding 'mesonbuild/interpreter/compiler.py'
+adding 'mesonbuild/interpreter/decorators.py'
+adding 'mesonbuild/interpreter/dependencyfallbacks.py'
+adding 'mesonbuild/interpreter/interpreter.py'
+adding 'mesonbuild/interpreter/interpreterobjects.py'
+adding 'mesonbuild/interpreter/kwargs.py'
+adding 'mesonbuild/interpreter/mesonmain.py'
+adding 'mesonbuild/interpreter/type_checking.py'
+adding 'mesonbuild/interpreter/primitives/__init__.py'
+adding 'mesonbuild/interpreter/primitives/array.py'
+adding 'mesonbuild/interpreter/primitives/boolean.py'
+adding 'mesonbuild/interpreter/primitives/dict.py'
+adding 'mesonbuild/interpreter/primitives/integer.py'
+adding 'mesonbuild/interpreter/primitives/range.py'
+adding 'mesonbuild/interpreter/primitives/string.py'
+adding 'mesonbuild/interpreterbase/__init__.py'
+adding 'mesonbuild/interpreterbase/_unholder.py'
+adding 'mesonbuild/interpreterbase/baseobjects.py'
+adding 'mesonbuild/interpreterbase/decorators.py'
+adding 'mesonbuild/interpreterbase/disabler.py'
+adding 'mesonbuild/interpreterbase/exceptions.py'
+adding 'mesonbuild/interpreterbase/helpers.py'
+adding 'mesonbuild/interpreterbase/interpreterbase.py'
+adding 'mesonbuild/interpreterbase/operator.py'
+adding 'mesonbuild/linkers/__init__.py'
+adding 'mesonbuild/linkers/base.py'
+adding 'mesonbuild/linkers/detect.py'
+adding 'mesonbuild/linkers/linkers.py'
+adding 'mesonbuild/modules/__init__.py'
+adding 'mesonbuild/modules/_qt.py'
+adding 'mesonbuild/modules/cmake.py'
+adding 'mesonbuild/modules/codegen.py'
+adding 'mesonbuild/modules/cuda.py'
+adding 'mesonbuild/modules/dlang.py'
+adding 'mesonbuild/modules/external_project.py'
+adding 'mesonbuild/modules/fs.py'
+adding 'mesonbuild/modules/gnome.py'
+adding 'mesonbuild/modules/hotdoc.py'
+adding 'mesonbuild/modules/i18n.py'
+adding 'mesonbuild/modules/icestorm.py'
+adding 'mesonbuild/modules/java.py'
+adding 'mesonbuild/modules/keyval.py'
+adding 'mesonbuild/modules/modtest.py'
+adding 'mesonbuild/modules/pkgconfig.py'
+adding 'mesonbuild/modules/python.py'
+adding 'mesonbuild/modules/python3.py'
+adding 'mesonbuild/modules/qt4.py'
+adding 'mesonbuild/modules/qt5.py'
+adding 'mesonbuild/modules/qt6.py'
+adding 'mesonbuild/modules/rust.py'
+adding 'mesonbuild/modules/simd.py'
+adding 'mesonbuild/modules/snippets.py'
+adding 'mesonbuild/modules/sourceset.py'
+adding 'mesonbuild/modules/wayland.py'
+adding 'mesonbuild/modules/windows.py'
+adding 'mesonbuild/scripts/__init__.py'
+adding 'mesonbuild/scripts/clangformat.py'
+adding 'mesonbuild/scripts/clangtidy.py'
+adding 'mesonbuild/scripts/cleantrees.py'
+adding 'mesonbuild/scripts/clippy.py'
+adding 'mesonbuild/scripts/cmake_run_ctgt.py'
+adding 'mesonbuild/scripts/cmd_or_ps.ps1'
+adding 'mesonbuild/scripts/copy.py'
+adding 'mesonbuild/scripts/coverage.py'
+adding 'mesonbuild/scripts/delwithsuffix.py'
+adding 'mesonbuild/scripts/depaccumulate.py'
+adding 'mesonbuild/scripts/depfixer.py'
+adding 'mesonbuild/scripts/depscan.py'
+adding 'mesonbuild/scripts/dirchanger.py'
+adding 'mesonbuild/scripts/env2mfile.py'
+adding 'mesonbuild/scripts/externalproject.py'
+adding 'mesonbuild/scripts/gettext.py'
+adding 'mesonbuild/scripts/gtkdochelper.py'
+adding 'mesonbuild/scripts/hotdochelper.py'
+adding 'mesonbuild/scripts/itstool.py'
+adding 'mesonbuild/scripts/meson_exe.py'
+adding 'mesonbuild/scripts/msgfmthelper.py'
+adding 'mesonbuild/scripts/pickle_env.py'
+adding 'mesonbuild/scripts/pycompile.py'
+adding 'mesonbuild/scripts/python_info.py'
+adding 'mesonbuild/scripts/rc.py'
+adding 'mesonbuild/scripts/regen_checker.py'
+adding 'mesonbuild/scripts/reprotest.py'
+adding 'mesonbuild/scripts/run_tool.py'
+adding 'mesonbuild/scripts/rustdoc.py'
+adding 'mesonbuild/scripts/scanbuild.py'
+adding 'mesonbuild/scripts/symbolextractor.py'
+adding 'mesonbuild/scripts/tags.py'
+adding 'mesonbuild/scripts/test_loaded_modules.py'
+adding 'mesonbuild/scripts/uninstall.py'
+adding 'mesonbuild/scripts/vcstagger.py'
+adding 'mesonbuild/scripts/yasm.py'
+adding 'mesonbuild/templates/__init__.py'
+adding 'mesonbuild/templates/cpptemplates.py'
+adding 'mesonbuild/templates/cstemplates.py'
+adding 'mesonbuild/templates/ctemplates.py'
+adding 'mesonbuild/templates/cudatemplates.py'
+adding 'mesonbuild/templates/dlangtemplates.py'
+adding 'mesonbuild/templates/fortrantemplates.py'
+adding 'mesonbuild/templates/javatemplates.py'
+adding 'mesonbuild/templates/mesontemplates.py'
+adding 'mesonbuild/templates/objcpptemplates.py'
+adding 'mesonbuild/templates/objctemplates.py'
+adding 'mesonbuild/templates/rusttemplates.py'
+adding 'mesonbuild/templates/samplefactory.py'
+adding 'mesonbuild/templates/sampleimpl.py'
+adding 'mesonbuild/templates/valatemplates.py'
+adding 'mesonbuild/utils/__init__.py'
+adding 'mesonbuild/utils/core.py'
+adding 'mesonbuild/utils/platform.py'
+adding 'mesonbuild/utils/universal.py'
+adding 'mesonbuild/utils/vsenv.py'
+adding 'mesonbuild/wrap/__init__.py'
+adding 'mesonbuild/wrap/wrap.py'
+adding 'mesonbuild/wrap/wraptool.py'
+adding 'meson-1.12.0.dist-info/METADATA'
+adding 'meson-1.12.0.dist-info/WHEEL'
+adding 'meson-1.12.0.dist-info/entry_points.txt'
+adding 'meson-1.12.0.dist-info/top_level.txt'
+adding 'meson-1.12.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built meson-1.12.0-py3-none-any.whl
+The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/meson/docs
+Build dir: /home/builder/build/src/meson/docs.build
+Build type: native build
+Project name: Meson documentation
+Project version: 1.0
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Program python3 (strictyaml) found: YES (/usr/sbin/python3) modules: strictyaml
+Program ./genrefman.py found: YES (/home/builder/build/src/meson/docs/./genrefman.py)
+Program ./jsonvalidator.py found: YES (/home/builder/build/src/meson/docs/./jsonvalidator.py)
+Build targets in project: 3
+
+Meson documentation 1.0
+
+  User defined options
+    html  : false
+    prefix: /usr
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   0%|          | 0/3 eta ?                                              Writing build.ninja:   0%|          | 0/31 eta ?                                                ninja: Entering directory `/home/builder/build/src/meson/docs.build'
+[1/3] Generating gen_refman_bin with a custom command
+Loading YAML reference manual
+| Loading functions/add_global_arguments.yaml
+| Loading functions/add_global_link_arguments.yaml
+| Loading functions/add_languages.yaml
+| Loading functions/add_project_arguments.yaml
+| Loading functions/add_project_dependencies.yaml
+| Loading functions/add_project_link_arguments.yaml
+| Loading functions/add_test_setup.yaml
+| Loading functions/alias_target.yaml
+| Loading functions/assert.yaml
+| Loading functions/benchmark.yaml
+| Loading functions/both_libraries.yaml
+| Loading functions/build_target.yaml
+| Loading functions/configuration_data.yaml
+| Loading functions/configure_file.yaml
+| Loading functions/custom_target.yaml
+| Loading functions/debug.yaml
+| Loading functions/declare_dependency.yaml
+| Loading functions/default.yaml
+| Loading functions/dependency.yaml
+| Loading functions/disabler.yaml
+| Loading functions/environment.yaml
+| Loading functions/error.yaml
+| Loading functions/executable.yaml
+| Loading functions/files.yaml
+| Loading functions/find_program.yaml
+| Loading functions/generator.yaml
+| Loading functions/get_option.yaml
+| Loading functions/get_variable.yaml
+| Loading functions/import.yaml
+| Loading functions/include_directories.yaml
+| Loading functions/install_data.yaml
+| Loading functions/install_emptydir.yaml
+| Loading functions/install_headers.yaml
+| Loading functions/install_man.yaml
+| Loading functions/install_subdir.yaml
+| Loading functions/install_symlink.yaml
+| Loading functions/is_disabler.yaml
+| Loading functions/is_variable.yaml
+| Loading functions/jar.yaml
+| Loading functions/join_paths.yaml
+| Loading functions/library.yaml
+| Loading functions/message.yaml
+| Loading functions/project.yaml
+| Loading functions/range.yaml
+| Loading functions/run_command.yaml
+| Loading functions/run_target.yaml
+| Loading functions/set_variable.yaml
+| Loading functions/shared_library.yaml
+| Loading functions/shared_module.yaml
+| Loading functions/static_library.yaml
+| Loading functions/structured_sources.yaml
+| Loading functions/subdir.yaml
+| Loading functions/subdir_done.yaml
+| Loading functions/subproject.yaml
+| Loading functions/summary.yaml
+| Loading functions/unset_variable.yaml
+| Loading functions/vcs_tag.yaml
+| Loading functions/warning.yaml
+| Loading functions/_build_target_base.yaml
+| Loading functions/test.yaml
+| Loading elementary/any.yaml
+| Loading elementary/array.yml
+| Loading elementary/bool.yml
+| Loading elementary/dict.yml
+| Loading elementary/int.yml
+| Loading elementary/str.yml
+| Loading elementary/void.yml
+| Loading objects/alias_tgt.yaml
+| Loading objects/both_libs.yaml
+| Loading objects/build_tgt.yaml
+| Loading objects/cfg_data.yaml
+| Loading objects/compiler.yaml
+| Loading objects/custom_idx.yaml
+| Loading objects/custom_tgt.yaml
+| Loading objects/default.yaml
+| Loading objects/dep.yaml
+| Loading objects/disabler.yaml
+| Loading objects/env.yaml
+| Loading objects/exe.yaml
+| Loading objects/external_program.yaml
+| Loading objects/extracted_obj.yaml
+| Loading objects/feature.yaml
+| Loading objects/file.yaml
+| Loading objects/generated_list.yaml
+| Loading objects/generator.yaml
+| Loading objects/inc.yaml
+| Loading objects/jar.yaml
+| Loading objects/lib.yaml
+| Loading objects/module.yaml
+| Loading objects/range.yaml
+| Loading objects/run_tgt.yaml
+| Loading objects/runresult.yaml
+| Loading objects/structured_src.yaml
+| Loading objects/subproject.yaml
+| Loading objects/tgt.yaml
+| Loading builtins/build_machine.yaml
+| Loading builtins/host_machine.yaml
+| Loading builtins/meson.yaml
+| Loading builtins/target_machine.yaml
+| Loading modules/cmake/module.yaml
+| Loading modules/cmake/options.yaml
+| Validating loaded manual...
+| Validating functions...
+| -- validating add_global_arguments
+| -- validating add_global_link_arguments
+| -- validating add_languages
+| -- validating add_project_arguments
+| -- validating add_project_dependencies
+| -- validating add_project_link_arguments
+| -- validating add_test_setup
+| -- validating alias_target
+| -- validating assert
+| -- validating benchmark
+| -- validating both_libraries
+| -- validating build_target
+| -- validating configuration_data
+| -- validating configure_file
+| -- validating custom_target
+| -- validating debug
+| -- validating declare_dependency
+| -- validating default
+| -- validating dependency
+| -- validating disabler
+| -- validating environment
+| -- validating error
+| -- validating executable
+| -- validating files
+| -- validating find_program
+| -- validating generator
+| -- validating get_option
+| -- validating get_variable
+| -- validating import
+| -- validating include_directories
+| -- validating install_data
+| -- validating install_emptydir
+| -- validating install_headers
+| -- validating install_man
+| -- validating install_subdir
+| -- validating install_symlink
+| -- validating is_disabler
+| -- validating is_variable
+| -- validating jar
+| -- validating join_paths
+| -- validating library
+| -- validating message
+| -- validating project
+| -- validating range
+| -- validating run_command
+| -- validating run_target
+| -- validating set_variable
+| -- validating shared_library
+| -- validating shared_module
+| -- validating static_library
+| -- validating structured_sources
+| -- validating subdir
+| -- validating subdir_done
+| -- validating subproject
+| -- validating summary
+| -- validating unset_variable
+| -- validating vcs_tag
+| -- validating warning
+| -- validating _build_target_base
+| -- validating test
+| Validating objects...
+| -- validating any
+| -- validating array
+| -- validating bool
+| -- validating dict
+| -- validating int
+| -- validating str
+| -- validating void
+| -- validating alias_tgt
+| -- validating both_libs
+| -- validating build_tgt
+| -- validating cfg_data
+| -- validating compiler
+| -- validating custom_idx
+| -- validating custom_tgt
+| -- validating default
+| -- validating dep
+| -- validating disabler
+| -- validating env
+| -- validating exe
+| -- validating program
+| -- validating extracted_obj
+| -- validating feature
+| -- validating file
+| -- validating generated_list
+| -- validating generator
+| -- validating inc
+| -- validating jar
+| -- validating lib
+| -- validating module
+| -- validating range
+| -- validating run_tgt
+| -- validating runresult
+| -- validating structured_src
+| -- validating subproject
+| -- validating tgt
+| -- validating build_machine
+| -- validating host_machine
+| -- validating meson
+| -- validating target_machine
+| -- validating cmake
+| -- validating cmake_options
+[2/3] Generating gen_refman_json with a custom command
+[3/3] Generating gen_refman_man with a custom command
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/meson/docs.build
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `/home/builder/build/src/meson/docs.build'
+ninja: no work to do.
+Installing meson-reference.3 to /home/builder/build/pkg/meson/usr/share/man/man3
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "meson"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: meson 1.12.0-1 (Sat Sep 19 22:46:55 2026)

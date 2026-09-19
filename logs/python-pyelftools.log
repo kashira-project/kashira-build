@@ -1,0 +1,418 @@
+== build python-pyelftools (deps: glibc python python-build python-installer python-setuptools python-wheel )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:   0.88 MiB
+Total Installed Size:  4.26 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-pyelftools 0.33-1 (Sat Sep 19 21:53:42 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading pyelftools-0.33.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100 409.3k   0 409.3k   0      0 274.1k      0           00:01         408.7k100  1.18M   0  1.18M   0      0 486.0k      0           00:02         605.3k100  1.96M   0  1.96M   0      0 576.1k      0           00:03         670.4k100  2.59M   0  2.59M   0      0 591.0k      0           00:04         663.5k100  3.54M   0  3.54M   0      0 659.6k      0           00:05         724.3k100  4.32M   0  4.32M   0      0 681.7k      0           00:06         803.2k100  5.08M   0  5.08M   0      0 689.7k      0           00:07         790.2k100  5.93M   0  5.93M   0      0 710.8k      0           00:08         803.8k100  6.71M   0  6.71M   0      0 720.4k      0           00:09         835.7k100  7.50M   0  7.50M   0      0 728.0k      0           00:10         802.6k100  8.28M   0  8.28M   0      0 734.4k      0           00:11         802.3k100  9.07M   0  9.07M   0      0 740.0k      0           00:12         816.0k100  9.85M   0  9.85M   0      0 744.7k      0           00:13         802.6k100 10.64M   0 10.64M   0      0 748.6k      0           00:14         802.5k100 11.45M   0 11.45M   0      0 743.3k      0           00:15         774.2k100 12.39M   0 12.39M   0      0 755.9k      0           00:16         803.3k100 13.17M   0 13.17M   0      0 758.6k      0           00:17         803.1k100 13.96M   0 13.96M   0      0 760.9k      0           00:18         803.1k100 14.47M   0 14.47M   0      0 762.3k      0           00:19         803.1k100 14.47M   0 14.47M   0      0 762.3k      0           00:19         803.1k100 14.47M   0 14.47M   0      0 762.3k      0           00:19         803.1k
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    pyelftools-0.33.tar.gz ... Passed
+==> Validating source files with b2sums...
+    pyelftools-0.33.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting pyelftools-0.33.tar.gz with bsdtar
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/expand.py:128: SetuptoolsWarning: File '/home/builder/build/src/pyelftools-0.33/README.rst' cannot be found
+  for path in _filter_existing_files(_filepaths)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: Public Domain
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: Public Domain
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating pyelftools.egg-info
+writing pyelftools.egg-info/PKG-INFO
+writing dependency_links to pyelftools.egg-info/dependency_links.txt
+writing top-level names to pyelftools.egg-info/top_level.txt
+writing manifest file 'pyelftools.egg-info/SOURCES.txt'
+reading manifest file 'pyelftools.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '.mypy_cache' found anywhere in distribution
+warning: no files found matching 'README.rst'
+warning: no files found matching 'tox.ini'
+adding license file 'LICENSE'
+writing manifest file 'pyelftools.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/expand.py:128: SetuptoolsWarning: File '/home/builder/build/src/pyelftools-0.33/README.rst' cannot be found
+  for path in _filter_existing_files(_filepaths)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: Public Domain
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: Public Domain
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/elftools
+copying elftools/__init__.py -> build/lib/elftools
+creating build/lib/elftools/elf
+copying elftools/elf/__init__.py -> build/lib/elftools/elf
+copying elftools/elf/constants.py -> build/lib/elftools/elf
+copying elftools/elf/descriptions.py -> build/lib/elftools/elf
+copying elftools/elf/dynamic.py -> build/lib/elftools/elf
+copying elftools/elf/elffile.py -> build/lib/elftools/elf
+copying elftools/elf/enums.py -> build/lib/elftools/elf
+copying elftools/elf/gnuversions.py -> build/lib/elftools/elf
+copying elftools/elf/hash.py -> build/lib/elftools/elf
+copying elftools/elf/notes.py -> build/lib/elftools/elf
+copying elftools/elf/relocation.py -> build/lib/elftools/elf
+copying elftools/elf/sections.py -> build/lib/elftools/elf
+copying elftools/elf/segments.py -> build/lib/elftools/elf
+copying elftools/elf/structs.py -> build/lib/elftools/elf
+creating build/lib/elftools/common
+copying elftools/common/__init__.py -> build/lib/elftools/common
+copying elftools/common/construct_utils.py -> build/lib/elftools/common
+copying elftools/common/exceptions.py -> build/lib/elftools/common
+copying elftools/common/utils.py -> build/lib/elftools/common
+creating build/lib/elftools/dwarf
+copying elftools/dwarf/__init__.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/abbrevtable.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/aranges.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/callframe.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/compileunit.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/constants.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/datatype_cpp.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/descriptions.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/die.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/dwarf_expr.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/dwarf_util.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/dwarfinfo.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/enums.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/lineprogram.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/locationlists.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/namelut.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/ranges.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/structs.py -> build/lib/elftools/dwarf
+copying elftools/dwarf/typeunit.py -> build/lib/elftools/dwarf
+creating build/lib/elftools/ehabi
+copying elftools/ehabi/__init__.py -> build/lib/elftools/ehabi
+copying elftools/ehabi/constants.py -> build/lib/elftools/ehabi
+copying elftools/ehabi/decoder.py -> build/lib/elftools/ehabi
+copying elftools/ehabi/ehabiinfo.py -> build/lib/elftools/ehabi
+copying elftools/ehabi/structs.py -> build/lib/elftools/ehabi
+creating build/lib/elftools/construct
+copying elftools/construct/__init__.py -> build/lib/elftools/construct
+copying elftools/construct/adapters.py -> build/lib/elftools/construct
+copying elftools/construct/core.py -> build/lib/elftools/construct
+copying elftools/construct/debug.py -> build/lib/elftools/construct
+copying elftools/construct/macros.py -> build/lib/elftools/construct
+creating build/lib/elftools/construct/lib
+copying elftools/construct/lib/__init__.py -> build/lib/elftools/construct/lib
+copying elftools/construct/lib/binary.py -> build/lib/elftools/construct/lib
+copying elftools/construct/lib/bitstream.py -> build/lib/elftools/construct/lib
+copying elftools/construct/lib/container.py -> build/lib/elftools/construct/lib
+copying elftools/construct/lib/hex.py -> build/lib/elftools/construct/lib
+running egg_info
+writing pyelftools.egg-info/PKG-INFO
+writing dependency_links to pyelftools.egg-info/dependency_links.txt
+writing top-level names to pyelftools.egg-info/top_level.txt
+reading manifest file 'pyelftools.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '.mypy_cache' found anywhere in distribution
+warning: no files found matching 'README.rst'
+warning: no files found matching 'tox.ini'
+adding license file 'LICENSE'
+writing manifest file 'pyelftools.egg-info/SOURCES.txt'
+copying elftools/py.typed -> build/lib/elftools
+running build_scripts
+creating build/scripts-3.14
+copying and adjusting scripts/readelf.py -> build/scripts-3.14
+changing mode of build/scripts-3.14/readelf.py from 644 to 755
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/elftools
+copying build/lib/elftools/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools
+creating build/bdist.linux-x86_64/wheel/elftools/elf
+copying build/lib/elftools/elf/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/constants.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/descriptions.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/dynamic.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/elffile.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/enums.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/gnuversions.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/hash.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/notes.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/relocation.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/sections.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/segments.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+copying build/lib/elftools/elf/structs.py -> build/bdist.linux-x86_64/wheel/./elftools/elf
+creating build/bdist.linux-x86_64/wheel/elftools/common
+copying build/lib/elftools/common/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/common
+copying build/lib/elftools/common/construct_utils.py -> build/bdist.linux-x86_64/wheel/./elftools/common
+copying build/lib/elftools/common/exceptions.py -> build/bdist.linux-x86_64/wheel/./elftools/common
+copying build/lib/elftools/common/utils.py -> build/bdist.linux-x86_64/wheel/./elftools/common
+creating build/bdist.linux-x86_64/wheel/elftools/dwarf
+copying build/lib/elftools/dwarf/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/abbrevtable.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/aranges.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/callframe.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/compileunit.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/constants.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/datatype_cpp.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/descriptions.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/die.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/dwarf_expr.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/dwarf_util.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/dwarfinfo.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/enums.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/lineprogram.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/locationlists.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/namelut.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/ranges.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/structs.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+copying build/lib/elftools/dwarf/typeunit.py -> build/bdist.linux-x86_64/wheel/./elftools/dwarf
+creating build/bdist.linux-x86_64/wheel/elftools/ehabi
+copying build/lib/elftools/ehabi/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/ehabi
+copying build/lib/elftools/ehabi/constants.py -> build/bdist.linux-x86_64/wheel/./elftools/ehabi
+copying build/lib/elftools/ehabi/decoder.py -> build/bdist.linux-x86_64/wheel/./elftools/ehabi
+copying build/lib/elftools/ehabi/ehabiinfo.py -> build/bdist.linux-x86_64/wheel/./elftools/ehabi
+copying build/lib/elftools/ehabi/structs.py -> build/bdist.linux-x86_64/wheel/./elftools/ehabi
+creating build/bdist.linux-x86_64/wheel/elftools/construct
+copying build/lib/elftools/construct/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/construct
+copying build/lib/elftools/construct/adapters.py -> build/bdist.linux-x86_64/wheel/./elftools/construct
+copying build/lib/elftools/construct/core.py -> build/bdist.linux-x86_64/wheel/./elftools/construct
+copying build/lib/elftools/construct/debug.py -> build/bdist.linux-x86_64/wheel/./elftools/construct
+copying build/lib/elftools/construct/macros.py -> build/bdist.linux-x86_64/wheel/./elftools/construct
+creating build/bdist.linux-x86_64/wheel/elftools/construct/lib
+copying build/lib/elftools/construct/lib/__init__.py -> build/bdist.linux-x86_64/wheel/./elftools/construct/lib
+copying build/lib/elftools/construct/lib/binary.py -> build/bdist.linux-x86_64/wheel/./elftools/construct/lib
+copying build/lib/elftools/construct/lib/bitstream.py -> build/bdist.linux-x86_64/wheel/./elftools/construct/lib
+copying build/lib/elftools/construct/lib/container.py -> build/bdist.linux-x86_64/wheel/./elftools/construct/lib
+copying build/lib/elftools/construct/lib/hex.py -> build/bdist.linux-x86_64/wheel/./elftools/construct/lib
+copying build/lib/elftools/py.typed -> build/bdist.linux-x86_64/wheel/./elftools
+running install_egg_info
+Copying pyelftools.egg-info to build/bdist.linux-x86_64/wheel/./pyelftools-0.33-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/pyelftools-0.33.data/scripts
+copying build/scripts-3.14/readelf.py -> build/bdist.linux-x86_64/wheel/pyelftools-0.33.data/scripts
+changing mode of build/bdist.linux-x86_64/wheel/pyelftools-0.33.data/scripts/readelf.py to 755
+creating build/bdist.linux-x86_64/wheel/pyelftools-0.33.dist-info/WHEEL
+creating '/home/builder/build/src/pyelftools-0.33/dist/.tmp-4vnnymk1/pyelftools-0.33-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'elftools/__init__.py'
+adding 'elftools/py.typed'
+adding 'elftools/common/__init__.py'
+adding 'elftools/common/construct_utils.py'
+adding 'elftools/common/exceptions.py'
+adding 'elftools/common/utils.py'
+adding 'elftools/construct/__init__.py'
+adding 'elftools/construct/adapters.py'
+adding 'elftools/construct/core.py'
+adding 'elftools/construct/debug.py'
+adding 'elftools/construct/macros.py'
+adding 'elftools/construct/lib/__init__.py'
+adding 'elftools/construct/lib/binary.py'
+adding 'elftools/construct/lib/bitstream.py'
+adding 'elftools/construct/lib/container.py'
+adding 'elftools/construct/lib/hex.py'
+adding 'elftools/dwarf/__init__.py'
+adding 'elftools/dwarf/abbrevtable.py'
+adding 'elftools/dwarf/aranges.py'
+adding 'elftools/dwarf/callframe.py'
+adding 'elftools/dwarf/compileunit.py'
+adding 'elftools/dwarf/constants.py'
+adding 'elftools/dwarf/datatype_cpp.py'
+adding 'elftools/dwarf/descriptions.py'
+adding 'elftools/dwarf/die.py'
+adding 'elftools/dwarf/dwarf_expr.py'
+adding 'elftools/dwarf/dwarf_util.py'
+adding 'elftools/dwarf/dwarfinfo.py'
+adding 'elftools/dwarf/enums.py'
+adding 'elftools/dwarf/lineprogram.py'
+adding 'elftools/dwarf/locationlists.py'
+adding 'elftools/dwarf/namelut.py'
+adding 'elftools/dwarf/ranges.py'
+adding 'elftools/dwarf/structs.py'
+adding 'elftools/dwarf/typeunit.py'
+adding 'elftools/ehabi/__init__.py'
+adding 'elftools/ehabi/constants.py'
+adding 'elftools/ehabi/decoder.py'
+adding 'elftools/ehabi/ehabiinfo.py'
+adding 'elftools/ehabi/structs.py'
+adding 'elftools/elf/__init__.py'
+adding 'elftools/elf/constants.py'
+adding 'elftools/elf/descriptions.py'
+adding 'elftools/elf/dynamic.py'
+adding 'elftools/elf/elffile.py'
+adding 'elftools/elf/enums.py'
+adding 'elftools/elf/gnuversions.py'
+adding 'elftools/elf/hash.py'
+adding 'elftools/elf/notes.py'
+adding 'elftools/elf/relocation.py'
+adding 'elftools/elf/sections.py'
+adding 'elftools/elf/segments.py'
+adding 'elftools/elf/structs.py'
+adding 'pyelftools-0.33.data/scripts/readelf.py'
+adding 'pyelftools-0.33.dist-info/licenses/LICENSE'
+adding 'pyelftools-0.33.dist-info/METADATA'
+adding 'pyelftools-0.33.dist-info/WHEEL'
+adding 'pyelftools-0.33.dist-info/top_level.txt'
+adding 'pyelftools-0.33.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built pyelftools-0.33-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-pyelftools/usr/share'
+install: creating directory '/home/builder/build/pkg/python-pyelftools/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-pyelftools/usr/share/licenses/python-pyelftools'
+'LICENSE' -> '/home/builder/build/pkg/python-pyelftools/usr/share/licenses/python-pyelftools/LICENSE'
+install: creating directory '/home/builder/build/pkg/python-pyelftools/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools'
+'README.md' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/README.md'
+'CHANGES' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/CHANGES'
+'examples' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples'
+'examples/dwarf_decode_address.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_decode_address.py'
+'examples/dwarf_die_tree.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_die_tree.py'
+'examples/dwarf_lineprogram_filenames.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_lineprogram_filenames.py'
+'examples/dwarf_location_info.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_location_info.py'
+'examples/dwarf_pubnames_types.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_pubnames_types.py'
+'examples/dwarf_range_lists.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/dwarf_range_lists.py'
+'examples/elf_low_high_api.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/elf_low_high_api.py'
+'examples/elf_notes.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/elf_notes.py'
+'examples/elf_relocations.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/elf_relocations.py'
+'examples/elf_show_debug_sections.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/elf_show_debug_sections.py'
+'examples/elfclass_address_size.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/elfclass_address_size.py'
+'examples/examine_dwarf_info.py' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/examine_dwarf_info.py'
+'examples/reference_output' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output'
+'examples/reference_output/dwarf_decode_address.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_decode_address.out'
+'examples/reference_output/dwarf_die_tree.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_die_tree.out'
+'examples/reference_output/dwarf_lineprogram_filenames.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_lineprogram_filenames.out'
+'examples/reference_output/dwarf_location_info.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_location_info.out'
+'examples/reference_output/dwarf_pubnames_types.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_pubnames_types.out'
+'examples/reference_output/dwarf_range_lists.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/dwarf_range_lists.out'
+'examples/reference_output/elf_low_high_api.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/elf_low_high_api.out'
+'examples/reference_output/elf_notes.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/elf_notes.out'
+'examples/reference_output/elf_relocations.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/elf_relocations.out'
+'examples/reference_output/elf_show_debug_sections.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/elf_show_debug_sections.out'
+'examples/reference_output/elfclass_address_size.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/elfclass_address_size.out'
+'examples/reference_output/examine_dwarf_info.out' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/reference_output/examine_dwarf_info.out'
+'examples/sample_exe64.elf' -> '/home/builder/build/pkg/python-pyelftools/usr/share/doc/python-pyelftools/examples/sample_exe64.elf'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+==> Checking for packaging issues...
+==> Creating package "python-pyelftools"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-pyelftools 0.33-1 (Sat Sep 19 21:54:12 2026)

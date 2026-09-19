@@ -1,0 +1,342 @@
+== build python-strictyaml (deps: git python python-build python-dateutil python-installer python-ruamel.yaml.clib python-setuptools python-wheel )
+resolving dependencies...
+warning: python-3.14.7-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (13) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-six-1.17.0-3  git-2.55.0-1  python-build-1.6.0-1  python-dateutil-2.9.0-8  python-installer-1.0.1-1  python-ruamel.yaml.clib-0.2.15-2  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:    8.26 MiB
+Total Installed Size:  51.78 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-dateutil-2.9.0-8-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-ruamel.yaml.clib-0.2.15-2-x86_64 downloading...
+ python-packaging-26.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-six-1.17.0-3-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-six...
+installing python-dateutil...
+installing python-installer...
+installing python-ruamel.yaml.clib...
+installing python-setuptools...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-strictyaml 1.7.3-5 (Sat Sep 19 22:43:59 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning strictyaml git repo...
+Cloning into bare repository '/sources/strictyaml'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    strictyaml ... Passed
+==> Extracting sources...
+  -> Creating working copy of strictyaml git repo...
+Cloning into 'strictyaml'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating strictyaml.egg-info
+writing strictyaml.egg-info/PKG-INFO
+writing dependency_links to strictyaml.egg-info/dependency_links.txt
+writing requirements to strictyaml.egg-info/requires.txt
+writing top-level names to strictyaml.egg-info/top_level.txt
+writing manifest file 'strictyaml.egg-info/SOURCES.txt'
+reading manifest file 'strictyaml.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: manifest_maker: MANIFEST.in, line 2: 'recursive-include' expects <dir> <pattern1> <pattern2> ...
+
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[co]' found anywhere in distribution
+adding license file 'LICENSE.txt'
+writing manifest file 'strictyaml.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/strictyaml
+copying strictyaml/__init__.py -> build/lib/strictyaml
+copying strictyaml/any_validator.py -> build/lib/strictyaml
+copying strictyaml/compound.py -> build/lib/strictyaml
+copying strictyaml/constants.py -> build/lib/strictyaml
+copying strictyaml/dumper.py -> build/lib/strictyaml
+copying strictyaml/exceptions.py -> build/lib/strictyaml
+copying strictyaml/parser.py -> build/lib/strictyaml
+copying strictyaml/representation.py -> build/lib/strictyaml
+copying strictyaml/scalar.py -> build/lib/strictyaml
+copying strictyaml/utils.py -> build/lib/strictyaml
+copying strictyaml/validators.py -> build/lib/strictyaml
+copying strictyaml/yamllocation.py -> build/lib/strictyaml
+copying strictyaml/yamlpointer.py -> build/lib/strictyaml
+creating build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/__init__.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/anchor.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/comments.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/compat.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/composer.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/configobjwalker.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/constructor.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/cyaml.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/dumper.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/emitter.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/error.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/events.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/loader.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/main.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/nodes.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/parser.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/reader.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/representer.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/resolver.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/scalarbool.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/scalarfloat.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/scalarint.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/scalarstring.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/scanner.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/serializer.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/timestamp.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/tokens.py -> build/lib/strictyaml/ruamel
+copying strictyaml/ruamel/util.py -> build/lib/strictyaml/ruamel
+running egg_info
+writing strictyaml.egg-info/PKG-INFO
+writing dependency_links to strictyaml.egg-info/dependency_links.txt
+writing requirements to strictyaml.egg-info/requires.txt
+writing top-level names to strictyaml.egg-info/top_level.txt
+reading manifest file 'strictyaml.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: manifest_maker: MANIFEST.in, line 2: 'recursive-include' expects <dir> <pattern1> <pattern2> ...
+
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[co]' found anywhere in distribution
+adding license file 'LICENSE.txt'
+writing manifest file 'strictyaml.egg-info/SOURCES.txt'
+copying strictyaml/ruamel/py.typed -> build/lib/strictyaml/ruamel
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/strictyaml
+copying build/lib/strictyaml/__init__.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/any_validator.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/compound.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/constants.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/dumper.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/exceptions.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/parser.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/representation.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/scalar.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/utils.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/validators.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/yamllocation.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+copying build/lib/strictyaml/yamlpointer.py -> build/bdist.linux-x86_64/wheel/./strictyaml
+creating build/bdist.linux-x86_64/wheel/strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/__init__.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/anchor.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/comments.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/compat.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/composer.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/configobjwalker.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/constructor.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/cyaml.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/dumper.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/emitter.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/error.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/events.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/loader.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/main.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/nodes.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/parser.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/reader.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/representer.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/resolver.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/scalarbool.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/scalarfloat.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/scalarint.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/scalarstring.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/scanner.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/serializer.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/timestamp.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/tokens.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/util.py -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+copying build/lib/strictyaml/ruamel/py.typed -> build/bdist.linux-x86_64/wheel/./strictyaml/ruamel
+running install_egg_info
+Copying strictyaml.egg-info to build/bdist.linux-x86_64/wheel/./strictyaml-1.7.3-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/strictyaml-1.7.3.dist-info/WHEEL
+creating '/home/builder/build/src/strictyaml/dist/.tmp-c4yc4zvy/strictyaml-1.7.3-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'strictyaml/__init__.py'
+adding 'strictyaml/any_validator.py'
+adding 'strictyaml/compound.py'
+adding 'strictyaml/constants.py'
+adding 'strictyaml/dumper.py'
+adding 'strictyaml/exceptions.py'
+adding 'strictyaml/parser.py'
+adding 'strictyaml/representation.py'
+adding 'strictyaml/scalar.py'
+adding 'strictyaml/utils.py'
+adding 'strictyaml/validators.py'
+adding 'strictyaml/yamllocation.py'
+adding 'strictyaml/yamlpointer.py'
+adding 'strictyaml/ruamel/__init__.py'
+adding 'strictyaml/ruamel/anchor.py'
+adding 'strictyaml/ruamel/comments.py'
+adding 'strictyaml/ruamel/compat.py'
+adding 'strictyaml/ruamel/composer.py'
+adding 'strictyaml/ruamel/configobjwalker.py'
+adding 'strictyaml/ruamel/constructor.py'
+adding 'strictyaml/ruamel/cyaml.py'
+adding 'strictyaml/ruamel/dumper.py'
+adding 'strictyaml/ruamel/emitter.py'
+adding 'strictyaml/ruamel/error.py'
+adding 'strictyaml/ruamel/events.py'
+adding 'strictyaml/ruamel/loader.py'
+adding 'strictyaml/ruamel/main.py'
+adding 'strictyaml/ruamel/nodes.py'
+adding 'strictyaml/ruamel/parser.py'
+adding 'strictyaml/ruamel/py.typed'
+adding 'strictyaml/ruamel/reader.py'
+adding 'strictyaml/ruamel/representer.py'
+adding 'strictyaml/ruamel/resolver.py'
+adding 'strictyaml/ruamel/scalarbool.py'
+adding 'strictyaml/ruamel/scalarfloat.py'
+adding 'strictyaml/ruamel/scalarint.py'
+adding 'strictyaml/ruamel/scalarstring.py'
+adding 'strictyaml/ruamel/scanner.py'
+adding 'strictyaml/ruamel/serializer.py'
+adding 'strictyaml/ruamel/timestamp.py'
+adding 'strictyaml/ruamel/tokens.py'
+adding 'strictyaml/ruamel/util.py'
+adding 'strictyaml-1.7.3.dist-info/licenses/LICENSE.txt'
+adding 'strictyaml-1.7.3.dist-info/METADATA'
+adding 'strictyaml-1.7.3.dist-info/WHEEL'
+adding 'strictyaml-1.7.3.dist-info/top_level.txt'
+adding 'strictyaml-1.7.3.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built strictyaml-1.7.3-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-strictyaml"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-strictyaml 1.7.3-5 (Sat Sep 19 22:44:15 2026)

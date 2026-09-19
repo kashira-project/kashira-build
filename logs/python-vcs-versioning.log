@@ -1,0 +1,350 @@
+== build python-vcs-versioning (deps: git python python-build python-installer python-packaging python-setuptools )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (9) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-pyproject-hooks-1.2.0-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-packaging-26.3-1  python-setuptools-84.0.0-1
+
+Total Download Size:    7.79 MiB
+Total Installed Size:  50.21 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-vcs-versioning 2.4.1-1 (Sat Sep 19 22:02:41 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning python-setuptools-scm git repo...
+Cloning into bare repository '/sources/python-setuptools-scm'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    python-setuptools-scm ... Passed
+==> Validating source files with b2sums...
+    python-setuptools-scm ... Passed
+==> Extracting sources...
+  -> Creating working copy of python-setuptools-scm git repo...
+Cloning into 'python-setuptools-scm'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+* Getting build dependencies for wheel...
+<string>:71: DeprecationWarning: get_version() parameter 'tag_regex' is deprecated. Use 'tag.regex' in pyproject.toml or pass a TagConfiguration via Configuration(tag=...) instead.
+parse with <function parse_pkginfo at 0x7fd749090bf0> failed with: [Errno 2] No such file or directory: '/home/builder/build/src/python-setuptools-scm/vcs-versioning/PKG-INFO'
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+running egg_info
+creating src/vcs_versioning.egg-info
+writing src/vcs_versioning.egg-info/PKG-INFO
+writing dependency_links to src/vcs_versioning.egg-info/dependency_links.txt
+writing entry points to src/vcs_versioning.egg-info/entry_points.txt
+writing requirements to src/vcs_versioning.egg-info/requires.txt
+writing top-level names to src/vcs_versioning.egg-info/top_level.txt
+writing manifest file 'src/vcs_versioning.egg-info/SOURCES.txt'
+reading manifest file 'src/vcs_versioning.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files found matching '*.nix'
+warning: no previously-included files found matching '.pre-commit-config.yaml'
+warning: no previously-included files found matching 'changelog.d/*'
+warning: no previously-included files found matching '.git_archival.txt'
+warning: no previously-included files found matching '.readthedocs.yaml'
+no previously-included directories found matching '.cursor'
+adding license file 'LICENSE.txt'
+writing manifest file 'src/vcs_versioning.egg-info/SOURCES.txt'
+* Building wheel...
+<string>:71: DeprecationWarning: get_version() parameter 'tag_regex' is deprecated. Use 'tag.regex' in pyproject.toml or pass a TagConfiguration via Configuration(tag=...) instead.
+parse with <function parse_pkginfo at 0x7f11a420c300> failed with: [Errno 2] No such file or directory: '/home/builder/build/src/python-setuptools-scm/vcs-versioning/PKG-INFO'
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+running bdist_wheel
+running build
+running build_py
+creating build/lib/vcs_versioning
+copying src/vcs_versioning/__init__.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/__main__.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_compat.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_config.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_discover.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_dump_version.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_dynamic_metadata.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_entrypoints.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_environment.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_exceptions.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_fallback_workdir.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_fallbacks.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_get_version_impl.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_integration.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_integrator_helpers.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_legacy_parse.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_log.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_modify_version.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_node_utils.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_overrides.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_paths.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_project_overrides.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_protocols.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_pyproject_reading.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_requirement_cls.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_run_cmd.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_scm_metadata.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_scm_version.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_test_utils.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_toml.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_types.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_version_cls.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_version_fields.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_version_inference.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/overrides.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/test_api.py -> build/lib/vcs_versioning
+copying src/vcs_versioning/_worktree_discovery.py -> build/lib/vcs_versioning
+creating build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/__init__.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_discover_vcs.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_git.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_hg.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_hg_git.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_jj.py -> build/lib/vcs_versioning/_backends
+copying src/vcs_versioning/_backends/_scm_workdir.py -> build/lib/vcs_versioning/_backends
+creating build/lib/vcs_versioning/_cli
+copying src/vcs_versioning/_cli/__init__.py -> build/lib/vcs_versioning/_cli
+copying src/vcs_versioning/_cli/_args.py -> build/lib/vcs_versioning/_cli
+creating build/lib/vcs_versioning/_file_finders
+copying src/vcs_versioning/_file_finders/__init__.py -> build/lib/vcs_versioning/_file_finders
+copying src/vcs_versioning/_file_finders/_git.py -> build/lib/vcs_versioning/_file_finders
+copying src/vcs_versioning/_file_finders/_hg.py -> build/lib/vcs_versioning/_file_finders
+copying src/vcs_versioning/_file_finders/_jj.py -> build/lib/vcs_versioning/_file_finders
+creating build/lib/vcs_versioning/_version_schemes
+copying src/vcs_versioning/_version_schemes/__init__.py -> build/lib/vcs_versioning/_version_schemes
+copying src/vcs_versioning/_version_schemes/_common.py -> build/lib/vcs_versioning/_version_schemes
+copying src/vcs_versioning/_version_schemes/_standard.py -> build/lib/vcs_versioning/_version_schemes
+copying src/vcs_versioning/_version_schemes/_towncrier.py -> build/lib/vcs_versioning/_version_schemes
+running egg_info
+writing src/vcs_versioning.egg-info/PKG-INFO
+writing dependency_links to src/vcs_versioning.egg-info/dependency_links.txt
+writing entry points to src/vcs_versioning.egg-info/entry_points.txt
+writing requirements to src/vcs_versioning.egg-info/requires.txt
+writing top-level names to src/vcs_versioning.egg-info/top_level.txt
+reading manifest file 'src/vcs_versioning.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files found matching '*.nix'
+warning: no previously-included files found matching '.pre-commit-config.yaml'
+warning: no previously-included files found matching 'changelog.d/*'
+warning: no previously-included files found matching '.git_archival.txt'
+warning: no previously-included files found matching '.readthedocs.yaml'
+no previously-included directories found matching '.cursor'
+adding license file 'LICENSE.txt'
+writing manifest file 'src/vcs_versioning.egg-info/SOURCES.txt'
+copying src/vcs_versioning/py.typed -> build/lib/vcs_versioning
+copying src/vcs_versioning/_cli/git_archival_full.txt -> build/lib/vcs_versioning/_cli
+copying src/vcs_versioning/_cli/git_archival_stable.txt -> build/lib/vcs_versioning/_cli
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/vcs_versioning
+copying build/lib/vcs_versioning/__init__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/__main__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_compat.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_config.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_discover.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_dump_version.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_dynamic_metadata.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_entrypoints.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_environment.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_exceptions.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_fallback_workdir.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_fallbacks.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_get_version_impl.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_integration.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_integrator_helpers.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_legacy_parse.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_log.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_modify_version.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_node_utils.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_overrides.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_paths.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_project_overrides.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_protocols.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_pyproject_reading.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_requirement_cls.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_run_cmd.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_scm_metadata.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_scm_version.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_test_utils.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_toml.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_types.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_version_cls.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_version_fields.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_version_inference.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/overrides.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/test_api.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+copying build/lib/vcs_versioning/_worktree_discovery.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+creating build/bdist.linux-x86_64/wheel/vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/__init__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_discover_vcs.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_git.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_hg.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_hg_git.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_jj.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+copying build/lib/vcs_versioning/_backends/_scm_workdir.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_backends
+creating build/bdist.linux-x86_64/wheel/vcs_versioning/_cli
+copying build/lib/vcs_versioning/_cli/__init__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_cli
+copying build/lib/vcs_versioning/_cli/_args.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_cli
+copying build/lib/vcs_versioning/_cli/git_archival_full.txt -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_cli
+copying build/lib/vcs_versioning/_cli/git_archival_stable.txt -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_cli
+creating build/bdist.linux-x86_64/wheel/vcs_versioning/_file_finders
+copying build/lib/vcs_versioning/_file_finders/__init__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_file_finders
+copying build/lib/vcs_versioning/_file_finders/_git.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_file_finders
+copying build/lib/vcs_versioning/_file_finders/_hg.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_file_finders
+copying build/lib/vcs_versioning/_file_finders/_jj.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_file_finders
+creating build/bdist.linux-x86_64/wheel/vcs_versioning/_version_schemes
+copying build/lib/vcs_versioning/_version_schemes/__init__.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_version_schemes
+copying build/lib/vcs_versioning/_version_schemes/_common.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_version_schemes
+copying build/lib/vcs_versioning/_version_schemes/_standard.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_version_schemes
+copying build/lib/vcs_versioning/_version_schemes/_towncrier.py -> build/bdist.linux-x86_64/wheel/./vcs_versioning/_version_schemes
+copying build/lib/vcs_versioning/py.typed -> build/bdist.linux-x86_64/wheel/./vcs_versioning
+running install_egg_info
+Copying src/vcs_versioning.egg-info to build/bdist.linux-x86_64/wheel/./vcs_versioning-2.4.1-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/vcs_versioning-2.4.1.dist-info/WHEEL
+creating '/home/builder/build/src/python-setuptools-scm/vcs-versioning/dist/.tmp-otu7zyw9/vcs_versioning-2.4.1-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'vcs_versioning/__init__.py'
+adding 'vcs_versioning/__main__.py'
+adding 'vcs_versioning/_compat.py'
+adding 'vcs_versioning/_config.py'
+adding 'vcs_versioning/_discover.py'
+adding 'vcs_versioning/_dump_version.py'
+adding 'vcs_versioning/_dynamic_metadata.py'
+adding 'vcs_versioning/_entrypoints.py'
+adding 'vcs_versioning/_environment.py'
+adding 'vcs_versioning/_exceptions.py'
+adding 'vcs_versioning/_fallback_workdir.py'
+adding 'vcs_versioning/_fallbacks.py'
+adding 'vcs_versioning/_get_version_impl.py'
+adding 'vcs_versioning/_integration.py'
+adding 'vcs_versioning/_integrator_helpers.py'
+adding 'vcs_versioning/_legacy_parse.py'
+adding 'vcs_versioning/_log.py'
+adding 'vcs_versioning/_modify_version.py'
+adding 'vcs_versioning/_node_utils.py'
+adding 'vcs_versioning/_overrides.py'
+adding 'vcs_versioning/_paths.py'
+adding 'vcs_versioning/_project_overrides.py'
+adding 'vcs_versioning/_protocols.py'
+adding 'vcs_versioning/_pyproject_reading.py'
+adding 'vcs_versioning/_requirement_cls.py'
+adding 'vcs_versioning/_run_cmd.py'
+adding 'vcs_versioning/_scm_metadata.py'
+adding 'vcs_versioning/_scm_version.py'
+adding 'vcs_versioning/_test_utils.py'
+adding 'vcs_versioning/_toml.py'
+adding 'vcs_versioning/_types.py'
+adding 'vcs_versioning/_version_cls.py'
+adding 'vcs_versioning/_version_fields.py'
+adding 'vcs_versioning/_version_inference.py'
+adding 'vcs_versioning/_worktree_discovery.py'
+adding 'vcs_versioning/overrides.py'
+adding 'vcs_versioning/py.typed'
+adding 'vcs_versioning/test_api.py'
+adding 'vcs_versioning/_backends/__init__.py'
+adding 'vcs_versioning/_backends/_discover_vcs.py'
+adding 'vcs_versioning/_backends/_git.py'
+adding 'vcs_versioning/_backends/_hg.py'
+adding 'vcs_versioning/_backends/_hg_git.py'
+adding 'vcs_versioning/_backends/_jj.py'
+adding 'vcs_versioning/_backends/_scm_workdir.py'
+adding 'vcs_versioning/_cli/__init__.py'
+adding 'vcs_versioning/_cli/_args.py'
+adding 'vcs_versioning/_cli/git_archival_full.txt'
+adding 'vcs_versioning/_cli/git_archival_stable.txt'
+adding 'vcs_versioning/_file_finders/__init__.py'
+adding 'vcs_versioning/_file_finders/_git.py'
+adding 'vcs_versioning/_file_finders/_hg.py'
+adding 'vcs_versioning/_file_finders/_jj.py'
+adding 'vcs_versioning/_version_schemes/__init__.py'
+adding 'vcs_versioning/_version_schemes/_common.py'
+adding 'vcs_versioning/_version_schemes/_standard.py'
+adding 'vcs_versioning/_version_schemes/_towncrier.py'
+adding 'vcs_versioning-2.4.1.dist-info/licenses/LICENSE.txt'
+adding 'vcs_versioning-2.4.1.dist-info/METADATA'
+adding 'vcs_versioning-2.4.1.dist-info/WHEEL'
+adding 'vcs_versioning-2.4.1.dist-info/entry_points.txt'
+adding 'vcs_versioning-2.4.1.dist-info/top_level.txt'
+adding 'vcs_versioning-2.4.1.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built vcs_versioning-2.4.1-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-vcs-versioning/usr/share'
+install: creating directory '/home/builder/build/pkg/python-vcs-versioning/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-vcs-versioning/usr/share/licenses/python-vcs-versioning'
+'LICENSE.txt' -> '/home/builder/build/pkg/python-vcs-versioning/usr/share/licenses/python-vcs-versioning/LICENSE.txt'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-vcs-versioning"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-vcs-versioning 2.4.1-1 (Sat Sep 19 22:03:02 2026)

@@ -1,0 +1,1396 @@
+== build cython (deps: git glibc python python-build python-installer python-pygments python-setuptools python-wheel )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (11) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-pygments-2.21.0-1  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:    9.84 MiB
+Total Installed Size:  63.08 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-pygments-2.21.0-1-any downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-pygments...
+installing python-setuptools...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: cython 3.3.0-1 (Sat Sep 19 22:30:44 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning cython git repo...
+Cloning into bare repository '/sources/cython'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    cython ... Passed
+==> Extracting sources...
+  -> Creating working copy of cython git repo...
+Cloning into 'cython'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+Auto-merging Cython/Utility/Optimize.c
+==> Starting build()...
+* Getting build dependencies for wheel...
+Unable to find pgen, not compiling formal grammar.
+running egg_info
+creating Cython.egg-info
+writing Cython.egg-info/PKG-INFO
+writing dependency_links to Cython.egg-info/dependency_links.txt
+writing entry points to Cython.egg-info/entry_points.txt
+writing top-level names to Cython.egg-info/top_level.txt
+writing manifest file 'Cython.egg-info/SOURCES.txt'
+dependency /home/builder/build/src/cython/Cython/Compiler/Parsing.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Code.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/FlowControl.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Visitor.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Scanning.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Utils.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Scanners.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Machines.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Transitions.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/DFA.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/StringIOTree.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Actions.pxd won't be automatically included in the manifest: the path must be relative
+reading manifest file 'Cython.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '.gitrev'
+warning: no files found matching 'setupegg.py'
+warning: no files found matching '*.pyi' under directory 'Cython'
+warning: no files found matching 'Doc/*'
+warning: no files found matching '*.pyx' under directory 'Cython/Debugger/Tests'
+warning: no files found matching '*.pxd' under directory 'Cython/Debugger/Tests'
+warning: no files found matching 'pyximport/README'
+writing manifest file 'Cython.egg-info/SOURCES.txt'
+* Building wheel...
+Unable to find pgen, not compiling formal grammar.
+running bdist_wheel
+running build
+running build_py
+creating build/lib.linux-x86_64-cpython-314
+copying cython.py -> build/lib.linux-x86_64-cpython-314
+creating build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/CodeWriter.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/Coverage.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/Debugging.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/LZSS.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/Shadow.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/StringIOTree.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/TestUtils.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython
+copying Cython/Utils.py -> build/lib.linux-x86_64-cpython-314/Cython
+creating build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/BuildExecutable.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/Cythonize.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/Distutils.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/Inline.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/IpythonMagic.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/Cache.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/Dependencies.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+copying Cython/Build/SharedModule.py -> build/lib.linux-x86_64-cpython-314/Cython/Build
+creating build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/AnalysedTreeTransforms.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Annotate.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/AutoDocTransforms.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Buffer.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Builtin.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/CmdLine.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/CodeGeneration.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/CythonScope.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Dataclass.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/DebugFlags.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Errors.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/FlowControl.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/FusedNode.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Future.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Interpreter.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Lexicon.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/LineTable.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/MatchCaseNodes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/MemoryView.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Naming.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Options.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/ParseTreeTransforms.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Parsing.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Pipeline.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Pythran.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Scanning.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/StringEncoding.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Symtab.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/TreeFragment.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/TreePath.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/TypeInference.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/UFuncs.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/UtilNodes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/UtilityCode.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Version.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Visitor.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Code.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/ExprNodes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Main.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/ModuleNode.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Nodes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Optimize.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/PyrexTypes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/TypeSlots.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+creating build/lib.linux-x86_64-cpython-314/Cython/Runtime
+copying Cython/Runtime/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Runtime
+creating build/lib.linux-x86_64-cpython-314/Cython/Distutils
+copying Cython/Distutils/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Distutils
+copying Cython/Distutils/build_ext.py -> build/lib.linux-x86_64-cpython-314/Cython/Distutils
+copying Cython/Distutils/extension.py -> build/lib.linux-x86_64-cpython-314/Cython/Distutils
+copying Cython/Distutils/old_build_ext.py -> build/lib.linux-x86_64-cpython-314/Cython/Distutils
+creating build/lib.linux-x86_64-cpython-314/Cython/Debugger
+copying Cython/Debugger/Cygdb.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger
+copying Cython/Debugger/DebugWriter.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger
+copying Cython/Debugger/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger
+copying Cython/Debugger/libcython.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger
+copying Cython/Debugger/libpython.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger
+creating build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Debugger/Tests/TestLibCython.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Debugger/Tests/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Debugger/Tests/test_libcython_in_gdb.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Debugger/Tests/test_libpython_in_gdb.py -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+creating build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Actions.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/DFA.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Errors.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Lexicons.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Machines.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Regexps.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Scanners.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Transitions.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+creating build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestCodeWriter.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestJediTyper.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestShadow.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestStringIOTree.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestTestUtils.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/xmlrunner.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+copying Cython/Tests/TestCythonUtils.py -> build/lib.linux-x86_64-cpython-314/Cython/Tests
+creating build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestCyCache.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestCythonizeArgsParser.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestDependencies.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestInline.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestIpythonMagic.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestRecythonize.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/TestStripLiterals.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+copying Cython/Build/Tests/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Build/Tests
+creating build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestBuffer.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestBuiltin.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestCmdLine.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestCode.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestFlowControl.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestGrammar.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestMemView.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestParseTreeTransforms.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestScanning.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestSignatureMatching.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestStringEncoding.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestTreeFragment.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestTreePath.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestTypes.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestUtilityLoad.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/TestVisitor.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/Utils.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+copying Cython/Compiler/Tests/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests
+creating build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+creating build/lib.linux-x86_64-cpython-314/Cython/Tempita
+copying Cython/Tempita/__init__.py -> build/lib.linux-x86_64-cpython-314/Cython/Tempita
+copying Cython/Tempita/_looper.py -> build/lib.linux-x86_64-cpython-314/Cython/Tempita
+copying Cython/Tempita/_tempita.py -> build/lib.linux-x86_64-cpython-314/Cython/Tempita
+creating build/lib.linux-x86_64-cpython-314/pyximport
+copying pyximport/__init__.py -> build/lib.linux-x86_64-cpython-314/pyximport
+copying pyximport/pyxbuild.py -> build/lib.linux-x86_64-cpython-314/pyximport
+copying pyximport/pyximport.py -> build/lib.linux-x86_64-cpython-314/pyximport
+copying Cython/py.typed -> build/lib.linux-x86_64-cpython-314/Cython
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes
+copying Cython/Includes/openmp.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/__init__.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/bool.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/buffer.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/bytearray.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/bytes.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/cellobject.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/ceval.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/codecs.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/complex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/contextvars.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/conversion.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/datetime.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/descr.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/dict.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/exc.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/fileobject.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/float.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/frozendict.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/function.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/genobject.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/getargs.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/instance.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/iterator.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/iterobject.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/list.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/long.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/longintrepr.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/mapping.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/marshal.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/mem.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/memoryview.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/method.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/module.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/number.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/object.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/pycapsule.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/pylifecycle.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/pyport.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/pystate.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/pythread.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/ref.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/sentinel.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/sequence.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/set.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/slice.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/time.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/tuple.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/type.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/unicode.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/version.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/weakref.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+copying Cython/Includes/cpython/array.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/__init__.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/complex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/errno.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/float.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/limits.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/locale.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/math.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/setjmp.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/signal.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/stddef.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/stdint.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/stdio.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/stdlib.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/string.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/threads.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+copying Cython/Includes/libc/time.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libc
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/__init__.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/algorithm.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/any.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/atomic.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/barrier.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/bit.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/cast.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/cmath.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/complex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/condition_variable.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/deque.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/exception.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/execution.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/forward_list.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/functional.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/future.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/iterator.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/latch.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/limits.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/list.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/map.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/memory.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/mutex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/numbers.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/numeric.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/optional.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/pair.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/queue.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/random.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/semaphore.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/set.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/shared_mutex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/span.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/stack.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/stop_token.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/string.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/string_view.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/typeindex.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/typeinfo.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/unordered_map.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/unordered_set.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/utility.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+copying Cython/Includes/libcpp/vector.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes/numpy
+copying Cython/Includes/numpy/math.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/numpy
+creating build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/__init__.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/dlfcn.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/fcntl.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/ioctl.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/mman.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/resource.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/select.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/signal.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/stat.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/stdio.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/stdlib.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/strings.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/time.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/types.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/uio.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/unistd.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Includes/posix/wait.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Includes/posix
+copying Cython/Compiler/Code.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/FlowControl.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/ParseTreeTransforms.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Parsing.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Scanning.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Compiler/Visitor.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Compiler
+copying Cython/Runtime/refnanny.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Runtime
+copying Cython/Debugger/Tests/codefile -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Debugger/Tests/cfuncs.c -> build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests
+copying Cython/Plex/Actions.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/DFA.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Machines.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Scanners.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Plex/Transitions.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Plex
+copying Cython/Utility/CConvert.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CpdefEnums.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CppConvert.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Exceptions_Cy.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/FusedFunction.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/MatchCase_Cy.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/MemoryView.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/TestCyUtilityLoader.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/TestCythonScope.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/UFuncs.pyx -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/BufferFormatFromTypeInfo.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/MemoryView.pxd -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/AsyncGen.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Buffer.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Builtins.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CMath.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CommonStructures.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Complex.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Coroutine.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Dataclasses.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Embed.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Exceptions.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/ImportExport.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/MemoryView_C.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/NumpyImportArray.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Overflow.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Synchronization.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/TestUtilityLoader.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/TypeConversion.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/UFuncs_C.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CythonFunction.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/ExtensionTypes.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/FunctionArguments.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/MatchCase.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/ModuleSetupCode.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/ObjectHandling.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Profile.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/StringTools.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/TString.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/Optimize.c -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/arrayarray.h -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+copying Cython/Utility/CppSupport.cpp -> build/lib.linux-x86_64-cpython-314/Cython/Utility
+running build_ext
+Compiling /home/builder/build/src/cython/Cython/Compiler/Parsing.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/Parsing.py
+building 'Cython.Compiler.Parsing' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/Parsing.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Parsing.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Parsing.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/Parsing.cpython-314-x86_64-linux-gnu.so
+warning: Cython/Compiler/Code.py:685:40: Strings should no longer be used for type declarations. Use 'cython.int' etc. directly.
+warning: Cython/Compiler/Code.py:715:54: Strings should no longer be used for type declarations. Use 'cython.int' etc. directly.
+Compiling /home/builder/build/src/cython/Cython/Compiler/Code.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/Code.py
+building 'Cython.Compiler.Code' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/Code.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Code.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Code.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/Code.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/FlowControl.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/FlowControl.py
+building 'Cython.Compiler.FlowControl' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/FlowControl.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/FlowControl.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/FlowControl.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/FlowControl.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/FusedNode.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/FusedNode.py
+building 'Cython.Compiler.FusedNode' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/FusedNode.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/FusedNode.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/FusedNode.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/FusedNode.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Tempita/_tempita.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Tempita/_tempita.py
+building 'Cython.Tempita._tempita' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Tempita/_tempita.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Tempita/_tempita.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Tempita/_tempita.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Tempita/_tempita.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/Visitor.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/Visitor.py
+building 'Cython.Compiler.Visitor' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/Visitor.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Visitor.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Visitor.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/Visitor.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/Scanning.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/Scanning.py
+building 'Cython.Compiler.Scanning' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/Scanning.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Scanning.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/Scanning.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/Scanning.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Utils.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Utils.py
+building 'Cython.Utils' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Utils.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Utils.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Utils.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Utils.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Plex/Scanners.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Plex/Scanners.py
+building 'Cython.Plex.Scanners' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Plex/Scanners.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Scanners.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Scanners.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Plex/Scanners.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/StringEncoding.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/StringEncoding.py
+building 'Cython.Compiler.StringEncoding' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/StringEncoding.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/StringEncoding.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/StringEncoding.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/StringEncoding.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Runtime/refnanny.pyx because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Runtime/refnanny.pyx
+building 'Cython.Runtime.refnanny' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Runtime/refnanny.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Runtime/refnanny.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Runtime/refnanny.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Runtime/refnanny.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Plex/Machines.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Plex/Machines.py
+building 'Cython.Plex.Machines' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Plex/Machines.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Machines.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Machines.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Plex/Machines.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Plex/Transitions.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Plex/Transitions.py
+building 'Cython.Plex.Transitions' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Plex/Transitions.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Transitions.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Transitions.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Plex/Transitions.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/LZSS.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/LZSS.py
+building 'Cython.LZSS' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/LZSS.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/LZSS.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/LZSS.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/LZSS.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Plex/DFA.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Plex/DFA.py
+building 'Cython.Plex.DFA' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Plex/DFA.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/DFA.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/DFA.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Plex/DFA.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/StringIOTree.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/StringIOTree.py
+building 'Cython.StringIOTree' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/StringIOTree.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/StringIOTree.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/StringIOTree.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/StringIOTree.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Compiler/LineTable.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Compiler/LineTable.py
+building 'Cython.Compiler.LineTable' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Compiler/LineTable.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/LineTable.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Compiler/LineTable.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Compiler/LineTable.cpython-314-x86_64-linux-gnu.so
+Compiling /home/builder/build/src/cython/Cython/Plex/Actions.py because it changed.
+[1/1] Cythonizing /home/builder/build/src/cython/Cython/Plex/Actions.py
+building 'Cython.Plex.Actions' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c /home/builder/build/src/cython/Cython/Plex/Actions.c -o build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Actions.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/home/builder/build/src/cython/Cython/Plex/Actions.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/Plex/Actions.cpython-314-x86_64-linux-gnu.so
+Generating shared module 'Cython._shared'
+building 'Cython._shared' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -DCYTHON_USE_TYPE_SPECS=1 -I/usr/include/python3.14 -c Cython/_shared.c -o build/temp.linux-x86_64-cpython-314/Cython/_shared.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/Cython/_shared.o -L/usr/lib -o build/lib.linux-x86_64-cpython-314/Cython/_shared.cpython-314-x86_64-linux-gnu.so
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+copying build/lib.linux-x86_64-cpython-314/cython.py -> build/bdist.linux-x86_64/wheel/.
+creating build/bdist.linux-x86_64/wheel/Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/CodeWriter.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/Coverage.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugging.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/LZSS.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/Shadow.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/StringIOTree.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/TestUtils.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/Utils.py -> build/bdist.linux-x86_64/wheel/./Cython
+creating build/bdist.linux-x86_64/wheel/Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/BuildExecutable.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Cythonize.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Distutils.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Inline.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/IpythonMagic.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Cache.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Dependencies.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/SharedModule.py -> build/bdist.linux-x86_64/wheel/./Cython/Build
+creating build/bdist.linux-x86_64/wheel/Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestCyCache.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestCythonizeArgsParser.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestDependencies.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestInline.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestIpythonMagic.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestRecythonize.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/TestStripLiterals.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Build/Tests/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Build/Tests
+creating build/bdist.linux-x86_64/wheel/Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/AnalysedTreeTransforms.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Annotate.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/AutoDocTransforms.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Buffer.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Builtin.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/CmdLine.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/CodeGeneration.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/CythonScope.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Dataclass.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/DebugFlags.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Errors.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/FlowControl.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/FusedNode.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Future.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Interpreter.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Lexicon.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/LineTable.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/MatchCaseNodes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/MemoryView.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Naming.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Options.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/ParseTreeTransforms.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Parsing.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Pipeline.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Pythran.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Scanning.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/StringEncoding.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Symtab.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/TreeFragment.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/TreePath.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/TypeInference.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/UFuncs.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/UtilNodes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/UtilityCode.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Version.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Visitor.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Code.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/ExprNodes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Main.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/ModuleNode.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Nodes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Optimize.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/PyrexTypes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/TypeSlots.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+creating build/bdist.linux-x86_64/wheel/Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestBuffer.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestBuiltin.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestCmdLine.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestCode.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestFlowControl.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestGrammar.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestMemView.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestParseTreeTransforms.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestScanning.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestSignatureMatching.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestStringEncoding.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestTreeFragment.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestTreePath.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestTypes.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestUtilityLoad.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/TestVisitor.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/Utils.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Tests/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Compiler/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Code.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/FlowControl.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/ParseTreeTransforms.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Parsing.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Scanning.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Visitor.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Parsing.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Code.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/FlowControl.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/FusedNode.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Visitor.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/Scanning.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/StringEncoding.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+copying build/lib.linux-x86_64-cpython-314/Cython/Compiler/LineTable.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Compiler
+creating build/bdist.linux-x86_64/wheel/Cython/Runtime
+copying build/lib.linux-x86_64-cpython-314/Cython/Runtime/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Runtime
+copying build/lib.linux-x86_64-cpython-314/Cython/Runtime/refnanny.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Runtime
+copying build/lib.linux-x86_64-cpython-314/Cython/Runtime/refnanny.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Runtime
+creating build/bdist.linux-x86_64/wheel/Cython/Distutils
+copying build/lib.linux-x86_64-cpython-314/Cython/Distutils/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Distutils
+copying build/lib.linux-x86_64-cpython-314/Cython/Distutils/build_ext.py -> build/bdist.linux-x86_64/wheel/./Cython/Distutils
+copying build/lib.linux-x86_64-cpython-314/Cython/Distutils/extension.py -> build/bdist.linux-x86_64/wheel/./Cython/Distutils
+copying build/lib.linux-x86_64-cpython-314/Cython/Distutils/old_build_ext.py -> build/bdist.linux-x86_64/wheel/./Cython/Distutils
+creating build/bdist.linux-x86_64/wheel/Cython/Debugger
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Cygdb.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/DebugWriter.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/libcython.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/libpython.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger
+creating build/bdist.linux-x86_64/wheel/Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/TestLibCython.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/test_libcython_in_gdb.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/test_libpython_in_gdb.py -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/codefile -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Debugger/Tests/cfuncs.c -> build/bdist.linux-x86_64/wheel/./Cython/Debugger/Tests
+creating build/bdist.linux-x86_64/wheel/Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Actions.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/DFA.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Errors.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Lexicons.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Machines.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Regexps.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Scanners.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Transitions.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Actions.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/DFA.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Machines.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Scanners.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Transitions.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Scanners.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Machines.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Transitions.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/DFA.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+copying build/lib.linux-x86_64-cpython-314/Cython/Plex/Actions.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Plex
+creating build/bdist.linux-x86_64/wheel/Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestCodeWriter.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestJediTyper.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestShadow.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestStringIOTree.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestTestUtils.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/xmlrunner.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+copying build/lib.linux-x86_64-cpython-314/Cython/Tests/TestCythonUtils.py -> build/bdist.linux-x86_64/wheel/./Cython/Tests
+creating build/bdist.linux-x86_64/wheel/Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CConvert.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CpdefEnums.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CppConvert.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Exceptions_Cy.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/FusedFunction.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/MatchCase_Cy.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/MemoryView.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/TestCyUtilityLoader.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/TestCythonScope.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/UFuncs.pyx -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/BufferFormatFromTypeInfo.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/MemoryView.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/AsyncGen.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Buffer.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Builtins.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CMath.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CommonStructures.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Complex.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Coroutine.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Dataclasses.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Embed.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Exceptions.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/ImportExport.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/MemoryView_C.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/NumpyImportArray.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Overflow.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Synchronization.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/TestUtilityLoader.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/TypeConversion.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/UFuncs_C.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CythonFunction.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/ExtensionTypes.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/FunctionArguments.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/MatchCase.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/ModuleSetupCode.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/ObjectHandling.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Profile.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/StringTools.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/TString.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/Optimize.c -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/arrayarray.h -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+copying build/lib.linux-x86_64-cpython-314/Cython/Utility/CppSupport.cpp -> build/bdist.linux-x86_64/wheel/./Cython/Utility
+creating build/bdist.linux-x86_64/wheel/Cython/Tempita
+copying build/lib.linux-x86_64-cpython-314/Cython/Tempita/__init__.py -> build/bdist.linux-x86_64/wheel/./Cython/Tempita
+copying build/lib.linux-x86_64-cpython-314/Cython/Tempita/_looper.py -> build/bdist.linux-x86_64/wheel/./Cython/Tempita
+copying build/lib.linux-x86_64-cpython-314/Cython/Tempita/_tempita.py -> build/bdist.linux-x86_64/wheel/./Cython/Tempita
+copying build/lib.linux-x86_64-cpython-314/Cython/Tempita/_tempita.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython/Tempita
+copying build/lib.linux-x86_64-cpython-314/Cython/py.typed -> build/bdist.linux-x86_64/wheel/./Cython
+creating build/bdist.linux-x86_64/wheel/Cython/Includes
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/openmp.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes
+creating build/bdist.linux-x86_64/wheel/Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/__init__.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/bool.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/buffer.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/bytearray.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/bytes.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/cellobject.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/ceval.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/codecs.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/complex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/contextvars.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/conversion.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/datetime.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/descr.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/dict.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/exc.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/fileobject.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/float.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/frozendict.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/function.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/genobject.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/getargs.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/instance.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/iterator.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/iterobject.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/list.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/long.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/longintrepr.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/mapping.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/marshal.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/mem.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/memoryview.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/method.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/module.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/number.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/object.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/pycapsule.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/pylifecycle.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/pyport.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/pystate.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/pythread.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/ref.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/sentinel.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/sequence.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/set.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/slice.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/time.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/tuple.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/type.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/unicode.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/version.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/weakref.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/cpython/array.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/cpython
+creating build/bdist.linux-x86_64/wheel/Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/__init__.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/complex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/errno.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/float.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/limits.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/locale.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/math.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/setjmp.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/signal.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/stddef.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/stdint.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/stdio.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/stdlib.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/string.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/threads.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libc/time.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libc
+creating build/bdist.linux-x86_64/wheel/Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/__init__.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/algorithm.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/any.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/atomic.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/barrier.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/bit.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/cast.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/cmath.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/complex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/condition_variable.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/deque.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/exception.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/execution.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/forward_list.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/functional.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/future.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/iterator.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/latch.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/limits.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/list.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/map.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/memory.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/mutex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/numbers.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/numeric.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/optional.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/pair.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/queue.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/random.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/semaphore.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/set.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/shared_mutex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/span.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/stack.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/stop_token.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/string.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/string_view.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/typeindex.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/typeinfo.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/unordered_map.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/unordered_set.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/utility.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/libcpp/vector.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/libcpp
+creating build/bdist.linux-x86_64/wheel/Cython/Includes/numpy
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/numpy/math.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/numpy
+creating build/bdist.linux-x86_64/wheel/Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/__init__.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/dlfcn.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/fcntl.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/ioctl.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/mman.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/resource.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/select.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/signal.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/stat.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/stdio.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/stdlib.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/strings.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/time.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/types.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/uio.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/unistd.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Includes/posix/wait.pxd -> build/bdist.linux-x86_64/wheel/./Cython/Includes/posix
+copying build/lib.linux-x86_64-cpython-314/Cython/Utils.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/LZSS.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/StringIOTree.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython
+copying build/lib.linux-x86_64-cpython-314/Cython/_shared.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./Cython
+creating build/bdist.linux-x86_64/wheel/pyximport
+copying build/lib.linux-x86_64-cpython-314/pyximport/__init__.py -> build/bdist.linux-x86_64/wheel/./pyximport
+copying build/lib.linux-x86_64-cpython-314/pyximport/pyxbuild.py -> build/bdist.linux-x86_64/wheel/./pyximport
+copying build/lib.linux-x86_64-cpython-314/pyximport/pyximport.py -> build/bdist.linux-x86_64/wheel/./pyximport
+running install_egg_info
+running egg_info
+writing Cython.egg-info/PKG-INFO
+writing dependency_links to Cython.egg-info/dependency_links.txt
+writing entry points to Cython.egg-info/entry_points.txt
+writing top-level names to Cython.egg-info/top_level.txt
+dependency /home/builder/build/src/cython/Cython/Compiler/Parsing.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Code.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/FlowControl.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Visitor.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Compiler/Scanning.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Utils.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Scanners.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Machines.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Transitions.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/DFA.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/StringIOTree.pxd won't be automatically included in the manifest: the path must be relative
+dependency /home/builder/build/src/cython/Cython/Plex/Actions.pxd won't be automatically included in the manifest: the path must be relative
+reading manifest file 'Cython.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '.gitrev'
+warning: no files found matching 'setupegg.py'
+warning: no files found matching '*.pyi' under directory 'Cython'
+warning: no files found matching 'Doc/*'
+warning: no files found matching '*.pyx' under directory 'Cython/Debugger/Tests'
+warning: no files found matching '*.pxd' under directory 'Cython/Debugger/Tests'
+warning: no files found matching 'pyximport/README'
+writing manifest file 'Cython.egg-info/SOURCES.txt'
+Copying Cython.egg-info to build/bdist.linux-x86_64/wheel/./Cython-3.3.0-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/cython-3.3.0.dist-info/WHEEL
+creating '/home/builder/build/src/cython/dist/.tmp-s1ut2dwm/cython-3.3.0-cp314-cp314-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'cython.py'
+adding 'Cython/CodeWriter.py'
+adding 'Cython/Coverage.py'
+adding 'Cython/Debugging.py'
+adding 'Cython/LZSS.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/LZSS.py'
+adding 'Cython/Shadow.py'
+adding 'Cython/StringIOTree.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/StringIOTree.py'
+adding 'Cython/TestUtils.py'
+adding 'Cython/Utils.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Utils.py'
+adding 'Cython/__init__.py'
+adding 'Cython/_shared.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/py.typed'
+adding 'Cython/Build/BuildExecutable.py'
+adding 'Cython/Build/Cache.py'
+adding 'Cython/Build/Cythonize.py'
+adding 'Cython/Build/Dependencies.py'
+adding 'Cython/Build/Distutils.py'
+adding 'Cython/Build/Inline.py'
+adding 'Cython/Build/IpythonMagic.py'
+adding 'Cython/Build/SharedModule.py'
+adding 'Cython/Build/__init__.py'
+adding 'Cython/Build/Tests/TestCyCache.py'
+adding 'Cython/Build/Tests/TestCythonizeArgsParser.py'
+adding 'Cython/Build/Tests/TestDependencies.py'
+adding 'Cython/Build/Tests/TestInline.py'
+adding 'Cython/Build/Tests/TestIpythonMagic.py'
+adding 'Cython/Build/Tests/TestRecythonize.py'
+adding 'Cython/Build/Tests/TestStripLiterals.py'
+adding 'Cython/Build/Tests/__init__.py'
+adding 'Cython/Compiler/AnalysedTreeTransforms.py'
+adding 'Cython/Compiler/Annotate.py'
+adding 'Cython/Compiler/AutoDocTransforms.py'
+adding 'Cython/Compiler/Buffer.py'
+adding 'Cython/Compiler/Builtin.py'
+adding 'Cython/Compiler/CmdLine.py'
+adding 'Cython/Compiler/Code.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/Code.pxd'
+adding 'Cython/Compiler/Code.py'
+adding 'Cython/Compiler/CodeGeneration.py'
+adding 'Cython/Compiler/CythonScope.py'
+adding 'Cython/Compiler/Dataclass.py'
+adding 'Cython/Compiler/DebugFlags.py'
+adding 'Cython/Compiler/Errors.py'
+adding 'Cython/Compiler/ExprNodes.py'
+adding 'Cython/Compiler/FlowControl.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/FlowControl.pxd'
+adding 'Cython/Compiler/FlowControl.py'
+adding 'Cython/Compiler/FusedNode.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/FusedNode.py'
+adding 'Cython/Compiler/Future.py'
+adding 'Cython/Compiler/Interpreter.py'
+adding 'Cython/Compiler/Lexicon.py'
+adding 'Cython/Compiler/LineTable.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/LineTable.py'
+adding 'Cython/Compiler/Main.py'
+adding 'Cython/Compiler/MatchCaseNodes.py'
+adding 'Cython/Compiler/MemoryView.py'
+adding 'Cython/Compiler/ModuleNode.py'
+adding 'Cython/Compiler/Naming.py'
+adding 'Cython/Compiler/Nodes.py'
+adding 'Cython/Compiler/Optimize.py'
+adding 'Cython/Compiler/Options.py'
+adding 'Cython/Compiler/ParseTreeTransforms.pxd'
+adding 'Cython/Compiler/ParseTreeTransforms.py'
+adding 'Cython/Compiler/Parsing.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/Parsing.pxd'
+adding 'Cython/Compiler/Parsing.py'
+adding 'Cython/Compiler/Pipeline.py'
+adding 'Cython/Compiler/PyrexTypes.py'
+adding 'Cython/Compiler/Pythran.py'
+adding 'Cython/Compiler/Scanning.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/Scanning.pxd'
+adding 'Cython/Compiler/Scanning.py'
+adding 'Cython/Compiler/StringEncoding.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/StringEncoding.py'
+adding 'Cython/Compiler/Symtab.py'
+adding 'Cython/Compiler/TreeFragment.py'
+adding 'Cython/Compiler/TreePath.py'
+adding 'Cython/Compiler/TypeInference.py'
+adding 'Cython/Compiler/TypeSlots.py'
+adding 'Cython/Compiler/UFuncs.py'
+adding 'Cython/Compiler/UtilNodes.py'
+adding 'Cython/Compiler/UtilityCode.py'
+adding 'Cython/Compiler/Version.py'
+adding 'Cython/Compiler/Visitor.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Compiler/Visitor.pxd'
+adding 'Cython/Compiler/Visitor.py'
+adding 'Cython/Compiler/__init__.py'
+adding 'Cython/Compiler/Tests/TestBuffer.py'
+adding 'Cython/Compiler/Tests/TestBuiltin.py'
+adding 'Cython/Compiler/Tests/TestCmdLine.py'
+adding 'Cython/Compiler/Tests/TestCode.py'
+adding 'Cython/Compiler/Tests/TestFlowControl.py'
+adding 'Cython/Compiler/Tests/TestGrammar.py'
+adding 'Cython/Compiler/Tests/TestMemView.py'
+adding 'Cython/Compiler/Tests/TestParseTreeTransforms.py'
+adding 'Cython/Compiler/Tests/TestScanning.py'
+adding 'Cython/Compiler/Tests/TestSignatureMatching.py'
+adding 'Cython/Compiler/Tests/TestStringEncoding.py'
+adding 'Cython/Compiler/Tests/TestTreeFragment.py'
+adding 'Cython/Compiler/Tests/TestTreePath.py'
+adding 'Cython/Compiler/Tests/TestTypes.py'
+adding 'Cython/Compiler/Tests/TestUtilityLoad.py'
+adding 'Cython/Compiler/Tests/TestVisitor.py'
+adding 'Cython/Compiler/Tests/Utils.py'
+adding 'Cython/Compiler/Tests/__init__.py'
+adding 'Cython/Debugger/Cygdb.py'
+adding 'Cython/Debugger/DebugWriter.py'
+adding 'Cython/Debugger/__init__.py'
+adding 'Cython/Debugger/libcython.py'
+adding 'Cython/Debugger/libpython.py'
+adding 'Cython/Debugger/Tests/TestLibCython.py'
+adding 'Cython/Debugger/Tests/__init__.py'
+adding 'Cython/Debugger/Tests/cfuncs.c'
+adding 'Cython/Debugger/Tests/codefile'
+adding 'Cython/Debugger/Tests/test_libcython_in_gdb.py'
+adding 'Cython/Debugger/Tests/test_libpython_in_gdb.py'
+adding 'Cython/Distutils/__init__.py'
+adding 'Cython/Distutils/build_ext.py'
+adding 'Cython/Distutils/extension.py'
+adding 'Cython/Distutils/old_build_ext.py'
+adding 'Cython/Includes/openmp.pxd'
+adding 'Cython/Includes/cpython/__init__.pxd'
+adding 'Cython/Includes/cpython/array.pxd'
+adding 'Cython/Includes/cpython/bool.pxd'
+adding 'Cython/Includes/cpython/buffer.pxd'
+adding 'Cython/Includes/cpython/bytearray.pxd'
+adding 'Cython/Includes/cpython/bytes.pxd'
+adding 'Cython/Includes/cpython/cellobject.pxd'
+adding 'Cython/Includes/cpython/ceval.pxd'
+adding 'Cython/Includes/cpython/codecs.pxd'
+adding 'Cython/Includes/cpython/complex.pxd'
+adding 'Cython/Includes/cpython/contextvars.pxd'
+adding 'Cython/Includes/cpython/conversion.pxd'
+adding 'Cython/Includes/cpython/datetime.pxd'
+adding 'Cython/Includes/cpython/descr.pxd'
+adding 'Cython/Includes/cpython/dict.pxd'
+adding 'Cython/Includes/cpython/exc.pxd'
+adding 'Cython/Includes/cpython/fileobject.pxd'
+adding 'Cython/Includes/cpython/float.pxd'
+adding 'Cython/Includes/cpython/frozendict.pxd'
+adding 'Cython/Includes/cpython/function.pxd'
+adding 'Cython/Includes/cpython/genobject.pxd'
+adding 'Cython/Includes/cpython/getargs.pxd'
+adding 'Cython/Includes/cpython/instance.pxd'
+adding 'Cython/Includes/cpython/iterator.pxd'
+adding 'Cython/Includes/cpython/iterobject.pxd'
+adding 'Cython/Includes/cpython/list.pxd'
+adding 'Cython/Includes/cpython/long.pxd'
+adding 'Cython/Includes/cpython/longintrepr.pxd'
+adding 'Cython/Includes/cpython/mapping.pxd'
+adding 'Cython/Includes/cpython/marshal.pxd'
+adding 'Cython/Includes/cpython/mem.pxd'
+adding 'Cython/Includes/cpython/memoryview.pxd'
+adding 'Cython/Includes/cpython/method.pxd'
+adding 'Cython/Includes/cpython/module.pxd'
+adding 'Cython/Includes/cpython/number.pxd'
+adding 'Cython/Includes/cpython/object.pxd'
+adding 'Cython/Includes/cpython/pycapsule.pxd'
+adding 'Cython/Includes/cpython/pylifecycle.pxd'
+adding 'Cython/Includes/cpython/pyport.pxd'
+adding 'Cython/Includes/cpython/pystate.pxd'
+adding 'Cython/Includes/cpython/pythread.pxd'
+adding 'Cython/Includes/cpython/ref.pxd'
+adding 'Cython/Includes/cpython/sentinel.pxd'
+adding 'Cython/Includes/cpython/sequence.pxd'
+adding 'Cython/Includes/cpython/set.pxd'
+adding 'Cython/Includes/cpython/slice.pxd'
+adding 'Cython/Includes/cpython/time.pxd'
+adding 'Cython/Includes/cpython/tuple.pxd'
+adding 'Cython/Includes/cpython/type.pxd'
+adding 'Cython/Includes/cpython/unicode.pxd'
+adding 'Cython/Includes/cpython/version.pxd'
+adding 'Cython/Includes/cpython/weakref.pxd'
+adding 'Cython/Includes/libc/__init__.pxd'
+adding 'Cython/Includes/libc/complex.pxd'
+adding 'Cython/Includes/libc/errno.pxd'
+adding 'Cython/Includes/libc/float.pxd'
+adding 'Cython/Includes/libc/limits.pxd'
+adding 'Cython/Includes/libc/locale.pxd'
+adding 'Cython/Includes/libc/math.pxd'
+adding 'Cython/Includes/libc/setjmp.pxd'
+adding 'Cython/Includes/libc/signal.pxd'
+adding 'Cython/Includes/libc/stddef.pxd'
+adding 'Cython/Includes/libc/stdint.pxd'
+adding 'Cython/Includes/libc/stdio.pxd'
+adding 'Cython/Includes/libc/stdlib.pxd'
+adding 'Cython/Includes/libc/string.pxd'
+adding 'Cython/Includes/libc/threads.pxd'
+adding 'Cython/Includes/libc/time.pxd'
+adding 'Cython/Includes/libcpp/__init__.pxd'
+adding 'Cython/Includes/libcpp/algorithm.pxd'
+adding 'Cython/Includes/libcpp/any.pxd'
+adding 'Cython/Includes/libcpp/atomic.pxd'
+adding 'Cython/Includes/libcpp/barrier.pxd'
+adding 'Cython/Includes/libcpp/bit.pxd'
+adding 'Cython/Includes/libcpp/cast.pxd'
+adding 'Cython/Includes/libcpp/cmath.pxd'
+adding 'Cython/Includes/libcpp/complex.pxd'
+adding 'Cython/Includes/libcpp/condition_variable.pxd'
+adding 'Cython/Includes/libcpp/deque.pxd'
+adding 'Cython/Includes/libcpp/exception.pxd'
+adding 'Cython/Includes/libcpp/execution.pxd'
+adding 'Cython/Includes/libcpp/forward_list.pxd'
+adding 'Cython/Includes/libcpp/functional.pxd'
+adding 'Cython/Includes/libcpp/future.pxd'
+adding 'Cython/Includes/libcpp/iterator.pxd'
+adding 'Cython/Includes/libcpp/latch.pxd'
+adding 'Cython/Includes/libcpp/limits.pxd'
+adding 'Cython/Includes/libcpp/list.pxd'
+adding 'Cython/Includes/libcpp/map.pxd'
+adding 'Cython/Includes/libcpp/memory.pxd'
+adding 'Cython/Includes/libcpp/mutex.pxd'
+adding 'Cython/Includes/libcpp/numbers.pxd'
+adding 'Cython/Includes/libcpp/numeric.pxd'
+adding 'Cython/Includes/libcpp/optional.pxd'
+adding 'Cython/Includes/libcpp/pair.pxd'
+adding 'Cython/Includes/libcpp/queue.pxd'
+adding 'Cython/Includes/libcpp/random.pxd'
+adding 'Cython/Includes/libcpp/semaphore.pxd'
+adding 'Cython/Includes/libcpp/set.pxd'
+adding 'Cython/Includes/libcpp/shared_mutex.pxd'
+adding 'Cython/Includes/libcpp/span.pxd'
+adding 'Cython/Includes/libcpp/stack.pxd'
+adding 'Cython/Includes/libcpp/stop_token.pxd'
+adding 'Cython/Includes/libcpp/string.pxd'
+adding 'Cython/Includes/libcpp/string_view.pxd'
+adding 'Cython/Includes/libcpp/typeindex.pxd'
+adding 'Cython/Includes/libcpp/typeinfo.pxd'
+adding 'Cython/Includes/libcpp/unordered_map.pxd'
+adding 'Cython/Includes/libcpp/unordered_set.pxd'
+adding 'Cython/Includes/libcpp/utility.pxd'
+adding 'Cython/Includes/libcpp/vector.pxd'
+adding 'Cython/Includes/numpy/math.pxd'
+adding 'Cython/Includes/posix/__init__.pxd'
+adding 'Cython/Includes/posix/dlfcn.pxd'
+adding 'Cython/Includes/posix/fcntl.pxd'
+adding 'Cython/Includes/posix/ioctl.pxd'
+adding 'Cython/Includes/posix/mman.pxd'
+adding 'Cython/Includes/posix/resource.pxd'
+adding 'Cython/Includes/posix/select.pxd'
+adding 'Cython/Includes/posix/signal.pxd'
+adding 'Cython/Includes/posix/stat.pxd'
+adding 'Cython/Includes/posix/stdio.pxd'
+adding 'Cython/Includes/posix/stdlib.pxd'
+adding 'Cython/Includes/posix/strings.pxd'
+adding 'Cython/Includes/posix/time.pxd'
+adding 'Cython/Includes/posix/types.pxd'
+adding 'Cython/Includes/posix/uio.pxd'
+adding 'Cython/Includes/posix/unistd.pxd'
+adding 'Cython/Includes/posix/wait.pxd'
+adding 'Cython/Plex/Actions.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Plex/Actions.pxd'
+adding 'Cython/Plex/Actions.py'
+adding 'Cython/Plex/DFA.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Plex/DFA.pxd'
+adding 'Cython/Plex/DFA.py'
+adding 'Cython/Plex/Errors.py'
+adding 'Cython/Plex/Lexicons.py'
+adding 'Cython/Plex/Machines.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Plex/Machines.pxd'
+adding 'Cython/Plex/Machines.py'
+adding 'Cython/Plex/Regexps.py'
+adding 'Cython/Plex/Scanners.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Plex/Scanners.pxd'
+adding 'Cython/Plex/Scanners.py'
+adding 'Cython/Plex/Transitions.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Plex/Transitions.pxd'
+adding 'Cython/Plex/Transitions.py'
+adding 'Cython/Plex/__init__.py'
+adding 'Cython/Runtime/__init__.py'
+adding 'Cython/Runtime/refnanny.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Runtime/refnanny.pyx'
+adding 'Cython/Tempita/__init__.py'
+adding 'Cython/Tempita/_looper.py'
+adding 'Cython/Tempita/_tempita.cpython-314-x86_64-linux-gnu.so'
+adding 'Cython/Tempita/_tempita.py'
+adding 'Cython/Tests/TestCodeWriter.py'
+adding 'Cython/Tests/TestCythonUtils.py'
+adding 'Cython/Tests/TestJediTyper.py'
+adding 'Cython/Tests/TestShadow.py'
+adding 'Cython/Tests/TestStringIOTree.py'
+adding 'Cython/Tests/TestTestUtils.py'
+adding 'Cython/Tests/__init__.py'
+adding 'Cython/Tests/xmlrunner.py'
+adding 'Cython/Utility/AsyncGen.c'
+adding 'Cython/Utility/Buffer.c'
+adding 'Cython/Utility/BufferFormatFromTypeInfo.pxd'
+adding 'Cython/Utility/Builtins.c'
+adding 'Cython/Utility/CConvert.pyx'
+adding 'Cython/Utility/CMath.c'
+adding 'Cython/Utility/CommonStructures.c'
+adding 'Cython/Utility/Complex.c'
+adding 'Cython/Utility/Coroutine.c'
+adding 'Cython/Utility/CpdefEnums.pyx'
+adding 'Cython/Utility/CppConvert.pyx'
+adding 'Cython/Utility/CppSupport.cpp'
+adding 'Cython/Utility/CythonFunction.c'
+adding 'Cython/Utility/Dataclasses.c'
+adding 'Cython/Utility/Embed.c'
+adding 'Cython/Utility/Exceptions.c'
+adding 'Cython/Utility/Exceptions_Cy.pyx'
+adding 'Cython/Utility/ExtensionTypes.c'
+adding 'Cython/Utility/FunctionArguments.c'
+adding 'Cython/Utility/FusedFunction.pyx'
+adding 'Cython/Utility/ImportExport.c'
+adding 'Cython/Utility/MatchCase.c'
+adding 'Cython/Utility/MatchCase_Cy.pyx'
+adding 'Cython/Utility/MemoryView.pxd'
+adding 'Cython/Utility/MemoryView.pyx'
+adding 'Cython/Utility/MemoryView_C.c'
+adding 'Cython/Utility/ModuleSetupCode.c'
+adding 'Cython/Utility/NumpyImportArray.c'
+adding 'Cython/Utility/ObjectHandling.c'
+adding 'Cython/Utility/Optimize.c'
+adding 'Cython/Utility/Overflow.c'
+adding 'Cython/Utility/Profile.c'
+adding 'Cython/Utility/StringTools.c'
+adding 'Cython/Utility/Synchronization.c'
+adding 'Cython/Utility/TString.c'
+adding 'Cython/Utility/TestCyUtilityLoader.pyx'
+adding 'Cython/Utility/TestCythonScope.pyx'
+adding 'Cython/Utility/TestUtilityLoader.c'
+adding 'Cython/Utility/TypeConversion.c'
+adding 'Cython/Utility/UFuncs.pyx'
+adding 'Cython/Utility/UFuncs_C.c'
+adding 'Cython/Utility/__init__.py'
+adding 'Cython/Utility/arrayarray.h'
+adding 'pyximport/__init__.py'
+adding 'pyximport/pyxbuild.py'
+adding 'pyximport/pyximport.py'
+adding 'cython-3.3.0.dist-info/METADATA'
+adding 'cython-3.3.0.dist-info/WHEEL'
+adding 'cython-3.3.0.dist-info/entry_points.txt'
+adding 'cython-3.3.0.dist-info/top_level.txt'
+adding 'cython-3.3.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built cython-3.3.0-cp314-cp314-linux_x86_64.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/python3.14/site-packages/Cython/LZSS.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/StringIOTree.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Utils.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/Code.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/FlowControl.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/FusedNode.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/LineTable.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/Parsing.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/Scanning.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/StringEncoding.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Compiler/Visitor.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Plex/Actions.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Plex/DFA.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Plex/Machines.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Plex/Scanners.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Plex/Transitions.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Runtime/refnanny.cpython-314-x86_64-linux-gnu.so
+usr/lib/python3.14/site-packages/Cython/Tempita/_tempita.cpython-314-x86_64-linux-gnu.so
+==> Creating package "cython"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: cython 3.3.0-1 (Sat Sep 19 22:37:08 2026)

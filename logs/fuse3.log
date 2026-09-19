@@ -1,0 +1,4 @@
+== build fuse3 (deps: fuse-common glibc libiconv libnuma.so liburing liburing.so meson numactl systemd )
+error: target not found: fuse-common
+warning: glibc-2.44-2 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping

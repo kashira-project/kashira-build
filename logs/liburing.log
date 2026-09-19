@@ -1,0 +1,443 @@
+== build liburing (deps: git )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: liburing 2.15-1 (Sat Sep 19 23:15:49 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning liburing git repo...
+Cloning into bare repository '/sources/liburing'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    liburing ... Passed
+==> Validating source files with b2sums...
+    liburing ... Passed
+==> Extracting sources...
+  -> Creating working copy of liburing git repo...
+Cloning into 'liburing'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+prefix                             /usr
+includedir                         /usr/include
+libdir                             /usr/lib
+libdevdir                          /usr/lib
+relativelibdir                     
+mandir                             /usr/share/man
+datadir                            /usr/share
+libgcc_link_flag                   /usr/lib/clang/23/lib/linux/libclang_rt.builtins-x86_64.a
+stringop_overflow                  no
+array_bounds                       no
+__kernel_rwf_t                     yes
+__kernel_timespec                  yes
+open_how                           yes
+statx                              yes
+glibc_statx                        yes
+C++                                no
+has_ucontext                       yes
+has_memfd_create                   yes
+NVMe uring command support         yes
+futex waitv support                yes
+io_uring discard command support   yes
+has_idtype_t                       yes
+error: unable to create target: 'No available targets are compatible with triple "bpf"'
+1 error generated.
+has_clang                          yes
+has_bpftool                        no
+has_bpf_clang                      no
+has_libbpf                         yes
+nolibc                             yes
+has_fanotify                       yes
+ublk_header                        yes
+use sanitizer                      no
+use tsan                           no
+CC                                 clang
+CXX                                clang++
+make[1]: Entering directory '/home/builder/build/src/liburing/src'
+     CC queue.ol
+     CC setup.ol
+     CC syscall.ol
+     CC register.ol
+     CC ffi.ol
+     CC nolibc.ol
+     CC version.ol
+     CC setup.os
+     CC syscall.os
+     CC queue.os
+     CC version.os
+     CC register.os
+     CC nolibc.os
+     CC ffi.os
+     CC liburing.so.2.15
+     CC liburing-ffi.so.2.15
+     AR liburing-ffi.a
+     AR liburing.a
+llvm-arllvm-ar: : warning: creating liburing-ffi.awarning: 
+creating liburing.a
+ RANLIB liburing.a
+ RANLIB liburing-ffi.a
+make[1]: Leaving directory '/home/builder/build/src/liburing/src'
+make[1]: Entering directory '/home/builder/build/src/liburing/test'
+     CC helpers.o
+     CC 232c93d07b74.t
+     CC 7ad0e4b2f83c.t
+     CC 35fa71a030ca.t
+     CC 917257daa0fe.t
+     CC 500f9fbadef8.t
+     CC a0908ae19763.t
+     CC a4c0b3decb33.t
+     CC 8a9973408177.t
+     CC accept-mshot-stress.t
+     CC accept.t
+     CC accept-reuse.t
+     CC accept-link.t
+     CC accept-test.t
+     CC accept-non-empty.t
+     CC b19062a56726.t
+     CC across-fork.t
+     CC b5837bd5311d.t
+     CC bind-listen.t
+     CC buf-ring-nommap.t
+     CC buf-ring.t
+     CC buf-ring-mshot.t
+     CC buf-ring-put.t
+     CC buf-ring-stress.t
+     CC buf-ring-upgrade.t
+     CC cancel-fd-userdata.t
+     CC cancel-race.t
+     CC cbpf_filter.t
+     CC ce593a6c480a.t
+     CC close-opath.t
+     CC conn-unreach.t
+     CC connect.t
+     CC connect-rep.t
+     CC coredump.t
+     CC cmd-discard.t
+     CC cq-full.t
+     CC cq-overflow.t
+     CC cq-peek-batch.t
+     CC cq-peek-batch-mixed.t
+     CC cq-ready.t
+     CC cq-size.t
+     CC d4ae271dfaae.t
+     CC d77a67ed5f27.t
+     CC defer.t
+     CC defer-taskrun.t
+     CC defer-tw-timeout.t
+     CC double-poll-crash.t
+     CC drop-submit.t
+     CC eeed8b54e0df.t
+     CC empty-eownerdead.t
+     CC eploop.t
+     CC epwait.t
+     CC eventfd.t
+     CC eventfd-disable.t
+     CC eventfd-reg.t
+     CC eventfd-ring.t
+     CC evfd-short-read.t
+     CC evloop.t
+     CC exec-target.t
+     CC exit-no-cleanup.t
+     CC fadvise.t
+     CC fallocate.t
+     CC fc2a85cb02ef.t
+     CC fd-install.t
+     CC fd-pass.t
+     CC fdinfo.t
+     CC fdinfo-sqpoll.t
+     CC fifo-nonblock-read.t
+     CC fifo-futex-poll.t
+     CC file-exit-unreg.t
+     CC file-alloc-range-hint.t
+     CC file-register.t
+     CC files-exit-hang-poll.t
+     CC files-exit-hang-timeout.t
+     CC file-update.t
+     CC file-verify.t
+     CC fixed-buf-iter.t
+     CC fixed-buf-merge.t
+     CC fixed-hugepage.t
+     CC fixed-link.t
+     CC fixed-reuse.t
+     CC fixed-seg.t
+     CC fpos.t
+     CC fsnotify.t
+     CC fsync.t
+     CC futex.t
+     CC futex-kill.t
+     CC hardlink.t
+     CC ignore-single-mmap.t
+     CC init-mem.t
+     CC io-cancel.t
+     CC iopoll.t
+     CC iopoll-leak.t
+     CC iopoll-overflow.t
+     CC iopoll-sync.t
+     CC io_uring_enter.t
+     CC io_uring_passthrough.t
+     CC io_uring_register.t
+     CC io_uring_setup.t
+     CC io-wq-exit.t
+     CC io-wq-unused-exit.t
+     CC iowait.t
+     CC kallsyms.t
+     CC large-resize.t
+     CC lfs-openat.t
+     CC lfs-openat-write.t
+     CC link.t
+     CC link_drain.t
+     CC link-timeout.t
+     CC linked-defer-close.t
+     CC madvise.t
+     CC min-timeout-wait.t
+     CC mkdir.t
+     CC min-timeout.t
+     CC mock_file.t
+     CC msg-ring.t
+     CC msg-ring-fd.t
+     CC msg-ring-flags.t
+     CC msg-ring-overflow.t
+     CC mshot-shutdown-race.t
+     CC multicqes_drain.t
+     CC napi-test.t
+     CC no-mmap-inval.t
+     CC nop-all-sizes.t
+     CC nop.t
+     CC nop-fixed-file-leak.t
+     CC nop-flags.t
+     CC nop32.t
+     CC ooo-file-unreg.t
+     CC nop32-overflow.t
+     CC openat2.t
+     CC open-close.t
+     CC open-direct-link.t
+     CC open-direct-pick.t
+     CC personality.t
+     CC pipe.t
+     CC pipe-bug.t
+     CC pipe-direct-fixed.t
+     CC pipe-eof.t
+     CC pipe-reuse.t
+     CC poll.t
+     CC poll-cancel.t
+     CC poll-cancel-all.t
+     CC poll-cancel-ton.t
+     CC poll-link.t
+     CC poll-many.t
+     CC poll-mshot-overflow.t
+     CC poll-mshot-update.t
+     CC poll-mshot-wake.t
+     CC poll-race.t
+     CC poll-race-mshot.t
+     CC poll-ring.t
+     CC poll-update-trigger.t
+     CC poll-v-poll.t
+     CC pollfree.t
+     CC probe.t
+     CC read-before-exit.t
+     CC read-inc-buf-more.t
+     CC read-inc-file.t
+     CC read-mshot.t
+     CC read-mshot-empty.t
+     CC read-mshot-stdin.t
+     CC read-write.t
+     CC recv-bundle-buf-len.t
+     CC recv-bundle-short-ooo.t
+     CC recv-inc-ooo.t
+     CC recv-msgall.t
+     CC recv-msgall-stream.t
+     CC recv-mshot-drain.t
+     CC recv-mshot-fair.t
+     CC recv-multishot.t
+     CC recvmsg-inc-tail.t
+     CC reg-fd-only.t
+     CC reg-hint.t
+     CC reg-reg-ring.t
+     CC reg-wait.t
+     CC regbuf-clone.t
+     CC regbuf-merge.t
+     CC register-restrictions.t
+     CC rename.t
+     CC resize-mmap-fail.t
+     CC resize-rings.t
+     CC ringbuf-loop.t
+     CC ringbuf-read.t
+     CC ringbuf-status.t
+     CC ring-leak2.t
+     CC ring-leak.t
+     CC ring-query.t
+     CC rsrc_tags.t
+     CC rw_merge_test.t
+     CC self.t
+     CC recvsend_bundle.t
+     CC recvsend_bundle-inc.t
+     CC send_recv.t
+     CC send_recvmsg.t
+     CC send-zerocopy.t
+     CC sendmsg_iov_clean.t
+     CC sendzc-bug.t
+     CC shared-wq.t
+     CC short-read.t
+     CC sigfd-deadlock.t
+     CC shutdown.t
+     CC single-issuer.t
+     CC socket.t
+     CC skip-cqe.t
+     CC socket-io-cmd.t
+     CC socket-getsetsock-cmd.t
+     CC socket-rw.t
+     CC socket-nb.t
+     CC socket-rw-eagain.t
+     CC socket-rw-offset.t
+     CC splice.t
+     CC sq-full.t
+     CC sqpoll-disable-exit.t
+     CC sqpoll-exec.t
+     CC sq-poll-dup.t
+     CC sqpoll-exit-hang.t
+     CC sq-poll-kthread.t
+     CC sq-poll-share.t
+     CC sqpoll-sleep.t
+     CC sq-space_left.t
+     CC sqe-mixed-boundary.t
+     CC sqe-mixed-nop.t
+     CC sqe-mixed-bad-wrap.t
+     CC sqe-mixed-uring_cmd.t
+     CC sqwait.t
+     CC stdout.t
+     CC submit-and-wait.t
+     CC submit-link-fail.t
+     CC submit-reuse.t
+     CC symlink.t
+     CC sync-cancel.t
+     CC task-restrict.t
+     CC teardowns.t
+     CC thread-exit.t
+     CC timens-abs-timer.t
+     CC timerfd-short-read.t
+     CC timeout.t
+     CC timeout-new.t
+     CC timestamp.t
+     CC timestamp-bug.t
+     CC truncate.t
+     CC tty-write-dpoll.t
+     CC unlink.t
+     CC uring_cmd_ublk.t
+     CC vec-regbuf.t
+     CC version.t
+     CC waitid.t
+     CC wait-timeout.t
+     CC wakeup-hang.t
+     CC wq-aff.t
+     CC xattr.t
+     CC zcrx.t
+     CC nolibc.t
+     CC statx.t
+make[1]: Leaving directory '/home/builder/build/src/liburing/test'
+make[1]: Entering directory '/home/builder/build/src/liburing/examples'
+     CC helpers.o
+     CC io_uring-cp
+     CC io_uring-close-test
+     CC link-cp
+     CC io_uring-test
+     CC io_uring-udp
+     CC napi-busy-poll-client
+     CC napi-busy-poll-server
+     CC reg-wait
+     CC poll-bench
+     CC proxy
+     CC send-zerocopy
+     CC rsrc-update-bench
+     CC kdigest
+     CC zcrx
+     CC ucontext-cp
+     CC echo-server
+make[1]: Leaving directory '/home/builder/build/src/liburing/examples'
+==> Entering fakeroot environment...
+==> Starting package()...
+make: Entering directory '/home/builder/build/src/liburing'
+sed -e "s%@prefix@%/usr%g" \
+    -e "s%@libdir@%/usr/lib%g" \
+    -e "s%@includedir@%/usr/include%g" \
+    -e "s%@NAME@%liburing%g" \
+    -e "s%@VERSION@%2.15%g" \
+    liburing.pc.in >liburing.pc
+sed -e "s%@prefix@%/usr%g" \
+    -e "s%@libdir@%/usr/lib%g" \
+    -e "s%@includedir@%/usr/include%g" \
+    -e "s%@NAME@%liburing%g" \
+    -e "s%@VERSION@%2.15%g" \
+    liburing-ffi.pc.in >liburing-ffi.pc
+make[1]: Entering directory '/home/builder/build/src/liburing/src'
+install -D -m 644 /home/builder/build/src/liburing/src/include/liburing/io_uring.h /home/builder/build/pkg/liburing/usr/include/liburing/io_uring.h
+install -D -m 644 /home/builder/build/src/liburing/src/include/liburing.h /home/builder/build/pkg/liburing/usr/include/liburing.h
+install -D -m 644 include/liburing/compat.h /home/builder/build/pkg/liburing/usr/include/liburing/compat.h
+install -D -m 644 /home/builder/build/src/liburing/src/include/liburing/barrier.h /home/builder/build/pkg/liburing/usr/include/liburing/barrier.h
+install -D -m 644 include/liburing/io_uring_version.h /home/builder/build/pkg/liburing/usr/include/liburing/io_uring_version.h
+install -D -m 644 /home/builder/build/src/liburing/src/include/liburing/io_uring/query.h /home/builder/build/pkg/liburing/usr/include/liburing/io_uring/query.h
+install -D -m 644 /home/builder/build/src/liburing/src/include/liburing/io_uring/bpf_filter.h /home/builder/build/pkg/liburing/usr/include/liburing/io_uring/bpf_filter.h
+install -D -m 644 liburing.a /home/builder/build/pkg/liburing/usr/lib/liburing.a
+install -D -m 644 liburing-ffi.a /home/builder/build/pkg/liburing/usr/lib/liburing-ffi.a
+install -D -m 755 liburing.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing.so.2.15
+install -D -m 755 liburing-ffi.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing-ffi.so.2.15
+ln -sf liburing.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing.so.2
+ln -sf liburing.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing.so
+ln -sf liburing-ffi.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing-ffi.so.2
+ln -sf liburing-ffi.so.2.15 /home/builder/build/pkg/liburing/usr/lib/liburing-ffi.so
+make[1]: Leaving directory '/home/builder/build/src/liburing/src'
+install -D -m 644 liburing.pc /home/builder/build/pkg/liburing/usr/lib/pkgconfig/liburing.pc
+install -D -m 644 liburing-ffi.pc /home/builder/build/pkg/liburing/usr/lib/pkgconfig/liburing-ffi.pc
+install -m 755 -d /home/builder/build/pkg/liburing/usr/share/man/man2
+install -m 644 /home/builder/build/src/liburing/man/*.2 /home/builder/build/pkg/liburing/usr/share/man/man2
+install -m 755 -d /home/builder/build/pkg/liburing/usr/share/man/man3
+install -m 644 /home/builder/build/src/liburing/man/*.3 /home/builder/build/pkg/liburing/usr/share/man/man3
+install -m 755 -d /home/builder/build/pkg/liburing/usr/share/man/man7
+install -m 644 /home/builder/build/src/liburing/man/*.7 /home/builder/build/pkg/liburing/usr/share/man/man7
+make: Leaving directory '/home/builder/build/src/liburing'
+install: creating directory '/home/builder/build/pkg/liburing/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/liburing/usr/share/licenses/liburing'
+'liburing/LICENSE' -> '/home/builder/build/pkg/liburing/usr/share/licenses/liburing/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "liburing"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: liburing 2.15-1 (Sat Sep 19 23:16:25 2026)

@@ -1,0 +1,227 @@
+== build python-yaml (deps: cython glibc libyaml python python-build python-installer python-setuptools python-wheel )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (9) python-packaging-26.3-1  python-pygments-2.21.0-1  python-pyproject-hooks-1.2.0-1  cython-3.3.0-1  libyaml-0.2.5-3  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-wheel-0.48.0-1
+
+Total Download Size:    6.62 MiB
+Total Installed Size:  36.74 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ cython-3.3.0-1-x86_64 downloading...
+ python-pygments-2.21.0-1-any downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ libyaml-0.2.5-3-x86_64 downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing python-pygments...
+installing python-setuptools...
+installing cython...
+installing libyaml...
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-yaml 6.0.3-2 (Sat Sep 19 22:37:13 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading pyyaml-6.0.3.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100 121.3k   0 121.3k   0      0 123.4k      0                              0100 121.3k   0 121.3k   0      0 123.4k      0                              0100 121.3k   0 121.3k   0      0 123.4k      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    pyyaml-6.0.3.tar.gz ... Passed
+==> Validating source files with b2sums...
+    pyyaml-6.0.3.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting pyyaml-6.0.3.tar.gz with bsdtar
+==> Starting build()...
+WARNING Config setting '--with-libyaml' was passed without a value; this form is not supported by pip. Write --with-libyaml= instead to be compatible with both tools
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+  warn(
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating lib/PyYAML.egg-info
+writing lib/PyYAML.egg-info/PKG-INFO
+writing dependency_links to lib/PyYAML.egg-info/dependency_links.txt
+writing top-level names to lib/PyYAML.egg-info/top_level.txt
+writing manifest file 'lib/PyYAML.egg-info/SOURCES.txt'
+No `pyyaml_build_config` setting found.
+cythoning yaml/_yaml.pyx to yaml/_yaml.c
+reading manifest file 'lib/PyYAML.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'README'
+adding license file 'LICENSE'
+writing manifest file 'lib/PyYAML.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+  warn(
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/__init__.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/composer.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/constructor.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/cyaml.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/dumper.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/emitter.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/error.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/events.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/loader.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/nodes.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/parser.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/reader.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/representer.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/resolver.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/scanner.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/serializer.py -> build/lib.linux-x86_64-cpython-314/yaml
+copying lib/yaml/tokens.py -> build/lib.linux-x86_64-cpython-314/yaml
+creating build/lib.linux-x86_64-cpython-314/_yaml
+copying lib/_yaml/__init__.py -> build/lib.linux-x86_64-cpython-314/_yaml
+running build_ext
+No `pyyaml_build_config` setting found.
+skipping 'yaml/_yaml.c' Cython extension (up-to-date)
+BUILDING CYTHON EXT; self.include_dirs=['/usr/include/python3.14'] self.library_dirs=['/usr/lib'] self.define=None
+building 'yaml._yaml' extension
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC -I/usr/include/python3.14 -c yaml/_yaml.c -o build/temp.linux-x86_64-cpython-314/yaml/_yaml.o
+clang -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection build/temp.linux-x86_64-cpython-314/yaml/_yaml.o -L/usr/lib -lyaml -o build/lib.linux-x86_64-cpython-314/yaml/_yaml.cpython-314-x86_64-linux-gnu.so
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/__init__.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/composer.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/constructor.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/cyaml.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/dumper.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/emitter.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/error.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/events.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/loader.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/nodes.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/parser.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/reader.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/representer.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/resolver.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/scanner.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/serializer.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/tokens.py -> build/bdist.linux-x86_64/wheel/./yaml
+copying build/lib.linux-x86_64-cpython-314/yaml/_yaml.cpython-314-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./yaml
+creating build/bdist.linux-x86_64/wheel/_yaml
+copying build/lib.linux-x86_64-cpython-314/_yaml/__init__.py -> build/bdist.linux-x86_64/wheel/./_yaml
+running install_egg_info
+running egg_info
+writing lib/PyYAML.egg-info/PKG-INFO
+writing dependency_links to lib/PyYAML.egg-info/dependency_links.txt
+writing top-level names to lib/PyYAML.egg-info/top_level.txt
+reading manifest file 'lib/PyYAML.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'README'
+adding license file 'LICENSE'
+writing manifest file 'lib/PyYAML.egg-info/SOURCES.txt'
+Copying lib/PyYAML.egg-info to build/bdist.linux-x86_64/wheel/./PyYAML-6.0.3-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/pyyaml-6.0.3.dist-info/WHEEL
+creating '/home/builder/build/src/pyyaml-6.0.3/dist/.tmp-g2qbo3ex/pyyaml-6.0.3-cp314-cp314-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding '_yaml/__init__.py'
+adding 'pyyaml-6.0.3.dist-info/licenses/LICENSE'
+adding 'yaml/__init__.py'
+adding 'yaml/_yaml.cpython-314-x86_64-linux-gnu.so'
+adding 'yaml/composer.py'
+adding 'yaml/constructor.py'
+adding 'yaml/cyaml.py'
+adding 'yaml/dumper.py'
+adding 'yaml/emitter.py'
+adding 'yaml/error.py'
+adding 'yaml/events.py'
+adding 'yaml/loader.py'
+adding 'yaml/nodes.py'
+adding 'yaml/parser.py'
+adding 'yaml/reader.py'
+adding 'yaml/representer.py'
+adding 'yaml/resolver.py'
+adding 'yaml/scanner.py'
+adding 'yaml/serializer.py'
+adding 'yaml/tokens.py'
+adding 'pyyaml-6.0.3.dist-info/METADATA'
+adding 'pyyaml-6.0.3.dist-info/WHEEL'
+adding 'pyyaml-6.0.3.dist-info/top_level.txt'
+adding 'pyyaml-6.0.3.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built pyyaml-6.0.3-cp314-cp314-linux_x86_64.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-yaml"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-yaml 6.0.3-2 (Sat Sep 19 22:37:33 2026)

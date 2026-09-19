@@ -1,5 +1,4 @@
 == build dbus (deps:  audit dbus docbook-xsl expat git glib2 glibc libaudit.so libcap-ng libcap-ng.so libexpat.so libsystemd.so meson python systemd systemd-libs xmlto )
-resolving dependencies...
 warning: audit-4.2.1-1 is up to date -- skipping
 warning: dbus-1.16.2-1 is up to date -- skipping
 warning: glib2-2.88.3-2 is up to date -- skipping
@@ -11,15 +10,16 @@ warning: systemd-261.2-4 is up to date -- skipping
 warning: python-3.14.7-1 is up to date -- skipping
 warning: systemd-261.2-4 is up to date -- skipping
 warning: systemd-261.2-4 is up to date -- skipping
+resolving dependencies...
 warning: base: unknown key '%INSTALLED_DB%' in local database
 warning: base-devel: unknown key '%INSTALLED_DB%' in local database
 looking for conflicting packages...
 
-Packages (11) docbook-xml-4.5-11  libxslt-1.1.45-2  ninja-1.13.2-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  docbook-xsl-1.79.2-9  expat-2.8.4-1  git-2.55.0-1  meson-1.12.0-1  xmlto-0.0.29-1
+Packages (12) docbook-xml-4.5-11  libxslt-1.1.45-2  ninja-1.13.2-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-tqdm-4.70.1-1  docbook-xsl-1.79.2-9  expat-2.8.4-1  git-2.55.0-1  meson-1.12.0-1  xmlto-0.0.29-1
 
-Total Download Size:   11.12 MiB
-Total Installed Size:  86.22 MiB
-Net Upgrade Size:      85.68 MiB
+Total Download Size:   11.44 MiB
+Total Installed Size:  93.81 MiB
+Net Upgrade Size:      93.27 MiB
 
 :: Proceed with installation? [Y/n] 
 :: Retrieving packages...
@@ -28,6 +28,7 @@ Net Upgrade Size:      85.68 MiB
  docbook-xsl-1.79.2-9-any downloading...
  libxslt-1.1.45-2-x86_64 downloading...
  ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
  expat-2.8.4-1-x86_64 downloading...
  docbook-xml-4.5-11-any downloading...
  perl-mailtools-2.22-1-any downloading...
@@ -52,15 +53,17 @@ installing git...
 Optional dependencies for git
     libsecret: git-credential-libsecret credential helper [installed]
 installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
 installing meson...
 installing xmlto...
 :: Running post-transaction hooks...
 (1/1) Arming ConditionNeedsUpdate...
-==> Making package: dbus 1.16.2-1 (Sat Sep 19 21:47:26 2026)
+==> Making package: dbus 1.16.2-1 (Sat Sep 19 22:51:59 2026)
 ==> WARNING: Skipping dependency checks.
 ==> Retrieving sources...
-  -> Cloning dbus git repo...
-Cloning into bare repository '/sources/dbus'...
+  -> Updating dbus git repo...
   -> Found 0001-Arch-Linux-tweaks.patch
   -> Found dbus-reload.hook
 ==> WARNING: Skipping verification of source file PGP signatures.
@@ -77,6 +80,1259 @@ Switched to a new branch 'makepkg'
 patching file bus/meson.build
 patching file bus/sysusers.d/dbus.conf.in
 ==> Starting build()...
-/home/builder/build/PKGBUILD: line 62: arch-meson: command not found
-==> ERROR: A failure occurred in build().
-    Aborting...
+
+Wrap files:
+Wrap expat.wrap type file not found: expat-2.4.8
+Wrap glib.wrap  type file not found: glib-2.72.2
+
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 dbus build -D apparmor=disabled -D doxygen_docs=disabled -D ducktype_docs=disabled -D qt_help=disabled -D dbus_user=dbus -D kqueue=disabled -D launchd=disabled -D relocation=disabled -D selinux=disabled -D x11_autolaunch=disabled
+Generating targets:   0%|          | 0/81 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/dbus
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: dbus
+Project version: 1.16.2
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Program python3 found: YES (/usr/sbin/python3)
+Message: Detected platform : Unix (linux)
+Compiler for C supports arguments -D_GNU_SOURCE: YES 
+Compiler for C supports arguments -fno-strict-aliasing: YES 
+Compiler for C supports arguments -D__USE_MINGW_ANSI_STDIO=0: YES 
+Compiler for C supports arguments -fvisibility=hidden: YES 
+Checking for size of "short" : 2 
+Checking for size of "int" : 4 
+Checking for size of "long" : 8 
+Checking for size of "long long" : 8 
+Checking for size of "__int64" : -1 
+Checking for size of "void *" : 8 
+Program xsltproc found: YES (/usr/sbin/xsltproc)
+Program doxygen skipped: feature doxygen_docs disabled
+Program ducktype skipped: feature ducktype_docs disabled
+Program yelp-build skipped: feature ducktype_docs disabled
+Program qhelpgenerator qhelpgenerator-qt5 skipped: feature qt_help disabled
+Run-time dependency threads found: YES
+Header "pthread.h" has symbol "CLOCK_MONOTONIC" : YES 
+Header "pthread.h" has symbol "pthread_condattr_setclock" : YES 
+Header "time.h" has symbol "clock_getres" : YES 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency glib-2.0 found: YES 2.88.3
+Run-time dependency gio-unix-2.0 found: YES 2.88.3
+Run-time dependency expat found: YES 2.8.4
+Checking for function "XML_SetHashSalt" with dependency expat: YES 
+Dependency libselinux for host machine skipped: feature selinux disabled
+Dependency libapparmor for host machine skipped: feature apparmor disabled
+Has header "sys/inotify.h" : YES 
+Has header "sys/epoll.h" : YES 
+Checking for function "epoll_create1" : YES 
+Run-time dependency libsystemd found: YES 261
+Program systemctl found: YES (/usr/sbin/systemctl)
+Run-time dependency systemd found: YES 261
+Library audit found: YES
+Checking for function "audit_log_user_avc_message" with dependency -laudit: YES 
+Library cap-ng found: YES
+Checking for function "capng_clear" with dependency -lcap-ng: YES 
+Dependency valgrind for host machine skipped: feature valgrind disabled
+Checking for function "socket" : YES 
+Checking for function "socketpair" : YES 
+Header "time.h" has symbol "__GLIBC__" : YES 
+Header "time.h" has symbol "_TIME_BITS" : NO 
+Checking for size of "void *" : 8 (cached)
+Checking for function "accept4" : YES 
+Checking for function "clearenv" : YES 
+Checking for function "closefrom" : YES 
+Checking for function "close_range" : YES 
+Checking for function "fpathconf" : YES 
+Checking for function "getgrouplist" : YES 
+Checking for function "getpeereid" : NO 
+Checking for function "getpeerucred" : NO 
+Checking for function "getpwnam_r" : YES 
+Checking for function "getrandom" : YES 
+Checking for function "getresuid" : YES 
+Checking for function "getrlimit" : YES 
+Checking for function "inotify_init1" : YES 
+Checking for function "issetugid" : NO 
+Checking for function "localeconv" : YES 
+Checking for function "nanosleep" : YES 
+Checking for function "pipe2" : YES 
+Checking for function "poll" : YES 
+Checking for function "prctl" : YES 
+Checking for function "prlimit" : YES 
+Checking for function "raise" : YES 
+Checking for function "setenv" : YES 
+Checking for function "setlocale" : YES 
+Checking for function "setresuid" : YES 
+Checking for function "setrlimit" : YES 
+Checking for function "socketpair" : YES (cached)
+Checking for function "unsetenv" : YES 
+Checking for function "usleep" : YES 
+Check usable header "afunix.h" : NO 
+Check usable header "alloca.h" : YES 
+Check usable header "byteswap.h" : YES 
+Check usable header "crt_externs.h" : NO 
+Check usable header "dirent.h" : YES 
+Check usable header "errno.h" : YES 
+Check usable header "inttypes.h" : YES 
+Check usable header "io.h" : NO 
+Check usable header "locale.h" : YES 
+Check usable header "linux/close_range.h" : YES 
+Check usable header "linux/magic.h" : YES 
+Check usable header "locale.h" : YES (cached)
+Check usable header "signal.h" : YES 
+Check usable header "stdatomic.h" : YES 
+Check usable header "syslog.h" : YES 
+Check usable header "sys/prctl.h" : YES 
+Check usable header "sys/random.h" : YES 
+Check usable header "sys/resource.h" : YES 
+Check usable header "sys/syscall.h" : YES 
+Check usable header "sys/time.h" : YES 
+Check usable header "sys/vfs.h" : YES 
+Check usable header "unistd.h" : YES 
+Check usable header "ws2tcpip.h" : NO 
+Library execinfo found: NO
+Has header "execinfo.h" : YES 
+Checking for function "backtrace" with dependency -lexecinfo: YES 
+Header "unistd.h" has symbol "environ" : YES 
+Header "syslog.h" has symbol "LOG_PERROR" : YES 
+Header "sys/socket.h" has symbol "MSG_NOSIGNAL" : YES 
+Checking for type "socklen_t" : YES 
+Checking for type "struct cmsgcred" : NO 
+Header "sys/uio.h" has symbol "writev" : YES 
+Checking whether type "struct unpcbid" has member "unp_pid" : NO 
+Checking for function "fstatfs" : YES 
+Header "sys/syscall.h" has symbol "SYS_pidfd_open" : YES 
+Program tools/check-runstatedir.sh found: YES (/home/builder/build/src/dbus/tools/check-runstatedir.sh)
+Compiler for C supports arguments -fno-common: YES 
+Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+Compiler for C supports arguments -Wno-unused-parameter: YES 
+Compiler for C supports arguments -Wno-deprecated-declarations: YES 
+Compiler for C supports arguments -Warray-bounds: YES 
+Compiler for C supports arguments -Wcast-align: YES 
+Compiler for C supports arguments -Wchar-subscripts: YES 
+Compiler for C supports arguments -Wdouble-promotion: YES 
+Compiler for C supports arguments -Wduplicated-branches: NO 
+Compiler for C supports arguments -Wduplicated-cond: NO 
+Compiler for C supports arguments -Wfloat-equal: YES 
+Compiler for C supports arguments -Wformat-nonliteral: YES 
+Compiler for C supports arguments -Wformat-security: YES 
+Compiler for C supports arguments -Wformat=2: YES 
+Compiler for C supports arguments -Winit-self: YES 
+Compiler for C supports arguments -Winline: YES 
+Compiler for C supports arguments -Wlogical-op: NO 
+Compiler for C supports arguments -Wmissing-declarations: YES 
+Compiler for C supports arguments -Wmissing-format-attribute: YES 
+Compiler for C supports arguments -Wmissing-include-dirs: YES 
+Compiler for C supports arguments -Wmissing-noreturn: YES 
+Compiler for C supports arguments -Wnull-dereference: YES 
+Compiler for C supports arguments -Wpacked: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wredundant-decls: YES 
+Compiler for C supports arguments -Wrestrict: NO 
+Compiler for C supports arguments -Wreturn-type: YES 
+Compiler for C supports arguments -Wshadow: YES 
+Compiler for C supports arguments -Wsign-compare: YES 
+Compiler for C supports arguments -Wstrict-aliasing: YES 
+Compiler for C supports arguments -Wswitch-default: YES 
+Compiler for C supports arguments -Wswitch-enum: YES 
+Compiler for C supports arguments -Wundef: YES 
+Compiler for C supports arguments -Wunused-but-set-variable: YES 
+Compiler for C supports arguments -Wwrite-strings: YES 
+Compiler for C supports arguments -Wdeclaration-after-statement: YES 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Compiler for C supports arguments -Wjump-misses-init: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wnested-externs: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Wpointer-sign: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Configuring config.h using configuration
+Configuring version_script using configuration
+Compiler for C supports link arguments -Wl,--version-script,/home/builder/build/src/dbus/dbus/test-version-script: YES 
+Configuring dbus-arch-deps.h using configuration
+Configuring session.conf using configuration
+Configuring system.conf using configuration
+Configuring example-system-enable-stats.conf using configuration
+Configuring example-session-disable-stats.conf using configuration
+Configuring dbus.service using configuration
+Configuring dbus.socket using configuration
+Configuring dbus.conf using configuration
+Configuring dbus.conf using configuration
+Configuring dbus.service using configuration
+Configuring dbus.socket using configuration
+Configuring dbus_installed_tests_aaprofile using configuration
+Configuring invalid_service_files_system_org_freedesktop_DBus_TestSuiteNoExec_service using configuration
+Configuring invalid_service_files_system_org_freedesktop_DBus_TestSuiteNoService_service using configuration
+Configuring invalid_service_files_system_org_freedesktop_DBus_TestSuiteNoUser_service using configuration
+Configuring systemd_activation_com_example_ReceiveDeniedByAppArmorLabel_service using configuration
+Configuring systemd_activation_com_example_SendDeniedByAppArmorLabel_service using configuration
+Configuring systemd_activation_com_example_SendDeniedByNonexistentAppArmorLabel_service using configuration
+Configuring systemd_activation_com_example_SystemdActivatable3_service using configuration
+Configuring valid_config_files_system_debug_allow_all_fail_conf using configuration
+Configuring valid_config_files_system_debug_allow_all_pass_conf using configuration
+Configuring valid_config_files_system_tmp_session_like_system_conf using configuration
+Configuring valid_config_files_as_another_user_conf using configuration
+Configuring valid_config_files_count_fds_conf using configuration
+Configuring valid_config_files_debug_allow_all_sha1_conf using configuration
+Configuring valid_config_files_debug_allow_all_conf using configuration
+Configuring valid_config_files_finite_timeout_conf using configuration
+Configuring valid_config_files_forbidding_conf using configuration
+Configuring valid_config_files_incoming_limit_conf using configuration
+Configuring valid_config_files_limit_containers_conf using configuration
+Configuring valid_config_files_listen_autolaunch_win_conf using configuration
+Configuring valid_config_files_max_completed_connections_conf using configuration
+Configuring valid_config_files_max_connections_per_user_conf using configuration
+Configuring valid_config_files_max_containers_conf using configuration
+Configuring valid_config_files_max_match_rules_per_connection_conf using configuration
+Configuring valid_config_files_max_names_per_connection_conf using configuration
+Configuring valid_config_files_max_replies_per_connection_conf using configuration
+Configuring valid_config_files_multi_user_conf using configuration
+Configuring valid_config_files_pending_fd_timeout_conf using configuration
+Configuring valid_config_files_send_destination_prefix_rules_conf using configuration
+Configuring valid_config_files_systemd_activation_conf using configuration
+Configuring valid_config_files_tmp_session_conf using configuration
+Configuring valid_service_files_system_org_freedesktop_DBus_TestSuiteEchoService_service using configuration
+Configuring valid_service_files_system_org_freedesktop_DBus_TestSuiteSegfaultService_service using configuration
+Configuring valid_service_files_system_org_freedesktop_DBus_TestSuiteShellEchoServiceFail_service using configuration
+Configuring valid_service_files_system_org_freedesktop_DBus_TestSuiteShellEchoServiceSuccess_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuite_PrivServer_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuiteEchoService_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuiteForkingEchoService_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuiteSegfaultService_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuiteShellEchoServiceFail_service using configuration
+Configuring valid_service_files_org_freedesktop_DBus_TestSuiteShellEchoServiceSuccess_service using configuration
+Program copy_data_for_tests.py found: YES (/home/builder/build/src/dbus/test/data/copy_data_for_tests.py)
+Program ./test-dbus-daemon-fork.sh found: YES (/home/builder/build/src/dbus/test/./test-dbus-daemon-fork.sh)
+Configuring test-atomic.test using configuration
+Configuring test-atomic_with_config.test using configuration
+Configuring test-hash.test using configuration
+Configuring test-hash_with_config.test using configuration
+Configuring test-misc-internals.test using configuration
+Configuring test-misc-internals_with_config.test using configuration
+Configuring test-shell.test using configuration
+Configuring test-shell_with_config.test using configuration
+Configuring test-strings.test using configuration
+Configuring test-strings_with_config.test using configuration
+Configuring test-printf.test using configuration
+Configuring test-printf_with_config.test using configuration
+Configuring test-assertions.test using configuration
+Configuring test-assertions_with_config.test using configuration
+Configuring test-corrupt.test using configuration
+Configuring test-corrupt_with_config.test using configuration
+Configuring test-dbus-daemon.test using configuration
+Configuring test-dbus-daemon_with_config.test using configuration
+Configuring test-dbus-daemon-eavesdrop.test using configuration
+Configuring test-dbus-daemon-eavesdrop_with_config.test using configuration
+Configuring test-desktop-file.test using configuration
+Configuring test-desktop-file_with_config.test using configuration
+Configuring test-fdpass.test using configuration
+Configuring test-fdpass_with_config.test using configuration
+Configuring test-header-fields.test using configuration
+Configuring test-header-fields_with_config.test using configuration
+Configuring test-message.test using configuration
+Configuring test-message_with_config.test using configuration
+Configuring test-monitor.test using configuration
+Configuring test-monitor_with_config.test using configuration
+Configuring test-loopback.test using configuration
+Configuring test-loopback_with_config.test using configuration
+Configuring test-marshal.test using configuration
+Configuring test-marshal_with_config.test using configuration
+Configuring test-refs.test using configuration
+Configuring test-refs_with_config.test using configuration
+Configuring test-relay.test using configuration
+Configuring test-relay_with_config.test using configuration
+Configuring test-server-oom.test using configuration
+Configuring test-server-oom_with_config.test using configuration
+Configuring test-syntax.test using configuration
+Configuring test-syntax_with_config.test using configuration
+Configuring test-sysdeps.test using configuration
+Configuring test-sysdeps_with_config.test using configuration
+Configuring test-syslog.test using configuration
+Configuring test-syslog_with_config.test using configuration
+Configuring test-uid-permissions.test using configuration
+Configuring test-uid-permissions_with_config.test using configuration
+Configuring test-userdb.test using configuration
+Configuring test-userdb_with_config.test using configuration
+Configuring test-variant.test using configuration
+Configuring test-variant_with_config.test using configuration
+Configuring test-sd-activation.test using configuration
+Configuring test-sd-activation_with_config.test using configuration
+Configuring dbus-cleanup-sockets.1.xml using configuration
+Configuring dbus-daemon.1.xml using configuration
+Configuring dbus-launch.1.xml using configuration
+Configuring dbus-monitor.1.xml using configuration
+Configuring dbus-run-session.1.xml using configuration
+Configuring dbus-send.1.xml using configuration
+Configuring dbus-test-tool.1.xml using configuration
+Configuring dbus-update-activation-environment.1.xml using configuration
+Configuring dbus-uuidgen.1.xml using configuration
+Configuring index.html using configuration
+Configuring catalog.xml using configuration
+Configuring DBus1Config.cmake using configuration
+Configuring DBus1ConfigVersion.cmake using configuration
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Build targets in project: 81
+NOTICE: Future-deprecated features used:
+ * 0.62.0: {'pkgconfig.generate variable for builtin directories'}
+
+dbus 1.16.2
+
+    prefix                    : /usr
+    exec_prefix               : /usr
+    libdir                    : /usr/lib
+    libexecdir                : /usr/lib
+    bindir                    : /usr/bin
+    sysconfdir                : /etc
+    localstatedir             : /var
+    runstatedir               : /run
+    datadir                   : /usr/share
+    source code location      : /home/builder/build/src/dbus
+    compiler                  : clang
+    cflags                    : -D_GNU_SOURCE
+                                -fno-strict-aliasing
+                                -D__USE_MINGW_ANSI_STDIO=0
+                                -fno-common
+                                -Wno-missing-field-initializers
+                                -Wno-unused-parameter
+                                -Wno-deprecated-declarations
+                                -Warray-bounds
+                                -Wcast-align
+                                -Wchar-subscripts
+                                -Wdouble-promotion
+                                -Wfloat-equal
+                                -Wformat-nonliteral
+                                -Wformat-security
+                                -Wformat=2
+                                -Winit-self
+                                -Winline
+                                -Wmissing-declarations
+                                -Wmissing-format-attribute
+                                -Wmissing-include-dirs
+                                -Wmissing-noreturn
+                                -Wnull-dereference
+                                -Wpacked
+                                -Wpointer-arith
+                                -Wredundant-decls
+                                -Wreturn-type
+                                -Wshadow
+                                -Wsign-compare
+                                -Wstrict-aliasing
+                                -Wswitch-default
+                                -Wswitch-enum
+                                -Wundef
+                                -Wunused-but-set-variable
+                                -Wwrite-strings
+                                -Wdeclaration-after-statement
+                                -Wimplicit-function-declaration
+                                -Wjump-misses-init
+                                -Wmissing-prototypes
+                                -Wnested-externs
+                                -Wold-style-definition
+                                -Wpointer-sign
+                                -Wstrict-prototypes
+    ldflags                   : []
+    64-bit int                : long
+    32-bit int                : int
+    16-bit int                : short
+    pointer size              : 8
+    xsltproc                  : /usr/sbin/xsltproc
+    Doxygen                   : 
+    ducktype                  : 
+    yelp-build                : 
+    gcc coverage              : NO
+    gcc profiling             : off
+    Building intrusive tests  : NO
+    Building modular tests    : YES
+    - with GLib               : YES
+    Installing tests          : NO
+    Building verbose mode     : NO
+    Building assertions       : NO
+    Building checks           : YES
+    Building bus stats API    : YES
+    Building SELinux support  : NO
+    Building AppArmor support : NO
+    Building inotify support  : YES
+    Building kqueue support   : NO
+    Building systemd support  : YES
+    Traditional activation    : YES
+    Building X11 code         : NO
+    Building Doxygen docs     : NO
+    Building Qt help file     : NO
+    Building Ducktype docs    : NO
+    Building XML docs         : YES
+    Building launchd support  : NO
+    Building dbus-daemon      : YES
+    Building tools            : YES
+    System bus socket         : /run/dbus/system_bus_socket
+    System bus address        : "unix:path=/run/dbus/system_bus_socket"
+    System bus PID file       : /run/dbus/pid
+    Session bus listens on    : unix:tmpdir=/tmp
+    Session clients connect to: "autolaunch:"
+    System bus user           : dbus
+    Session bus services dir  : /usr/share/dbus-1/services
+    Tests socket dir          : /tmp
+
+  User defined options
+    apparmor                  : disabled
+    auto_features             : enabled
+    b_pie                     : true
+    buildtype                 : plain
+    dbus_user                 : dbus
+    doxygen_docs              : disabled
+    ducktype_docs             : disabled
+    kqueue                    : disabled
+    launchd                   : disabled
+    libexecdir                : lib
+    prefix                    : /usr
+    python.bytecompile        : 1
+    qt_help                   : disabled
+    relocation                : disabled
+    sbindir                   : bin
+    selinux                   : disabled
+    wrap_mode                 : nodownload
+    x11_autolaunch            : disabled
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:  37%|███▋      | 30/81 eta 00:00                                                    Writing build.ninja:   0%|          | 0/279 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-server-debug-pipe.c.o
+[2/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-marshal-byteswap.c.o
+../dbus/dbus/dbus-marshal-byteswap.c:95:25: warning: cast from 'unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+   95 |             array_len = _dbus_unpack_uint32 (old_byte_order, p);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-byteswap.c:95:25: warning: cast from 'unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+   95 |             array_len = _dbus_unpack_uint32 (old_byte_order, p);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+2 warnings generated.
+[3/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-nonce.c.o
+[4/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-misc.c.o
+[5/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-resources.c.o
+[6/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-pending-call.c.o
+[7/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-errors.c.o
+[8/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-credentials.c.o
+[9/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-keyring.c.o
+[10/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-address.c.o
+[11/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-signature.c.o
+[12/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-syntax.c.o
+[13/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-threads.c.o
+[14/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-uuidgen.c.o
+[15/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-marshal-header.c.o
+[16/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-timeout.c.o
+[17/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-object-tree.c.o
+[18/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-bus.c.o
+[19/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-auth.c.o
+[20/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-server-socket.c.o
+[21/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-file.c.o
+[22/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-marshal-recursive.c.o
+../dbus/dbus/dbus-marshal-recursive.c:228:15: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  228 |   array_len = _dbus_unpack_uint32 (reader->byte_order,
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  229 |                                    _dbus_string_get_const_udata_len (reader->value_str, len_pos, 4));
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-recursive.c:228:15: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  228 |   array_len = _dbus_unpack_uint32 (reader->byte_order,
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  229 |                                    _dbus_string_get_const_udata_len (reader->value_str, len_pos, 4));
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+../dbus/dbus/dbus-marshal-recursive.c:1935:17: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+ 1935 |           len = _dbus_unpack_uint32 (sub->byte_order,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1936 |                                      _dbus_string_get_const_udata_len (sub->value_str,
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1937 |                                                                       sub->u.array.len_pos,
+      |                                                                       ~~~~~~~~~~~~~~~~~~~~~
+ 1938 |                                                                       4));
+      |                                                                       ~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-recursive.c:1935:17: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+ 1935 |           len = _dbus_unpack_uint32 (sub->byte_order,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1936 |                                      _dbus_string_get_const_udata_len (sub->value_str,
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1937 |                                                                       sub->u.array.len_pos,
+      |                                                                       ~~~~~~~~~~~~~~~~~~~~~
+ 1938 |                                                                       4));
+      |                                                                       ~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+../dbus/dbus/dbus-marshal-recursive.c:2580:25: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+ 2580 |               old_len = _dbus_unpack_uint32 (reader->byte_order,
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2581 |                                              _dbus_string_get_const_udata_len (reader->value_str,
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2582 |                                                                               fixup.len_pos_in_reader, 4));
+      |                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-recursive.c:2580:25: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+ 2580 |               old_len = _dbus_unpack_uint32 (reader->byte_order,
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2581 |                                              _dbus_string_get_const_udata_len (reader->value_str,
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2582 |                                                                               fixup.len_pos_in_reader, 4));
+      |                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+6 warnings generated.
+[23/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-watch.c.o
+[24/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-transport.c.o
+[25/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-server.c.o
+[26/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-dataslot.c.o
+[27/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-pipe.c.o
+[28/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-server-unix.c.o
+[29/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-mempool.c.o
+[30/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-marshal-validate.c.o
+../dbus/dbus/dbus-marshal-validate.c:406:19: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  406 |               v = _dbus_unpack_uint32 (byte_order, p);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-validate.c:406:19: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  406 |               v = _dbus_unpack_uint32 (byte_order, p);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+../dbus/dbus/dbus-marshal-validate.c:432:27: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  432 |             claimed_len = _dbus_unpack_uint32 (byte_order, p);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-validate.c:432:27: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  432 |             claimed_len = _dbus_unpack_uint32 (byte_order, p);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+../dbus/dbus/dbus-marshal-validate.c:539:33: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  539 |                             v = _dbus_unpack_uint32 (byte_order, p);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-validate.c:539:33: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  539 |                             v = _dbus_unpack_uint32 (byte_order, p);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+6 warnings generated.
+[31/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-memory.c.o
+[32/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-pipe-unix.c.o
+[33/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-internals.c.o
+[34/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-list.c.o
+[35/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-hash.c.o
+[36/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-file-unix.c.o
+[37/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-sysdeps-pthread.c.o
+[38/243] Compiling C object dbus/libdbus-internal.a.p/dbus-message-util.c.o
+[39/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-transport-socket.c.o
+[40/243] Compiling C object dbus/libdbus-internal.a.p/dbus-pollable-set.c.o
+[41/243] Compiling C object dbus/libdbus-internal.a.p/dbus-asv-util.c.o
+[42/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-transport-unix.c.o
+[43/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-sha.c.o
+[44/243] Compiling C object dbus/libdbus-internal.a.p/dbus-pollable-set-poll.c.o
+[45/243] Compiling C object dbus/libdbus-internal.a.p/dbus-shell.c.o
+[46/243] Compiling C object dbus/libdbus-internal.a.p/dbus-string-util.c.o
+[47/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-sysdeps.c.o
+[48/243] Compiling C object dbus/libdbus-internal.a.p/dbus-sysdeps-util.c.o
+[49/243] Compiling C object dbus/libdbus-internal.a.p/dbus-userdb-util.c.o
+[50/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-marshal-basic.c.o
+../dbus/dbus/dbus-marshal-basic.c:301:13: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  301 |   old_len = _dbus_unpack_uint32 (byte_order,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  302 |                                  _dbus_string_get_const_udata_len (str, pos, 4));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-basic.c:301:13: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  301 |   old_len = _dbus_unpack_uint32 (byte_order,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  302 |                                  _dbus_string_get_const_udata_len (str, pos, 4));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+../dbus/dbus/dbus-marshal-basic.c:488:10: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  488 |   return _dbus_unpack_uint32 (byte_order,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  489 |                               _dbus_string_get_const_udata (str) + pos);
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:148:28: note: expanded from macro '_dbus_unpack_uint32'
+  148 |      DBUS_UINT32_FROM_LE (*(dbus_uint32_t*)(data)) :    \
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:132:54: note: expanded from macro 'DBUS_UINT32_FROM_LE'
+  132 | #define DBUS_UINT32_FROM_LE(val) (DBUS_UINT32_TO_LE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:117:52: note: expanded from macro 'DBUS_UINT32_TO_LE'
+  117 | #  define DBUS_UINT32_TO_LE(val)        ((dbus_uint32_t) (val))
+      |                                                           ^~~
+../dbus/dbus/dbus-marshal-basic.c:488:10: warning: cast from 'const unsigned char *' to 'dbus_uint32_t *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  488 |   return _dbus_unpack_uint32 (byte_order,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  489 |                               _dbus_string_get_const_udata (str) + pos);
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:149:28: note: expanded from macro '_dbus_unpack_uint32'
+  149 |      DBUS_UINT32_FROM_BE (*(dbus_uint32_t*)(data)))
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../dbus/dbus/dbus-marshal-basic.h:134:54: note: expanded from macro 'DBUS_UINT32_FROM_BE'
+  134 | #define DBUS_UINT32_FROM_BE(val) (DBUS_UINT32_TO_BE (val))
+      |                                   ~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:119:59: note: expanded from macro 'DBUS_UINT32_TO_BE'
+  119 | #  define DBUS_UINT32_TO_BE(val)        (DBUS_UINT32_SWAP_LE_BE (val))
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:89:71: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE'
+   89 | #define DBUS_UINT32_SWAP_LE_BE(val) (DBUS_UINT32_SWAP_LE_BE_CONSTANT (val))
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../dbus/dbus/dbus-marshal-basic.h:47:55: note: expanded from macro 'DBUS_UINT32_SWAP_LE_BE_CONSTANT'
+   47 | #define DBUS_UINT32_SWAP_LE_BE_CONSTANT(val) bswap_32(val)
+      |                                              ~~~~~~~~~^~~~
+/usr/include/byteswap.h:35:33: note: expanded from macro 'bswap_32'
+   35 | #define bswap_32(x) __bswap_32 (x)
+      |                                 ^
+4 warnings generated.
+[51/243] Compiling C object bus/libdbus-daemon-internal.a.p/config-parser-common.c.o
+[52/243] Compiling C object dbus/libdbus-internal.a.p/dbus-mainloop.c.o
+[53/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-userdb.c.o
+../dbus/dbus/dbus-userdb.c:265:20: warning: variable 'database_locked' set but not used [-Wunused-but-set-global]
+  265 | static dbus_bool_t database_locked = FALSE;
+      |                    ^
+1 warning generated.
+[54/243] Compiling C object bus/libdbus-daemon-internal.a.p/config-loader-expat.c.o
+[55/243] Compiling C object bus/libdbus-daemon-internal.a.p/apparmor.c.o
+[56/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-message.c.o
+[57/243] Compiling C object dbus/libdbus-internal.a.p/dbus-pollable-set-epoll.c.o
+[58/243] Compiling C object bus/libdbus-daemon-internal.a.p/audit.c.o
+../dbus/bus/audit.c:62:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   62 |   capng_get_caps_process ();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[59/243] Compiling C object dbus/libdbus-internal.a.p/dbus-sysdeps-util-unix.c.o
+[60/243] Compiling C object bus/libdbus-daemon-internal.a.p/dispatch.c.o
+[61/243] Compiling C object bus/libdbus-daemon-internal.a.p/selinux.c.o
+[62/243] Compiling C object bus/libdbus-daemon-internal.a.p/test.c.o
+[63/243] Compiling C object bus/libdbus-daemon-internal.a.p/expirelist.c.o
+[64/243] Compiling C object bus/libdbus-daemon-internal.a.p/utils.c.o
+[65/243] Compiling C object bus/libdbus-daemon-internal.a.p/stats.c.o
+[66/243] Compiling C object dbus/libdbus-internal.a.p/dbus-spawn-unix.c.o
+[67/243] Compiling C object bus/libdbus-daemon-internal.a.p/desktop-file.c.o
+[68/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-string.c.o
+[69/243] Compiling C object bus/libdbus-daemon-internal.a.p/activation.c.o
+[70/243] Compiling C object bus/libdbus-daemon-internal.a.p/services.c.o
+[71/243] Compiling C object bus/libdbus-daemon-internal.a.p/policy.c.o
+[72/243] Compiling C object bus/liblaunch-helper-internal.a.p/config-parser-common.c.o
+[73/243] Compiling C object test/libdbus-testutils.a.p/disable-crash-handling.c.o
+[74/243] Compiling C object bus/liblaunch-helper-internal.a.p/utils.c.o
+[75/243] Compiling C object bus/liblaunch-helper-internal.a.p/config-parser-trivial.c.o
+[76/243] Linking static target dbus/libdbus-internal.a
+[77/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-connection.c.o
+[78/243] Compiling C object bus/liblaunch-helper-internal.a.p/config-loader-expat.c.o
+[79/243] Compiling C object bus/libdbus-daemon-internal.a.p/bus.c.o
+[80/243] Compiling C object bus/libdbus-daemon-internal.a.p/dir-watch-inotify.c.o
+[81/243] Compiling C object bus/dbus-daemon-launch-helper.p/activation-helper-bin.c.o
+[82/243] Compiling C object tools/dbus-launch.p/dbus-launch-x11.c.o
+[83/243] Compiling C object bus/libdbus-daemon-internal.a.p/connection.c.o
+[84/243] Compiling C object bus/dbus-daemon.p/main.c.o
+[85/243] Compiling C object tools/dbus-launch.p/tool-common.c.o
+[86/243] Compiling C object bus/liblaunch-helper-internal.a.p/desktop-file.c.o
+[87/243] Compiling C object bus/dbus-daemon-launch-helper.p/activation-helper.c.o
+[88/243] Compiling C object test/libdbus-testutils.a.p/test-utils.c.o
+[89/243] Compiling C object bus/libdbus-daemon-internal.a.p/config-parser.c.o
+[90/243] Linking static target bus/liblaunch-helper-internal.a
+[91/243] Compiling C object tools/dbus-monitor.p/dbus-monitor.c.o
+../dbus/tools/dbus-monitor.c:485:18: warning: variable 'where' is used uninitialized whenever switch case is taken [-Wsometimes-uninitialized]
+  485 |             case DBUS_BUS_STARTER:
+      |                  ^~~~~~~~~~~~~~~~
+../dbus/tools/dbus-monitor.c:492:16: note: uninitialized use occurs here
+  492 |                where,
+      |                ^~~~~
+../dbus/tools/dbus-monitor.c:472:24: note: initialize the variable 'where' to silence this warning
+  472 |       const char *where;
+      |                        ^
+      |                         = NULL
+1 warning generated.
+[92/243] Compiling C object tools/dbus-monitor.p/tool-common.c.o
+[93/243] Compiling C object tools/dbus-send.p/tool-common.c.o
+[94/243] Compiling C object tools/dbus-cleanup-sockets.p/dbus-cleanup-sockets.c.o
+[95/243] Compiling C object bus/libdbus-daemon-internal.a.p/signals.c.o
+[96/243] Compiling C object tools/dbus-run-session.p/tool-common.c.o
+[97/243] Compiling C object test/test-exit.p/test-exit.c.o
+[98/243] Compiling C object tools/dbus-send.p/dbus-print-message.c.o
+[99/243] Compiling C object tools/dbus-run-session.p/dbus-run-session.c.o
+[100/243] Compiling C object tools/dbus-send.p/dbus-send.c.o
+../dbus/tools/dbus-send.c:511:16: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  511 |       last_dot = strrchr (name, '.');
+      |                ^ ~~~~~~~~~~~~~~~~~~~
+../dbus/tools/dbus-send.c:547:16: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  547 |       last_dot = strrchr (name, '.');
+      |                ^ ~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+[101/243] Compiling C object tools/dbus-update-activation-environment.p/dbus-update-activation-environment.c.o
+[102/243] Compiling C object test/test-names.p/test-names.c.o
+[103/243] Compiling C object tools/dbus-test-tool.p/dbus-spam.c.o
+[104/243] Compiling C object bus/libdbus-daemon-internal.a.p/driver.c.o
+[105/243] Compiling C object tools/dbus-test-tool.p/dbus-echo.c.o
+[106/243] Compiling C object tools/dbus-test-tool.p/test-tool.c.o
+[107/243] Compiling C object tools/dbus-launch.p/dbus-launch.c.o
+[108/243] Compiling C object test/test-segfault.p/test-segfault.c.o
+[109/243] Compiling C object test/test-privserver.p/test-privserver.c.o
+[110/243] Linking static target bus/libdbus-daemon-internal.a
+[111/243] Compiling C object tools/dbus-test-tool.p/tool-common.c.o
+[112/243] Compiling C object tools/dbus-monitor.p/dbus-print-message.c.o
+[113/243] Compiling C object test/test-segfault.p/disable-crash-handling.c.o
+[114/243] Compiling C object tools/dbus-update-activation-environment.p/tool-common.c.o
+[115/243] Compiling C object test/test-misc-internals.p/internals_dbus-auth-script.c.o
+[116/243] Compiling C object test/test-sleep-forever.p/test-sleep-forever.c.o
+[117/243] Compiling C object test/test-misc-internals.p/internals_dbus-marshal-recursive-util.c.o
+[118/243] Compiling C object tools/dbus-uuidgen.p/dbus-uuidgen.c.o
+[119/243] Compiling C object test/test-spawn.p/spawn-test.c.o
+[120/243] Compiling C object test/test-misc-internals.p/internals_dbus-auth-util.c.o
+[121/243] Compiling C object test/test-misc-internals.p/internals_dbus-credentials-util.c.o
+[122/243] Compiling C object test/test-misc-internals.p/internals_dbus-marshal-byteswap-util.c.o
+[123/243] Compiling C object test/test-misc-internals.p/internals_dbus-marshal-validate-util.c.o
+[124/243] Compiling C object test/test-shell-service.p/test-shell-service.c.o
+[125/243] Compiling C object test/test-misc-internals.p/internals_sha.c.o
+[126/243] Compiling C object test/libdbus-testutils.a.p/test-utils-glib.c.o
+[127/243] Compiling C object test/test-atomic.p/internals_atomic.c.o
+[128/243] Compiling C object test/test-misc-internals.p/internals_address.c.o
+[129/243] Compiling C object test/test-misc-internals.p/internals_dbus-string-util.c.o
+[130/243] Linking static target test/libdbus-testutils.a
+[131/243] Compiling C object test/test-misc-internals.p/internals_dbus-sysdeps-util.c.o
+[132/243] Compiling C object test/manual-backtrace.p/manual-backtrace.c.o
+[133/243] Compiling C object dbus/libdbus-1.so.3.38.3.p/dbus-sysdeps-unix.c.o
+[134/243] Compiling C object test/manual-tcp.p/manual-tcp.c.o
+[135/243] Compiling C object test/test-service.p/test-service.c.o
+../dbus/test/test-service.c:11:20: warning: variable 'hello_from_self_reply_received' set but not used [-Wunused-but-set-global]
+   11 | static dbus_bool_t hello_from_self_reply_received = FALSE;
+      |                    ^
+1 warning generated.
+[136/243] Compiling C object test/manual-dir-iter.p/manual-dir-iter.c.o
+[137/243] Compiling C object test/test-misc-internals.p/internals_mempool.c.o
+[138/243] Compiling C object test/test-strings.p/internals_strings.c.o
+[139/243] Compiling C object test/launch-helper-for-tests.p/bus_launch-helper-for-tests.c.o
+[140/243] Compiling C object test/test-printf.p/internals_printf.c.o
+[141/243] Compiling C object test/test-shell.p/shell-test.c.o
+[142/243] Linking target dbus/libdbus-1.so.3.38.3
+[143/243] Compiling C object test/test-hash.p/internals_hash.c.o
+[144/243] Compiling C object test/test-assertions.p/internals_assertions.c.o
+[145/243] Compiling C object test/test-corrupt.p/corrupt.c.o
+[146/243] Compiling C object test/test-misc-internals.p/internals_misc-internals.c.o
+[147/243] Compiling C object test/test-dbus-daemon-eavesdrop.p/dbus-daemon-eavesdrop.c.o
+[148/243] Compiling C object test/test-marshal.p/marshal.c.o
+[149/243] Compiling C object test/test-apparmor-activation.p/sd-activation.c.o
+[150/243] Compiling C object test/test-header-fields.p/header-fields.c.o
+[151/243] Compiling C object test/test-fdpass.p/fdpass.c.o
+[152/243] Compiling C object test/test-loopback.p/loopback.c.o
+[153/243] Compiling C object test/test-syntax.p/syntax.c.o
+[154/243] Compiling C object test/test-message.p/message.c.o
+[155/243] Linking target tools/dbus-cleanup-sockets
+[156/243] Compiling C object test/test-server-oom.p/internals_server-oom.c.o
+[157/243] Linking target test/test-segfault
+[158/243] Compiling C object test/test-relay.p/relay.c.o
+[159/243] Compiling C object test/manual-authz.p/manual-authz.c.o
+[160/243] Compiling C object test/test-syslog.p/internals_syslog.c.o
+[161/243] Compiling C object test/test-userdb.p/internals_userdb.c.o
+[162/243] Generating symbol file dbus/libdbus-1.so.3.38.3.p/libdbus-1.so.3.38.3.symbols
+[163/243] Compiling C object test/test-desktop-file.p/internals_desktop-file.c.o
+[164/243] Compiling C object test/test-uid-permissions.p/uid-permissions.c.o
+[165/243] Compiling C object test/test-sysdeps.p/internals_sysdeps.c.o
+[166/243] Linking target bus/dbus-daemon
+[167/243] Linking target bus/dbus-daemon-launch-helper
+[168/243] Linking target tools/dbus-launch
+[169/243] Linking target tools/dbus-monitor
+[170/243] Compiling C object test/test-refs.p/internals_refs.c.o
+[171/243] Generating doc/dbus-launch.1 with a custom command
+[172/243] Generating doc/dbus-run-session.1 with a custom command
+[173/243] Linking target tools/dbus-run-session
+[174/243] Linking target tools/dbus-test-tool
+[175/243] Linking target tools/dbus-send
+[176/243] Linking target tools/dbus-update-activation-environment
+[177/243] Generating doc/dbus-cleanup-sockets.1 with a custom command
+[178/243] Linking target tools/dbus-uuidgen
+[179/243] Linking target test/test-exit
+[180/243] Linking target test/test-names
+[181/243] Linking target test/test-privserver
+[182/243] Linking target test/test-sleep-forever
+[183/243] Linking target test/test-shell-service
+[184/243] Linking target test/test-service
+[185/243] Linking target test/launch-helper-for-tests
+[186/243] Generating doc/dbus-monitor.1 with a custom command
+[187/243] Generating doc/dbus-daemon.1 with a custom command
+[188/243] Generating doc/dbus-update-activation-environment.1 with a custom command
+[189/243] Linking target test/test-spawn
+[190/243] Linking target test/test-atomic
+[191/243] Linking target test/test-hash
+[192/243] Linking target test/test-apparmor-activation
+[193/243] Compiling C object test/manual-test-thread-blocking.p/thread-blocking.c.o
+[194/243] Linking target test/test-printf
+[195/243] Generating doc/dbus-test-tool.1 with a custom command
+[196/243] Compiling C object test/test-variant.p/internals_variant.c.o
+[197/243] Linking target test/test-shell
+[198/243] Linking target test/manual-backtrace
+[199/243] Linking target test/test-misc-internals
+[200/243] Linking target test/test-strings
+[201/243] Linking target test/manual-dir-iter
+[202/243] Linking target test/manual-tcp
+[203/243] Generating doc/dbus-send.1 with a custom command
+[204/243] Linking target test/test-assertions
+[205/243] Linking target test/test-corrupt
+[206/243] Linking target test/test-desktop-file
+[207/243] Linking target test/test-dbus-daemon-eavesdrop
+[208/243] Linking target test/test-header-fields
+[209/243] Compiling C object test/test-dbus-daemon.p/dbus-daemon.c.o
+[210/243] Linking target test/test-syntax
+[211/243] Linking target test/test-fdpass
+[212/243] Linking target test/test-relay
+[213/243] Linking target test/test-message
+[214/243] Linking target test/test-sysdeps
+[215/243] Linking target test/test-refs
+[216/243] Linking target test/test-loopback
+[217/243] Linking target test/test-syslog
+[218/243] Linking target test/test-marshal
+[219/243] Linking target test/test-server-oom
+[220/243] Linking target test/test-userdb
+[221/243] Compiling C object test/test-monitor.p/monitor.c.o
+[222/243] Linking target test/test-uid-permissions
+[223/243] Compiling C object test/test-sd-activation.p/sd-activation.c.o
+[224/243] Linking target test/test-variant
+[225/243] Linking target test/test-dbus-daemon
+[226/243] Linking target test/manual-test-thread-blocking
+[227/243] Linking target test/manual-authz
+[228/243] Linking target test/test-monitor
+[229/243] Linking target test/test-sd-activation
+[230/243] Generating doc/dbus-cleanup-sockets.1.html with a custom command
+[231/243] Generating doc/dbus-send.1.html with a custom command
+[232/243] Generating doc/dbus-launch.1.html with a custom command
+[233/243] Generating doc/dbus-update-activation-environment.1.html with a custom command
+[234/243] Generating doc/dbus-test-tool.1.html with a custom command
+[235/243] Generating doc/dbus-daemon.1.html with a custom command
+[236/243] Generating doc/dbus-uuidgen.1 with a custom command
+[237/243] Generating doc/dbus-test-plan.html with a custom command
+[238/243] Generating doc/dbus-uuidgen.1.html with a custom command
+[239/243] Generating doc/dbus-monitor.1.html with a custom command
+[240/243] Generating doc/dbus-run-session.1.html with a custom command
+[241/243] Generating doc/dbus-faq.html with a custom command
+[242/243] Generating doc/dbus-tutorial.html with a custom command
+[243/243] Generating doc/dbus-specification.html with a custom command
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package_dbus()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Not installing /home/builder/build/pkg/dbus/usr/lib/dbus-daemon-launch-helper binary setuid!
+The dbus_user dbus does not exist!
+Installing dbus/libdbus-1.so.3.38.3 to /home/builder/build/pkg/dbus/usr/lib
+Installing bus/dbus-daemon to /home/builder/build/pkg/dbus/usr/bin
+Installing bus/dbus-daemon-launch-helper to /home/builder/build/pkg/dbus/usr/lib
+Installing tools/dbus-cleanup-sockets to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-launch to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-monitor to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-run-session to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-send to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-test-tool to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-update-activation-environment to /home/builder/build/pkg/dbus/usr/bin
+Installing tools/dbus-uuidgen to /home/builder/build/pkg/dbus/usr/bin
+Installing doc/dbus-cleanup-sockets.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-daemon.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-launch.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-monitor.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-run-session.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-send.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-test-tool.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-update-activation-environment.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-uuidgen.1 to /home/builder/build/pkg/dbus/usr/share/man/man1
+Installing doc/dbus-cleanup-sockets.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-daemon.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-launch.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-monitor.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-run-session.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-send.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-test-tool.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-update-activation-environment.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-uuidgen.1.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-faq.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-specification.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-test-plan.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing doc/dbus-tutorial.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-address.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-bus.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-connection.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-errors.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-macros.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-memory.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-message.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-misc.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-pending-call.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-protocol.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-server.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-shared.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-signature.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-syntax.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-threads.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus-types.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing /home/builder/build/src/dbus/dbus/dbus.h to /home/builder/build/pkg/dbus/usr/include/dbus-1.0/dbus
+Installing new directory /home/builder/build/pkg/dbus/usr/share/dbus-1/session.d
+Installing new directory /home/builder/build/pkg/dbus/usr/share/dbus-1/services
+Installing new directory /home/builder/build/pkg/dbus/usr/share/dbus-1/system.d
+Installing new directory /home/builder/build/pkg/dbus/usr/share/dbus-1/system-services
+Installing new directory /home/builder/build/pkg/dbus/var/lib/dbus
+Installing /home/builder/build/src/build/dbus/dbus-arch-deps.h to /home/builder/build/pkg/dbus/usr/lib/dbus-1.0/include/dbus
+Installing /home/builder/build/src/build/bus/session.conf to /home/builder/build/pkg/dbus/usr/share/dbus-1
+Installing /home/builder/build/src/build/bus/system.conf to /home/builder/build/pkg/dbus/usr/share/dbus-1
+Installing /home/builder/build/src/build/bus/example-system-enable-stats.conf to /home/builder/build/pkg/dbus/usr/share/doc/dbus/examples
+Installing /home/builder/build/src/build/bus/example-session-disable-stats.conf to /home/builder/build/pkg/dbus/usr/share/doc/dbus/examples
+Installing /home/builder/build/src/dbus/bus/example-system-hardening-without-traditional-activation.conf to /home/builder/build/pkg/dbus/usr/share/doc/dbus/examples
+Installing /home/builder/build/src/build/bus/dbus.service to /home/builder/build/pkg/dbus/usr/lib/systemd/system
+Installing /home/builder/build/src/build/bus/dbus.socket to /home/builder/build/pkg/dbus/usr/lib/systemd/system
+Installing /home/builder/build/src/build/bus/sysusers.d/dbus.conf to /home/builder/build/pkg/dbus/usr/lib/sysusers.d
+Installing /home/builder/build/src/build/bus/tmpfiles.d/dbus.conf to /home/builder/build/pkg/dbus/usr/lib/tmpfiles.d
+Installing /home/builder/build/src/build/bus/systemd-user/dbus.service to /home/builder/build/pkg/dbus/usr/lib/systemd/user
+Installing /home/builder/build/src/build/bus/systemd-user/dbus.socket to /home/builder/build/pkg/dbus/usr/lib/systemd/user
+Installing /home/builder/build/src/dbus/tools/GetAllMatchRules.py to /home/builder/build/pkg/dbus/usr/share/doc/dbus/examples
+Installing /home/builder/build/src/dbus/doc/system-activation.txt to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing /home/builder/build/src/dbus/doc/diagram.png to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing /home/builder/build/src/dbus/doc/diagram.svg to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing /home/builder/build/src/build/doc/index.html to /home/builder/build/pkg/dbus/usr/share/doc/dbus
+Installing /home/builder/build/src/dbus/doc/busconfig.dtd to /home/builder/build/pkg/dbus/usr/share/xml/dbus-1
+Installing /home/builder/build/src/dbus/doc/introspect.dtd to /home/builder/build/pkg/dbus/usr/share/xml/dbus-1
+Installing /home/builder/build/src/build/doc/catalog.xml to /home/builder/build/pkg/dbus/usr/share/xml/dbus-1
+Installing /home/builder/build/src/build/cmake/DBus1Config.cmake to /home/builder/build/pkg/dbus/usr/lib/cmake/DBus1
+Installing /home/builder/build/src/build/cmake/DBus1ConfigVersion.cmake to /home/builder/build/pkg/dbus/usr/lib/cmake/DBus1
+Installing /home/builder/build/src/build/meson-private/dbus-1.pc to /home/builder/build/pkg/dbus/usr/lib/pkgconfig
+Installing symlink pointing to libdbus-1.so.3.38.3 to /home/builder/build/pkg/dbus/usr/lib/libdbus-1.so.3
+Installing symlink pointing to libdbus-1.so.3 to /home/builder/build/pkg/dbus/usr/lib/libdbus-1.so
+Installing symlink pointing to ../dbus.service to /home/builder/build/pkg/dbus/usr/lib/systemd/system/multi-user.target.wants/dbus.service
+Installing symlink pointing to ../dbus.socket to /home/builder/build/pkg/dbus/usr/lib/systemd/system/sockets.target.wants/dbus.socket
+Installing symlink pointing to ../dbus.socket to /home/builder/build/pkg/dbus/usr/lib/systemd/user/sockets.target.wants/dbus.socket
+Running custom install script '/home/builder/build/src/dbus/meson_post_install.py false'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "dbus"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_dbus-daemon-units()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "dbus-daemon-units"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_dbus-docs()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "dbus-docs"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: dbus 1.16.2-1 (Sat Sep 19 22:52:38 2026)

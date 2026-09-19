@@ -1,0 +1,219 @@
+== build python-setuptools-scm (deps: git python python-build python-installer python-packaging python-setuptools python-vcs-versioning python-wheel )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (11) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-pyproject-hooks-1.2.0-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-packaging-26.3-1  python-setuptools-84.0.0-1  python-vcs-versioning-2.4.1-1  python-wheel-0.48.0-1
+
+Total Download Size:    8.04 MiB
+Total Installed Size:  51.55 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-vcs-versioning-2.4.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-vcs-versioning...
+Optional dependencies for python-vcs-versioning
+    python-rich: formatting of log messages
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-setuptools-scm 10.3.3-1 (Sat Sep 19 22:03:07 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating python-setuptools-scm git repo...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    python-setuptools-scm ... Passed
+==> Validating source files with b2sums...
+    python-setuptools-scm ... Passed
+==> Extracting sources...
+  -> Creating working copy of python-setuptools-scm git repo...
+Cloning into 'python-setuptools-scm'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+running bdist_wheel
+running build
+running build_py
+creating build/lib/setuptools_scm
+copying src/setuptools_scm/__init__.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/__main__.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/_compat_helpers.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/_get_version.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/discover.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/fallbacks.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/git.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/hg.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/hg_git.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/integration.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/scm_workdir.py -> build/lib/setuptools_scm
+copying src/setuptools_scm/version.py -> build/lib/setuptools_scm
+creating build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/__init__.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/_discover.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/bdist_wheel.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/deprecation.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/file_finders.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/pyproject_reading.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/setup_cfg.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/setuptools.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/version_inference.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/build_py.py -> build/lib/setuptools_scm/_integration
+copying src/setuptools_scm/_integration/egg_info.py -> build/lib/setuptools_scm/_integration
+running egg_info
+creating src/setuptools_scm.egg-info
+writing src/setuptools_scm.egg-info/PKG-INFO
+writing dependency_links to src/setuptools_scm.egg-info/dependency_links.txt
+writing entry points to src/setuptools_scm.egg-info/entry_points.txt
+writing requirements to src/setuptools_scm.egg-info/requires.txt
+writing top-level names to src/setuptools_scm.egg-info/top_level.txt
+writing manifest file 'src/setuptools_scm.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files found matching '*.nix'
+warning: no previously-included files found matching '.pre-commit-config.yaml'
+warning: no previously-included files found matching '.git_archival.txt'
+warning: no previously-included files found matching '.readthedocs.yaml'
+warning: no files found matching '*.rst'
+warning: no files found matching 'testing_scm/Dockerfile.*'
+warning: no files found matching '*.bash' under directory 'testing_scm'
+no previously-included directories found matching '.cursor'
+adding license file 'LICENSE'
+writing manifest file 'src/setuptools_scm.egg-info/SOURCES.txt'
+copying src/setuptools_scm/.git_archival.txt -> build/lib/setuptools_scm
+copying src/setuptools_scm/py.typed -> build/lib/setuptools_scm
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/setuptools_scm
+copying build/lib/setuptools_scm/__init__.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/__main__.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/_compat_helpers.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/_get_version.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/discover.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/fallbacks.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/git.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/hg.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/hg_git.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/integration.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/scm_workdir.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/version.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+creating build/bdist.linux-x86_64/wheel/setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/__init__.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/_discover.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/bdist_wheel.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/deprecation.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/file_finders.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/pyproject_reading.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/setup_cfg.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/setuptools.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/version_inference.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/build_py.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/_integration/egg_info.py -> build/bdist.linux-x86_64/wheel/./setuptools_scm/_integration
+copying build/lib/setuptools_scm/.git_archival.txt -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+copying build/lib/setuptools_scm/py.typed -> build/bdist.linux-x86_64/wheel/./setuptools_scm
+running install_egg_info
+Copying src/setuptools_scm.egg-info to build/bdist.linux-x86_64/wheel/./setuptools_scm-10.3.3-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/setuptools_scm-10.3.3.dist-info/WHEEL
+creating '/home/builder/build/src/python-setuptools-scm/setuptools-scm/dist/.tmp-4jnl0b39/setuptools_scm-10.3.3-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'setuptools_scm/.git_archival.txt'
+adding 'setuptools_scm/__init__.py'
+adding 'setuptools_scm/__main__.py'
+adding 'setuptools_scm/_compat_helpers.py'
+adding 'setuptools_scm/_get_version.py'
+adding 'setuptools_scm/discover.py'
+adding 'setuptools_scm/fallbacks.py'
+adding 'setuptools_scm/git.py'
+adding 'setuptools_scm/hg.py'
+adding 'setuptools_scm/hg_git.py'
+adding 'setuptools_scm/integration.py'
+adding 'setuptools_scm/py.typed'
+adding 'setuptools_scm/scm_workdir.py'
+adding 'setuptools_scm/version.py'
+adding 'setuptools_scm/_integration/__init__.py'
+adding 'setuptools_scm/_integration/_discover.py'
+adding 'setuptools_scm/_integration/bdist_wheel.py'
+adding 'setuptools_scm/_integration/build_py.py'
+adding 'setuptools_scm/_integration/deprecation.py'
+adding 'setuptools_scm/_integration/egg_info.py'
+adding 'setuptools_scm/_integration/file_finders.py'
+adding 'setuptools_scm/_integration/pyproject_reading.py'
+adding 'setuptools_scm/_integration/setup_cfg.py'
+adding 'setuptools_scm/_integration/setuptools.py'
+adding 'setuptools_scm/_integration/version_inference.py'
+adding 'setuptools_scm-10.3.3.dist-info/licenses/LICENSE'
+adding 'setuptools_scm-10.3.3.dist-info/METADATA'
+adding 'setuptools_scm-10.3.3.dist-info/WHEEL'
+adding 'setuptools_scm-10.3.3.dist-info/entry_points.txt'
+adding 'setuptools_scm-10.3.3.dist-info/top_level.txt'
+adding 'setuptools_scm-10.3.3.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built setuptools_scm-10.3.3-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-setuptools-scm/usr/share'
+install: creating directory '/home/builder/build/pkg/python-setuptools-scm/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-setuptools-scm/usr/share/licenses/python-setuptools-scm'
+'LICENSE' -> '/home/builder/build/pkg/python-setuptools-scm/usr/share/licenses/python-setuptools-scm/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-setuptools-scm"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-setuptools-scm 10.3.3-1 (Sat Sep 19 22:03:15 2026)

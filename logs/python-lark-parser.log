@@ -1,0 +1,357 @@
+== build python-lark-parser (deps: git python python-build python-installer python-setuptools python-setuptools-scm python-typing_extensions python-wheel )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (13) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-packaging-26.3-1  python-pyproject-hooks-1.2.0-1  python-vcs-versioning-2.4.1-1  git-2.55.0-1  python-build-1.6.0-1  python-installer-1.0.1-1  python-setuptools-84.0.0-1  python-setuptools-scm-10.3.3-1  python-typing_extensions-4.16.0-1  python-wheel-0.48.0-1
+
+Total Download Size:    8.18 MiB
+Total Installed Size:  52.34 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-setuptools-84.0.0-1-any downloading...
+ python-installer-1.0.1-1-any downloading...
+ python-vcs-versioning-2.4.1-1-any downloading...
+ python-packaging-26.3-1-any downloading...
+ python-typing_extensions-4.16.0-1-any downloading...
+ python-setuptools-scm-10.3.3-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ python-wheel-0.48.0-1-any downloading...
+ python-build-1.6.0-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ python-pyproject-hooks-1.2.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing python-packaging...
+installing python-pyproject-hooks...
+installing python-build...
+installing python-installer...
+installing python-setuptools...
+installing python-vcs-versioning...
+Optional dependencies for python-vcs-versioning
+    python-rich: formatting of log messages
+installing python-setuptools-scm...
+Optional dependencies for python-setuptools-scm
+    python-rich: use rich as console log handler
+installing python-typing_extensions...
+installing python-wheel...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: python-lark-parser 1.3.1-2 (Sat Sep 19 22:23:39 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning python-lark-parser git repo...
+Cloning into bare repository '/sources/python-lark-parser'...
+  -> Cloning github.com-Hardmath123-nearley git repo...
+Cloning into bare repository '/sources/github.com-Hardmath123-nearley'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    python-lark-parser ... Passed
+    github.com-Hardmath123-nearley ... Skipped
+==> Validating source files with b2sums...
+    python-lark-parser ... Passed
+    github.com-Hardmath123-nearley ... Skipped
+==> Extracting sources...
+  -> Creating working copy of python-lark-parser git repo...
+Cloning into 'python-lark-parser'...
+done.
+Switched to a new branch 'makepkg'
+  -> Creating working copy of github.com-Hardmath123-nearley git repo...
+Cloning into 'github.com-Hardmath123-nearley'...
+done.
+==> Starting prepare()...
+Submodule 'tests/test_nearley/nearley' (https://github.com/Hardmath123/nearley) registered for path 'tests/test_nearley/nearley'
+Cloning into '/home/builder/build/src/python-lark-parser/tests/test_nearley/nearley'...
+done.
+Submodule path 'tests/test_nearley/nearley': checked out '326831689826cb1b9a4d21d1ce0d5db9278e9636'
+==> Starting build()...
+* Getting build dependencies for wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running egg_info
+creating lark.egg-info
+writing lark.egg-info/PKG-INFO
+writing dependency_links to lark.egg-info/dependency_links.txt
+writing entry points to lark.egg-info/entry_points.txt
+writing requirements to lark.egg-info/requires.txt
+writing top-level names to lark.egg-info/top_level.txt
+writing manifest file 'lark.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'lark.egg-info/SOURCES.txt'
+* Building wheel...
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/usr/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/usr/lib/python3.14/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: MIT License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+running build
+running build_py
+creating build/lib/lark
+copying lark/ast_utils.py -> build/lib/lark
+copying lark/common.py -> build/lib/lark
+copying lark/grammar.py -> build/lib/lark
+copying lark/parse_tree_builder.py -> build/lib/lark
+copying lark/tree_matcher.py -> build/lib/lark
+copying lark/utils.py -> build/lib/lark
+copying lark/__init__.py -> build/lib/lark
+copying lark/exceptions.py -> build/lib/lark
+copying lark/indenter.py -> build/lib/lark
+copying lark/lark.py -> build/lib/lark
+copying lark/lexer.py -> build/lib/lark
+copying lark/load_grammar.py -> build/lib/lark
+copying lark/parser_frontends.py -> build/lib/lark
+copying lark/reconstruct.py -> build/lib/lark
+copying lark/tree.py -> build/lib/lark
+copying lark/tree_templates.py -> build/lib/lark
+copying lark/visitors.py -> build/lib/lark
+creating build/lib/lark/parsers
+copying lark/parsers/__init__.py -> build/lib/lark/parsers
+copying lark/parsers/cyk.py -> build/lib/lark/parsers
+copying lark/parsers/earley.py -> build/lib/lark/parsers
+copying lark/parsers/earley_common.py -> build/lib/lark/parsers
+copying lark/parsers/earley_forest.py -> build/lib/lark/parsers
+copying lark/parsers/grammar_analysis.py -> build/lib/lark/parsers
+copying lark/parsers/lalr_analysis.py -> build/lib/lark/parsers
+copying lark/parsers/lalr_parser.py -> build/lib/lark/parsers
+copying lark/parsers/lalr_interactive_parser.py -> build/lib/lark/parsers
+copying lark/parsers/lalr_parser_state.py -> build/lib/lark/parsers
+copying lark/parsers/xearley.py -> build/lib/lark/parsers
+creating build/lib/lark/tools
+copying lark/tools/__init__.py -> build/lib/lark/tools
+copying lark/tools/nearley.py -> build/lib/lark/tools
+copying lark/tools/serialize.py -> build/lib/lark/tools
+copying lark/tools/standalone.py -> build/lib/lark/tools
+creating build/lib/lark/grammars
+copying lark/grammars/__init__.py -> build/lib/lark/grammars
+creating build/lib/lark/__pyinstaller
+copying lark/__pyinstaller/__init__.py -> build/lib/lark/__pyinstaller
+copying lark/__pyinstaller/hook-lark.py -> build/lib/lark/__pyinstaller
+running egg_info
+writing lark.egg-info/PKG-INFO
+writing dependency_links to lark.egg-info/dependency_links.txt
+writing entry points to lark.egg-info/entry_points.txt
+writing requirements to lark.egg-info/requires.txt
+writing top-level names to lark.egg-info/top_level.txt
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'lark.egg-info/SOURCES.txt'
+copying lark/py.typed -> build/lib/lark
+copying lark/grammars/common.lark -> build/lib/lark/grammars
+copying lark/grammars/lark.lark -> build/lib/lark/grammars
+copying lark/grammars/python.lark -> build/lib/lark/grammars
+copying lark/grammars/unicode.lark -> build/lib/lark/grammars
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/lark
+copying build/lib/lark/ast_utils.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/common.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/grammar.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/parse_tree_builder.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/tree_matcher.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/utils.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/__init__.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/exceptions.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/indenter.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/lark.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/lexer.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/load_grammar.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/parser_frontends.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/reconstruct.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/tree.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/tree_templates.py -> build/bdist.linux-x86_64/wheel/./lark
+copying build/lib/lark/visitors.py -> build/bdist.linux-x86_64/wheel/./lark
+creating build/bdist.linux-x86_64/wheel/lark/parsers
+copying build/lib/lark/parsers/__init__.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/cyk.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/earley.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/earley_common.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/earley_forest.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/grammar_analysis.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/lalr_analysis.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/lalr_parser.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/lalr_interactive_parser.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/lalr_parser_state.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+copying build/lib/lark/parsers/xearley.py -> build/bdist.linux-x86_64/wheel/./lark/parsers
+creating build/bdist.linux-x86_64/wheel/lark/tools
+copying build/lib/lark/tools/__init__.py -> build/bdist.linux-x86_64/wheel/./lark/tools
+copying build/lib/lark/tools/nearley.py -> build/bdist.linux-x86_64/wheel/./lark/tools
+copying build/lib/lark/tools/serialize.py -> build/bdist.linux-x86_64/wheel/./lark/tools
+copying build/lib/lark/tools/standalone.py -> build/bdist.linux-x86_64/wheel/./lark/tools
+creating build/bdist.linux-x86_64/wheel/lark/grammars
+copying build/lib/lark/grammars/__init__.py -> build/bdist.linux-x86_64/wheel/./lark/grammars
+copying build/lib/lark/grammars/common.lark -> build/bdist.linux-x86_64/wheel/./lark/grammars
+copying build/lib/lark/grammars/lark.lark -> build/bdist.linux-x86_64/wheel/./lark/grammars
+copying build/lib/lark/grammars/python.lark -> build/bdist.linux-x86_64/wheel/./lark/grammars
+copying build/lib/lark/grammars/unicode.lark -> build/bdist.linux-x86_64/wheel/./lark/grammars
+creating build/bdist.linux-x86_64/wheel/lark/__pyinstaller
+copying build/lib/lark/__pyinstaller/__init__.py -> build/bdist.linux-x86_64/wheel/./lark/__pyinstaller
+copying build/lib/lark/__pyinstaller/hook-lark.py -> build/bdist.linux-x86_64/wheel/./lark/__pyinstaller
+copying build/lib/lark/py.typed -> build/bdist.linux-x86_64/wheel/./lark
+running install_egg_info
+Copying lark.egg-info to build/bdist.linux-x86_64/wheel/./lark-1.3.1-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/lark-1.3.1.dist-info/WHEEL
+creating '/home/builder/build/src/python-lark-parser/dist/.tmp-zchclpje/lark-1.3.1-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'lark/__init__.py'
+adding 'lark/ast_utils.py'
+adding 'lark/common.py'
+adding 'lark/exceptions.py'
+adding 'lark/grammar.py'
+adding 'lark/indenter.py'
+adding 'lark/lark.py'
+adding 'lark/lexer.py'
+adding 'lark/load_grammar.py'
+adding 'lark/parse_tree_builder.py'
+adding 'lark/parser_frontends.py'
+adding 'lark/py.typed'
+adding 'lark/reconstruct.py'
+adding 'lark/tree.py'
+adding 'lark/tree_matcher.py'
+adding 'lark/tree_templates.py'
+adding 'lark/utils.py'
+adding 'lark/visitors.py'
+adding 'lark/__pyinstaller/__init__.py'
+adding 'lark/__pyinstaller/hook-lark.py'
+adding 'lark/grammars/__init__.py'
+adding 'lark/grammars/common.lark'
+adding 'lark/grammars/lark.lark'
+adding 'lark/grammars/python.lark'
+adding 'lark/grammars/unicode.lark'
+adding 'lark/parsers/__init__.py'
+adding 'lark/parsers/cyk.py'
+adding 'lark/parsers/earley.py'
+adding 'lark/parsers/earley_common.py'
+adding 'lark/parsers/earley_forest.py'
+adding 'lark/parsers/grammar_analysis.py'
+adding 'lark/parsers/lalr_analysis.py'
+adding 'lark/parsers/lalr_interactive_parser.py'
+adding 'lark/parsers/lalr_parser.py'
+adding 'lark/parsers/lalr_parser_state.py'
+adding 'lark/parsers/xearley.py'
+adding 'lark/tools/__init__.py'
+adding 'lark/tools/nearley.py'
+adding 'lark/tools/serialize.py'
+adding 'lark/tools/standalone.py'
+adding 'lark-1.3.1.dist-info/licenses/LICENSE'
+adding 'lark-1.3.1.dist-info/METADATA'
+adding 'lark-1.3.1.dist-info/WHEEL'
+adding 'lark-1.3.1.dist-info/entry_points.txt'
+adding 'lark-1.3.1.dist-info/top_level.txt'
+adding 'lark-1.3.1.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built lark-1.3.1-py3-none-any.whl
+==> Entering fakeroot environment...
+==> Starting package()...
+install: creating directory '/home/builder/build/pkg/python-lark-parser/usr/share'
+install: creating directory '/home/builder/build/pkg/python-lark-parser/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/python-lark-parser/usr/share/licenses/python-lark-parser'
+'LICENSE' -> '/home/builder/build/pkg/python-lark-parser/usr/share/licenses/python-lark-parser/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "python-lark-parser"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: python-lark-parser 1.3.1-2 (Sat Sep 19 22:24:03 2026)
