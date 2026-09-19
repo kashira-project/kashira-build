@@ -1,0 +1,10 @@
+== build meson (deps: bash git ninja python python-aiohttp python-build python-installer python-setuptools python-strictyaml python-tqdm python-wheel )
+warning: bash-5.3-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+error: target not found: python-aiohttp
+error: target not found: python-build
+error: target not found: python-installer
+error: target not found: python-setuptools
+error: target not found: python-strictyaml
+error: target not found: python-tqdm
+error: target not found: python-wheel

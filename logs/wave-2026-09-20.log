@@ -316,3 +316,31 @@
 == wave: libxslt already done
 == wave: docbook-xsl already done
 == wave: xmlto already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/systemd-261.2-4-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'systemd-261.2-4' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'systemd-261.2-4'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: systemd OK
+== wave: dbus FAILED (log: /mnt/lfs/src/kashira-build/logs/dbus.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: meson FAILED (log: /mnt/lfs/src/kashira-build/logs/meson.log)
