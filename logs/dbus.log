@@ -1,0 +1,20 @@
+== build dbus (deps:  audit dbus docbook-xsl doxygen expat git glib2 glibc libaudit.so libcap-ng libcap-ng.so libexpat.so libsystemd.so mallard-ducktype meson python qt5-tools systemd systemd-libs xmlto yelp-tools )
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: dbus-1.16.2-1 is up to date -- skipping
+error: target not found: docbook-xsl
+error: target not found: doxygen
+warning: expat-2.8.3-1 is up to date -- skipping
+warning: glib2-2.88.3-2 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+error: target not found: libexpat.so
+error: target not found: libsystemd.so
+error: target not found: mallard-ducktype
+warning: python-3.14.7-1 is up to date -- skipping
+error: target not found: qt5-tools
+warning: systemd-261.2-4 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+error: target not found: xmlto
+error: target not found: yelp-tools

@@ -4,12 +4,16 @@
 # Phase 0: pacman conf refresh (autodeps + repo.kashiraproject.org URL)
 #          + rebuild soname providers so Arch-style soname deps resolve.
 /mnt/lfs/src/kashira/pkgs/pacman
-/mnt/lfs/src/kashira-arch/pkgs/dbus
-/mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/expat
 /mnt/lfs/src/kashira-arch/pkgs/libarchive
 /mnt/lfs/src/kashira-arch/pkgs/sqlite
+/mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/dbus
 /mnt/lfs/src/kashira/pkgs/systemd
 # Phase 1: dep-closure imports (small libs the wave needs)
+/mnt/lfs/src/kashira-arch/pkgs/libxslt
+/mnt/lfs/src/kashira-arch/pkgs/docbook-xsl
+/mnt/lfs/src/kashira-arch/pkgs/xmlto
 /mnt/lfs/src/kashira-arch/pkgs/po4a
 /mnt/lfs/src/kashira-arch/pkgs/bash-completion
 /mnt/lfs/src/kashira-arch/pkgs/bluez
@@ -30,7 +34,6 @@
 # Phase 2: the version bumps, leaf libs first
 /mnt/lfs/src/kashira-arch/pkgs/tzdata
 /mnt/lfs/src/kashira-arch/pkgs/man-pages
-/mnt/lfs/src/kashira-arch/pkgs/expat
 /mnt/lfs/src/kashira-arch/pkgs/pkgconf
 /mnt/lfs/src/kashira-arch/pkgs/xxhash
 /mnt/lfs/src/kashira-arch/pkgs/less
