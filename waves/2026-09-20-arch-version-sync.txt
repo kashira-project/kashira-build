@@ -20,6 +20,16 @@
 /mnt/lfs/src/kashira-arch/pkgs/libxslt
 /mnt/lfs/src/kashira-arch/pkgs/docbook-xsl
 /mnt/lfs/src/kashira-arch/pkgs/xmlto
+# python packaging chain (wheel-install bootstrap deltas)
+/mnt/lfs/src/kashira-arch/pkgs/python-packaging
+/mnt/lfs/src/kashira-arch/pkgs/python-pyproject-hooks
+/mnt/lfs/src/kashira-arch/pkgs/python-flit-core
+/mnt/lfs/src/kashira-arch/pkgs/python-installer
+/mnt/lfs/src/kashira-arch/pkgs/python-build
+/mnt/lfs/src/kashira-arch/pkgs/python-setuptools
+/mnt/lfs/src/kashira-arch/pkgs/python-wheel
+/mnt/lfs/src/kashira-arch/pkgs/python-pyelftools
+/mnt/lfs/src/kashira-arch/pkgs/meson
 /mnt/lfs/src/kashira/pkgs/systemd
 /mnt/lfs/src/kashira-arch/pkgs/dbus
 /mnt/lfs/src/kashira-arch/pkgs/fuse3
