@@ -1,0 +1,29 @@
+# version-sync wave 2026-09-20: fork packages rebuilt at Arch's versions
+# from kashira-arch/pkgs. Order: data/leaf libs -> consumers -> big builds.
+# Pinned-ahead (perl, shadow, iana-etc) excluded by policy. systemd is heart.
+/mnt/lfs/src/kashira-arch/pkgs/tzdata
+/mnt/lfs/src/kashira-arch/pkgs/man-pages
+/mnt/lfs/src/kashira-arch/pkgs/expat
+/mnt/lfs/src/kashira-arch/pkgs/pkgconf
+/mnt/lfs/src/kashira-arch/pkgs/xxhash
+/mnt/lfs/src/kashira-arch/pkgs/less
+/mnt/lfs/src/kashira-arch/pkgs/libedit
+/mnt/lfs/src/kashira-arch/pkgs/libpcap
+/mnt/lfs/src/kashira-arch/pkgs/lmdb
+/mnt/lfs/src/kashira-arch/pkgs/libisl
+/mnt/lfs/src/kashira-arch/pkgs/pcre2
+/mnt/lfs/src/kashira-arch/pkgs/xz
+/mnt/lfs/src/kashira-arch/pkgs/readline
+/mnt/lfs/src/kashira-arch/pkgs/bash
+/mnt/lfs/src/kashira-arch/pkgs/tcl
+/mnt/lfs/src/kashira-arch/pkgs/expect
+/mnt/lfs/src/kashira-arch/pkgs/dejagnu
+/mnt/lfs/src/kashira-arch/pkgs/util-linux
+/mnt/lfs/src/kashira-arch/pkgs/elfutils
+/mnt/lfs/src/kashira-arch/pkgs/iproute2
+/mnt/lfs/src/kashira-arch/pkgs/fakeroot
+/mnt/lfs/src/kashira-arch/pkgs/krb5
+/mnt/lfs/src/kashira-arch/pkgs/python-flit-core
+/mnt/lfs/src/kashira-arch/pkgs/python-pyelftools
+/mnt/lfs/src/kashira-arch/pkgs/vim
+/mnt/lfs/src/kashira-arch/pkgs/cmake

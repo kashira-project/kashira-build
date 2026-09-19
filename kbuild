@@ -1,0 +1,96 @@
+#!/bin/bash
+# kbuild — kashira build driver (P0: container build primitive).
+#
+#   kbuild build <pkgdir> [pkgdir...]   build pkgbases in clean containers
+#   kbuild wave <listfile>              build pkgdirs listed (one per line),
+#                                       repo-adding each result so later
+#                                       entries see earlier builds
+#
+# Host layout (paths overridable via env):
+#   KBUILD_IMAGE   container image     (dakkshesh07/kashira:base-devel-2026-09-19)
+#   KBUILD_REPO    local repo dir      (/mnt/lfs/var/cache/pacman/kashira)
+#   KBUILD_SOURCES source cache        (/mnt/lfs/sources)
+#   KBUILD_OUT     artifacts root      (<here>/out)
+#   KBUILD_LOGS    logs root           (<here>/logs)
+set -uo pipefail
+
+HERE=$(cd "$(dirname "$0")" && pwd)
+IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-09-19}
+REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
+SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
+OUT=${KBUILD_OUT:-$HERE/out}
+LOGS=${KBUILD_LOGS:-$HERE/logs}
+
+die() { echo "kbuild: $*" >&2; exit 1; }
+
+# pkg_deps <pkgdir> -> space-separated depends+makedepends (names only)
+pkg_deps() {
+  (cd "$1" && makepkg --printsrcinfo 2>/dev/null) | \
+    grep -E "^\s+(make)?depends(_x86_64)? = " | \
+    sed -E 's/.*= //; s/[<>=].*//' | sort -u | tr '\n' ' '
+}
+
+# build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/
+build_one() {
+  local pkgdir=$1 name deps
+  pkgdir=$(realpath "$pkgdir")
+  [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
+  name=$(basename "$pkgdir")
+  deps=$(pkg_deps "$pkgdir")
+  mkdir -p "$OUT/$name"
+  echo "== build $name (deps: ${deps:-none})"
+  sudo docker run --rm \
+    -e KBUILD_DEPS="$deps" \
+    -v "$pkgdir":/pkg:ro \
+    -v "$SOURCES":/sources \
+    -v "$OUT/$name":/out \
+    -v "$REPO":/repo:ro \
+    -v "$HERE":/kbuild:ro \
+    "$IMAGE" /kbuild/kbuild-inside.sh
+}
+
+# repo_add <outdir>: add built packages to the local repo (serialized)
+repo_add() {
+  local outdir=$1 pkg
+  shopt -s nullglob
+  local pkgs=("$outdir"/*.pkg.tar.zst)
+  [ ${#pkgs[@]} -gt 0 ] || return 1
+  (
+    flock 9
+    repo-add "$REPO/kashira.db.tar.gz" "${pkgs[@]}"
+  ) 9>"$REPO/.kbuild.lock"
+}
+
+cmd_build() {
+  local rc=0
+  for d in "$@"; do
+    build_one "$d" || rc=1
+  done
+  return $rc
+}
+
+cmd_wave() {
+  local listfile=$1 line done_marker
+  [ -f "$listfile" ] || die "no such listfile: $listfile"
+  mkdir -p "$LOGS"
+  while read -r line; do
+    [[ "$line" =~ ^\s*(#|$) ]] && continue
+    local name; name=$(basename "$line")
+    done_marker="$LOGS/$name.done"
+    if [ -f "$done_marker" ]; then echo "== wave: $name already done"; continue; fi
+    if build_one "$line" > "$LOGS/$name.log" 2>&1 && repo_add "$OUT/$name"; then
+      touch "$done_marker"
+      echo "== wave: $name OK"
+    else
+      echo "== wave: $name FAILED (log: $LOGS/$name.log)"
+      return 1
+    fi
+  done < "$listfile"
+  echo "== wave complete"
+}
+
+case "${1:-}" in
+  build) shift; cmd_build "$@" ;;
+  wave)  shift; cmd_wave "$@" ;;
+  *) die "usage: kbuild build <pkgdir>... | kbuild wave <listfile>" ;;
+esac
