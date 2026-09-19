@@ -56,9 +56,11 @@ repo_add() {
   shopt -s nullglob
   local pkgs=("$outdir"/*.pkg.tar.zst)
   [ ${#pkgs[@]} -gt 0 ] || return 1
+  cp "${pkgs[@]}" "$REPO/"
+  local inrepo=("${pkgs[@]/#$outdir\//$REPO/}")
   (
     flock 9
-    repo-add "$REPO/kashira.db.tar.gz" "${pkgs[@]}"
+    repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}"
   ) 9>"$REPO/.kbuild.lock"
 }
 
