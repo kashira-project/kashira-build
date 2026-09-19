@@ -1,0 +1,22 @@
+== build bash-completion (deps: bash )
+warning: bash-5.3-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: bash-completion 2.18.0-1 (Sat Sep 19 23:36:44 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading bash-completion-2.18.0.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100 480.4k 100 480.4k   0      0 330.1k      0   00:01   00:01              0100 480.4k 100 480.4k   0      0 330.1k      0   00:01   00:01              0100 480.4k 100 480.4k   0      0 330.1k      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    bash-completion-2.18.0.tar.xz ... Passed
+==> Extracting sources...
+  -> Extracting bash-completion-2.18.0.tar.xz with bsdtar
+bsdtar: Pathname can't be converted from UTF-8 to current locale
+bsdtar: Pathname can't be converted from UTF-8 to current locale
+bsdtar: Pathname can't be converted from UTF-8 to current locale
+bsdtar: Error exit delayed from previous errors
+==> ERROR: Failed to extract bash-completion-2.18.0.tar.xz
+    Aborting...

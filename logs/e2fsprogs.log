@@ -1,0 +1,1863 @@
+== build e2fsprogs (deps: fuse3 git sh systemd util-linux util-linux-libs )
+resolving dependencies...
+warning: bash-5.3-1 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: util-linux-2.42.2-2 is up to date -- skipping
+warning: util-linux-2.42.2-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (8) fuse-common-3.18.3-1  liburing-2.15-1  numactl-2.0.19-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  fuse3-3.18.3-1  git-2.55.0-1
+
+Total Download Size:    7.29 MiB
+Total Installed Size:  47.78 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ liburing-2.15-1-x86_64 downloading...
+ fuse3-3.18.3-1-x86_64 downloading...
+ numactl-2.0.19-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ fuse-common-3.18.3-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing fuse-common...
+installing liburing...
+installing numactl...
+installing fuse3...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/2) Reloading device manager configuration...
+  Skipped: Current root is not booted.
+(2/2) Arming ConditionNeedsUpdate...
+==> Making package: e2fsprogs 1.47.4-1 (Sat Sep 19 23:24:10 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning e2fsprogs git repo...
+Cloning into bare repository '/sources/e2fsprogs'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    e2fsprogs ... Passed
+==> Extracting sources...
+  -> Creating working copy of e2fsprogs git repo...
+Cloning into 'e2fsprogs'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+==> Starting build()...
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+Generating configuration file for e2fsprogs version 1.47.4
+Package version 1.47.4 release 
+Release date is March, 2025
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for dlopen in -ldl... yes
+checking for gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C11 features... (cached) none needed
+checking how to run the C preprocessor... clang -E
+checking for additional special compiler flags... (none)
+Disabling maintainer mode by default
+Disabling symlinks for install by default
+Disabling relative symlinks for install by default
+Disabling symlinks for build by default
+Disabling verbose make commands
+Enabling ELF shared libraries
+Disabling BSD shared libraries by default
+Disabling profiling libraries by default
+Disabling journal debugging by default
+Disabling blkid debugging by default
+Enabling testio debugging by default
+Disabling ext4 developer features by default
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for uuid_generate in -luuid... yes
+Disabling private uuid library
+checking for pkg-config... (cached) /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for blkid_get_cache in -lblkid... yes
+Disabling private blkid library
+Enabling use of backtrace by default
+Enabling debugfs support by default
+Enabling e2image support by default
+Enabling e2resize support by default
+Enabling e4defrag support by default
+Not building fsck wrapper
+Building e2initrd helper by default
+Try using thread local support by default
+checking for thread local storage (TLS) class... _Thread_local
+Try testing for pthread support by default
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for egrep -e... /usr/sbin/grep -E
+checking whether clang is Clang... yes
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+Not building uuidd
+Enabling mmp support by default
+Enabling tdb support by default
+Enabling bitmap statistics support by default
+Disabling additional bitmap statistics by default
+checking whether make sets $(MAKE)... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/sbin/msgfmt
+checking for gmsgfmt... /usr/sbin/msgfmt
+checking for xgettext... /usr/sbin/xgettext
+checking for msgmerge... /usr/sbin/msgmerge
+checking for ld... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for shared library run path origin... done
+checking 32-bit host C ABI... no
+checking for ELF binary format... yes
+checking for the common suffixes of directories in the library search path... lib,lib,lib64
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyPreferredLanguages... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking whether make sets $(MAKE)... (cached) yes
+checking for gawk... gawk
+checking for GNU make... make
+checking for ln... /usr/sbin/ln
+checking whether ln -s works... yes
+checking for mv... /usr/sbin/mv
+checking for cp... /usr/sbin/cp
+checking for rm... /usr/sbin/rm
+checking for chmod... /usr/sbin/chmod
+checking for gawk... (cached) gawk
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for sed... (cached) /usr/sbin/sed
+checking for perl... /usr/sbin/perl
+checking for ldconfig... /usr/sbin/ldconfig
+checking for ar... llvm-ar
+checking for ranlib... llvm-ranlib
+checking for strip... llvm-strip
+checking for makeinfo... makeinfo
+checking for dirent.h... yes
+checking for errno.h... yes
+checking for execinfo.h... yes
+checking for getopt.h... yes
+checking for malloc.h... yes
+checking for mntent.h... yes
+checking for paths.h... yes
+checking for pthread.h... yes
+checking for semaphore.h... yes
+checking for setjmp.h... yes
+checking for signal.h... yes
+checking for stdarg.h... yes
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for termios.h... yes
+checking for termio.h... no
+checking for unistd.h... (cached) yes
+checking for utime.h... yes
+checking for attr/xattr.h... no
+checking for linux/falloc.h... yes
+checking for linux/fd.h... yes
+checking for linux/fsmap.h... yes
+checking for linux/fsverity.h... yes
+checking for linux/major.h... yes
+checking for linux/loop.h... yes
+checking for linux/types.h... yes
+checking for net/if_dl.h... no
+checking for netinet/in.h... yes
+checking for sys/acl.h... yes
+checking for sys/disklabel.h... no
+checking for sys/disk.h... no
+checking for sys/file.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/key.h... no
+checking for sys/mkdev.h... no
+checking for sys/mman.h... yes
+checking for sys/mount.h... yes
+checking for sys/prctl.h... yes
+checking for sys/random.h... yes
+checking for sys/resource.h... yes
+checking for sys/select.h... yes
+checking for sys/socket.h... yes
+checking for sys/sockio.h... no
+checking for sys/stat.h... (cached) yes
+checking for sys/syscall.h... yes
+checking for sys/sysmacros.h... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking for sys/un.h... yes
+checking for sys/wait.h... yes
+checking for sys/xattr.h... yes
+checking for a dd(1) program that supports iflag=fullblock... dd
+checking for net/if.h... yes
+checking for vprintf... yes
+checking for struct dirent.d_reclen... yes
+checking for struct stat.st_atim... yes
+checking for ssize_t... yes
+checking for clang options needed to detect all undeclared functions... none needed
+checking whether llseek is declared... no
+checking whether lseek64 is declared... yes
+checking whether fsmap_sizeof is declared... yes
+checking for  option for large files... none needed
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking size of off_t... 8
+checking size of time_t... 8
+checking size of void *... 8
+checking whether byte ordering is bigendian... no
+checking for __uNN types... using <asm/types.h>
+checking for inttypes.h... (cached) yes
+checking for intptr_t... yes
+checking whether struct stat has a st_flags field... no
+checking for struct sockaddr.sa_len... no
+checking for blkid_probe_get_topology in -lblkid... yes
+checking for blkid_topology_get_dax in -lblkid... yes
+checking for blkid_probe_enable_partitions in -lblkid... yes
+checking for __secure_getenv... no
+checking for add_key... no
+checking for backtrace... yes
+checking for chflags... no
+checking for dlopen... (cached) yes
+checking for fadvise64... no
+checking for fallocate... yes
+checking for fallocate64... yes
+checking for fchown... yes
+checking for fcntl... yes
+checking for fdatasync... yes
+checking for fstat64... yes
+checking for fsync... yes
+checking for ftruncate64... yes
+checking for futimes... yes
+checking for getcwd... yes
+checking for getdtablesize... yes
+checking for getentropy... yes
+checking for gethostname... yes
+checking for getmntinfo... no
+checking for getpwuid_r... yes
+checking for getrandom... yes
+checking for getrlimit... yes
+checking for getrusage... yes
+checking for jrand48... yes
+checking for keyctl... no
+checking for llistxattr... yes
+checking for llseek... no
+checking for lseek64... yes
+checking for mallinfo... yes
+checking for mallinfo2... yes
+checking for mbstowcs... yes
+checking for memalign... yes
+checking for mempcpy... yes
+checking for mmap... yes
+checking for msync... yes
+checking for nanosleep... yes
+checking for open64... yes
+checking for pathconf... yes
+checking for posix_fadvise... yes
+checking for posix_fadvise64... yes
+checking for posix_memalign... yes
+checking for prctl... yes
+checking for pread... yes
+checking for pwrite... yes
+checking for pread64... yes
+checking for pwrite64... yes
+checking for qsort_r... yes
+checking for secure_getenv... yes
+checking for setmntent... yes
+checking for setresgid... yes
+checking for setresuid... yes
+checking for snprintf... yes
+checking for srandom... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strnlen... yes
+checking for strptime... yes
+checking for strtoull... yes
+checking for sync_file_range... yes
+checking for sysconf... yes
+checking for usleep... yes
+checking for utime... yes
+checking for utimes... yes
+checking for valloc... yes
+checking for socket in -lsocket... no
+checking for magic_file in -lmagic... yes
+checking for magic.h... yes
+Try testing for libarchive support (with dlopen) by default
+checking for libarchive... yes
+pkg-config found libarchive
+checking for archive.h... yes
+checking for clock_gettime in -lrt... yes
+checking for fuse3... yes
+Enabling fuse2fs by default.
+checking for pthread.h... (cached) yes
+checking for fuse.h... yes
+checking for optreset... no
+GL_THREADS_API:
+checking for sem_init... yes
+checking whether qsort_r is GNU version... yes
+checking whether qsort_r is BSD version... no
+checking for unified diff option... -u
+checking for mount 'nosuid' option... yes
+checking for mount 'nodev' option... yes
+Setting root_sbindir to /usr/bin
+Setting root_libdir to /usr/lib
+checking whether we can link with -static... yes
+checking for udev... yes
+checking for udev rules dir... /usr/lib/udev/rules.d
+checking for system crontab dir... no
+checking for systemd... yes
+checking for systemd system unit dir... /usr/lib/systemd/system
+checking for FS_IOC_READ_VERITY_METADATA ioctl... yes
+configure: creating ./config.status
+config.status: creating MCONFIG
+config.status: creating Makefile
+config.status: creating util/Makefile
+config.status: creating util/subst.conf
+config.status: creating util/gen-tarball
+config.status: creating util/install-symlink
+config.status: creating lib/et/Makefile
+config.status: creating lib/ss/Makefile
+config.status: creating lib/e2p/Makefile
+config.status: creating lib/ext2fs/Makefile
+config.status: creating lib/ext2fs/ext2_types.h
+config.status: creating lib/support/Makefile
+config.status: creating lib/ss/ss.pc
+config.status: creating lib/et/com_err.pc
+config.status: creating lib/e2p/e2p.pc
+config.status: creating lib/ext2fs/ext2fs.pc
+config.status: creating misc/Makefile
+config.status: creating ext2ed/Makefile
+config.status: creating e2fsck/Makefile
+config.status: creating debugfs/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/progs/Makefile
+config.status: creating tests/fuzz/Makefile
+config.status: creating resize/Makefile
+config.status: creating doc/Makefile
+config.status: creating po/Makefile.in
+config.status: creating scrub/Makefile
+config.status: creating lib/config.h
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+cd ./util ; make subst
+cd ./util ; make symlinks
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/util'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/util'
+	CREATE dirpaths.h
+	CC symlinks.c
+	CC subst.c
+	LD subst
+	LD symlinks
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/util'
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/util'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'util/subst.conf' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/config.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+	SUBST lib/dirpaths.h
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+cd .; CONFIG_FILES=./lib/ext2fs/ext2_types.h ./config.status
+config.status: creating ./lib/ext2fs/ext2_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+cd .; CONFIG_FILES=./lib/blkid/blkid_types.h ./config.status
+config.status: creating ./lib/blkid/blkid_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+cd .; CONFIG_FILES=./lib/uuid/uuid_types.h ./config.status
+config.status: creating ./lib/uuid/uuid_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+	SUBST compile_et
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+	SUBST ext2_err.et
+	COMPILE_ET ext2_err.et
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+	COMPILE_ET prof_err.et
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+make libs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'util/subst.conf' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/config.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/dirpaths.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/blkid/blkid_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/uuid/uuid_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[2]: 'compile_et' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[2]: 'ext2_err.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[2]: 'prof_err.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/et
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+	MKDIR elfshared
+	CC error_message.c
+	CC et_name.c
+	CC init_et.c
+	CC com_err.c
+	CC com_right.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	GEN_LIB libcom_err.a
+	GEN_ELF_SOLIB libcom_err.so.2.1
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making all in lib/ss
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+	SUBST mk_cmds
+	COMPILE_ET ss_err.et
+	COMPILE_ET ss_err.et
+	MK_CMDS std_rqs.c
+	MKDIR elfshared
+	CC ss_err.c
+	CC std_rqs.c
+	CC execute_cmd.c
+	CC invocation.c
+	CC help.c
+	CC listen.c
+	CC parse.c
+	CC error.c
+	CC prompt.c
+	CC request_tbl.c
+	CC list_rqs.c
+	CC pager.c
+	CC get_readline.c
+	CC requests.c
+	CC data.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clangclang: : warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]warning: 
+argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clangclang: : warning: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	GEN_LIB libss.a
+	GEN_ELF_SOLIB libss.so.2.0
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making all in lib/e2p
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+	MKDIR elfshared
+	CC feature.c
+	CC fgetflags.c
+	CC fgetversion.c
+	CC fsetversion.c
+	CC fsetflags.c
+	CC getflags.c
+	CC hashstr.c
+	CC getversion.c
+	CC ls.c
+	CC iod.c
+	CC ljs.c
+	CC mntopts.c
+	CC parse_num.c
+	CC pe.c
+	CC ps.c
+	CC pf.c
+clangclang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clangclang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC setflags.c
+	CC setversion.c
+clangclang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang	CC uuid.c
+: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC ostype.c
+	CC percent.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC crypto_mode.c
+	CC fgetproject.c
+	CC fsetproject.c
+	CC errcode.c
+	CC encoding.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clangclang: : warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clangclang: : warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]warning: 
+argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	GEN_LIB libe2p.a
+	GEN_ELF_SOLIB libe2p.so.2.3
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making all in lib/support
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+	CC cstring.c
+	CC mkquota.c
+	CC plausible.c
+	CC profile.c
+	CC parse_qtype.c
+	CC print_fs_flags.c
+	CC profile_helpers.c
+	CC prof_err.c
+	CC quotaio.c
+	CC quotaio_v2.c
+	CC quotaio_tree.c
+	CC dict.c
+	CC devname.c
+profile.c:425:7: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  425 |                 end = strchr(in, '\n');
+      |                     ^ ~~~~~~~~~~~~~~~~
+1 warning generated.
+	GEN_LIB libsupport.a
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/ext2fs
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+	CC gen_crc32ctable
+	MKDIR elfshared
+	CC inode_io.c
+	CC bb_compat.c
+	CC imager.c
+	CC write_bb_file.c
+	CC ext2_err.c
+	CC dupfs.c
+	CC alloc_sb.c
+	CC test_io.c
+	CC alloc.c
+	CC alloc_stats.c
+	CC alloc_tables.c
+	CC atexit.c
+	CC bb_inode.c
+	CC badblocks.c
+	CC bitmaps.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC bitops.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC blkmap64_ba.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC blkmap64_rb.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC blknum.c
+	CC block.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC bmap.c
+	CC check_desc.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC closefs.c
+	CC crc16.c
+	GEN32CTABLE crc32c_table.h
+	CC csum.c
+	CC dblist.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC dblist_dir.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC dirblock.c
+	CC dirhash.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC dir_iterate.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC expanddir.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC ext_attr.c
+	CC extent.c
+	CC fallocate.c
+clangclang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC fileio.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC finddev.c
+	CC flushb.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC freefs.c
+	CC gen_bitmap.c
+	CC gen_bitmap64.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC get_num_dirs.c
+	CC get_pathname.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC getenv.c
+	CC getsize.c
+	CC getsectsize.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC hashmap.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC i_block.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC icount.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC ind_block.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC initialize.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC inline.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC inline_data.c
+	CC inode.c
+	CC io_manager.c
+	CC ismounted.c
+	CC link.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC llseek.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC lookup.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC mkdir.c
+	CC mmp.c
+	CC mkjournal.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC namei.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC native.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC newdir.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC nls_utf8.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC openfs.c
+	CC orphan.c
+	CC progress.c
+	CC punch.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC qcow2.c
+	CC read_bb.c
+	CC read_bb_file.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC res_gdt.c
+	CC rw_bitmaps.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC sha512.c
+	CC swapfs.c
+	CC symlink.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC tdb.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC undo_io.c
+	CC unix_io.c
+	CC sparse_io.c
+	CC unlink.c
+	CC valid_blk.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC version.c
+	CC rbtree.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	CC crc32c.c
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-shared' [-Wunused-command-line-argument]
+	GEN_LIB libext2fs.a
+	GEN_ELF_SOLIB libext2fs.so.2.4
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make progs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'util/subst.conf' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/config.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/dirpaths.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/blkid/blkid_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: 'lib/uuid/uuid_types.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[2]: 'compile_et' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[2]: 'ext2_err.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[2]: 'prof_err.h' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/et
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making all in lib/ss
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making all in lib/e2p
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making all in lib/support
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/ext2fs
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+making all in e2fsck
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/e2fsck'
+	CC unix.c
+	CC e2fsck.c
+	CC pass1b.c
+	CC super.c
+	CC pass1.c
+	CC pass3.c
+	CC pass4.c
+	CC pass2.c
+	CC pass5.c
+	CC journal.c
+	CC badblocks.c
+	CC util.c
+	CC dirinfo.c
+	CC ehandler.c
+	CC dx_dirinfo.c
+	CC problem.c
+	CC message.c
+	CC quota.c
+	CC recovery.c
+	CC region.c
+	CC revoke.c
+	CC ea_refcount.c
+	CC rehash.c
+	CC logfile.c
+	CC sigcatcher.c
+	CC readahead.c
+	CC extents.c
+	CC encrypted_files.c
+	SUBST e2fsck.8
+	SUBST e2fsck.conf.5
+	LD e2fsck
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/e2fsck'
+making all in debugfs
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/debugfs'
+	MK_CMDS debug_cmds.c
+	CC debugfs.c
+	CC util.c
+	CC ncheck.c
+	CC icheck.c
+	CC lsdel.c
+	CC ls.c
+	CC dump.c
+	CC set_fields.c
+	CC logdump.c
+	CC htree.c
+	CC unused.c
+	CC filefrag.c
+	CC e2freefrag.o
+	MK_CMDS extent_cmds.c
+	CC extent_inode.c
+	CC zap.c
+	CC create_inode.o
+	CC create_inode_libarchive.o
+	CC quota.c
+	CC xattrs.c
+	CC journal.c
+	CC revoke.o
+	CC recovery.o
+	CC do_journal.c
+./../misc/create_inode.c:349:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  349 |         cp = strrchr(name, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+./../misc/create_inode.c:386:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  386 |         cp = strrchr(name, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+	CC do_orphan.c
+	SUBST debugfs.8
+./../misc/create_inode.c:792:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  792 |         cp = strrchr(dest, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+	CC debug_cmds.c
+	CC extent_cmds.c
+3 warnings generated.
+	LD debugfs
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/debugfs'
+making all in misc
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/misc'
+if test -f ./mke2fs.conf.custom.in ; then \
+	cp ./mke2fs.conf.custom.in mke2fs.conf; \
+else \
+	cp ./mke2fs.conf.in mke2fs.conf; \
+fi
+	CC mke2fs.c
+	CC util.c
+	CC mk_hugefiles.c
+	CC create_inode_libarchive.c
+	CC create_inode.c
+	CC badblocks.c
+	CC tune2fs.c
+	CC ../debugfs/journal.c
+	CC ../e2fsck/revoke.c
+	CC ../e2fsck/recovery.c
+	CC dumpe2fs.c
+	CC e2image.c
+	CC logsave.c
+	CC e2undo.c
+	CC chattr.c
+	CC lsattr.c
+	CC fuse2fs.c
+create_inode.c:349:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  349 |         cp = strrchr(name, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+create_inode.c:386:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  386 |         cp = strrchr(name, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+create_inode.c:792:5: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  792 |         cp = strrchr(dest, '/');
+      |            ^ ~~~~~~~~~~~~~~~~~~
+	CC mklost+found.c
+	CC filefrag.c
+	CC e2freefrag.c
+	CC e4defrag.c
+	CC e4crypt.c
+	SUBST tune2fs.8
+	SUBST mklost+found.8
+	SUBST mke2fs.8
+	SUBST dumpe2fs.8
+	SUBST badblocks.8
+	SUBST e2label.8
+	SUBST e2image.8
+	SUBST logsave.8
+	SUBST filefrag.8
+	SUBST e2freefrag.8
+	SUBST e2undo.8
+	SUBST e4defrag.8
+	SUBST e4crypt.8
+	SUBST e2mmpstatus.8
+	SUBST chattr.1
+	SUBST lsattr.1
+	SUBST fuse2fs.1
+	SUBST mke2fs.conf.5
+	SUBST ext4.5
+	CC e2initrd_helper.c
+	CC e2fuzz.c
+	PROFILE_TO_C mke2fs.conf
+e4crypt.c:152:5: warning: assigning to 'unsigned char *' from 'const void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  152 |                 h = memchr(hexchars, hex[x], hexchars_size);
+      |                   ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+e4crypt.c:155:5: warning: assigning to 'unsigned char *' from 'const void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  155 |                 l = memchr(hexchars, hex[x + 1], hexchars_size);
+      |                   ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+e4crypt.c:312:6: warning: assigning to 'unsigned char *' from 'const void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  312 |                         h = memchr(hexchars, *cp++, hexchars_size);
+      |                           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+e4crypt.c:313:6: warning: assigning to 'unsigned char *' from 'const void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  313 |                         l = memchr(hexchars, *cp++, hexchars_size);
+      |                           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	LD logsave
+	LD e2undo
+3 warnings generated.
+	LD chattr
+	LD lsattr
+	LD mklost+found
+	CC default_profile.c
+	LD dumpe2fs
+	LD e2freefrag
+	LD e2fuzz
+4 warnings generated.
+	LD badblocks
+	LD e4crypt
+	LD e2image
+	LD filefrag
+	LD e2initrd_helper
+	LD e4defrag
+	LD mke2fs
+	LD tune2fs
+	LD fuse2fs
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/misc'
+making all in resize
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/resize'
+	CC extent.c
+	CC online.c
+	CC resize2fs.c
+	CC resource_track.c
+	CC main.c
+	CC sim_progress.c
+	CC test_extent.c
+	SUBST resize2fs.8
+	LD test_extent
+	LD resize2fs
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/resize'
+making all in tests/progs
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/tests/progs'
+	CC test_icount.c
+	MK_CMDS test_icount_cmds.c
+	CC crcsum.c
+	CC test_icount_cmds.c
+	LD crcsum
+	LD test_icount
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/tests/progs'
+making all in tests/fuzz
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/tests/fuzz'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/tests/fuzz'
+making all in po
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/po'
+making all in scrub
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/scrub'
+	SUBST e2scrub
+	SUBST e2scrub_all
+	SUBST e2scrub.8
+	SUBST e2scrub.conf
+	SUBST e2scrub_all.8
+	SUBST e2scrub.rules
+	SUBST ext4.rules
+	SUBST e2scrub_all.service
+	SUBST e2scrub@.service
+	SUBST e2scrub_all.timer
+	SUBST e2scrub_fail@.service
+	SUBST e2scrub_reap.service
+	SUBST e2scrub_fail
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/scrub'
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make docs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/doc'
+	MAKEINFO libext2fs.info
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/doc'
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make: Entering directory '/home/builder/build/src/e2fsprogs/po'
+rm -f da.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o da.gmo da.po
+rm -f ca.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o ca.gmo ca.po
+rm -f cs.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o cs.gmo cs.po
+rm -f de.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o de.gmo de.po
+rm -f fi.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o fi.gmo fi.po
+rm -f fr.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o fr.gmo fr.po
+rm -f es.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o es.gmo es.po
+rm -f id.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o id.gmo id.po
+rm -f eo.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o eo.gmo eo.po
+rm -f nl.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o nl.gmo nl.po
+rm -f hu.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o hu.gmo hu.po
+rm -f ms.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o ms.gmo ms.po
+rm -f fur.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o fur.gmo fur.po
+rm -f it.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o it.gmo it.po
+rm -f ka.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o ka.gmo ka.po
+rm -f pl.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o pl.gmo pl.po
+fur.po: 400 translated messages, 1179 untranslated messages.
+fi.po: 241 translated messages, 106 fuzzy translations, 1219 untranslated messages.
+ms.po: 545 translated messages, 659 fuzzy translations, 470 untranslated messages.
+id.po: 816 translated messages, 358 fuzzy translations, 392 untranslated messages.
+ca.po: 1253 translated messages, 186 fuzzy translations, 127 untranslated messages.
+hu.po: 1516 translated messages, 35 fuzzy translations, 15 untranslated messages.
+de.po: 1500 translated messages, 81 fuzzy translations, 34 untranslated messages.
+ka.po: 191 translated messages, 1473 untranslated messages.
+rm -f pt.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o pt.gmo pt.po
+fr.po: 1674 translated messages.
+rm -f ro.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o ro.gmo ro.po
+eo.po: 918 translated messages, 152 fuzzy translations, 496 untranslated messages.
+rm -f sv.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o sv.gmo sv.po
+da.po: 1365 translated messages, 1 fuzzy translation, 200 untranslated messages.
+rm -f sr.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o sr.gmo sr.po
+rm -f tr.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o tr.gmo tr.po
+rm -f uk.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o uk.gmo uk.po
+it.po: 607 translated messages, 483 fuzzy translations, 476 untranslated messages.
+rm -f vi.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o vi.gmo vi.po
+rm -f zh_CN.gmo && /usr/sbin/msgfmt --check-header --check-domain --statistics --verbose -o zh_CN.gmo zh_CN.po
+pl.po: 1674 translated messages.
+cs.po: 1674 translated messages.
+nl.po: 1665 translated messages, 9 untranslated messages.
+es.po: 1674 translated messages.
+sv.po: 1674 translated messages.
+tr.po: 672 translated messages, 424 fuzzy translations, 470 untranslated messages.
+pt.po: 1674 translated messages.
+sr.po: 1674 translated messages.
+vi.po: 1579 translated messages.
+uk.po: 1674 translated messages.
+ro.po: 1674 translated messages.
+zh_CN.po: 1674 translated messages.
+make: Leaving directory '/home/builder/build/src/e2fsprogs/po'
+==> Entering fakeroot environment...
+==> Starting package_e2fsprogs()...
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'util/subst.conf' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/config.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/dirpaths.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/blkid/blkid_types.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+make[1]: 'lib/uuid/uuid_types.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[1]: 'compile_et' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: 'ext2_err.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[1]: 'prof_err.h' is up to date.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/et
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making all in lib/ss
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making all in lib/e2p
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making all in lib/support
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making all in lib/ext2fs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+making install in e2fsck
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/e2fsck'
+	MKDIR_P /usr/bin /usr/share/man/man8
+	INSTALL /usr/bin/e2fsck
+	LINK /usr/bin/fsck.ext2
+	LINK /usr/bin/fsck.ext3
+	LINK /usr/bin/fsck.ext4
+	INSTALL_DATA /usr/share/man/man8/e2fsck.8
+	INSTALL_DATA /usr/share/man/man5/e2fsck.conf.5
+	LINK /usr/share/man/man8/fsck.ext2.8
+	LINK /usr/share/man/man8/fsck.ext3.8
+	LINK /usr/share/man/man8/fsck.ext4.8
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/e2fsck'
+making install in debugfs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/debugfs'
+	MKDIR_P /usr/bin /usr/share/man/man8
+	INSTALL /usr/bin/debugfs
+	INSTALL_DATA /usr/share/man/man8/debugfs.8
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/debugfs'
+making install in misc
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/misc'
+	MKDIR_P /usr/bin /usr/bin /usr/bin /usr/share/man/man1 /usr/share/man/man8 /usr/lib /etc
+	INSTALL /usr/bin/mke2fs
+	INSTALL /usr/bin/badblocks
+	INSTALL /usr/bin/tune2fs
+	INSTALL /usr/bin/dumpe2fs
+	INSTALL /usr/bin/logsave
+	INSTALL /usr/bin/e2image
+	INSTALL /usr/bin/e2undo
+	INSTALL /usr/bin/mklost+found
+	INSTALL /usr/bin/filefrag
+	INSTALL /usr/bin/e2freefrag
+	INSTALL /usr/bin/e4defrag
+	INSTALL /usr/bin/e4crypt
+	LINK /usr/bin/mkfs.ext2
+	LINK /usr/bin/mkfs.ext3
+	LINK /usr/bin/mkfs.ext4
+	INSTALL /usr/bin/chattr
+	INSTALL /usr/bin/lsattr
+	INSTALL /usr/bin/fuse2fs
+	INSTALL /usr/lib/e2initrd_helper
+	INSTALL_DATA /usr/share/man/man8/tune2fs.8
+	INSTALL_DATA /usr/share/man/man8/mklost+found.8
+	INSTALL_DATA /usr/share/man/man8/mke2fs.8
+	INSTALL_DATA /usr/share/man/man8/dumpe2fs.8
+	INSTALL_DATA /usr/share/man/man8/badblocks.8
+	INSTALL_DATA /usr/share/man/man8/e2label.8
+	INSTALL_DATA /usr/share/man/man8/e2image.8
+	INSTALL_DATA /usr/share/man/man8/logsave.8
+	INSTALL_DATA /usr/share/man/man8/filefrag.8
+	INSTALL_DATA /usr/share/man/man8/e2freefrag.8
+	INSTALL_DATA /usr/share/man/man8/e2undo.8
+	INSTALL_DATA /usr/share/man/man8/e4defrag.8
+	INSTALL_DATA /usr/share/man/man8/e4crypt.8
+	INSTALL_DATA /usr/share/man/man8/e2mmpstatus.8
+	LINK mkfs.ext2.8
+	LINK mkfs.ext3.8
+	LINK mkfs.ext4.8
+	INSTALL_DATA /usr/share/man/man1/chattr.1
+	INSTALL_DATA /usr/share/man/man1/lsattr.1
+	INSTALL_DATA /usr/share/man/man1/fuse2fs.1
+	INSTALL_DATA /usr/share/man/man5/mke2fs.conf.5
+	INSTALL_DATA /usr/share/man/man5/ext4.5
+	LINK ext2.5
+	LINK ext3.5
+	INSTALL_DATA /etc/mke2fs.conf
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/misc'
+making install in resize
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/resize'
+	MKDIR_P /usr/bin /usr/share/man/man8
+	INSTALL /usr/bin/resize2fs
+	INSTALL_DATA /usr/share/man/man8/resize2fs.8
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/resize'
+making install in tests/progs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/tests/progs'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/tests/progs'
+making install in tests/fuzz
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/tests/fuzz'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/tests/fuzz'
+making install in po
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/po'
+installing ca.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/ca/LC_MESSAGES/e2fsprogs.mo
+installing cs.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/cs/LC_MESSAGES/e2fsprogs.mo
+installing da.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/da/LC_MESSAGES/e2fsprogs.mo
+installing de.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/de/LC_MESSAGES/e2fsprogs.mo
+installing eo.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/eo/LC_MESSAGES/e2fsprogs.mo
+installing es.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/es/LC_MESSAGES/e2fsprogs.mo
+installing fi.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/fi/LC_MESSAGES/e2fsprogs.mo
+installing fr.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/fr/LC_MESSAGES/e2fsprogs.mo
+installing fur.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/fur/LC_MESSAGES/e2fsprogs.mo
+installing hu.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/hu/LC_MESSAGES/e2fsprogs.mo
+installing id.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/id/LC_MESSAGES/e2fsprogs.mo
+installing it.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/it/LC_MESSAGES/e2fsprogs.mo
+installing ka.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/ka/LC_MESSAGES/e2fsprogs.mo
+installing ms.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/ms/LC_MESSAGES/e2fsprogs.mo
+installing nl.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/nl/LC_MESSAGES/e2fsprogs.mo
+installing pl.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/pl/LC_MESSAGES/e2fsprogs.mo
+installing pt.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/pt/LC_MESSAGES/e2fsprogs.mo
+installing ro.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/ro/LC_MESSAGES/e2fsprogs.mo
+installing sr.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/sr/LC_MESSAGES/e2fsprogs.mo
+installing sv.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/sv/LC_MESSAGES/e2fsprogs.mo
+installing tr.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/tr/LC_MESSAGES/e2fsprogs.mo
+installing uk.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/uk/LC_MESSAGES/e2fsprogs.mo
+installing vi.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/vi/LC_MESSAGES/e2fsprogs.mo
+installing zh_CN.gmo as /home/builder/build/pkg/e2fsprogs/usr/share/locale/zh_CN/LC_MESSAGES/e2fsprogs.mo
+if test "e2fsprogs" = "gettext-tools"; then \
+  /usr/sbin/mkdir -p /home/builder/build/pkg/e2fsprogs/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /home/builder/build/pkg/e2fsprogs/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /home/builder/build/pkg/e2fsprogs/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/po'
+making install in scrub
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/scrub'
+	MKDIR_P /usr/lib/udev/rules.d
+	MKDIR_P /usr/lib/systemd/system
+	MKDIR_P /usr/lib/e2fsprogs
+	MKDIR_P /usr/bin /usr/share/man/man8 /etc
+	INSTALL /usr/lib/udev/rules.d/e2scrub.rules
+	INSTALL /usr/lib/udev/rules.d/ext4.rules
+	INSTALL_DATA /usr/lib/systemd/system/e2scrub@.service
+	INSTALL_DATA /usr/lib/systemd/system/e2scrub_all.service
+	INSTALL_DATA /usr/lib/systemd/system/e2scrub_all.timer
+	INSTALL_DATA /usr/lib/systemd/system/e2scrub_fail@.service
+	INSTALL_DATA /usr/lib/systemd/system/e2scrub_reap.service
+	INSTALL /usr/lib/e2fsprogs/e2scrub_fail
+	INSTALL /usr/bin/e2scrub
+	INSTALL /usr/bin/e2scrub_all
+	INSTALL_DATA /usr/share/man/man8/e2scrub.8
+	INSTALL_DATA /usr/share/man/man8/e2scrub_all.8
+	INSTALL_DATA /etc/e2scrub.conf
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/scrub'
+making install-shlibs in lib/et
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libcom_err.so.2.1
+	SYMLINK /usr/lib/libcom_err.so.2
+	SYMLINK /usr/lib/libcom_err.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:467: install-shlibs] Error 1 (ignored)
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making install-shlibs in lib/ss
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libss.so.2.0
+	SYMLINK /usr/lib/libss.so.2
+	SYMLINK /usr/lib/libss.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:477: install-shlibs] Error 1 (ignored)
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making install-shlibs in lib/e2p
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libe2p.so.2.3
+	SYMLINK /usr/lib/libe2p.so.2
+	SYMLINK /usr/lib/libe2p.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:469: install-shlibs] Error 1 (ignored)
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making install-shlibs in lib/support
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[1]: Nothing to be done for 'install-shlibs'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making install-shlibs in lib/ext2fs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libext2fs.so.2.4
+	SYMLINK /usr/lib/libext2fs.so.2
+	SYMLINK /usr/lib/libext2fs.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:670: install-shlibs] Error 1 (ignored)
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/doc'
+	TEXI2DVI libext2fs.dvi
+You don't have a working TeX binary (tex) installed anywhere in
+your PATH, and texi2dvi cannot proceed without one.  If you want to use
+this script, you'll need to install TeX (if you don't have it) or change
+your PATH or TEX environment variable (if you do).  See the --help
+output for more details.
+
+For information about obtaining TeX, please see http://tug.org/texlive,
+or do a web search for TeX and your operating system or distro.
+make[1]: [Makefile:379: libext2fs.dvi] Error 1 (ignored)
+	MKDIR_P /usr/share/info
+	INSTALL_DATA /usr/share/info/libext2fs.info
+	GZIP /usr/share/info/libext2fs.info*
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/doc'
+make install-libs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs'
+making install in lib/et
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libcom_err.so.2.1
+	SYMLINK /usr/lib/libcom_err.so.2
+	SYMLINK /usr/lib/libcom_err.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[2]: [Makefile:467: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/et /usr/share/et /usr/bin /usr/share/man/man1 /usr/share/man/man3
+	INSTALL_DATA /usr/lib/libcom_err.a
+	INSTALL_DATA /usr/include/et/com_err.h
+	INSTALL_DATA /usr/share/et/et_c.awk
+	INSTALL_DATA /usr/share/et/et_h.awk
+	INSTALL_SCRIPT /usr/bin/compile_et
+	INSTALL_DATA /usr/share/man/man3/com_err.3
+	INSTALL_DATA /usr/share/man/man1/compile_et.1
+	INSTALL_DATA /usr/lib/pkgconfig/com_err.pc
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making install in lib/ss
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libss.so.2.0
+	SYMLINK /usr/lib/libss.so.2
+	SYMLINK /usr/lib/libss.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[2]: [Makefile:477: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/ss /usr/share/ss /usr/bin /usr/lib/pkgconfig /usr/share/man/man1
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/lib/libss.a
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/include/ss/ss.h
+	INSTALL_DATA /usr/include/ss/ss_err.h
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/share/ss/ct_c.awk
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/share/ss/ct_c.sed
+	INSTALL /usr/bin/mk_cmds
+	INSTALL_DATA /usr/share/man/man1/mk_cmds.1
+	INSTALL_DATA /usr/lib/pkgconfig/ss.pc
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making install in lib/e2p
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libe2p.so.2.3
+	SYMLINK /usr/lib/libe2p.so.2
+	SYMLINK /usr/lib/libe2p.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[2]: [Makefile:469: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/e2p
+	INSTALL_DATA /usr/lib/libe2p.a
+	INSTALL_DATA /usr/include/e2p/e2p.h
+	INSTALL_DATA /usr/lib/pkgconfig/e2p.pc
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making install in lib/support
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[2]: Nothing to be done for 'install'.
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making install in lib/ext2fs
+make[2]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libext2fs.so.2.4
+	SYMLINK /usr/lib/libext2fs.so.2
+	SYMLINK /usr/lib/libext2fs.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[2]: [Makefile:670: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/ext2fs
+	INSTALL_DATA /usr/lib/libext2fs.a
+	INSTALL_DATA /usr/include/ext2fs/bitops.h
+	INSTALL_DATA /usr/include/ext2fs/ext2fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_io.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_ext_attr.h
+	INSTALL_DATA /usr/include/ext2fs/ext3_extents.h
+	INSTALL_DATA /usr/include/ext2fs/tdb.h
+	INSTALL_DATA /usr/include/ext2fs/qcow2.h
+	INSTALL_DATA /usr/include/ext2fs/hashmap.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_err.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_types.h
+	INSTALL_DATA /usr/lib/pkgconfig/ext2fs.pc
+make[2]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs'
+making install in lib/et
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/et'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libcom_err.so.2.1
+	SYMLINK /usr/lib/libcom_err.so.2
+	SYMLINK /usr/lib/libcom_err.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:467: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/et /usr/share/et /usr/bin /usr/share/man/man1 /usr/share/man/man3
+	INSTALL_DATA /usr/lib/libcom_err.a
+	INSTALL_DATA /usr/include/et/com_err.h
+	INSTALL_DATA /usr/share/et/et_c.awk
+	INSTALL_DATA /usr/share/et/et_h.awk
+	INSTALL_SCRIPT /usr/bin/compile_et
+	INSTALL_DATA /usr/share/man/man3/com_err.3
+	INSTALL_DATA /usr/share/man/man1/compile_et.1
+	INSTALL_DATA /usr/lib/pkgconfig/com_err.pc
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/et'
+making install in lib/ss
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ss'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libss.so.2.0
+	SYMLINK /usr/lib/libss.so.2
+	SYMLINK /usr/lib/libss.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:477: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/ss /usr/share/ss /usr/bin /usr/lib/pkgconfig /usr/share/man/man1
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/lib/libss.a
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/include/ss/ss.h
+	INSTALL_DATA /usr/include/ss/ss_err.h
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/share/ss/ct_c.awk
+	INSTALL_DATA /home/builder/build/pkg/e2fsprogs/usr/share/ss/ct_c.sed
+	INSTALL /usr/bin/mk_cmds
+	INSTALL_DATA /usr/share/man/man1/mk_cmds.1
+	INSTALL_DATA /usr/lib/pkgconfig/ss.pc
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ss'
+making install in lib/e2p
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libe2p.so.2.3
+	SYMLINK /usr/lib/libe2p.so.2
+	SYMLINK /usr/lib/libe2p.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:469: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/e2p
+	INSTALL_DATA /usr/lib/libe2p.a
+	INSTALL_DATA /usr/include/e2p/e2p.h
+	INSTALL_DATA /usr/lib/pkgconfig/e2p.pc
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/e2p'
+making install in lib/support
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/support'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/support'
+making install in lib/ext2fs
+make[1]: Entering directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+	MKDIR_P /usr/lib /usr/lib
+	INSTALL-ELF-LIB /usr/lib/libext2fs.so.2.4
+	SYMLINK /usr/lib/libext2fs.so.2
+	SYMLINK /usr/lib/libext2fs.so
+	LDCONFIG
+/usr/sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: Permission denied
+make[1]: [Makefile:670: install] Error 1 (ignored)
+	MKDIR_P /usr/lib /usr/include/ext2fs
+	INSTALL_DATA /usr/lib/libext2fs.a
+	INSTALL_DATA /usr/include/ext2fs/bitops.h
+	INSTALL_DATA /usr/include/ext2fs/ext2fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_io.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_ext_attr.h
+	INSTALL_DATA /usr/include/ext2fs/ext3_extents.h
+	INSTALL_DATA /usr/include/ext2fs/tdb.h
+	INSTALL_DATA /usr/include/ext2fs/qcow2.h
+	INSTALL_DATA /usr/include/ext2fs/hashmap.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_err.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_types.h
+	INSTALL_DATA /usr/lib/pkgconfig/ext2fs.pc
+make[1]: Leaving directory '/home/builder/build/src/e2fsprogs/lib/ext2fs'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "e2fsprogs"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_fuse2fs()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "fuse2fs"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: e2fsprogs 1.47.4-1 (Sat Sep 19 23:26:31 2026)

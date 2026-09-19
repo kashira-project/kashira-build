@@ -1,0 +1,324 @@
+== build libcap (deps: gcc git glibc linux-api-headers pam )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: linux-api-headers-7.2.5-1 is up to date -- skipping
+warning: pam-1.7.2-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) mpc-1.4.1-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  gcc-16.2.0-6  git-2.55.0-1
+
+Total Download Size:    97.15 MiB
+Total Installed Size:  377.33 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: libcap 2.78-1 (Sat Sep 19 23:35:29 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating libcap git repo...
+  -> Found libcap-2.73-cgo-flags.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libcap ... Passed
+    libcap-2.73-cgo-flags.patch ... Passed
+==> Validating source files with b2sums...
+    libcap ... Passed
+    libcap-2.73-cgo-flags.patch ... Passed
+==> Extracting sources...
+  -> Creating working copy of libcap git repo...
+Cloning into 'libcap'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+patching file go/Makefile
+==> Starting build()...
+make: Entering directory '/home/builder/build/src/libcap'
+make -C libcap all
+make[1]: Entering directory '/home/builder/build/src/libcap/libcap'
+sed -e 's,@prefix@,/usr,' \
+	-e 's,@exec_prefix@,/usr,' \
+	-e 's,@libdir@,/usr/lib,' \
+	-e 's,@includedir@,/usr/include,' \
+	-e 's,@VERSION@,2.78,' \
+	-e 's,@deps@,,' \
+	libcap.pc.in >libcap.pc
+make libpsx.pc
+=> making cap_names.list.h from /home/builder/build/src/libcap/libcap/../libcap/include/uapi/linux/capability.h
+grep -E '^#define\s+CAP_([^\s]+)\s+[0-9]+\s*$' include/uapi/linux/capability.h | sed -e 's/^#define\s\+/{"/' -e 's/\s*$/},/' -e 's/\s\+/",/' -e 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' > cap_names.list.h
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+gcc -O2 -Dlinux -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code  -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include _makenames.c -o _makenames
+sed -e 's,@prefix@,/usr,' \
+	-e 's,@exec_prefix@,/usr,' \
+	-e 's,@libdir@,/usr/lib,' \
+	-e 's,@includedir@,/usr/include,' \
+	-e 's,@VERSION@,2.78,' \
+	-e 's,@deps@,,' \
+	libpsx.pc.in >libpsx.pc
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+./_makenames > cap_names.h
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_alloc.c -o cap_alloc.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_proc.c -o cap_proc.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_extint.c -o cap_extint.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_flag.c -o cap_flag.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include  -c cap_text.c -o cap_text.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_file.c -o cap_file.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c cap_syscalls.c -o cap_syscalls.o
+ar rcs libcap.a cap_alloc.o cap_proc.o cap_extint.o cap_flag.o cap_text.o cap_file.o cap_syscalls.o
+ranlib libcap.a
+make libcap.so
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd empty.c -o empty
+objcopy --dump-section .interp=loader.txt empty /dev/null
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -DLIBRARY_VERSION=\"libcap-2.78\" -DSHARED_LOADER=\"/lib64/ld-linux-x86-64.so.2\" -include ./libcap.h -c execable.c -o cap_magic.o
+gcc -Wl,-x -shared -Wl,-shared -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-soname,libcap.so.2 -o libcap.so.2.78 cap_alloc.o cap_proc.o cap_extint.o cap_flag.o cap_text.o cap_file.o cap_syscalls.o cap_magic.o -Wl,-e,__so_start
+ln -sf libcap.so.2.78 libcap.so.2
+ln -sf libcap.so.2 libcap.so
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make libpsx.a
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c ../psx/psx.c -o ../psx/psx.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c ../psx/psx_calls.c -o ../psx/psx_calls.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -c ../psx/wrap/psx_wrap.c -o ../psx/wrap/psx_wrap.o
+rm -f include/sys/psx_syscall.h
+ln -s ../../../psx/psx_syscall.h include/sys/psx_syscall.h
+ar rcs libpsx.a ../psx/psx.o ../psx/psx_calls.o ../psx/wrap/psx_wrap.o
+ranlib libpsx.a
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make libpsx.so
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/../libcap/include -DLIBRARY_VERSION=\"libpsx-2.78\" -DSHARED_LOADER=\"/lib64/ld-linux-x86-64.so.2\" -c psx_exec.c -o psx_magic.o
+gcc -Wl,-x -shared -Wl,-shared -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -D_LIBPSX_PTHREAD_LINKAGE -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-soname,libpsx.so.2 -o libpsx.so.2.78 ../psx/psx.o ../psx/psx_calls.o ../psx/wrap/psx_wrap.o psx_magic.o -Wl,-e,__so_start -lpthread
+ln -sf libpsx.so.2.78 libpsx.so.2
+ln -sf libpsx.so.2 libpsx.so
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make[1]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make -C pam_cap all
+make[1]: Entering directory '/home/builder/build/src/libcap/pam_cap'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/pam_cap/../libcap/include  -c -o pam_cap.o pam_cap.c
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/pam_cap/../libcap/include -DLIBCAP_VERSION=\"libcap-2.78\" -DSHARED_LOADER=\"/lib64/ld-linux-x86-64.so.2\" -c execable.c -o execable.o
+gcc -Wl,-x -shared -Wl,-shared -o lazylink.so -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/pam_cap/../libcap/include -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd lazylink.c -DSHARED_LOADER=\"/lib64/ld-linux-x86-64.so.2\" -Wl,-e,__so_start
+make -C ../libcap all
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+make libpsx.pc
+make[3]: Entering directory '/home/builder/build/src/libcap/libcap'
+echo "-Wl,-e,__so_start" > pam_cap_linkopts
+./lazylink.so || echo "-lpam" >> pam_cap_linkopts
+./lazylink.so: symbol lookup error: ./lazylink.so: undefined symbol: nothing_sets_this
+make[3]: 'libpsx.pc' is up to date.
+make[3]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make libcap.so
+make[3]: Entering directory '/home/builder/build/src/libcap/libcap'
+make[3]: 'libcap.so' is up to date.
+make[3]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make libpsx.a
+make[3]: Entering directory '/home/builder/build/src/libcap/libcap'
+make[3]: 'libpsx.a' is up to date.
+make[3]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make libpsx.so
+make[3]: Entering directory '/home/builder/build/src/libcap/libcap'
+make[3]: 'libpsx.so' is up to date.
+make[3]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+touch LIBCAP
+cat pam_cap_linkopts | xargs -e gcc -Wl,-x -shared -Wl,-shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o pam_cap.so pam_cap.o execable.o -L/home/builder/build/src/libcap/pam_cap/../libcap -lcap
+make testlink
+make[2]: Entering directory '/home/builder/build/src/libcap/pam_cap'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/pam_cap/../libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/pam_cap/../libcap/include  -c -o test.o test.c
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -fPIC -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o testlink test.o pam_cap.o -lpam -ldl -L/home/builder/build/src/libcap/pam_cap/../libcap -lcap
+make[2]: Leaving directory '/home/builder/build/src/libcap/pam_cap'
+make[1]: Leaving directory '/home/builder/build/src/libcap/pam_cap'
+make -C tests all
+make[1]: Entering directory '/home/builder/build/src/libcap/tests'
+leave test building to test target
+make[1]: Leaving directory '/home/builder/build/src/libcap/tests'
+make -C progs all
+make[1]: Entering directory '/home/builder/build/src/libcap/progs'
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/progs/../libcap/include -c getpcaps.c -o getpcaps.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/progs/../libcap/include -c getcap.c -o getcap.o
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/progs/../libcap/include -c setcap.c -o setcap.o
+./mkcapshdoc.sh > capshdoc.c.cf
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd getpcaps.o -L/home/builder/build/src/libcap/progs/../libcap -lcap  -o getpcaps
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd getcap.o -L/home/builder/build/src/libcap/progs/../libcap -lcap  -o getcap
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd setcap.o -L/home/builder/build/src/libcap/progs/../libcap -lcap  -o setcap
+diff -u capshdoc.c capshdoc.c.cf || (rm capshdoc.c.cf ; exit 1)
+gcc -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -Wunreachable-code -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/libcap/include -Dlinux -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include -I/home/builder/build/src/libcap/progs/../libcap/include  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd capsh.c capshdoc.c -L/home/builder/build/src/libcap/progs/../libcap -lcap  -o capsh
+make[1]: Leaving directory '/home/builder/build/src/libcap/progs'
+make -C doc all
+make[1]: Entering directory '/home/builder/build/src/libcap/doc'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/libcap/doc'
+make: Leaving directory '/home/builder/build/src/libcap'
+==> Entering fakeroot environment...
+==> Starting package()...
+make: Entering directory '/home/builder/build/src/libcap'
+make -C libcap install
+make[1]: Entering directory '/home/builder/build/src/libcap/libcap'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/include/sys
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib/pkgconfig
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib
+install -m 0644 include/sys/capability.h /home/builder/build/pkg/libcap/usr/include/sys
+install -m 0644 libcap.pc /home/builder/build/pkg/libcap/usr/lib/pkgconfig/libcap.pc
+install -m 0644 libcap.a /home/builder/build/pkg/libcap/usr/lib/libcap.a
+make install-static-psx
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/include/sys
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib/pkgconfig
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib
+install -m 0644 include/sys/psx_syscall.h /home/builder/build/pkg/libcap/usr/include/sys
+install -m 0644 libpsx.pc /home/builder/build/pkg/libcap/usr/lib/pkgconfig/libpsx.pc
+install -m 0644 libpsx.a /home/builder/build/pkg/libcap/usr/lib/libpsx.a
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make install-shared
+make[2]: Entering directory '/home/builder/build/src/libcap/libcap'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/include/sys
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib/pkgconfig
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib
+install -m 0644 include/sys/capability.h /home/builder/build/pkg/libcap/usr/include/sys
+install -m 0644 libcap.pc /home/builder/build/pkg/libcap/usr/lib/pkgconfig/libcap.pc
+install -m 0755 libcap.so.2.78 /home/builder/build/pkg/libcap/usr/lib/libcap.so.2.78
+ln -sf libcap.so.2.78 /home/builder/build/pkg/libcap/usr/lib/libcap.so.2
+ln -sf libcap.so.2 /home/builder/build/pkg/libcap/usr/lib/libcap.so
+make install-shared-psx
+make[3]: Entering directory '/home/builder/build/src/libcap/libcap'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/include/sys
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib/pkgconfig
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib
+install -m 0644 include/sys/psx_syscall.h /home/builder/build/pkg/libcap/usr/include/sys
+install -m 0644 libpsx.pc /home/builder/build/pkg/libcap/usr/lib/pkgconfig/libpsx.pc
+install -m 0755 libpsx.so.2.78 /home/builder/build/pkg/libcap/usr/lib/libpsx.so.2.78
+ln -sf libpsx.so.2.78 /home/builder/build/pkg/libcap/usr/lib/libpsx.so.2
+ln -sf libpsx.so.2 /home/builder/build/pkg/libcap/usr/lib/libpsx.so
+make[3]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make[2]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make[1]: Leaving directory '/home/builder/build/src/libcap/libcap'
+make -C pam_cap install
+make[1]: Entering directory '/home/builder/build/src/libcap/pam_cap'
+make testlink
+make[2]: Entering directory '/home/builder/build/src/libcap/pam_cap'
+make[2]: 'testlink' is up to date.
+make[2]: Leaving directory '/home/builder/build/src/libcap/pam_cap'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/lib/security
+install -m 0755 pam_cap.so /home/builder/build/pkg/libcap/usr/lib/security
+make[1]: Leaving directory '/home/builder/build/src/libcap/pam_cap'
+make -C tests install
+make[1]: Entering directory '/home/builder/build/src/libcap/tests'
+nothing to install from tests
+make[1]: Leaving directory '/home/builder/build/src/libcap/tests'
+make -C progs install
+make[1]: Entering directory '/home/builder/build/src/libcap/progs'
+mkdir -p -m 0755 /home/builder/build/pkg/libcap/usr/bin
+for p in getpcaps getcap setcap capsh ; do \
+	install -m 0755 $p /home/builder/build/pkg/libcap/usr/bin ; \
+done
+make[1]: Leaving directory '/home/builder/build/src/libcap/progs'
+make -C doc install
+make[1]: Entering directory '/home/builder/build/src/libcap/doc'
+mkdir -p -m 755 /home/builder/build/pkg/libcap/usr/share/man/man1 /home/builder/build/pkg/libcap/usr/share/man/man3 /home/builder/build/pkg/libcap/usr/share/man/man5 /home/builder/build/pkg/libcap/usr/share/man/man7 /home/builder/build/pkg/libcap/usr/share/man/man8
+for man in \
+	/home/builder/build/pkg/libcap/usr/share/man/man1 capsh.1 \
+	/home/builder/build/pkg/libcap/usr/share/man/man3 cap_init.3 cap_free.3 cap_dup.3 cap_clear.3 cap_clear_flag.3 cap_get_flag.3 cap_set_flag.3 cap_fill.3 cap_fill_flag.3 cap_max_bits.3 cap_compare.3 cap_get_proc.3 cap_get_pid.3 cap_set_proc.3 cap_get_file.3 cap_get_fd.3 cap_set_file.3 cap_set_fd.3 cap_set_nsowner.3 cap_get_nsowner.3 cap_copy_ext.3 cap_size.3 cap_copy_int.3 cap_mode.3 cap_copy_int_check.3 cap_set_syscall.3 cap_from_text.3 cap_to_text.3 cap_from_name.3 cap_to_name.3 capsetp.3 capgetp.3 libcap.3 cap_get_bound.3 cap_drop_bound.3 cap_get_mode.3 cap_set_mode.3 cap_mode_name.3 cap_get_secbits.3 cap_set_secbits.3 cap_setuid.3 cap_setgroups.3 cap_launch.3 cap_func_launcher.3 cap_launcher_callback.3 cap_launcher_set_chroot.3 cap_launcher_set_mode.3 cap_launcher_setgroups.3 cap_launcher_setuid.3 cap_launcher_set_iab.3 cap_new_launcher.3 cap_iab.3 cap_iab_init.3 cap_iab_dup.3 cap_iab_compare.3 cap_iab_get_proc.3 cap_iab_get_pid.3 cap_iab_set_proc.3 cap_iab_to_text.3 cap_iab_from_text.3 cap_iab_get_vector.3 cap_iab_set_vector.3 cap_iab_fill.3 cap_proc_root.3 cap_prctl.3 cap_prctlw.3 psx_syscall.3 psx_syscall3.3 psx_syscall6.3 psx_set_sensitivity.3 psx_load_syscalls.3 __psx_syscall.3 libpsx.3 \
+	/home/builder/build/pkg/libcap/usr/share/man/man5 capability.conf.5 \
+	/home/builder/build/pkg/libcap/usr/share/man/man7 cap_text_formats.7 \
+	/home/builder/build/pkg/libcap/usr/share/man/man8 getcap.8 setcap.8 getpcaps.8 captree.8 pam_cap.8 \
+	; \
+do \
+	case $man in \
+	/*)	sub=$man ; continue ;; \
+	esac; \
+	install -m 644 $man $sub ; \
+done
+make[1]: Leaving directory '/home/builder/build/src/libcap/doc'
+make: Leaving directory '/home/builder/build/src/libcap'
+install: creating directory '/home/builder/build/pkg/libcap/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/libcap/usr/share/doc/libcap'
+'libcap/CHANGELOG' -> '/home/builder/build/pkg/libcap/usr/share/doc/libcap/CHANGELOG'
+'libcap/README' -> '/home/builder/build/pkg/libcap/usr/share/doc/libcap/README'
+install: creating directory '/home/builder/build/pkg/libcap/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/libcap/usr/share/licenses/libcap'
+'libcap/License' -> '/home/builder/build/pkg/libcap/usr/share/licenses/libcap/License'
+install: creating directory '/home/builder/build/pkg/libcap/usr/share/doc/libcap/examples'
+'libcap/pam_cap/capability.conf' -> '/home/builder/build/pkg/libcap/usr/share/doc/libcap/examples/capability.conf'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libcap"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libcap 2.78-1 (Sat Sep 19 23:35:45 2026)

@@ -1,0 +1,517 @@
+== build file (deps: bzip2 git glibc libbz2.so liblzma.so libseccomp libseccomp.so libz.so libzstd.so xz zlib zstd )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: xz-5.8.3-1 is up to date -- skipping
+warning: libseccomp-2.6.0-1 is up to date -- skipping
+warning: libseccomp-2.6.0-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: zstd-1.5.7-2 is up to date -- skipping
+warning: xz-5.8.3-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: zstd-1.5.7-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  bzip2-1.0.8-6  git-2.55.0-1
+
+Total Download Size:    7.00 MiB
+Total Installed Size:  46.19 MiB
+Net Upgrade Size:      44.03 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ bzip2-1.0.8-6-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading bzip2...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: file 5.48-1 (Sat Sep 19 23:26:36 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning file git repo...
+Cloning into bare repository '/sources/file'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    file ... Passed
+==> Extracting sources...
+  -> Creating working copy of file git repo...
+Cloning into 'file'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: no obvious need to run autopoint
+autoreconf: running: aclocal --force -I m4
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: configure.ac: no need to run autopoint (confirmed)
+autoreconf: running: aclocal --force -I m4
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:111: installing './compile'
+configure.ac:92: installing './config.guess'
+configure.ac:92: installing './config.sub'
+configure.ac:3: installing './install-sh'
+configure.ac:3: installing './missing'
+src/Makefile.am: installing './depcomp'
+autoreconf: './config.sub' is updated
+autoreconf: './config.guess' is updated
+autoreconf: configure.ac: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking for builtin ELF support... yes
+checking for ELF core file support... yes
+checking for zlib support... 
+checking for bzlib support... 
+checking for xzlib support... 
+checking for zstdlib support... 
+checking for lzlib support... 
+checking for lrziplib support... 
+checking for libseccomp support... yes
+checking for Landlock LSM support... 
+checking for file formats in man section 5... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking for sys/param.h... yes
+checking for vfork.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking whether byte ordering is bigendian... no
+checking whether ln -s works... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether the -Werror option is usable... yes
+checking for simple visibility declarations... yes
+checking for sys/mkdev.h... no
+checking for sys/sysmacros.h... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for stdint.h... (cached) yes
+checking for fcntl.h... yes
+checking for inttypes.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for byteswap.h... yes
+checking for spawn.h... yes
+checking for utime.h... yes
+checking for wchar.h... (cached) yes
+checking for wctype.h... yes
+checking for limits.h... yes
+checking for getopt.h... yes
+checking for err.h... yes
+checking for xlocale.h... no
+checking for sys/bswap.h... no
+checking for sys/mman.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/utime.h... no
+checking for sys/time.h... yes
+checking for sys/sysmacros.h... (cached) yes
+checking for sys/ioctl.h... yes
+checking for zlib.h... yes
+checking for bzlib.h... yes
+checking for lzma.h... yes
+checking for zstd.h... yes
+checking for zstd_errors.h... yes
+checking for lzlib.h... no
+checking for Lrzip.h... no
+checking for sig_t... yes
+checking for off_t... yes
+checking for size_t... yes
+checking for struct stat.st_rdev... yes
+checking for struct tm.tm_gmtoff... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking for struct tm.tm_zone... yes
+checking for tm_zone in struct tm... yes
+checking whether tzname is declared... yes
+checking for tzname... yes
+checking for tm_isdst in struct tm... yes
+checking whether daylight is declared... yes
+checking for daylight... yes
+checking for clang -std=gnu23 option to support large files... none needed
+checking for clang -std=gnu23 option to support timestamps after 2038... none needed
+checking for declarations of fseeko and ftello... yes
+checking for mbstate_t... yes
+checking for struct option in getopt... yes
+checking for pid_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for int32_t... yes
+checking for uint64_t... yes
+checking for int64_t... yes
+checking for intptr_t... yes
+checking for uintptr_t... yes
+checking for getpagesize... yes
+checking for fork... yes
+checking for vfork... yes
+checking for working mmap... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for gcc compiler warnings... yes
+checking for strndup... yes
+checking for mkstemp... yes
+checking for mkostemp... yes
+checking for utimes... yes
+checking for utime... yes
+checking for wcwidth... yes
+checking for strtof... yes
+checking for newlocale... yes
+checking for uselocale... yes
+checking for freelocale... yes
+checking for memmem... yes
+checking for pipe2... yes
+checking for posix_spawnp... yes
+checking for getopt_long... yes
+checking for asprintf... yes
+checking for vasprintf... yes
+checking for strlcpy... yes
+checking for strlcat... yes
+checking for getline... yes
+checking for ctime_r... yes
+checking for asctime_r... yes
+checking for localtime_r... yes
+checking for gmtime_r... yes
+checking for pread... yes
+checking for strcasestr... yes
+checking for fmtcheck... no
+checking for dprintf... yes
+checking for gzopen in -lz... yes
+checking for BZ2_bzCompressInit in -lbz2... yes
+checking for lzma_stream_decoder in -llzma... yes
+checking for ZSTD_createDStream in -lzstd... yes
+checking for LZ_decompress_open in -llz... no
+checking for lrzip_new in -llrzip... no
+checking for seccomp_init in -lseccomp... yes
+checking for linux/landlock.h... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating magic/Makefile
+config.status: creating tests/Makefile
+config.status: creating doc/Makefile
+config.status: creating python/Makefile
+config.status: creating libmagic.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/file'
+Making all in src
+make[2]: Entering directory '/home/builder/build/src/file/src'
+sed -e "s/X.YY/$(echo 5.48 | tr -d .)/" < ../src/magic.h.in > magic.h
+make  all-am
+make[3]: Entering directory '/home/builder/build/src/file/src'
+  CC       file.o
+  CC       landlock.o
+  CC       magic.lo
+  CC       seccomp.o
+  CC       buffer.lo
+  CC       apprentice.lo
+  CC       ascmagic.lo
+  CC       softmagic.lo
+  CC       is_csv.lo
+  CC       encoding.lo
+  CC       compress.lo
+  CC       is_json.lo
+  CC       readelf.lo
+  CC       is_simh.lo
+  CC       print.lo
+  CC       is_tar.lo
+seccomp.c:261:6: warning: missing field 'datum_b' initializer [-Wmissing-field-initializers]
+  261 |             SCMP_CMP32(0, SCMP_CMP_EQ, PR_SET_VMA),
+      |             ^
+/usr/include/seccomp.h:282:2: note: expanded from macro 'SCMP_CMP32'
+  282 |         _SCMP_MACRO_DISPATCHER(_SCMP_CMP32_, __VA_ARGS__)(x, y, __VA_ARGS__)
+      |         ^
+/usr/include/seccomp.h:254:2: note: expanded from macro '_SCMP_MACRO_DISPATCHER'
+  254 |         _SCMP_MACRO_DISPATCHER_IMPL1(func, _SCMP_VA_NUM_ARGS(__VA_ARGS__))
+      |         ^
+/usr/include/seccomp.h:256:2: note: expanded from macro '_SCMP_MACRO_DISPATCHER_IMPL1'
+  256 |         _SCMP_MACRO_DISPATCHER_IMPL2(func, nargs)
+      |         ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+<scratch space>:156:1: note: expanded from here
+  156 | _SCMP_CMP32_1
+      | ^
+/usr/include/seccomp.h:260:2: note: expanded from macro '_SCMP_CMP32_1'
+  260 |         SCMP_CMP64(x, y, (uint32_t)(z))
+      |         ^
+/usr/include/seccomp.h:271:60: note: expanded from macro 'SCMP_CMP64'
+  271 | #define SCMP_CMP64(...)         ((struct scmp_arg_cmp){__VA_ARGS__})
+      |                                                                   ^
+seccomp.c:262:6: warning: missing field 'datum_b' initializer [-Wmissing-field-initializers]
+  262 |             SCMP_CMP64(1, SCMP_CMP_EQ, PR_SET_VMA_ANON_NAME)) == -1)
+      |             ^
+/usr/include/seccomp.h:271:60: note: expanded from macro 'SCMP_CMP64'
+  271 | #define SCMP_CMP64(...)         ((struct scmp_arg_cmp){__VA_ARGS__})
+      |                                                                   ^
+  CC       fsmagic.lo
+2 warnings generated.
+  CC       funcs.lo
+  CC       apptype.lo
+  CC       der.lo
+  CC       cdf.lo
+  CC       cdf_time.lo
+  CC       readcdf.lo
+  CC       swap.lo
+  CC       fmtcheck.lo
+  CCLD     libmagic.la
+  CCLD     file
+make[3]: Leaving directory '/home/builder/build/src/file/src'
+make[2]: Leaving directory '/home/builder/build/src/file/src'
+Making all in magic
+make[2]: Entering directory '/home/builder/build/src/file/magic'
+../src/file -C -m magic
+make[2]: Leaving directory '/home/builder/build/src/file/magic'
+Making all in tests
+make[2]: Entering directory '/home/builder/build/src/file/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/file/tests'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/file/doc'
+sed -e s@__CSECTION__@1@g \
+    -e s@__FSECTION__@5@g \
+    -e s@__VERSION__@5.48@g \
+    -e s@__MAGIC__@/usr/share/file/misc/magic@g ./magic.man > magic.5
+sed -e s@__CSECTION__@1@g \
+    -e s@__FSECTION__@5@g \
+    -e s@__VERSION__@5.48@g \
+    -e s@__MAGIC__@/usr/share/file/misc/magic@g ./file.man > file.1
+sed -e s@__CSECTION__@1@g \
+    -e s@__FSECTION__@5@g \
+    -e s@__VERSION__@5.48@g \
+    -e s@__MAGIC__@/usr/share/file/misc/magic@g ./libmagic.man > libmagic.3
+make[2]: Leaving directory '/home/builder/build/src/file/doc'
+Making all in python
+make[2]: Entering directory '/home/builder/build/src/file/python'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/file/python'
+make[2]: Entering directory '/home/builder/build/src/file'
+make[2]: Leaving directory '/home/builder/build/src/file'
+make[1]: Leaving directory '/home/builder/build/src/file'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/file/src'
+make  install-am
+make[2]: Entering directory '/home/builder/build/src/file/src'
+make[3]: Entering directory '/home/builder/build/src/file/src'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libmagic.la '/home/builder/build/pkg/file/usr/lib'
+ /usr/bin/install -c -m 644 magic.h '/home/builder/build/pkg/file/usr/include'
+libtool: install: /usr/bin/install -c .libs/libmagic.so.1.0.0 /home/builder/build/pkg/file/usr/lib/libmagic.so.1.0.0
+libtool: install: (cd /home/builder/build/pkg/file/usr/lib && { ln -s -f libmagic.so.1.0.0 libmagic.so.1 || { rm -f libmagic.so.1 && ln -s libmagic.so.1.0.0 libmagic.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/file/usr/lib && { ln -s -f libmagic.so.1.0.0 libmagic.so || { rm -f libmagic.so && ln -s libmagic.so.1.0.0 libmagic.so; }; })
+libtool: install: /usr/bin/install -c .libs/libmagic.lai /home/builder/build/pkg/file/usr/lib/libmagic.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c file '/home/builder/build/pkg/file/usr/bin'
+libtool: warning: 'libmagic.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/file /home/builder/build/pkg/file/usr/bin/file
+make[3]: Leaving directory '/home/builder/build/src/file/src'
+make[2]: Leaving directory '/home/builder/build/src/file/src'
+make[1]: Leaving directory '/home/builder/build/src/file/src'
+Making install in magic
+make[1]: Entering directory '/home/builder/build/src/file/magic'
+make[2]: Entering directory '/home/builder/build/src/file/magic'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/share/file/misc'
+ /usr/bin/install -c -m 644 magic.mgc '/home/builder/build/pkg/file/usr/share/file/misc'
+make[2]: Leaving directory '/home/builder/build/src/file/magic'
+make[1]: Leaving directory '/home/builder/build/src/file/magic'
+Making install in tests
+make[1]: Entering directory '/home/builder/build/src/file/tests'
+make[2]: Entering directory '/home/builder/build/src/file/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/file/tests'
+make[1]: Leaving directory '/home/builder/build/src/file/tests'
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/file/doc'
+make[2]: Entering directory '/home/builder/build/src/file/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/share/man/man4'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/share/man/man5'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/share/man/man3'
+ /usr/bin/install -c -m 644 file.1 '/home/builder/build/pkg/file/usr/share/man/man1'
+ /usr/bin/install -c -m 644 libmagic.3 '/home/builder/build/pkg/file/usr/share/man/man3'
+ /usr/bin/install -c -m 644 magic.5 '/home/builder/build/pkg/file/usr/share/man/man5'
+make[2]: Leaving directory '/home/builder/build/src/file/doc'
+make[1]: Leaving directory '/home/builder/build/src/file/doc'
+Making install in python
+make[1]: Entering directory '/home/builder/build/src/file/python'
+make[2]: Entering directory '/home/builder/build/src/file/python'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/file/python'
+make[1]: Leaving directory '/home/builder/build/src/file/python'
+make[1]: Entering directory '/home/builder/build/src/file'
+make[2]: Entering directory '/home/builder/build/src/file'
+make[2]: Nothing to be done for 'install-data-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/file/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libmagic.pc '/home/builder/build/pkg/file/usr/lib/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/file'
+make[1]: Leaving directory '/home/builder/build/src/file'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "file"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: file 5.48-1 (Sat Sep 19 23:27:40 2026)

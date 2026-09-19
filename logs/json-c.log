@@ -1,0 +1,359 @@
+== build json-c (deps: cmake git glibc ninja )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  cmake-4.4.2-1  git-2.55.0-1  ninja-1.13.2-1
+
+Total Download Size:    23.23 MiB
+Total Installed Size:  108.27 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ cmake-4.4.2-1-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing ninja...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: json-c 0.19-1 (Sat Sep 19 23:29:52 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning json-c git repo...
+Cloning into bare repository '/sources/json-c'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    json-c ... Passed
+==> Extracting sources...
+  -> Creating working copy of json-c git repo...
+Cloning into 'json-c'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+-- The C compiler identification is Clang 23.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Building for Linux
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for stdarg.h
+-- Looking for stdarg.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for syslog.h
+-- Looking for syslog.h - found
+-- Looking for 4 include files stdlib.h, ..., float.h
+-- Looking for 4 include files stdlib.h, ..., float.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for dlfcn.h
+-- Looking for dlfcn.h - found
+-- Looking for endian.h
+-- Looking for endian.h - found
+-- Looking for limits.h
+-- Looking for limits.h - found
+-- Looking for locale.h
+-- Looking for locale.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for sys/cdefs.h
+-- Looking for sys/cdefs.h - found
+-- Looking for sys/param.h
+-- Looking for sys/param.h - found
+-- Looking for sys/random.h
+-- Looking for sys/random.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for xlocale.h
+-- Looking for xlocale.h - not found
+-- Looking for _isnan
+-- Looking for _isnan - not found
+-- Looking for _finite
+-- Looking for _finite - not found
+-- Looking for INFINITY
+-- Looking for INFINITY - found
+-- Looking for isinf
+-- Looking for isinf - found
+-- Looking for isnan
+-- Looking for isnan - found
+-- Looking for nan
+-- Looking for nan - found
+-- Looking for _doprnt
+-- Looking for _doprnt - not found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for vasprintf
+-- Looking for vasprintf - found
+-- Looking for vsnprintf
+-- Looking for vsnprintf - found
+-- Looking for vprintf
+-- Looking for vprintf - found
+-- Looking for arc4random
+-- Looking for arc4random - found
+-- Looking for open
+-- Looking for open - found
+-- Looking for realloc
+-- Looking for realloc - found
+-- Looking for setlocale
+-- Looking for setlocale - found
+-- Looking for uselocale
+-- Looking for uselocale - found
+-- Looking for duplocale
+-- Looking for duplocale - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for strncasecmp
+-- Looking for strncasecmp - found
+-- Looking for strdup
+-- Looking for strdup - found
+-- Looking for strerror
+-- Looking for strerror - found
+-- Looking for vsyslog
+-- Looking for vsyslog - found
+-- Looking for getrandom
+-- Looking for getrandom - found
+-- Looking for getrusage
+-- Looking for getrusage - found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Looking for strtoull
+-- Looking for strtoull - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of int
+-- Check size of int - done
+-- Check size of int64_t
+-- Check size of int64_t - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of long long
+-- Check size of long long - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+CMake Warning (policy) at CMakeLists.txt:309 (check_c_source_compiles):
+  Policy CMP0219 is not set: Macro invocations preserve backslashes in
+  arguments.  Run "cmake --help-policy CMP0219" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Command "CHECK_C_SOURCE_COMPILES" called with arguments containing
+  backslashes.
+
+  Since the policy is not set, backslashes in the arguments:
+
+   "
+
+  extern void json_object_get();
+
+  __asm__(".section .gnu.json_object_get\n\t.ascii \"Please link against
+  libjson-c instead of libjson\"\n\t.text");
+
+  int main(int c, char *v) { return 0;}
+
+  "
+
+  will be interpreted as escape sequences for compatibility.
+
+  Set the policy to NEW to instead pass
+
+   "
+
+  extern void json_object_get();
+
+  __asm__(".section .gnu.json_object_get\\n\\t.ascii \\"Please link against
+  libjson-c instead of libjson\\"\\n\\t.text");
+
+  int main(int c, char *v) { return 0;}
+
+  "
+
+  so that argument parsing will preserve the original values.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+-- Performing Test HAS_GNU_WARNING_LONG
+-- Performing Test HAS_GNU_WARNING_LONG - Failed
+-- Performing Test HAVE_ATOMIC_BUILTINS
+-- Performing Test HAVE_ATOMIC_BUILTINS - Success
+-- Performing Test HAVE___THREAD
+-- Performing Test HAVE___THREAD - Success
+-- Wrote /home/builder/build/src/build/config.h
+-- Wrote /home/builder/build/src/build/json_config.h
+-- Performing Test REENTRANT_WORKS
+-- Performing Test REENTRANT_WORKS - Success
+-- Performing Test BSYMBOLIC_WORKS
+-- Performing Test BSYMBOLIC_WORKS - Success
+-- Performing Test VERSION_SCRIPT_WORKS
+-- Performing Test VERSION_SCRIPT_WORKS - Success
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+Warning: doxygen not found, the 'doc' target will not be included
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Wrote /home/builder/build/src/build/apps_config.h
+-- Configuring done (12.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/builder/build/src/build
+[1/78] Building C object CMakeFiles/json-c.dir/json_c_version.c.o
+[2/78] Building C object CMakeFiles/json-c.dir/random_seed.c.o
+[3/78] Building C object tests/CMakeFiles/test2Formatted.dir/parse_flags.c.o
+[4/78] Building C object CMakeFiles/json-c.dir/json_object_iterator.c.o
+[5/78] Building C object CMakeFiles/json-c.dir/printbuf.c.o
+[6/78] Building C object CMakeFiles/json-c.dir/strerror_override.c.o
+[7/78] Building C object tests/CMakeFiles/test1Formatted.dir/parse_flags.c.o
+[8/78] Building C object CMakeFiles/json-c.dir/debug.c.o
+[9/78] Building C object CMakeFiles/json-c.dir/json_visit.c.o
+[10/78] Building C object tests/CMakeFiles/test1Formatted.dir/test1.c.o
+[11/78] Building C object tests/CMakeFiles/test2Formatted.dir/test2.c.o
+[12/78] Building C object CMakeFiles/json-c.dir/arraylist.c.o
+[13/78] Building C object CMakeFiles/json-c.dir/json_patch.c.o
+[14/78] Building C object CMakeFiles/json-c.dir/json_pointer.c.o
+[15/78] Building C object tests/CMakeFiles/test1.dir/test1.c.o
+[16/78] Building C object CMakeFiles/json-c.dir/json_util.c.o
+[17/78] Building C object tests/CMakeFiles/test_cast.dir/test_cast.c.o
+[18/78] Building C object tests/CMakeFiles/test_charcase.dir/test_charcase.c.o
+[19/78] Building C object tests/CMakeFiles/test2.dir/test2.c.o
+[20/78] Building C object tests/CMakeFiles/test_deep_nesting.dir/test_deep_nesting.c.o
+[21/78] Building C object tests/CMakeFiles/test_compare.dir/test_compare.c.o
+[22/78] Building C object tests/CMakeFiles/test4.dir/test4.c.o
+[23/78] Building C object tests/CMakeFiles/test_float.dir/test_float.c.o
+[24/78] Building C object tests/CMakeFiles/testReplaceExisting.dir/testReplaceExisting.c.o
+[25/78] Building C object tests/CMakeFiles/test_int_add.dir/test_int_add.c.o
+[26/78] Building C object tests/CMakeFiles/test_double_serializer.dir/test_double_serializer.c.o
+[27/78] Building C object tests/CMakeFiles/test_null.dir/test_null.c.o
+[28/78] Building C object tests/CMakeFiles/test_parse_int64.dir/test_parse_int64.c.o
+[29/78] Building C object tests/CMakeFiles/test_deep_copy.dir/test_deep_copy.c.o
+[30/78] Building C object tests/CMakeFiles/test_set_value.dir/test_set_value.c.o
+[31/78] Building C object tests/CMakeFiles/test_locale.dir/test_locale.c.o
+[32/78] Building C object tests/CMakeFiles/test_parse.dir/test_parse.c.o
+[33/78] Building C object tests/CMakeFiles/test_strerror.dir/test_strerror.c.o
+[34/78] Building C object tests/CMakeFiles/test_printbuf.dir/test_printbuf.c.o
+[35/78] Building C object tests/CMakeFiles/test_set_serializer.dir/test_set_serializer.c.o
+[36/78] Building C object tests/CMakeFiles/test_object_iterator.dir/test_object_iterator.c.o
+[37/78] Building C object tests/CMakeFiles/test_safe_json_pointer_set.dir/test_safe_json_pointer_set.c.o
+[38/78] Building C object tests/CMakeFiles/test_visit.dir/test_visit.c.o
+[39/78] Building C object CMakeFiles/json-c.dir/linkhash.c.o
+[40/78] Building C object tests/CMakeFiles/test_int_get.dir/test_int_get.c.o
+[41/78] Building C object tests/CMakeFiles/test_json_patch.dir/test_json_patch.c.o
+[42/78] Building C object tests/CMakeFiles/test_json_pointer.dir/test_json_pointer.c.o
+[43/78] Building C object apps/CMakeFiles/json_parse.dir/json_parse.c.o
+[44/78] Building C object tests/CMakeFiles/test_util_file.dir/test_util_file.c.o
+[45/78] Building C object CMakeFiles/json-c.dir/json_object.c.o
+[46/78] Building C object CMakeFiles/json-c.dir/json_tokener.c.o
+[47/78] Linking C shared library libjson-c.so.5.5.0
+[48/78] Creating library symlink libjson-c.so.5 libjson-c.so
+[49/78] Linking C executable tests/test_deep_nesting
+[50/78] Linking C executable tests/test4
+[51/78] Linking C executable tests/test_double_serializer
+[52/78] Linking C executable tests/test1
+[53/78] Linking C executable tests/test2Formatted
+[54/78] Linking C executable tests/test2
+[55/78] Linking C executable tests/testReplaceExisting
+[56/78] Linking C executable tests/test_cast
+[57/78] Linking C executable tests/test_charcase
+[58/78] Linking C executable tests/test_compare
+[59/78] Linking C executable tests/test_deep_copy
+[60/78] Linking C executable tests/test_int_add
+[61/78] Linking C executable tests/test_int_get
+[62/78] Linking C executable tests/test_null
+[63/78] Linking C executable tests/test1Formatted
+[64/78] Linking C executable tests/test_locale
+[65/78] Linking C executable tests/test_float
+[66/78] Linking C executable tests/test_parse
+[67/78] Linking C executable tests/test_set_value
+[68/78] Linking C executable tests/test_printbuf
+[69/78] Linking C executable tests/test_parse_int64
+[70/78] Linking C executable tests/test_set_serializer
+[71/78] Linking C executable tests/test_strerror
+[72/78] Linking C executable tests/test_json_patch
+[73/78] Linking C executable tests/test_visit
+[74/78] Linking C executable tests/test_util_file
+[75/78] Linking C executable tests/test_object_iterator
+[76/78] Linking C executable tests/test_json_pointer
+[77/78] Linking C executable tests/test_safe_json_pointer_set
+[78/78] Linking C executable apps/json_parse
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/libjson-c.so.5.5.0
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/libjson-c.so.5
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/libjson-c.so
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/cmake/json-c/json-c-targets.cmake
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/cmake/json-c/json-c-targets-none.cmake
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/cmake/json-c/json-c-config.cmake
+-- Installing: /home/builder/build/pkg/json-c/usr/lib/pkgconfig/json-c.pc
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_config.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/arraylist.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/debug.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_c_version.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_inttypes.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_object.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_object_iterator.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_tokener.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_types.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_util.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_visit.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/linkhash.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/printbuf.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_pointer.h
+-- Installing: /home/builder/build/pkg/json-c/usr/include/json-c/json_patch.h
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libjson-c.so.5.5.0
+==> Creating package "json-c"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: json-c 0.19-1 (Sat Sep 19 23:30:17 2026)

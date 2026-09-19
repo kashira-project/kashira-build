@@ -5,6 +5,7 @@
 set -euo pipefail
 
 export PACKAGER="kashira build service <repo@kashiraproject.org>"
+export LC_ALL=C.UTF-8
 
 pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm >/dev/null
 

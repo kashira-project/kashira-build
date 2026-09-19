@@ -1,4 +1,314 @@
-== build fuse3 (deps: fuse-common glibc libiconv libnuma.so liburing liburing.so meson numactl systemd )
-error: target not found: fuse-common
+== build fuse3 (deps: gcc glibc libiconv libnuma.so liburing liburing.so meson numactl systemd )
 warning: glibc-2.44-2 is up to date -- skipping
 warning: systemd-261.2-4 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (8) mpc-1.4.1-1  ninja-1.13.2-1  python-tqdm-4.70.1-1  gcc-16.2.0-6  libiconv-1.19-1  liburing-2.15-1  meson-1.12.0-1  numactl-2.0.19-1
+
+Total Download Size:    93.88 MiB
+Total Installed Size:  352.02 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ meson-1.12.0-1-any downloading...
+ libiconv-1.19-1-x86_64 downloading...
+ liburing-2.15-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ numactl-2.0.19-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing libiconv...
+installing numactl...
+installing liburing...
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: fuse3 3.18.3-1 (Sat Sep 19 23:23:31 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found fuse-3.18.3.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    fuse-3.18.3.tar.gz ... Passed
+==> Validating source files with b2sums...
+    fuse-3.18.3.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting fuse-3.18.3.tar.gz with bsdtar
+==> Starting build()...
+libfuse-fuse-3.18.3 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 build libfuse-fuse-3.18.3
+The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/libfuse-fuse-3.18.3
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: libfuse3
+Project version: 3.18.3
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Checking for function "fork" : YES 
+Checking for function "fstatat" : YES 
+Checking for function "openat" : YES 
+Checking for function "readlinkat" : YES 
+Checking for function "pipe2" : YES 
+Checking for function "splice" : YES 
+Checking for function "vmsplice" : YES 
+Checking for function "posix_fallocate" : YES 
+Checking for function "fdatasync" : YES 
+Checking for function "utimensat" : YES 
+Checking for function "copy_file_range" : YES 
+Checking for function "fallocate" : YES 
+Checking for function "fspacectl" : NO 
+Checking if "pthread_setname_np check" links: YES 
+Checking if "close_range check" links: YES 
+Checking if "listmount check" links: YES 
+Has header "sys/xattr.h" : YES 
+Has header "linux/limits.h" : YES 
+Checking for function "setxattr" : YES 
+Checking for function "iconv" : YES 
+Checking for function "backtrace" : YES 
+Checking for function "statx" : YES 
+Checking whether type "struct stat" has member "st_atim" : YES 
+Checking whether type "struct stat" has member "st_atimespec" : NO 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency liburing found: YES 2.15
+Run-time dependency numa found: YES 2.0.19
+Checking if "liburing linking and SQE128 support" with dependency liburing links: YES 
+Message: Enabling versioned libc symbols
+Message: Compiler does not support symver attribute
+Configuring fuse_config.h using configuration
+Configuring libfuse_config.h using configuration
+Run-time dependency threads found: YES
+Library iconv found: YES
+Dependency liburing for host machine found: YES 2.15 (cached)
+Dependency numa for host machine found: YES 2.0.19 (cached)
+Library dl found: YES
+Library rt found: YES
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency udev found: YES 261
+libfuse-fuse-3.18.3/example/meson.build:38: WARNING: add_languages is missing native:, assuming languages are wanted for both host and build.
+C++ compiler for the host machine: clang++ (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C++ linker for the host machine: clang++ ld.lld 23.1.1
+Program run-tests.py found: YES (/home/builder/build/src/libfuse-fuse-3.18.3/test/run-tests.py)
+Build targets in project: 32
+
+libfuse3 3.18.3
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   0%|          | 0/32 eta ?Generating targets:  66%|██████▌   | 21/32 eta 00:00                                                    Writing build.ninja:   0%|          | 0/117 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/84] Compiling C object lib/libfuse3.so.3.18.3.p/compat.c.o
+[2/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_log.c.o
+[3/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_loop.c.o
+[4/84] Compiling C object lib/libfuse3.so.3.18.3.p/util.c.o
+[5/84] Compiling C object lib/libfuse3.so.3.18.3.p/cuse_lowlevel.c.o
+[6/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_signals.c.o
+[7/84] Compiling C object lib/libfuse3.so.3.18.3.p/helper.c.o
+[8/84] Compiling C object lib/libfuse3.so.3.18.3.p/modules_iconv.c.o
+[9/84] Compiling C object util/fusermount3.p/.._lib_fuse_log.c.o
+[10/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_loop_mt.c.o
+[11/84] Compiling C object lib/libfuse3.so.3.18.3.p/mount_util.c.o
+../libfuse-fuse-3.18.3/lib/mount_util.c:70:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   70 |                         setreuid(0, -1);
+      |                         ^~~~~~~~~~~~~~~
+../libfuse-fuse-3.18.3/lib/mount_util.c:75:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   75 |                         setreuid(ruid, -1);
+      |                         ^~~~~~~~~~~~~~~~~~
+2 warnings generated.
+[12/84] Compiling C object util/fusermount3.p/.._lib_util.c.o
+[13/84] Compiling C object util/fusermount3.p/.._lib_mount_util.c.o
+../libfuse-fuse-3.18.3/lib/mount_util.c:70:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   70 |                         setreuid(0, -1);
+      |                         ^~~~~~~~~~~~~~~
+../libfuse-fuse-3.18.3/lib/mount_util.c:75:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   75 |                         setreuid(ruid, -1);
+      |                         ^~~~~~~~~~~~~~~~~~
+2 warnings generated.
+[14/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_opt.c.o
+[15/84] Compiling C object lib/libfuse3.so.3.18.3.p/mount.c.o
+[16/84] Compiling C object lib/libfuse3.so.3.18.3.p/modules_subdir.c.o
+[17/84] Compiling C object example/hello.p/hello.c.o
+[18/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_uring.c.o
+[19/84] Compiling C object example/passthrough.p/passthrough.c.o
+[20/84] Compiling C object lib/libfuse3.so.3.18.3.p/buffer.c.o
+[21/84] Compiling C object example/ioctl_client.p/ioctl_client.c.o
+[22/84] Compiling C object example/poll_client.p/poll_client.c.o
+[23/84] Compiling C object example/printcap.p/printcap.c.o
+[24/84] Compiling C object util/mount.fuse3.p/mount.fuse.c.o
+[25/84] Compiling C object example/passthrough_fh.p/passthrough_fh.c.o
+[26/84] Compiling C object example/cuse.p/cuse.c.o
+[27/84] Compiling C object example/null.p/null.c.o
+[28/84] Compiling C object example/hello_ll.p/hello_ll.c.o
+[29/84] Compiling C object example/ioctl.p/ioctl.c.o
+[30/84] Compiling C object example/cuse_client.p/cuse_client.c.o
+[31/84] Compiling C object example/invalidate_path.p/invalidate_path.c.o
+[32/84] Compiling C object example/notify_store_retrieve.p/notify_store_retrieve.c.o
+[33/84] Compiling C object example/notify_inval_entry.p/notify_inval_entry.c.o
+[34/84] Compiling C object util/fusermount3.p/fusermount.c.o
+[35/84] Compiling C object example/notify_inval_inode.p/notify_inval_inode.c.o
+[36/84] Compiling C object test/hello.p/hello.c.o
+[37/84] Compiling C object example/poll.p/poll.c.o
+[38/84] Compiling C object test/test_write_cache.p/test_write_cache.c.o
+[39/84] Compiling C object test/test_api_30.p/test_api_30.c.o
+[40/84] Compiling C object test/readdir_inode.p/readdir_inode.c.o
+[41/84] Linking target util/fusermount3
+[42/84] Compiling C object test/test_setattr.p/test_setattr.c.o
+[43/84] Compiling C object test/test_abi.p/test_abi.c.o
+[44/84] Compiling C object test/test_signals.p/test_signals.c.o
+[45/84] Compiling C object test/release_unlink_race.p/release_unlink_race.c.o
+[46/84] Compiling C object test/test_want_conversion.p/test_want_conversion.c.o
+[47/84] Linking target test/readdir_inode
+[48/84] Compiling C object example/passthrough_ll.p/passthrough_ll.c.o
+[49/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse_lowlevel.c.o
+[50/84] Compiling C object test/test_syscalls.p/test_syscalls.c.o
+[51/84] Linking target test/test_syscalls
+[52/84] Compiling C object lib/libfuse3.so.3.18.3.p/fuse.c.o
+[53/84] Linking target lib/libfuse3.so.3.18.3
+[54/84] Generating symbol file lib/libfuse3.so.3.18.3.p/libfuse3.so.3.18.3.symbols
+[55/84] Linking target example/invalidate_path
+[56/84] Linking target example/ioctl
+[57/84] Linking target example/hello_ll
+[58/84] Linking target example/cuse_client
+[59/84] Linking target example/passthrough_ll
+[60/84] Linking target util/mount.fuse3
+[61/84] Linking target example/passthrough_fh
+[62/84] Linking target example/printcap
+[63/84] Linking target example/poll_client
+[64/84] Linking target example/null
+[65/84] Linking target example/hello
+[66/84] Linking target example/cuse
+[67/84] Linking target example/ioctl_client
+[68/84] Linking target example/passthrough
+[69/84] Linking target example/notify_inval_inode
+[70/84] Linking target example/notify_store_retrieve
+[71/84] Linking target test/test_write_cache
+[72/84] Linking target test/hello
+[73/84] Linking target test/release_unlink_race
+[74/84] Linking target example/notify_inval_entry
+[75/84] Linking target example/poll
+[76/84] Linking target test/test_setattr
+[77/84] Linking target test/test_api_30
+[78/84] Linking target test/test_want_conversion
+[79/84] Linking target test/test_abi
+[80/84] Linking target test/test_signals
+[81/84] Compiling C++ object example/memfs_ll.p/memfs_ll.cc.o
+[82/84] Linking target example/memfs_ll
+[83/84] Compiling C++ object example/passthrough_hp.p/passthrough_hp.cc.o
+[84/84] Linking target example/passthrough_hp
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package_fuse-common()...
+install: creating directory '/home/builder/build/pkg/fuse-common/etc'
+'libfuse-fuse-3.18.3/util/fuse.conf' -> '/home/builder/build/pkg/fuse-common/etc/fuse.conf'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "fuse-common"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_fuse3()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+== FURTHER ACTION REQUIRED ==
+Make sure that your init system will start the /home/builder/build/pkg/fuse3/etc/init.d//init.d/fuse3 init script
+Installing lib/libfuse3.so.3.18.3 to /home/builder/build/pkg/fuse3/usr/lib
+Installing util/fusermount3 to /home/builder/build/pkg/fuse3/usr/bin
+Installing util/mount.fuse3 to /home/builder/build/pkg/fuse3/usr/bin
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/fuse.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/fuse_common.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/fuse_lowlevel.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/fuse_opt.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/cuse_lowlevel.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/include/fuse_log.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/doc/fusermount3.1 to /home/builder/build/pkg/fuse3/usr/share/man/man1
+Installing /home/builder/build/src/libfuse-fuse-3.18.3/doc/mount.fuse3.8 to /home/builder/build/pkg/fuse3/usr/share/man/man8
+Installing /home/builder/build/src/build/libfuse_config.h to /home/builder/build/pkg/fuse3/usr/include/fuse3
+Installing /home/builder/build/src/build/meson-private/fuse3.pc to /home/builder/build/pkg/fuse3/usr/lib/pkgconfig
+Installing symlink pointing to libfuse3.so.3.18.3 to /home/builder/build/pkg/fuse3/usr/lib/libfuse3.so.4
+Installing symlink pointing to libfuse3.so.4 to /home/builder/build/pkg/fuse3/usr/lib/libfuse3.so
+Running custom install script '/home/builder/build/src/libfuse-fuse-3.18.3/util/install_helper.sh /etc /usr/bin /usr/lib/udev/rules.d true /etc/init.d/'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "fuse3"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: fuse3 3.18.3-1 (Sat Sep 19 23:24:03 2026)

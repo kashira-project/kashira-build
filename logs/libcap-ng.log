@@ -1,0 +1,5 @@
+== build libcap-ng (deps: bash-completion glibc libcap-ng.so python swig )
+error: target not found: bash-completion
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping

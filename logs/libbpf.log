@@ -1,0 +1,138 @@
+== build libbpf (deps: git glibc libelf linux-api-headers zlib )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: elfutils-0.195-2 is up to date -- skipping
+warning: linux-api-headers-7.2.5-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libbpf 1.7.0-1 (Sat Sep 19 23:30:35 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning libbpf git repo...
+Cloning into bare repository '/sources/libbpf'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libbpf ... Passed
+==> Validating source files with b2sums...
+    libbpf ... Passed
+==> Extracting sources...
+  -> Creating working copy of libbpf git repo...
+Cloning into 'libbpf'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+make: Entering directory '/home/builder/build/src/libbpf/src'
+  MKDIR    staticobjs
+  MKDIR    sharedobjs
+  CC       staticobjs/btf.o
+  CC       staticobjs/libbpf_utils.o
+  CC       staticobjs/bpf.o
+  CC       staticobjs/libbpf.o
+  CC       staticobjs/libbpf_probes.o
+  CC       staticobjs/netlink.o
+  CC       staticobjs/bpf_prog_linfo.o
+  CC       staticobjs/nlattr.o
+  CC       staticobjs/hashmap.o
+  CC       staticobjs/btf_dump.o
+  CC       staticobjs/ringbuf.o
+  CC       staticobjs/strset.o
+  CC       staticobjs/linker.o
+  CC       staticobjs/gen_loader.o
+  CC       staticobjs/relo_core.o
+  CC       staticobjs/usdt.o
+  CC       staticobjs/zip.o
+  CC       staticobjs/elf.o
+  CC       staticobjs/features.o
+  CC       staticobjs/btf_iter.o
+  CC       staticobjs/btf_relocate.o
+  CC       sharedobjs/bpf.o
+  CC       sharedobjs/btf.o
+  CC       sharedobjs/libbpf.o
+  CC       sharedobjs/libbpf_utils.o
+  CC       sharedobjs/netlink.o
+  CC       sharedobjs/nlattr.o
+  CC       sharedobjs/libbpf_probes.o
+  CC       sharedobjs/bpf_prog_linfo.o
+  CC       sharedobjs/hashmap.o
+  CC       sharedobjs/btf_dump.o
+  CC       sharedobjs/ringbuf.o
+  CC       sharedobjs/strset.o
+  CC       sharedobjs/linker.o
+  CC       sharedobjs/gen_loader.o
+  CC       sharedobjs/relo_core.o
+  CC       sharedobjs/usdt.o
+  CC       sharedobjs/zip.o
+  CC       sharedobjs/elf.o
+  CC       sharedobjs/features.o
+  CC       sharedobjs/btf_iter.o
+  CC       sharedobjs/btf_relocate.o
+  AR       libbpf.a
+  CC       libbpf.so.1.7.0
+make: Leaving directory '/home/builder/build/src/libbpf/src'
+==> Entering fakeroot environment...
+==> Starting package()...
+make: Entering directory '/home/builder/build/src/libbpf/src'
+  INSTALL  bpf.h libbpf.h btf.h libbpf_common.h libbpf_legacy.h bpf_helpers.h bpf_helper_defs.h bpf_tracing.h bpf_endian.h bpf_core_read.h skel_internal.h libbpf_version.h usdt.bpf.h
+  INSTALL  ./libbpf.pc
+  INSTALL  ./libbpf.a ./libbpf.so ./libbpf.so.1 ./libbpf.so.1.7.0
+make: Leaving directory '/home/builder/build/src/libbpf/src'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libbpf"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libbpf 1.7.0-1 (Sat Sep 19 23:31:05 2026)
