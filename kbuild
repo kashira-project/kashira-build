@@ -25,9 +25,12 @@ die() { echo "kbuild: $*" >&2; exit 1; }
 
 # pkg_deps <pkgdir> -> space-separated depends+makedepends (names only)
 pkg_deps() {
-  (cd "$1" && makepkg --printsrcinfo 2>/dev/null) | \
-    grep -E "^\s+(make)?depends(_x86_64)? = " | \
-    sed -E 's/.*= //; s/[<>=].*//' | sort -u | tr '\n' ' '
+  local info names
+  info=$(cd "$1" && makepkg --printsrcinfo 2>/dev/null) || return 0
+  names=$(grep -E "^\s*pkgname = " <<<"$info" | sed 's/.*= //' | sort -u)
+  grep -E "^\s+(make)?depends(_x86_64)? = " <<<"$info" | \
+    sed -E 's/.*= //; s/[<>=].*//' | sort -u | \
+    grep -vxF "$names" | tr '\n' ' '
 }
 
 # build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/
