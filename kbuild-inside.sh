@@ -23,4 +23,4 @@ cd /home/builder/build
 su builder -c "cd /home/builder/build && \
   PKGDEST=/out SRCDEST=/sources BUILDDIR=/home/builder/build \
   MAKEFLAGS='-j$(nproc)' \
-  makepkg -sf --noconfirm --skippgpcheck --nodeps"
+  makepkg --config /kbuild/conf/makepkg.conf -sf --noconfirm --skippgpcheck --nodeps"

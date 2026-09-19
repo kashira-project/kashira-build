@@ -1,6 +1,33 @@
 # version-sync wave 2026-09-20: fork packages rebuilt at Arch's versions
-# from kashira-arch/pkgs. Order: data/leaf libs -> consumers -> big builds.
-# Pinned-ahead (perl, shadow, iana-etc) excluded by policy. systemd is heart.
+# from kashira-arch/pkgs. Pinned-ahead (perl, shadow, iana-etc) excluded.
+#
+# Phase 0: pacman conf refresh (autodeps + repo.kashiraproject.org URL)
+#          + rebuild soname providers so Arch-style soname deps resolve.
+/mnt/lfs/src/kashira/pkgs/pacman
+/mnt/lfs/src/kashira-arch/pkgs/dbus
+/mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/libarchive
+/mnt/lfs/src/kashira-arch/pkgs/sqlite
+/mnt/lfs/src/kashira/pkgs/systemd
+# Phase 1: dep-closure imports (small libs the wave needs)
+/mnt/lfs/src/kashira-arch/pkgs/po4a
+/mnt/lfs/src/kashira-arch/pkgs/bash-completion
+/mnt/lfs/src/kashira-arch/pkgs/bluez
+/mnt/lfs/src/kashira-arch/pkgs/gpm
+/mnt/lfs/src/kashira-arch/pkgs/jsoncpp
+/mnt/lfs/src/kashira-arch/pkgs/libuv
+/mnt/lfs/src/kashira-arch/pkgs/rhash
+/mnt/lfs/src/kashira-arch/pkgs/cppdap
+/mnt/lfs/src/kashira-arch/pkgs/nlohmann-json
+/mnt/lfs/src/kashira-arch/pkgs/hicolor-icon-theme
+/mnt/lfs/src/kashira-arch/pkgs/python-setuptools
+/mnt/lfs/src/kashira-arch/pkgs/python-wheel
+/mnt/lfs/src/kashira-arch/pkgs/python-build
+/mnt/lfs/src/kashira-arch/pkgs/python-installer
+/mnt/lfs/src/kashira-arch/pkgs/man2html
+# NOTE: after python-setuptools/python-wheel land, repo-remove the
+# unprefixed setuptools/wheel packages from the local repo.
+# Phase 2: the version bumps, leaf libs first
 /mnt/lfs/src/kashira-arch/pkgs/tzdata
 /mnt/lfs/src/kashira-arch/pkgs/man-pages
 /mnt/lfs/src/kashira-arch/pkgs/expat
