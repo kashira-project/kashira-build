@@ -67,6 +67,7 @@
 /mnt/lfs/src/kashira-arch/pkgs/keyutils
 /mnt/lfs/src/kashira-arch/pkgs/libbpf
 /mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/bash-completion
 /mnt/lfs/src/kashira-arch/pkgs/libcap-ng
 /mnt/lfs/src/kashira-arch/pkgs/libverto
 /mnt/lfs/src/kashira-arch/pkgs/libxcrypt
@@ -88,7 +89,6 @@
 /mnt/lfs/src/kashira-arch/pkgs/perl-module-build
 /mnt/lfs/src/kashira-arch/pkgs/perl-pod-parser
 /mnt/lfs/src/kashira-arch/pkgs/po4a
-/mnt/lfs/src/kashira-arch/pkgs/bash-completion
 /mnt/lfs/src/kashira-arch/pkgs/alsa-lib
 /mnt/lfs/src/kashira-arch/pkgs/ell
 /mnt/lfs/src/kashira-arch/pkgs/libical
