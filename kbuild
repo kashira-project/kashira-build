@@ -46,6 +46,7 @@ build_one() {
     -v "$OUT/$name":/out \
     -v "$REPO":/repo:ro \
     -v "$HERE":/kbuild:ro \
+    -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
     "$IMAGE" /kbuild/kbuild-inside.sh
 }
 
