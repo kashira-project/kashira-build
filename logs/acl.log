@@ -1,0 +1,495 @@
+== build acl (deps: attr git glibc )
+warning: attr-2.6.0-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: acl 2.4.0-1 (Sat Sep 19 19:58:59 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning acl git repo...
+Cloning into bare repository '/sources/acl'...
+warning: redirecting to https://https.git.savannah.gnu.org/git/acl.git/
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    acl ... Passed
+==> Extracting sources...
+  -> Creating working copy of acl git repo...
+Cloning into 'acl'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
++ po/update-potfiles
++ autopoint --force
+autopoint: using AM_GNU_GETTEXT_REQUIRE_VERSION instead of AM_GNU_GETTEXT_VERSION
+Copying file ABOUT-NLS
+Creating directory build-aux
+Copying file build-aux/config.rpath
+Copying file m4/build-to-host.m4
+Copying file m4/gettext.m4
+Copying file m4/host-cpu-c-abi.m4
+Copying file m4/iconv.m4
+Copying file m4/intlmacosx.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/progtest.m4
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+Copying file po/Rules-quot
+Copying file po/boldquot.sed
+Copying file po/en@boldquot.header
+Copying file po/en@quot.header
+Copying file po/fetch-po
+Copying file po/insert-header.sed
+Copying file po/quot.sed
+Copying file po/remove-potcdate.sed
+++ automake --print-libdir
++ am_libdir=/usr/share/automake-1.18
++ cp /usr/share/automake-1.18/INSTALL doc/
++ exec autoreconf -f -i
+autopoint: using AM_GNU_GETTEXT_REQUIRE_VERSION instead of AM_GNU_GETTEXT_VERSION
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:34: installing 'build-aux/ar-lib'
+configure.ac:27: installing 'build-aux/compile'
+configure.ac:35: installing 'build-aux/config.guess'
+configure.ac:35: installing 'build-aux/config.sub'
+configure.ac:24: installing 'build-aux/install-sh'
+configure.ac:24: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking whether __attribute__((visibility())) is supported... yes
+checking whether byte ordering is bigendian... no
+checking for clang -std=gnu23 option to support large files... none needed
+checking the archiver (llvm-ar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for openat2... yes
+checking for linux/openat2.h... yes
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether __NR_openat2 is declared... yes
+checking for getxattrat... no
+checking for setxattrat... no
+checking for listxattrat... no
+checking for removexattrat... no
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/sbin/msgfmt
+checking for gmsgfmt... /usr/sbin/msgfmt
+checking for xgettext... /usr/sbin/xgettext
+checking for msgmerge... /usr/sbin/msgmerge
+checking for ld... ld.lld -m elf_x86_64
+checking if the linker (ld.lld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking 32-bit host C ABI... no
+checking how to run the C preprocessor... clang -std=gnu23 -E
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking for ELF binary format... yes
+checking for the common suffixes of directories in the library search path... lib,lib,lib64
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyPreferredLanguages... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for attr/error_context.h... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libacl.pc
+config.status: creating Makefile
+config.status: creating po/Makefile.in
+config.status: creating include/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/Makefile
+config.status: executing include/acl commands
+config.status: executing include/sys commands
+Making all in po
+make[1]: Entering directory '/home/builder/build/src/acl/po'
+make acl.pot-update
+make[2]: Entering directory '/home/builder/build/src/acl/po'
+package_gnu=""; \
+test -n "$package_gnu" || { \
+  if { if (LC_ALL=C find --version) 2>/dev/null | grep GNU >/dev/null; then \
+         LC_ALL=C find -L .. -maxdepth 1 -type f -size -10000000c -exec grep -i 'GNU acl' /dev/null '{}' ';' 2>/dev/null; \
+       else \
+         LC_ALL=C grep -i 'GNU acl' ../* 2>/dev/null; \
+       fi; \
+     } | grep -v 'libtool:' >/dev/null; then \
+     package_gnu=yes; \
+   else \
+     package_gnu=no; \
+   fi; \
+}; \
+if test "$package_gnu" = "yes"; then \
+  package_prefix='GNU '; \
+else \
+  package_prefix=''; \
+fi; \
+if test -n 'acl-devel@nongnu.org' || test 'acl-devel@nongnu.org' = '@'PACKAGE_BUGREPORT'@'; then \
+  msgid_bugs_address='acl-devel@nongnu.org'; \
+else \
+  msgid_bugs_address='acl-devel@nongnu.org'; \
+fi; \
+case `/usr/sbin/xgettext --version | sed 1q | sed -e 's,^[^0-9]*,,'` in \
+  '' | 0.[0-9] | 0.[0-9].* | 0.1[0-5] | 0.1[0-5].* | 0.16 | 0.16.[0-1]*) \
+    /usr/sbin/xgettext --default-domain=acl --directory=.. \
+      --add-comments=TRANSLATORS: \
+      --files-from=./POTFILES.in \
+      --copyright-holder='Silicon Graphics, Inc.' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+      --keyword=_ --keyword=N_  \
+    ;; \
+  *) \
+    /usr/sbin/xgettext --default-domain=acl --directory=.. \
+      --add-comments=TRANSLATORS: \
+      --files-from=./POTFILES.in \
+      --copyright-holder='Silicon Graphics, Inc.' \
+      --package-name="${package_prefix}acl" \
+      --package-version='2.4.0' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+      --keyword=_ --keyword=N_  \
+    ;; \
+esac
+test ! -f acl.po || { \
+  if test -f ./acl.pot-header; then \
+    sed -e '1,/^#$/d' < acl.po > acl.1po && \
+    cat ./acl.pot-header acl.1po > acl.po && \
+    rm -f acl.1po \
+    || exit 1; \
+  fi; \
+  if test -f ./acl.pot; then \
+    sed -f ./remove-potcdate.sed < ./acl.pot > acl.1po && \
+    sed -f ./remove-potcdate.sed < acl.po > acl.2po && \
+    if cmp acl.1po acl.2po >/dev/null 2>&1; then \
+      rm -f acl.1po acl.2po acl.po; \
+    else \
+      rm -f acl.1po acl.2po ./acl.pot && \
+      mv acl.po ./acl.pot; \
+    fi; \
+  else \
+    mv acl.po ./acl.pot; \
+  fi; \
+}
+make[2]: Leaving directory '/home/builder/build/src/acl/po'
+test ! -f ./acl.pot || \
+  test -z "./de.gmo ./es.gmo ./fr.gmo ./gl.gmo ./ka.gmo ./pl.gmo ./sv.gmo ./en@boldquot.gmo ./en@quot.gmo" || make ./de.gmo ./es.gmo ./fr.gmo ./gl.gmo ./ka.gmo ./pl.gmo ./sv.gmo ./en@boldquot.gmo ./en@quot.gmo
+make[2]: Entering directory '/home/builder/build/src/acl/po'
+rm -f de.gmo && /usr/sbin/msgmerge --for-msgfmt -o de.gpo de.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o de.gmo de.gpo && rm -f de.gpo
+de.gpo: 55 translated messages.
+rm -f es.gmo && /usr/sbin/msgmerge --for-msgfmt -o es.gpo es.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o es.gmo es.gpo && rm -f es.gpo
+es.gpo: 47 translated messages.
+rm -f fr.gmo && /usr/sbin/msgmerge --for-msgfmt -o fr.gpo fr.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o fr.gmo fr.gpo && rm -f fr.gpo
+fr.gpo: 49 translated messages.
+rm -f gl.gmo && /usr/sbin/msgmerge --for-msgfmt -o gl.gpo gl.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o gl.gmo gl.gpo && rm -f gl.gpo
+gl.gpo: 47 translated messages.
+rm -f ka.gmo && /usr/sbin/msgmerge --for-msgfmt -o ka.gpo ka.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o ka.gmo ka.gpo && rm -f ka.gpo
+ka.gpo: 49 translated messages.
+rm -f pl.gmo && /usr/sbin/msgmerge --for-msgfmt -o pl.gpo pl.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o pl.gmo pl.gpo && rm -f pl.gpo
+pl.gpo: 49 translated messages.
+rm -f sv.gmo && /usr/sbin/msgmerge --for-msgfmt -o sv.gpo sv.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o sv.gmo sv.gpo && rm -f sv.gpo
+sv.gpo: 47 translated messages.
+make[3]: Entering directory '/home/builder/build/src/acl/po'
+make en@boldquot.po-update
+make[4]: Entering directory '/home/builder/build/src/acl/po'
+sed -e 's/HEADER/en@boldquot.header/g' ./insert-header.sed > en@boldquot.insert-header
+en@boldquot:
+make[4]: Leaving directory '/home/builder/build/src/acl/po'
+make[3]: Leaving directory '/home/builder/build/src/acl/po'
+rm -f en@boldquot.gmo && /usr/sbin/msgmerge --for-msgfmt -o en@boldquot.gpo en@boldquot.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o en@boldquot.gmo en@boldquot.gpo && rm -f en@boldquot.gpo
+en@boldquot.gpo: 55 translated messages.
+make[3]: Entering directory '/home/builder/build/src/acl/po'
+make en@quot.po-update
+make[4]: Entering directory '/home/builder/build/src/acl/po'
+sed -e 's/HEADER/en@quot.header/g' ./insert-header.sed > en@quot.insert-header
+en@quot:
+make[4]: Leaving directory '/home/builder/build/src/acl/po'
+make[3]: Leaving directory '/home/builder/build/src/acl/po'
+rm -f en@quot.gmo && /usr/sbin/msgmerge --for-msgfmt -o en@quot.gpo en@quot.po acl.pot && /usr/sbin/msgfmt -c --statistics --verbose -o en@quot.gmo en@quot.gpo && rm -f en@quot.gpo
+en@quot.gpo: 55 translated messages.
+make[2]: Leaving directory '/home/builder/build/src/acl/po'
+touch ./stamp-po
+make[1]: Leaving directory '/home/builder/build/src/acl/po'
+make[1]: Entering directory '/home/builder/build/src/acl'
+  CC       tools/getfacl.o
+  CC       tools/user_group.o
+  CC       tools/chacl.o
+  CC       tools/do_set.o
+  CC       tools/parse.o
+  CC       tools/sequence.o
+  CC       tools/setfacl.o
+  CC       libacl/acl_add_perm.lo
+  CC       libacl/acl_clear_perms.lo
+  CC       libacl/acl_calc_mask.lo
+  CC       libacl/acl_copy_ext.lo
+  CC       libacl/acl_copy_entry.lo
+  CC       libacl/acl_create_entry.lo
+  CC       libacl/acl_delete_def_file.lo
+  CC       libacl/acl_copy_int.lo
+  CC       libacl/acl_delete_def_file_at.lo
+  CC       libacl/acl_delete_entry.lo
+  CC       libacl/acl_delete_perm.lo
+  CC       libacl/acl_dup.lo
+  CC       libacl/acl_free.lo
+  CC       libacl/acl_from_text.lo
+  CC       libacl/acl_get_entry.lo
+  CC       libacl/acl_get_fd.lo
+  CC       libacl/acl_get_file.lo
+  CC       libacl/acl_get_perm.lo
+  CC       libacl/acl_get_file_at.lo
+  CC       libacl/acl_get_permset.lo
+  CC       libacl/acl_get_qualifier.lo
+  CC       libacl/acl_init.lo
+  CC       libacl/acl_get_tag_type.lo
+  CC       libacl/acl_set_fd.lo
+  CC       libacl/acl_set_file.lo
+  CC       libacl/acl_set_file_at.lo
+  CC       libacl/acl_set_permset.lo
+  CC       libacl/acl_set_qualifier.lo
+  CC       libacl/acl_set_tag_type.lo
+  CC       libacl/acl_size.lo
+  CC       libacl/acl_to_text.lo
+  CC       libacl/acl_valid.lo
+  CC       libacl/acl_cmp.lo
+  CC       libacl/acl_check.lo
+  CC       libacl/acl_entries.lo
+  CC       libacl/acl_equiv_mode.lo
+  CC       libacl/acl_error.lo
+  CC       libacl/acl_extended_fd.lo
+  CC       libacl/acl_extended_file.lo
+  CC       libacl/acl_extended_file_at.lo
+  CC       libacl/acl_extended_file_nofollow.lo
+  CC       libacl/acl_from_mode.lo
+  CC       libacl/acl_to_any_text.lo
+  CC       libacl/__acl_apply_mask_to_mode.lo
+  CC       libacl/__acl_from_xattr.lo
+  CC       libacl/__acl_reorder_obj_p.lo
+  CC       libacl/__acl_to_any_text.lo
+  CC       libacl/__acl_to_xattr.lo
+  CC       libacl/__libobj.lo
+  CC       libacl/perm_copy_fd.lo
+  CC       libacl/perm_copy_file.lo
+  CC       libmisc/fchmodat_compat.lo
+  CC       libmisc/getxattrat_compat.lo
+  CC       libmisc/high_water_alloc.lo
+  CC       libmisc/listxattrat_compat.lo
+  CC       libmisc/next_line.lo
+  CC       libmisc/proc-self-fd.lo
+  CC       libmisc/quote.lo
+  CC       libmisc/walk_tree.lo
+  CC       libmisc/removexattrat_compat.lo
+  CC       libmisc/setxattrat_compat.lo
+  CC       libmisc/uid_gid_lookup.lo
+  CC       libmisc/unquote.lo
+  CC       libmisc/xattrat.lo
+  CCLD     libmisc.la
+  CCLD     libacl.la
+  CCLD     setfacl
+  CCLD     chacl
+  CCLD     getfacl
+make[1]: Leaving directory '/home/builder/build/src/acl'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in po
+make[1]: Entering directory '/home/builder/build/src/acl/po'
+installing de.gmo as /home/builder/build/pkg/acl/usr/share/locale/de/LC_MESSAGES/acl.mo
+installing es.gmo as /home/builder/build/pkg/acl/usr/share/locale/es/LC_MESSAGES/acl.mo
+installing fr.gmo as /home/builder/build/pkg/acl/usr/share/locale/fr/LC_MESSAGES/acl.mo
+installing gl.gmo as /home/builder/build/pkg/acl/usr/share/locale/gl/LC_MESSAGES/acl.mo
+installing ka.gmo as /home/builder/build/pkg/acl/usr/share/locale/ka/LC_MESSAGES/acl.mo
+installing pl.gmo as /home/builder/build/pkg/acl/usr/share/locale/pl/LC_MESSAGES/acl.mo
+installing sv.gmo as /home/builder/build/pkg/acl/usr/share/locale/sv/LC_MESSAGES/acl.mo
+installing en@boldquot.gmo as /home/builder/build/pkg/acl/usr/share/locale/en@boldquot/LC_MESSAGES/acl.mo
+installing en@quot.gmo as /home/builder/build/pkg/acl/usr/share/locale/en@quot/LC_MESSAGES/acl.mo
+make[1]: Leaving directory '/home/builder/build/src/acl/po'
+make[1]: Entering directory '/home/builder/build/src/acl'
+make[2]: Entering directory '/home/builder/build/src/acl'
+subst_install_header() { file=`echo "$1" | sed -e 's,^.*/,,'`; /usr/sbin/sed -e "s/\<EXPORT\>/extern/" < "$1" > "include/$file.t" || exit 1; /usr/sbin/mkdir -p "$2" || exit 1; /usr/bin/install -c -m 644 "include/$file.t" "$2/$file" || exit 1; rm -f "include/$file.t"; }; subst_install_header "include/libacl.h" "/home/builder/build/pkg/acl/usr/include/acl"
+subst_install_header() { file=`echo "$1" | sed -e 's,^.*/,,'`; /usr/sbin/sed -e "s/\<EXPORT\>/extern/" < "$1" > "include/$file.t" || exit 1; /usr/sbin/mkdir -p "$2" || exit 1; /usr/bin/install -c -m 644 "include/$file.t" "$2/$file" || exit 1; rm -f "include/$file.t"; }; subst_install_header "include/acl.h" "/home/builder/build/pkg/acl/usr/include/sys"
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/share/doc/acl'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/share/man/man5'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/lib/pkgconfig'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/lib'
+ /usr/bin/install -c -m 644 doc/CHANGES doc/COPYING doc/COPYING.LGPL doc/extensions.txt doc/libacl.txt '/home/builder/build/pkg/acl/usr/share/doc/acl'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libacl.la '/home/builder/build/pkg/acl/usr/lib'
+ /usr/bin/install -c -m 644 libacl.pc '/home/builder/build/pkg/acl/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 man/man5/acl.5 '/home/builder/build/pkg/acl/usr/share/man/man5'
+ /usr/bin/install -c -m 644 man/man1/chacl.1 man/man1/getfacl.1 man/man1/setfacl.1 '/home/builder/build/pkg/acl/usr/share/man/man1'
+ /usr/bin/install -c -m 644 man/man3/acl_add_perm.3 man/man3/acl_calc_mask.3 man/man3/acl_check.3 man/man3/acl_clear_perms.3 man/man3/acl_cmp.3 man/man3/acl_copy_entry.3 man/man3/acl_copy_ext.3 man/man3/acl_copy_int.3 man/man3/acl_create_entry.3 man/man3/acl_delete_def_file.3 man/man3/acl_delete_def_file_at.3 man/man3/acl_delete_entry.3 man/man3/acl_delete_perm.3 man/man3/acl_dup.3 man/man3/acl_entries.3 man/man3/acl_equiv_mode.3 man/man3/acl_error.3 man/man3/acl_extended_fd.3 man/man3/acl_extended_file.3 man/man3/acl_extended_file_at.3 man/man3/acl_extended_file_nofollow.3 man/man3/acl_free.3 man/man3/acl_from_mode.3 man/man3/acl_from_text.3 man/man3/acl_get_entry.3 man/man3/acl_get_fd.3 man/man3/acl_get_file.3 man/man3/acl_get_file_at.3 man/man3/acl_get_perm.3 man/man3/acl_get_permset.3 man/man3/acl_get_qualifier.3 man/man3/acl_get_tag_type.3 man/man3/acl_init.3 man/man3/acl_set_fd.3 man/man3/acl_set_file.3 man/man3/acl_set_file_at.3 man/man3/acl_set_permset.3 man/man3/acl_set_qualifier.3 man/man3/acl_set_tag_type.3 man/man3/acl_size.3 '/home/builder/build/pkg/acl/usr/share/man/man3'
+ /usr/bin/install -c -m 644 man/man3/acl_to_any_text.3 man/man3/acl_to_text.3 man/man3/acl_valid.3 '/home/builder/build/pkg/acl/usr/share/man/man3'
+libtool: install: /usr/bin/install -c .libs/libacl.so.1.2.2400 /home/builder/build/pkg/acl/usr/lib/libacl.so.1.2.2400
+libtool: install: (cd /home/builder/build/pkg/acl/usr/lib && { ln -s -f libacl.so.1.2.2400 libacl.so.1 || { rm -f libacl.so.1 && ln -s libacl.so.1.2.2400 libacl.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/acl/usr/lib && { ln -s -f libacl.so.1.2.2400 libacl.so || { rm -f libacl.so && ln -s libacl.so.1.2.2400 libacl.so; }; })
+libtool: install: /usr/bin/install -c .libs/libacl.lai /home/builder/build/pkg/acl/usr/lib/libacl.la
+libtool: install: /usr/bin/install -c .libs/libacl.a /home/builder/build/pkg/acl/usr/lib/libacl.a
+libtool: install: chmod 644 /home/builder/build/pkg/acl/usr/lib/libacl.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/acl/usr/lib/libacl.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/acl/usr/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c chacl getfacl setfacl '/home/builder/build/pkg/acl/usr/bin'
+libtool: warning: 'libacl.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/chacl /home/builder/build/pkg/acl/usr/bin/chacl
+libtool: warning: 'libacl.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/getfacl /home/builder/build/pkg/acl/usr/bin/getfacl
+libtool: warning: 'libacl.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/setfacl /home/builder/build/pkg/acl/usr/bin/setfacl
+make[2]: Leaving directory '/home/builder/build/src/acl'
+make[1]: Leaving directory '/home/builder/build/src/acl'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "acl"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: acl 2.4.0-1 (Sat Sep 19 19:59:18 2026)

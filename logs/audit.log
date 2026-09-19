@@ -1,0 +1,15 @@
+== build audit (deps: apparmor audit bash glibc krb5 libaudit.so libauparse.so libcap-ng libcap-ng.so libgssapi_krb5.so libkrb5.so libldap linux-api-headers python swig )
+error: target not found: apparmor
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: bash-5.3-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: krb5-1.22.2-1 is up to date -- skipping
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+warning: krb5-1.22.2-1 is up to date -- skipping
+warning: krb5-1.22.2-1 is up to date -- skipping
+warning: libldap-2.7.1-1 is up to date -- skipping
+warning: linux-api-headers-7.2.5-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping

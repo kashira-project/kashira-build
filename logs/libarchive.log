@@ -1,0 +1,17 @@
+== build libarchive (deps: acl bzip2 git glibc libacl.so libbz2.so libcrypto.so liblzma.so libxml2 libxml2.so libz.so libzstd.so lz4 openssl xz zlib zstd )
+warning: acl-2.4.0-1 is up to date -- skipping
+warning: bzip2-1.0.8-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+error: target not found: libacl.so
+warning: bzip2-1.0.8-1 is up to date -- skipping
+error: target not found: libcrypto.so
+warning: xz-5.8.3-1 is up to date -- skipping
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: zstd-1.5.7-2 is up to date -- skipping
+warning: lz4-1.10.0-1 is up to date -- skipping
+warning: openssl-4.0.1-1 is up to date -- skipping
+warning: xz-5.8.3-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: zstd-1.5.7-2 is up to date -- skipping

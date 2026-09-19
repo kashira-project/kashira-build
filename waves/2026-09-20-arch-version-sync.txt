@@ -1,21 +1,62 @@
-# version-sync wave 2026-09-20: fork packages rebuilt at Arch's versions
-# from kashira-arch/pkgs. Pinned-ahead (perl, shadow, iana-etc) excluded.
-#
-# Phase 0: pacman conf refresh (autodeps + repo.kashiraproject.org URL)
-#          + rebuild soname providers so Arch-style soname deps resolve.
+# version-sync wave 2026-09-20 (v3): providers -> closure -> version bumps.
+# Deferred: python packaging chain (python-setuptools/wheel/build/installer/
+# flit-core rename + bootstrap cycle — separate task), python-pyelftools bump.
+# Pinned-ahead excluded: perl, shadow, iana-etc. systemd is heart.
+
+# Phase 0: pacman (new confs), then ALL soname providers (autodeps rebuilds)
 /mnt/lfs/src/kashira/pkgs/pacman
 /mnt/lfs/src/kashira-arch/pkgs/expat
 /mnt/lfs/src/kashira-arch/pkgs/libarchive
 /mnt/lfs/src/kashira-arch/pkgs/sqlite
-/mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/autoconf-archive
+/mnt/lfs/src/kashira-arch/pkgs/ncurses
+/mnt/lfs/src/kashira-arch/pkgs/acl
+/mnt/lfs/src/kashira-arch/pkgs/audit
+/mnt/lfs/src/kashira-arch/pkgs/bzip2
+/mnt/lfs/src/kashira-arch/pkgs/patchelf
+/mnt/lfs/src/kashira-arch/pkgs/curl
 /mnt/lfs/src/kashira-arch/pkgs/dbus
+/mnt/lfs/src/kashira-arch/pkgs/fuse3
+/mnt/lfs/src/kashira-arch/pkgs/e2fsprogs
+/mnt/lfs/src/kashira-arch/pkgs/file
+/mnt/lfs/src/kashira-arch/pkgs/iptables
+/mnt/lfs/src/kashira-arch/pkgs/json-c
+/mnt/lfs/src/kashira-arch/pkgs/keyutils
+/mnt/lfs/src/kashira-arch/pkgs/libbpf
+/mnt/lfs/src/kashira-arch/pkgs/libcap
+/mnt/lfs/src/kashira-arch/pkgs/libcap-ng
+/mnt/lfs/src/kashira-arch/pkgs/libverto
+/mnt/lfs/src/kashira-arch/pkgs/libxcrypt
+/mnt/lfs/src/kashira-arch/pkgs/libxml2
+/mnt/lfs/src/kashira/pkgs/llvm-libgcc
+/mnt/lfs/src/kashira/pkgs/openssl
+/mnt/lfs/src/kashira-arch/pkgs/readline
 /mnt/lfs/src/kashira/pkgs/systemd
-# Phase 1: dep-closure imports (small libs the wave needs)
+/mnt/lfs/src/kashira-arch/pkgs/gtest
+/mnt/lfs/src/kashira-arch/pkgs/xz
+/mnt/lfs/src/kashira/pkgs/zlib-ng
+/mnt/lfs/src/kashira-arch/pkgs/zstd
+
+# Phase 1: dep closure (doc chain, po4a perl modules, bluez deps, misc)
+/mnt/lfs/src/kashira-arch/pkgs/docbook-xml
 /mnt/lfs/src/kashira-arch/pkgs/libxslt
 /mnt/lfs/src/kashira-arch/pkgs/docbook-xsl
 /mnt/lfs/src/kashira-arch/pkgs/xmlto
+/mnt/lfs/src/kashira-arch/pkgs/perl-locale-gettext
+/mnt/lfs/src/kashira-arch/pkgs/perl-yaml-tiny
+/mnt/lfs/src/kashira-arch/pkgs/perl-sgmls
+/mnt/lfs/src/kashira-arch/pkgs/perl-term-readkey
+/mnt/lfs/src/kashira-arch/pkgs/perl-text-wrapi18n
+/mnt/lfs/src/kashira-arch/pkgs/perl-unicode-linebreak
+/mnt/lfs/src/kashira-arch/pkgs/perl-module-build
+/mnt/lfs/src/kashira-arch/pkgs/perl-pod-parser
 /mnt/lfs/src/kashira-arch/pkgs/po4a
 /mnt/lfs/src/kashira-arch/pkgs/bash-completion
+/mnt/lfs/src/kashira-arch/pkgs/alsa-lib
+/mnt/lfs/src/kashira-arch/pkgs/ell
+/mnt/lfs/src/kashira-arch/pkgs/libical
+/mnt/lfs/src/kashira-arch/pkgs/python-docutils
+/mnt/lfs/src/kashira-arch/pkgs/python-pygments
 /mnt/lfs/src/kashira-arch/pkgs/bluez
 /mnt/lfs/src/kashira-arch/pkgs/gpm
 /mnt/lfs/src/kashira-arch/pkgs/jsoncpp
@@ -24,14 +65,13 @@
 /mnt/lfs/src/kashira-arch/pkgs/cppdap
 /mnt/lfs/src/kashira-arch/pkgs/nlohmann-json
 /mnt/lfs/src/kashira-arch/pkgs/hicolor-icon-theme
-/mnt/lfs/src/kashira-arch/pkgs/python-setuptools
-/mnt/lfs/src/kashira-arch/pkgs/python-wheel
-/mnt/lfs/src/kashira-arch/pkgs/python-build
-/mnt/lfs/src/kashira-arch/pkgs/python-installer
 /mnt/lfs/src/kashira-arch/pkgs/man2html
-# NOTE: after python-setuptools/python-wheel land, repo-remove the
-# unprefixed setuptools/wheel packages from the local repo.
-# Phase 2: the version bumps, leaf libs first
+/mnt/lfs/src/kashira-arch/pkgs/libxkbcommon
+/mnt/lfs/src/kashira-arch/pkgs/libmicrohttpd
+/mnt/lfs/src/kashira-arch/pkgs/qrencode
+/mnt/lfs/src/kashira-arch/pkgs/libpwquality
+
+# Phase 2: the version bumps
 /mnt/lfs/src/kashira-arch/pkgs/tzdata
 /mnt/lfs/src/kashira-arch/pkgs/man-pages
 /mnt/lfs/src/kashira-arch/pkgs/pkgconf
@@ -42,8 +82,6 @@
 /mnt/lfs/src/kashira-arch/pkgs/lmdb
 /mnt/lfs/src/kashira-arch/pkgs/libisl
 /mnt/lfs/src/kashira-arch/pkgs/pcre2
-/mnt/lfs/src/kashira-arch/pkgs/xz
-/mnt/lfs/src/kashira-arch/pkgs/readline
 /mnt/lfs/src/kashira-arch/pkgs/bash
 /mnt/lfs/src/kashira-arch/pkgs/tcl
 /mnt/lfs/src/kashira-arch/pkgs/expect
@@ -53,7 +91,5 @@
 /mnt/lfs/src/kashira-arch/pkgs/iproute2
 /mnt/lfs/src/kashira-arch/pkgs/fakeroot
 /mnt/lfs/src/kashira-arch/pkgs/krb5
-/mnt/lfs/src/kashira-arch/pkgs/python-flit-core
-/mnt/lfs/src/kashira-arch/pkgs/python-pyelftools
 /mnt/lfs/src/kashira-arch/pkgs/vim
 /mnt/lfs/src/kashira-arch/pkgs/cmake

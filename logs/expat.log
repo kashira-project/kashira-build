@@ -1,0 +1,368 @@
+== build expat (deps: cmake git glibc )
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  cmake-4.4.2-1  git-2.55.0-1
+
+Total Download Size:    23.09 MiB
+Total Installed Size:  107.92 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ cmake-4.4.2-1-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: expat 2.8.4-1 (Sat Sep 19 19:56:11 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating expat git repo...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    expat ... Passed
+==> Validating source files with b2sums...
+    expat ... Passed
+==> Extracting sources...
+  -> Creating working copy of expat git repo...
+Cloning into 'expat'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+The no-dev option is deprecated.  Use -Wno-author instead.
+-- The C compiler identification is Clang 23.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for dlfcn.h
+-- Looking for dlfcn.h - found
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for getpagesize
+-- Looking for getpagesize - not found
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for getrandom
+-- Looking for getrandom - found
+-- Performing Test HAVE_ARC4RANDOM_BUF
+-- Performing Test HAVE_ARC4RANDOM_BUF - Success
+-- Performing Test HAVE_ARC4RANDOM
+-- Performing Test HAVE_ARC4RANDOM - Success
+-- Looking for 4 include files stdlib.h, ..., float.h
+-- Looking for 4 include files stdlib.h, ..., float.h - found
+-- Performing Test HAVE_OFF_T
+-- Performing Test HAVE_OFF_T - Success
+-- Performing Test HAVE_GETENTROPY
+-- Performing Test HAVE_GETENTROPY - Success
+-- Performing Test HAVE_SYSCALL_GETRANDOM
+-- Performing Test HAVE_SYSCALL_GETRANDOM - Success
+-- Performing Test _FLAG_DETECTION_UNUSABLE
+-- Performing Test _FLAG_DETECTION_UNUSABLE - Failed
+-- Performing Test FLAG_WSTRICT_ALIASING
+-- Performing Test FLAG_WSTRICT_ALIASING - Failed
+-- Performing Test FLAG_WIMPLICIT_FALLTHROUGH
+-- Performing Test FLAG_WIMPLICIT_FALLTHROUGH - Success
+-- Performing Test FLAG_VISIBILITY
+-- Performing Test FLAG_VISIBILITY - Success
+-- Looking for cos in m
+-- Looking for cos in m - found
+-- ===========================================================================
+-- 
+-- CMake version in use ......... 4.4.2
+-- 
+-- Configuration
+--   Generator .................. Unix Makefiles
+--   Build type ................. None
+--   Prefix ..................... /usr
+--   Shared libraries ........... ON
+--   Character type ............. char (UTF-8)
+--   Library name postfix ....... 
+-- 
+--   Build documentation ........ OFF
+--   Build examples ............. ON
+--   Build fuzzers .............. OFF
+--   Build tests ................ ON
+--   Build tools (xmlwf) ........ ON
+--   Build pkg-config file ...... ON
+--   Install files .............. ON
+-- 
+--   Features
+--     // Advanced options, changes not advised
+--     Attributes info .......... OFF
+--     Context bytes ............ 1024
+--     DTD support .............. ON
+--     General entities ......... ON
+--     Large size ............... OFF
+--     Minimum size ............. OFF
+--     Namespace support ........ ON
+-- 
+--   Entropy sources
+--     arc4random ............... 1
+--     arc4random_buf ........... 1
+--     getentropy ............... 1
+--     getrandom ................ 1
+--     syscall SYS_getrandom .... 1
+--     /dev/urandom ............. OFF
+-- 
+-- Continue with
+--   make
+--   make test
+--   sudo make install
+-- 
+-- ===========================================================================
+-- Configuring done (1.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/builder/build/src/build
+Change Dir: '/home/builder/build/src/build'
+
+Run Build Command(s): /usr/sbin/cmake -E env VERBOSE=1 /usr/sbin/make -f Makefile
+/usr/sbin/cmake -S/home/builder/build/src/expat/expat -B/home/builder/build/src/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/sbin/cmake -E cmake_progress_start /home/builder/build/src/build/CMakeFiles /home/builder/build/src/build//CMakeFiles/progress.marks
+/usr/sbin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/expat.dir/build.make CMakeFiles/expat.dir/depend
+/usr/sbin/make  -f CMakeFiles/runtests.dir/build.make CMakeFiles/runtests.dir/depend
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/runtests.dir/DependInfo.cmake "--color=" runtests
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/expat.dir/DependInfo.cmake "--color=" expat
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/runtests.dir/build.make CMakeFiles/runtests.dir/build
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/expat.dir/build.make CMakeFiles/expat.dir/build
+make[2]: Entering directory '/home/builder/build/src/build'
+make[2]: Entering directory '/home/builder/build/src/build'
+[  9%] Building C object CMakeFiles/runtests.dir/tests/handlers.c.o
+[ 18%] Building C object CMakeFiles/runtests.dir/tests/runtests.c.o
+[ 18%] Building C object CMakeFiles/runtests.dir/tests/basic_tests.c.o
+[ 18%] Building C object CMakeFiles/runtests.dir/tests/minicheck.c.o
+[  9%] Building C object CMakeFiles/expat.dir/lib/xmlrole.c.o
+[ 18%] Building C object CMakeFiles/runtests.dir/tests/chardata.c.o
+[ 18%] Building C object CMakeFiles/expat.dir/lib/xmltok.c.o
+[ 18%] Building C object CMakeFiles/expat.dir/lib/xmlparse.c.o
+[ 20%] Building C object CMakeFiles/runtests.dir/tests/acc_tests.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/handlers.c.o -MF CMakeFiles/runtests.dir/tests/handlers.c.o.d -o CMakeFiles/runtests.dir/tests/handlers.c.o -c /home/builder/build/src/expat/expat/tests/handlers.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/xmlparse.c.o -MF CMakeFiles/expat.dir/lib/xmlparse.c.o.d -o CMakeFiles/expat.dir/lib/xmlparse.c.o -c /home/builder/build/src/expat/expat/lib/xmlparse.c
+[ 23%] Building C object CMakeFiles/runtests.dir/tests/alloc_tests.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/basic_tests.c.o -MF CMakeFiles/runtests.dir/tests/basic_tests.c.o.d -o CMakeFiles/runtests.dir/tests/basic_tests.c.o -c /home/builder/build/src/expat/expat/tests/basic_tests.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/xmlrole.c.o -MF CMakeFiles/expat.dir/lib/xmlrole.c.o.d -o CMakeFiles/expat.dir/lib/xmlrole.c.o -c /home/builder/build/src/expat/expat/lib/xmlrole.c
+[ 25%] Building C object CMakeFiles/runtests.dir/tests/common.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/chardata.c.o -MF CMakeFiles/runtests.dir/tests/chardata.c.o.d -o CMakeFiles/runtests.dir/tests/chardata.c.o -c /home/builder/build/src/expat/expat/tests/chardata.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/xmltok.c.o -MF CMakeFiles/expat.dir/lib/xmltok.c.o.d -o CMakeFiles/expat.dir/lib/xmltok.c.o -c /home/builder/build/src/expat/expat/lib/xmltok.c
+[ 27%] Building C object CMakeFiles/runtests.dir/tests/dummy.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/acc_tests.c.o -MF CMakeFiles/runtests.dir/tests/acc_tests.c.o.d -o CMakeFiles/runtests.dir/tests/acc_tests.c.o -c /home/builder/build/src/expat/expat/tests/acc_tests.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/minicheck.c.o -MF CMakeFiles/runtests.dir/tests/minicheck.c.o.d -o CMakeFiles/runtests.dir/tests/minicheck.c.o -c /home/builder/build/src/expat/expat/tests/minicheck.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/runtests.c.o -MF CMakeFiles/runtests.dir/tests/runtests.c.o.d -o CMakeFiles/runtests.dir/tests/runtests.c.o -c /home/builder/build/src/expat/expat/tests/runtests.c
+[ 30%] Building C object CMakeFiles/runtests.dir/tests/memcheck.c.o
+[ 32%] Building C object CMakeFiles/runtests.dir/tests/ns_tests.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/alloc_tests.c.o -MF CMakeFiles/runtests.dir/tests/alloc_tests.c.o.d -o CMakeFiles/runtests.dir/tests/alloc_tests.c.o -c /home/builder/build/src/expat/expat/tests/alloc_tests.c
+[ 34%] Building C object CMakeFiles/runtests.dir/tests/misc_tests.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/common.c.o -MF CMakeFiles/runtests.dir/tests/common.c.o.d -o CMakeFiles/runtests.dir/tests/common.c.o -c /home/builder/build/src/expat/expat/tests/common.c
+[ 37%] Building C object CMakeFiles/runtests.dir/tests/nsalloc_tests.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/dummy.c.o -MF CMakeFiles/runtests.dir/tests/dummy.c.o.d -o CMakeFiles/runtests.dir/tests/dummy.c.o -c /home/builder/build/src/expat/expat/tests/dummy.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/memcheck.c.o -MF CMakeFiles/runtests.dir/tests/memcheck.c.o.d -o CMakeFiles/runtests.dir/tests/memcheck.c.o -c /home/builder/build/src/expat/expat/tests/memcheck.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/misc_tests.c.o -MF CMakeFiles/runtests.dir/tests/misc_tests.c.o.d -o CMakeFiles/runtests.dir/tests/misc_tests.c.o -c /home/builder/build/src/expat/expat/tests/misc_tests.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/ns_tests.c.o -MF CMakeFiles/runtests.dir/tests/ns_tests.c.o.d -o CMakeFiles/runtests.dir/tests/ns_tests.c.o -c /home/builder/build/src/expat/expat/tests/ns_tests.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/nsalloc_tests.c.o -MF CMakeFiles/runtests.dir/tests/nsalloc_tests.c.o.d -o CMakeFiles/runtests.dir/tests/nsalloc_tests.c.o -c /home/builder/build/src/expat/expat/tests/nsalloc_tests.c
+[ 39%] Building C object CMakeFiles/runtests.dir/tests/structdata.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/tests/structdata.c.o -MF CMakeFiles/runtests.dir/tests/structdata.c.o.d -o CMakeFiles/runtests.dir/tests/structdata.c.o -c /home/builder/build/src/expat/expat/tests/structdata.c
+[ 41%] Building C object CMakeFiles/runtests.dir/lib/xmlparse.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/xmlparse.c.o -MF CMakeFiles/runtests.dir/lib/xmlparse.c.o.d -o CMakeFiles/runtests.dir/lib/xmlparse.c.o -c /home/builder/build/src/expat/expat/lib/xmlparse.c
+[ 46%] Building C object CMakeFiles/runtests.dir/lib/xmltok.c.o
+[ 46%] Building C object CMakeFiles/runtests.dir/lib/xmlrole.c.o
+[ 48%] Building C object CMakeFiles/runtests.dir/lib/random_arc4random.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/xmlrole.c.o -MF CMakeFiles/runtests.dir/lib/xmlrole.c.o.d -o CMakeFiles/runtests.dir/lib/xmlrole.c.o -c /home/builder/build/src/expat/expat/lib/xmlrole.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/xmltok.c.o -MF CMakeFiles/runtests.dir/lib/xmltok.c.o.d -o CMakeFiles/runtests.dir/lib/xmltok.c.o -c /home/builder/build/src/expat/expat/lib/xmltok.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/random_arc4random.c.o -MF CMakeFiles/runtests.dir/lib/random_arc4random.c.o.d -o CMakeFiles/runtests.dir/lib/random_arc4random.c.o -c /home/builder/build/src/expat/expat/lib/random_arc4random.c
+[ 51%] Building C object CMakeFiles/expat.dir/lib/random_arc4random.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/random_arc4random.c.o -MF CMakeFiles/expat.dir/lib/random_arc4random.c.o.d -o CMakeFiles/expat.dir/lib/random_arc4random.c.o -c /home/builder/build/src/expat/expat/lib/random_arc4random.c
+[ 53%] Building C object CMakeFiles/runtests.dir/lib/random_arc4random_buf.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/random_arc4random_buf.c.o -MF CMakeFiles/runtests.dir/lib/random_arc4random_buf.c.o.d -o CMakeFiles/runtests.dir/lib/random_arc4random_buf.c.o -c /home/builder/build/src/expat/expat/lib/random_arc4random_buf.c
+[ 55%] Building C object CMakeFiles/runtests.dir/lib/random_getentropy.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/random_getentropy.c.o -MF CMakeFiles/runtests.dir/lib/random_getentropy.c.o.d -o CMakeFiles/runtests.dir/lib/random_getentropy.c.o -c /home/builder/build/src/expat/expat/lib/random_getentropy.c
+[ 58%] Building C object CMakeFiles/expat.dir/lib/random_arc4random_buf.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/random_arc4random_buf.c.o -MF CMakeFiles/expat.dir/lib/random_arc4random_buf.c.o.d -o CMakeFiles/expat.dir/lib/random_arc4random_buf.c.o -c /home/builder/build/src/expat/expat/lib/random_arc4random_buf.c
+[ 60%] Building C object CMakeFiles/runtests.dir/lib/random_getrandom.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -DXML_TESTING -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/runtests.dir/lib/random_getrandom.c.o -MF CMakeFiles/runtests.dir/lib/random_getrandom.c.o.d -o CMakeFiles/runtests.dir/lib/random_getrandom.c.o -c /home/builder/build/src/expat/expat/lib/random_getrandom.c
+[ 62%] Building C object CMakeFiles/expat.dir/lib/random_getentropy.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/random_getentropy.c.o -MF CMakeFiles/expat.dir/lib/random_getentropy.c.o.d -o CMakeFiles/expat.dir/lib/random_getentropy.c.o -c /home/builder/build/src/expat/expat/lib/random_getentropy.c
+[ 65%] Building C object CMakeFiles/expat.dir/lib/random_getrandom.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -Dexpat_EXPORTS -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -fPIC -MD -MT CMakeFiles/expat.dir/lib/random_getrandom.c.o -MF CMakeFiles/expat.dir/lib/random_getrandom.c.o.d -o CMakeFiles/expat.dir/lib/random_getrandom.c.o -c /home/builder/build/src/expat/expat/lib/random_getrandom.c
+[ 67%] Linking C shared library libexpat.so
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/expat.dir/link.txt --verbose=1
+/usr/sbin/clang -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/expat.dir/link.d -Wl,-soname,libexpat.so.1 -o libexpat.so.1.12.4 CMakeFiles/expat.dir/lib/xmlparse.c.o CMakeFiles/expat.dir/lib/xmlrole.c.o CMakeFiles/expat.dir/lib/xmltok.c.o CMakeFiles/expat.dir/lib/random_arc4random.c.o CMakeFiles/expat.dir/lib/random_arc4random_buf.c.o CMakeFiles/expat.dir/lib/random_getentropy.c.o CMakeFiles/expat.dir/lib/random_getrandom.c.o  -lm
+/usr/sbin/cmake -E cmake_symlink_library libexpat.so.1.12.4 libexpat.so.1 libexpat.so
+make[2]: Leaving directory '/home/builder/build/src/build'
+[ 67%] Built target expat
+/usr/sbin/make  -f CMakeFiles/xmlwf.dir/build.make CMakeFiles/xmlwf.dir/depend
+/usr/sbin/make  -f CMakeFiles/element_declarations.dir/build.make CMakeFiles/element_declarations.dir/depend
+/usr/sbin/make  -f CMakeFiles/elements.dir/build.make CMakeFiles/elements.dir/depend
+/usr/sbin/make  -f CMakeFiles/outline.dir/build.make CMakeFiles/outline.dir/depend
+/usr/sbin/make  -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/depend
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/xmlwf.dir/DependInfo.cmake "--color=" xmlwf
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/benchmark.dir/DependInfo.cmake "--color=" benchmark
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/element_declarations.dir/DependInfo.cmake "--color=" element_declarations
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/elements.dir/DependInfo.cmake "--color=" elements
+make[2]: Entering directory '/home/builder/build/src/build'
+cd /home/builder/build/src/build && /usr/sbin/cmake -E cmake_depends "Unix Makefiles" /home/builder/build/src/expat/expat /home/builder/build/src/expat/expat /home/builder/build/src/build /home/builder/build/src/build /home/builder/build/src/build/CMakeFiles/outline.dir/DependInfo.cmake "--color=" outline
+make[2]: Leaving directory '/home/builder/build/src/build'
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/outline.dir/build.make CMakeFiles/outline.dir/build
+/usr/sbin/make  -f CMakeFiles/element_declarations.dir/build.make CMakeFiles/element_declarations.dir/build
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/benchmark.dir/build.make CMakeFiles/benchmark.dir/build
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/elements.dir/build.make CMakeFiles/elements.dir/build
+make[2]: Entering directory '/home/builder/build/src/build'
+make[2]: Leaving directory '/home/builder/build/src/build'
+make[2]: Entering directory '/home/builder/build/src/build'
+/usr/sbin/make  -f CMakeFiles/xmlwf.dir/build.make CMakeFiles/xmlwf.dir/build
+make[2]: Entering directory '/home/builder/build/src/build'
+make[2]: Entering directory '/home/builder/build/src/build'
+make[2]: Entering directory '/home/builder/build/src/build'
+[ 72%] Building C object CMakeFiles/element_declarations.dir/examples/element_declarations.c.o
+[ 72%] Building C object CMakeFiles/elements.dir/examples/elements.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/element_declarations.dir/examples/element_declarations.c.o -MF CMakeFiles/element_declarations.dir/examples/element_declarations.c.o.d -o CMakeFiles/element_declarations.dir/examples/element_declarations.c.o -c /home/builder/build/src/expat/expat/examples/element_declarations.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/elements.dir/examples/elements.c.o -MF CMakeFiles/elements.dir/examples/elements.c.o.d -o CMakeFiles/elements.dir/examples/elements.c.o -c /home/builder/build/src/expat/expat/examples/elements.c
+[ 74%] Building C object CMakeFiles/benchmark.dir/tests/benchmark/benchmark.c.o
+[ 76%] Building C object CMakeFiles/xmlwf.dir/xmlwf/readfilemap.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/benchmark.dir/tests/benchmark/benchmark.c.o -MF CMakeFiles/benchmark.dir/tests/benchmark/benchmark.c.o.d -o CMakeFiles/benchmark.dir/tests/benchmark/benchmark.c.o -c /home/builder/build/src/expat/expat/tests/benchmark/benchmark.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/xmlwf.dir/xmlwf/readfilemap.c.o -MF CMakeFiles/xmlwf.dir/xmlwf/readfilemap.c.o.d -o CMakeFiles/xmlwf.dir/xmlwf/readfilemap.c.o -c /home/builder/build/src/expat/expat/xmlwf/readfilemap.c
+[ 79%] Building C object CMakeFiles/outline.dir/examples/outline.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/outline.dir/examples/outline.c.o -MF CMakeFiles/outline.dir/examples/outline.c.o.d -o CMakeFiles/outline.dir/examples/outline.c.o -c /home/builder/build/src/expat/expat/examples/outline.c
+[ 81%] Building C object CMakeFiles/xmlwf.dir/xmlwf/xmlfile.c.o
+[ 83%] Building C object CMakeFiles/xmlwf.dir/xmlwf/codepage.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/xmlwf.dir/xmlwf/xmlfile.c.o -MF CMakeFiles/xmlwf.dir/xmlwf/xmlfile.c.o.d -o CMakeFiles/xmlwf.dir/xmlwf/xmlfile.c.o -c /home/builder/build/src/expat/expat/xmlwf/xmlfile.c
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/xmlwf.dir/xmlwf/codepage.c.o -MF CMakeFiles/xmlwf.dir/xmlwf/codepage.c.o.d -o CMakeFiles/xmlwf.dir/xmlwf/codepage.c.o -c /home/builder/build/src/expat/expat/xmlwf/codepage.c
+[ 86%] Building C object CMakeFiles/xmlwf.dir/xmlwf/xmlwf.c.o
+/usr/sbin/clang -DXML_ENABLE_VISIBILITY=1 -I/home/builder/build/src/build -I/home/builder/build/src/expat/expat/lib -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -std=c99 -MD -MT CMakeFiles/xmlwf.dir/xmlwf/xmlwf.c.o -MF CMakeFiles/xmlwf.dir/xmlwf/xmlwf.c.o.d -o CMakeFiles/xmlwf.dir/xmlwf/xmlwf.c.o -c /home/builder/build/src/expat/expat/xmlwf/xmlwf.c
+[ 88%] Linking C executable tests/benchmark/benchmark
+[ 90%] Linking C executable examples/outline
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/benchmark.dir/link.txt --verbose=1
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/outline.dir/link.txt --verbose=1
+[ 93%] Linking C executable examples/elements
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/elements.dir/link.txt --verbose=1
+[ 95%] Linking C executable examples/element_declarations
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/element_declarations.dir/link.txt --verbose=1
+[ 97%] Linking C executable tests/runtests
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/runtests.dir/link.txt --verbose=1
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/benchmark.dir/link.d CMakeFiles/benchmark.dir/tests/benchmark/benchmark.c.o -o tests/benchmark/benchmark  -Wl,-rpath,/home/builder/build/src/build libexpat.so.1.12.4 -lm
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/outline.dir/link.d CMakeFiles/outline.dir/examples/outline.c.o -o examples/outline  -Wl,-rpath,/home/builder/build/src/build libexpat.so.1.12.4 -lm
+make[2]: Leaving directory '/home/builder/build/src/build'
+make[2]: Leaving directory '/home/builder/build/src/build'
+[ 97%] Built target benchmark
+[ 97%] Built target outline
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/elements.dir/link.d CMakeFiles/elements.dir/examples/elements.c.o -o examples/elements  -Wl,-rpath,/home/builder/build/src/build libexpat.so.1.12.4 -lm
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/element_declarations.dir/link.d CMakeFiles/element_declarations.dir/examples/element_declarations.c.o -o examples/element_declarations  -Wl,-rpath,/home/builder/build/src/build libexpat.so.1.12.4 -lm
+make[2]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/runtests.dir/link.d CMakeFiles/runtests.dir/tests/acc_tests.c.o CMakeFiles/runtests.dir/tests/alloc_tests.c.o CMakeFiles/runtests.dir/tests/basic_tests.c.o CMakeFiles/runtests.dir/tests/chardata.c.o CMakeFiles/runtests.dir/tests/common.c.o CMakeFiles/runtests.dir/tests/dummy.c.o CMakeFiles/runtests.dir/tests/handlers.c.o CMakeFiles/runtests.dir/tests/memcheck.c.o CMakeFiles/runtests.dir/tests/minicheck.c.o CMakeFiles/runtests.dir/tests/misc_tests.c.o CMakeFiles/runtests.dir/tests/ns_tests.c.o CMakeFiles/runtests.dir/tests/nsalloc_tests.c.o CMakeFiles/runtests.dir/tests/runtests.c.o CMakeFiles/runtests.dir/tests/structdata.c.o CMakeFiles/runtests.dir/lib/xmlparse.c.o CMakeFiles/runtests.dir/lib/xmlrole.c.o CMakeFiles/runtests.dir/lib/xmltok.c.o CMakeFiles/runtests.dir/lib/random_arc4random.c.o CMakeFiles/runtests.dir/lib/random_arc4random_buf.c.o CMakeFiles/runtests.dir/lib/random_getentropy.c.o CMakeFiles/runtests.dir/lib/random_getrandom.c.o -o tests/runtests  -lm
+make[2]: Leaving directory '/home/builder/build/src/build'
+[ 97%] Built target elements
+[ 97%] Built target element_declarations
+[ 97%] Built target runtests
+[100%] Linking C executable xmlwf/xmlwf
+/usr/sbin/cmake -E cmake_link_script CMakeFiles/xmlwf.dir/link.txt --verbose=1
+/usr/sbin/clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wimplicit-fallthrough -fvisibility=hidden -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Xlinker --dependency-file=CMakeFiles/xmlwf.dir/link.d CMakeFiles/xmlwf.dir/xmlwf/codepage.c.o CMakeFiles/xmlwf.dir/xmlwf/readfilemap.c.o CMakeFiles/xmlwf.dir/xmlwf/xmlfile.c.o CMakeFiles/xmlwf.dir/xmlwf/xmlwf.c.o -o xmlwf/xmlwf  -Wl,-rpath,/home/builder/build/src/build: libexpat.so.1.12.4 -lm
+make[2]: Leaving directory '/home/builder/build/src/build'
+[100%] Built target xmlwf
+make[1]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/cmake -E cmake_progress_start /home/builder/build/src/build/CMakeFiles 0
+
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/expat/usr/include/expat_config.h
+-- Installing: /home/builder/build/pkg/expat/usr/lib/libexpat.so.1.12.4
+-- Installing: /home/builder/build/pkg/expat/usr/lib/libexpat.so.1
+-- Installing: /home/builder/build/pkg/expat/usr/lib/libexpat.so
+-- Installing: /home/builder/build/pkg/expat/usr/include/expat.h
+-- Installing: /home/builder/build/pkg/expat/usr/include/expat_external.h
+-- Installing: /home/builder/build/pkg/expat/usr/lib/pkgconfig/expat.pc
+-- Installing: /home/builder/build/pkg/expat/usr/bin/xmlwf
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/expat/usr/bin/xmlwf" to ""
+-- Installing: /home/builder/build/pkg/expat/usr/share/doc/expat/AUTHORS
+-- Installing: /home/builder/build/pkg/expat/usr/share/doc/expat/changelog
+-- Installing: /home/builder/build/pkg/expat/usr/lib/cmake/expat-2.8.4/expat-config.cmake
+-- Installing: /home/builder/build/pkg/expat/usr/lib/cmake/expat-2.8.4/expat-config-version.cmake
+-- Installing: /home/builder/build/pkg/expat/usr/lib/cmake/expat-2.8.4/expat.cmake
+-- Installing: /home/builder/build/pkg/expat/usr/lib/cmake/expat-2.8.4/expat-none.cmake
+install: creating directory '/home/builder/build/pkg/expat/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/expat/usr/share/licenses/expat'
+'expat/expat/COPYING' -> '/home/builder/build/pkg/expat/usr/share/licenses/expat/COPYING'
+removed '/home/builder/build/pkg/expat/usr/share/doc/expat/AUTHORS'
+'expat/expat/AUTHORS' -> '/home/builder/build/pkg/expat/usr/share/doc/expat/AUTHORS'
+'expat/expat/Changes' -> '/home/builder/build/pkg/expat/usr/share/doc/expat/Changes'
+'expat/expat/README.md' -> '/home/builder/build/pkg/expat/usr/share/doc/expat/README.md'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libexpat.so.1.12.4
+usr/bin/xmlwf
+==> Creating package "expat"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: expat 2.8.4-1 (Sat Sep 19 19:56:15 2026)
