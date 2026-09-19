@@ -1,0 +1,618 @@
+== build libxslt (deps:  bash git glibc libgcrypt libxml2 python xz )
+warning: bash-5.3-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libgcrypt-1.12.4-1 is up to date -- skipping
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: xz-5.8.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libxslt 1.1.45-2 (Sat Sep 19 21:21:42 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning libxslt git repo...
+Cloning into bare repository '/sources/libxslt'...
+  -> Found 0001-runtest-Print-output-causing-failure.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    libxslt ... Passed
+    0001-runtest-Print-output-causing-failure.patch ... Passed
+==> Extracting sources...
+  -> Creating working copy of libxslt git repo...
+Cloning into 'libxslt'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+Applied patch to 'tests/runtest.c' cleanly.
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:13: installing './compile'
+configure.ac:12: installing './config.guess'
+configure.ac:12: installing './config.sub'
+configure.ac:70: installing './install-sh'
+configure.ac:70: installing './missing'
+libexslt/Makefile.am: installing './depcomp'
+python/Makefile.am:40: installing './py-compile'
+==> Starting build()...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+extra=v1.1.45
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports the include directive... yes (GNU style)
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking dependency style of clang -std=gnu23... gcc3
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking for gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C23 features... (cached) -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... (cached) yes
+checking how to run the C preprocessor... clang -std=gnu23 -E
+checking for xmllint... /usr/sbin/xmllint
+checking for xsltproc... /usr/bin/xsltproc
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for cos in -lm... yes
+checking for sys/types.h... (cached) yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking how to pass version script to the linker (ld.lld -m elf_x86_64)... checking whether the linker accepts -Wl,--undefined-version... yes
+ -Wl,--undefined-version -Wl,--version-script=
+checking for pthread.h... yes
+checking for pthread_join in -lpthread... yes
+checking for locale.h... yes
+checking for xlocale.h... no
+checking for strxfrm_l... yes
+checking for sys/timeb.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/select.h... yes
+checking for stat... yes
+checking for _stat... no
+checking for gettimeofday... yes
+checking for localtime_r... yes
+checking for gmtime_r... yes
+checking for ftime... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking for clock_gettime... yes
+checking for perl... perl
+checking for python... /usr/sbin/python
+checking for python version... 3.14
+checking for python platform... linux
+checking for GNU default python prefix... ${prefix}
+checking for GNU default python exec_prefix... ${exec_prefix}
+checking for python script directory (pythondir)... ${PYTHON_PREFIX}/lib/python3.14/site-packages
+checking for python extension module directory (pyexecdir)... ${PYTHON_EXEC_PREFIX}/lib/python3.14/site-packages
+checking for python-3.14... yes
+Enabling profiler
+checking for xml2-config... /usr/sbin/xml2-config
+checking for libxml-2.0 >= 2.15.1... yes
+checking whether shared libraries will be built (required for plugins)... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libxslt.pc
+config.status: creating libexslt.pc
+config.status: creating libxslt-config.cmake
+config.status: creating libxslt/Makefile
+config.status: creating libxslt/xsltconfig.h
+config.status: creating libexslt/Makefile
+config.status: creating libexslt/exsltconfig.h
+config.status: creating xsltproc/Makefile
+config.status: creating python/Makefile
+config.status: creating python/setup.py
+config.status: creating python/tests/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/xmlspec/Makefile
+config.status: creating tests/multiple/Makefile
+config.status: creating tests/xinclude/Makefile
+config.status: creating tests/XSLTMark/Makefile
+config.status: creating tests/docbook/Makefile
+config.status: creating tests/fuzz/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/devhelp/Makefile
+config.status: creating doc/EXSLT/devhelp/Makefile
+config.status: creating xslt-config
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/libxslt'
+Making all in libxslt
+make[2]: Entering directory '/home/builder/build/src/libxslt/libxslt'
+  CC       attrvt.lo
+  CC       xslt.lo
+  CC       xsltlocale.lo
+  CC       xsltutils.lo
+  CC       pattern.lo
+  CC       templates.lo
+  CC       keys.lo
+  CC       numbers.lo
+  CC       variables.lo
+  CC       extra.lo
+  CC       extensions.lo
+  CC       functions.lo
+  CC       namespaces.lo
+  CC       imports.lo
+  CC       attributes.lo
+  CC       documents.lo
+  CC       preproc.lo
+  CC       transform.lo
+  CC       security.lo
+  CCLD     libxslt.la
+make[2]: Leaving directory '/home/builder/build/src/libxslt/libxslt'
+Making all in libexslt
+make[2]: Entering directory '/home/builder/build/src/libxslt/libexslt'
+  CC       libexslt_la-exslt.lo
+  CC       libexslt_la-common.lo
+  CC       libexslt_la-math.lo
+  CC       libexslt_la-crypto.lo
+  CC       libexslt_la-functions.lo
+  CC       libexslt_la-strings.lo
+  CC       libexslt_la-sets.lo
+  CC       libexslt_la-saxon.lo
+  CC       libexslt_la-date.lo
+  CC       libexslt_la-dynamic.lo
+  CCLD     libexslt.la
+make[2]: Leaving directory '/home/builder/build/src/libxslt/libexslt'
+Making all in xsltproc
+make[2]: Entering directory '/home/builder/build/src/libxslt/xsltproc'
+  CC       xsltproc.o
+  CCLD     xsltproc
+make[2]: Leaving directory '/home/builder/build/src/libxslt/xsltproc'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/libxslt/doc'
+Making all in devhelp
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc/devhelp'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc/devhelp'
+Making all in EXSLT/devhelp
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/doc'
+Making all in tests
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests'
+Making all in xmlspec
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/xmlspec'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/xmlspec'
+Making all in multiple
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/multiple'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/multiple'
+Making all in xinclude
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/xinclude'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/xinclude'
+Making all in XSLTMark
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+Making all in docbook
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/docbook'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/docbook'
+Making all in fuzz
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests'
+Making all in python
+make[2]: Entering directory '/home/builder/build/src/libxslt/python'
+Making all in .
+make[3]: Entering directory '/home/builder/build/src/libxslt/python'
+SRCDIR=. /usr/sbin/python ./generator.py
+Found 247 functions in libxslt-api.xml
+Found 32 functions in libxslt-python-api.xml
+Generated 142 wrapper functions, 100 failed, 37 skipped
+touch gen_prog
+  CC       libxsltmod_la-libxslt.lo
+  CC       libxsltmod_la-types.lo
+  CC       libxsltmod_la-libxslt-py.lo
+  CCLD     libxsltmod.la
+cat ./libxsl.py libxsltclass.py > libxslt.py
+make[3]: Leaving directory '/home/builder/build/src/libxslt/python'
+Making all in tests
+make[3]: Entering directory '/home/builder/build/src/libxslt/python/tests'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/python/tests'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/python'
+make[2]: Entering directory '/home/builder/build/src/libxslt'
+sed -e 's?\@XSLT_LIBDIR\@?-L/usr/lib?g' \
+    -e 's?\@XSLT_INCLUDEDIR\@?-I/usr/include?g' \
+    -e 's?\@VERSION\@?1.1.45?g' \
+    -e 's?\@XSLT_LIBS\@?-lxslt -lxml2 ?g' \
+    -e 's?\@XSLT_PRIVATE_LIBS\@?-lm?g' \
+       < ./xsltConf.sh.in > xsltConf.tmp \
+&& mv xsltConf.tmp xsltConf.sh
+make[2]: Leaving directory '/home/builder/build/src/libxslt'
+make[1]: Leaving directory '/home/builder/build/src/libxslt'
+==> Entering fakeroot environment...
+==> Starting package_libxslt()...
+Making install in libxslt
+make[1]: Entering directory '/home/builder/build/src/libxslt/libxslt'
+make[2]: Entering directory '/home/builder/build/src/libxslt/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/include/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/include/libxslt'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libxslt.la '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/bin/install -c -m 644 xslt.h xsltutils.h pattern.h templates.h variables.h keys.h numbersInternals.h extensions.h extra.h functions.h namespaces.h imports.h attributes.h documents.h preproc.h transform.h transformInternals.h security.h xsltInternals.h xsltexports.h xsltlocale.h '/home/builder/build/pkg/libxslt/usr/include/libxslt'
+ /usr/bin/install -c -m 644 xsltconfig.h '/home/builder/build/pkg/libxslt/usr/include/libxslt'
+ /usr/bin/install -c -m 644 libxslt.3 '/home/builder/build/pkg/libxslt/usr/share/man/man3'
+libtool: install: /usr/bin/install -c .libs/libxslt.so.1.1.45 /home/builder/build/pkg/libxslt/usr/lib/libxslt.so.1.1.45
+libtool: install: (cd /home/builder/build/pkg/libxslt/usr/lib && { ln -s -f libxslt.so.1.1.45 libxslt.so.1 || { rm -f libxslt.so.1 && ln -s libxslt.so.1.1.45 libxslt.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/libxslt/usr/lib && { ln -s -f libxslt.so.1.1.45 libxslt.so || { rm -f libxslt.so && ln -s libxslt.so.1.1.45 libxslt.so; }; })
+libtool: install: /usr/bin/install -c .libs/libxslt.lai /home/builder/build/pkg/libxslt/usr/lib/libxslt.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make  install-exec-hook
+make[3]: Entering directory '/home/builder/build/src/libxslt/libxslt'
+make[3]: Nothing to be done for 'install-exec-hook'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/libxslt'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/libxslt'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/libxslt'
+Making install in libexslt
+make[1]: Entering directory '/home/builder/build/src/libxslt/libexslt'
+make[2]: Entering directory '/home/builder/build/src/libxslt/libexslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/include/libexslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/include/libexslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/man/man3'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libexslt.la '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/bin/install -c -m 644 exslt.h exsltexports.h '/home/builder/build/pkg/libxslt/usr/include/libexslt'
+ /usr/bin/install -c -m 644 exsltconfig.h '/home/builder/build/pkg/libxslt/usr/include/libexslt'
+ /usr/bin/install -c -m 644 libexslt.3 '/home/builder/build/pkg/libxslt/usr/share/man/man3'
+libtool: warning: relinking 'libexslt.la'
+libtool: install: (cd /home/builder/build/src/libxslt/libexslt; /bin/sh "/home/builder/build/src/libxslt/libtool"  --silent --tag CC --mode=relink clang -std=gnu23 -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -I/usr/include/libxml2 -DWITH_GZFILEOP -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -no-undefined -version-info 8:25:8 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libexslt.la -rpath /usr/lib libexslt_la-exslt.lo libexslt_la-common.lo libexslt_la-crypto.lo libexslt_la-math.lo libexslt_la-sets.lo libexslt_la-functions.lo libexslt_la-strings.lo libexslt_la-date.lo libexslt_la-saxon.lo libexslt_la-dynamic.lo ../libxslt/libxslt.la -lxml2 -lm -inst-prefix-dir /home/builder/build/pkg/libxslt)
+libtool: install: /usr/bin/install -c .libs/libexslt.so.0.8.25T /home/builder/build/pkg/libxslt/usr/lib/libexslt.so.0.8.25
+libtool: install: (cd /home/builder/build/pkg/libxslt/usr/lib && { ln -s -f libexslt.so.0.8.25 libexslt.so.0 || { rm -f libexslt.so.0 && ln -s libexslt.so.0.8.25 libexslt.so.0; }; })
+libtool: install: (cd /home/builder/build/pkg/libxslt/usr/lib && { ln -s -f libexslt.so.0.8.25 libexslt.so || { rm -f libexslt.so && ln -s libexslt.so.0.8.25 libexslt.so; }; })
+libtool: install: /usr/bin/install -c .libs/libexslt.lai /home/builder/build/pkg/libxslt/usr/lib/libexslt.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/libexslt'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/libexslt'
+Making install in xsltproc
+make[1]: Entering directory '/home/builder/build/src/libxslt/xsltproc'
+make[2]: Entering directory '/home/builder/build/src/libxslt/xsltproc'
+make[2]: Nothing to be done for 'install-data-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c xsltproc '/home/builder/build/pkg/libxslt/usr/bin'
+libtool: warning: '../libxslt/libxslt.la' has not been installed in '/usr/lib'
+libtool: warning: '../libexslt/libexslt.la' has not been installed in '/usr/lib'
+libtool: warning: '/home/builder/build/src/libxslt/libxslt/libxslt.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/xsltproc /home/builder/build/pkg/libxslt/usr/bin/xsltproc
+make[2]: Leaving directory '/home/builder/build/src/libxslt/xsltproc'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/xsltproc'
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/libxslt/doc'
+Making install in devhelp
+make[2]: Entering directory '/home/builder/build/src/libxslt/doc/devhelp'
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc/devhelp'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/gtk-doc/html/libxslt'
+ /usr/bin/install -c -m 644 libxslt.devhelp2 general.html index.html libxslt-attributes.html libxslt-documents.html libxslt-extensions.html libxslt-extra.html libxslt-functions.html libxslt-imports.html libxslt-keys.html libxslt-namespaces.html libxslt-numbersInternals.html libxslt-pattern.html libxslt-preproc.html libxslt-security.html libxslt-templates.html libxslt-transform.html libxslt-variables.html libxslt-xsltexports.html libxslt-xslt.html libxslt-xsltInternals.html libxslt-xsltlocale.html libxslt-xsltutils.html home.png left.png right.png up.png style.css '/home/builder/build/pkg/libxslt/usr/share/gtk-doc/html/libxslt'
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc/devhelp'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/doc/devhelp'
+Making install in EXSLT/devhelp
+make[2]: Entering directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/gtk-doc/html/libexslt'
+ /usr/bin/install -c -m 644 libexslt.devhelp2 general.html index.html libexslt-exsltexports.html libexslt-exslt.html home.png left.png right.png up.png style.css '/home/builder/build/pkg/libxslt/usr/share/gtk-doc/html/libexslt'
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/doc/EXSLT/devhelp'
+make[2]: Entering directory '/home/builder/build/src/libxslt/doc'
+make[3]: Entering directory '/home/builder/build/src/libxslt/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/man/man1'
+ /usr/bin/install -c -m 644 xsltproc.1 '/home/builder/build/pkg/libxslt/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial2'
+ /usr/bin/install -c -m 644  tutorial2/libxslt_pipes.c tutorial2/libxslt_pipes.html '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial2'
+ /usr/bin/install -c -m 644  xsltproc.html '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/.'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial'
+ /usr/bin/install -c -m 644  tutorial/libxslt_tutorial.c tutorial/libxslttutorial.html '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial/images/callouts'
+ /usr/bin/install -c -m 644  tutorial/images/callouts/1.png tutorial/images/callouts/10.png tutorial/images/callouts/2.png tutorial/images/callouts/3.png tutorial/images/callouts/4.png tutorial/images/callouts/5.png tutorial/images/callouts/6.png tutorial/images/callouts/7.png tutorial/images/callouts/8.png tutorial/images/callouts/9.png '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/tutorial/images/callouts'
+make[3]: Leaving directory '/home/builder/build/src/libxslt/doc'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/doc'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/doc'
+Making install in tests
+make[1]: Entering directory '/home/builder/build/src/libxslt/tests'
+Making install in xmlspec
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/xmlspec'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/xmlspec'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/xmlspec'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/xmlspec'
+Making install in multiple
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/multiple'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/multiple'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/multiple'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/multiple'
+Making install in xinclude
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/xinclude'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/xinclude'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/xinclude'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/xinclude'
+Making install in XSLTMark
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/XSLTMark'
+Making install in docbook
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/docbook'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/docbook'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/docbook'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/docbook'
+Making install in fuzz
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests/fuzz'
+make[2]: Entering directory '/home/builder/build/src/libxslt/tests'
+make[3]: Entering directory '/home/builder/build/src/libxslt/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libxslt/tests'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/tests'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/tests'
+Making install in python
+make[1]: Entering directory '/home/builder/build/src/libxslt/python'
+Making install in .
+make[2]: Entering directory '/home/builder/build/src/libxslt/python'
+make[3]: Entering directory '/home/builder/build/src/libxslt/python'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libxsltmod.la '/home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages'
+libtool: warning: relinking 'libxsltmod.la'
+libtool: install: (cd /home/builder/build/src/libxslt/python; /bin/sh "/home/builder/build/src/libxslt/libtool"  --silent --tag CC --mode=relink clang -std=gnu23 -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -I/usr/include/libxml2 -DWITH_GZFILEOP -I/usr/include/python3.14 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -module -avoid-version -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libxsltmod.la -rpath /usr/lib/python3.14/site-packages libxsltmod_la-libxslt.lo libxsltmod_la-types.lo libxsltmod_la-libxslt-py.lo ../libxslt/libxslt.la ../libexslt/libexslt.la -lxml2 -inst-prefix-dir /home/builder/build/pkg/libxslt)
+libtool: install: /usr/bin/install -c .libs/libxsltmod.soT /home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages/libxsltmod.so
+libtool: install: /usr/bin/install -c .libs/libxsltmod.lai /home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages/libxsltmod.la
+libtool: warning: remember to run 'libtool --finish /usr/lib/python3.14/site-packages'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages'
+ /usr/bin/install -c -m 644 libxslt.py '/home/builder/build/pkg/libxslt/usr/lib/python3.14/site-packages'
+Byte-compiling python modules...
+libxslt.py 
+Byte-compiling python modules (optimized versions) ...
+libxslt.py 
+Byte-compiling python modules (more optimized versions) ...
+libxslt.py 
+make[3]: Leaving directory '/home/builder/build/src/libxslt/python'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/python'
+Making install in tests
+make[2]: Entering directory '/home/builder/build/src/libxslt/python/tests'
+make[3]: Entering directory '/home/builder/build/src/libxslt/python/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/python/examples'
+ /usr/bin/install -c -m 644 test.xml test.xsl pyxsltproc.py setup_test.py basic.py exslt.py extelem.py extfunc.py '/home/builder/build/pkg/libxslt/usr/share/doc/libxslt/python/examples'
+make[3]: Leaving directory '/home/builder/build/src/libxslt/python/tests'
+make[2]: Leaving directory '/home/builder/build/src/libxslt/python/tests'
+make[1]: Leaving directory '/home/builder/build/src/libxslt/python'
+make[1]: Entering directory '/home/builder/build/src/libxslt'
+make[2]: Entering directory '/home/builder/build/src/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib/cmake/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib/cmake/libxslt'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libxslt/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libxslt-config.cmake '/home/builder/build/pkg/libxslt/usr/lib/cmake/libxslt'
+ /usr/bin/install -c -m 644 xsltConf.sh '/home/builder/build/pkg/libxslt/usr/lib'
+ /usr/bin/install -c -m 644 FindGcrypt.cmake '/home/builder/build/pkg/libxslt/usr/lib/cmake/libxslt'
+ /usr/bin/install -c -m 644 libxslt.pc libexslt.pc '/home/builder/build/pkg/libxslt/usr/lib/pkgconfig'
+ /usr/bin/install -c xslt-config '/home/builder/build/pkg/libxslt/usr/bin'
+make[2]: Leaving directory '/home/builder/build/src/libxslt'
+make[1]: Leaving directory '/home/builder/build/src/libxslt'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libxslt"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_libxslt-docs()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libxslt-docs"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libxslt 1.1.45-2 (Sat Sep 19 21:22:47 2026)

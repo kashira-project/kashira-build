@@ -1,0 +1,68 @@
+#!/bin/bash
+# kbuild-publish — publish built packages to the R2 repos.
+#
+#   kbuild-publish test <pkgfile...>    sign + add to test repo, sync to R2
+#   kbuild-publish promote              promote entire test prefix to main
+#
+# Staging dirs: staging/x86_64-v3-test and staging/x86_64-v3 (mirror of R2).
+# Key: repo signing key via gpg-agent on the host (GNUPGHOME env or
+# /mnt/lfs/src/kashira/keys/gnupg).
+set -euo pipefail
+
+HERE=$(cd "$(dirname "$0")" && pwd)
+STAGING=${KBUILD_STAGING:-$HERE/staging}
+KEY=${KBUILD_SIGN_KEY:-E4DF524F75FE51DD5FB0C7BA1925D86CD662878E}
+export GNUPGHOME=${KBUILD_GNUPGHOME:-/mnt/lfs/src/kashira/keys/gnupg}
+BUCKET=${KBUILD_R2_BUCKET:-r2:kashira-linux}
+
+die() { echo "kbuild-publish: $*" >&2; exit 1; }
+
+sign_pkg() {
+  local f=$1
+  [ -f "$f.sig" ] || gpg --batch --pinentry-mode loopback --detach-sign -u "$KEY" "$f"
+}
+
+cmd_test() {
+  local dir=$STAGING/x86_64-v3-test
+  mkdir -p "$dir"
+  for f in "$@"; do
+    f=$(realpath "$f")
+    cp "$f" "$dir/"
+    sign_pkg "$dir/$(basename "$f")"
+  done
+  ( flock 9
+    cd "$dir"
+    repo-add --sign --key "$KEY" kashira-v3-test.db.tar.gz "${@##*/}" >/dev/null
+  ) 9>"$dir/.lock"
+  # R2 has no symlinks: ensure both db names exist as real files
+  ( cd "$dir" && cp -f kashira-v3-test.db.tar.gz kashira-v3-test.db && cp -f kashira-v3-test.db.tar.gz.sig kashira-v3-test.db.sig
+    cp -f kashira-v3-test.files.tar.gz kashira-v3-test.files && cp -f kashira-v3-test.files.tar.gz.sig kashira-v3-test.files.sig )
+  rclone sync "$dir" "$BUCKET/x86_64-v3-test" --transfers 16
+  echo "published ${#@} package(s) to x86_64-v3-test"
+}
+
+cmd_promote() {
+  # merge test packages into main: main staging must mirror the full repo
+  local src=$STAGING/x86_64-v3-test dst=$STAGING/x86_64-v3
+  [ -d "$src" ] || die "no test staging dir"
+  mkdir -p "$dst"
+  if [ ! -f "$dst/kashira-v3.db.tar.gz" ]; then
+    echo "priming main staging from R2..."
+    rclone copy "$BUCKET/x86_64-v3" "$dst" >/dev/null
+  fi
+  ( flock 9
+    cd "$dst"
+    cp "$src"/*.pkg.tar.zst "$src"/*.pkg.tar.zst.sig .
+    repo-add --sign --key "$KEY" kashira-v3.db.tar.gz ./*.pkg.tar.zst >/dev/null
+    cp -f kashira-v3.db.tar.gz kashira-v3.db && cp -f kashira-v3.db.tar.gz.sig kashira-v3.db.sig
+    cp -f kashira-v3.files.tar.gz kashira-v3.files && cp -f kashira-v3.files.tar.gz.sig kashira-v3.files.sig
+  ) 9>"$dst/.lock"
+  rclone sync "$dst" "$BUCKET/x86_64-v3" --transfers 16
+  echo "promoted test -> x86_64-v3 (main)"
+}
+
+case "${1:-}" in
+  test) shift; cmd_test "$@" ;;
+  promote) cmd_promote ;;
+  *) die "usage: kbuild-publish test <pkg...> | promote" ;;
+esac

@@ -1,0 +1,144 @@
+== build bzip2 (deps: glibc sh )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: bash-5.3-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: bzip2 1.0.8-6 (Sat Sep 19 20:38:32 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found bzip2-1.0.8.tar.gz
+  -> Found bzip2-1.0.8.tar.gz.sig
+  -> Found bzip2.pc
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    bzip2-1.0.8.tar.gz ... Passed
+    bzip2-1.0.8.tar.gz.sig ... Skipped
+    bzip2.pc ... Passed
+==> Extracting sources...
+  -> Extracting bzip2-1.0.8.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c blocksort.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c huffman.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c crctable.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c randtable.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c compress.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c decompress.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c bzlib.c
+clangclangclangclang: : : : warning: warning: warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]-Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+
+
+-Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : clangwarning: clangwarning: : : -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]warning: -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+-Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+warning: 
+-Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+clang: clangwarning: clang-Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]: clang: 
+: warning: warning: warning: -Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]-Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]-Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]
+
+clang
+: warning: -Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]clangclangclang: : : 
+warning: warning: warning: -Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]-Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]-Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]clang
+
+
+: warning: clang-Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]clangclang: 
+: : warning: warning: clangwarning: -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]-Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]: 
+-Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]warning: 
+
+-Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: clangclang-Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]: clang: 
+warning: : warning: warning: -Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]-Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+clang-Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]clang
+: clang: : warning: warning: warning: clang-Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]-Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]: -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+
+
+warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: clang-Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]: 
+clangwarning: : -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]warning: 
+-Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -shared -Wl,-soname -Wl,libbz2.so.1.0 -o libbz2.so.1.0.8 blocksort.o huffman.o crctable.o randtable.o compress.o decompress.o bzlib.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -fpic -fPIC -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -o bzip2-shared bzip2.c libbz2.so.1.0.8
+rm -f libbz2.so.1.0
+ln -s libbz2.so.1.0.8 libbz2.so.1.0
+rm -f libbz2.a
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c bzip2.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64 -c bzip2recover.c
+ar cq libbz2.a blocksort.o huffman.o crctable.o randtable.o compress.o decompress.o bzlib.o
+clangclang: : warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+warning: -Wl,-O1: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]
+clang: clangwarning: : -Wl,--sort-common: 'linker' input unused [-Wunused-command-line-argument]warning: 
+-Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : warning: warning: -Wl,--as-needed: 'linker' input unused [-Wunused-command-line-argument]-Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]
+
+clang: clangwarning: : -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]warning: 
+-Wl,-z,relro: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : warning: warning: -Wl,-z,now: 'linker' input unused [-Wunused-command-line-argument]-Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]
+
+clangclang: : warning: warning: -Wl,--undefined-version: 'linker' input unused [-Wunused-command-line-argument]-Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+clangclang: : warning: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]-Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+
+clang: warning: -Wl,--compress-debug-sections=zstd: 'linker' input unused [-Wunused-command-line-argument]
+ranlib libbz2.a
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64  -o bzip2recover bzip2recover.o
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wall -Winline -O2 -g -D_FILE_OFFSET_BITS=64  -o bzip2 bzip2.o -L. -lbz2
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bzip2"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: bzip2 1.0.8-6 (Sat Sep 19 20:38:40 2026)

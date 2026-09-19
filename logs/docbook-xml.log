@@ -1,0 +1,93 @@
+== build docbook-xml (deps: libxml2 )
+warning: libxml2-2.15.4-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: docbook-xml 4.5-11 (Sat Sep 19 21:21:16 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading docbkx412.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:03              0 43  75683  43  32768   0      0   7167      0   00:10   00:04   00:06  30028100  75683 100  75683   0      0  15216      0   00:04   00:04          30028100  75683 100  75683   0      0  15216      0   00:04   00:04          30028100  75683 100  75683   0      0  15215      0   00:04   00:04          30028
+  -> Found license-from-upstream
+  -> Downloading docbook-xml-4.2.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  78428 100  78428   0      0  75015      0   00:01   00:01              0100  78428 100  78428   0      0  75009      0   00:01   00:01              0100  78428 100  78428   0      0  75005      0   00:01   00:01              0
+  -> Downloading docbook-xml-4.3.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  83865 100  83865   0      0  54585      0   00:01   00:01              0100  83865 100  83865   0      0  54581      0   00:01   00:01              0100  83865 100  83865   0      0  54578      0   00:01   00:01              0
+  -> Downloading docbook-xml-4.4.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  96107 100  96107   0      0  89504      0   00:01   00:01              0100  96107 100  96107   0      0  89495      0   00:01   00:01              0100  96107 100  96107   0      0  89488      0   00:01   00:01              0
+  -> Downloading docbook-xml-4.5.zip...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  98497 100  98497   0      0  94836      0   00:01   00:01              0100  98497 100  98497   0      0  94826      0   00:01   00:01              0100  98497 100  98497   0      0  94818      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    docbkx412.zip ... Passed
+    license-from-upstream ... Passed
+    docbook-xml-4.2.zip ... Passed
+    docbook-xml-4.3.zip ... Passed
+    docbook-xml-4.4.zip ... Passed
+    docbook-xml-4.5.zip ... Passed
+==> Extracting sources...
+==> Entering fakeroot environment...
+==> Starting package()...
+~/build/src/docbook-xml-4.1.2 ~/build/src
+~/build/src
+~/build/src/docbook-xml-4.2 ~/build/src
+~/build/src
+~/build/src/docbook-xml-4.3 ~/build/src
+~/build/src
+~/build/src/docbook-xml-4.4 ~/build/src
+~/build/src
+~/build/src/docbook-xml-4.5 ~/build/src
+~/build/src
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/calstblx.dtd' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/docbookx.dtd' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/dbcentx.mod' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/dbhierx.mod' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/dbnotnx.mod' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/dbpoolx.mod' changed from 0744 (rwxr--r--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamsa.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamsb.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamsc.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamsn.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamso.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isoamsr.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isobox.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isocyr1.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isocyr2.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isodia.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isogrk1.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isogrk2.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isogrk3.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isogrk4.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isolat1.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isolat2.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isonum.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isopub.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.4/ent/isotech.ent' changed from 0654 (rw-r-xr--) to 0644 (rw-r--r--)
+mode of '/home/builder/build/pkg/docbook-xml/usr/share/xml/docbook/xml-dtd-4.1.2/ent' changed from 0775 (rwxrwxr-x) to 0755 (rwxr-xr-x)
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "docbook-xml"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Adding install file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: docbook-xml 4.5-11 (Sat Sep 19 21:21:34 2026)

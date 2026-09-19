@@ -1,0 +1,166 @@
+== build xmlto (deps: docbook-xsl libxslt )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (3) docbook-xml-4.5-11  docbook-xsl-1.79.2-9  libxslt-1.1.45-2
+
+Total Download Size:    1.59 MiB
+Total Installed Size:  29.05 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ docbook-xsl-1.79.2-9-any downloading...
+ libxslt-1.1.45-2-x86_64 downloading...
+ docbook-xml-4.5-11-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing docbook-xml...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+installing docbook-xsl...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: xmlto 0.0.29-1 (Sat Sep 19 21:28:44 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading xmlto-0.0.29.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0100  64619 100  64619   0      0  26707      0   00:02   00:02              0100  64619 100  64619   0      0  26705      0   00:02   00:02              0100  64619 100  64619   0      0  26703      0   00:02   00:02              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with md5sums...
+    xmlto-0.0.29.tar.gz ... Passed
+==> Validating source files with sha256sums...
+    xmlto-0.0.29.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting xmlto-0.0.29.tar.gz with bsdtar
+==> Starting prepare()...
+configure.ac:8: warning: AC_PROG_LEX without either yywrap or noyywrap is obsolete
+./lib/autoconf/programs.m4:744: _AC_PROG_LEX is expanded from...
+./lib/autoconf/programs.m4:737: AC_PROG_LEX is expanded from...
+aclocal.m4:631: AM_PROG_LEX is expanded from...
+configure.ac:8: the top level
+configure.ac:6: installing './compile'
+configure.ac:3: installing './install-sh'
+configure.ac:3: installing './missing'
+Makefile.am: installing './depcomp'
+configure.ac: installing './ylwrap'
+parallel-tests: installing './test-driver'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking for flex... flex
+checking for lex output file root... lex.yy
+checking for lex library... none needed
+checking for library containing yywrap... -lfl
+checking whether yytext is a pointer... yes
+checking for mktemp... mktemp
+checking for find... find 
+checking for bash... /usr/sbin/bash
+checking for getopt... getopt
+checking for long options support in getopt... yes
+checking for paperconf... paperconf
+checking for locale... /usr/sbin/locale
+checking for xmllint... /usr/sbin/xmllint
+checking for xsltproc... /usr/sbin/xsltproc
+checking for dblatex... dblatex
+checking for fop... fop
+checking for xmltex... xmltex
+checking for pdfxmltex... pdfxmltex
+checking for default backend... DEFAULT
+checking for lynx... lynx
+checking for elinks... elinks
+checking for w3m... w3m
+checking for tail... /usr/sbin/tail
+checking for grep... /usr/sbin/grep
+checking for sed... /usr/sbin/sed
+checking for cp... /usr/sbin/cp
+checking for zip... zip
+checking for default web browser... w3m
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating xmlto
+config.status: creating xmlto.spec
+config.status: creating config.h
+config.status: executing depfiles commands
+make  all-am
+make[1]: Entering directory '/home/builder/build/src/xmlto-0.0.29'
+FORMAT_DIR=./format /usr/sbin/bash ./xmlto --skip-validation -o man/man1 man doc/xmlto.xml
+FORMAT_DIR=./format /usr/sbin/bash ./xmlto --skip-validation -o man/man1 man doc/xmlif.xml
+depbase=`echo xmlif/xmlif.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+clang -std=gnu23 -DHAVE_CONFIG_H -I.     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT xmlif/xmlif.o -MD -MP -MF $depbase.Tpo -c -o xmlif/xmlif.o xmlif/xmlif.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Note: Writing xmlif.1
+clang -std=gnu23  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o xmlif/xmlif xmlif/xmlif.o  
+Note: Writing xmlto.1
+make[1]: Leaving directory '/home/builder/build/src/xmlto-0.0.29'
+==> Entering fakeroot environment...
+==> Starting package()...
+make[1]: Entering directory '/home/builder/build/src/xmlto-0.0.29'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/share/xmlto'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/bin'
+ /usr/bin/install -c xmlto '/home/builder/build/pkg/xmlto/usr/bin'
+ /usr/bin/install -c -m 644 man/man1/xmlto.1 man/man1/xmlif.1 '/home/builder/build/pkg/xmlto/usr/share/man/man1'
+  /usr/bin/install -c xmlif/xmlif '/home/builder/build/pkg/xmlto/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/xhtml1'
+ /usr/bin/install -c -m 644  format/xhtml1/dvi format/xhtml1/fo format/xhtml1/pdf format/xhtml1/ps format/xhtml1/txt format/xhtml1/awt format/xhtml1/mif format/xhtml1/pcl format/xhtml1/svg '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/xhtml1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/docbook'
+ /usr/bin/install -c -m 644  format/docbook/dvi format/docbook/epub format/docbook/fo format/docbook/html format/docbook/html-nochunks format/docbook/xhtml format/docbook/xhtml-nochunks format/docbook/man format/docbook/pdf format/docbook/ps format/docbook/txt format/docbook/htmlhelp format/docbook/javahelp format/docbook/mif format/docbook/pcl format/docbook/svg format/docbook/awt '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/docbook'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/fo'
+ /usr/bin/install -c -m 644  format/fo/ps format/fo/awt format/fo/mif format/fo/pcl format/fo/svg format/fo/txt format/fo/dvi format/fo/pdf '/home/builder/build/pkg/xmlto/usr/share/xmlto/format/fo'
+ /usr/bin/install -c -m 644  xmlto.mak '/home/builder/build/pkg/xmlto/usr/share/xmlto/.'
+make[1]: Leaving directory '/home/builder/build/src/xmlto-0.0.29'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xmlto"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xmlto 0.0.29-1 (Sat Sep 19 21:29:00 2026)

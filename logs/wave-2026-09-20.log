@@ -103,3 +103,216 @@
 [[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
 == wave: autoconf-archive OK
 == wave: ncurses FAILED (log: /mnt/lfs/src/kashira-build/logs/ncurses.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses FAILED (log: /mnt/lfs/src/kashira-build/logs/ncurses.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/ncurses-6.6-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'ncurses-6.6-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: ncurses OK
+== wave: acl already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/python-audit-4.2.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/audispd-plugins-zos-4.2.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/audispd-plugins-4.2.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/audit-4.2.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[33m[33mWARN[0m[33m[0m] An entry for 'audit-4.2.1-1' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'audit-4.2.1-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: audit OK
+== wave: bzip2 FAILED (log: /mnt/lfs/src/kashira-build/logs/bzip2.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bzip2-1.0.8-6-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'bzip2-1.0.8-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: bzip2 OK
+== wave: patchelf FAILED (log: /mnt/lfs/src/kashira-build/logs/patchelf.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/patchelf-0.19.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: patchelf OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libcurl-compat-8.22.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/curl-8.22.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[33m[33mWARN[0m[33m[0m] A newer version for 'curl' is already present in database
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'curl-8.22.0-2'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: curl OK
+== wave: dbus FAILED (log: /mnt/lfs/src/kashira-build/logs/dbus.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/docbook-xml-4.5-11-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: docbook-xml OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxslt-docs-1.1.45-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxslt-1.1.45-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxslt OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/docbook-xsl-1.79.2-9-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: docbook-xsl OK
+== wave: xmlto FAILED (log: /mnt/lfs/src/kashira-build/logs/xmlto.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xmlto-0.0.29-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xmlto OK
+== wave: systemd FAILED (log: /mnt/lfs/src/kashira-build/logs/systemd.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: systemd FAILED (log: /mnt/lfs/src/kashira-build/logs/systemd.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: systemd FAILED (log: /mnt/lfs/src/kashira-build/logs/systemd.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done

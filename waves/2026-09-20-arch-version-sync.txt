@@ -16,6 +16,11 @@
 /mnt/lfs/src/kashira-arch/pkgs/bzip2
 /mnt/lfs/src/kashira-arch/pkgs/patchelf
 /mnt/lfs/src/kashira-arch/pkgs/curl
+/mnt/lfs/src/kashira-arch/pkgs/docbook-xml
+/mnt/lfs/src/kashira-arch/pkgs/libxslt
+/mnt/lfs/src/kashira-arch/pkgs/docbook-xsl
+/mnt/lfs/src/kashira-arch/pkgs/xmlto
+/mnt/lfs/src/kashira/pkgs/systemd
 /mnt/lfs/src/kashira-arch/pkgs/dbus
 /mnt/lfs/src/kashira-arch/pkgs/fuse3
 /mnt/lfs/src/kashira-arch/pkgs/e2fsprogs
@@ -31,17 +36,12 @@
 /mnt/lfs/src/kashira-arch/pkgs/libxml2
 /mnt/lfs/src/kashira/pkgs/llvm-libgcc
 /mnt/lfs/src/kashira-arch/pkgs/readline
-/mnt/lfs/src/kashira/pkgs/systemd
 /mnt/lfs/src/kashira-arch/pkgs/gtest
 /mnt/lfs/src/kashira-arch/pkgs/xz
 /mnt/lfs/src/kashira/pkgs/zlib-ng
 /mnt/lfs/src/kashira-arch/pkgs/zstd
 
 # Phase 1: dep closure (doc chain, po4a perl modules, bluez deps, misc)
-/mnt/lfs/src/kashira-arch/pkgs/docbook-xml
-/mnt/lfs/src/kashira-arch/pkgs/libxslt
-/mnt/lfs/src/kashira-arch/pkgs/docbook-xsl
-/mnt/lfs/src/kashira-arch/pkgs/xmlto
 /mnt/lfs/src/kashira-arch/pkgs/perl-locale-gettext
 /mnt/lfs/src/kashira-arch/pkgs/perl-yaml-tiny
 /mnt/lfs/src/kashira-arch/pkgs/perl-sgmls

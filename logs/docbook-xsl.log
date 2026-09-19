@@ -1,0 +1,73 @@
+== build docbook-xsl (deps: docbook-xml libxml2 libxslt )
+warning: libxml2-2.15.4-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (2) docbook-xml-4.5-11  libxslt-1.1.45-2
+
+Total Download Size:   0.28 MiB
+Total Installed Size:  2.72 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ libxslt-1.1.45-2-x86_64 downloading...
+ docbook-xml-4.5-11-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing docbook-xml...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: docbook-xsl 1.79.2-9 (Sat Sep 19 21:22:51 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading docbook-xsl-1.79.2.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0  0 23.86M   0 116.8k   0      0  77459      0   05:23   00:01   05:22 116.4k  3 23.86M   3 927.9k   0      0 364.6k      0   01:07   00:02   01:05 463.2k  7 23.86M   7  1.68M   0      0 487.4k      0   00:50   00:03   00:47 575.2k 10 23.86M  10  2.48M   0      0 559.6k      0   00:43   00:04   00:39 635.3k 12 23.86M  12  3.04M   0      0 562.5k      0   00:43   00:05   00:38 623.3k 16 23.86M  16  3.99M   0      0 625.2k      0   00:39   00:06   00:33 794.9k 19 23.86M  19  4.76M   0      0 646.2k      0   00:37   00:07   00:30 789.5k 23 23.86M  23  5.49M   0      0 658.5k      0   00:37   00:08   00:29 779.8k 25 23.86M  25  6.18M   0      0 663.2k      0   00:36   00:09   00:27 757.2k 29 23.86M  29  6.96M   0      0 676.0k      0   00:36   00:10   00:26 801.9k 32 23.86M  32  7.73M   0      0 685.3k      0   00:35   00:11   00:24 763.9k 35 23.86M  35  8.51M   0      0 694.4k      0   00:35   00:12   00:23 767.0k 39 23.86M  39  9.30M   0      0 703.3k      0   00:34   00:13   00:21 779.8k 42 23.86M  42 10.09M   0      0 710.1k      0   00:34   00:14   00:20 799.6k 45 23.86M  45 10.88M   0      0 716.8k      0   00:34   00:15   00:19 802.8k 48 23.86M  48 11.68M   0      0 722.8k      0   00:33   00:16   00:17 809.3k 52 23.86M  52 12.48M   0      0 728.1k      0   00:33   00:17   00:16 812.6k 55 23.86M  55 13.28M   0      0 725.2k      0   00:33   00:18   00:15 782.4k 59 23.86M  59 14.23M   0      0 737.9k      0   00:33   00:19   00:14 815.8k 62 23.86M  62 15.01M   0      0 740.8k      0   00:32   00:20   00:12 812.7k 66 23.86M  66 15.81M   0      0 744.3k      0   00:32   00:21   00:11 812.7k 69 23.86M  69 16.60M   0      0 747.4k      0   00:32   00:22   00:10 812.7k 72 23.86M  72 17.40M   0      0 750.3k      0   00:32   00:23   00:09 844.3k 76 23.86M  76 18.20M   0      0 752.9k      0   00:32   00:24   00:08 812.0k 79 23.86M  79 19.01M   0      0 755.8k      0   00:32   00:25   00:07 818.0k 83 23.86M  83 19.81M   0      0 758.0k      0   00:32   00:26   00:06 817.9k 86 23.86M  86 20.60M   0      0 760.1k      0   00:32   00:27   00:05 817.9k 89 23.86M  89 21.40M   0      0 762.1k      0   00:32   00:28   00:04 817.9k 93 23.86M  93 22.20M   0      0 763.8k      0   00:31   00:29   00:02 817.9k 95 23.86M  95 22.88M   0      0 759.2k      0   00:32   00:30   00:02 776.1k100 23.86M 100 23.86M   0      0 767.2k      0   00:31   00:31         776.1k100 23.86M 100 23.86M   0      0 767.2k      0   00:31   00:31         776.1k100 23.86M 100 23.86M   0      0 767.2k      0   00:31   00:31         776.1k
+  -> Downloading docbook-xsl-nons-1.79.2.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0  0 23.86M   0 140.5k   0      0  97745      0   04:15   00:01   04:14 140.4k  3 23.86M   3 940.5k   0      0 380.3k      0   01:04   00:02   01:02 470.0k  7 23.86M   7  1.71M   0      0 505.7k      0   00:48   00:03   00:45 585.1k 10 23.86M  10  2.51M   0      0 575.0k      0   00:42   00:04   00:38 642.7k 13 23.86M  13  3.30M   0      0 619.0k      0   00:39   00:05   00:34 677.3k 17 23.86M  17  4.10M   0      0 649.3k      0   00:37   00:06   00:31 812.3k 20 23.86M  20  4.90M   0      0 671.2k      0   00:36   00:07   00:29 815.0k 24 23.86M  24  5.76M   0      0 687.6k      0   00:35   00:08   00:27 811.4k 27 23.86M  27  6.54M   0      0 699.3k      0   00:34   00:09   00:25 808.2k 30 23.86M  30  7.33M   0      0 710.2k      0   00:34   00:10   00:24 808.1k 34 23.86M  34  8.23M   0      0 720.8k      0   00:33   00:11   00:22 809.6k 37 23.86M  37  8.83M   0      0 713.2k      0   00:34   00:12   00:22 773.3k 39 23.86M  39  9.49M   0      0 710.1k      0   00:34   00:13   00:21 747.8k 41 23.86M  41  9.93M   0      0 692.2k      0   00:35   00:14   00:21 679.0k 44 23.86M  44 10.58M   0      0 690.5k      0   00:35   00:15   00:20 649.6k 46 23.86M  46 11.18M   0      0 686.0k      0   00:35   00:16   00:19 604.5k 50 23.86M  50 11.95M   0      0 691.4k      0   00:35   00:17   00:18 636.4k 53 23.86M  53 12.74M   0      0 698.0k      0   00:35   00:18   00:17 665.1k 56 23.86M  56 13.54M   0      0 704.0k      0   00:34   00:19   00:15 738.6k 60 23.86M  60 14.34M   0      0 709.4k      0   00:34   00:20   00:14 768.6k 63 23.86M  63 15.13M   0      0 714.3k      0   00:34   00:21   00:13 808.7k 66 23.86M  66 15.93M   0      0 718.7k      0   00:33   00:22   00:11 815.3k 70 23.86M  70 16.71M   0      0 722.2k      0   00:33   00:23   00:10 812.3k 73 23.86M  73 17.54M   0      0 726.0k      0   00:33   00:24   00:09 812.1k 76 23.86M  76 18.34M   0      0 729.5k      0   00:33   00:25   00:08 812.2k 80 23.86M  80 19.13M   0      0 732.7k      0   00:33   00:26   00:07 812.2k 83 23.86M  83 19.93M   0      0 735.7k      0   00:33   00:27   00:06 812.2k 85 23.86M  85 20.40M   0      0 726.8k      0   00:33   00:28   00:05 748.7k 88 23.86M  88 21.19M   0      0 729.6k      0   00:33   00:29   00:04 746.9k 92 23.86M  92 21.99M   0      0 732.3k      0   00:33   00:30   00:03 746.9k 95 23.86M  95 22.75M   0      0 733.9k      0   00:33   00:31   00:02 740.4k 96 23.86M  96 23.13M   0      0 723.3k      0   00:33   00:32   00:01 654.1k 99 23.86M  99 23.72M   0      0 719.8k      0   00:33   00:33         679.6k100 23.86M 100 23.86M   0      0 720.3k      0   00:33   00:33         679.6k100 23.86M 100 23.86M   0      0 720.3k      0   00:33   00:33         679.6k100 23.86M 100 23.86M   0      0 720.3k      0   00:33   00:33         679.6k
+  -> Found 765567_non-recursive_string_subst.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    docbook-xsl-1.79.2.tar.gz ... Passed
+    docbook-xsl-nons-1.79.2.tar.gz ... Passed
+    765567_non-recursive_string_subst.patch ... Passed
+==> Extracting sources...
+  -> Extracting docbook-xsl-1.79.2.tar.gz with bsdtar
+  -> Extracting docbook-xsl-nons-1.79.2.tar.gz with bsdtar
+==> Starting prepare()...
+patching file lib/lib.xsl
+patching file lib/lib.xsl
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "docbook-xsl"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Adding install file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: docbook-xsl 1.79.2-9 (Sat Sep 19 21:25:31 2026)
