@@ -27,7 +27,13 @@ die() { echo "kbuild: $*" >&2; exit 1; }
 pkg_deps() {
   local info names
   info=$(cd "$1" && makepkg --printsrcinfo 2>/dev/null) || return 0
-  names=$(grep -E "^\s*pkgname = " <<<"$info" | sed 's/.*= //' | sort -u)
+  # split pkgnames of this pkgbase that are NOT yet in the repo (true
+  # bootstrap) must be filtered; names already in the repo (e.g. gcc
+  # self-hosting) install the previous version and must stay.
+  names=$(grep -E "^\s*pkgname = " <<<"$info" | sed 's/.*= //' | sort -u | \
+    while read -r n; do
+      grep -q "^$n-" "$REPO/.kbuild-pkglist" 2>/dev/null || echo "$n"
+    done)
   grep -E "^\s+(make)?depends(_x86_64)? = " <<<"$info" | \
     sed -E 's/.*= //; s/[<>=].*//' | sort -u | \
     grep -vxF "$names" | \
@@ -45,6 +51,8 @@ pkg_deps() {
 # build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/
 build_one() {
   local pkgdir=$1 name deps
+  bsdtar -tf "$REPO/kashira.db.tar.gz" 2>/dev/null | grep '/desc$' | \
+    sed 's|/desc$||' > "$REPO/.kbuild-pkglist"
   pkgdir=$(realpath "$pkgdir")
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
   name=$(basename "$pkgdir")
