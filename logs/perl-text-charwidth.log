@@ -1,0 +1,70 @@
+== build perl-text-charwidth (deps: none)
+==> Making package: perl-text-charwidth 0.04-25 (Sun Sep 20 01:28:35 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found Text-CharWidth-0.04.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    Text-CharWidth-0.04.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting Text-CharWidth-0.04.tar.gz with bsdtar
+==> Starting build()...
+Checking if your kit is complete...
+Looks good
+Generating a Unix-style Makefile
+Writing Makefile for Text::CharWidth
+Writing MYMETA.yml and MYMETA.json
+"/usr/bin/perl" "/usr/lib/perl5/5.44/core_perl/ExtUtils/xsubpp" -noprototypes -typemap '/usr/lib/perl5/5.44/core_perl/ExtUtils/typemap'  CharWidth.xs > CharWidth.xsc
+Running Mkbootstrap for CharWidth ()
+chmod 644 "CharWidth.bs"
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- CharWidth.bs blib/arch/auto/Text/CharWidth/CharWidth.bs 644
+cp CharWidth.pm blib/lib/Text/CharWidth.pm
+mv CharWidth.xsc CharWidth.c
+clang -c  -I. -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -fwrapv -pipe -fstack-protector-strong -I/usr/include/db5.3 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\"0.04\" -DXS_VERSION=\"0.04\" -fPIC "-I/usr/lib/perl5/5.44/core_perl/CORE"   CharWidth.c
+In file included from CharWidth.xs:5:
+./ppport.h:227:11: warning: 'PERL_UNUSED_DECL' macro redefined [-Wmacro-redefined]
+  227 | #  define PERL_UNUSED_DECL
+      |           ^
+/usr/lib/perl5/5.44/core_perl/CORE/perl.h:550:11: note: previous definition is here
+  550 | #  define PERL_UNUSED_DECL __attribute__unused__
+      |           ^
+1 warning generated.
+rm -f blib/arch/auto/Text/CharWidth/CharWidth.so
+clang  -shared -O2 -L/usr/lib/db5.3 -fstack-protector-strong  CharWidth.o  -o blib/arch/auto/Text/CharWidth/CharWidth.so  \
+      \
+  
+chmod 755 blib/arch/auto/Text/CharWidth/CharWidth.so
+Manifying 1 pod document
+==> Entering fakeroot environment...
+==> Starting package()...
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- CharWidth.bs blib/arch/auto/Text/CharWidth/CharWidth.bs 644
+Manifying 1 pod document
+Appending installation info to /home/builder/build/pkg/perl-text-charwidth/usr/lib/perl5/5.44/core_perl/perllocal.pod
+Files found in blib/arch: installing files in blib/lib into architecture dependent library tree
+Installing /home/builder/build/pkg/perl-text-charwidth/usr/lib/perl5/5.44/vendor_perl/auto/Text/CharWidth/CharWidth.so
+Installing /home/builder/build/pkg/perl-text-charwidth/usr/lib/perl5/5.44/vendor_perl/Text/CharWidth.pm
+Installing /home/builder/build/pkg/perl-text-charwidth/usr/share/man/man3/Text::CharWidth.3
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "perl-text-charwidth"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: perl-text-charwidth 0.04-25 (Sun Sep 20 01:28:39 2026)

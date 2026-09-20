@@ -1,0 +1,128 @@
+== build rhash (deps: glibc )
+warning: glibc-2.44-2 is up to date -- skipping
+ there is nothing to do
+==> Making package: rhash 1.4.6-1 (Sun Sep 20 02:51:02 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading rhash-1.4.6.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0           00:01              0100  40979   0  40979   0      0  19863      0           00:02          38732100 346.7k   0 346.7k   0      0 110.7k      0           00:03         163.1k100 450.4k   0 450.4k   0      0 131.6k      0           00:03         163.1k100 450.4k   0 450.4k   0      0 131.6k      0           00:03         163.1k100 450.4k   0 450.4k   0      0 131.6k      0           00:03         163.1k
+  -> Downloading rhash-1.4.6.tar.gz.asc...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100    833 100    833   0      0    928      0                              0100    833 100    833   0      0    928      0                              0100    833 100    833   0      0    928      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    rhash-1.4.6.tar.gz ... Passed
+    rhash-1.4.6.tar.gz.asc ... Skipped
+==> Extracting sources...
+  -> Extracting rhash-1.4.6.tar.gz with bsdtar
+==> Starting prepare()...
+Checking for sources ... RHash 1.4.6 
+Checking for target OS ... Linux 
+Checking for clang version ... clang 23.1.1 
+Checking for linker support for dlopen ... yes 
+Checking for sha1 intrinsics ... yes 
+Checking for linker support for --version-script ... yes 
+Checking for gettext ... found 
+Checking for OpenSSL ... runtime 
+Writing config.mak
+Writing librhash/config.mak
+Writing dist/librhash.pc
+Writing dist/rhash.1
+==> Starting build()...
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection calc_sums.c -o calc_sums.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection hash_print.c -o hash_print.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection common_func.c -o common_func.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection hash_update.c -o hash_update.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection file.c -o file.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection file_mask.c -o file_mask.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection file_set.c -o file_set.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection find_file.c -o find_file.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection hash_check.c -o hash_check.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection output.c -o output.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -DSYSCONFDIR=\"/etc\" parse_cmdline.c -o parse_cmdline.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -DLOCALEDIR=\"/usr/share/locale\" rhash_main.c -o rhash_main.o
+clang -c -DUSE_GETTEXT -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection win_utils.c -o win_utils.o
+cd librhash && make lib-shared
+make[1]: Entering directory '/home/builder/build/src/RHash-1.4.6/librhash'
+sed -ne '1s/.*/{ global:/p; s/^RHASH_API.* \(rhash_[a-z0-9_]*\)(.*/  \1;/p; $s/.*/local: *; };/p' \
+  rhash.h rhash_torrent.h | grep -v "rhash_wfile" > exports.sym
+test "xlibrhash.so.1" = "xlibrhash.so.1.4.6" || ( \
+  rm -f librhash.so.1 && \
+  ln -s librhash.so.1.4.6 librhash.so.1 )
+rm -f librhash.so
+ln -s librhash.so.1 librhash.so
+clang -DRHASH_SSE4_SHANI -DOPENSSL_RUNTIME -DNDEBUG -pipe -ffunction-sections -fdata-sections -fomit-frame-pointer -msse4 -msha -Wall -W -Wstrict-prototypes -Wnested-externs -Winline -Wpointer-arith -Wbad-function-cast -Wmissing-prototypes -Wmissing-declarations -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fpic -DRHASH_XVERSION=0x01040600 algorithms.c byte_order.c plug_openssl.c rhash.c rhash_torrent.c aich.c blake2b.c blake2s.c blake3.c crc32.c ed2k.c edonr.c hex.c md4.c md5.c sha1.c sha_ni.c sha256.c sha512.c sha3.c ripemd-160.c gost12.c gost94.c has160.c snefru.c tiger.c tiger_sbox.c tth.c torrent.c util.c whirlpool.c whirlpool_sbox.c  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -shared -Wl,--version-script,exports.sym,-soname,librhash.so.1 -o librhash.so.1.4.6
+make[1]: Leaving directory '/home/builder/build/src/RHash-1.4.6/librhash'
+clang calc_sums.o hash_print.o common_func.o hash_update.o file.o file_mask.o file_set.o find_file.o hash_check.o output.o parse_cmdline.o rhash_main.o win_utils.o librhash/librhash.so.1.4.6  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o rhash
+==> Entering fakeroot environment...
+==> Starting package()...
+make install-binary
+install -d /home/builder/build/pkg/rhash/usr/share/man/man1
+install -d /home/builder/build/pkg/rhash/etc
+install -d /home/builder/build/pkg/rhash/usr/bin
+cd librhash && make install-lib-shared
+make[1]: Entering directory '/home/builder/build/src/RHash-1.4.6'
+install -d /home/builder/build/pkg/rhash/usr/bin
+tr -d \\r < dist/rhashrc.sample > rc.tmp && install -m 644 rc.tmp /home/builder/build/pkg/rhash/etc/rhashrc
+install -m 644 dist/rhash.1 /home/builder/build/pkg/rhash/usr/share/man/man1/rhash.1
+install -m 755 rhash /home/builder/build/pkg/rhash/usr/bin/rhash
+install -m 755 rhash /home/builder/build/pkg/rhash/usr/bin/rhash
+make[1]: Entering directory '/home/builder/build/src/RHash-1.4.6/librhash'
+install -d /home/builder/build/pkg/rhash/usr/lib
+install -m 755 librhash.so.1.4.6 /home/builder/build/pkg/rhash/usr/lib/
+test "xlibrhash.so.1" = "xlibrhash.so.1.4.6" || ( \
+  rm -f /home/builder/build/pkg/rhash/usr/lib/librhash.so.1 && \
+  ln -s librhash.so.1.4.6 /home/builder/build/pkg/rhash/usr/lib/librhash.so.1 )
+rm -f rc.tmp
+make[1]: Leaving directory '/home/builder/build/src/RHash-1.4.6'
+cd /home/builder/build/pkg/rhash/usr/bin && for f in sfv-hash has160-hash gost12-256-hash gost12-512-hash edonr256-hash edonr512-hash tiger-hash tth-hash whirlpool-hash ed2k-link magnet-link; do ln -sf rhash $f; done
+make[1]: Leaving directory '/home/builder/build/src/RHash-1.4.6/librhash'
+cd /home/builder/build/pkg/rhash/usr/share/man/man1 && for f in sfv-hash has160-hash gost12-256-hash gost12-512-hash edonr256-hash edonr512-hash tiger-hash tth-hash whirlpool-hash ed2k-link magnet-link; do ln -sf rhash.1 $f.1; done
+install: creating directory '/home/builder/build/pkg/rhash/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/rhash/usr/share/licenses/rhash'
+'COPYING' -> '/home/builder/build/pkg/rhash/usr/share/licenses/rhash/COPYING'
+make: Entering directory '/home/builder/build/src/RHash-1.4.6/librhash'
+install -d /home/builder/build/pkg/rhash/usr/include
+install -d /home/builder/build/pkg/rhash/usr/lib
+install -d /home/builder/build/pkg/rhash/usr/lib
+install -m 644 rhash.h rhash_torrent.h /home/builder/build/pkg/rhash/usr/include/
+install -m 755 librhash.so.1.4.6 /home/builder/build/pkg/rhash/usr/lib/
+rm -f /home/builder/build/pkg/rhash/usr/lib/librhash.so
+test "xlibrhash.so.1" = "xlibrhash.so.1.4.6" || ( \
+  rm -f /home/builder/build/pkg/rhash/usr/lib/librhash.so.1 && \
+  ln -s librhash.so.1.4.6 /home/builder/build/pkg/rhash/usr/lib/librhash.so.1 )
+ln -s librhash.so.1 /home/builder/build/pkg/rhash/usr/lib/librhash.so
+make: Leaving directory '/home/builder/build/src/RHash-1.4.6/librhash'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "rhash"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: rhash 1.4.6-1 (Sun Sep 20 02:51:29 2026)

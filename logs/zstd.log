@@ -1,0 +1,359 @@
+== build zstd (deps: cmake gcc glibc gtest libgcc libstdc++ lz4 ninja xz zlib )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: lz4-1.10.0-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) mpc-1.4.1-1  cmake-4.4.2-1  gcc-16.2.0-6  gtest-1.18.0-1  ninja-1.13.2-1  xz-5.8.4-1
+
+Total Download Size:   107.48 MiB
+Total Installed Size:  397.79 MiB
+Net Upgrade Size:      395.19 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ cmake-4.4.2-1-x86_64 downloading...
+ xz-5.8.4-1-x86_64 downloading...
+ gtest-1.18.0-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading xz...
+installing cmake...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing gtest...
+Optional dependencies for gtest
+    python: gmock generator [installed]
+installing ninja...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: zstd 1.5.7-3 (Sun Sep 20 01:42:01 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found zstd-1.5.7.tar.zst
+  -> Found zstd-1.5.7.tar.zst.sig
+  -> Found 6af3842118ea5325480b403213b2a9fbed3d3d74.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    zstd-1.5.7.tar.zst ... Passed
+    zstd-1.5.7.tar.zst.sig ... Skipped
+    6af3842118ea5325480b403213b2a9fbed3d3d74.patch ... Passed
+==> Validating source files with b2sums...
+    zstd-1.5.7.tar.zst ... Passed
+    zstd-1.5.7.tar.zst.sig ... Skipped
+    6af3842118ea5325480b403213b2a9fbed3d3d74.patch ... Passed
+==> Extracting sources...
+  -> Extracting zstd-1.5.7.tar.zst with bsdtar
+==> Starting prepare()...
+patching file doc/zstd_manual.html
+patching file programs/zstd.1
+patching file programs/zstdgrep.1
+patching file programs/zstdless.1
+==> Starting build()...
+-- The C compiler identification is Clang 23.1.1
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: /usr/sbin/clang
+-- The CXX compiler identification is Clang 23.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- ZSTD VERSION: 1.5.7
+-- Performing Test C_FLAG_WALL
+-- Performing Test C_FLAG_WALL - Success
+-- Performing Test CXX_FLAG_WALL
+-- Performing Test CXX_FLAG_WALL - Success
+-- Performing Test C_FLAG_WEXTRA
+-- Performing Test C_FLAG_WEXTRA - Success
+-- Performing Test CXX_FLAG_WEXTRA
+-- Performing Test CXX_FLAG_WEXTRA - Success
+-- Performing Test C_FLAG_WUNDEF
+-- Performing Test C_FLAG_WUNDEF - Success
+-- Performing Test CXX_FLAG_WUNDEF
+-- Performing Test CXX_FLAG_WUNDEF - Success
+-- Performing Test C_FLAG_WSHADOW
+-- Performing Test C_FLAG_WSHADOW - Success
+-- Performing Test CXX_FLAG_WSHADOW
+-- Performing Test CXX_FLAG_WSHADOW - Success
+-- Performing Test C_FLAG_WCAST_ALIGN
+-- Performing Test C_FLAG_WCAST_ALIGN - Success
+-- Performing Test CXX_FLAG_WCAST_ALIGN
+-- Performing Test CXX_FLAG_WCAST_ALIGN - Success
+-- Performing Test C_FLAG_WCAST_QUAL
+-- Performing Test C_FLAG_WCAST_QUAL - Success
+-- Performing Test CXX_FLAG_WCAST_QUAL
+-- Performing Test CXX_FLAG_WCAST_QUAL - Success
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES - Success
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK - Success
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test C_FLAG_WA_NOEXECSTACK
+-- Performing Test C_FLAG_WA_NOEXECSTACK - Success
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK - Success
+-- CMAKE_INSTALL_PREFIX: /usr
+-- CMAKE_INSTALL_LIBDIR: lib
+-- ZSTD_LEGACY_SUPPORT defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+CMake Warning at lib/CMakeLists.txt:156 (message):
+  BUILD_SHARED_LIBS is OFF, but ZSTD_BUILD_SHARED is ON and ZSTD_BUILD_STATIC
+  is OFF, which takes precedence, so libzstd is a shared library
+
+
+-- Found ZLIB: /usr/lib/libz.so (found version "1.3.1")
+-- Looking for lzma_auto_decoder in /usr/lib/liblzma.so
+-- Looking for lzma_auto_decoder in /usr/lib/liblzma.so - found
+-- Looking for lzma_easy_encoder in /usr/lib/liblzma.so
+-- Looking for lzma_easy_encoder in /usr/lib/liblzma.so - found
+-- Looking for lzma_lzma_preset in /usr/lib/liblzma.so
+-- Looking for lzma_lzma_preset in /usr/lib/liblzma.so - found
+-- Found LibLZMA: /usr/lib/liblzma.so (found version "5.8.4")
+-- Found LibLZ4: /usr/include (found version "1.10.0")
+-- Configuring done (5.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/builder/build/src/zstd-1.5.7/build
+[1/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/debug.c.o
+[2/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/threading.c.o
+[3/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/xxhash.c.o
+[4/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/error_private.c.o
+[5/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/entropy_common.c.o
+[6/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/fse_compress.c.o
+[7/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_compress_literals.c.o
+[8/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/zstd_common.c.o
+[9/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_compress_sequences.c.o
+[10/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/hist.c.o
+[11/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/pool.c.o
+[12/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_preSplit.c.o
+[13/108] Building ASM object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/decompress/huf_decompress_amd64.S.o
+[14/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/common/fse_decompress.c.o
+[15/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_compress_superblock.c.o
+[16/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_ldm.c.o
+[17/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/decompress/zstd_ddict.c.o
+[18/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/dictBuilder/fastcover.c.o
+[19/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/huf_compress.c.o
+[20/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/dictBuilder/cover.c.o
+[21/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstdmt_compress.c.o
+[22/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/benchfn.c.o
+[23/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_fast.c.o
+[24/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_opt.c.o
+[25/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/dictBuilder/zdict.c.o
+[26/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/decompress/huf_decompress.c.o
+[27/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/decompress/zstd_decompress.c.o
+[28/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/benchzstd.c.o
+[29/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/dibio.c.o
+[30/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/lorem.c.o
+[31/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[32/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[33/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/dictBuilder/divsufsort.c.o
+[34/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_double_fast.c.o
+[35/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v01.c.o
+[36/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/decompress/zstd_decompress_block.c.o
+[37/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_compress.c.o
+[38/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v05.c.o
+[39/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/fileio_asyncio.c.o
+[40/108] Copying manpage zstd.1
+[41/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v02.c.o
+[42/108] Building C object programs/CMakeFiles/zstd-frugal.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[43/108] Building C object tests/CMakeFiles/datagen.dir/home/builder/build/src/zstd-1.5.7/tests/loremOut.c.o
+[44/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v03.c.o
+[45/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/zstdcli_trace.c.o
+[46/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v07.c.o
+[47/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v04.c.o
+[48/108] Building C object tests/CMakeFiles/datagen.dir/home/builder/build/src/zstd-1.5.7/programs/lorem.c.o
+[49/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/legacy/zstd_v06.c.o
+[50/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/benchfn.c.o
+[51/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/lorem.c.o
+[52/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[53/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/fileio.c.o
+[54/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[55/108] Building C object programs/CMakeFiles/zstd-frugal.dir/home/builder/build/src/zstd-1.5.7/programs/fileio_asyncio.c.o
+[56/108] Building C object tests/CMakeFiles/datagen.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[57/108] Building C object tests/CMakeFiles/fuzzer.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[58/108] Building C object programs/CMakeFiles/zstd.dir/home/builder/build/src/zstd-1.5.7/programs/zstdcli.c.o
+[59/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[60/108] Building C object tests/CMakeFiles/datagen.dir/home/builder/build/src/zstd-1.5.7/tests/datagencli.c.o
+[61/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[62/108] Building C object programs/CMakeFiles/zstd-frugal.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[63/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[64/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/benchfn.c.o
+[65/108] Building C object programs/CMakeFiles/zstd-frugal.dir/home/builder/build/src/zstd-1.5.7/programs/zstdcli.c.o
+[66/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/tests/seqgen.c.o
+[67/108] Building CXX object contrib/gen_html/CMakeFiles/gen_html.dir/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp.o
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:128:29: warning: '/*' within block comment [-Wcomment]
+  128 |         /* comments of type /**< and /*!< are detected and only function declaration is highlighted (bold) */
+      |                             ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:128:38: warning: '/*' within block comment [-Wcomment]
+  128 |         /* comments of type /**< and /*!< are detected and only function declaration is highlighted (bold) */
+      |                                      ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:162:29: warning: '/*' within block comment [-Wcomment]
+  162 |         /* comments of type /*! mean: this is a function declaration; switch comments with declarations */
+      |                             ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:182:57: warning: '/*' within block comment [-Wcomment]
+  182 |         } else if (exclam == '=') { /* comments of type /*= and /**= mean: use a <H3> header and show also all functions until first empty line */
+      |                                                         ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:182:65: warning: '/*' within block comment [-Wcomment]
+  182 |         } else if (exclam == '=') { /* comments of type /*= and /**= mean: use a <H3> header and show also all functions until first empty line */
+      |                                                                 ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:194:38: warning: '/*' within block comment [-Wcomment]
+  194 |         } else { /* comments of type /** and /*- mean: this is a comment; use a <H2> header for the first line */
+      |                                      ^
+/home/builder/build/src/zstd-1.5.7/contrib/gen_html/gen_html.cpp:194:46: warning: '/*' within block comment [-Wcomment]
+  194 |         } else { /* comments of type /** and /*- mean: this is a comment; use a <H2> header for the first line */
+      |                                              ^
+7 warnings generated.
+[68/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/tests/fullbench.c.o
+[69/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[70/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/lorem.c.o
+[71/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/timefn.c.o
+[72/108] Building C object tests/CMakeFiles/fuzzer.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[73/108] Building C object tests/CMakeFiles/fullbench.dir/home/builder/build/src/zstd-1.5.7/programs/benchzstd.c.o
+[74/108] Linking CXX executable contrib/gen_html/gen_html
+[75/108] Copying manpage zstdgrep.1
+[76/108] Creating zstdcat.1 symlink
+[77/108] Copying manpage zstdless.1
+[78/108] Update zstd manual
+[79/108] Building C object tests/CMakeFiles/fuzzer.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[80/108] Creating unzstd.1 symlink
+[81/108] Building C object programs/CMakeFiles/zstd-frugal.dir/home/builder/build/src/zstd-1.5.7/programs/fileio.c.o
+[82/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/tests/external_matchfinder.c.o
+[83/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/datagen.c.o
+[84/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/benchzstd.c.o
+[85/108] Building C object contrib/pzstd/CMakeFiles/pzstd.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[86/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[87/108] Building CXX object contrib/pzstd/CMakeFiles/pzstd.dir/home/builder/build/src/zstd-1.5.7/contrib/pzstd/main.cpp.o
+[88/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/programs/util.c.o
+[89/108] Building C object tests/CMakeFiles/paramgrill.dir/home/builder/build/src/zstd-1.5.7/tests/paramgrill.c.o
+[90/108] Building CXX object contrib/pzstd/CMakeFiles/pzstd.dir/home/builder/build/src/zstd-1.5.7/contrib/pzstd/SkippableFrame.cpp.o
+[91/108] Building CXX object contrib/pzstd/CMakeFiles/pzstd.dir/home/builder/build/src/zstd-1.5.7/contrib/pzstd/Options.cpp.o
+[92/108] Building C object tests/CMakeFiles/zstreamtest.dir/home/builder/build/src/zstd-1.5.7/tests/zstreamtest.c.o
+/home/builder/build/src/zstd-1.5.7/tests/zstreamtest.c:1899:32: warning: initializer-string for character array is too long, array size is 6 but initializer has size 7 (including the null terminating character); did you mean to use the 'nonstring' attribute? [-Wunterminated-string-initialization]
+ 1899 |           char testBuffer[6] = "\xAA\xAA\xAA\xAA\xAA\xAA";
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[93/108] Building C object tests/CMakeFiles/fuzzer.dir/home/builder/build/src/zstd-1.5.7/tests/fuzzer.c.o
+[94/108] Building C object lib/CMakeFiles/libzstd_shared.dir/home/builder/build/src/zstd-1.5.7/lib/compress/zstd_lazy.c.o
+[95/108] Linking C shared library lib/libzstd.so.1.5.7
+[96/108] Creating library symlink lib/libzstd.so.1 lib/libzstd.so
+[97/108] Linking C executable tests/datagen
+[98/108] Linking C executable tests/paramgrill
+[99/108] Linking C executable tests/zstreamtest
+[100/108] Linking C executable tests/fullbench
+[101/108] Linking C executable programs/zstd-frugal
+[102/108] Linking C executable programs/zstd
+[103/108] Linking C executable tests/fuzzer
+[104/108] Creating unzstd symlink
+[105/108] Creating zstdcat symlink
+[106/108] Creating zstdmt symlink
+[107/108] Building CXX object contrib/pzstd/CMakeFiles/pzstd.dir/home/builder/build/src/zstd-1.5.7/contrib/pzstd/Pzstd.cpp.o
+[108/108] Linking CXX executable contrib/pzstd/pzstd
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/cmake/zstd/zstdTargets.cmake
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/cmake/zstd/zstdTargets-none.cmake
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/cmake/zstd/zstdConfig.cmake
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/cmake/zstd/zstdConfigVersion.cmake
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/pkgconfig/libzstd.pc
+-- Installing: /home/builder/build/pkg/zstd/usr/include/zdict.h
+-- Installing: /home/builder/build/pkg/zstd/usr/include/zstd.h
+-- Installing: /home/builder/build/pkg/zstd/usr/include/zstd_errors.h
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/libzstd.so.1.5.7
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/libzstd.so.1
+-- Installing: /home/builder/build/pkg/zstd/usr/lib/libzstd.so
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/zstd
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/zstdcat
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/unzstd
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/zstdgrep
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/zstdless
+-- Installing: /home/builder/build/pkg/zstd/usr/share/man/man1/zstd.1
+-- Installing: /home/builder/build/pkg/zstd/usr/share/man/man1/zstdcat.1
+-- Installing: /home/builder/build/pkg/zstd/usr/share/man/man1/unzstd.1
+-- Installing: /home/builder/build/pkg/zstd/usr/share/man/man1/zstdgrep.1
+-- Installing: /home/builder/build/pkg/zstd/usr/share/man/man1/zstdless.1
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/zstdmt
+-- Installing: /home/builder/build/pkg/zstd/usr/bin/pzstd
+-- Installing: /home/builder/build/pkg/zstd/usr/share/doc/zstd/zstd_manual.html
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libzstd.so.1.5.7
+usr/bin/zstd
+usr/bin/pzstd
+==> Creating package "zstd"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: zstd 1.5.7-3 (Sun Sep 20 01:42:28 2026)

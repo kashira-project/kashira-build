@@ -1,0 +1,867 @@
+== build llvm-libgcc (deps: clang cmake glibc ninja )
+resolving dependencies...
+warning: llvm-23.1.1-6 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (2) cmake-4.4.2-1  ninja-1.13.2-1
+
+Total Download Size:   16.29 MiB
+Total Installed Size:  62.23 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ cmake-4.4.2-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing ninja...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: llvm-libgcc 23.1.1-5 (Sun Sep 20 01:03:22 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found llvm-project-23.1.1.src.tar.xz
+  -> Found gcc-s-ver-kashira.inc
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    llvm-project-23.1.1.src.tar.xz ... Passed
+    gcc-s-ver-kashira.inc ... Skipped
+==> Extracting sources...
+  -> Extracting llvm-project-23.1.1.src.tar.xz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+-- The C compiler identification is Clang 23.1.1
+-- The CXX compiler identification is Clang 23.1.1
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: /usr/sbin/clang
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for unwind.h
+-- Looking for unwind.h - found
+-- Looking for rpc/xdr.h
+-- Looking for rpc/xdr.h - not found
+-- Performing Test COMPILER_RT_HAS_NO_DEFAULT_CONFIG_FLAG
+-- Performing Test COMPILER_RT_HAS_NO_DEFAULT_CONFIG_FLAG - Success
+-- Looking for histedit.h
+-- Looking for histedit.h - found
+-- Found LibEdit: /usr/include (found version "2.11")
+-- Found ZLIB: /usr/lib/libz.so (found version "1.3.1")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found LibXml2: /usr/lib/libxml2.so (found version "2.15.4")
+-- LLVM_MAIN_SRC_DIR: "/home/builder/build/src/llvm-project-23.1.1.src/llvm"
+CMake Warning at /home/builder/build/src/llvm-project-23.1.1.src/compiler-rt/cmake/Modules/CompilerRTUtils.cmake:351 (message):
+  LLVMTestingSupport not found in LLVM_AVAILABLE_LIBS
+Call Stack (most recent call first):
+  /home/builder/build/src/llvm-project-23.1.1.src/compiler-rt/CMakeLists.txt:128 (load_llvm_config)
+
+
+-- Found Python3: /usr/sbin/python3.14 (found version "3.14.7") found components: Interpreter
+-- Linker detection: LLD
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_NONE_FLAG
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_NONE_FLAG - Success
+-- Looking for fopen in c
+-- Looking for fopen in c - found
+-- Looking for __gcc_personality_v0 in gcc_s
+-- Looking for __gcc_personality_v0 in gcc_s - found
+-- Performing Test C_SUPPORTS_NODEFAULTLIBS_FLAG
+-- Performing Test C_SUPPORTS_NODEFAULTLIBS_FLAG - Success
+-- Looking for _Unwind_GetRegionStart in unwind
+-- Looking for _Unwind_GetRegionStart in unwind - found
+-- Looking for __atomic_load_8 in atomic
+-- Looking for __atomic_load_8 in atomic - found
+-- Performing Test COMPILER_RT_HAS_FFREESTANDING_FLAG
+-- Performing Test COMPILER_RT_HAS_FFREESTANDING_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_OMIT_FRAME_POINTER_FLAG
+-- Performing Test COMPILER_RT_HAS_OMIT_FRAME_POINTER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_STD_C11_FLAG
+-- Performing Test COMPILER_RT_HAS_STD_C11_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FCF_PROTECTION_FLAG
+-- Performing Test COMPILER_RT_HAS_FCF_PROTECTION_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FPIC_FLAG
+-- Performing Test COMPILER_RT_HAS_FPIC_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FPIE_FLAG
+-- Performing Test COMPILER_RT_HAS_FPIE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_BUILTIN_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_BUILTIN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_EXCEPTIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_EXCEPTIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FEXCEPTIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_FEXCEPTIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FOMIT_FRAME_POINTER_FLAG
+-- Performing Test COMPILER_RT_HAS_FOMIT_FRAME_POINTER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FUNWIND_TABLES_FLAG
+-- Performing Test COMPILER_RT_HAS_FUNWIND_TABLES_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_STACK_PROTECTOR_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_STACK_PROTECTOR_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_SANITIZE_SAFE_STACK_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_SANITIZE_SAFE_STACK_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FRTTI_FLAG
+-- Performing Test COMPILER_RT_HAS_FRTTI_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_RTTI_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_RTTI_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_FUNCTION_SECTIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_FUNCTION_SECTIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FTLS_MODEL_INITIAL_EXEC
+-- Performing Test COMPILER_RT_HAS_FTLS_MODEL_INITIAL_EXEC - Success
+-- Performing Test COMPILER_RT_HAS_FNO_LTO_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_LTO_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_GENERATE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_GENERATE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_GENERATE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_GENERATE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_USE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_USE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_COVERAGE_MAPPING_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_COVERAGE_MAPPING_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MCRC32_FLAG
+-- Performing Test COMPILER_RT_HAS_MCRC32_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MSSE4_2_FLAG
+-- Performing Test COMPILER_RT_HAS_MSSE4_2_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SYSROOT_FLAG
+-- Performing Test COMPILER_RT_HAS_SYSROOT_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MCRC_FLAG
+-- Performing Test COMPILER_RT_HAS_MCRC_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_FNO_PARTIAL_INLINING_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PARTIAL_INLINING_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_TRIVIAL_AUTO_INIT
+-- Performing Test COMPILER_RT_HAS_TRIVIAL_AUTO_INIT - Success
+-- Performing Test COMPILER_RT_HAS_NOGPULIB_FLAG
+-- Performing Test COMPILER_RT_HAS_NOGPULIB_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FLTO_FLAG
+-- Performing Test COMPILER_RT_HAS_FLTO_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_CODE_OBJECT_VERSION_FLAG
+-- Performing Test COMPILER_RT_HAS_CODE_OBJECT_VERSION_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_INLINES_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_INLINES_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_GR_FLAG
+-- Performing Test COMPILER_RT_HAS_GR_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_GS_FLAG
+-- Performing Test COMPILER_RT_HAS_GS_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_MT_FLAG
+-- Performing Test COMPILER_RT_HAS_MT_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_Oy_FLAG
+-- Performing Test COMPILER_RT_HAS_Oy_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_GLINE_TABLES_ONLY_FLAG
+-- Performing Test COMPILER_RT_HAS_GLINE_TABLES_ONLY_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_G_FLAG
+-- Performing Test COMPILER_RT_HAS_G_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_Zi_FLAG
+-- Performing Test COMPILER_RT_HAS_Zi_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WALL_FLAG
+-- Performing Test COMPILER_RT_HAS_WALL_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WERROR_FLAG
+-- Performing Test COMPILER_RT_HAS_WERROR_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WFRAME_LARGER_THAN_FLAG
+-- Performing Test COMPILER_RT_HAS_WFRAME_LARGER_THAN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WGLOBAL_CONSTRUCTORS_FLAG
+-- Performing Test COMPILER_RT_HAS_WGLOBAL_CONSTRUCTORS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WC99_EXTENSIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_WC99_EXTENSIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WGNU_FLAG
+-- Performing Test COMPILER_RT_HAS_WGNU_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WGNU_ANONYMOUS_STRUCT_FLAG
+-- Performing Test COMPILER_RT_HAS_WGNU_ANONYMOUS_STRUCT_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WVARIADIC_MACROS_FLAG
+-- Performing Test COMPILER_RT_HAS_WVARIADIC_MACROS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WUNUSED_PARAMETER_FLAG
+-- Performing Test COMPILER_RT_HAS_WUNUSED_PARAMETER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WCOVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test COMPILER_RT_HAS_WCOVERED_SWITCH_DEFAULT_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WSUGGEST_OVERRIDE_FLAG
+-- Performing Test COMPILER_RT_HAS_WSUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_REFERENCE_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_REFERENCE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_BETA_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_BETA_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WNO_PEDANTIC
+-- Performing Test COMPILER_RT_HAS_WNO_PEDANTIC - Success
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT - Success
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT_PEDANTIC
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT_PEDANTIC - Success
+-- Performing Test COMPILER_RT_HAS_W4_FLAG
+-- Performing Test COMPILER_RT_HAS_W4_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WX_FLAG
+-- Performing Test COMPILER_RT_HAS_WX_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4146_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4146_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4206_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4206_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4291_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4291_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4221_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4221_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4391_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4391_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4722_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4722_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4800_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4800_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_ARRAY_BOUNDS_FLAG
+-- Performing Test COMPILER_RT_HAS_ARRAY_BOUNDS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_UNINITIALIZED_FLAG
+-- Performing Test COMPILER_RT_HAS_UNINITIALIZED_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SHADOW_FLAG
+-- Performing Test COMPILER_RT_HAS_SHADOW_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_EMPTY_BODY_FLAG
+-- Performing Test COMPILER_RT_HAS_EMPTY_BODY_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SIZEOF_POINTER_MEMACCESS_FLAG
+-- Performing Test COMPILER_RT_HAS_SIZEOF_POINTER_MEMACCESS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_ARGUMENT_FLAG
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_ARGUMENT_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SUSPICIOUS_MEMACCESS_FLAG
+-- Performing Test COMPILER_RT_HAS_SUSPICIOUS_MEMACCESS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_BUILTIN_MEMCPY_CHK_SIZE_FLAG
+-- Performing Test COMPILER_RT_HAS_BUILTIN_MEMCPY_CHK_SIZE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_ARRAY_BOUNDS_POINTER_ARITHMETIC_FLAG
+-- Performing Test COMPILER_RT_HAS_ARRAY_BOUNDS_POINTER_ARITHMETIC_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_RETURN_STACK_ADDRESS_FLAG
+-- Performing Test COMPILER_RT_HAS_RETURN_STACK_ADDRESS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_DECAY_FLAG
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_DECAY_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FORMAT_INSUFFICIENT_ARGS_FLAG
+-- Performing Test COMPILER_RT_HAS_FORMAT_INSUFFICIENT_ARGS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_BUILTIN_FORMAL_SECURITY_FLAG
+-- Performing Test COMPILER_RT_HAS_BUILTIN_FORMAL_SECURITY_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_DIV_FLAG
+-- Performing Test COMPILER_RT_HAS_SIZEOF_ARRAY_DIV_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SIZEOF_POINTER_DIV_FLAG
+-- Performing Test COMPILER_RT_HAS_SIZEOF_POINTER_DIV_FLAG - Success
+-- Looking for __func__
+-- Looking for __func__ - found
+-- Performing Test COMPILER_RT_HAS_NOSTDINCXX_FLAG
+-- Performing Test COMPILER_RT_HAS_NOSTDINCXX_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_NOSTDLIBXX_FLAG
+-- Performing Test COMPILER_RT_HAS_NOSTDLIBXX_FLAG - Success
+-- Looking for include file sys/auxv.h
+-- Looking for include file sys/auxv.h - found
+-- Looking for dlopen in dl
+-- Looking for dlopen in dl - found
+-- Looking for shm_open in rt
+-- Looking for shm_open in rt - found
+-- Looking for pow in m
+-- Looking for pow in m - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for backtrace in execinfo
+-- Looking for backtrace in execinfo - found
+-- Looking for __cxa_throw in c++
+-- Looking for __cxa_throw in c++ - found
+-- Looking for __cxa_throw in stdc++
+-- Looking for __cxa_throw in stdc++ - found
+-- Performing Test COMPILER_RT_HAS_Z_TEXT
+-- Performing Test COMPILER_RT_HAS_Z_TEXT - Success
+-- Performing Test COMPILER_RT_HAS_FUSE_LD_LLD_FLAG
+-- Performing Test COMPILER_RT_HAS_FUSE_LD_LLD_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_VERSION_SCRIPT
+-- Performing Test COMPILER_RT_HAS_VERSION_SCRIPT - Success
+-- Looking for __i386__
+-- Looking for __i386__ - found
+-- Compiler-RT supported architectures: x86_64
+-- Performing Test COMPILER_RT_HAS_VISIBILITY_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_VISIBILITY_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_XRAY_COMPILER_FLAG
+-- Performing Test COMPILER_RT_HAS_XRAY_COMPILER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WNO_C2Y_EXTENSIONS
+-- Performing Test COMPILER_RT_HAS_WNO_C2Y_EXTENSIONS - Success
+-- Performing Test COMPILER_RT_HAS_WBUILTIN_DECLARATION_MISMATCH_FLAG
+-- Performing Test COMPILER_RT_HAS_WBUILTIN_DECLARATION_MISMATCH_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_ZL_FLAG
+-- Performing Test COMPILER_RT_HAS_ZL_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_ATOMIC_KEYWORD
+-- Performing Test COMPILER_RT_HAS_ATOMIC_KEYWORD - Success
+-- Performing Test COMPILER_RT_HAS_ASM_LSE
+-- Performing Test COMPILER_RT_HAS_ASM_LSE - Failed
+-- Performing Test COMPILER_RT_HAS_AARCH64_SME
+-- Performing Test COMPILER_RT_HAS_AARCH64_SME - Failed
+-- Performing Test COMPILER_RT_HAS_ARM_UNALIGNED
+-- Performing Test COMPILER_RT_HAS_ARM_UNALIGNED - Failed
+-- Performing Test COMPILER_RT_HAS_ARM_FP
+-- Performing Test COMPILER_RT_HAS_ARM_FP - Failed
+-- Performing Test COMPILER_RT_HAS_x86_64_FLOAT16
+-- Performing Test COMPILER_RT_HAS_x86_64_FLOAT16 - Success
+-- Builtin supported architectures: x86_64
+-- Performing additional configure checks with target flags:  -nodefaultlibs -Werror=array-bounds -Werror=uninitialized -Werror=shadow -Werror=empty-body -Werror=sizeof-pointer-memaccess -Werror=sizeof-array-argument -Werror=suspicious-memaccess -Werror=builtin-memcpy-chk-size -Werror=array-bounds-pointer-arithmetic -Werror=return-stack-address -Werror=sizeof-array-decay -Werror=format-insufficient-args -Wformat -nostdinc++ -Wno-c2y-extensions -fPIC -fno-builtin -fomit-frame-pointer -m64
+-- Performing Test COMPILER_RT_HAS_x86_64_BFLOAT16
+-- Performing Test COMPILER_RT_HAS_x86_64_BFLOAT16 - Success
+-- For x86_64 builtins preferring i386/fp_mode.c to fp_mode.c
+-- For x86_64 builtins preferring x86_64/floatdidf.c to floatdidf.c
+-- For x86_64 builtins preferring x86_64/floatdisf.c to floatdisf.c
+-- For x86_64 builtins preferring x86_64/floatundidf.S to floatundidf.c
+-- For x86_64 builtins preferring x86_64/floatundisf.S to floatundisf.c
+-- For x86_64 builtins preferring x86_64/floatdixf.c to floatdixf.c
+-- For x86_64 builtins preferring x86_64/floatundixf.S to floatundixf.c
+-- Using libunwind testing configuration: /home/builder/build/src/llvm-project-23.1.1.src/libunwind/test/configs/llvm-libunwind-shared.cfg.in
+-- Looking for __mips_hard_float
+-- Looking for __mips_hard_float - not found
+-- Looking for _ABIO32
+-- Looking for _ABIO32 - not found
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_EQ_NONE_FLAG
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_EQ_NONE_FLAG - Success
+-- Looking for fopen in c
+-- Looking for fopen in c - found
+-- Performing Test C_SUPPORTS_COMMENT_LIB_PRAGMA
+-- Performing Test C_SUPPORTS_COMMENT_LIB_PRAGMA - Success
+-- Performing Test CXX_SUPPORTS_NOSTDINCXX_FLAG
+-- Performing Test CXX_SUPPORTS_NOSTDINCXX_FLAG - Success
+-- Looking for __arm__
+-- Looking for __arm__ - not found
+-- Looking for __USING_SJLJ_EXCEPTIONS__
+-- Looking for __USING_SJLJ_EXCEPTIONS__ - not found
+-- Looking for __ARM_DWARF_EH__
+-- Looking for __ARM_DWARF_EH__ - not found
+-- Looking for dladdr in dl
+-- Looking for dladdr in dl - found
+-- Looking for pthread_once in pthread
+-- Looking for pthread_once in pthread - found
+-- Performing Test CXX_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG
+-- Performing Test CXX_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG - Success
+-- Performing Test CXX_SUPPORTS_FSTRICT_ALIASING_FLAG
+-- Performing Test CXX_SUPPORTS_FSTRICT_ALIASING_FLAG - Success
+-- Performing Test CXX_SUPPORTS_EHSC_FLAG
+-- Performing Test CXX_SUPPORTS_EHSC_FLAG - Failed
+-- Performing Test CXX_SUPPORTS_FUNWIND_TABLES_FLAG
+-- Performing Test CXX_SUPPORTS_FUNWIND_TABLES_FLAG - Success
+-- Performing Test CXX_SUPPORTS_FNO_EXCEPTIONS_FLAG
+-- Performing Test CXX_SUPPORTS_FNO_EXCEPTIONS_FLAG - Success
+-- Performing Test CXX_SUPPORTS_FNO_RTTI_FLAG
+-- Performing Test CXX_SUPPORTS_FNO_RTTI_FLAG - Success
+-- Looking for getauxval
+-- Looking for getauxval - found
+-- Looking for elf_aux_info
+-- Looking for elf_aux_info - not found
+-- Performing Test CXX_SUPPORTS_WALL_FLAG
+-- Performing Test CXX_SUPPORTS_WALL_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WEXTRA_FLAG
+-- Performing Test CXX_SUPPORTS_WEXTRA_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNEWLINE_EOF_FLAG
+-- Performing Test CXX_SUPPORTS_WNEWLINE_EOF_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WSHADOW_FLAG
+-- Performing Test CXX_SUPPORTS_WSHADOW_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WWRITE_STRINGS_FLAG
+-- Performing Test CXX_SUPPORTS_WWRITE_STRINGS_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_UNUSED_PARAMETER_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_UNUSED_PARAMETER_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_LONG_LONG_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_LONG_LONG_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WEXTRA_SEMI_FLAG
+-- Performing Test CXX_SUPPORTS_WEXTRA_SEMI_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WUNDEF_FLAG
+-- Performing Test CXX_SUPPORTS_WUNDEF_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WUNUSED_TEMPLATE_FLAG
+-- Performing Test CXX_SUPPORTS_WUNUSED_TEMPLATE_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WFORMAT_NONLITERAL_FLAG
+-- Performing Test CXX_SUPPORTS_WFORMAT_NONLITERAL_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WZERO_LENGTH_ARRAY_FLAG
+-- Performing Test CXX_SUPPORTS_WZERO_LENGTH_ARRAY_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WDEPRECATED_REDUNDANT_CONSTEXPR_STATIC_DEF_FLAG
+-- Performing Test CXX_SUPPORTS_WDEPRECATED_REDUNDANT_CONSTEXPR_STATIC_DEF_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_NULLABILITY_COMPLETENESS_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_NULLABILITY_COMPLETENESS_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WMISSING_PROTOTYPES_FLAG
+-- Performing Test CXX_SUPPORTS_WMISSING_PROTOTYPES_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_USER_DEFINED_LITERALS_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_USER_DEFINED_LITERALS_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_COVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_COVERED_SWITCH_DEFAULT_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test CXX_SUPPORTS_WNO_ERROR_FLAG
+-- Performing Test CXX_SUPPORTS_WNO_ERROR_FLAG - Success
+-- Performing Test CXX_SUPPORTS_PEDANTIC_FLAG
+-- Performing Test CXX_SUPPORTS_PEDANTIC_FLAG - Success
+-- Configuring done (25.5s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/builder/build/src/build64
+[1/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/apple_versioning.c.o
+[2/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/absvdi2.c.o
+[3/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/absvti2.c.o
+[4/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/addvdi3.c.o
+[5/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/addvsi3.c.o
+[6/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/bswapsi2.c.o
+[7/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/absvsi2.c.o
+[8/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/clzdi2.c.o
+[9/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/bswapdi2.c.o
+[10/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ashrti3.c.o
+[11/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ashldi3.c.o
+[12/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/addvti3.c.o
+[13/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ashrdi3.c.o
+[14/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/clzsi2.c.o
+[15/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ashlti3.c.o
+[16/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/clzti2.c.o
+[17/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/cmpdi2.c.o
+[18/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/cmpti2.c.o
+[19/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ctzsi2.c.o
+[20/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divmodsi4.c.o
+[21/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/adddf3.c.o
+[22/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/addsf3.c.o
+[23/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ctzdi2.c.o
+[24/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ctzti2.c.o
+[25/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/comparedf2.c.o
+[26/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/comparesf2.c.o
+[27/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divmodti4.c.o
+[28/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divsi3.c.o
+[29/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divdf3.c.o
+[30/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divti3.c.o
+[31/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divmoddi4.c.o
+[32/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divdi3.c.o
+[33/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendhfdf2.c.o
+[34/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divsf3.c.o
+[35/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendsfdf2.c.o
+[36/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendhfsf2.c.o
+[37/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divdc3.c.o
+[38/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ffsti2.c.o
+[39/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ffssi2.c.o
+[40/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ffsdi2.c.o
+[41/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixdfdi.c.o
+[42/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunssfdi.c.o
+[43/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixdfsi.c.o
+[44/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixdfti.c.o
+[45/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsdfsi.c.o
+[46/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixsfdi.c.o
+[47/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixsfti.c.o
+[48/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixsfsi.c.o
+[49/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsdfti.c.o
+[50/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divsc3.c.o
+[51/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunssfsi.c.o
+[52/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsdfdi.c.o
+[53/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatsidf.c.o
+[54/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatsisf.c.o
+[55/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunssfti.c.o
+[56/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatunsisf.c.o
+[57/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatunsidf.c.o
+[58/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floattidf.c.o
+[59/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floattisf.c.o
+[60/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/int_util.c.o
+[61/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatuntidf.c.o
+[62/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatuntisf.c.o
+[63/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/modsi3.c.o
+[64/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulodi4.c.o
+[65/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/modti3.c.o
+[66/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulosi4.c.o
+[67/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/muldc3.c.o
+[68/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/muldi3.c.o
+[69/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/muloti4.c.o
+[70/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/moddi3.c.o
+[71/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/lshrti3.c.o
+[72/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/multi3.c.o
+[73/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulvsi3.c.o
+[74/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulvti3.c.o
+[75/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulsc3.c.o
+[76/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulsf3.c.o
+[77/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulvdi3.c.o
+[78/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negdi2.c.o
+[79/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negsf2.c.o
+[80/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/muldf3.c.o
+[81/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negvdi2.c.o
+[82/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/os_version_check.c.o
+[83/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/lshrdi3.c.o
+[84/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negti2.c.o
+[85/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negvsi2.c.o
+[86/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negvti2.c.o
+[87/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/paritysi2.c.o
+[88/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/paritydi2.c.o
+[89/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/popcountdi2.c.o
+[90/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/parityti2.c.o
+[91/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/popcountsi2.c.o
+[92/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/negdf2.c.o
+[93/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/powidf2.c.o
+[94/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subdf3.c.o
+[95/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/popcountti2.c.o
+[96/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/powisf2.c.o
+[97/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subsf3.c.o
+[98/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subvti3.c.o
+[99/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subvsi3.c.o
+[100/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ucmpdi2.c.o
+[101/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trampoline_setup.c.o
+[102/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subvdi3.c.o
+[103/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/ucmpti2.c.o
+[104/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivmodsi4.c.o
+[105/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivsi3.c.o
+[106/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncdfsf2.c.o
+[107/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivti3.c.o
+[108/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncsfhf2.c.o
+[109/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivdi3.c.o
+[110/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/umodti3.c.o
+[111/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivmodti4.c.o
+[112/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncdfhf2.c.o
+[113/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/udivmoddi4.c.o
+[114/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/clear_cache.c.o
+[115/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/umoddi3.c.o
+[116/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/umodsi3.c.o
+[117/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/eprintf.c.o
+[118/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/gcc_personality_v0.c.o
+[119/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/enable_execute_stack.c.o
+[120/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/emutls.c.o
+[121/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/addtf3.c.o
+[122/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendhftf2.c.o
+[123/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendsftf2.c.o
+[124/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extenddftf2.c.o
+[125/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/comparetf2.c.o
+[126/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunstfsi.c.o
+[127/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixtfdi.c.o
+[128/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunstfdi.c.o
+[129/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatditf.c.o
+[130/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divtc3.c.o
+[131/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunstfti.c.o
+[132/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatunditf.c.o
+[133/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatunsitf.c.o
+[134/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatsitf.c.o
+[135/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixtfti.c.o
+[136/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixtfsi.c.o
+[137/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floattitf.c.o
+[138/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/subtf3.c.o
+[139/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatuntitf.c.o
+[140/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/multc3.c.o
+[141/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/powitf2.c.o
+[142/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/i386/fp_mode.c.o
+[143/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divtf3.c.o
+[144/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatdisf.c.o
+[145/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trunctfsf2.c.o
+[146/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatdidf.c.o
+[147/400] Building ASM object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatundisf.S.o
+[148/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trunctfdf2.c.o
+[149/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trunctfhf2.c.o
+[150/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendhfxf2.c.o
+[151/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixxfdi.c.o
+[152/400] Building ASM object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatundidf.S.o
+[153/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/divxc3.c.o
+[154/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendxftf2.c.o
+[155/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixxfti.c.o
+[156/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsxfdi.c.o
+[157/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/powixf2.c.o
+[158/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floattixf.c.o
+[159/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/floatuntixf.c.o
+[160/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/multf3.c.o
+[161/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/mulxc3.c.o
+[162/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsxfsi.c.o
+[163/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/fixunsxfti.c.o
+[164/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatdixf.c.o
+[165/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncxfbf2.c.o
+[166/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/extendbfsf2.c.o
+[167/400] cd /home/builder/build/src/build64 && /usr/sbin/clang -E -xc /home/builder/build/src/llvm-project-23.1.1.src/llvm-libgcc/gcc_s.ver.in -o /home/builder/build/src/build64/gcc_s.ver
+[168/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trunctfxf2.c.o
+[169/400] Building CXX object libunwind/src/CMakeFiles/unwind_shared_objects.dir/Unwind-EHABI.cpp.o
+[170/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncxfhf2.c.o
+[171/400] Building C object libunwind/src/CMakeFiles/unwind_shared_objects.dir/Unwind-sjlj.c.o
+[172/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncsfbf2.c.o
+[173/400] Building CXX object libunwind/src/CMakeFiles/unwind_shared_objects.dir/Unwind-seh.cpp.o
+[174/400] Building CXX object libunwind/src/CMakeFiles/unwind_static_objects.dir/Unwind-EHABI.cpp.o
+[175/400] Building C object libunwind/src/CMakeFiles/unwind_shared_objects.dir/Unwind-wasm.c.o
+[176/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/trunctfbf2.c.o
+[177/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/truncdfbf2.c.o
+[178/400] Building ASM object libunwind/src/CMakeFiles/unwind_shared_objects.dir/UnwindRegistersRestore.S.o
+[179/400] Building CXX object libunwind/src/CMakeFiles/unwind_static_objects.dir/Unwind-seh.cpp.o
+[180/400] Building C object libunwind/src/CMakeFiles/unwind_static_objects.dir/Unwind-wasm.c.o
+[181/400] Building ASM object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/x86_64/floatundixf.S.o
+[182/400] Building C object libunwind/src/CMakeFiles/unwind_static_objects.dir/Unwind-sjlj.c.o
+[183/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_errno.cpp.o
+[184/400] Building C object libunwind/src/CMakeFiles/unwind_shared_objects.dir/UnwindLevel1-gcc-ext.c.o
+[185/400] Building ASM object libunwind/src/CMakeFiles/unwind_shared_objects.dir/UnwindRegistersSave.S.o
+[186/400] Building ASM object libunwind/src/CMakeFiles/unwind_static_objects.dir/UnwindRegistersRestore.S.o
+[187/400] Building ASM object libunwind/src/CMakeFiles/unwind_static_objects.dir/UnwindRegistersSave.S.o
+[188/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_haiku.cpp.o
+[189/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_fuchsia.cpp.o
+[190/400] Building C object libunwind/src/CMakeFiles/unwind_static_objects.dir/UnwindLevel1-gcc-ext.c.o
+[191/400] Building C object libunwind/src/CMakeFiles/unwind_shared_objects.dir/UnwindLevel1.c.o
+[192/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_deadlock_detector2.cpp.o
+[193/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_linux_s390.cpp.o
+[194/400] Building C object compiler-rt/lib/builtins/CMakeFiles/clang_rt.builtins-x86_64.dir/cpu_model/x86.c.o
+[195/400] Building C object libunwind/src/CMakeFiles/unwind_static_objects.dir/UnwindLevel1.c.o
+[196/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_mac.cpp.o
+[197/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_freebsd.cpp.o
+[198/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_netbsd.cpp.o
+[199/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_flag_parser.cpp.o
+[200/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_solaris.cpp.o
+[201/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_mutex.cpp.o
+[202/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_netbsd.cpp.o
+[203/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_file.cpp.o
+[204/400] Linking C static library compiler-rt/lib/linux/libclang_rt.builtins-x86_64.a
+[205/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_linux.cpp.o
+[206/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_common.cpp.o
+[207/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_mac.cpp.o
+[208/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_haiku.cpp.o
+[209/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_solaris.cpp.o
+[210/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_bsd.cpp.o
+[211/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_fuchsia.cpp.o
+[212/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_solaris.cpp.o
+[213/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_posix.cpp.o
+[214/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_flags.cpp.o
+[215/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_stoptheworld_mac.cpp.o
+[216/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_stoptheworld_fuchsia.cpp.o
+[217/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_stoptheworld_win.cpp.o
+[218/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_common.cpp.o
+[219/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_procmaps_linux.cpp.o
+[220/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_libignore.cpp.o
+[221/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_printf.cpp.o
+[222/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_win_interception.cpp.o
+[223/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_deadlock_detector1.cpp.o
+[224/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_type_traits.cpp.o
+[225/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_win.cpp.o
+[226/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_termination.cpp.o
+[227/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_allocator_checks.cpp.o
+[228/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_posix.cpp.o
+[229/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_dl.cpp.o
+[230/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_mac_libcdep.cpp.o
+[231/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_libc.cpp.o
+[232/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_stoptheworld_netbsd_libcdep.cpp.o
+[233/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_range.cpp.o
+[234/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_tls_get_addr.cpp.o
+[235/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_allocator.cpp.o
+[236/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_suppressions.cpp.o
+[237/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stacktrace_sparc.cpp.o
+[238/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stacktrace.cpp.o
+[239/400] Building CXX object libunwind/src/CMakeFiles/unwind_static_objects.dir/libunwind.cpp.o
+[240/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_mac.cpp.o
+[241/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_common_libcdep.cpp.o
+[242/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_allocator_report.cpp.o
+[243/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_chained_origin_depot.cpp.o
+[244/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_markup_fuchsia.cpp.o
+[245/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_report_fuchsia.cpp.o
+[246/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stackdepot.cpp.o
+[247/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_thread_arg_retval.cpp.o
+[248/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_linux.cpp.o
+[249/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_libbacktrace.cpp.o
+[250/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_unwind_aix.cpp.o
+[251/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_posix_libcdep.cpp.o
+[252/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stacktrace_printer.cpp.o
+[253/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_win.cpp.o
+[254/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_stoptheworld_linux_libcdep.cpp.o
+[255/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_unwind_fuchsia.cpp.o
+[256/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_unwind_win.cpp.o
+[257/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_thread_registry.cpp.o
+[258/400] Building CXX object libunwind/src/CMakeFiles/unwind_shared_objects.dir/libunwind.cpp.o
+[259/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stacktrace_libcdep.cpp.o
+[260/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_markup.cpp.o
+[261/400] Linking C static library lib/libunwind.a
+[262/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_errno.cpp.o
+[263/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer.cpp.o
+[264/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibc.x86_64.dir/sanitizer_linux_libcdep.cpp.o
+[265/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_fuchsia.cpp.o
+[266/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_haiku.cpp.o
+[267/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_unwind_linux_libcdep.cpp.o
+[268/400] Linking C shared library lib/libunwind.so.1.0
+[269/400] Creating library symlink lib/libunwind.so.1 lib/libunwind.so
+[270/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_deadlock_detector2.cpp.o
+[271/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_thread_history.cpp.o
+[272/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_stack_store.cpp.o
+[273/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_libcdep.cpp.o
+[274/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_linux_s390.cpp.o
+[275/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_mac.cpp.o
+[276/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_report.cpp.o
+[277/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_netbsd.cpp.o
+[278/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_file.cpp.o
+[279/400] cd /home/builder/build/src/build64 && /usr/sbin/cmake -E create_symlink linux/libclang_rt.builtins-x86_64.a libgcc.a && /usr/sbin/cmake -E create_symlink libunwind.a libgcc_eh.a && /usr/sbin/cmake -E create_symlink libunwind.so libgcc_s.so.1.0 && /usr/sbin/cmake -E create_symlink libgcc_s.so.1.0 libgcc_s.so.1 && /usr/sbin/cmake -E create_symlink libgcc_s.so.1 libgcc_s.so
+[280/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_mutex.cpp.o
+[281/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_platform_limits_freebsd.cpp.o
+[282/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_flag_parser.cpp.o
+[283/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizer.x86_64.dir/sanitizer_symbolizer_posix_libcdep.cpp.o
+[284/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_platform_limits_netbsd.cpp.o
+[285/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_platform_limits_solaris.cpp.o
+[286/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_common.cpp.o
+[287/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_platform_limits_linux.cpp.o
+[288/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_bsd.cpp.o
+[289/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_fuchsia.cpp.o
+[290/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_libignore.cpp.o
+[291/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_mac.cpp.o
+[292/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_solaris.cpp.o
+[293/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_haiku.cpp.o
+[294/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_solaris.cpp.o
+[295/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_flags.cpp.o
+[296/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_stoptheworld_fuchsia.cpp.o
+[297/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_stoptheworld_mac.cpp.o
+[298/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_stoptheworld_win.cpp.o
+[299/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_win.cpp.o
+[300/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_deadlock_detector1.cpp.o
+[301/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_range.cpp.o
+[302/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_win_interception.cpp.o
+[303/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_tls_get_addr.cpp.o
+[304/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_type_traits.cpp.o
+[305/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonCoverage.x86_64.dir/sanitizer_coverage_fuchsia.cpp.o
+[306/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_printf.cpp.o
+[307/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_posix.cpp.o
+[308/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_common.cpp.o
+[309/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_platform_limits_posix.cpp.o
+[310/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_procmaps_linux.cpp.o
+[311/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonCoverage.x86_64.dir/sanitizer_coverage_win_sections.cpp.o
+[312/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoLibc.x86_64.dir/sanitizer_common_nolibc.cpp.o
+[313/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_linux.cpp.o
+[314/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonCoverage.x86_64.dir/sancov_flags.cpp.o
+[315/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_errno.cpp.o
+[316/400] Building CXX object compiler-rt/lib/ctx_profile/CMakeFiles/clang_rt.ctx_profile-x86_64.dir/RootAutoDetector.cpp.o
+[317/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_allocator.cpp.o
+[318/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_haiku.cpp.o
+[319/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_fuchsia.cpp.o
+[320/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_linux_s390.cpp.o
+[321/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_suppressions.cpp.o
+[322/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_mac.cpp.o
+[323/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_libc.cpp.o
+[324/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_flag_parser.cpp.o
+[325/400] Building CXX object compiler-rt/lib/ctx_profile/CMakeFiles/clang_rt.ctx_profile-x86_64.dir/CtxInstrProfiling.cpp.o
+[326/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_netbsd.cpp.o
+[327/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_platform_limits_linux.cpp.o
+[328/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_platform_limits_freebsd.cpp.o
+[329/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_platform_limits_solaris.cpp.o
+[330/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_platform_limits_netbsd.cpp.o
+[331/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_libignore.cpp.o
+[332/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_mutex.cpp.o
+[333/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_file.cpp.o
+[334/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_deadlock_detector2.cpp.o
+[335/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonCoverage.x86_64.dir/sanitizer_coverage_libcdep_new.cpp.o
+[336/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_fuchsia.cpp.o
+[337/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_thread_arg_retval.cpp.o
+[338/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_bsd.cpp.o
+[339/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_haiku.cpp.o
+[340/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_mac.cpp.o
+[341/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_solaris.cpp.o
+[342/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_solaris.cpp.o
+[343/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_stoptheworld_fuchsia.cpp.o
+[344/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_common.cpp.o
+[345/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_stoptheworld_mac.cpp.o
+[346/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_flags.cpp.o
+[347/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_platform_limits_posix.cpp.o
+[348/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_stoptheworld_win.cpp.o
+[349/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_linux.cpp.o
+[350/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_procmaps_common.cpp.o
+[351/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_type_traits.cpp.o
+[352/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_allocator.cpp.o
+[353/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_win_interception.cpp.o
+[354/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_range.cpp.o
+[355/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_win.cpp.o
+[356/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_deadlock_detector1.cpp.o
+[357/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_tls_get_addr.cpp.o
+[358/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_mac_libcdep.cpp.o
+[359/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_allocator_checks.cpp.o
+[360/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_stoptheworld_netbsd_libcdep.cpp.o
+[361/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_termination.cpp.o
+[362/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_dl.cpp.o
+[363/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_posix.cpp.o
+[364/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_common_libcdep.cpp.o
+[365/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_printf.cpp.o
+[366/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stacktrace.cpp.o
+[367/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stacktrace_sparc.cpp.o
+[368/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_libc.cpp.o
+[369/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_suppressions.cpp.o
+[370/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoTermination.x86_64.dir/sanitizer_thread_registry.cpp.o
+[371/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_allocator_report.cpp.o
+[372/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_linux.cpp.o
+[373/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_mac.cpp.o
+[374/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_posix_libcdep.cpp.o
+[375/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_markup_fuchsia.cpp.o
+[376/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stacktrace_libcdep.cpp.o
+[377/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_libbacktrace.cpp.o
+[378/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_report_fuchsia.cpp.o
+[379/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_win.cpp.o
+[380/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stacktrace_printer.cpp.o
+[381/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stackdepot.cpp.o
+[382/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_chained_origin_depot.cpp.o
+[383/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_linux_libcdep.cpp.o
+[384/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_unwind_fuchsia.cpp.o
+[385/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_unwind_win.cpp.o
+[386/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_thread_arg_retval.cpp.o
+[387/400] Building C object clang_rt.crtbegin-x86_64.o
+[388/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_unwind_aix.cpp.o
+[389/400] Building C object clang_rt.crtend-x86_64.o
+[390/400] Linking CXX static library compiler-rt/lib/linux/libclang_rt.ctx_profile-x86_64.a
+[391/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_unwind_linux_libcdep.cpp.o
+[392/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer.cpp.o
+[393/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_thread_history.cpp.o
+[394/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonLibcNoHooks.x86_64.dir/sanitizer_stoptheworld_linux_libcdep.cpp.o
+[395/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_markup.cpp.o
+[396/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_report.cpp.o
+[397/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonNoHooks.x86_64.dir/sanitizer_thread_registry.cpp.o
+[398/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_posix_libcdep.cpp.o
+[399/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_stack_store.cpp.o
+[400/400] Building CXX object compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommonSymbolizerNoHooks.x86_64.dir/sanitizer_symbolizer_libcdep.cpp.o
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "Release"
+-- Installing: /home/builder/build/src/dest64/usr/lib/linux/libclang_rt.builtins-x86_64.a
+-- Installing: /home/builder/build/src/dest64/usr/lib/linux/clang_rt.crtbegin-x86_64.o
+-- Installing: /home/builder/build/src/dest64/usr/lib/linux/clang_rt.crtend-x86_64.o
+-- Installing: /home/builder/build/src/dest64/usr/lib/linux/libclang_rt.ctx_profile-x86_64.a
+-- Installing: /home/builder/build/src/dest64/usr/include/__libunwind_config.h
+-- Installing: /home/builder/build/src/dest64/usr/include/libunwind.h
+-- Installing: /home/builder/build/src/dest64/usr/include/libunwind.modulemap
+-- Installing: /home/builder/build/src/dest64/usr/include/mach-o/compact_unwind_encoding.h
+-- Installing: /home/builder/build/src/dest64/usr/include/unwind_arm_ehabi.h
+-- Installing: /home/builder/build/src/dest64/usr/include/unwind_itanium.h
+-- Installing: /home/builder/build/src/dest64/usr/include/unwind.h
+-- Installing: /home/builder/build/src/dest64/usr/lib/libunwind.so.1.0
+-- Installing: /home/builder/build/src/dest64/usr/lib/libunwind.so.1
+-- Installing: /home/builder/build/src/dest64/usr/lib/libunwind.so
+-- Installing: /home/builder/build/src/dest64/usr/lib/libunwind.a
+-- Up-to-date: /home/builder/build/src/dest64/usr/lib/libunwind.so.1.0
+-- Up-to-date: /home/builder/build/src/dest64/usr/lib/libunwind.so.1
+-- Up-to-date: /home/builder/build/src/dest64/usr/lib/libunwind.so
+-- Up-to-date: /home/builder/build/src/dest64/usr/lib/libunwind.a
+-- Up-to-date: /home/builder/build/src/dest64/usr/lib/linux/libclang_rt.builtins-x86_64.a
+-- Installing: /home/builder/build/src/dest64/usr/lib/libgcc.a
+-- Installing: /home/builder/build/src/dest64/usr/lib/libgcc_eh.a
+-- Installing: /home/builder/build/src/dest64/usr/lib/libgcc_s.so.1.0
+-- Installing: /home/builder/build/src/dest64/usr/lib/libgcc_s.so.1
+-- Installing: /home/builder/build/src/dest64/usr/lib/libgcc_s.so
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libunwind.so.1.0
+usr/lib/libgcc_s.so.1.0
+usr/lib/libgcc.a
+usr/lib/libgcc_eh.a
+usr/lib/libunwind.a
+==> Creating package "llvm-libgcc"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: llvm-libgcc 23.1.1-5 (Sun Sep 20 01:04:41 2026)

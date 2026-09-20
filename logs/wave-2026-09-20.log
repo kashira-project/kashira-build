@@ -1757,3 +1757,4639 @@
 == wave: libbpf already done
 == wave: libcap already done
 == wave: bash-completion FAILED (log: /mnt/lfs/src/kashira-build/logs/bash-completion.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bash-completion-2.18.0-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: bash-completion OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/python-capng-0.9.6-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libcap-ng-0.9.6-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[33m[33mWARN[0m[33m[0m] An entry for 'libcap-ng-0.9.6-1' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'libcap-ng-0.9.6-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libcap-ng OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libverto-0.3.2-6-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'libverto-0.3.2-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libverto OK
+== wave: libxcrypt FAILED (log: /mnt/lfs/src/kashira-build/logs/libxcrypt.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxcrypt-4.5.2-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxcrypt-compat-4.5.2-1-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'libxcrypt-4.5.2-1' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'libxcrypt-4.5.2-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxcrypt OK
+== wave: libxml2 FAILED (log: /mnt/lfs/src/kashira-build/logs/libxml2.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: libxml2 FAILED (log: /mnt/lfs/src/kashira-build/logs/libxml2.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: libxml2 FAILED (log: /mnt/lfs/src/kashira-build/logs/libxml2.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: libxml2 FAILED (log: /mnt/lfs/src/kashira-build/logs/libxml2.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt FAILED (log: /mnt/lfs/src/kashira-build/logs/fmt.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt FAILED (log: /mnt/lfs/src/kashira-build/logs/fmt.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt FAILED (log: /mnt/lfs/src/kashira-build/logs/fmt.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/fmt-12.2.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: fmt OK
+== wave: spdlog FAILED (log: /mnt/lfs/src/kashira-build/logs/spdlog.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/catch2-3.16.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: catch2 OK
+== wave: spdlog FAILED (log: /mnt/lfs/src/kashira-build/logs/spdlog.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/spdlog-1.17.0-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: spdlog OK
+== wave: doxygen FAILED (log: /mnt/lfs/src/kashira-build/logs/doxygen.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen FAILED (log: /mnt/lfs/src/kashira-build/logs/doxygen.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen FAILED (log: /mnt/lfs/src/kashira-build/logs/doxygen.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen FAILED (log: /mnt/lfs/src/kashira-build/logs/doxygen.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen FAILED (log: /mnt/lfs/src/kashira-build/logs/doxygen.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/doxygen-1.18.0-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: doxygen OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxml2-docs-2.15.4-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxml2-2.15.4-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[33m[33mWARN[0m[33m[0m] An entry for 'libxml2-2.15.4-1' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'libxml2-2.15.4-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxml2 OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/llvm-libgcc-23.1.1-5-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'llvm-libgcc-23.1.1-5' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'llvm-libgcc-23.1.1-5'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: llvm-libgcc OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/readline-8.3.6-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'readline-8.3-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: readline OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/gtest-1.18.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: gtest OK
+== wave: xz FAILED (log: /mnt/lfs/src/kashira-build/logs/xz.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-locale-gettext-1.07-16-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-locale-gettext OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-yaml-tiny-1.76-3-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-yaml-tiny OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-sgmls-1:1.1-14-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-sgmls OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-term-readkey-2.38-11-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-term-readkey OK
+== wave: perl-text-wrapi18n FAILED (log: /mnt/lfs/src/kashira-build/logs/perl-text-wrapi18n.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-text-charwidth-0.04-25-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-text-charwidth OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-text-wrapi18n-0.06-10-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-text-wrapi18n OK
+== wave: perl-unicode-linebreak FAILED (log: /mnt/lfs/src/kashira-build/logs/perl-unicode-linebreak.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libthai FAILED (log: /mnt/lfs/src/kashira-build/logs/libthai.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libdatrie-0.2.14-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libdatrie OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libthai-0.1.30-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libthai OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-mime-charset-1.013.1-6-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-mime-charset OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-unicode-linebreak-2019.001-9-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-unicode-linebreak OK
+== wave: perl-module-build FAILED (log: /mnt/lfs/src/kashira-build/logs/perl-module-build.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-inc-latest-0.500-15-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-inc-latest OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-module-build-0.4234-6-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-module-build OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-pod-parser-1.67-4-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-pod-parser OK
+== wave: po4a FAILED (log: /mnt/lfs/src/kashira-build/logs/po4a.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a FAILED (log: /mnt/lfs/src/kashira-build/logs/po4a.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-locale-gettext-1.07-16-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-locale-gettext-1.07-16' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-locale-gettext-1.07-16'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-locale-gettext OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-yaml-tiny-1.76-3-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-yaml-tiny-1.76-3' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-yaml-tiny-1.76-3'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-yaml-tiny OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-sgmls-1:1.1-14-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-sgmls-1:1.1-14' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-sgmls-1:1.1-14'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-sgmls OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-term-readkey-2.38-11-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-term-readkey-2.38-11' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-term-readkey-2.38-11'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-term-readkey OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-text-charwidth-0.04-25-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-text-charwidth-0.04-25' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-text-charwidth-0.04-25'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-text-charwidth OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-text-wrapi18n-0.06-10-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-text-wrapi18n-0.06-10' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-text-wrapi18n-0.06-10'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-text-wrapi18n OK
+== wave: libdatrie already done
+== wave: libthai already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-mime-charset-1.013.1-6-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-mime-charset-1.013.1-6' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-mime-charset-1.013.1-6'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-mime-charset OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-unicode-linebreak-2019.001-9-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-unicode-linebreak-2019.001-9' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-unicode-linebreak-2019.001-9'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-unicode-linebreak OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-inc-latest-0.500-15-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-inc-latest-0.500-15' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-inc-latest-0.500-15'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-inc-latest OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-module-build-0.4234-6-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-module-build-0.4234-6' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-module-build-0.4234-6'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-module-build OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/perl-pod-parser-1.67-4-any.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'perl-pod-parser-1.67-4' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'perl-pod-parser-1.67-4'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: perl-pod-parser OK
+== wave: po4a FAILED (log: /mnt/lfs/src/kashira-build/logs/po4a.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/po4a-0.74-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: po4a OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xz-5.8.4-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'xz-5.8.3-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xz OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/zlib-ng-2.3.3-1-x86_64.pkg.tar.zst'
+[[33m[33mWARN[0m[33m[0m] An entry for 'zlib-ng-2.3.3-1' already existed
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'zlib-ng-2.3.3-1'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: zlib-ng OK
+== wave: zstd FAILED (log: /mnt/lfs/src/kashira-build/logs/zstd.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/zstd-1.5.7-3-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Removing existing entry 'zstd-1.5.7-2'...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: zstd OK
+== wave: alsa-lib FAILED (log: /mnt/lfs/src/kashira-build/logs/alsa-lib.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/alsa-topology-conf-1.2.5.1-4-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: alsa-topology-conf OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/alsa-ucm-conf-1.2.16.1-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: alsa-ucm-conf OK
+== wave: alsa-lib FAILED (log: /mnt/lfs/src/kashira-build/logs/alsa-lib.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/alsa-lib-1.2.16.1-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: alsa-lib OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/ell-0.83-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: ell OK
+== wave: libical FAILED (log: /mnt/lfs/src/kashira-build/logs/libical.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical FAILED (log: /mnt/lfs/src/kashira-build/logs/libical.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical FAILED (log: /mnt/lfs/src/kashira-build/logs/libical.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical FAILED (log: /mnt/lfs/src/kashira-build/logs/libical.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libical-4.0.5-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libical OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/python-docutils-1:0.23-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: python-docutils OK
+== wave: bluez FAILED (log: /mnt/lfs/src/kashira-build/logs/bluez.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-hid2hci-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-libs-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-deprecated-tools-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-utils-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-obex-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/bluez-mesh-5.87-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: bluez OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/gpm-1.20.7.r38.ge82d1a6-7-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: gpm OK
+== wave: jsoncpp FAILED (log: /mnt/lfs/src/kashira-build/logs/jsoncpp.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp FAILED (log: /mnt/lfs/src/kashira-build/logs/jsoncpp.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp FAILED (log: /mnt/lfs/src/kashira-build/logs/jsoncpp.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/jsoncpp-doc-1.9.8-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/jsoncpp-1.9.8-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: jsoncpp OK
+== wave: libuv FAILED (log: /mnt/lfs/src/kashira-build/logs/libuv.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv FAILED (log: /mnt/lfs/src/kashira-build/logs/libuv.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libuv-1.52.1-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libuv OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/rhash-1.4.6-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: rhash OK
+== wave: cppdap FAILED (log: /mnt/lfs/src/kashira-build/logs/cppdap.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json FAILED (log: /mnt/lfs/src/kashira-build/logs/nlohmann-json.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/nlohmann-json-3.12.0-2-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: nlohmann-json OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/cppdap-1.58.0-3-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: cppdap OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/hicolor-icon-theme-0.18-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: hicolor-icon-theme OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/man2html-3.0.1-10-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: man2html OK
+== wave: libxkbcommon FAILED (log: /mnt/lfs/src/kashira-build/logs/libxkbcommon.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xorg-util-macros-1.20.2-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xorg-util-macros OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xorgproto-2025.1-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xorgproto OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xcb-proto-1.17.0-4-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xcb-proto OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxau-1.0.12-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxau OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxdmcp-1.1.5-2-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxdmcp OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxcb-1.17.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxcb OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xtrans-1.6.0-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xtrans OK
+== wave: libX11 FAILED (log: /mnt/lfs/src/kashira-build/logs/libX11.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+== wave: libX11 FAILED (log: /mnt/lfs/src/kashira-build/logs/libX11.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+== wave: libX11 FAILED (log: /mnt/lfs/src/kashira-build/logs/libX11.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+== wave: libX11 FAILED (log: /mnt/lfs/src/kashira-build/logs/libX11.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libx11-1.8.13-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libX11 OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/libxkbfile-1.2.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: libxkbfile OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xorg-xkbcomp-1.5.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xorg-xkbcomp OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/xkeyboard-config-2.48-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: xkeyboard-config OK
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/default-cursors-3-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: default-cursors OK
+== wave: wayland FAILED (log: /mnt/lfs/src/kashira-build/logs/wayland.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+== wave: libX11 already done
+== wave: libxkbfile already done
+== wave: xorg-xkbcomp already done
+== wave: xkeyboard-config already done
+== wave: default-cursors already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/wayland-1.26.0-1-x86_64.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: wayland OK
+== wave: wayland-protocols FAILED (log: /mnt/lfs/src/kashira-build/logs/wayland-protocols.log)
+== wave: pacman already done
+== wave: expat already done
+== wave: openssl already done
+== wave: libarchive already done
+== wave: sqlite already done
+== wave: autoconf-archive already done
+== wave: ncurses already done
+== wave: acl already done
+== wave: audit already done
+== wave: bzip2 already done
+== wave: patchelf already done
+== wave: curl already done
+== wave: docbook-xml already done
+== wave: libxslt already done
+== wave: docbook-xsl already done
+== wave: xmlto already done
+== wave: python-packaging already done
+== wave: python-pyproject-hooks already done
+== wave: python-flit-core already done
+== wave: python-installer already done
+== wave: python-build already done
+== wave: python-setuptools already done
+== wave: python-wheel already done
+== wave: python-pyelftools already done
+== wave: python-toml already done
+== wave: python-vcs-versioning already done
+== wave: python-setuptools-scm already done
+== wave: python-tqdm already done
+== wave: libyaml already done
+== wave: python-pathspec already done
+== wave: python-pluggy already done
+== wave: python-calver already done
+== wave: python-trove-classifiers already done
+== wave: python-editables already done
+== wave: python-fastjsonschema already done
+== wave: python-typing_extensions already done
+== wave: python-lark-parser already done
+== wave: python-poetry-core already done
+== wave: python-tomlkit already done
+== wave: python-hatchling already done
+== wave: python-hatch-vcs already done
+== wave: python-pygments already done
+== wave: cython already done
+== wave: python-yaml already done
+== wave: python-six already done
+== wave: python-dateutil already done
+== wave: python-ruamel.yaml.clib already done
+== wave: python-strictyaml already done
+== wave: meson already done
+== wave: systemd already done
+== wave: dbus already done
+== wave: libiconv already done
+== wave: numactl already done
+== wave: liburing already done
+== wave: fuse3 already done
+== wave: e2fsprogs already done
+== wave: file already done
+== wave: iptables already done
+== wave: json-c already done
+== wave: keyutils already done
+== wave: libbpf already done
+== wave: libcap already done
+== wave: bash-completion already done
+== wave: libcap-ng already done
+== wave: libverto already done
+== wave: libxcrypt already done
+== wave: fmt already done
+== wave: catch2 already done
+== wave: spdlog already done
+== wave: doxygen already done
+== wave: libxml2 already done
+== wave: llvm-libgcc already done
+== wave: readline already done
+== wave: gtest already done
+== wave: perl-locale-gettext already done
+== wave: perl-yaml-tiny already done
+== wave: perl-sgmls already done
+== wave: perl-term-readkey already done
+== wave: perl-text-charwidth already done
+== wave: perl-text-wrapi18n already done
+== wave: libdatrie already done
+== wave: libthai already done
+== wave: perl-mime-charset already done
+== wave: perl-unicode-linebreak already done
+== wave: perl-inc-latest already done
+== wave: perl-module-build already done
+== wave: perl-pod-parser already done
+== wave: po4a already done
+== wave: xz already done
+== wave: zlib-ng already done
+== wave: zstd already done
+== wave: alsa-topology-conf already done
+== wave: alsa-ucm-conf already done
+== wave: alsa-lib already done
+== wave: ell already done
+== wave: libical already done
+== wave: python-docutils already done
+== wave: bluez already done
+== wave: gpm already done
+== wave: jsoncpp already done
+== wave: libuv already done
+== wave: rhash already done
+== wave: nlohmann-json already done
+== wave: cppdap already done
+== wave: hicolor-icon-theme already done
+== wave: man2html already done
+== wave: xorg-util-macros already done
+== wave: xorgproto already done
+== wave: xcb-proto already done
+== wave: libxau already done
+== wave: libxdmcp already done
+== wave: libxcb already done
+== wave: xtrans already done
+== wave: libX11 already done
+== wave: libxkbfile already done
+== wave: xorg-xkbcomp already done
+== wave: xkeyboard-config already done
+== wave: default-cursors already done
+== wave: wayland already done
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.db.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Extracting kashira.files.tar.gz to a temporary location...
+[[37m[32mINFO[0m[37m[0m] Adding package '/mnt/lfs/var/cache/pacman/kashira/wayland-protocols-1.49-1-any.pkg.tar.zst'
+[[37m[32mINFO[0m[37m[0m] Computing checksums...
+[[37m[32mINFO[0m[37m[0m] Creating 'desc' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating 'files' db entry...
+[[37m[32mINFO[0m[37m[0m] Creating updated database file '/mnt/lfs/var/cache/pacman/kashira/kashira.db.tar.gz'
+== wave: wayland-protocols OK
+== wave: libxkbcommon FAILED (log: /mnt/lfs/src/kashira-build/logs/libxkbcommon.log)

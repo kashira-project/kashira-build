@@ -1,0 +1,152 @@
+== build xtrans (deps: none)
+==> Making package: xtrans 1.6.0-1 (Sun Sep 20 03:29:50 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading xtrans-1.6.0.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0100 173.0k 100 173.0k   0      0  87704      0   00:02   00:02              0100 173.0k 100 173.0k   0      0  87697      0   00:02   00:02              0100 173.0k 100 173.0k   0      0  87693      0   00:02   00:02              0
+  -> Downloading xtrans-1.6.0.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    566 100    566   0      0    772      0                              0100    566 100    566   0      0    772      0                              0100    566 100    566   0      0    772      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    xtrans-1.6.0.tar.xz ... Passed
+    xtrans-1.6.0.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting xtrans-1.6.0.tar.xz with bsdtar
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking whether clang understands -c and -o together... yes
+checking dependency style of clang... none
+checking for clang options needed to detect all undeclared functions... none needed
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking whether __clang__ is declared... yes
+checking whether __INTEL_COMPILER is declared... no
+checking whether __SUNPRO_C is declared... no
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking if clang supports -Werror=unknown-warning-option... yes
+checking if clang supports -Werror=unused-command-line-argument... yes
+checking if clang supports -Wall... yes
+checking if clang supports -Wpointer-arith... yes
+checking if clang supports -Wmissing-declarations... yes
+checking if clang supports -Wformat=2... yes
+checking if clang supports -Wstrict-prototypes... yes
+checking if clang supports -Wmissing-prototypes... yes
+checking if clang supports -Wnested-externs... yes
+checking if clang supports -Wbad-function-cast... yes
+checking if clang supports -Wold-style-definition... yes
+checking if clang supports -Wunused... yes
+checking if clang supports -Wuninitialized... yes
+checking if clang supports -Wshadow... yes
+checking if clang supports -Wmissing-noreturn... yes
+checking if clang supports -Wmissing-format-attribute... yes
+checking if clang supports -Wredundant-decls... yes
+checking if clang supports -Wlogical-op... no
+checking if clang supports -Werror=implicit... yes
+checking if clang supports -Werror=nonnull... yes
+checking if clang supports -Werror=init-self... yes
+checking if clang supports -Werror=main... yes
+checking if clang supports -Werror=missing-braces... yes
+checking if clang supports -Werror=sequence-point... yes
+checking if clang supports -Werror=return-type... yes
+checking if clang supports -Werror=trigraphs... yes
+checking if clang supports -Werror=array-bounds... yes
+checking if clang supports -Werror=write-strings... yes
+checking if clang supports -Werror=address... yes
+checking if clang supports -Werror=int-to-pointer-cast... yes
+checking if clang supports -Werror=pointer-to-int-cast... yes
+checking if clang supports -pedantic... yes
+checking if clang supports -Werror... yes
+checking if clang supports -Werror=attributes... yes
+Package xorg-macros was not found in the pkg-config search path.
+Perhaps you should add the directory containing `xorg-macros.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'xorg-macros' not found
+checking whether to build documentation... yes
+checking for xmlto... configure: WARNING: xmlto not found - documentation targets will be skipped
+no
+checking for fop... no
+configure: WARNING: fop not found - documentation targets will be skipped
+checking for xsltproc... configure: WARNING: xsltproc not found - cannot transform XML documents
+no
+checking for X.Org SGML entities >= 1.8... no
+checking for fchown... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating xtrans.pc
+config.status: executing depfiles commands
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/xtrans-1.6.0/doc'
+make[2]: Entering directory '/home/builder/build/src/xtrans-1.6.0/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xtrans/usr/share/doc/xtrans'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xtrans/usr/share/doc/xtrans'
+ /usr/bin/install -c -m 644 xtrans.xml '/home/builder/build/pkg/xtrans/usr/share/doc/xtrans'
+make[2]: Leaving directory '/home/builder/build/src/xtrans-1.6.0/doc'
+make[1]: Leaving directory '/home/builder/build/src/xtrans-1.6.0/doc'
+make[1]: Entering directory '/home/builder/build/src/xtrans-1.6.0'
+make[2]: Entering directory '/home/builder/build/src/xtrans-1.6.0'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xtrans/usr/share/aclocal'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xtrans/usr/include/X11/Xtrans'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xtrans/usr/share/pkgconfig'
+ /usr/bin/install -c -m 644 Xtrans.h Xtrans.c Xtransint.h Xtranslcl.c Xtranssock.c Xtransutil.c transport.c '/home/builder/build/pkg/xtrans/usr/include/X11/Xtrans'
+ /usr/bin/install -c -m 644 xtrans.m4 '/home/builder/build/pkg/xtrans/usr/share/aclocal'
+ /usr/bin/install -c -m 644 xtrans.pc '/home/builder/build/pkg/xtrans/usr/share/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/xtrans-1.6.0'
+make[1]: Leaving directory '/home/builder/build/src/xtrans-1.6.0'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xtrans"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xtrans 1.6.0-1 (Sun Sep 20 03:30:06 2026)

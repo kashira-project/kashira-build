@@ -1,0 +1,269 @@
+== build xorg-xkbcomp (deps: git glibc libx11 libxkbfile xorg-util-macros )
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (12) libxau-1.0.12-1  libxcb-1.17.0-1  libxdmcp-1.1.5-2  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  xcb-proto-1.17.0-4  xorgproto-2025.1-1  git-2.55.0-1  libx11-1.8.13-1  libxkbfile-1.2.0-1  xorg-util-macros-1.20.2-1
+
+Total Download Size:    9.33 MiB
+Total Installed Size:  64.26 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ libx11-1.8.13-1-x86_64 downloading...
+ libxcb-1.17.0-1-x86_64 downloading...
+ xorgproto-2025.1-1-any downloading...
+ xcb-proto-1.17.0-4-any downloading...
+ libxkbfile-1.2.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ libxdmcp-1.1.5-2-x86_64 downloading...
+ xorg-util-macros-1.20.2-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ libxau-1.0.12-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing xcb-proto...
+installing xorgproto...
+installing libxdmcp...
+installing libxau...
+installing libxcb...
+installing libx11...
+installing libxkbfile...
+installing xorg-util-macros...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: xorg-xkbcomp 1.5.0-1 (Sun Sep 20 03:52:39 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning xkbcomp git repo...
+Cloning into bare repository '/sources/xkbcomp'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    xkbcomp ... Passed
+==> Extracting sources...
+  -> Creating working copy of xkbcomp git repo...
+Cloning into 'xkbcomp'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: no obvious need to run autopoint
+autoreconf: running: aclocal --force 
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: configure.ac: no need to run autopoint (confirmed)
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:33: installing './compile'
+configure.ac:42: installing './config.guess'
+configure.ac:42: installing './config.sub'
+configure.ac:36: installing './install-sh'
+configure.ac:36: installing './missing'
+Makefile.am: installing './depcomp'
+configure.ac: installing './ylwrap'
+autoreconf: './config.sub' is updated
+autoreconf: './config.guess' is updated
+autoreconf: configure.ac: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports the include directive... yes (GNU style)
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking dependency style of clang -std=gnu23... gcc3
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether __clang__ is declared... yes
+checking whether __INTEL_COMPILER is declared... no
+checking whether __SUNPRO_C is declared... no
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking if clang -std=gnu23 supports -Werror=unknown-warning-option... yes
+checking if clang -std=gnu23 supports -Werror=unused-command-line-argument... yes
+checking if clang -std=gnu23 supports -Wall... yes
+checking if clang -std=gnu23 supports -Wpointer-arith... yes
+checking if clang -std=gnu23 supports -Wmissing-declarations... yes
+checking if clang -std=gnu23 supports -Wformat=2... yes
+checking if clang -std=gnu23 supports -Wstrict-prototypes... yes
+checking if clang -std=gnu23 supports -Wmissing-prototypes... yes
+checking if clang -std=gnu23 supports -Wnested-externs... yes
+checking if clang -std=gnu23 supports -Wbad-function-cast... yes
+checking if clang -std=gnu23 supports -Wold-style-definition... yes
+checking if clang -std=gnu23 supports -Wunused... yes
+checking if clang -std=gnu23 supports -Wuninitialized... yes
+checking if clang -std=gnu23 supports -Wshadow... yes
+checking if clang -std=gnu23 supports -Wmissing-noreturn... yes
+checking if clang -std=gnu23 supports -Wmissing-format-attribute... yes
+checking if clang -std=gnu23 supports -Wredundant-decls... yes
+checking if clang -std=gnu23 supports -Wlogical-op... no
+checking if clang -std=gnu23 supports -Werror=implicit... yes
+checking if clang -std=gnu23 supports -Werror=nonnull... yes
+checking if clang -std=gnu23 supports -Werror=init-self... yes
+checking if clang -std=gnu23 supports -Werror=main... yes
+checking if clang -std=gnu23 supports -Werror=missing-braces... yes
+checking if clang -std=gnu23 supports -Werror=sequence-point... yes
+checking if clang -std=gnu23 supports -Werror=return-type... yes
+checking if clang -std=gnu23 supports -Werror=trigraphs... yes
+checking if clang -std=gnu23 supports -Werror=array-bounds... yes
+checking if clang -std=gnu23 supports -Werror=write-strings... yes
+checking if clang -std=gnu23 supports -Werror=address... yes
+checking if clang -std=gnu23 supports -Werror=int-to-pointer-cast... yes
+checking if clang -std=gnu23 supports -Werror=pointer-to-int-cast... yes
+checking if clang -std=gnu23 supports -pedantic... yes
+checking if clang -std=gnu23 supports -Werror... yes
+checking if clang -std=gnu23 supports -Werror=attributes... yes
+checking for bison... bison -y
+checking for bison... /usr/sbin/bison
+checking for asprintf... yes
+checking for reallocarray... yes
+checking for recallocarray... no
+checking for x11 xkbfile xproto >= 7.0.17... yes
+checking for clang -std=gnu23 option to support large files... none needed
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating man/Makefile
+config.status: creating xkbcomp.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/xkbcomp'
+Making all in man
+make[2]: Entering directory '/home/builder/build/src/xkbcomp/man'
+  GEN      xkbcomp.1
+make[2]: Leaving directory '/home/builder/build/src/xkbcomp/man'
+make[2]: Entering directory '/home/builder/build/src/xkbcomp'
+  YACC     xkbparse.c
+  CC       action.o
+  CC       compat.o
+  CC       expr.o
+  CC       alias.o
+  CC       keycodes.o
+  CC       indicators.o
+  CC       geometry.o
+  CC       keytypes.o
+  CC       keymap.o
+  CC       misc.o
+  CC       listing.o
+  CC       parseutils.o
+  CC       vmod.o
+  CC       symbols.o
+  CC       utils.o
+  CC       xkbcomp.o
+  CC       xkbpath.o
+  CC       xkbscan.o
+xkbcomp.c:98:17: warning: variable 'optionalParts' set but not used [-Wunused-but-set-global]
+   98 | static unsigned optionalParts = 0;
+      |                 ^
+xkbscan.c:56:12: warning: variable 'scanStrLine' set but not used [-Wunused-but-set-global]
+   56 | static int scanStrLine = 0;
+      |            ^
+  CC       xkbparse.o
+1 warning generated.
+1 warning generated.
+  CCLD     xkbcomp
+make[2]: Leaving directory '/home/builder/build/src/xkbcomp'
+make[1]: Leaving directory '/home/builder/build/src/xkbcomp'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in man
+make[1]: Entering directory '/home/builder/build/src/xkbcomp/man'
+make[2]: Entering directory '/home/builder/build/src/xkbcomp/man'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xorg-xkbcomp/usr/share/man/man1'
+ /usr/bin/install -c -m 644 xkbcomp.1 '/home/builder/build/pkg/xorg-xkbcomp/usr/share/man/man1'
+make[2]: Leaving directory '/home/builder/build/src/xkbcomp/man'
+make[1]: Leaving directory '/home/builder/build/src/xkbcomp/man'
+make[1]: Entering directory '/home/builder/build/src/xkbcomp'
+make[2]: Entering directory '/home/builder/build/src/xkbcomp'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xorg-xkbcomp/usr/lib/pkgconfig'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xorg-xkbcomp/usr/bin'
+ /usr/bin/install -c -m 644 xkbcomp.pc '/home/builder/build/pkg/xorg-xkbcomp/usr/lib/pkgconfig'
+  /usr/bin/install -c xkbcomp '/home/builder/build/pkg/xorg-xkbcomp/usr/bin'
+make[2]: Leaving directory '/home/builder/build/src/xkbcomp'
+make[1]: Leaving directory '/home/builder/build/src/xkbcomp'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xorg-xkbcomp"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xorg-xkbcomp 1.5.0-1 (Sun Sep 20 03:53:04 2026)

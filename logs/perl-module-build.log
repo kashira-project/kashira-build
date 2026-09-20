@@ -1,0 +1,112 @@
+== build perl-module-build (deps: perl perl-inc-latest )
+resolving dependencies...
+warning: perl-5.44.0-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (1) perl-inc-latest-0.500-15
+
+Total Download Size:   0.01 MiB
+Total Installed Size:  0.02 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ perl-inc-latest-0.500-15-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-inc-latest...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: perl-module-build 0.4234-6 (Sun Sep 20 01:29:20 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found Module-Build-0.4234.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    Module-Build-0.4234.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting Module-Build-0.4234.tar.gz with bsdtar
+==> Starting build()...
+
+Checking optional features...
+license_creation........disabled
+  requires:
+    ! Software::License is not installed
+
+ERRORS/WARNINGS FOUND IN PREREQUISITES.  You may wish to install the versions
+of the modules indicated above before proceeding with this installation
+
+Created MYMETA.yml and MYMETA.json
+Creating new 'Build' script for 'Module-Build' version '0.4234'
+Building Module-Build
+==> Entering fakeroot environment...
+==> Starting package()...
+Building Module-Build
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man1/config_data.1
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Base.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Compat.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Config.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Cookbook.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Dumper.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Notes.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/PPMMaker.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/PodParser.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/API.pod
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Authoring.pod
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Bundling.pod
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/ConfigData.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/Default.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/MacOS.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/Unix.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/VMS.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/VOS.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/Windows.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/aix.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/cygwin.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/darwin.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/lib/perl5/5.44/vendor_perl/Module/Build/Platform/os2.pm
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::API.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Authoring.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Base.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Bundling.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Compat.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::ConfigData.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Cookbook.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Notes.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::PPMMaker.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::Default.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::MacOS.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::Unix.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::VMS.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::VOS.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::Windows.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::aix.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::cygwin.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::darwin.3
+Installing /home/builder/build/pkg/perl-module-build/usr/share/man/man3/Module::Build::Platform::os2.3
+Installing /home/builder/build/pkg/perl-module-build/usr/bin/config_data
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "perl-module-build"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: perl-module-build 0.4234-6 (Sun Sep 20 01:29:25 2026)

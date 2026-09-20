@@ -1,0 +1,1779 @@
+== build bluez (deps: alsa-lib dbus ell git glib2 glibc json-c libical python-docutils python-pygments readline systemd systemd-libs )
+resolving dependencies...
+warning: dbus-1.16.2-1 is up to date -- skipping
+warning: glib2-2.88.3-2 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: json-c-0.19-1 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (13) alsa-topology-conf-1.2.5.1-4  alsa-ucm-conf-1.2.16.1-1  ncurses-6.6-2  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  alsa-lib-1.2.16.1-1  ell-0.83-1  git-2.55.0-1  libical-4.0.5-1  python-docutils-1:0.23-1  python-pygments-2.21.0-1  readline-8.3.6-1
+
+Total Download Size:   12.81 MiB
+Total Installed Size:  79.83 MiB
+Net Upgrade Size:      65.71 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ python-pygments-2.21.0-1-any downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ python-docutils-1:0.23-1-any downloading...
+ libical-4.0.5-1-x86_64 downloading...
+ alsa-lib-1.2.16.1-1-x86_64 downloading...
+ readline-8.3.6-1-x86_64 downloading...
+ ell-0.83-1-x86_64 downloading...
+ alsa-ucm-conf-1.2.16.1-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+ alsa-topology-conf-1.2.5.1-4-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing alsa-topology-conf...
+installing alsa-ucm-conf...
+installing alsa-lib...
+installing ell...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+upgrading readline...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing libical...
+installing python-docutils...
+Optional dependencies for python-docutils
+    python-myst-parser: to parse input in "Markdown" (CommonMark) format
+    python-pillow: for some image manipulation operations
+    python-pygments: for syntax highlighting of code directives and roles [pending]
+installing python-pygments...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: bluez 5.87-2 (Sun Sep 20 02:21:06 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating bluez git repo...
+  -> Found bluetooth.modprobe
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    bluez ... Passed
+    bluetooth.modprobe ... Passed
+==> Extracting sources...
+  -> Creating working copy of bluez git repo...
+Cloning into 'bluez'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: no obvious need to run autopoint
+autoreconf: running: aclocal --force 
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: configure.ac: no need to run autopoint (confirmed)
+autoreconf: running: aclocal --force 
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:21: installing './compile'
+configure.ac:36: installing './config.guess'
+configure.ac:36: installing './config.sub'
+configure.ac:5: installing './install-sh'
+configure.ac:5: installing './missing'
+Makefile.am: installing './depcomp'
+parallel-tests: installing './test-driver'
+autoreconf: './config.sub' is updated
+autoreconf: './config.guess' is updated
+autoreconf: configure.ac: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking how to create a pax tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking dependency style of clang -std=gnu23... gcc3
+checking for C/C++ restrict keyword... __restrict__
+checking for gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C23 features... (cached) -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... (cached) yes
+checking dependency style of clang -std=gnu23... (cached) gcc3
+checking whether clang -std=gnu23 accepts -fPIE... no
+checking whether clang -std=gnu23 accepts -fsanitize=address... yes
+checking whether clang -std=gnu23 accepts -fsanitize=leak... yes
+checking whether clang -std=gnu23 accepts -fsanitize=undefined... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for explicit_bzero... yes
+checking for getrandom... yes
+checking for rawmemchr... yes
+checking for signalfd... yes
+checking for clock_gettime in -lrt... yes
+checking for pthread_create in -lpthread... yes
+checking for dlopen in -ldl... yes
+checking for stdarg.h... yes
+checking for stdio.h... (cached) yes
+checking for string.h... (cached) yes
+checking for linux/types.h... yes
+checking for linux/if_alg.h... yes
+checking for linux/uinput.h... yes
+checking for linux/uhid.h... yes
+checking for sys/random.h... yes
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether basename is declared... yes
+checking for glib-2.0 >= 2.36... yes
+checking for dbus-1 >= 1.10... yes
+checking D-Bus system bus services dir... /usr/share/dbus-1/system-services
+checking D-Bus session bus services dir... /usr/share/dbus-1/services
+${prefix}/share/zsh/site-functions
+checking for libudev >= 196... yes
+checking udev directory... /usr/lib/udev
+checking cups directory... 
+checking for json-c >= 0.13... yes
+checking for alsa... yes
+checking for libicalvcal >= 4.0.0... yes
+checking for ell >= 0.39... yes
+checking for readline/readline.h... yes
+checking systemd system unit dir... /usr/lib/systemd/system
+checking systemd user unit dir... /usr/lib/systemd/user
+checking for rst2man... rst2man
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating lib/bluez.pc
+config.status: creating Makefile
+config.status: creating doc/bluetooth-meshd.rst
+config.status: creating mesh/bluetooth-mesh.service
+config.status: creating obexd/src/obex.service
+config.status: creating obexd/src/org.bluez.obex.service
+config.status: creating doc/bluetoothd.rst
+config.status: creating src/bluetooth.service
+config.status: creating tools/bluetooth-logger.service
+config.status: creating tools/mpris-proxy.service
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+  GEN      src/builtin.h
+  GEN      ell/shared
+  GEN      obexd/src/builtin.h
+make --no-print-directory all-am
+  CC       src/shared/libshared_ell_la-queue.lo
+  CC       src/shared/libshared_ell_la-util.lo
+  CC       src/shared/libshared_ell_la-mgmt.lo
+  CC       src/shared/libshared_ell_la-ecc.lo
+  CC       src/shared/libshared_ell_la-crypto.lo
+  CC       src/shared/libshared_ell_la-hci.lo
+  CC       src/shared/libshared_ell_la-ringbuf.lo
+  CC       src/shared/libshared_ell_la-hci-crypto.lo
+  CC       src/shared/libshared_ell_la-hfp.lo
+  CC       src/shared/libshared_ell_la-uhid.lo
+  CC       src/shared/libshared_ell_la-btsnoop.lo
+  CC       src/shared/libshared_ell_la-pcap.lo
+  CC       src/shared/libshared_ell_la-ad.lo
+  CC       src/shared/libshared_ell_la-att.lo
+  CC       src/shared/libshared_ell_la-gatt-helpers.lo
+  CC       src/shared/libshared_ell_la-gatt-client.lo
+src/shared/ad.c:1252:10: warning: initialization of pointer of type 'struct bt_ad_data *' to null from a constant boolean expression [-Wbool-conversion]
+ 1252 |                 return false;
+      |                        ^~~~~
+  CC       src/shared/libshared_ell_la-gatt-server.lo
+  CC       src/shared/libshared_ell_la-gatt-db.lo
+  CC       src/shared/libshared_ell_la-gap.lo
+  CC       src/shared/libshared_ell_la-log.lo
+  CC       src/shared/libshared_ell_la-bap.lo
+  CC       src/shared/libshared_ell_la-bap-debug.lo
+  CC       src/shared/libshared_ell_la-mcp.lo
+  CC       src/shared/libshared_ell_la-vcp.lo
+1 warning generated.
+  CC       src/shared/libshared_ell_la-micp.lo
+  CC       src/shared/libshared_ell_la-csip.lo
+  CC       src/shared/libshared_ell_la-bass.lo
+  CC       src/shared/libshared_ell_la-ccp.lo
+  CC       src/shared/libshared_ell_la-tmap.lo
+  CC       src/shared/libshared_ell_la-gmap.lo
+  CC       src/shared/libshared_ell_la-asha.lo
+  CC       src/shared/libshared_ell_la-battery.lo
+  CC       src/shared/libshared_ell_la-uinput.lo
+  CC       src/shared/libshared_ell_la-rap.lo
+  CC       src/shared/libshared_ell_la-shell.lo
+  CC       src/shared/libshared_ell_la-io-ell.lo
+  CC       src/shared/libshared_ell_la-timeout-ell.lo
+  CC       src/shared/libshared_ell_la-mainloop-ell.lo
+  CC       tools/mesh-cfgtest.o
+  CC       tools/hciattach.o
+  CC       tools/hciattach_st.o
+  CC       tools/hciattach_ti.o
+  CC       tools/hciattach_tialt.o
+  CC       tools/hciattach_ath3k.o
+  CC       tools/hciattach_qualcomm.o
+  CC       tools/hciattach_intel.o
+  CC       tools/hciattach_bcm43xx.o
+  CC       tools/hciconfig.o
+  CC       tools/hcitool.o
+  CC       src/oui.o
+  CC       tools/rfcomm.o
+  CC       tools/sdptool.o
+  CC       src/sdp-xml.o
+  CC       tools/ciptool.o
+  CC       tools/bdaddr.o
+  CC       tools/avinfo.o
+  CC       tools/avtest.o
+  CC       tools/scotest.o
+  CC       tools/hwdb.o
+  CC       tools/hcieventmask.o
+  CC       tools/hcisecfilter.o
+  CC       tools/btinfo.o
+  CC       tools/btconfig.o
+  CC       tools/btsnoop.o
+  CC       tools/btproxy.o
+  CC       tools/btiotest.o
+  CC       tools/bneptest.o
+  CC       tools/cltest.o
+  CC       tools/oobtest.o
+  CC       tools/advtest.o
+  CC       tools/nokfw.o
+  CC       tools/seq2bseq.o
+  CC       tools/rtlfw.o
+  CC       tools/bcmfw.o
+  CC       tools/create-image.o
+  CC       tools/eddystone.o
+  CC       tools/ibeacon.o
+  CC       tools/btgatt-client.o
+  CC       src/uuid-helper.o
+  CC       tools/btgatt-server.o
+  CC       tools/test_runner-test-runner.o
+  CC       tools/check-selftest.o
+  CC       tools/gatt-service.o
+  CC       tools/btmgmt.o
+  CC       tools/obex-server-tool.o
+  CC       tools/obex-client-tool.o
+  CC       tools/bluetooth-player.o
+  CC       tools/obexctl.o
+  CC       src/shared/btp.o
+  CC       client/btpclient/core.o
+  CC       client/btpclient/bap.o
+  GEN      ell/internal
+  CC       client/btpclient/gap.o
+  CC       client/btpclient/gatt.o
+  CC       client/btpclient/btpclientctl.o
+  CC       profiles/network/bluetoothd-manager.o
+  CC       profiles/network/bluetoothd-bnep.o
+  CC       profiles/network/bluetoothd-server.o
+  CC       profiles/network/bluetoothd-connection.o
+  CC       profiles/input/bluetoothd-suspend-none.o
+  CC       profiles/scanparam/bluetoothd-scan.o
+  CC       profiles/deviceinfo/bluetoothd-deviceinfo.o
+  CC       profiles/battery/bluetoothd-battery.o
+  CC       plugins/bluetoothd-sixaxis.o
+  CC       profiles/audio/bluetoothd-bap.o
+  CC       profiles/audio/bluetoothd-bass.o
+  CC       profiles/audio/bluetoothd-mcp.o
+  CC       profiles/audio/bluetoothd-vcp.o
+  CC       profiles/audio/bluetoothd-micp.o
+  CC       profiles/audio/bluetoothd-ccp.o
+  CC       profiles/audio/bluetoothd-csip.o
+  CC       profiles/audio/bluetoothd-tmap.o
+  CC       profiles/audio/bluetoothd-gmap.o
+  CC       profiles/audio/bluetoothd-asha.o
+  CC       profiles/audio/bluetoothd-telephony.o
+  CC       profiles/audio/bluetoothd-hfp-hf.o
+  CC       attrib/bluetoothd-att.o
+  CC       attrib/bluetoothd-gatt.o
+  CC       attrib/bluetoothd-gattrib.o
+  CC       btio/bluetoothd-btio.o
+  CC       src/bluetoothd-log.o
+  CC       src/bluetoothd-backtrace.o
+  CC       src/bluetoothd-rfkill.o
+  CC       src/bluetoothd-sdpd-server.o
+  CC       src/bluetoothd-sdpd-request.o
+  CC       src/bluetoothd-sdpd-service.o
+  CC       src/bluetoothd-sdpd-database.o
+btio/btio.c:1684:23: warning: field 'iso' with variable sized type 'struct sockaddr_iso' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 1684 |                 struct sockaddr_iso iso;
+      |                                     ^
+  CC       src/bluetoothd-gatt-database.o
+  CC       src/bluetoothd-sdp-xml.o
+  CC       src/bluetoothd-sdp-client.o
+  CC       src/bluetoothd-textfile.o
+  CC       src/bluetoothd-uuid-helper.o
+  CC       src/bluetoothd-storage.o
+  CC       src/bluetoothd-advertising.o
+  CC       src/bluetoothd-agent.o
+  CC       src/bluetoothd-error.o
+  CC       src/bluetoothd-adapter.o
+  CC       src/bluetoothd-profile.o
+  CC       src/bluetoothd-service.o
+  CC       src/bluetoothd-gatt-client.o
+  CC       src/bluetoothd-device.o
+  CC       src/bluetoothd-dbus-common.o
+  CC       src/bluetoothd-eir.o
+  CC       src/bluetoothd-adv_monitor.o
+  CC       src/bluetoothd-battery.o
+  CC       src/bluetoothd-settings.o
+  CC       src/bluetoothd-set.o
+  CC       src/bluetoothd-bearer.o
+  CC       src/bluetoothd-plugin.o
+  CC       src/bluetoothd-main.o
+src/adapter.c:11035:31: warning: field 'cp' with variable sized type 'struct mgmt_cp_hci_cmd_sync' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 11035 |                 struct mgmt_cp_hci_cmd_sync cp;
+       |                                             ^
+1 warning generated.
+  CC       btio/obexd-btio.o
+  CC       gobex/obexd-gobex.o
+  CC       gobex/obexd-gobex-defs.o
+  CC       gobex/obexd-gobex-packet.o
+  CC       gobex/obexd-gobex-header.o
+btio/btio.c:1684:23: warning: field 'iso' with variable sized type 'struct sockaddr_iso' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 1684 |                 struct sockaddr_iso iso;
+      |                                     ^
+  CC       gobex/obexd-gobex-transfer.o
+  CC       gobex/obexd-gobex-apparam.o
+  CC       obexd/client/obexd-manager.o
+  CC       obexd/client/obexd-session.o
+  CC       obexd/client/obexd-bluetooth.o
+  CC       obexd/client/obexd-sync.o
+  CC       obexd/client/obexd-pbap.o
+  CC       obexd/client/obexd-ftp.o
+  CC       obexd/client/obexd-opp.o
+  CC       obexd/client/obexd-map.o
+  CC       obexd/client/obexd-bip.o
+  CC       obexd/client/obexd-bip-common.o
+  CC       obexd/client/obexd-map-event.o
+  CC       obexd/client/obexd-transfer.o
+  CC       obexd/client/obexd-driver.o
+  CC       obexd/client/obexd-transport.o
+  CC       mesh/mesh.o
+1 warning generated.
+  CC       mesh/net-keys.o
+  CC       mesh/mesh-io.o
+  CC       mesh/mesh-mgmt.o
+  CC       mesh/mesh-io-unit.o
+  CC       mesh/mesh-io-mgmt.o
+  CC       mesh/mesh-io-generic.o
+  CC       mesh/net.o
+  CC       mesh/friend.o
+  CC       mesh/appkey.o
+  CC       mesh/node.o
+  CC       mesh/model.o
+  CC       mesh/cfgmod-server.o
+  CC       mesh/remprv-server.o
+  CC       mesh/mesh-config-json.o
+  CC       mesh/dbus.o
+  CC       mesh/agent.o
+  CC       mesh/prov-acceptor.o
+  CC       mesh/prov-initiator.o
+  CC       mesh/manager.o
+  CC       mesh/pb-adv.o
+  CC       mesh/keyring.o
+  CC       mesh/rpl.o
+  CC       mesh/prvbeac-server.o
+  CC       mesh/main.o
+  CC       tools/hid2hci.o
+  GEN      doc/bluetoothd.8
+  GEN      doc/hci.7
+  GEN      doc/mgmt.7
+  GEN      doc/l2cap.7
+  GEN      doc/rfcomm.7
+  GEN      doc/sco.7
+  GEN      doc/iso.7
+  GEN      doc/btsnoop.7
+  GEN      doc/org.bluez.Adapter.5
+  GEN      doc/org.bluez.Device.5
+  GEN      doc/org.bluez.Bearer.LE.5
+  GEN      doc/org.bluez.Bearer.BREDR.5
+  GEN      doc/org.bluez.DeviceSet.5
+  GEN      doc/org.bluez.AgentManager.5
+  GEN      doc/org.bluez.Agent.5
+  GEN      doc/org.bluez.ProfileManager.5
+  GEN      doc/org.bluez.Profile.5
+  GEN      doc/org.bluez.NetworkServer.5
+  GEN      doc/org.bluez.Network.5
+  GEN      doc/org.bluez.Input.5
+  GEN      doc/org.bluez.BatteryProviderManager.5
+  GEN      doc/org.bluez.BatteryProvider.5
+  GEN      doc/org.bluez.Battery.5
+  GEN      doc/org.bluez.AdminPolicySet.5
+  GEN      doc/org.bluez.AdminPolicyStatus.5
+  GEN      doc/org.bluez.Media.5
+  GEN      doc/org.bluez.MediaControl.5
+  GEN      doc/org.bluez.MediaPlayer.5
+  GEN      doc/org.bluez.MediaFolder.5
+1 warning generated.
+  GEN      doc/org.bluez.MediaItem.5
+  GEN      doc/org.bluez.MediaEndpoint.5
+  GEN      doc/org.bluez.MediaTransport.5
+  GEN      doc/org.bluez.MediaAssistant.5
+  GEN      doc/org.bluez.GattManager.5
+  GEN      doc/org.bluez.GattProfile.5
+  GEN      doc/org.bluez.GattService.5
+  GEN      doc/org.bluez.GattCharacteristic.5
+  GEN      doc/org.bluez.LEAdvertisingManager.5
+  GEN      doc/org.bluez.GattDescriptor.5
+  GEN      doc/org.bluez.LEAdvertisement.5
+  GEN      doc/org.bluez.AdvertisementMonitor.5
+  GEN      doc/org.bluez.AdvertisementMonitorManager.5
+  GEN      doc/org.bluez.obex.Session.5
+  GEN      doc/org.bluez.obex.Client.5
+  GEN      doc/org.bluez.obex.Transfer.5
+  GEN      doc/org.bluez.obex.ObjectPush.5
+  GEN      doc/org.bluez.obex.FileTransfer.5
+  GEN      doc/org.bluez.obex.Synchronization.5
+  GEN      doc/org.bluez.obex.PhonebookAccess.5
+  GEN      doc/org.bluez.obex.MessageAccess.5
+  GEN      doc/org.bluez.obex.Message.5
+  GEN      doc/org.bluez.obex.AgentManager.5
+  GEN      doc/org.bluez.obex.Agent.5
+  GEN      doc/org.bluez.obex.Image.5
+  GEN      doc/org.bluez.Telephony.5
+  GEN      doc/org.bluez.Call.5
+  GEN      doc/org.bluez.ThermometerManager.5
+  GEN      doc/org.bluez.Thermometer.5
+  GEN      doc/org.bluez.ThermometerWatcher.5
+  GEN      doc/btmon.1
+  GEN      doc/rctest.1
+  GEN      doc/l2ping.1
+  GEN      doc/btattach.1
+  GEN      doc/isotest.1
+  GEN      doc/bluetoothctl.1
+  GEN      doc/bluetoothctl-mgmt.1
+  GEN      doc/bluetoothctl-monitor.1
+  GEN      doc/bluetoothctl-admin.1
+  GEN      doc/bluetoothctl-advertise.1
+  GEN      doc/bluetoothctl-endpoint.1
+  GEN      doc/bluetoothctl-gatt.1
+  GEN      doc/bluetoothctl-player.1
+  GEN      doc/bluetoothctl-scan.1
+  GEN      doc/bluetoothctl-transport.1
+  GEN      doc/bluetoothctl-assistant.1
+  GEN      doc/bluetoothctl-hci.1
+  GEN      doc/bluetoothctl-telephony.1
+  GEN      doc/hciattach.1
+  GEN      doc/hciconfig.1
+  GEN      doc/hcitool.1
+  GEN      doc/rfcomm.1
+  GEN      doc/sdptool.1
+  GEN      doc/ciptool.1
+  GEN      doc/hid2hci.1
+  GEN      doc/bluetooth-meshd.8
+  GEN      tools/97-hid2hci.rules
+  CC       client/main.o
+  CC       client/print.o
+  CC       client/display.o
+  CC       client/agent.o
+  CC       client/advertising.o
+  CC       client/adv_monitor.o
+  CC       client/gatt.o
+  CC       client/admin.o
+  CC       client/player.o
+  CC       client/mgmt.o
+  CC       client/assistant.o
+  CC       client/hci.o
+  CC       client/telephony.o
+  CC       lib/bluetooth/bluetooth.lo
+  CC       lib/bluetooth/hci.lo
+  CC       lib/bluetooth/sdp.lo
+client/mgmt.c:2420:31: warning: field 'cp' with variable sized type 'struct mgmt_cp_hci_cmd_sync' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 2420 |                 struct mgmt_cp_hci_cmd_sync cp;
+      |                                             ^
+  CC       lib/bluetooth/uuid.lo
+  CC       gdbus/mainloop.lo
+  CC       gdbus/watch.lo
+  CC       gdbus/object.lo
+  CC       gdbus/client.lo
+  CC       gdbus/polkit.lo
+  CC       src/shared/libshared_glib_la-queue.lo
+  CC       src/shared/libshared_glib_la-util.lo
+  CC       src/shared/libshared_glib_la-mgmt.lo
+  CC       src/shared/libshared_glib_la-crypto.lo
+  CC       src/shared/libshared_glib_la-ecc.lo
+  CC       src/shared/libshared_glib_la-ringbuf.lo
+  CC       src/shared/libshared_glib_la-hci.lo
+  CC       src/shared/libshared_glib_la-hci-crypto.lo
+  CC       src/shared/libshared_glib_la-hfp.lo
+  CC       src/shared/libshared_glib_la-pcap.lo
+  CC       src/shared/libshared_glib_la-uhid.lo
+  CC       src/shared/libshared_glib_la-btsnoop.lo
+  CC       src/shared/libshared_glib_la-ad.lo
+  CC       src/shared/libshared_glib_la-att.lo
+  CC       src/shared/libshared_glib_la-gatt-helpers.lo
+  CC       src/shared/libshared_glib_la-gatt-client.lo
+  CC       src/shared/libshared_glib_la-gatt-server.lo
+  CC       src/shared/libshared_glib_la-gatt-db.lo
+  CC       src/shared/libshared_glib_la-gap.lo
+  CC       src/shared/libshared_glib_la-log.lo
+  CC       src/shared/libshared_glib_la-bap.lo
+src/shared/ad.c:1252:10: warning: initialization of pointer of type 'struct bt_ad_data *' to null from a constant boolean expression [-Wbool-conversion]
+ 1252 |                 return false;
+      |                        ^~~~~
+  CC       src/shared/libshared_glib_la-bap-debug.lo
+  CC       src/shared/libshared_glib_la-mcp.lo
+  CC       src/shared/libshared_glib_la-vcp.lo
+  CC       src/shared/libshared_glib_la-micp.lo
+  CC       src/shared/libshared_glib_la-csip.lo
+1 warning generated.
+  CC       src/shared/libshared_glib_la-bass.lo
+1 warning generated.
+  CC       src/shared/libshared_glib_la-ccp.lo
+  CC       src/shared/libshared_glib_la-tmap.lo
+  CC       src/shared/libshared_glib_la-gmap.lo
+  CC       src/shared/libshared_glib_la-asha.lo
+  CC       src/shared/libshared_glib_la-battery.lo
+  CC       src/shared/libshared_glib_la-uinput.lo
+  CC       src/shared/libshared_glib_la-rap.lo
+  CC       src/shared/libshared_glib_la-shell.lo
+  CC       src/shared/libshared_glib_la-io-glib.lo
+  CC       src/shared/libshared_glib_la-timeout-glib.lo
+  CC       src/shared/libshared_glib_la-mainloop-glib.lo
+  CC       src/shared/libshared_glib_la-mainloop-notify.lo
+  CC       src/shared/libshared_glib_la-tester.lo
+  CC       monitor/main.o
+  CC       monitor/display.o
+  CC       monitor/hcidump.o
+  CC       monitor/ellisys.o
+  CC       monitor/control.o
+  CC       monitor/packet.o
+  CC       monitor/vendor.o
+  CC       monitor/lmp.o
+  CC       monitor/crc.o
+  CC       monitor/ll.o
+  CC       monitor/l2cap.o
+  CC       monitor/sdp.o
+  CC       monitor/avctp.o
+  CC       monitor/avdtp.o
+  CC       monitor/a2dp.o
+  CC       monitor/rfcomm.o
+  CC       monitor/bnep.o
+  CC       monitor/hwdb.o
+  CC       monitor/keys.o
+  CC       monitor/analyze.o
+  CC       monitor/intel.o
+  CC       monitor/broadcom.o
+  CC       monitor/msft.o
+  CC       monitor/jlink.o
+  CC       monitor/att.o
+  CC       src/log.o
+  CC       src/textfile.o
+  CC       src/settings.o
+  CC       src/shared/libshared_mainloop_la-queue.lo
+  CC       src/shared/libshared_mainloop_la-util.lo
+  CC       src/shared/libshared_mainloop_la-mgmt.lo
+  CC       src/shared/libshared_mainloop_la-crypto.lo
+  CC       src/shared/libshared_mainloop_la-ecc.lo
+  CC       src/shared/libshared_mainloop_la-ringbuf.lo
+  CC       src/shared/libshared_mainloop_la-hci.lo
+  CC       src/shared/libshared_mainloop_la-hci-crypto.lo
+  CC       src/shared/libshared_mainloop_la-hfp.lo
+  CC       src/shared/libshared_mainloop_la-uhid.lo
+  CC       src/shared/libshared_mainloop_la-pcap.lo
+  CC       src/shared/libshared_mainloop_la-btsnoop.lo
+  CC       src/shared/libshared_mainloop_la-ad.lo
+  CC       src/shared/libshared_mainloop_la-att.lo
+  CC       src/shared/libshared_mainloop_la-gatt-helpers.lo
+  CC       src/shared/libshared_mainloop_la-gatt-client.lo
+  CC       src/shared/libshared_mainloop_la-gatt-server.lo
+  CC       src/shared/libshared_mainloop_la-gatt-db.lo
+  CC       src/shared/libshared_mainloop_la-gap.lo
+  CC       src/shared/libshared_mainloop_la-log.lo
+src/shared/ad.c:1252:10: warning: initialization of pointer of type 'struct bt_ad_data *' to null from a constant boolean expression [-Wbool-conversion]
+ 1252 |                 return false;
+      |                        ^~~~~
+  CC       src/shared/libshared_mainloop_la-bap.lo
+  CC       src/shared/libshared_mainloop_la-bap-debug.lo
+  CC       src/shared/libshared_mainloop_la-mcp.lo
+  CC       src/shared/libshared_mainloop_la-vcp.lo
+  CC       src/shared/libshared_mainloop_la-micp.lo
+  CC       src/shared/libshared_mainloop_la-csip.lo
+1 warning generated.
+  CC       src/shared/libshared_mainloop_la-bass.lo
+  CC       src/shared/libshared_mainloop_la-ccp.lo
+  CC       src/shared/libshared_mainloop_la-tmap.lo
+  CC       src/shared/libshared_mainloop_la-gmap.lo
+  CC       src/shared/libshared_mainloop_la-asha.lo
+  CC       src/shared/libshared_mainloop_la-battery.lo
+  CC       src/shared/libshared_mainloop_la-uinput.lo
+  CC       src/shared/libshared_mainloop_la-rap.lo
+  CC       src/shared/libshared_mainloop_la-shell.lo
+  CC       src/shared/libshared_mainloop_la-io-mainloop.lo
+  CC       src/shared/libshared_mainloop_la-timeout-mainloop.lo
+  CC       src/shared/libshared_mainloop_la-mainloop.lo
+  CC       src/shared/libshared_mainloop_la-mainloop-notify.lo
+  CC       tools/rctest.o
+  CC       tools/l2test.o
+  CC       tools/l2ping.o
+  CC       tools/bluemoon.o
+  CC       tools/hex2hcd.o
+  CC       tools/mpris-proxy.o
+  CC       tools/btattach.o
+  CC       tools/isotest.o
+  CC       tools/meshctl.o
+  CC       tools/mesh/agent.o
+  CC       tools/mesh-gatt/node.o
+  CC       tools/mesh-gatt/gatt.o
+  CC       tools/mesh-gatt/crypto.o
+  CC       tools/mesh-gatt/net.o
+  CC       tools/mesh-gatt/util.o
+  CC       tools/mesh-gatt/prov.o
+  CC       tools/mesh-gatt/prov-db.o
+  CC       tools/mesh-gatt/config-client.o
+  CC       tools/mesh-gatt/config-server.o
+  CC       tools/mesh-gatt/onoff-model.o
+  CC       tools/mesh-cfgclient.o
+  CC       tools/mesh/cfgcli.o
+  CC       tools/mesh/keys.o
+  CC       tools/mesh/util.o
+  CC       tools/mesh/remote.o
+  CC       tools/mesh/mesh-db.o
+  CC       mesh/util.o
+  CC       mesh/crypto.o
+  CCLD     src/libshared-ell.la
+  CC       profiles/cups/main.o
+  CC       profiles/cups/sdp.o
+  CC       profiles/cups/spp.o
+tools/mesh/mesh-db.c:807:10: warning: initialization of pointer of type 'json_object *' (aka 'struct json_object *') to null from a constant boolean expression [-Wbool-conversion]
+  807 |                 return false;
+      |                        ^~~~~
+tools/mesh/mesh-db.c:844:10: warning: initialization of pointer of type 'json_object *' (aka 'struct json_object *') to null from a constant boolean expression [-Wbool-conversion]
+  844 |                 return false;
+      |                        ^~~~~
+tools/mesh/mesh-db.c:2526:10: warning: initialization of pointer of type 'void *' to null from a constant boolean expression [-Wbool-conversion]
+ 2526 |                 return false;
+      |                        ^~~~~
+  CC       profiles/cups/hcrp.o
+  CCLD     tools/hcisecfilter
+  CC       btio/btio.o
+  CC       profiles/network/bnep.o
+  CCLD     tools/seq2bseq
+  CCLD     tools/nokfw
+  CCLD     tools/rtlfw
+  CCLD     tools/bcmfw
+  CCLD     tools/create-image
+  CCLD     tools/check-selftest
+  CCLD     tools/test-runner
+  CC       profiles/iap/main.o
+  CC       gobex/gobex.o
+  CC       gobex/gobex-defs.o
+btio/btio.c:1684:23: warning: field 'iso' with variable sized type 'struct sockaddr_iso' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 1684 |                 struct sockaddr_iso  CC       gobex/gobex-packet.o
+ iso;
+      |                                     ^
+  CC       gobex/gobex-header.o
+  CC       gobex/gobex-transfer.o
+  CC       gobex/gobex-apparam.o
+  CC       attrib/gatttool.o
+  CC       attrib/att.o
+  CC       attrib/gatt.o
+  CC       attrib/gattrib.o
+  CC       attrib/interactive.o
+  CC       attrib/utils.o
+  CC       client/btpclient/btpclient.o
+  CC       plugins/bluetoothd-hostname.o
+3 warnings generated.
+  CC       plugins/bluetoothd-autopair.o
+  CC       plugins/bluetoothd-policy.o
+  CC       profiles/audio/bluetoothd-media.o
+  CC       profiles/audio/bluetoothd-transport.o
+  CC       profiles/audio/bluetoothd-player.o
+  CC       profiles/audio/bluetoothd-source.o
+  CC       profiles/audio/bluetoothd-sink.o
+  CC       profiles/audio/bluetoothd-a2dp.o
+  CC       profiles/audio/bluetoothd-avdtp.o
+  CC       profiles/audio/bluetoothd-control.o
+  CC       profiles/audio/bluetoothd-avctp.o
+  CC       profiles/audio/bluetoothd-avrcp.o
+  CC       profiles/audio/bluetoothd-avrcp-player.o
+  CC       profiles/input/bluetoothd-manager.o
+  CC       profiles/input/bluetoothd-server.o
+1 warning generated.
+  CC       profiles/input/bluetoothd-device.o
+  CC       profiles/input/bluetoothd-hog.o
+  CC       profiles/input/bluetoothd-hog-lib.o
+  CC       profiles/deviceinfo/bluetoothd-dis.o
+  CC       profiles/battery/bluetoothd-bas.o
+  CC       profiles/scanparam/bluetoothd-scpp.o
+  CC       profiles/gap/bluetoothd-gas.o
+  CC       profiles/midi/bluetoothd-midi.o
+  CC       profiles/midi/bluetoothd-libmidi.o
+  CC       profiles/ranging/bluetoothd-rap.o
+  CC       profiles/ranging/bluetoothd-rap_hci.o
+  CC       obexd/plugins/obexd-filesystem.o
+  CC       obexd/plugins/obexd-bluetooth.o
+  CC       obexd/plugins/obexd-pcsuite.o
+  CC       obexd/plugins/obexd-opp.o
+  CC       obexd/plugins/obexd-ftp.o
+  CC       obexd/plugins/obexd-irmc.o
+  CC       obexd/plugins/obexd-pbap.o
+  CC       obexd/plugins/obexd-vcard.o
+  CC       obexd/plugins/obexd-phonebook-dummy.o
+  CC       obexd/plugins/obexd-mas.o
+  CC       obexd/plugins/obexd-messages-dummy.o
+  CC       obexd/client/obexd-mns.o
+  CC       obexd/src/obexd-main.o
+  CC       obexd/src/obexd-plugin.o
+  CC       obexd/src/obexd-log.o
+obexd/plugins/vcard.c:330:15: warning: passing an object that undergoes default argument promotion to 'va_start' has undefined behavior [-Wvarargs]
+  330 |         va_start(ap, format);
+      |                      ^
+obexd/plugins/vcard.c:322:44: note: parameter of type 'uint8_t' (aka 'unsigned char') is declared here
+  322 | static gboolean select_qp_encoding(uint8_t format, ...)
+      |                                            ^
+  CC       obexd/src/obexd-logind.o
+  CC       obexd/src/obexd-manager.o
+  CC       obexd/src/obexd-obex.o
+  CC       obexd/src/obexd-mimetype.o
+  CC       obexd/src/obexd-service.o
+  CC       obexd/src/obexd-transport.o
+  CC       obexd/src/obexd-server.o
+  CCLD     mesh/bluetooth-meshd
+  CCLD     tools/hid2hci
+1 warning generated.
+  CCLD     lib/libbluetooth.la
+  CCLD     lib/libbluetooth-internal.la
+  CCLD     gdbus/libgdbus-internal.la
+  CCLD     src/libshared-glib.la
+  CCLD     src/libshared-mainloop.la
+  CCLD     tools/hex2hcd
+  CCLD     tools/mpris-proxy
+  CCLD     profiles/iap/iapd
+  CCLD     tools/rctest
+  CCLD     tools/isotest
+  CCLD     tools/l2ping
+  CCLD     tools/l2test
+  CCLD     tools/mesh-cfgtest
+  CCLD     tools/hciattach
+  CCLD     tools/mesh-cfgclient
+  CCLD     tools/hciconfig
+  CCLD     tools/hcitool
+  CCLD     tools/rfcomm
+  CCLD     tools/sdptool
+  CCLD     tools/ciptool
+  CCLD     profiles/cups/bluetooth
+  CCLD     tools/bdaddr
+  CCLD     tools/avinfo
+  CCLD     tools/scotest
+  CCLD     tools/avtest
+  CCLD     tools/hwdb
+  CCLD     tools/hcieventmask
+  CCLD     tools/btinfo
+  CCLD     tools/btconfig
+  CCLD     tools/btsnoop
+  CCLD     tools/btproxy
+  CCLD     tools/btiotest
+  CCLD     tools/bneptest
+  CCLD     tools/cltest
+  CCLD     tools/oobtest
+  CCLD     tools/advtest
+  CCLD     tools/ibeacon
+  CCLD     tools/eddystone
+  CCLD     tools/btgatt-client
+  CCLD     tools/btgatt-server
+  CCLD     tools/gatt-service
+  CCLD     tools/btmgmt
+  CCLD     tools/obex-client-tool
+  CCLD     tools/bluetooth-player
+  CCLD     tools/obex-server-tool
+  CCLD     tools/obexctl
+  CCLD     attrib/gatttool
+  CCLD     client/btpclient/btpclient
+  CCLD     client/btpclient/btpclientctl
+  CCLD     src/bluetoothd
+  CCLD     obexd/src/obexd
+  CCLD     client/bluetoothctl
+  CCLD     tools/bluemoon
+  CCLD     tools/btattach
+  CCLD     tools/meshctl
+  CCLD     monitor/btmon
+make --no-print-directory install-am
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/etc/bluetooth'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/dbus-1/system.d'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/dbus-1/services'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/dbus-1/system-services'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/zsh/site-functions'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/man/man5'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/include/bluetooth'
+ /usr/bin/install -c -m 644 src/main.conf profiles/input/input.conf profiles/network/network.conf mesh/mesh-main.conf '/home/builder/build/src/fakeinstall/etc/bluetooth'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/udev/rules.d'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 obexd/src/org.bluez.obex.service '/home/builder/build/src/fakeinstall/usr/share/dbus-1/services'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/man/man7'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/share/man/man8'
+ /usr/bin/install -c -m 644 src/bluetooth.conf obexd/src/obex.conf mesh/bluetooth-mesh.conf '/home/builder/build/src/fakeinstall/usr/share/dbus-1/system.d'
+ /usr/bin/install -c -m 644 completion/zsh/_bluetoothctl '/home/builder/build/src/fakeinstall/usr/share/zsh/site-functions'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/systemd/system'
+ /usr/bin/install -c -m 644 src/org.bluez.service mesh/org.bluez.mesh.service '/home/builder/build/src/fakeinstall/usr/share/dbus-1/system-services'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/systemd/user'
+ /usr/bin/install -c -m 644 tools/97-hid2hci.rules '/home/builder/build/src/fakeinstall/usr/lib/udev/rules.d'
+ /usr/bin/install -c -m 644 lib/bluez.pc '/home/builder/build/src/fakeinstall/usr/lib/pkgconfig'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib'
+ /usr/bin/install -c -m 644 tools/mpris-proxy.service obexd/src/obex.service '/home/builder/build/src/fakeinstall/usr/lib/systemd/user'
+ /usr/bin/install -c -m 644 lib/bluetooth/bluetooth.h lib/bluetooth/hci.h lib/bluetooth/hci_lib.h lib/bluetooth/sco.h lib/bluetooth/l2cap.h lib/bluetooth/sdp.h lib/bluetooth/sdp_lib.h lib/bluetooth/rfcomm.h lib/bluetooth/bnep.h lib/bluetooth/cmtp.h lib/bluetooth/hidp.h '/home/builder/build/src/fakeinstall/usr/include/bluetooth'
+ /usr/bin/install -c -m 644 src/bluetooth.service mesh/bluetooth-mesh.service '/home/builder/build/src/fakeinstall/usr/lib/systemd/system'
+ /usr/bin/install -c -m 644 doc/btmon.1 doc/rctest.1 doc/l2ping.1 doc/btattach.1 doc/isotest.1 doc/bluetoothctl.1 doc/bluetoothctl-mgmt.1 doc/bluetoothctl-monitor.1 doc/bluetoothctl-admin.1 doc/bluetoothctl-advertise.1 doc/bluetoothctl-endpoint.1 doc/bluetoothctl-gatt.1 doc/bluetoothctl-player.1 doc/bluetoothctl-scan.1 doc/bluetoothctl-transport.1 doc/bluetoothctl-assistant.1 doc/bluetoothctl-hci.1 doc/bluetoothctl-telephony.1 doc/hciattach.1 doc/hciconfig.1 doc/hcitool.1 doc/rfcomm.1 doc/sdptool.1 doc/ciptool.1 doc/hid2hci.1 '/home/builder/build/src/fakeinstall/usr/share/man/man1'
+ /usr/bin/install -c -m 644 doc/org.bluez.Adapter.5 doc/org.bluez.Device.5 doc/org.bluez.Bearer.LE.5 doc/org.bluez.Bearer.BREDR.5 doc/org.bluez.DeviceSet.5 doc/org.bluez.AgentManager.5 doc/org.bluez.Agent.5 doc/org.bluez.ProfileManager.5 doc/org.bluez.Profile.5 doc/org.bluez.NetworkServer.5 doc/org.bluez.Network.5 doc/org.bluez.Input.5 doc/org.bluez.BatteryProviderManager.5 doc/org.bluez.BatteryProvider.5 doc/org.bluez.Battery.5 doc/org.bluez.AdminPolicySet.5 doc/org.bluez.AdminPolicyStatus.5 doc/org.bluez.Media.5 doc/org.bluez.MediaControl.5 doc/org.bluez.MediaPlayer.5 doc/org.bluez.MediaFolder.5 doc/org.bluez.MediaItem.5 doc/org.bluez.MediaEndpoint.5 doc/org.bluez.MediaTransport.5 doc/org.bluez.MediaAssistant.5 doc/org.bluez.GattManager.5 doc/org.bluez.GattProfile.5 doc/org.bluez.GattService.5 doc/org.bluez.GattCharacteristic.5 doc/org.bluez.GattDescriptor.5 doc/org.bluez.LEAdvertisingManager.5 doc/org.bluez.LEAdvertisement.5 doc/org.bluez.AdvertisementMonitorManager.5 doc/org.bluez.AdvertisementMonitor.5 doc/org.bluez.obex.Client.5 doc/org.bluez.obex.Session.5 doc/org.bluez.obex.Transfer.5 doc/org.bluez.obex.ObjectPush.5 doc/org.bluez.obex.FileTransfer.5 doc/org.bluez.obex.Synchronization.5 '/home/builder/build/src/fakeinstall/usr/share/man/man5'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   lib/libbluetooth.la '/home/builder/build/src/fakeinstall/usr/lib'
+ /usr/bin/install -c -m 644 doc/hci.7 doc/mgmt.7 doc/l2cap.7 doc/rfcomm.7 doc/sco.7 doc/iso.7 doc/btsnoop.7 '/home/builder/build/src/fakeinstall/usr/share/man/man7'
+ /usr/bin/install -c -m 644 doc/bluetoothd.8 doc/bluetooth-meshd.8 '/home/builder/build/src/fakeinstall/usr/share/man/man8'
+ /usr/bin/install -c -m 644 doc/org.bluez.obex.PhonebookAccess.5 doc/org.bluez.obex.MessageAccess.5 doc/org.bluez.obex.Message.5 doc/org.bluez.obex.AgentManager.5 doc/org.bluez.obex.Agent.5 doc/org.bluez.obex.Image.5 doc/org.bluez.Telephony.5 doc/org.bluez.Call.5 doc/org.bluez.ThermometerManager.5 doc/org.bluez.Thermometer.5 doc/org.bluez.ThermometerWatcher.5 '/home/builder/build/src/fakeinstall/usr/share/man/man5'
+libtool: install: /usr/bin/install -c lib/.libs/libbluetooth.so.3.19.16 /home/builder/build/src/fakeinstall/usr/lib/libbluetooth.so.3.19.16
+libtool: install: (cd /home/builder/build/src/fakeinstall/usr/lib && { ln -s -f libbluetooth.so.3.19.16 libbluetooth.so.3 || { rm -f libbluetooth.so.3 && ln -s libbluetooth.so.3.19.16 libbluetooth.so.3; }; })
+libtool: install: (cd /home/builder/build/src/fakeinstall/usr/lib && { ln -s -f libbluetooth.so.3.19.16 libbluetooth.so || { rm -f libbluetooth.so && ln -s libbluetooth.so.3.19.16 libbluetooth.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libbluetooth.lai /home/builder/build/src/fakeinstall/usr/lib/libbluetooth.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/bluetooth'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/cups/backend'
+ /usr/sbin/mkdir -p '/home/builder/build/src/fakeinstall/usr/lib/udev'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c client/bluetoothctl monitor/btmon tools/rctest tools/l2test tools/l2ping tools/bluemoon tools/hex2hcd tools/mpris-proxy tools/btattach tools/isotest tools/meshctl tools/mesh-cfgclient tools/mesh-cfgtest tools/hciattach tools/hciconfig tools/hcitool tools/rfcomm tools/sdptool tools/ciptool '/home/builder/build/src/fakeinstall/usr/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c src/bluetoothd obexd/src/obexd mesh/bluetooth-meshd '/home/builder/build/src/fakeinstall/usr/lib/bluetooth'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c tools/hid2hci '/home/builder/build/src/fakeinstall/usr/lib/udev'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c profiles/cups/bluetooth '/home/builder/build/src/fakeinstall/usr/lib/cups/backend'
+libtool: install: /usr/bin/install -c src/bluetoothd /home/builder/build/src/fakeinstall/usr/lib/bluetooth/bluetoothd
+libtool: install: /usr/bin/install -c profiles/cups/bluetooth /home/builder/build/src/fakeinstall/usr/lib/cups/backend/bluetooth
+libtool: install: /usr/bin/install -c tools/hid2hci /home/builder/build/src/fakeinstall/usr/lib/udev/hid2hci
+libtool: install: /usr/bin/install -c client/bluetoothctl /home/builder/build/src/fakeinstall/usr/bin/bluetoothctl
+make --no-print-directory install-data-hook
+libtool: install: /usr/bin/install -c obexd/src/obexd /home/builder/build/src/fakeinstall/usr/lib/bluetooth/obexd
+libtool: install: /usr/bin/install -c monitor/btmon /home/builder/build/src/fakeinstall/usr/bin/btmon
+libtool: install: /usr/bin/install -c mesh/bluetooth-meshd /home/builder/build/src/fakeinstall/usr/lib/bluetooth/bluetooth-meshd
+libtool: install: /usr/bin/install -c tools/rctest /home/builder/build/src/fakeinstall/usr/bin/rctest
+libtool: install: /usr/bin/install -c tools/l2test /home/builder/build/src/fakeinstall/usr/bin/l2test
+libtool: install: /usr/bin/install -c tools/l2ping /home/builder/build/src/fakeinstall/usr/bin/l2ping
+libtool: install: /usr/bin/install -c tools/bluemoon /home/builder/build/src/fakeinstall/usr/bin/bluemoon
+libtool: install: /usr/bin/install -c tools/hex2hcd /home/builder/build/src/fakeinstall/usr/bin/hex2hcd
+libtool: install: /usr/bin/install -c tools/mpris-proxy /home/builder/build/src/fakeinstall/usr/bin/mpris-proxy
+libtool: install: /usr/bin/install -c tools/btattach /home/builder/build/src/fakeinstall/usr/bin/btattach
+libtool: install: /usr/bin/install -c tools/isotest /home/builder/build/src/fakeinstall/usr/bin/isotest
+libtool: install: /usr/bin/install -c tools/meshctl /home/builder/build/src/fakeinstall/usr/bin/meshctl
+libtool: install: /usr/bin/install -c tools/mesh-cfgclient /home/builder/build/src/fakeinstall/usr/bin/mesh-cfgclient
+libtool: install: /usr/bin/install -c tools/mesh-cfgtest /home/builder/build/src/fakeinstall/usr/bin/mesh-cfgtest
+ln -s -f obex.service /home/builder/build/src/fakeinstall/usr/lib/systemd/user/dbus-org.bluez.obex.service
+libtool: install: /usr/bin/install -c tools/hciattach /home/builder/build/src/fakeinstall/usr/bin/hciattach
+libtool: install: /usr/bin/install -c tools/hciconfig /home/builder/build/src/fakeinstall/usr/bin/hciconfig
+libtool: install: /usr/bin/install -c tools/hcitool /home/builder/build/src/fakeinstall/usr/bin/hcitool
+libtool: install: /usr/bin/install -c tools/rfcomm /home/builder/build/src/fakeinstall/usr/bin/rfcomm
+libtool: install: /usr/bin/install -c tools/sdptool /home/builder/build/src/fakeinstall/usr/bin/sdptool
+libtool: install: /usr/bin/install -c tools/ciptool /home/builder/build/src/fakeinstall/usr/bin/ciptool
+==> Entering fakeroot environment...
+==> Starting package_bluez()...
+'fakeinstall/etc/bluetooth/main.conf' -> '/home/builder/build/pkg/bluez/etc/bluetooth/main.conf'
+'fakeinstall/etc/bluetooth/input.conf' -> '/home/builder/build/pkg/bluez/etc/bluetooth/input.conf'
+'fakeinstall/etc/bluetooth/network.conf' -> '/home/builder/build/pkg/bluez/etc/bluetooth/network.conf'
+'fakeinstall/usr/lib/bluetooth/bluetoothd' -> '/home/builder/build/pkg/bluez/usr/lib/bluetooth/bluetoothd'
+'fakeinstall/usr/lib/systemd/system/bluetooth.service' -> '/home/builder/build/pkg/bluez/usr/lib/systemd/system/bluetooth.service'
+'fakeinstall/usr/share/dbus-1/system-services/org.bluez.service' -> '/home/builder/build/pkg/bluez/usr/share/dbus-1/system-services/org.bluez.service'
+'fakeinstall/usr/share/dbus-1/system.d/bluetooth.conf' -> '/home/builder/build/pkg/bluez/usr/share/dbus-1/system.d/bluetooth.conf'
+'fakeinstall/usr/share/man/man8/bluetoothd.8' -> '/home/builder/build/pkg/bluez/usr/share/man/man8/bluetoothd.8'
+mode of '/home/builder/build/pkg/bluez/etc/bluetooth' changed from 0755 (rwxr-xr-x) to 0555 (r-xr-xr-x)
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-utils()...
+'fakeinstall/usr/bin/advtest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/advtest'
+'fakeinstall/usr/bin/avinfo' -> '/home/builder/build/pkg/bluez-utils/usr/bin/avinfo'
+'fakeinstall/usr/bin/avtest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/avtest'
+'fakeinstall/usr/bin/bcmfw' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bcmfw'
+'fakeinstall/usr/bin/bdaddr' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bdaddr'
+'fakeinstall/usr/bin/bluemoon' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bluemoon'
+'fakeinstall/usr/bin/bluetoothctl' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bluetoothctl'
+'fakeinstall/usr/bin/bluetooth-player' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bluetooth-player'
+'fakeinstall/usr/bin/bneptest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/bneptest'
+'fakeinstall/usr/bin/btattach' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btattach'
+'fakeinstall/usr/bin/btconfig' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btconfig'
+'fakeinstall/usr/bin/btgatt-client' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btgatt-client'
+'fakeinstall/usr/bin/btgatt-server' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btgatt-server'
+'fakeinstall/usr/bin/btinfo' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btinfo'
+'fakeinstall/usr/bin/btiotest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btiotest'
+'fakeinstall/usr/bin/btmgmt' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btmgmt'
+'fakeinstall/usr/bin/btmon' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btmon'
+'fakeinstall/usr/bin/btpclient' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btpclient'
+'fakeinstall/usr/bin/btpclientctl' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btpclientctl'
+'fakeinstall/usr/bin/btproxy' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btproxy'
+'fakeinstall/usr/bin/btsnoop' -> '/home/builder/build/pkg/bluez-utils/usr/bin/btsnoop'
+'fakeinstall/usr/bin/check-selftest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/check-selftest'
+'fakeinstall/usr/bin/cltest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/cltest'
+'fakeinstall/usr/bin/create-image' -> '/home/builder/build/pkg/bluez-utils/usr/bin/create-image'
+'fakeinstall/usr/bin/eddystone' -> '/home/builder/build/pkg/bluez-utils/usr/bin/eddystone'
+'fakeinstall/usr/bin/gatt-service' -> '/home/builder/build/pkg/bluez-utils/usr/bin/gatt-service'
+'fakeinstall/usr/bin/hcieventmask' -> '/home/builder/build/pkg/bluez-utils/usr/bin/hcieventmask'
+'fakeinstall/usr/bin/hcisecfilter' -> '/home/builder/build/pkg/bluez-utils/usr/bin/hcisecfilter'
+'fakeinstall/usr/bin/hex2hcd' -> '/home/builder/build/pkg/bluez-utils/usr/bin/hex2hcd'
+'fakeinstall/usr/bin/hid2hci' -> '/home/builder/build/pkg/bluez-utils/usr/bin/hid2hci'
+'fakeinstall/usr/bin/hwdb' -> '/home/builder/build/pkg/bluez-utils/usr/bin/hwdb'
+'fakeinstall/usr/bin/ibeacon' -> '/home/builder/build/pkg/bluez-utils/usr/bin/ibeacon'
+'fakeinstall/usr/bin/isotest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/isotest'
+'fakeinstall/usr/bin/l2ping' -> '/home/builder/build/pkg/bluez-utils/usr/bin/l2ping'
+'fakeinstall/usr/bin/l2test' -> '/home/builder/build/pkg/bluez-utils/usr/bin/l2test'
+'fakeinstall/usr/bin/mpris-proxy' -> '/home/builder/build/pkg/bluez-utils/usr/bin/mpris-proxy'
+'fakeinstall/usr/bin/nokfw' -> '/home/builder/build/pkg/bluez-utils/usr/bin/nokfw'
+'fakeinstall/usr/bin/oobtest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/oobtest'
+'fakeinstall/usr/bin/parse_companies.pl' -> '/home/builder/build/pkg/bluez-utils/usr/bin/parse_companies.pl'
+'fakeinstall/usr/bin/rctest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/rctest'
+'fakeinstall/usr/bin/rtlfw' -> '/home/builder/build/pkg/bluez-utils/usr/bin/rtlfw'
+'fakeinstall/usr/bin/scotest' -> '/home/builder/build/pkg/bluez-utils/usr/bin/scotest'
+'fakeinstall/usr/bin/seq2bseq' -> '/home/builder/build/pkg/bluez-utils/usr/bin/seq2bseq'
+'fakeinstall/usr/bin/test-runner' -> '/home/builder/build/pkg/bluez-utils/usr/bin/test-runner'
+'fakeinstall/usr/bin/update_compids.sh' -> '/home/builder/build/pkg/bluez-utils/usr/bin/update_compids.sh'
+'fakeinstall/usr/lib/systemd/user/mpris-proxy.service' -> '/home/builder/build/pkg/bluez-utils/usr/lib/systemd/user/mpris-proxy.service'
+'fakeinstall/usr/share/man/man1/bluetoothctl-admin.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-admin.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-advertise.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-advertise.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-assistant.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-assistant.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-endpoint.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-endpoint.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-gatt.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-gatt.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-hci.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-hci.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-mgmt.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-mgmt.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-monitor.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-monitor.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-player.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-player.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-scan.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-scan.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-telephony.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-telephony.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl-transport.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl-transport.1'
+'fakeinstall/usr/share/man/man1/bluetoothctl.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/bluetoothctl.1'
+'fakeinstall/usr/share/man/man1/btattach.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/btattach.1'
+'fakeinstall/usr/share/man/man1/btmon.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/btmon.1'
+'fakeinstall/usr/share/man/man1/isotest.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/isotest.1'
+'fakeinstall/usr/share/man/man1/l2ping.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/l2ping.1'
+'fakeinstall/usr/share/man/man1/rctest.1' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man1/rctest.1'
+'fakeinstall/usr/share/man/man5/org.bluez.Adapter.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Adapter.5'
+'fakeinstall/usr/share/man/man5/org.bluez.AdminPolicySet.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.AdminPolicySet.5'
+'fakeinstall/usr/share/man/man5/org.bluez.AdminPolicyStatus.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.AdminPolicyStatus.5'
+'fakeinstall/usr/share/man/man5/org.bluez.AdvertisementMonitor.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.AdvertisementMonitor.5'
+'fakeinstall/usr/share/man/man5/org.bluez.AdvertisementMonitorManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.AdvertisementMonitorManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Agent.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Agent.5'
+'fakeinstall/usr/share/man/man5/org.bluez.AgentManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.AgentManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Battery.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Battery.5'
+'fakeinstall/usr/share/man/man5/org.bluez.BatteryProvider.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.BatteryProvider.5'
+'fakeinstall/usr/share/man/man5/org.bluez.BatteryProviderManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.BatteryProviderManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Bearer.BREDR.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Bearer.BREDR.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Bearer.LE.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Bearer.LE.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Call.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Call.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Device.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Device.5'
+'fakeinstall/usr/share/man/man5/org.bluez.DeviceSet.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.DeviceSet.5'
+'fakeinstall/usr/share/man/man5/org.bluez.GattCharacteristic.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.GattCharacteristic.5'
+'fakeinstall/usr/share/man/man5/org.bluez.GattDescriptor.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.GattDescriptor.5'
+'fakeinstall/usr/share/man/man5/org.bluez.GattManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.GattManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.GattProfile.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.GattProfile.5'
+'fakeinstall/usr/share/man/man5/org.bluez.GattService.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.GattService.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Input.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Input.5'
+'fakeinstall/usr/share/man/man5/org.bluez.LEAdvertisement.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.LEAdvertisement.5'
+'fakeinstall/usr/share/man/man5/org.bluez.LEAdvertisingManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.LEAdvertisingManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Media.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Media.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaAssistant.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaAssistant.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaControl.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaControl.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaEndpoint.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaEndpoint.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaFolder.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaFolder.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaItem.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaItem.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaPlayer.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaPlayer.5'
+'fakeinstall/usr/share/man/man5/org.bluez.MediaTransport.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.MediaTransport.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Network.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Network.5'
+'fakeinstall/usr/share/man/man5/org.bluez.NetworkServer.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.NetworkServer.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Profile.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Profile.5'
+'fakeinstall/usr/share/man/man5/org.bluez.ProfileManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.ProfileManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Telephony.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Telephony.5'
+'fakeinstall/usr/share/man/man5/org.bluez.Thermometer.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.Thermometer.5'
+'fakeinstall/usr/share/man/man5/org.bluez.ThermometerManager.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.ThermometerManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.ThermometerWatcher.5' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man5/org.bluez.ThermometerWatcher.5'
+'fakeinstall/usr/share/man/man7/btsnoop.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/btsnoop.7'
+'fakeinstall/usr/share/man/man7/hci.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/hci.7'
+'fakeinstall/usr/share/man/man7/l2cap.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/l2cap.7'
+'fakeinstall/usr/share/man/man7/mgmt.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/mgmt.7'
+'fakeinstall/usr/share/man/man7/sco.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/sco.7'
+'fakeinstall/usr/share/man/man7/iso.7' -> '/home/builder/build/pkg/bluez-utils/usr/share/man/man7/iso.7'
+'fakeinstall/usr/share/zsh/site-functions/_bluetoothctl' -> '/home/builder/build/pkg/bluez-utils/usr/share/zsh/site-functions/_bluetoothctl'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-utils"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-libs()...
+'fakeinstall/usr/include/bluetooth/bluetooth.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/bluetooth.h'
+'fakeinstall/usr/include/bluetooth/bnep.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/bnep.h'
+'fakeinstall/usr/include/bluetooth/cmtp.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/cmtp.h'
+'fakeinstall/usr/include/bluetooth/hci.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/hci.h'
+'fakeinstall/usr/include/bluetooth/hci_lib.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/hci_lib.h'
+'fakeinstall/usr/include/bluetooth/hidp.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/hidp.h'
+'fakeinstall/usr/include/bluetooth/l2cap.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/l2cap.h'
+'fakeinstall/usr/include/bluetooth/rfcomm.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/rfcomm.h'
+'fakeinstall/usr/include/bluetooth/sco.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/sco.h'
+'fakeinstall/usr/include/bluetooth/sdp.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/sdp.h'
+'fakeinstall/usr/include/bluetooth/sdp_lib.h' -> '/home/builder/build/pkg/bluez-libs/usr/include/bluetooth/sdp_lib.h'
+'fakeinstall/usr/lib/libbluetooth.so' -> '/home/builder/build/pkg/bluez-libs/usr/lib/libbluetooth.so'
+'fakeinstall/usr/lib/libbluetooth.so.3' -> '/home/builder/build/pkg/bluez-libs/usr/lib/libbluetooth.so.3'
+'fakeinstall/usr/lib/libbluetooth.so.3.19.16' -> '/home/builder/build/pkg/bluez-libs/usr/lib/libbluetooth.so.3.19.16'
+'fakeinstall/usr/lib/pkgconfig/bluez.pc' -> '/home/builder/build/pkg/bluez-libs/usr/lib/pkgconfig/bluez.pc'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-libs"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-deprecated-tools()...
+'fakeinstall/usr/bin/ciptool' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/ciptool'
+'fakeinstall/usr/bin/hciattach' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/hciattach'
+'fakeinstall/usr/bin/hciconfig' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/hciconfig'
+'fakeinstall/usr/bin/hcitool' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/hcitool'
+'fakeinstall/usr/bin/meshctl' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/meshctl'
+'fakeinstall/usr/bin/rfcomm' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/rfcomm'
+'fakeinstall/usr/bin/sdptool' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/bin/sdptool'
+'fakeinstall/usr/share/man/man1/ciptool.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/ciptool.1'
+'fakeinstall/usr/share/man/man1/hciattach.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/hciattach.1'
+'fakeinstall/usr/share/man/man1/hciconfig.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/hciconfig.1'
+'fakeinstall/usr/share/man/man1/hcitool.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/hcitool.1'
+'fakeinstall/usr/share/man/man1/rfcomm.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/rfcomm.1'
+'fakeinstall/usr/share/man/man1/sdptool.1' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man1/sdptool.1'
+'fakeinstall/usr/share/man/man7/rfcomm.7' -> '/home/builder/build/pkg/bluez-deprecated-tools/usr/share/man/man7/rfcomm.7'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-deprecated-tools"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-hid2hci()...
+'fakeinstall/usr/lib/udev/hid2hci' -> '/home/builder/build/pkg/bluez-hid2hci/usr/lib/udev/hid2hci'
+'fakeinstall/usr/lib/udev/rules.d' -> '/home/builder/build/pkg/bluez-hid2hci/usr/lib/udev/rules.d'
+'fakeinstall/usr/lib/udev/rules.d/97-hid2hci.rules' -> '/home/builder/build/pkg/bluez-hid2hci/usr/lib/udev/rules.d/97-hid2hci.rules'
+'fakeinstall/usr/share/man/man1/hid2hci.1' -> '/home/builder/build/pkg/bluez-hid2hci/usr/share/man/man1/hid2hci.1'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-hid2hci"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-mesh()...
+'fakeinstall/etc/bluetooth/mesh-main.conf' -> '/home/builder/build/pkg/bluez-mesh/etc/bluetooth/mesh-main.conf'
+'fakeinstall/usr/bin/mesh-cfgclient' -> '/home/builder/build/pkg/bluez-mesh/usr/bin/mesh-cfgclient'
+'fakeinstall/usr/bin/mesh-cfgtest' -> '/home/builder/build/pkg/bluez-mesh/usr/bin/mesh-cfgtest'
+'fakeinstall/usr/lib/bluetooth/bluetooth-meshd' -> '/home/builder/build/pkg/bluez-mesh/usr/lib/bluetooth/bluetooth-meshd'
+'fakeinstall/usr/lib/systemd/system/bluetooth-mesh.service' -> '/home/builder/build/pkg/bluez-mesh/usr/lib/systemd/system/bluetooth-mesh.service'
+'fakeinstall/usr/share/dbus-1/system-services/org.bluez.mesh.service' -> '/home/builder/build/pkg/bluez-mesh/usr/share/dbus-1/system-services/org.bluez.mesh.service'
+'fakeinstall/usr/share/dbus-1/system.d/bluetooth-mesh.conf' -> '/home/builder/build/pkg/bluez-mesh/usr/share/dbus-1/system.d/bluetooth-mesh.conf'
+'fakeinstall/usr/share/man/man8/bluetooth-meshd.8' -> '/home/builder/build/pkg/bluez-mesh/usr/share/man/man8/bluetooth-meshd.8'
+mode of '/home/builder/build/pkg/bluez-mesh/etc/bluetooth' changed from 0755 (rwxr-xr-x) to 0555 (r-xr-xr-x)
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-mesh"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_bluez-obex()...
+'fakeinstall/usr/bin/obexctl' -> '/home/builder/build/pkg/bluez-obex/usr/bin/obexctl'
+'fakeinstall/usr/bin/obex-client-tool' -> '/home/builder/build/pkg/bluez-obex/usr/bin/obex-client-tool'
+'fakeinstall/usr/bin/obex-server-tool' -> '/home/builder/build/pkg/bluez-obex/usr/bin/obex-server-tool'
+'fakeinstall/usr/lib/bluetooth/obexd' -> '/home/builder/build/pkg/bluez-obex/usr/lib/bluetooth/obexd'
+'fakeinstall/usr/lib/systemd/user/obex.service' -> '/home/builder/build/pkg/bluez-obex/usr/lib/systemd/user/obex.service'
+'fakeinstall/usr/share/dbus-1/services/org.bluez.obex.service' -> '/home/builder/build/pkg/bluez-obex/usr/share/dbus-1/services/org.bluez.obex.service'
+'fakeinstall/usr/share/dbus-1/system.d/obex.conf' -> '/home/builder/build/pkg/bluez-obex/usr/share/dbus-1/system.d/obex.conf'
+'fakeinstall/usr/lib/systemd/user/dbus-org.bluez.obex.service' -> '/home/builder/build/pkg/bluez-obex/usr/lib/systemd/user/dbus-org.bluez.obex.service'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Agent.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Agent.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.AgentManager.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.AgentManager.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Client.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Client.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.FileTransfer.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.FileTransfer.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Image.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Image.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Message.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Message.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.MessageAccess.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.MessageAccess.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.ObjectPush.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.ObjectPush.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.PhonebookAccess.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.PhonebookAccess.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Session.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Session.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Synchronization.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Synchronization.5'
+'fakeinstall/usr/share/man/man5/org.bluez.obex.Transfer.5' -> '/home/builder/build/pkg/bluez-obex/usr/share/man/man5/org.bluez.obex.Transfer.5'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "bluez-obex"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: bluez 5.87-2 (Sun Sep 20 02:22:59 2026)

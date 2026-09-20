@@ -1,0 +1,861 @@
+== build readline (deps: glibc libncursesw.so ncurses )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (1) ncurses-6.6-2
+
+Total Download Size:    1.14 MiB
+Total Installed Size:   6.03 MiB
+Net Upgrade Size:      -2.92 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ ncurses-6.6-2-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: readline 8.3.6-1 (Sun Sep 20 01:04:58 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found readline-8.3.tar.gz
+  -> Downloading readline-8.3.tar.gz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     95 100     95   0      0     87      0   00:01   00:01              0100     95 100     95   0      0     87      0   00:01   00:01              0100     95 100     95   0      0     87      0   00:01   00:01              0
+  -> Found inputrc
+  -> Downloading readline83-001...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   1846 100   1846   0      0   1771      0   00:01   00:01              0100   1846 100   1846   0      0   1771      0   00:01   00:01              0100   1846 100   1846   0      0   1771      0   00:01   00:01              0
+  -> Downloading readline83-001.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     95 100     95   0      0    119      0                              0100     95 100     95   0      0    119      0                              0100     95 100     95   0      0    119      0                              0
+  -> Downloading readline83-002...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   1613 100   1613   0      0   1611      0   00:01   00:01              0100   1613 100   1613   0      0   1611      0   00:01   00:01              0100   1613 100   1613   0      0   1611      0   00:01   00:01              0
+  -> Downloading readline83-002.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0100     95 100     95   0      0     73      0   00:01   00:01              0100     95 100     95   0      0     73      0   00:01   00:01              0100     95 100     95   0      0     73      0   00:01   00:01              0
+  -> Downloading readline83-003...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   2284 100   2284   0      0   2323      0                              0100   2284 100   2284   0      0   2323      0                              0100   2284 100   2284   0      0   2323      0                              0
+  -> Downloading readline83-003.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     95 100     95   0      0    109      0                              0100     95 100     95   0      0    109      0                              0100     95 100     95   0      0    109      0                              0
+  -> Downloading readline83-004...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   2112 100   2112   0      0   2670      0                              0100   2112 100   2112   0      0   2670      0                              0100   2112 100   2112   0      0   2670      0                              0
+  -> Downloading readline83-004.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    123 100    123   0      0    153      0                              0100    123 100    123   0      0    153      0                              0100    123 100    123   0      0    153      0                              0
+  -> Downloading readline83-005...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   2511 100   2511   0      0   2610      0                              0100   2511 100   2511   0      0   2610      0                              0100   2511 100   2511   0      0   2610      0                              0
+  -> Downloading readline83-005.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    123 100    123   0      0    158      0                              0100    123 100    123   0      0    158      0                              0100    123 100    123   0      0    158      0                              0
+  -> Downloading readline83-006...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100   1422 100   1422   0      0   1737      0                              0100   1422 100   1422   0      0   1737      0                              0100   1422 100   1422   0      0   1736      0                              0
+  -> Downloading readline83-006.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    123 100    123   0      0    152      0                              0100    123 100    123   0      0    152      0                              0100    123 100    123   0      0    152      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    readline-8.3.tar.gz ... Passed
+    readline-8.3.tar.gz.sig ... Skipped
+    inputrc ... Passed
+    readline83-001 ... Passed
+    readline83-001.sig ... Skipped
+    readline83-002 ... Passed
+    readline83-002.sig ... Skipped
+    readline83-003 ... Passed
+    readline83-003.sig ... Skipped
+    readline83-004 ... Passed
+    readline83-004.sig ... Skipped
+    readline83-005 ... Passed
+    readline83-005.sig ... Skipped
+    readline83-006 ... Passed
+    readline83-006.sig ... Skipped
+==> Extracting sources...
+  -> Extracting readline-8.3.tar.gz with bsdtar
+==> Starting prepare()...
+  -> applying patch readline83-001
+patching file input.c
+patching file patchlevel
+  -> applying patch readline83-002
+patching file display.c
+patching file patchlevel
+  -> applying patch readline83-003
+patching file input.c
+patching file isearch.c
+patching file patchlevel
+  -> applying patch readline83-004
+patching file display.c
+patching file patchlevel
+  -> applying patch readline83-005
+patching file display.c
+patching file patchlevel
+  -> applying patch readline83-006
+patching file display.c
+Hunk #1 succeeded at 3523 (offset -3 lines).
+patching file patchlevel
+==> Starting build()...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+
+Beginning configuration for readline-8.3 for x86_64-pc-linux-gnu
+
+checking whether make sets $(MAKE)... yes
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ar... llvm-ar
+checking for ranlib... llvm-ranlib
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking whether char is unsigned... no
+checking for working volatile... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for mode_t... yes
+checking whether stat file-mode macros are broken... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for fcntl... yes
+checking for gettimeofday... yes
+checking for kill... yes
+checking for lstat... yes
+checking for pselect... yes
+checking for readlink... yes
+checking for select... yes
+checking for setitimer... yes
+checking for fnmatch... yes
+checking for memmove... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for strcasecmp... yes
+checking for strpbrk... yes
+checking for sysconf... yes
+checking for tcgetattr... yes
+checking for tcgetwinsize... no
+checking for tcsetwinsize... no
+checking for vsnprintf... yes
+checking for isascii... yes
+checking for isxdigit... yes
+checking for getpwent... yes
+checking for getpwnam... yes
+checking for getpwuid... yes
+checking for uid_t... yes
+checking for gid_t... yes
+checking for working chown... yes
+checking for working strcoll... yes
+checking for fcntl.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for varargs.h... no
+checking for stdarg.h... yes
+checking for stdbool.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for limits.h... yes
+checking for locale.h... yes
+checking for pwd.h... yes
+checking for memory.h... yes
+checking for termcap.h... yes
+checking for termios.h... yes
+checking for termio.h... no
+checking for sys/ioctl.h... yes
+checking for sys/pte.h... no
+checking for sys/stream.h... no
+checking for sys/select.h... yes
+checking for sys/time.h... yes
+checking for sys/file.h... yes
+checking for sys/ptem.h... no
+checking for clang option to enable large file support... none needed
+checking for type of signal functions... posix
+checking if signal handlers must be reinstalled when invoked... no
+checking for presence of POSIX-style sigsetjmp/siglongjmp... present
+checking for lstat... yes
+checking whether or not strcoll and strcmp differ... no
+checking how to run the C preprocessor... clang -E
+checking for egrep -e... /usr/sbin/grep -E
+checking whether getpw functions are declared in pwd.h... yes
+checking whether termios.h defines TIOCGWINSZ... no
+checking whether sys/ioctl.h defines TIOCGWINSZ... yes
+checking for inttypes.h... (cached) yes
+checking for sig_atomic_t in signal.h... yes
+checking for TIOCSTAT in sys/ioctl.h... no
+checking for FIONREAD in sys/ioctl.h... yes
+checking for speed_t in sys/types.h... no
+checking for struct winsize in sys/ioctl.h and termios.h... sys/ioctl.h
+checking for struct dirent.d_ino... yes
+checking for struct dirent.d_fileno... yes
+checking for struct timeval in sys/time.h and time.h... yes
+checking for libaudit.h... yes
+checking for clang options needed to detect all undeclared functions... none needed
+checking whether AUDIT_USER_TTY is declared... yes
+checking for tgetent... no
+checking for tgetent in -ltermcap... no
+checking for tgetent in -ltinfo... yes
+checking which library has the termcap functions... using libtinfo
+checking for nl_langinfo and CODESET... yes
+checking for wctype.h... yes
+checking for wchar.h... (cached) yes
+checking for langinfo.h... yes
+checking for mbstr.h... no
+checking for mbrlen... yes
+checking for mbscasecmp... no
+checking for mbscmp... no
+checking for mbsncmp... no
+checking for mbsnrtowcs... yes
+checking for mbsrtowcs... yes
+checking for mbschr... no
+checking for wcrtomb... yes
+checking for wcscoll... yes
+checking for wcsdup... yes
+checking for wcwidth... yes
+checking for wctype... yes
+checking for wcsnrtombs... yes
+checking for wcswidth... yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for iswlower... yes
+checking for iswupper... yes
+checking for towlower... yes
+checking for towupper... yes
+checking for iswctype... yes
+checking for wchar_t in wchar.h... yes
+checking for wctype_t in wctype.h... yes
+checking for wint_t in wctype.h... yes
+checking for wcwidth broken with unicode combining characters... yes
+checking size of wchar_t... 4
+checking configuration for building shared libraries... supported
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating examples/Makefile
+config.status: creating shlib/Makefile
+config.status: creating readline.pc
+config.status: creating history.pc
+config.status: creating config.h
+config.status: executing stamp-h commands
+rm -f readline.o
+rm -f vi_mode.o
+rm -f funmap.o
+rm -f keymaps.o
+rm -f parens.o
+rm -f search.o
+rm -f rltty.o
+rm -f complete.o
+rm -f bind.o
+rm -f isearch.o
+rm -f display.o
+rm -f signals.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   readline.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   vi_mode.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   keymaps.c
+rm -f util.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   funmap.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   parens.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   complete.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   bind.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   rltty.c
+rm -f kill.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   search.c
+rm -f undo.o
+rm -f macro.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   isearch.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   display.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   signals.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   util.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   kill.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   undo.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   macro.c
+rm -f input.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   input.c
+bind.c:1566:31: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                             ~~^~~~~~~~~~~
+bind.c:1566:31: note: place parentheses around the assignment to silence this warning
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                               ^          
+      |                             (            )
+bind.c:1566:31: note: use '==' to turn this assignment into an equality comparison
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                               ^
+      |                               ==
+rm -f callback.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   callback.c
+bind.c:2810:20: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |               ~~~~~^~~~~~~~~~
+bind.c:2810:20: note: place parentheses around the assignment to silence this warning
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |                    ^         
+      |               (              )
+bind.c:2810:20: note: use '==' to turn this assignment into an equality comparison
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |                    ^
+      |                    ==
+complete.c:1209:23: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |              ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+complete.c:1209:23: note: place parentheses around the assignment to silence this warning
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |                       ^                                                    
+      |              (                                                             )
+complete.c:1209:23: note: use '==' to turn this assignment into an equality comparison
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |                       ^
+      |                       ==
+rm -f terminal.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   terminal.c
+complete.c:2330:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2330 |   while (string = (*entry_function) (text, matches))
+      |          ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+complete.c:2330:17: note: place parentheses around the assignment to silence this warning
+ 2330 |   while (string = (*entry_function) (text, matches))
+      |                 ^                                  
+      |          (                                         )
+complete.c:2330:17: note: use '==' to turn this assignment into an equality comparison
+ 2330 |   while (string = (*entry_function) (rm -f text.o
+text, matches))
+      |                 ^
+      |                 ==
+complete.c:2399:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2399 |   while (entry = getpwent ())
+      |          ~~~~~~^~~~~~~~~~~~~
+complete.c:2399:16: note: place parentheses around the assignment to silence this warning
+ 2399 |   while (entry = getpwent ())
+      |                ^            
+      |          (                  )
+complete.c:2399:16: note: use '==' to turn this assignment into an equality comparison
+ 2399 |   while (entry = getpwent ())
+      |                ^
+      |                ==
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   text.c
+rm -f nls.o
+rm -f misc.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   misc.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   nls.c
+rm -f history.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   history.c
+input.c:798:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  798 |     rm -f histexpand.o
+  if (c = _rl_next_macro_key ())
+      |           ~~^~~~~~~~~~~~~~~~~~~~~~~
+input.c:798:13: note: place parentheses around the assignment to silence this warning
+  798 |       if (c = _rl_next_macro_key ())
+      |             ^                      
+      |           (                        )
+input.c:798:13: note: use '==' to turn this assignment into an equality comparison
+  798 |       if (c = _rl_next_macro_key ())
+      |             ^
+      |             ==
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   histexpand.c
+rm -f histfile.o
+rm -f histsearch.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   histfile.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   histsearch.c
+rm -f shell.o
+misc.c:491:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  491 |       if (ul = (UNDO_LIST *)entry->data)
+      |           ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:491:14: note: place parentheses around the assignment to silence this warning
+  491 |       if (ul = (UNDO_LIST *)entry->data)
+      |              ^                         
+      |           (                            )
+misc.c:491:14: note: use '==' to turn this assignment into an equality comparison
+  491 |       if (ul = (UNDO_LIST *)entry->data)
+      |              ^
+      |              ==
+misc.c:551:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |           ~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:551:14: note: place parentheses around the assignment to silence this warning
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |              ^                        
+      |           (                           )
+misc.c:551:14: note: use '==' to turn this assignment into an equality comparison
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |              ^
+      |              ==
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   shell.c
+rm -f mbutil.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   mbutil.c
+histexpand.c:212:27: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  212 |   for (local_index = i; c = string[i]; i++)
+      |                         ~~^~~~~~~~~~~
+histexpand.c:212:27: note: place parentheses around the assignment to silence this warning
+  212 |   for (local_index = i; c = string[i]; i++)
+      |                           ^          
+      |                         (            )
+histexpand.c:212:27: note: use '==' to turn this assignment into an equality comparison
+  212 |   for (local_index = i; c = string[i]; i++)
+      |                           ^
+      |                           ==
+rm -f tilde.o
+clang  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   -DREADLINE_LIBRARY -c ./tilde.c
+rm -f colors.o
+1 warning generated.
+rm -f parse-colors.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   colors.c
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   parse-colors.c
+rm -f xmalloc.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   xmalloc.c
+histsearch.c:258:27: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+histsearch.c:258:27: note: place parentheses around the assignment to silence this warning
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |                           ^                      
+      |       (                                          )
+rm -f xfree.o
+histsearch.c:258:27: note: use '==' to turn this assignment into an equality comparison
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |                           ^
+      |                           ==
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   xfree.c
+./tilde.c:188:14: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  188 |   if (result = strchr (string, '~'))
+      |              ^ ~~~~~~~~~~~~~~~~~~~~
+./tilde.c:188:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  188 |   if (result = strchr (string, '~'))
+      |       ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+./tilde.c:188:14: note: place parentheses around the assignment to silence this warning
+  188 |   if (result = strchr (string, '~'))
+      |              ^                     
+      |       (                            )
+./tilde.c:188:14: note: use '==' to turn this assignment into an equality comparison
+  188 |   if (result = strchr (string, '~'))
+      |              ^
+      |              ==
+2 warnings generated.
+rm -f compat.o
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   compat.c
+rm -f gettimeofday.o
+2 warnings generated.
+test -d shlib || mkdir shlib
+clang -c  -DHAVE_CONFIG_H   -I. -I.  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC   gettimeofday.c
+( cd shlib ; make all )
+1 warning generated.
+make[1]: Entering directory '/home/builder/build/src/readline-8.3/shlib'
+rm -f readline.so
+rm -f vi_mode.so
+rm -f funmap.so
+rm -f keymaps.so
+rm -f parens.so
+rm -f search.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o readline.o ../readline.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o vi_mode.o ../vi_mode.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o funmap.o ../funmap.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o keymaps.o ../keymaps.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o search.o ../search.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o parens.o ../parens.c 
+rm -f rltty.so
+rm -f complete.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o rltty.o ../rltty.c 
+rm -f bind.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o complete.o ../complete.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o bind.o ../bind.c 
+rm -f isearch.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o isearch.o ../isearch.c 
+../complete.c:1209:23: mv funmap.o funmap.so
+warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |              ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../complete.c:1209:23: note: place parentheses around the assignment to silence this warning
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |                       ^                                                    
+      |              (                                                             )
+../complete.c:1209:23: note: use '==' to turn this assignment into an equality comparison
+ 1209 |       while (rl_point = MB_PREVCHAR (rl_line_buffer, rl_point, MB_FIND_ANY))
+      |                       ^
+      |                       ==
+rm -f display.so
+mv keymaps.o keymaps.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o display.o ../display.c 
+../complete.c:2330:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2330 |   while (string = (*entry_function) (text, matches))
+      |          ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../complete.c:2330:17: note: place parentheses around the assignment to silence this warning
+ 2330 |   while (string = (*entry_function) (text, matches))
+      |                 ^                                  
+      |          (                                         )
+../complete.c:2330:17: note: use '==' to turn this assignment into an equality comparison
+ 2330 |   while (string = (*entry_function) (text, matches))
+      |                 ^
+      |                 ==
+rm -f signals.so
+../complete.c:2399:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2399 |   while (entry = getpwent ())
+      |          ~~~~~~^~~~~~~~~~~~~
+../complete.c:2399:16: note: place parentheses around the assignment to silence this warning
+ 2399 |   while (entry = getpwent ())
+      |                ^            
+      |          (                  )
+../complete.c:2399:16: note: use '==' to turn this assignment into an equality comparison
+ 2399 |   while (entry = getpwent ())
+      |                ^
+      |                ==
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o signals.o ../signals.c 
+rm -f util.so
+mv parens.o parens.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o util.o ../util.c 
+rm -f kill.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o kill.o ../kill.c 
+mv rltty.o rltty.so
+rm -f undo.so
+../bind.c:1566:31: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                             ~~^~~~~~~~~~~
+../bind.c:1566:31: note: place parentheses around the assignment to silence this warning
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                               ^          
+      |                             (            )
+../bind.c:1566:31: note: use '==' to turn this assignment into an equality comparison
+ 1566 |   for (i = start,passc = 0; c = string[i]; i++)
+      |                               ^
+      |                               ==
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o undo.o ../undo.c 
+2 warnings generated.
+rm -f macro.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o macro.o ../macro.c 
+../bind.c:2810:20: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |               ~~~~~^~~~~~~~~~
+../bind.c:2810:20: note: place parentheses around the assignment to silence this warning
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |                    ^         
+      |               (              )
+../bind.c:2810:20: note: use '==' to turn this assignment into an equality comparison
+ 2810 |   for (i = 0; name = names[i]; i++)
+      |                    ^
+      |                    ==
+mv search.o search.so
+rm -f input.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o input.o ../input.c 
+mv readline.o readline.so
+rm -f callback.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o callback.o ../callback.c 
+3 warnings generated.
+mv signals.o signals.so
+mv undo.o undo.so
+rm -f terminal.so
+1 warning generated.
+rm -f text.so
+rm -f nls.so
+rm -f libhistory.a
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o terminal.o ../terminal.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o text.o ../text.c 
+llvm-ar cr libhistory.a history.o histexpand.o histfile.o histsearch.o shell.o mbutil.o xmalloc.o xfree.o
+mv macro.o macro.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o nls.o ../nls.c 
+rm -f misc.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o misc.o ../misc.c 
+rm -f history.so
+test -n "llvm-ranlib" && llvm-ranlib libhistory.a
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o history.o ../history.c 
+rm -f histexpand.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o histexpand.o ../histexpand.c 
+mv isearch.o isearch.so
+rm -f histfile.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o histfile.o ../histfile.c 
+mv util.o util.so
+rm -f histsearch.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o histsearch.o ../histsearch.c 
+../input.c:798:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  798 |       if (c = _rl_next_macro_key ())
+      |           ~~^~~~~~~~~~~~~~~~~~~~~~~
+../input.c:798:13: note: place parentheses around the assignment to silence this warning
+  798 |       if (c = _rl_next_macro_key ())
+      |             ^                      
+      |           (                        )
+../input.c:798:13: note: use '==' to turn this assignment into an equality comparison
+mv kill.o kill.so
+  798 |       if (c = _rl_next_macro_key ())
+      |             ^
+      |             ==
+mv callback.o callback.so
+../histexpand.c:212:27: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  212 |   for (localrm -f shell.so
+_index = i; c = string[i]; i++)
+      |                         ~~^~~~~~~~~~~
+../histexpand.c:212:27: note: place parentheses around the assignment to silence this warning
+  212 |   for (local_index = i; c = string[i]; i++)
+      |                           ^          
+      |                         (            )
+../histexpand.c:212:27: note: use '==' to turn this assignment into an equality comparison
+  212 |   for (local_index = i; c = string[i]; i++)
+      |                           ^
+      |                           ==
+rm -f mbutil.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o shell.o ../shell.c 
+../misc.c:491:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  491 |       if (ul = (UNDO_LIST *)entry->data)
+      |           ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../misc.c:491:14: note: place parentheses around the assignment to silence this warning
+  491 |       if (ul = (UNDO_LIST *)entry->data)
+      |              ^                         
+      |           (                            )
+../misc.c:491:14: note: use '==' to turn this assignment into an equality comparison
+  491 |       if (ul = (UNDclang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o mbutil.o ../mbutil.c 
+O_LIST *)entry->data)
+      |              ^
+      |              ==
+../misc.c:551:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |           ~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+../misc.c:551:14: note: place parentheses around the assignment to silence this warning
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |              ^                        
+      |           (                           )
+../misc.c:551:14: note: use '==' to turn this assignment into an equality comparison
+  551 |       if (ul = (UNDO_LIST *)hent->data)
+      |              ^
+      |              ==
+mv nls.o nls.so
+rm -f tilde.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -DREADLINE_LIBRARY -c -o tilde.o ../tilde.c
+../histsearch.c:258:27: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+../histsearch.c:258:27: note: place parentheses around the assignment to silence this warning
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |                           ^                      
+      |       (                                          )
+../histsearch.c:258:27: note: use '==' to turn this assignment into an equality comparison
+  258 |   if (unescaped_backslash = (string[ret] == '\\'))
+      |                           ^
+      |                           ==
+../tilde.c:188:14: warning: assigning to 'char *' from 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  188 |   if (result = strchr (string, '~'))
+      |              ^ ~~~~~~~~~~~~~~~~~~~~
+../tilde.c:188:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  188 |   if (result = strchr (string, '~'))
+      |       ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+../tilde.c:188:14: note: place parentheses around the assignment to silence this warning
+  188 |   if (result = strchr (string, '~'))
+      |              ^                     
+      |       (                            )
+../tilde.c:188:14: note: use '==' to turn this assignment into an equality comparison
+  188 |   if (result = strchr (string, '~'))
+      |              ^
+      |              ==
+mv history.o history.so
+rm -f colors.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o colors.o ../colors.c 
+3 warnings generated.
+mv complete.o complete.so
+2 warnings generated.
+mv histfile.o histfile.so
+rm -f parse-colors.so
+mv tilde.o tilde.so
+rm -f xmalloc.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o parse-colors.o ../parse-colors.c 
+rm -f xfree.so
+1 warning generated.
+mv histsearch.o histsearch.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o xmalloc.o ../xmalloc.c 
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o xfree.o ../xfree.c 
+mv shell.o shell.so
+rm -f compat.so
+clang -c -DHAVE_CONFIG_H   -I. -I.. -I..  -DRL_LIBRARY_VERSION='"8.3"' -DBRACKETED_PASTE_DEFAULT=1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -fPIC  -fPIC -o compat.o ../compat.c 
+mv terminal.o terminal.so
+mv vi_mode.o vi_mode.so
+1 warning generated.
+2 warnings generated.
+mv input.o input.so
+mv misc.o misc.so
+mv xfree.o xfree.so
+mv compat.o compat.so
+mv xmalloc.o xmalloc.so
+mv colors.o colors.so
+mv parse-colors.o parse-colors.so
+1 warning generated.
+mv histexpand.o histexpand.so
+mv mbutil.o mbutil.so
+rm -f libhistory.so.8.3
+clang -shared -Wl,-soname,libhistory.so.8.3 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-soname,`basename libhistory.so.8.3 .3` -o libhistory.so.8.3 history.so histexpand.so histfile.so histsearch.so shell.so mbutil.so xmalloc.so xfree.so -lncurses
+rm -f libreadline.a
+llvm-ar cr libreadline.a readline.o vi_mode.o funmap.o keymaps.o parens.o search.o rltty.o complete.o bind.o isearch.o display.o signals.o util.o kill.o undo.o macro.o input.o callback.o terminal.o text.o nls.o misc.o history.o histexpand.o histfile.o histsearch.o shell.o mbutil.o tilde.o colors.o parse-colors.o xmalloc.o xfree.o compat.o gettimeofday.o
+test -n "llvm-ranlib" && llvm-ranlib libreadline.a
+2 warnings generated.
+mv bind.o bind.so
+mv text.o text.so
+mv display.o display.so
+rm -f libreadline.so.8.3
+clang -shared -Wl,-soname,libreadline.so.8.3 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -Wl,-soname,`basename libreadline.so.8.3 .3` -o libreadline.so.8.3 readline.so vi_mode.so funmap.so keymaps.so parens.so search.so rltty.so complete.so bind.so isearch.so display.so signals.so util.so kill.so undo.so macro.so input.so callback.so terminal.so text.so nls.so misc.so history.so histexpand.so histfile.so histsearch.so shell.so mbutil.so tilde.so colors.so parse-colors.so xmalloc.so xfree.so compat.so -lncurses
+make[1]: Leaving directory '/home/builder/build/src/readline-8.3/shlib'
+==> Entering fakeroot environment...
+==> Starting package()...
+make: Entering directory '/home/builder/build/src/readline-8.3'
+/bin/sh ./support/mkinstalldirs /home/builder/build/pkg/readline/usr/include \
+	/home/builder/build/pkg/readline/usr/include/readline /home/builder/build/pkg/readline/usr/lib \
+	/home/builder/build/pkg/readline/usr/share/info /home/builder/build/pkg/readline/usr/share/man/man3 /home/builder/build/pkg/readline/usr/share/doc/readline \
+	/home/builder/build/pkg/readline/usr/lib/pkgconfig
+test -d shlib || mkdir shlib
+( cd shlib ; make all )
+mkdir -p -- /home/builder/build/pkg/readline/usr/include /home/builder/build/pkg/readline/usr/include/readline /home/builder/build/pkg/readline/usr/lib /home/builder/build/pkg/readline/usr/share/info /home/builder/build/pkg/readline/usr/share/man/man3 /home/builder/build/pkg/readline/usr/share/doc/readline /home/builder/build/pkg/readline/usr/lib/pkgconfig
+for f in readline.h chardefs.h keymaps.h history.h tilde.h rlstdc.h rlconf.h rltypedefs.h; do \
+	/usr/bin/install -c -m 644 ./$f /home/builder/build/pkg/readline/usr/include/readline ; \
+done
+/usr/bin/install -c -m 644 ./CHANGES ./INSTALL ./README /home/builder/build/pkg/readline/usr/share/doc/readline
+/usr/bin/install -c -m 644 /home/builder/build/src/readline-8.3/readline.pc /home/builder/build/pkg/readline/usr/lib/pkgconfig/readline.pc
+make[1]: Entering directory '/home/builder/build/src/readline-8.3/shlib'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/readline-8.3/shlib'
+/usr/bin/install -c -m 644 /home/builder/build/src/readline-8.3/history.pc /home/builder/build/pkg/readline/usr/lib/pkgconfig/history.pc
+( if test -d doc ; then \
+	cd doc && \
+	make infodir=/usr/share/info DESTDIR=/home/builder/build/pkg/readline install; \
+  fi )
+make[1]: Entering directory '/home/builder/build/src/readline-8.3/doc'
+/bin/sh ../support/mkdirs /home/builder/build/pkg/readline/usr/share/info /home/builder/build/pkg/readline/usr/share/man/man3
+if test -n "/usr/share/doc/readline" ; then \
+	/bin/sh ../support/mkdirs /home/builder/build/pkg/readline/usr/share/doc/readline ; \
+fi
+if test -f readline.info; then \
+	/usr/bin/install -c -m 644 readline.info /home/builder/build/pkg/readline/usr/share/info/readline.info; \
+else \
+	/usr/bin/install -c -m 644 ./readline.info /home/builder/build/pkg/readline/usr/share/info/readline.info; \
+fi
+if test -f rluserman.info; then \
+	/usr/bin/install -c -m 644 rluserman.info /home/builder/build/pkg/readline/usr/share/info/rluserman.info; \
+else \
+	/usr/bin/install -c -m 644 ./rluserman.info /home/builder/build/pkg/readline/usr/share/info/rluserman.info; \
+fi
+( cd examples ; make DESTDIR=/home/builder/build/pkg/readline install )
+if test -f history.info; then \
+	/usr/bin/install -c -m 644 history.info /home/builder/build/pkg/readline/usr/share/info/history.info; \
+else \
+	/usr/bin/install -c -m 644 ./history.info /home/builder/build/pkg/readline/usr/share/info/history.info; \
+fi
+make[1]: Entering directory '/home/builder/build/src/readline-8.3/examples'
+/bin/sh ../support/mkdirs /home/builder/build/pkg/readline/usr/share/readline
+if /bin/sh -c 'install-info --version' >/dev/null 2>&1; then \
+	install-info --dir-file=/home/builder/build/pkg/readline/usr/share/info/dir \
+		/home/builder/build/pkg/readline/usr/share/info/readline.info ; \
+	install-info --dir-file=/home/builder/build/pkg/readline/usr/share/info/dir \
+		/home/builder/build/pkg/readline/usr/share/info/history.info ; \
+	install-info --dir-file=/home/builder/build/pkg/readline/usr/share/info/dir \
+		/home/builder/build/pkg/readline/usr/share/info/rluserman.info ; \
+else true; fi
+/usr/bin/install -c -m 644 ./readline.3 /home/builder/build/pkg/readline/usr/share/man/man3/readline.3
+/usr/bin/install -c -m 644 ./history.3 /home/builder/build/pkg/readline/usr/share/man/man3/history.3
+if test -n "/usr/share/doc/readline" ; then \
+	if test -f readline.html; then \
+		/usr/bin/install -c -m 644 readline.html /home/builder/build/pkg/readline/usr/share/doc/readline/readline.html; \
+	else \
+		/usr/bin/install -c -m 644 ./readline.html /home/builder/build/pkg/readline/usr/share/doc/readline/readline.html; \
+	fi ; \
+	if test -f history.html; then \
+		/usr/bin/install -c -m 644 history.html /home/builder/build/pkg/readline/usr/share/doc/readline/history.html; \
+	else \
+		/usr/bin/install -c -m 644 ./history.html /home/builder/build/pkg/readline/usr/share/doc/readline/history.html; \
+	fi ; \
+	if test -f rluserman.html; then \
+		/usr/bin/install -c -m 644 rluserman.html /home/builder/build/pkg/readline/usr/share/doc/readline/rluserman.html; \
+	else \
+		/usr/bin/install -c -m 644 ./rluserman.html /home/builder/build/pkg/readline/usr/share/doc/readline/rluserman.html; \
+	fi ; \
+fi
+mkdir /home/builder/build/pkg/readline/usr/share/readline
+make[1]: Leaving directory '/home/builder/build/src/readline-8.3/doc'
+( cd shlib ; make DESTDIR=/home/builder/build/pkg/readline install )
+make[1]: Entering directory '/home/builder/build/src/readline-8.3/shlib'
+/bin/sh ../support/mkdirs /home/builder/build/pkg/readline/usr/lib
+/bin/sh ../support/mkdirs /home/builder/build/pkg/readline/usr/bin
+mkdir /home/builder/build/pkg/readline/usr/bin
+/bin/sh ../support/shlib-install -O linux-gnu -V pc -d /home/builder/build/pkg/readline/usr/lib -b /home/builder/build/pkg/readline/usr/bin -i "/usr/bin/install -c -m 644" libhistory.so.8.3
+/bin/sh ../support/shlib-install -O linux-gnu -V pc -d /home/builder/build/pkg/readline/usr/lib -b /home/builder/build/pkg/readline/usr/bin -i "/usr/bin/install -c -m 644" libreadline.so.8.3
+install: you may need to run ldconfig
+make[1]: Leaving directory '/home/builder/build/src/readline-8.3/shlib'
+make[1]: Leaving directory '/home/builder/build/src/readline-8.3/examples'
+mv /home/builder/build/pkg/readline/usr/lib/libreadline.a /home/builder/build/pkg/readline/usr/lib/libreadline.old
+mv: cannot stat '/home/builder/build/pkg/readline/usr/lib/libreadline.a': No such file or directory
+make: [Makefile:261: install-static] Error 1 (ignored)
+/usr/bin/install -c -m 644 libreadline.a /home/builder/build/pkg/readline/usr/lib/libreadline.a
+test -n "llvm-ranlib" && llvm-ranlib /home/builder/build/pkg/readline/usr/lib/libreadline.a
+mv /home/builder/build/pkg/readline/usr/lib/libhistory.a /home/builder/build/pkg/readline/usr/lib/libhistory.old
+mv: cannot stat '/home/builder/build/pkg/readline/usr/lib/libhistory.a': No such file or directory
+make: [Makefile:264: install-static] Error 1 (ignored)
+/usr/bin/install -c -m 644 libhistory.a /home/builder/build/pkg/readline/usr/lib/libhistory.a
+test -n "llvm-ranlib" && llvm-ranlib /home/builder/build/pkg/readline/usr/lib/libhistory.a
+make: Leaving directory '/home/builder/build/src/readline-8.3'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "readline"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: readline 8.3.6-1 (Sun Sep 20 01:05:42 2026)

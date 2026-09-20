@@ -1,0 +1,168 @@
+== build nlohmann-json (deps: cmake git )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  cmake-4.4.2-1  git-2.55.0-1
+
+Total Download Size:    23.09 MiB
+Total Installed Size:  107.92 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ cmake-4.4.2-1-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: nlohmann-json 3.12.0-2 (Sun Sep 20 03:11:56 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating nlohmann-json git repo...
+  -> Found json_test_data-3.1.0.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    nlohmann-json ... Passed
+    json_test_data-3.1.0.tar.gz ... Passed
+==> Validating source files with b2sums...
+    nlohmann-json ... Passed
+    json_test_data-3.1.0.tar.gz ... Passed
+==> Extracting sources...
+  -> Creating working copy of nlohmann-json git repo...
+Cloning into 'nlohmann-json'...
+done.
+Switched to a new branch 'makepkg'
+  -> Extracting json_test_data-3.1.0.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+The no-dev option is deprecated.  Use -Wno-author instead.
+-- The CXX compiler identification is Clang 23.1.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using the multi-header code from /home/builder/build/src/nlohmann-json/include/
+-- Configuring done (0.7s)
+CMake Warning (unused-cli):
+  Manually-specified variables were not used by the project:
+
+    BUILD_TESTING
+
+
+-- Generating done (0.0s)
+-- Build files have been written to: /home/builder/build/src/build
+Change Dir: '/home/builder/build/src/build'
+
+Run Build Command(s): /usr/sbin/cmake -E env VERBOSE=1 /usr/sbin/make -f Makefile
+/usr/sbin/cmake -S/home/builder/build/src/nlohmann-json -B/home/builder/build/src/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/sbin/cmake -E cmake_progress_start /home/builder/build/src/build/CMakeFiles /home/builder/build/src/build//CMakeFiles/progress.marks
+/usr/sbin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/builder/build/src/build'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/build'
+/usr/sbin/cmake -E cmake_progress_start /home/builder/build/src/build/CMakeFiles 0
+
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/conversions
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/conversions/to_chars.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/conversions/from_json.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/conversions/to_json.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/binary_reader.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/input_adapters.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/json_sax.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/lexer.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/parser.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/input/position_t.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/internal_iterator.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/iter_impl.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/iteration_proxy.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/iterator_traits.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/iterators/primitive_iterator.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/call_std
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/call_std/begin.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/call_std/end.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/cpp_future.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/detected.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/identity_tag.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/is_sax.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/std_fs.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/type_traits.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/meta/void_t.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/output
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/output/binary_writer.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/output/output_adapters.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/output/serializer.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/abi_macros.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/exceptions.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/hash.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/json_custom_base_class.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/json_pointer.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/json_ref.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/macro_scope.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/macro_unscope.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/string_concat.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/string_escape.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/string_utils.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/detail/value_t.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/thirdparty
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/thirdparty/hedley
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/thirdparty/hedley/hedley.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/adl_serializer.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/byte_container_with_subtype.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/json.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/json_fwd.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/include/nlohmann/ordered_map.hpp
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/share/cmake/nlohmann_json/nlohmann_jsonConfigVersion.cmake
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/share/cmake/nlohmann_json/nlohmann_jsonTargets.cmake
+-- Installing: /home/builder/build/pkg/nlohmann-json/usr/share/pkgconfig/nlohmann_json.pc
+install: creating directory '/home/builder/build/pkg/nlohmann-json/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/nlohmann-json/usr/share/doc/nlohmann-json'
+'nlohmann-json/README.md' -> '/home/builder/build/pkg/nlohmann-json/usr/share/doc/nlohmann-json/README.md'
+install: creating directory '/home/builder/build/pkg/nlohmann-json/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/nlohmann-json/usr/share/licenses/nlohmann-json'
+'nlohmann-json/LICENSE.MIT' -> '/home/builder/build/pkg/nlohmann-json/usr/share/licenses/nlohmann-json/LICENSE.MIT'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "nlohmann-json"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: nlohmann-json 3.12.0-2 (Sun Sep 20 03:12:07 2026)

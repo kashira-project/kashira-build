@@ -1,0 +1,268 @@
+== build libxkbfile (deps: glibc libx11 meson xorgproto xorg-util-macros )
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (10) libxau-1.0.12-1  libxcb-1.17.0-1  libxdmcp-1.1.5-2  ninja-1.13.2-1  python-tqdm-4.70.1-1  xcb-proto-1.17.0-4  libx11-1.8.13-1  meson-1.12.0-1  xorg-util-macros-1.20.2-1  xorgproto-2025.1-1
+
+Total Download Size:    5.09 MiB
+Total Installed Size:  36.19 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ meson-1.12.0-1-any downloading...
+ libx11-1.8.13-1-x86_64 downloading...
+ libxcb-1.17.0-1-x86_64 downloading...
+ xorgproto-2025.1-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ xcb-proto-1.17.0-4-any downloading...
+ libxdmcp-1.1.5-2-x86_64 downloading...
+ xorg-util-macros-1.20.2-1-any downloading...
+ libxau-1.0.12-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing xcb-proto...
+installing xorgproto...
+installing libxdmcp...
+installing libxau...
+installing libxcb...
+installing libx11...
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing xorg-util-macros...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libxkbfile 1.2.0-1 (Sun Sep 20 03:52:22 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading libxkbfile-1.2.0.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  57856 100  57856   0      0  49920      0   00:01   00:01              0100  57856 100  57856   0      0  49916      0   00:01   00:01              0100  57856 100  57856   0      0  49914      0   00:01   00:01              0
+  -> Downloading libxkbfile-1.2.0.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    566 100    566   0      0    848      0                              0100    566 100    566   0      0    848      0                              0100    566 100    566   0      0    848      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libxkbfile-1.2.0.tar.xz ... Passed
+    libxkbfile-1.2.0.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting libxkbfile-1.2.0.tar.xz with bsdtar
+==> Starting build()...
+libxkbfile-1.2.0 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 libxkbfile-1.2.0 build
+The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/libxkbfile-1.2.0
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: libxkbfile
+Project version: 1.2.0
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Checking for function "reallocf" : NO 
+Checking for function "strndup" : YES 
+Header "string.h" has symbol "strndup" : YES 
+Checking for function "getc_unlocked" : YES 
+Checking for function "strcasecmp" : YES 
+Configuring config.h using configuration
+Configuring xkbfile.pc using configuration
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency kbproto found: YES 1.0.7
+Run-time dependency x11 found: YES 1.8.13
+Run-time dependency xproto found: YES 7.0.34
+Build targets in project: 1
+
+libxkbfile 1.2.0
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   0%|          | 0/1 eta ?                                              Writing build.ninja:   0%|          | 0/44 eta ?                                                Core properties:
+  Source dir /home/builder/build/src/libxkbfile-1.2.0
+  Build dir  /home/builder/build/src/build
+
+Global build options:
+  
+  Core options                   Current Value                    Possible Values                  Description                                                  
+  --------------                 -------------                    ---------------                  -----------                                                  
+  auto_features                  enabled                          [enabled, disabled, auto]        Override value of all 'auto' features                        
+  backend                        ninja                            [ninja, vs, vs2010, vs2012,      Backend to use                                               
+                                                                   vs2013, vs2015, vs2017, vs2019,                                                              
+                                                                   vs2022, vs2026, xcode, none]                                                                 
+  genvslite                      vs2022                           [vs2022, vs2026]                 Setup multiple buildtype-suffixed ninja-backend build        
+                                                                                                   directories, and a [builddir]_vs containing a Visual Studio  
+                                                                                                   meta-backend with multiple configurations that calls into    
+                                                                                                   them                                                         
+  buildtype                      plain                            [plain, debug, debugoptimized,   Build type to use                                            
+                                                                   release, minsize, custom]                                                                    
+  debug                          false                            [True, False]                    Enable debug symbols and other information                   
+  default_library                shared                           [shared, static, both]           Default library type                                         
+  default_both_libraries         shared                           [shared, static, auto]           Default library type for both_libraries                      
+  install_umask                  0022                             [>= 0, <= 511]                   Default umask to apply on permissions of installed files     
+  layout                         mirror                           [mirror, flat]                   Build directory layout                                       
+  optimization                   plain                            [plain, 0, g, 1, 2, 3, s]        Optimization level                                           
+  prefer_static                  false                            [True, False]                    Whether to try static linking before shared linking          
+  strip                          false                            [True, False]                    Strip targets on install                                     
+  unity                          off                              [on, off, subprojects]           Unity build                                                  
+  unity_size                     4                                [>= 2]                           Unity block size                                             
+  warning_level                  1                                [0, 1, 2, 3, everything]         Compiler warning level to use                                
+  werror                         false                            [True, False]                    Treat warnings as errors                                     
+  wrap_mode                      nodownload                       [default, nofallback,            Wrap mode                                                    
+                                                                   nodownload, forcefallback,                                                                   
+                                                                   nopromote]                                                                                   
+  force_fallback_for             []                                                                Force fallback for those subprojects                         
+  vsenv                          false                            [True, False]                    Activate Visual Studio environment                           
+  os2_emxomf                     false                            [True, False]                    Use OMF format on OS/2                                       
+  pkg_config_path                []                                                                List of additional paths for pkg-config to search            
+  cmake_prefix_path              []                                                                List of additional prefixes for cmake to search              
+  
+  Backend options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  backend_max_links              0                                [>= 0]                           Maximum number of linker processes to run or 0 for no limit  
+  
+  Base options                   Current Value                    Possible Values                  Description                                                  
+  --------------                 -------------                    ---------------                  -----------                                                  
+  b_colorout                     always                           [auto, always, never]            Use colored output                                           
+  b_pie                          true                             [True, False]                    Build executables as position independent                    
+  b_coverage                     false                            [True, False]                    Enable coverage tracking.                                    
+  b_asneeded                     true                             [True, False]                    Use -Wl,--as-needed when linking                             
+  b_thinlto_cache_dir                                                                              Directory to store ThinLTO cache objects                     
+  b_lto                          false                            [True, False]                    Use link time optimization                                   
+  b_lundef                       true                             [True, False]                    Use -Wl,--no-undefined when linking                          
+  b_thinlto_cache                false                            [True, False]                    Use LLVM ThinLTO caching for faster incremental builds       
+  b_sanitize                     []                                                                Code sanitizer to use                                        
+  b_lto_mode                     default                          [default, thin]                  Select between different LTO modes.                          
+  b_lto_threads                  0                                []                               Use multiple threads for Link Time Optimization              
+  b_staticpic                    true                             [True, False]                    Build static libraries as position independent               
+  b_ndebug                       false                            [true, false, if-release]        Disable asserts                                              
+  b_pch                          true                             [True, False]                    Use precompiled headers                                      
+  b_pgo                          off                              [off, generate, use]             Use profile guided optimization                              
+  
+  Compiler options               Current Value                    Possible Values                  Description                                                  
+  ------------------             -------------                    ---------------                  -----------                                                  
+  c_args                         [-march=x86-64-v3, -O2, -pipe,                                    Extra arguments passed to the c compiler                     
+                                  -fno-plt, -fexceptions,                                                                                                       
+                                  -Wp,-D_FORTIFY_SOURCE=3,                                                                                                      
+                                  -fstack-clash-protection, -fcf-                                                                                               
+                                  protection]                                                                                                                   
+  c_link_args                    [-Wl,-O1, -Wl,--sort-common,                                      Extra arguments passed to the c linker                       
+                                  -Wl,--as-needed, -Wl,-z,relro,                                                                                                
+                                  -Wl,-z,now, -Wl,--undefined-                                                                                                  
+                                  version, -Wl,--hash-style=gnu,                                                                                                
+                                  -Wl,--compress-debug-                                                                                                         
+                                  sections=zstd,                                                                                                                
+                                  -march=x86-64-v3, -O2, -pipe,                                                                                                 
+                                  -fno-plt, -fexceptions,                                                                                                       
+                                  -Wp,-D_FORTIFY_SOURCE=3,                                                                                                      
+                                  -fstack-clash-protection, -fcf-                                                                                               
+                                  protection]                                                                                                                   
+  c_std                          none                             [none, c89, c99, c11, c17, c18,  c language standard to use                                   
+                                                                   c2x, c23, c2y, gnu89, gnu99,                                                                 
+                                                                   gnu11, gnu17, gnu18, gnu2x,                                                                  
+                                                                   gnu23, gnu2y]                                                                                
+  
+  Directories                    Current Value                    Possible Values                  Description                                                  
+  -------------                  -------------                    ---------------                  -----------                                                  
+  prefix                         /usr                                                              Installation prefix                                          
+  bindir                         bin                                                               Executable directory                                         
+  datadir                        share                                                             Data file directory                                          
+  includedir                     include                                                           Header file directory                                        
+  infodir                        share/info                                                        Info page directory                                          
+  libdir                         lib                                                               Library directory                                            
+  licensedir                                                                                       Licenses directory                                           
+  libexecdir                     lib                                                               Library executable directory                                 
+  localedir                      share/locale                                                      Locale data directory                                        
+  localstatedir                  /var                                                              Localstate data directory                                    
+  mandir                         share/man                                                         Manual page directory                                        
+  sbindir                        bin                                                               System executable directory                                  
+  sharedstatedir                 /var/lib                                                          Architecture-independent data directory                      
+  sysconfdir                     /etc                                                              Sysconf data directory                                       
+  
+  Testing options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  errorlogs                      true                             [True, False]                    Whether to print the logs from failing tests                 
+  stdsplit                       true                             [True, False]                    Split stdout and stderr in test logs                         
+
+There are no option augments.
+ninja: Entering directory `build'
+[1/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbbells.c.o
+[2/14] Compiling C object src/libxkbfile.so.1.0.2.p/srvmisc.c.o
+[3/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbdraw.c.o
+[4/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkberrs.c.o
+[5/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbatom.c.o
+[6/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbmisc.c.o
+[7/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbout.c.o
+[8/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbconfig.c.o
+[9/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkmread.c.o
+[10/14] Compiling C object src/libxkbfile.so.1.0.2.p/cout.c.o
+[11/14] Compiling C object src/libxkbfile.so.1.0.2.p/maprules.c.o
+[12/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkbtext.c.o
+[13/14] Compiling C object src/libxkbfile.so.1.0.2.p/xkmout.c.o
+../libxkbfile-1.2.0/src/xkmout.c:1307:25: warning: variable 'total' set but not used [-Wunused-but-set-variable]
+ 1307 |     unsigned tmp, size, total = 0;
+      |                         ^
+1 warning generated.
+[14/14] Linking target src/libxkbfile.so.1.0.2
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Installing src/libxkbfile.so.1.0.2 to /home/builder/build/pkg/libxkbfile/usr/lib
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKM.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKBrules.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKBbells.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKBconfig.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKMformat.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/libxkbfile-1.2.0/include/X11/extensions/XKBfile.h to /home/builder/build/pkg/libxkbfile/usr/include/X11/extensions
+Installing /home/builder/build/src/build/xkbfile.pc to /home/builder/build/pkg/libxkbfile/usr/lib/pkgconfig
+Installing symlink pointing to libxkbfile.so.1.0.2 to /home/builder/build/pkg/libxkbfile/usr/lib/libxkbfile.so.1
+Installing symlink pointing to libxkbfile.so.1 to /home/builder/build/pkg/libxkbfile/usr/lib/libxkbfile.so
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libxkbfile"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libxkbfile 1.2.0-1 (Sun Sep 20 03:52:34 2026)

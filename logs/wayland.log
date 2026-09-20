@@ -1,0 +1,341 @@
+== build wayland (deps: default-cursors docbook-xsl expat glibc libffi libxml2 libxslt meson xmlto )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libffi-3.8.0-1 is up to date -- skipping
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (9) docbook-xml-4.5-11  ninja-1.13.2-1  python-tqdm-4.70.1-1  default-cursors-3-1  docbook-xsl-1.79.2-9  expat-2.8.4-1  libxslt-1.1.45-2  meson-1.12.0-1  xmlto-0.0.29-1
+
+Total Download Size:    4.51 MiB
+Total Installed Size:  47.78 MiB
+Net Upgrade Size:      47.24 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ meson-1.12.0-1-any downloading...
+ docbook-xsl-1.79.2-9-any downloading...
+ libxslt-1.1.45-2-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ expat-2.8.4-1-x86_64 downloading...
+ docbook-xml-4.5-11-any downloading...
+ xmlto-0.0.29-1-x86_64 downloading...
+ default-cursors-3-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing default-cursors...
+Optional dependencies for default-cursors
+    adwaita-cursors: default cursor theme
+installing docbook-xml...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+installing docbook-xsl...
+upgrading expat...
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing xmlto...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: wayland 1.26.0-1 (Sun Sep 20 03:57:54 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found wayland-1.26.0.tar.xz
+  -> Found wayland-1.26.0.tar.xz.sig
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    wayland-1.26.0.tar.xz ... Passed
+    wayland-1.26.0.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting wayland-1.26.0.tar.xz with bsdtar
+==> Starting build()...
+wayland-1.26.0 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 wayland-1.26.0 build -D documentation=false
+The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/wayland-1.26.0
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: wayland
+Project version: 1.26.0
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Compiler for C supports arguments -Wno-unused-parameter: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -fvisibility=hidden: YES 
+Has header "sys/prctl.h" : YES 
+Has header "sys/procctl.h" : NO 
+Has header "sys/ucred.h" : NO 
+Checking for function "accept4" : YES 
+Checking for function "mkostemp" : YES 
+Checking for function "posix_fallocate" : YES 
+Checking for function "prctl" : YES 
+Checking for function "memfd_create" : YES 
+Checking for function "mremap" : YES 
+Checking for function "strndup" : YES 
+Checking for function "gettid" : YES 
+Checking whether type "struct xucred" has member "cr_pid" : NO 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency libffi found: YES 3.8.0
+Header "sys/signalfd.h" has symbol "SFD_CLOEXEC" : YES 
+Header "sys/timerfd.h" has symbol "TFD_CLOEXEC" : YES 
+Header "time.h" has symbol "CLOCK_MONOTONIC" : YES 
+Checking for function "clock_gettime" : NO 
+Library rt found: YES
+Checking for function "clock_gettime" with dependency -lrt: YES 
+Configuring config.h using configuration
+Configuring wayland-version.h using configuration
+Run-time dependency expat found: YES 2.8.4
+Run-time dependency libxml-2.0 found: YES 2.15.4
+Program embed.py found: YES (/usr/sbin/python /home/builder/build/src/wayland-1.26.0/src/embed.py)
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Library m found: YES
+Run-time dependency threads found: YES
+wayland-1.26.0/src/meson.build:221: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+wayland-1.26.0/src/meson.build:270: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+wayland-1.26.0/cursor/meson.build:45: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Program llvm-nm found: YES
+Program wayland-egl-symbols-check found: YES (/home/builder/build/src/wayland-1.26.0/egl/wayland-egl-symbols-check)
+wayland-1.26.0/egl/meson.build:59: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Library dl found: YES
+Dependency threads for host machine found: YES unknown (cached)
+Dependency threads for host machine found: YES unknown (cached)
+Library dl found: YES
+C++ compiler for the host machine: clang++ (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C++ linker for the host machine: clang++ ld.lld 23.1.1
+Program sed found: YES (/usr/sbin/sed)
+Program scanner-test.sh found: YES (/home/builder/build/src/wayland-1.26.0/tests/scanner-test.sh)
+Program scanner-test-gen.sh found: YES (/home/builder/build/src/wayland-1.26.0/tests/scanner-test-gen.sh)
+Build targets in project: 43
+
+wayland 1.26.0
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    documentation     : false
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   0%|          | 0/43 eta ?Generating targets:  77%|███████▋  | 33/43 eta 00:00                                                    Writing build.ninja:   0%|          | 0/123 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/90] Compiling C object egl/wayland-egl-abi-check.p/wayland-egl-abi-check.c.o
+[2/90] Compiling C object tests/enum-validator-test.p/enum-validator-test.c.o
+[3/90] Compiling C object tests/exec-fd-leak-checker.p/exec-fd-leak-checker.c.o
+[4/90] Linking target egl/wayland-egl-abi-check
+[5/90] Compiling C object tests/fixed-test.p/fixed-test.c.o
+[6/90] Compiling C object src/libwayland-private.a.p/wayland-os.c.o
+[7/90] Compiling C object tests/list-test.p/list-test.c.o
+[8/90] Compiling C object tests/array-test.p/array-test.c.o
+[9/90] Compiling C object tests/map-test.p/map-test.c.o
+[10/90] Compiling C object src/libwayland-util.a.p/wayland-util.c.o
+[11/90] Generating src/wayland.dtd.h with a custom command (wrapped by meson to capture output)
+[12/90] Compiling C object tests/os-wrappers-test.p/os-wrappers-test.c.o
+[13/90] Linking static target src/libwayland-util.a
+[14/90] Compiling C object src/libwayland-private.a.p/connection.c.o
+[15/90] Linking static target src/libwayland-private.a
+[16/90] Compiling C object src/wayland-scanner.p/scanner.c.o
+[17/90] Linking target src/wayland-scanner
+[18/90] Generating tests/test server protocol header with a custom command
+[19/90] Generating tests/test client protocol header with a custom command
+[20/90] Generating tests/test protocol source with a custom command
+[21/90] Generating src/protocol source with a custom command
+[22/90] Generating src/wayland_server_protocol_h with a custom command
+[23/90] Generating src/wayland_server_protocol_core_h with a custom command
+[24/90] Generating src/wayland_client_protocol_core_h with a custom command
+[25/90] Generating src/wayland_client_protocol_h with a custom command
+[26/90] Compiling C object src/libwayland-client.so.0.26.0.p/meson-generated_.._wayland-protocol.c.o
+[27/90] Compiling C++ object tests/cpp-compile-test.p/cpp-compile-test.cpp.o
+[28/90] Compiling C object tests/resources-test.p/resources-test.c.o
+[29/90] Compiling C object tests/signal-test.p/signal-test.c.o
+[30/90] Compiling C object tests/libtest-runner.a.p/test-helpers.c.o
+[31/90] Compiling C object src/libwayland-server.so.0.26.0.p/meson-generated_.._wayland-protocol.c.o
+[32/90] Compiling C object tests/libtest-runner.a.p/test-runner.c.o
+../wayland-1.26.0/tests/test-runner.c:275:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  275 |                 read(pipefd[0], &buf, 1);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../wayland-1.26.0/tests/test-runner.c:298:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  298 |                         write(pipefd[1], "-", 1);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+../wayland-1.26.0/tests/test-runner.c:301:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  301 |                         write(pipefd[1], "+", 1);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+[33/90] Compiling C object tests/client-test.p/client-test.c.o
+[34/90] Compiling C object cursor/libwayland-cursor.so.0.26.0.p/os-compatibility.c.o
+[35/90] Compiling C object cursor/libwayland-cursor.so.0.26.0.p/wayland-cursor.c.o
+[36/90] Compiling C object tests/libtest-runner.a.p/test-compositor.c.o
+[37/90] Compiling C object tests/event-loop-test.p/event-loop-test.c.o
+[38/90] Compiling C object tests/display-test.p/meson-generated_.._tests-protocol.c.o
+[39/90] Linking static target tests/libtest-runner.a
+[40/90] Compiling C object tests/newsignal-test.p/newsignal-test.c.o
+[41/90] Compiling C object egl/libwayland-egl.so.1.26.0.p/wayland-egl.c.o
+[42/90] Compiling C object tests/interface-test.p/interface-test.c.o
+[43/90] Compiling C object tests/sanity-test.p/sanity-test.c.o
+[44/90] Compiling C object tests/message-test.p/message-test.c.o
+[45/90] Compiling C object tests/socket-test.p/socket-test.c.o
+[46/90] Compiling C object src/libwayland-server.so.0.26.0.p/wayland-shm.c.o
+[47/90] Compiling C object tests/headers-test.p/headers-protocol-core-test.c.o
+[48/90] Compiling C object tests/protocol-logger-test.p/protocol-logger-test.c.o
+[49/90] Compiling C object tests/headers-test.p/headers-test.c.o
+[50/90] Compiling C object tests/headers-test.p/headers-protocol-test.c.o
+[51/90] Compiling C object src/libwayland-server.so.0.26.0.p/event-loop.c.o
+[52/90] Linking target egl/libwayland-egl.so.1.26.0
+[53/90] Linking target tests/cpp-compile-test
+[54/90] Compiling C object tests/compositor-introspection-test.p/compositor-introspection-test.c.o
+[55/90] Compiling C object tests/proxy-test.p/proxy-test.c.o
+[56/90] Compiling C object cursor/libwayland-cursor.so.0.26.0.p/xcursor.c.o
+[57/90] Compiling C object tests/queue-test.p/queue-test.c.o
+[58/90] Compiling C object tests/connection-test.p/connection-test.c.o
+[59/90] Compiling C object tests/newsignal-test.p/.._src_wayland-server.c.o
+[60/90] Compiling C object src/libwayland-client.so.0.26.0.p/wayland-client.c.o
+[61/90] Linking target src/libwayland-client.so.0.26.0
+[62/90] Compiling C object src/libwayland-server.so.0.26.0.p/wayland-server.c.o
+[63/90] Linking target src/libwayland-server.so.0.26.0
+[64/90] Compiling C object tests/display-test.p/display-test.c.o
+[65/90] Generating symbol file src/libwayland-client.so.0.26.0.p/libwayland-client.so.0.26.0.symbols
+[66/90] Linking target cursor/libwayland-cursor.so.0.26.0
+[67/90] Generating symbol file src/libwayland-server.so.0.26.0.p/libwayland-server.so.0.26.0.symbols
+[68/90] Linking target tests/newsignal-test
+[69/90] Linking target tests/socket-test
+[70/90] Linking target tests/array-test
+[71/90] Linking target tests/client-test
+[72/90] Linking target tests/connection-test
+[73/90] Linking target tests/event-loop-test
+[74/90] Linking target tests/interface-test
+[75/90] Linking target tests/list-test
+[76/90] Linking target tests/fixed-test
+[77/90] Linking target tests/queue-test
+[78/90] Linking target tests/signal-test
+[79/90] Linking target tests/exec-fd-leak-checker
+[80/90] Linking target tests/display-test
+[81/90] Linking target tests/map-test
+[82/90] Linking target tests/resources-test
+[83/90] Linking target tests/sanity-test
+[84/90] Linking target tests/message-test
+[85/90] Linking target tests/compositor-introspection-test
+[86/90] Linking target tests/headers-test
+[87/90] Linking target tests/os-wrappers-test
+[88/90] Linking target tests/proxy-test
+[89/90] Linking target tests/protocol-logger-test
+[90/90] Linking target tests/enum-validator-test
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package_wayland()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Installing src/wayland-scanner to /home/builder/build/pkg/wayland/usr/bin
+Installing src/wayland-server-protocol.h to /home/builder/build/pkg/wayland/usr/include
+Installing src/wayland-client-protocol.h to /home/builder/build/pkg/wayland/usr/include
+Installing src/libwayland-server.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib
+Installing src/libwayland-client.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib
+Installing cursor/libwayland-cursor.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib
+Installing egl/libwayland-egl.so.1.26.0 to /home/builder/build/pkg/wayland/usr/lib
+Installing /home/builder/build/src/wayland-1.26.0/src/wayland-util.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/src/wayland-server.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/src/wayland-server-core.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/src/wayland-client.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/src/wayland-client-core.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/cursor/wayland-cursor.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/egl/wayland-egl.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/egl/wayland-egl-core.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/wayland-1.26.0/egl/wayland-egl-backend.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/build/src/wayland-version.h to /home/builder/build/pkg/wayland/usr/include
+Installing /home/builder/build/src/build/meson-private/wayland-scanner.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/wayland-server.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/wayland-client.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/wayland-cursor.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/wayland-egl.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/wayland-egl-backend.pc to /home/builder/build/pkg/wayland/usr/lib/pkgconfig
+Installing /home/builder/build/src/wayland-1.26.0/wayland-scanner.mk to /home/builder/build/pkg/wayland/usr/share/wayland
+Installing /home/builder/build/src/wayland-1.26.0/protocol/wayland.xml to /home/builder/build/pkg/wayland/usr/share/wayland
+Installing /home/builder/build/src/wayland-1.26.0/protocol/wayland.dtd to /home/builder/build/pkg/wayland/usr/share/wayland
+Installing /home/builder/build/src/wayland-1.26.0/wayland-scanner.m4 to /home/builder/build/pkg/wayland/usr/share/aclocal
+Installing symlink pointing to libwayland-server.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-server.so.0
+Installing symlink pointing to libwayland-server.so.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-server.so
+Installing symlink pointing to libwayland-client.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-client.so.0
+Installing symlink pointing to libwayland-client.so.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-client.so
+Installing symlink pointing to libwayland-cursor.so.0.26.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-cursor.so.0
+Installing symlink pointing to libwayland-cursor.so.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-cursor.so
+Installing symlink pointing to libwayland-egl.so.1.26.0 to /home/builder/build/pkg/wayland/usr/lib/libwayland-egl.so.1
+Installing symlink pointing to libwayland-egl.so.1 to /home/builder/build/pkg/wayland/usr/lib/libwayland-egl.so
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "wayland"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: wayland 1.26.0-1 (Sun Sep 20 03:58:11 2026)

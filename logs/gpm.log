@@ -1,0 +1,954 @@
+== build gpm (deps: bash git procps-ng )
+warning: bash-5.3-1 is up to date -- skipping
+warning: procps-ng-4.0.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: gpm 1.20.7.r38.ge82d1a6-7 (Sun Sep 20 02:23:04 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning gpm git repo...
+Cloning into bare repository '/sources/gpm'...
+  -> Found gpm.sh
+  -> Found gpm.path
+  -> Found gpm.service
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    gpm ... Passed
+    gpm.sh ... Passed
+    gpm.path ... Passed
+    gpm.service ... Passed
+==> Extracting sources...
+  -> Creating working copy of gpm git repo...
+Cloning into 'gpm'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+rm -f config/config.guess
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+libtoolize: linking file 'config/config.guess'
+rm -f config/config.sub
+libtoolize: linking file 'config/config.sub'
+rm -f config/install-sh
+libtoolize: linking file 'config/install-sh'
+rm -f config/ltmain.sh
+libtoolize: linking file 'config/ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+libtoolize: copying file 'config/config.guess'
+libtoolize: copying file 'config/config.sub'
+libtoolize: copying file 'config/install-sh'
+libtoolize: copying file 'config/ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+configure.ac:14: warning: The macro 'AC_CONFIG_HEADER' is obsolete.
+configure.ac:14: You should run autoupdate.
+./lib/autoconf/status.m4:719: AC_CONFIG_HEADER is expanded from...
+configure.ac:14: the top level
+configure.ac:43: warning: The macro 'AC_PROG_LIBTOOL' is obsolete.
+configure.ac:43: You should run autoupdate.
+aclocal.m4:114: AC_PROG_LIBTOOL is expanded from...
+configure.ac:43: the top level
+configure.ac:104: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.ac:104: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+acinclude.m4:28: ITZ_CHECK_TYPE is expanded from...
+configure.ac:104: the top level
+configure.ac:109: warning: The macro 'ac_cv_prog_gcc' is obsolete.
+configure.ac:109: You should run autoupdate.
+./lib/autoconf/c.m4:449: ac_cv_prog_gcc is expanded from...
+acinclude.m4:2: ITZ_SYS_ELF is expanded from...
+configure.ac:109: the top level
+configure.ac:110: warning: The macro 'ac_cv_prog_gcc' is obsolete.
+configure.ac:110: You should run autoupdate.
+./lib/autoconf/c.m4:449: ac_cv_prog_gcc is expanded from...
+configure.ac:110: the top level
+configure.ac:161: warning: AC_OUTPUT should be used without arguments.
+configure.ac:161: You should run autoupdate.
+==> Starting pkgver()...
+==> Starting build()...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... unsupported
+checking for clang option to enable C11 features... none needed
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking for gawk... gawk
+checking command to parse llvm-nm output from clang object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang supports -fno-rtti -fno-exceptions... yes
+checking for clang option to produce PIC... -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... yes
+checking if clang static flag -static works... yes
+checking if clang supports -c -o file.o... yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for bison... bison -y
+checking whether ln -s works... yes
+checking for dvips... no
+checking for texi2html... no
+checking for tex... no
+checking for texindex... /usr/sbin/texindex
+checking for makeinfo... /usr/sbin/makeinfo
+checking for diff... /usr/sbin/diff
+checking for sed... (cached) /usr/sbin/sed
+checking for emacs... no
+checking for syslog.h... yes
+checking for linux/input.h... yes
+checking for linux/joystick.h... yes
+checking for ncurses.h... yes
+checking for ncurses/curses.h... no
+checking for curses.h... yes
+checking for sys/sysmacros.h... yes
+checking for linux/major.h... yes
+checking for linux/tty.h... yes
+checking for sys/socket.h... yes
+checking for __u32... yes
+checking how to run the C preprocessor... clang -E
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking whether system is ELF... yes
+checking for vsyslog... yes
+checking for syslog... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for tputs in -ltinfo... yes
+checking for wgetch in -lncurses... yes
+configure: creating ./config.status
+config.status: creating Makefile.include
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating src/Makefile
+config.status: creating contrib/Makefile
+config.status: creating doc/doc.gpm
+config.status: creating src/headers/config.h
+config.status: executing libtool commands
+touch src/.depend # to prevent unecessary warnings
+make -C src dep
+make[1]: Entering directory '/home/builder/build/src/gpm/src'
+bison -y  /home/builder/build/src/gpm/src/prog/gpm-root.y && mv y.tab.c prog/gpm-root.c
+# make links in srcdir
+make[1]: [Makefile:92: .depend] Error 1 (ignored)
+# create dependencies
+for DEPS in `echo *.c */*.c`; do \
+clang -I. -I /home/builder/build/src/gpm/src -I /home/builder/build/src/gpm/src/headers -M  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  $DEPS | \
+/usr/sbin/sed 's/^\(.*\)\.o\([ :]+\)/\1.o \1.lo\2/g' >> .depend ; done
+# make links in srcdir
+make[1]: [Makefile:92: dep] Error 1 (ignored)
+# create dependencies
+for DEPS in `echo *.c */*.c`; do \
+clang -I. -I /home/builder/build/src/gpm/src -I /home/builder/build/src/gpm/src/headers -M  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  $DEPS | \
+/usr/sbin/sed 's/^\(.*\)\.o\([ :]+\)/\1.o \1.lo\2/g' >> .depend ; done
+make[1]: Leaving directory '/home/builder/build/src/gpm/src'
+make[1]: Entering directory '/home/builder/build/src/gpm/src'
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o mice.o mice.c
+mice.c:187:27: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  187 |       {"dtr",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR},
+      |                           ^~
+      |                           .u = 
+mice.c:187:31: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  187 |       {"dtr",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR},
+      |                               ^~~~~
+      |                               .iptr = 
+mice.c:187:46: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  187 |       {"dtr",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR},
+      |                                              ^~~~~~
+      |                                              .value = 
+mice.c:188:27: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  188 |       {"rts",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_RTS},
+      |                           ^~
+      |                           .u = 
+mice.c:188:31: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  188 |       {"rts",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_RTS},
+      |                               ^~~~~
+      |                               .iptr = 
+mice.c:188:46: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  188 |       {"rts",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_RTS},
+      |                                              ^~~~~~
+      |                                              .value = 
+mice.c:189:27: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  189 |       {"both", ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR | TIOCM_RTS},
+      |                           ^~
+      |                           .u = 
+mice.c:189:31: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  189 |       {"both", ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR | TIOCM_RTS},
+      |                               ^~~~~
+      |                               .iptr = 
+mice.c:189:46: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+  189 |       {"both", ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR | TIOCM_RTS},
+      |                                              ^~~~~~
+      |                                              .value = 
+mice.c:187:37: warning: initializing 'int *' with an expression of type 'unsigned int *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  187 |       {"dtr",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR},
+      |                                     ^~~~~~
+mice.c:188:37: warning: initializing 'int *' with an expression of type 'unsigned int *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  188 |       {"rts",  ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_RTS},
+      |                                     ^~~~~~
+mice.c:189:37: warning: initializing 'int *' with an expression of type 'unsigned int *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  189 |       {"both", ARGV_BOOL, u: {iptr: &lines}, value: TIOCM_DTR | TIOCM_RTS},
+      |                                     ^~~~~~
+mice.c:537:8: warning: variable 'dx' set but not used [-Wunused-but-set-variable]
+  537 |    int dx, dy;
+      |        ^
+mice.c:537:12: warning: variable 'dy' set but not used [-Wunused-but-set-variable]
+  537 |    int dx, dy;
+      |            ^
+mice.c:731:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  731 |    write (fd, s, sizeof (s));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:746:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  746 |       write( fd, magic+i, 1 );
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
+mice.c:747:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  747 |       read( fd, &c, 1 );
+      |       ^~~~~~~~~~~~~~~~~
+mice.c:755:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  755 |       read( fd, rep, 1 );
+      |       ^~~~~~~~~~~~~~~~~~
+mice.c:756:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  756 |       read( fd, rep+1, 1 );
+      |       ^~~~~~~~~~~~~~~~~~~~
+mice.c:757:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  757 |       read( fd, rep+2, 1 );
+      |       ^~~~~~~~~~~~~~~~~~~~
+mice.c:908:68: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+  908 |        || abs(y-oy)>(wmaxy/wcmodell[WacomModell].treshold) ) ox=x; oy=y;
+      |                                                                    ^
+mice.c:907:7: note: previous statement is here
+  907 |       if( abs(x-ox)>(wmaxx/wcmodell[WacomModell].treshold) 
+      |       ^
+mice.c:1341:14: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 1341 |    if(sscanf(data+1, "%d,%d", &x, &y)!= 2) {
+      |              ^~~~~~
+/usr/include/stdio.h:454:60: note: passing argument to parameter '__s' here
+  454 | extern int __REDIRECT_NTH (sscanf, (const char *__restrict __s,
+      |                                                            ^
+mice.c:1619:21: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1619 |    if (needtowrite) write(fd, c, 2);
+      |                     ^~~~~~~~~~~~~~~
+mice.c:1660:30: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1660 |    if (type->fun==M_logimsc) write(fd, "QU", 2 );
+      |                              ^~~~~~~~~~~~~~~~~~~
+mice.c:1682:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1682 |       write(fd, "*X", 2);
+      |       ^~~~~~~~~~~~~~~~~~
+mice.c:1690:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1690 |       write(fd, ":" ,1); 
+      |       ^~~~~~~~~~~~~~~~~
+mice.c:1691:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1691 |       write(fd, "E" ,1); /* setup tablet. relative mode, resolution... */
+      |       ^~~~~~~~~~~~~~~~~
+mice.c:1692:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1692 |       write(fd, "@" ,1); /* setup tablet. relative mode, resolution... */
+      |       ^~~~~~~~~~~~~~~~~
+mice.c:1708:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1708 |       write(fd, "R", 1); /* initialize a mouse; without getting an "R" */
+      |       ^~~~~~~~~~~~~~~~~
+mice.c:1741:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1741 |    write(fd, "S", 1);
+      |    ^~~~~~~~~~~~~~~~~
+mice.c:1747:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1747 |    write(fd,sampletab[i].code,1);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1766:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1766 |    write(fd, UD_RESETBAUD, strlen(UD_RESETBAUD));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1769:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1769 |    write(fd, UD_RESET,     strlen(UD_RESET));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1774:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1774 |    write(fd, UD_RESET, strlen(UD_RESET));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1776:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1776 |    write(fd, UD_STOP, strlen(UD_STOP));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1805:13: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1805 |    if (cmd) write(fd,cmd,strlen(cmd));
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1834:35: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1834 |          {"absolute",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value: !0},
+      |                                   ^~
+      |                                   .u = 
+mice.c:1834:39: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1834 |          {"absolute",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value: !0},
+      |                                       ^~~~~
+      |                                       .iptr = 
+mice.c:1834:68: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1834 |          {"absolute",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value: !0},
+      |                                                                    ^~~~~~
+      |                                                                    .value = 
+mice.c:1835:35: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1835 |          {"relative",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value:  0},
+      |                                   ^~
+      |                                   .u = 
+mice.c:1835:39: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1835 |          {"relative",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value:  0},
+      |                                       ^~~~~
+      |                                       .iptr = 
+mice.c:1835:68: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 1835 |          {"relative",  ARGV_BOOL, u: {iptr: &WacomAbsoluteWanted}, value:  0},
+      |                                                                    ^~~~~~
+      |                                                                    .value = 
+mice.c:1872:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1872 |    write(fd,UD_SENDCOORDS,4);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:1843:61: warning: variable 'p' is uninitialized when used here [-Wuninitialized]
+ 1843 |    while(I_wacom_RequestData(NULL, fd, buffer, BUFFER_SIZE, p)) ;
+      |                                                             ^
+mice.c:1820:32: note: initialize the variable 'p' to silence this warning
+ 1820 |    char buffer[BUFFER_SIZE], *p;
+      |                                ^
+      |                                 = NULL
+mice.c:1917:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1917 |    write(fd, &c, 1);
+      |    ^~~~~~~~~~~~~~~~
+mice.c:1918:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1918 |    read(fd, &c, 1);
+      |    ^~~~~~~~~~~~~~~
+mice.c:1922:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1922 |    read(fd, &id, 1);
+      |    ^~~~~~~~~~~~~~~~
+mice.c:1939:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1939 |       write(fd, &data[i], 1);
+      |       ^~~~~~~~~~~~~~~~~~~~~~
+mice.c:1940:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1940 |       read(fd, &c, 1);
+      |       ^~~~~~~~~~~~~~~
+mice.c:2016:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2016 |    write (fd, s1, sizeof (s1));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2057:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2057 |    write(fd,0,1); /* Reset */
+      |    ^~~~~~~~~~~~~
+mice.c:2096:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2096 |    write(fd, SS_PROMPT_MODE, strlen(SS_PROMPT_MODE));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2102:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2102 |       write(fd, SS_FIRMID, strlen(SS_FIRMID));
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2106:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2106 |          read(fd, buffer, 255); /* Read Firm-ID */
+      |          ^~~~~~~~~~~~~~~~~~~~~
+mice.c:2112:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2112 |       write(fd,GEN_MMSERIES,1); 
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2113:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2113 |       write(fd,&GEN_MODELL,1); /* Read modell */
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2120:16: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2120 |                read(fd,&config,1);
+      |                ^~~~~~~~~~~~~~~~~~
+mice.c:2130:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2130 |       write(fd, SS_BINARY_FMT SS_PROMPT_MODE, 3);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2135:34: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2135 |    if (!((err == -1) || (!err))) read(fd,buffer,sizeof(buffer));
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2136:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2136 |    write(fd,SS_READCONFIG,1);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2137:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2137 |    read(fd,&config,5);
+      |    ^~~~~~~~~~~~~~~~~~
+mice.c:2141:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2141 |    write(fd,SS_ABSOLUTE SS_STREAM_MODE SS_UPPER_ORIGIN,3);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2142:19: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2142 |    if (summaid<0) write(fd,SS_500LPI SS_TABID0 SS_BINARY_FMT,4);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2165:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2165 |    write(fd,"\001MS\r\n\001FT\r\n",10);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mice.c:2182:30: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2182 |       {"smooth",   ARGV_INT, u: {iptr: &gunze_avg}},
+      |                              ^~
+      |                              .u = 
+mice.c:2182:34: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2182 |       {"smooth",   ARGV_INT, u: {iptr: &gunze_avg}},
+      |                                  ^~~~~
+      |                                  .iptr = 
+mice.c:2183:30: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2183 |       {"debounce", ARGV_INT, u: {iptr: &gunze_debounce}},
+      |                              ^~
+      |                              .u = 
+mice.c:2183:34: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2183 |       {"debounce", ARGV_INT, u: {iptr: &gunze_debounce}},
+      |                                  ^~~~~
+      |                                  .iptr = 
+mice.c:2210:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2210 |       fgets(s, 80, f); /* discard the comment */
+      |       ^~~~~~~~~~~~~~~
+mice.c:2243:39: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2243 |          {"clickontouch",  ARGV_BOOL, u: {iptr: &elo_click_ontouch}, value: !0},
+      |                                       ^~
+      |                                       .u = 
+mice.c:2243:43: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2243 |          {"clickontouch",  ARGV_BOOL, u: {iptr: &elo_click_ontouch}, value: !0},
+      |                                           ^~~~~
+      |                                           .iptr = 
+mice.c:2243:70: warning: use of GNU old-style field designator extension [-Wgnu-designator]
+ 2243 |          {"clickontouch",  ARGV_BOOL, u: {iptr: &elo_click_ontouch}, value: !0},
+      |                                                                      ^~~~~~
+      |                                                                      .value = 
+mice.c:2262:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2262 |         fgets(s, 80, f); /* discard the comment */
+      |         ^~~~~~~~~~~~~~~
+mice.c:2305:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2305 |    write(fd, ":S", 2);
+      |    ^~~~~~~~~~~~~~~~~~
+mice.c:2309:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2309 |    write(fd, "T", 1);
+      |    ^~~~~~~~~~~~~~~~~
+mice.c:2338:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2338 |    write(fd, "O", 1);
+      |    ^~~~~~~~~~~~~~~~~
+76 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o twiddler.o twiddler.c
+twiddler.c:179:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  179 |          dup(1);
+      |          ^~~~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o synaptics.o synaptics.c
+synaptics.c:2274:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2274 |     read (fd, &junk, 1);
+      |     ^~~~~~~~~~~~~~~~~~~
+synaptics.c:2319:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2319 |   write (fd, cmd, strlen (cmd));
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+synaptics.c:2354:25: warning: non-overlapping comparisons always evaluate to false [-Wtautological-overlap-compare]
+ 2354 |   if ( bytes [0] == 'S' && bytes [0] == 'T'){
+      |        ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+synaptics.c:2424:26: warning: non-overlapping comparisons always evaluate to false [-Wtautological-overlap-compare]
+ 2424 |     if (bytes [0] == '3' && bytes [0] == 'B'){
+      |         ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+synaptics.c:2511:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2511 |   read(fd, &b, 1);
+      |   ^~~~~~~~~~~~~~~
+synaptics.c:2531:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2531 |   write(fd, &b, 1);
+      |   ^~~~~~~~~~~~~~~~
+synaptics.c:2532:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2532 |   read(fd, &ack, 1);
+      |   ^~~~~~~~~~~~~~~~~
+synaptics.c:2535:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2535 |     write(fd, &b, 1);
+      |     ^~~~~~~~~~~~~~~~
+synaptics.c:2536:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2536 |     read(fd, &ack, 1);
+      |     ^~~~~~~~~~~~~~~~~
+synaptics.c:2798:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2798 |   write(fd,&cmd,1);
+      |   ^~~~~~~~~~~~~~~~
+synaptics.c:2803:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2803 |     read (fd, &status, 1);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+synaptics.c:2850:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 2850 |     write(fd,&reset_cmd,1);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+synaptics.c:866:22: warning: variable 'scrolling_speed_timer' set but not used [-Wunused-but-set-global]
+  866 | static int           scrolling_speed_timer = 0;
+      |                      ^
+13 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/add_mouse.o daemon/add_mouse.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/init_mice.o daemon/init_mice.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/reset_mice.o daemon/reset_mice.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/build_argv.o daemon/build_argv.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/disable_paste.o daemon/disable_paste.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/do_client.o daemon/do_client.c
+daemon/do_client.c:51:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   51 |    write(fd,event, sizeof(Gpm_Event));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/do_selection.o daemon/do_selection.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/get_console_size.o daemon/get_console_size.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/get_data.o daemon/get_data.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/getmousedata.o daemon/getmousedata.c
+daemon/getmousedata.c:39:10: warning: initializing 'char *' with an expression of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   39 |    char *edata=data+type->packetlen;
+      |          ^     ~~~~~~~~~~~~~~~~~~~~
+daemon/getmousedata.c:52:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   52 |       write(fifofd, data, howmany);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+daemon/getmousedata.c:58:17: warning: returning 'unsigned char[32]' from a function with result type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   58 |          return data;
+      |                 ^~~~
+daemon/getmousedata.c:75:13: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   75 |             write(fifofd, edata-i, j);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+daemon/getmousedata.c:89:11: warning: returning 'unsigned char[32]' from a function with result type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   89 |    return data;
+      |           ^~~~
+5 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/gpm.o daemon/gpm.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/gpm-killed.o daemon/gpm-killed.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/header.o daemon/header.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/main.o daemon/main.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/old_main.o daemon/old_main.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/open_console.o daemon/open_console.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/check_kill.o daemon/check_kill.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/gpm_exited.o daemon/gpm_exited.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o generic/isodigit.o generic/isodigit.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o generic/getsym.o generic/getsym.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/processspecial.o daemon/processspecial.c
+daemon/processspecial.c:158:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  158 |       dup(1);                     /* stderr */
+      |       ^~~~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/processconn.o daemon/processconn.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/processmouse.o daemon/processmouse.c
+daemon/processmouse.c:82:57: warning: passing 'char *' to parameter of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   82 |             || ((*((which_mouse->m_type)->fun))(&nEvent,data)==-1) ) {
+      |                                                         ^~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/processrequest.o daemon/processrequest.c
+daemon/processrequest.c:102:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  102 |          write(ci->fd,&event,sizeof(Gpm_Event));
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/selection_copy.o daemon/selection_copy.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/selection_paste.o daemon/selection_paste.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/cmdline.o daemon/cmdline.c
+daemon/cmdline.c:47:58: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+   47 |                      opt_age_limit = atoi(optarg);       break;
+      |                                                          ^
+daemon/cmdline.c:46:20: note: previous statement is here
+   46 |                    if (optarg)
+      |                    ^
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/loadlut.o daemon/loadlut.c
+daemon/loadlut.c:53:19: warning: passing 'char *' to parameter of type 'const unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   53 |       i += getsym(charset+i, &this);
+      |                   ^~~~~~~~~
+/home/builder/build/src/gpm/src/headers/daemon.h:201:35: note: passing argument to parameter 'p0' here
+  201 | int   getsym(const unsigned char *p0, unsigned char *res);
+      |                                   ^
+daemon/loadlut.c:55:22: warning: passing 'char *' to parameter of type 'const unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+   55 |          i += getsym(charset+i+1, &next) + 1;
+      |                      ^~~~~~~~~~~
+/home/builder/build/src/gpm/src/headers/daemon.h:201:35: note: passing argument to parameter 'p0' here
+  201 | int   getsym(const unsigned char *p0, unsigned char *res);
+      |                                   ^
+2 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/find_mouse_by_name.o daemon/find_mouse_by_name.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/usage.o daemon/usage.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/check_uniqueness.o daemon/check_uniqueness.c
+daemon/check_uniqueness.c:38:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   38 |       fscanf(fp, "%d", &old_pid);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/startup.o daemon/startup.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o daemon/wait_text.o daemon/wait_text.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o report.o report.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o tools.o tools.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o gpm mice.o twiddler.o synaptics.o daemon/add_mouse.o daemon/init_mice.o daemon/reset_mice.o daemon/build_argv.o daemon/disable_paste.o daemon/do_client.o daemon/do_selection.o daemon/get_console_size.o daemon/get_data.o daemon/getmousedata.o daemon/gpm.o daemon/gpm-killed.o daemon/header.o daemon/main.o daemon/old_main.o daemon/open_console.o daemon/check_kill.o daemon/gpm_exited.o generic/isodigit.o generic/getsym.o daemon/processspecial.o daemon/processconn.o daemon/processmouse.o daemon/processrequest.o daemon/selection_copy.o daemon/selection_paste.o daemon/cmdline.o daemon/loadlut.o daemon/find_mouse_by_name.o daemon/usage.o daemon/check_uniqueness.o daemon/startup.o daemon/wait_text.o report.o tools.o   -lm
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/liblow.lo lib/liblow.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libhigh.lo lib/libhigh.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libxtra.lo lib/libxtra.c
+lib/libxtra.c:64:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   64 |       fgets(line, 128, f);
+      |       ^~~~~~~~~~~~~~~~~~~
+lib/libxtra.c:126:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  126 |    write(gpm_fd, &conn, sizeof(Gpm_Connect));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/report-lib.lo lib/report-lib.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o tools.lo tools.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -DPIC -fPIC -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libcurses.lo lib/libcurses.c
+In file included from lib/libcurses.c:30:
+In file included from /home/builder/build/src/gpm/src/headers/gpmInt.h:28:
+/home/builder/build/src/gpm/src/headers/gpm.h:271:12: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a subsequent definition [-Wdeprecated-non-prototype]
+  271 | extern int Gpm_Wgetch();
+      |            ^
+lib/libcurses.c:46:5: note: conflicting prototype is here
+   46 | int Gpm_Wgetch(WINDOW *win)
+      |     ^
+lib/libcurses.c:148:25: warning: passing 'unsigned char[4]' to parameter of type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  148 |       gpm_convert_event(mdata,&ev);
+      |                         ^~~~~
+lib/libcurses.c:98:40: note: passing argument to parameter 'data' here
+   98 |     extern int gpm_convert_event(char *data, Gpm_Event *event);
+      |                                        ^
+2 warnings generated.
+clang -fPIC -shared -Wl,-soname,libgpm.so.2 \
+-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o lib/libgpm.so.2.1.0 lib/liblow.lo lib/libhigh.lo lib/libxtra.lo lib/report-lib.lo tools.lo lib/libcurses.lo  -lncurses  -ltinfo  -lc 	
+ln -s -f libgpm.so.2.1.0 lib/libgpm.so.2
+ln -s -f libgpm.so.2.1.0 lib/libgpm.so
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/liblow.o lib/liblow.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libhigh.o lib/libhigh.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libxtra.o lib/libxtra.c
+lib/libxtra.c:64:7: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   64 |       fgets(line, 128, f);
+      |       ^~~~~~~~~~~~~~~~~~~
+lib/libxtra.c:126:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  126 |    write(gpm_fd, &conn, sizeof(Gpm_Connect));
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/report-lib.o lib/report-lib.c
+clang  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o lib/libcurses.o lib/libcurses.c
+In file included from lib/libcurses.c:30:
+In file included from /home/builder/build/src/gpm/src/headers/gpmInt.h:28:
+/home/builder/build/src/gpm/src/headers/gpm.h:271:12: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a subsequent definition [-Wdeprecated-non-prototype]
+  271 | extern int Gpm_Wgetch();
+      |            ^
+lib/libcurses.c:46:5: note: conflicting prototype is here
+   46 | int Gpm_Wgetch(WINDOW *win)
+      |     ^
+lib/libcurses.c:148:25: warning: passing 'unsigned char[4]' to parameter of type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  148 |       gpm_convert_event(mdata,&ev);
+      |                         ^~~~~
+lib/libcurses.c:98:40: note: passing argument to parameter 'data' here
+   98 |     extern int gpm_convert_event(char *data, Gpm_Event *event);
+      |                                        ^
+2 warnings generated.
+ar rc lib/libgpm.a lib/liblow.o lib/libhigh.o lib/libxtra.o lib/report-lib.o tools.o lib/libcurses.o
+llvm-ranlib lib/libgpm.a
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/mev.o prog/mev.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/mev prog/mev.o lib/libgpm.so.2  
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/hltest.o prog/hltest.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/hltest prog/hltest.o lib/libgpm.so.2  
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/mouse-test.o prog/mouse-test.c
+prog/mouse-test.c:269:15: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  269 |          else read(fd,buff,buflen);
+      |               ^~~~~~~~~~~~~~~~~~~~
+prog/mouse-test.c:402:11: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  402 |                  read(cur->fd,buf,80); /* flush */
+      |                  ^~~~~~~~~~~~~~~~~~~~
+prog/mouse-test.c:472:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  472 |    read(mousefd,buf,BUFLEN); /* flush */
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~
+prog/mouse-test.c:536:42: warning: passing 'char *' to parameter of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  536 |                  if ((*(cur->this->fun))(&event,buf+i)==-1) {
+      |                                                 ^~~~~
+prog/mouse-test.c:610:47: warning: passing 'char *' to parameter of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  610 |                if ((*(cur->this->fun))(&event,buf+i)==-1) continue;
+      |                                               ^~~~~
+prog/mouse-test.c:652:47: warning: passing 'char *' to parameter of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  652 |                if ((*(cur->this->fun))(&event,buf+i)==-1) continue;
+      |                                               ^~~~~
+6 warnings generated.
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/open_console.o prog/open_console.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/mouse-test prog/mouse-test.o mice.o twiddler.o synaptics.o prog/open_console.o lib/libgpm.so.2   -lm
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/disable-paste.o prog/disable-paste.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/disable-paste prog/disable-paste.o lib/libgpm.so.2  
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/display-buttons.o prog/display-buttons.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/display-buttons prog/display-buttons.o lib/libgpm.so.2  
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/display-coords.o prog/display-coords.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/display-coords prog/display-coords.o lib/libgpm.so.2  
+clang -Iheaders  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/get-versions.o prog/get-versions.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/get-versions prog/get-versions.o lib/libgpm.so.2  
+clang -I.  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/etc\"" -DSBINDIR="\"/usr/bin\"" -D_GNU_SOURCE  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -c -o prog/gpm-root.o prog/gpm-root.c
+/home/builder/build/src/gpm/src/prog/gpm-root.y:408:22: warning: passing arguments to a function without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  408 |          if (fun) fun(F_CREATE,new);
+      |                      ^
+/home/builder/build/src/gpm/src/prog/gpm-root.y:529:14: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  529 |                     dup(1);                     /* stderr */  
+      |                     ^~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:661:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  661 |          fscanf(f,"%lf %lf %lf",&l1,&l2,&l3);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:689:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  689 |          fgets(s,80,f);
+      |          ^~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:690:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  690 |          fgets(s,80,f); sscanf(s,"%*s %*s %*s %li",&l1);
+      |          ^~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:691:10: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  691 |          fgets(s,80,f); sscanf(s,"%*s %*s %*s %li",&l2);
+      |          ^~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:902:10: warning: misleading indentation; statement is not part of the previous 'for' [-Wmisleading-indentation]
+  902 |          if(!n->name) fprintf(stderr,"%s: Incorrect flag \"%s\"\n",prgname,arg);
+      |          ^
+/home/builder/build/src/gpm/src/prog/gpm-root.y:897:7: note: previous statement is here
+  897 |       for (n=table;n->name;n++)
+      |       ^
+/home/builder/build/src/gpm/src/prog/gpm-root.y:957:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  957 |    read(dumpfd,buffer,4);
+      |    ^~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:958:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  958 |    read(dumpfd,buffer+4,2*buffer[0]*buffer[1]);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:977:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  977 |    write(dumpfd,buffer,4+2*buffer[0]*buffer[1]);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1045:10: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 1045 |          PUTS(draw->title,draw->head,draw->back);
+      |          ^    ~~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1030:32: note: expanded from macro 'PUTS'
+ 1030 | #define PUTS(s,f,b)   for(curr2=s;*curr2;PUTC(*(curr2++),f,b))
+      |                                ^~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1050:39: warning: passing arguments to a function without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+ 1050 |          if (item->fun) (*(item->fun))(F_POST,item);
+      |                                       ^
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1053:10: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+ 1053 |          PUTS(item->name,draw->fore,draw->back); i+=strlen(item->name);
+      |          ^    ~~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1030:32: note: expanded from macro 'PUTS'
+ 1030 | #define PUTS(s,f,b)   for(curr2=s;*curr2;PUTC(*(curr2++),f,b))
+      |                                ^~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1150:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1150 |    setuid(0); /* if we're setuid, force it */
+      |    ^~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1230:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1230 |    chdir("/");
+      |    ^~~~~~~~~~
+/home/builder/build/src/gpm/src/prog/gpm-root.y:1367:27: warning: passing arguments to a function without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+ 1367 |             (*(item->fun))(F_INVOKE,item,uid);
+      |                           ^
+16 warnings generated.
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -L/home/builder/build/src/gpm/src -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o prog/gpm-root prog/gpm-root.o   lib/libgpm.so.2
+rm prog/mev.o prog/disable-paste.o prog/display-buttons.o prog/hltest.o prog/get-versions.o prog/display-coords.o
+make[1]: Leaving directory '/home/builder/build/src/gpm/src'
+make[1]: Entering directory '/home/builder/build/src/gpm/doc'
+/usr/sbin/sed -f /home/builder/build/src/gpm/doc/infofilter /home/builder/build/src/gpm/doc/doc.gpm > /home/builder/build/src/gpm/doc/gpm.texinfo
+chmod 400 /home/builder/build/src/gpm/doc/gpm.texinfo
+if [ "/usr/sbin/makeinfo" != "no" ]; then /usr/sbin/makeinfo --no-split /home/builder/build/src/gpm/doc/gpm.texinfo -o /home/builder/build/src/gpm/doc/gpm.info; fi
+/home/builder/build/src/gpm/doc/gpm.texinfo:32: warning: undefined flag: version
+/home/builder/build/src/gpm/doc/gpm.texinfo:84: warning: multiple @setchapternewpage
+/home/builder/build/src/gpm/doc/gpm.texinfo:89: warning: @subtitle missing argument
+/home/builder/build/src/gpm/doc/gpm.texinfo:94: warning: multiple @setchapternewpage
+/home/builder/build/src/gpm/doc/gpm.texinfo:497: warning: node up pointer for `Bugs and Problems' is `Server Invocation' but up is `Command Line' in menu
+awk -f /home/builder/build/src/gpm/doc/manpager doc.gpm
+awk: /home/builder/build/src/gpm/doc/manpager:35: warning: escape sequence `\{' treated as plain `{'
+awk: /home/builder/build/src/gpm/doc/manpager:36: warning: escape sequence `\}' treated as plain `}'
+awk: /home/builder/build/src/gpm/doc/manpager:93: (FILENAME=doc.gpm FNR=196) warning: regexp escape sequence `\%' is not a known regexp operator
+for i in gpm-root.1 gpm-types.7 gpm.8 mev.1 mouse-test.1; do \
+	expand $i | sed s/^'[ ]*'//g > $i.new; \
+	mv $i.new $i; \
+done;
+touch gpm.man
+rm /home/builder/build/src/gpm/doc/gpm.texinfo
+make[1]: Leaving directory '/home/builder/build/src/gpm/doc'
+make[1]: Entering directory '/home/builder/build/src/gpm/contrib'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/gpm/contrib'
+==> Entering fakeroot environment...
+==> Starting package()...
+make -C src dep
+make[1]: Entering directory '/home/builder/build/src/gpm/src'
+# make links in srcdir
+make[1]: [Makefile:92: dep] Error 1 (ignored)
+# create dependencies
+for DEPS in `echo *.c */*.c`; do \
+clang -I. -I /home/builder/build/src/gpm/src -I /home/builder/build/src/gpm/src/headers -M  -I/home/builder/build/src/gpm/src -DHAVE_CONFIG_H -include headers/config.h -Wall -DSYSCONFDIR="\"/home/builder/build/pkg/gpm/etc\"" -DSBINDIR="\"/home/builder/build/pkg/gpm/usr/bin\"" -D_GNU_SOURCE  $DEPS | \
+/usr/sbin/sed 's/^\(.*\)\.o\([ :]+\)/\1.o \1.lo\2/g' >> .depend ; done
+make[1]: Leaving directory '/home/builder/build/src/gpm/src'
+make[1]: Entering directory '/home/builder/build/src/gpm/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/gpm/src'
+make[1]: Entering directory '/home/builder/build/src/gpm/doc'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/gpm/doc'
+make[1]: Entering directory '/home/builder/build/src/gpm/contrib'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/gpm/contrib'
+mkdir -p  /home/builder/build/pkg/gpm/usr/lib /home/builder/build/pkg/gpm/usr/bin /home/builder/build/pkg/gpm/usr/bin /home/builder/build/pkg/gpm/usr/include /home/builder/build/pkg/gpm/etc; \
+if test "x" != "x" ; then \
+	mkdir -p  /home/builder/build/pkg/gpm/usr/share/emacs/site-lisp ; \
+fi
+make[1]: Entering directory '/home/builder/build/src/gpm/src'
+/usr/bin/install -c gpm /home/builder/build/pkg/gpm/usr/bin/gpm
+if [ -f lib/libgpm.a ] ; then \
+/usr/bin/install -c -m 644 -m 644 lib/libgpm.a /home/builder/build/pkg/gpm/usr/lib/libgpm.a ; \
+fi
+/usr/bin/install -c -m 644 -m 644 /home/builder/build/src/gpm/src/headers/gpm.h /home/builder/build/pkg/gpm/usr/include/gpm.h
+# POSIX requires the range of a for loop be nonempty and Bash
+# 2.x goes along; unfortunately that means an additional
+# headache in cases like this
+if test "xlibgpm.so" != "x" ; then \
+	/usr/bin/install -c -m 644 -m 755 lib/libgpm.so.2.1.0 /home/builder/build/pkg/gpm/usr/lib/libgpm.so.2.1.0	;	\
+	cd /home/builder/build/pkg/gpm/usr/lib && ln -s -f libgpm.so.2.1.0 libgpm.so.2 					;	\
+      echo "WARNING: We installed a lib, you should now call ldconfig" 						; 	\
+      echo "f.i.: ldconfig -n -l /home/builder/build/pkg/gpm/usr/lib/libgpm.so.2.1.0" 								;	\
+      echo "Or to update everything just type ldconfig"											;	\
+fi
+WARNING: We installed a lib, you should now call ldconfig
+f.i.: ldconfig -n -l /home/builder/build/pkg/gpm/usr/lib/libgpm.so.2.1.0
+Or to update everything just type ldconfig
+for i in prog/mev prog/hltest prog/mouse-test prog/disable-paste prog/display-buttons prog/display-coords prog/get-versions prog/gpm-root; do \
+	/usr/bin/install -c $i /home/builder/build/pkg/gpm/usr/bin/`echo $i | sed 's,prog/,,'` ;\
+done
+make[1]: Leaving directory '/home/builder/build/src/gpm/src'
+make[1]: Entering directory '/home/builder/build/src/gpm/doc'
+mkdir -p  /home/builder/build/pkg/gpm/usr/share/man/man1 /home/builder/build/pkg/gpm/usr/share/man/man7 /home/builder/build/pkg/gpm/usr/share/man/man8 /home/builder/build/pkg/gpm/usr/share/info	
+/usr/bin/install -c -m 644 -m 644 mev.1          /home/builder/build/pkg/gpm/usr/share/man/man1
+/usr/bin/install -c -m 644 -m 644 mouse-test.1   /home/builder/build/pkg/gpm/usr/share/man/man1
+/usr/bin/install -c -m 644 -m 644 gpm-root.1     /home/builder/build/pkg/gpm/usr/share/man/man1
+/usr/bin/install -c -m 644 -m 644 gpm-types.7    /home/builder/build/pkg/gpm/usr/share/man/man7
+/usr/bin/install -c -m 644 -m 644 gpm.8          /home/builder/build/pkg/gpm/usr/share/man/man8
+/usr/bin/install -c -m 644 -m 644 /home/builder/build/src/gpm/doc/gpm.info       /home/builder/build/pkg/gpm/usr/share/info
+# Use install-info if available
+if /bin/sh -c 'install-info --version' >/dev/null 2>&1; then \
+  if [ -f /home/builder/build/pkg/gpm/usr/share/info/dir ] ; then \
+	install-info --dir-file=/home/builder/build/pkg/gpm/usr/share/info/dir /home/builder/build/pkg/gpm/usr/share/info/gpm.info; \
+  fi; \
+fi
+#itz Sat Dec 26 23:21:05 PST 1998
+#i keep all my infopages compressed and i'm tired to do it by
+#hand, so check if there are any compressed pages and do this
+#one too
+ls /home/builder/build/pkg/gpm/usr/share/info/*[-.]info.gz >/dev/null 2>&1 \
+	&& gzip -f /home/builder/build/pkg/gpm/usr/share/info/gpm.info
+# Hmm.... shouldn't man pages be compressed too?
+make[1]: [Makefile:129: install] Error 2 (ignored)
+make[1]: Leaving directory '/home/builder/build/src/gpm/doc'
+make[1]: Entering directory '/home/builder/build/src/gpm/contrib'
+if [ -n "" ]; then for i in `echo `; do \
+	/usr/bin/install -c -m 644 /home/builder/build/src/gpm/contrib/$i /home/builder/build/pkg/gpm/usr/share/emacs/site-lisp/`basename $i` ;\
+done; fi
+make[1]: Leaving directory '/home/builder/build/src/gpm/contrib'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/bin/gpm-root
+==> Creating package "gpm"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: gpm 1.20.7.r38.ge82d1a6-7 (Sun Sep 20 02:23:50 2026)

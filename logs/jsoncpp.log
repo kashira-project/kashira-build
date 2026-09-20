@@ -1,0 +1,222 @@
+== build jsoncpp (deps: gcc glibc libgcc libstdc++ meson python )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) mpc-1.4.1-1  ninja-1.13.2-1  python-tqdm-4.70.1-1  gcc-16.2.0-6  meson-1.12.0-1
+
+Total Download Size:    92.98 MiB
+Total Installed Size:  349.45 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ meson-1.12.0-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: jsoncpp 1.9.8-1 (Sun Sep 20 02:35:18 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found jsoncpp-1.9.8.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    jsoncpp-1.9.8.tar.gz ... Passed
+==> Validating source files with b2sums...
+    jsoncpp-1.9.8.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting jsoncpp-1.9.8.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+Building shared library...
+ has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 --default-library shared build
+Generating targets:   0%|          | 0/3 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/jsoncpp-1.9.8
+Build dir: /home/builder/build/src/jsoncpp-1.9.8/build
+Build type: native build
+Project name: jsoncpp
+Project version: 1.9.8
+C++ compiler for the host machine: clang++ (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C++ linker for the host machine: clang++ ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Program python3 found: YES (/usr/sbin/python3)
+Build targets in project: 3
+
+jsoncpp 1.9.8
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    default_library   : shared
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+                                              Writing build.ninja:   0%|          | 0/48 eta ?                                                ninja: Entering directory `build'
+[1/11] Compiling C++ object jsoncpp_test.p/src_test_lib_json_fuzz.cpp.o
+[2/11] Compiling C++ object jsoncpp_test.p/src_test_lib_json_jsontest.cpp.o
+[3/11] Compiling C++ object jsontestrunner.p/src_jsontestrunner_main.cpp.o
+[4/11] Compiling C++ object libjsoncpp.so.27.p/src_lib_json_json_value.cpp.o
+[5/11] Compiling C++ object libjsoncpp.so.27.p/src_lib_json_json_writer.cpp.o
+[6/11] Compiling C++ object libjsoncpp.so.27.p/src_lib_json_json_reader.cpp.o
+[7/11] Linking target libjsoncpp.so.27
+[8/11] Generating symbol file libjsoncpp.so.27.p/libjsoncpp.so.27.symbols
+[9/11] Linking target jsontestrunner
+[10/11] Compiling C++ object jsoncpp_test.p/src_test_lib_json_main.cpp.o
+[11/11] Linking target jsoncpp_test
+Building static library...
+ has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 --default-library static build-static
+Generating targets:   0%|          | 0/3 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/jsoncpp-1.9.8
+Build dir: /home/builder/build/src/jsoncpp-1.9.8/build-static
+Build type: native build
+Project name: jsoncpp
+Project version: 1.9.8
+C++ compiler for the host machine: clang++ (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C++ linker for the host machine: clang++ ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Program python3 found: YES (/usr/sbin/python3)
+Build targets in project: 3
+
+jsoncpp 1.9.8
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    default_library   : static
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+                                              Writing build.ninja:   0%|          | 0/46 eta ?                                                ninja: Entering directory `build-static'
+[1/10] Compiling C++ object jsoncpp_test.p/src_test_lib_json_fuzz.cpp.o
+[2/10] Compiling C++ object jsoncpp_test.p/src_test_lib_json_jsontest.cpp.o
+[3/10] Compiling C++ object jsontestrunner.p/src_jsontestrunner_main.cpp.o
+[4/10] Compiling C++ object libjsoncpp.a.p/src_lib_json_json_value.cpp.o
+[5/10] Compiling C++ object libjsoncpp.a.p/src_lib_json_json_writer.cpp.o
+[6/10] Compiling C++ object libjsoncpp.a.p/src_lib_json_json_reader.cpp.o
+[7/10] Linking static target libjsoncpp.a
+[8/10] Linking target jsontestrunner
+[9/10] Compiling C++ object jsoncpp_test.p/src_test_lib_json_main.cpp.o
+[10/10] Linking target jsoncpp_test
+==> Entering fakeroot environment...
+==> Starting package_jsoncpp()...
+ninja: Entering directory `build'
+[0/1] Installing files
+Installing libjsoncpp.so.27 to /home/builder/build/pkg/jsoncpp/usr/lib
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/allocator.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/assertions.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/config.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/json_features.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/forwards.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/json.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/reader.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/value.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/version.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/writer.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/build/meson-private/jsoncpp.pc to /home/builder/build/pkg/jsoncpp/usr/lib/pkgconfig
+Installing /home/builder/build/src/jsoncpp-1.9.8/build/jsoncppConfig.cmake to /home/builder/build/pkg/jsoncpp/usr/lib/cmake/jsoncpp
+Installing /home/builder/build/src/jsoncpp-1.9.8/jsoncpp-namespaced-targets.cmake to /home/builder/build/pkg/jsoncpp/usr/lib/cmake/jsoncpp
+Installing symlink pointing to libjsoncpp.so.27 to /home/builder/build/pkg/jsoncpp/usr/lib/libjsoncpp.so
+ninja: Entering directory `build-static'
+[0/1] Installing files
+Installing libjsoncpp.a to /home/builder/build/pkg/jsoncpp/usr/lib
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/allocator.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/assertions.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/config.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/json_features.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/forwards.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/json.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/reader.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/value.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/version.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/include/json/writer.h to /home/builder/build/pkg/jsoncpp/usr/include/json
+Installing /home/builder/build/src/jsoncpp-1.9.8/build-static/meson-private/jsoncpp.pc to /home/builder/build/pkg/jsoncpp/usr/lib/pkgconfig
+Installing /home/builder/build/src/jsoncpp-1.9.8/build-static/jsoncppConfig.cmake to /home/builder/build/pkg/jsoncpp/usr/lib/cmake/jsoncpp
+Installing /home/builder/build/src/jsoncpp-1.9.8/jsoncpp-namespaced-targets.cmake to /home/builder/build/pkg/jsoncpp/usr/lib/cmake/jsoncpp
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "jsoncpp"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_jsoncpp-doc()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "jsoncpp-doc"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: jsoncpp 1.9.8-1 (Sun Sep 20 02:35:56 2026)

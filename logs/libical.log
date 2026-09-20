@@ -1,0 +1,1529 @@
+== build libical (deps: cmake gcc git glib2 glibc icu libgcc libstdc++ libxml2 )
+resolving dependencies...
+warning: glib2-2.88.3-2 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: icu-78.3-1 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (7) mpc-1.4.1-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  cmake-4.4.2-1  gcc-16.2.0-6  git-2.55.0-1
+
+Total Download Size:   113.30 MiB
+Total Installed Size:  439.21 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ cmake-4.4.2-1-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: libical 4.0.5-1 (Sun Sep 20 02:13:57 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating libical git repo...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libical ... Passed
+==> Extracting sources...
+  -> Creating working copy of libical git repo...
+Cloning into 'libical'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+-- The C compiler identification is Clang 23.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- The CXX compiler identification is Clang 23.1.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Perl: /usr/sbin/perl (found version "5.44.0")
+-- Found ICU: /usr/include (found version "78.3") found components: i18n uc data
+-- Looking for include file byteswap.h
+-- Looking for include file byteswap.h - found
+-- Looking for include file dirent.h
+-- Looking for include file dirent.h - found
+-- Looking for include file endian.h
+-- Looking for include file endian.h - found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for include file sys/endian.h
+-- Looking for include file sys/endian.h - not found
+-- Looking for include file sys/param.h
+-- Looking for include file sys/param.h - found
+-- Looking for include file sys/utsname.h
+-- Looking for include file sys/utsname.h - found
+-- Looking for include file fcntl.h
+-- Looking for include file fcntl.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wctype.h
+-- Looking for include file wctype.h - found
+-- Looking for access
+-- Looking for access - found
+-- Looking for fork
+-- Looking for fork - found
+-- Looking for getopt
+-- Looking for getopt - found
+-- Looking for getpid
+-- Looking for getpid - found
+-- Looking for getpwent
+-- Looking for getpwent - found
+-- Looking for gmtime_r
+-- Looking for gmtime_r - found
+-- Looking for localtime_r
+-- Looking for localtime_r - found
+-- Looking for mkdir
+-- Looking for mkdir - found
+-- Looking for open
+-- Looking for open - found
+-- Looking for nanosleep
+-- Looking for nanosleep - found
+-- Looking for signal
+-- Looking for signal - found
+-- Looking for stat
+-- Looking for stat - found
+-- Looking for fstat
+-- Looking for fstat - found
+-- Looking for strdup
+-- Looking for strdup - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for strncasecmp
+-- Looking for strncasecmp - found
+-- Looking for read
+-- Looking for read - found
+-- Looking for unlink
+-- Looking for unlink - found
+-- Looking for usleep
+-- Looking for usleep - found
+-- Looking for waitpid
+-- Looking for waitpid - found
+-- Looking for write
+-- Looking for write - found
+-- Looking for alarm
+-- Looking for alarm - found
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- Looking for iswspace
+-- Looking for iswspace - found
+-- Looking for setenv
+-- Looking for setenv - found
+-- Looking for unsetenv
+-- Looking for unsetenv - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of int
+-- Check size of int - done
+-- Check size of intptr_t
+-- Check size of intptr_t - done
+-- Check size of pid_t
+-- Check size of pid_t - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+-- Check size of time_t
+-- Check size of time_t - done
+-- Check size of __time64_t
+-- Check size of __time64_t - failed
+-- Check size of time_t
+-- Check size of time_t - done
+-- Check size of wint_t
+-- Check size of wint_t - failed
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Looking for pthread_attr_get_np in pthread
+-- Looking for pthread_attr_get_np in pthread - not found
+-- Looking for pthread_getattr_np in pthread
+-- Looking for pthread_getattr_np in pthread - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for include files pthread.h, pthread_np.h
+-- Looking for include files pthread.h, pthread_np.h - not found
+-- Checking for one of the modules 'glib-2.0>=2.44'
+-- Checking for one of the modules 'gobject-2.0>=2.44'
+-- Found LibXml2: /usr/lib/libxml2.so (found suitable version "2.15.4", minimum required is "2.7.3")
+-- Performing Test C_SUPPORTS_UNUSED_BUT_SET
+-- Performing Test C_SUPPORTS_UNUSED_BUT_SET - Success
+-- Performing Test C_SUPPORTS_LOGICAL_OP
+-- Performing Test C_SUPPORTS_LOGICAL_OP - Failed
+-- Performing Test C_SUPPORTS_POINTER_MEMACCESS
+-- Performing Test C_SUPPORTS_POINTER_MEMACCESS - Success
+-- Performing Test C_SUPPORTS_FORMAT_SECURITY
+-- Performing Test C_SUPPORTS_FORMAT_SECURITY - Success
+-- Performing Test C_SUPPORTS_REDUNDANT_DECLS
+-- Performing Test C_SUPPORTS_REDUNDANT_DECLS - Success
+-- Performing Test C_SUPPORTS_UNREACHABLE_CODE
+-- Performing Test C_SUPPORTS_UNREACHABLE_CODE - Success
+-- Performing Test C_SUPPORTS_VARARGS
+-- Performing Test C_SUPPORTS_VARARGS - Success
+-- Performing Test CXX_SUPPORTS_UNUSED_BUT_SET
+-- Performing Test CXX_SUPPORTS_UNUSED_BUT_SET - Success
+-- Performing Test CXX_SUPPORTS_LOGICAL_OP
+-- Performing Test CXX_SUPPORTS_LOGICAL_OP - Failed
+-- Performing Test CXX_SUPPORTS_POINTER_MEMACCESS
+-- Performing Test CXX_SUPPORTS_POINTER_MEMACCESS - Success
+-- Performing Test CXX_SUPPORTS_REORDER
+-- Performing Test CXX_SUPPORTS_REORDER - Success
+-- Performing Test CXX_SUPPORTS_FORMAT_SECURITY
+-- Performing Test CXX_SUPPORTS_FORMAT_SECURITY - Success
+-- Performing Test CXX_SUPPORTS_REDUNDANT_DECLS
+-- Performing Test CXX_SUPPORTS_REDUNDANT_DECLS - Success
+-- Performing Test CXX_SUPPORTS_UNREACHABLE_CODE
+-- Performing Test CXX_SUPPORTS_UNREACHABLE_CODE - Success
+-- Performing Test CXX_SUPPORTS_VARARGS
+-- Performing Test CXX_SUPPORTS_VARARGS - Success
+-- Performing Test C_SUPPORTS_WALL
+-- Performing Test C_SUPPORTS_WALL - Success
+-- Performing Test C_SUPPORTS_WEXTRA
+-- Performing Test C_SUPPORTS_WEXTRA - Success
+-- Performing Test C_SUPPORTS_WFORMAT
+-- Performing Test C_SUPPORTS_WFORMAT - Success
+-- Performing Test C_SUPPORTS_WFORMAT2
+-- Performing Test C_SUPPORTS_WFORMAT2 - Success
+-- Performing Test C_SUPPORTS_WSIGNCONVERSION
+-- Performing Test C_SUPPORTS_WSIGNCONVERSION - Success
+-- Performing Test C_SUPPORTS_WTRAMPOLINES
+-- Performing Test C_SUPPORTS_WTRAMPOLINES - Failed
+-- Performing Test C_SUPPORTS_WIMPLICIT_FALLTHROUGH
+-- Performing Test C_SUPPORTS_WIMPLICIT_FALLTHROUGH - Success
+-- Performing Test C_SUPPORTS_WBIDI_CHARS_ANY
+-- Performing Test C_SUPPORTS_WBIDI_CHARS_ANY - Failed
+-- Performing Test C_SUPPORTS_WERROR_FORMAT_SECURITY
+-- Performing Test C_SUPPORTS_WERROR_FORMAT_SECURITY - Success
+-- Performing Test C_SUPPORTS_WERROR_IMPLICIT
+-- Performing Test C_SUPPORTS_WERROR_IMPLICIT - Success
+-- Performing Test C_SUPPORTS_WERROR_INCOMPATIBLE_POINTER_TYPES
+-- Performing Test C_SUPPORTS_WERROR_INCOMPATIBLE_POINTER_TYPES - Success
+-- Performing Test C_SUPPORTS_WERROR_INT_CONVERSION
+-- Performing Test C_SUPPORTS_WERROR_INT_CONVERSION - Success
+-- Performing Test C_SUPPORTS_FORTIFY_SOURCE
+-- Performing Test C_SUPPORTS_FORTIFY_SOURCE - Success
+-- Performing Test C_SUPPORTS_GLIBC_ASSERTIONS
+-- Performing Test C_SUPPORTS_GLIBC_ASSERTIONS - Success
+-- Performing Test C_SUPPORTS_FSTRICT_FLEX_ARRAYS3
+-- Performing Test C_SUPPORTS_FSTRICT_FLEX_ARRAYS3 - Success
+-- Performing Test C_SUPPORTS_FSTACK_CLASH_PROTECTION
+-- Performing Test C_SUPPORTS_FSTACK_CLASH_PROTECTION - Success
+-- Performing Test C_SUPPORTS_FSTACK_PROTECTOR_STRONG
+-- Performing Test C_SUPPORTS_FSTACK_PROTECTOR_STRONG - Success
+-- Performing Test C_SUPPORTS_FCF_PROTECTION_FULL
+-- Performing Test C_SUPPORTS_FCF_PROTECTION_FULL - Success
+-- Performing Test C_SUPPORTS_MBRANCH_PROTECTION_STANDARD
+-- Performing Test C_SUPPORTS_MBRANCH_PROTECTION_STANDARD - Failed
+-- Performing Test C_SUPPORTS_FNO_DELETE_NULL_POINTER_CHECKS
+-- Performing Test C_SUPPORTS_FNO_DELETE_NULL_POINTER_CHECKS - Success
+-- Performing Test C_SUPPORTS_FNO_STRICT_OVERFLOW
+-- Performing Test C_SUPPORTS_FNO_STRICT_OVERFLOW - Success
+-- Performing Test C_SUPPORTS_FNO_STRICT_ALIASING
+-- Performing Test C_SUPPORTS_FNO_STRICT_ALIASING - Success
+-- Performing Test C_SUPPORTS_FTRIVIAL_AUTO_VAR_INIT
+-- Performing Test C_SUPPORTS_FTRIVIAL_AUTO_VAR_INIT - Failed
+-- Performing Test C_LINKER_SUPPORTS_NOEXECSTACK
+-- Performing Test C_LINKER_SUPPORTS_NOEXECSTACK - Success
+-- Performing Test C_LINKER_SUPPORTS_RELRO
+-- Performing Test C_LINKER_SUPPORTS_RELRO - Success
+-- Performing Test C_LINKER_SUPPORTS_NOW
+-- Performing Test C_LINKER_SUPPORTS_NOW - Success
+-- Performing Test C_LINKER_SUPPORTS_AS_NEEDED
+-- Performing Test C_LINKER_SUPPORTS_AS_NEEDED - Success
+-- Performing Test C_LINKER_SUPPORTS_NO_COPY_DT_NEEDED_ENTRIES
+-- Performing Test C_LINKER_SUPPORTS_NO_COPY_DT_NEEDED_ENTRIES - Success
+-- Performing Test CXX_SUPPORTS_WALL
+-- Performing Test CXX_SUPPORTS_WALL - Success
+-- Performing Test CXX_SUPPORTS_WEXTRA
+-- Performing Test CXX_SUPPORTS_WEXTRA - Success
+-- Performing Test CXX_SUPPORTS_WFORMAT
+-- Performing Test CXX_SUPPORTS_WFORMAT - Success
+-- Performing Test CXX_SUPPORTS_WFORMAT2
+-- Performing Test CXX_SUPPORTS_WFORMAT2 - Success
+-- Performing Test CXX_SUPPORTS_WCONVERSION
+-- Performing Test CXX_SUPPORTS_WCONVERSION - Success
+-- Performing Test CXX_SUPPORTS_WSIGNCONVERSION
+-- Performing Test CXX_SUPPORTS_WSIGNCONVERSION - Success
+-- Performing Test CXX_SUPPORTS_WTRAMPOLINES
+-- Performing Test CXX_SUPPORTS_WTRAMPOLINES - Failed
+-- Performing Test CXX_SUPPORTS_WIMPLICIT_FALLTHROUGH
+-- Performing Test CXX_SUPPORTS_WIMPLICIT_FALLTHROUGH - Success
+-- Performing Test CXX_SUPPORTS_WBIDI_CHARS_ANY
+-- Performing Test CXX_SUPPORTS_WBIDI_CHARS_ANY - Failed
+-- Performing Test CXX_SUPPORTS_WERROR_FORMAT_SECURITY
+-- Performing Test CXX_SUPPORTS_WERROR_FORMAT_SECURITY - Success
+-- Performing Test CXX_SUPPORTS_WERROR_IMPLICIT
+-- Performing Test CXX_SUPPORTS_WERROR_IMPLICIT - Success
+-- Performing Test CXX_SUPPORTS_WERROR_INCOMPATIBLE_POINTER_TYPES
+-- Performing Test CXX_SUPPORTS_WERROR_INCOMPATIBLE_POINTER_TYPES - Success
+-- Performing Test CXX_SUPPORTS_WERROR_INT_CONVERSION
+-- Performing Test CXX_SUPPORTS_WERROR_INT_CONVERSION - Success
+-- Performing Test CXX_SUPPORTS_FORTIFY_SOURCE
+-- Performing Test CXX_SUPPORTS_FORTIFY_SOURCE - Success
+-- Performing Test CXX_SUPPORTS_GLIBCXX_ASSERTIONS
+-- Performing Test CXX_SUPPORTS_GLIBCXX_ASSERTIONS - Success
+-- Performing Test CXX_SUPPORTS_FSTRICT_FLEX_ARRAYS3
+-- Performing Test CXX_SUPPORTS_FSTRICT_FLEX_ARRAYS3 - Success
+-- Performing Test CXX_SUPPORTS_FSTACK_CLASH_PROTECTION
+-- Performing Test CXX_SUPPORTS_FSTACK_CLASH_PROTECTION - Success
+-- Performing Test CXX_SUPPORTS_FSTACK_PROTECTOR_STRONG
+-- Performing Test CXX_SUPPORTS_FSTACK_PROTECTOR_STRONG - Success
+-- Performing Test CXX_SUPPORTS_FCF_PROTECTION_FULL
+-- Performing Test CXX_SUPPORTS_FCF_PROTECTION_FULL - Success
+-- Performing Test CXX_SUPPORTS_MBRANCH_PROTECTION_STANDARD
+-- Performing Test CXX_SUPPORTS_MBRANCH_PROTECTION_STANDARD - Failed
+-- Performing Test CXX_SUPPORTS_FNO_DELETE_NULL_POINTER_CHECKS
+-- Performing Test CXX_SUPPORTS_FNO_DELETE_NULL_POINTER_CHECKS - Success
+-- Performing Test CXX_SUPPORTS_FNO_STRICT_OVERFLOW
+-- Performing Test CXX_SUPPORTS_FNO_STRICT_OVERFLOW - Success
+-- Performing Test CXX_SUPPORTS_FNO_STRICT_ALIASING
+-- Performing Test CXX_SUPPORTS_FNO_STRICT_ALIASING - Success
+-- Performing Test CXX_SUPPORTS_FTRIVIAL_AUTO_VAR_INIT
+-- Performing Test CXX_SUPPORTS_FTRIVIAL_AUTO_VAR_INIT - Failed
+-- Performing Test CXX_LINKER_SUPPORTS_NOEXECSTACK
+-- Performing Test CXX_LINKER_SUPPORTS_NOEXECSTACK - Success
+-- Performing Test CXX_LINKER_SUPPORTS_RELRO
+-- Performing Test CXX_LINKER_SUPPORTS_RELRO - Success
+-- Performing Test CXX_LINKER_SUPPORTS_NOW
+-- Performing Test CXX_LINKER_SUPPORTS_NOW - Success
+-- Performing Test CXX_LINKER_SUPPORTS_AS_NEEDED
+-- Performing Test CXX_LINKER_SUPPORTS_AS_NEEDED - Success
+-- Performing Test CXX_LINKER_SUPPORTS_NO_COPY_DT_NEEDED_ENTRIES
+-- Performing Test CXX_LINKER_SUPPORTS_NO_COPY_DT_NEEDED_ENTRIES - Success
+-- Performing Test c_flag_Wswitch_enum_supported
+-- Performing Test c_flag_Wswitch_enum_supported - Success
+-- Performing Test c_flag_Wswitch_supported
+-- Performing Test c_flag_Wswitch_supported - Success
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- The following features have been enabled:
+
+ * Option LIBICAL_CXX_BINDINGS, build the C++ bindings. Requires a C++ compiler
+ * RSCALE support (RFC7529), build in RSCALE support
+ * Option LIBICAL_GLIB, Build libical-glib interface.   Requires glib 2.44 and libxml 2.7.3 development packages or higher.
+ * Option LIBICAL_BUILD_TESTING, Build tests.
+ * Option LIBICAL_BUILD_EXAMPLES, Build examples.
+ * Option LIBICAL_BUILD_DOCS, Build documentation
+
+-- The following OPTIONAL packages have been found:
+
+ * Threads
+ * PkgConfig
+ * LibXml2 (required version >= 2.7.3)
+
+-- The following RECOMMENDED packages have been found:
+
+ * ICU
+   For RSCALE (RFC7529) support
+
+-- The following REQUIRED packages have been found:
+
+ * Perl
+   Required by the libical build system.
+
+-- The following features have been disabled:
+
+ * Option LIBICAL_DEVMODE, Developer mode
+ * Option LIBICAL_STATIC, Build static versions of the libraries.
+ * Build type, build static libraries
+ * Option LIBICAL_JAVA_BINDINGS, build the Java bindings. Requires a java compiler
+ * Berkeley DB storage support, build in support for Berkeley DB storage
+ * Option LIBICAL_ENABLE_64BIT_ICALTIME_T, Redirect icaltime_t and related functions to a 64-bit version of time_t rather than to the   C standard library time_t. Intended for use on 32-bit systems which have a 64-bit time_t available.   May not be implemented on all platforms yet.
+ * Option LIBICAL_ENABLE_BUILTIN_TZDATA, (Careful) Build using libical's built-in timezone data, else use the system timezone data on non-Windows systems.   ALWAYS true on Windows. Non-Windows users should know what they're doing if they choose not to use system provided   timezone data. The libical project does not guarantee that the built-in timezone data is up-to-date.
+ * Option LIBICAL_GOBJECT_INTROSPECTION, Build GObject introspection "typelib" files.   Requires GObject Introspection development package 0.6.7 or higher.
+ * Option LIBICAL_GLIB_VAPI, Build Vala "vapi" files.
+ * Option LIBICAL_GLIB_CHECK_API_FILES, Check libical-glib API files for completeness.
+ * Option LIBICAL_GLIB_BUILD_DOCS, Build libical-glib documentation
+ * Option LIBICAL_DEVMODE_ABI_DUMPER, (Developer-only) Build for abi-dumper.
+ * Option LIBICAL_DEVMODE_MEMORY_CONSISTENCY, (Developer-only) Build with memory consistency functions.
+ * Option LIBICAL_DEVMODE_ADDRESS_SANITIZER, (Developer-only) Build with the address sanitizer.
+ * Option LIBICAL_DEVMODE_LEAK_SANITIZER, (Developer-only) Build with the leak sanitizer.
+ * Option LIBICAL_DEVMODE_MEMORY_SANITIZER, (Developer-only) Build with the memory sanitizer.
+ * Option LIBICAL_DEVMODE_THREAD_SANITIZER, (Developer-only) Build with the thread sanitizer.
+ * Option LIBICAL_DEVMODE_UNDEFINED_SANITIZER, (Developer-only) Build with the undefined sanitizer.
+ * Option LIBICAL_DEVMODE_SYNCMODE_THREADLOCAL, Mark global variables as thread-local.
+ * Option CMAKE_INTERPROCEDURAL_OPTIMIZATION, Build a link-time optimized version.
+ * Option LIBICAL_BUILD_TESTING_BIGFUZZ, Build fuzzer tests
+ * Option LIBICAL_BUILD_VZIC, Build the vzic tool to generate zoneinfo files from the Olson timezone database
+
+-- The following OPTIONAL packages have not been found:
+
+ * Doxygen, API Documentation system, <https://www.doxygen.org>
+   Needed to build the API documentation.
+
+-- Configuring done (30.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /home/builder/build/src/build
+[  1%] Generate icalderivedparameter.h
+[  1%] Generate icalderivedvalue.h
+[  1%] Generate icalderivedproperty.c
+[  3%] Generate icalrestriction.c
+[  4%] Generate vcardderivedproperty.c
+[  4%] Generate vcardderivedparameter.c
+[  5%] Generate vcardrestriction.c
+[  5%] Building C object src/libical-glib/CMakeFiles/ical-glib-src-generator.dir/tools/header-parser.c.o
+[  8%] Building C object src/libical-glib/CMakeFiles/ical-glib-src-generator.dir/tools/generator.c.o
+[  8%] Generate the aggregate libicalss header
+[  8%] Generate icalderivedparameter.c
+[  9%] Building C object src/libical-glib/CMakeFiles/ical-glib-src-generator.dir/tools/xml-parser.c.o
+[ 10%] Generate icalderivedproperty.h
+[ 11%] Generate icalderivedvalue.c
+[ 11%] Generate vcardderivedvalue.c
+[ 11%] Generate vcardderivedproperty.h
+[ 11%] Generate vcardderivedvalue.h
+[ 11%] Generate vcardderivedparameter.h
+[ 11%] Generate the aggregate ical.h header
+[ 11%] Target to generate the aggregate libicalss header
+[ 11%] Generate the aggregate vcard.h header
+[ 11%] Built target icalss-header
+[ 12%] Target to generate the aggregate ical.h header
+[ 13%] Target to generate the aggregate vcard.h header
+[ 13%] Built target ical-header
+[ 13%] Built target icalvcard-header
+[ 14%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedparameter.c.o
+[ 15%] Building C object src/libical/CMakeFiles/ical.dir/icalerror.c.o
+[ 15%] Building C object src/libical/CMakeFiles/ical.dir/icalenumarray.c.o
+[ 16%] Building C object src/libical/CMakeFiles/ical.dir/icalerror_p.c.o
+[ 17%] Building C object src/libical/CMakeFiles/ical.dir/icallimits.c.o
+[ 18%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedvalue.c.o
+[ 18%] Building C object src/libical/CMakeFiles/ical.dir/icalarray.c.o
+[ 18%] Building C object src/libical/CMakeFiles/ical.dir/icalcomponent.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalattach.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalderivedproperty.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalrestriction.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalenums.c.o
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalmemory.c.o
+/home/builder/build/src/libical/src/libical/icalerror_p.c:23:28: warning: variable 'foo' set but not used [-Wunused-but-set-global]
+   23 | static ICAL_GLOBAL_VAR int foo;
+      |                            ^
+[ 19%] Building C object src/libical/CMakeFiles/ical.dir/icalparser.c.o
+[ 20%] Building C object src/libical/CMakeFiles/ical.dir/icalparameter.c.o
+[ 20%] Building C object src/libical/CMakeFiles/ical.dir/icalrecur.c.o
+1 warning generated.
+[ 21%] Building C object src/libical/CMakeFiles/ical.dir/icalproperty.c.o
+[ 22%] Building C object src/libical/CMakeFiles/ical.dir/icalstrarray.c.o
+[ 22%] Building C object src/libical/CMakeFiles/ical.dir/icaltime_p.c.o
+[ 23%] Building C object src/libical/CMakeFiles/ical.dir/icaltime.c.o
+[ 23%] Building C object src/libical/CMakeFiles/ical.dir/icaltimezone_p.c.o
+[ 24%] Building C object src/libical/CMakeFiles/ical.dir/icaltimezone.c.o
+[ 24%] Building C object src/libical/CMakeFiles/ical.dir/icalduration.c.o
+[ 25%] Building C object src/libical/CMakeFiles/ical.dir/icalperiod.c.o
+[ 25%] Building C object src/libical/CMakeFiles/ical.dir/icaltypes.c.o
+[ 26%] Building C object src/libical/CMakeFiles/ical.dir/icalvalue.c.o
+[ 26%] Building C object src/libical/CMakeFiles/ical.dir/icalpvl_p.c.o
+[ 27%] Building C object src/libical/CMakeFiles/ical.dir/qsort_gen.c.o
+[ 27%] Building C object src/libical/CMakeFiles/ical.dir/icallangbind_p.c.o
+[ 28%] Building C object src/libical/CMakeFiles/ical.dir/icaldate_p.c.o
+[ 28%] Building C object src/libical/CMakeFiles/ical.dir/byref.c.o
+[ 28%] Linking C executable ../../bin/ical-glib-src-generator
+[ 28%] Built target ical-glib-src-generator
+[ 28%] Linking C shared library ../../lib/libical.so
+[ 28%] Built target ical
+[ 31%] Building CXX object src/libical/CMakeFiles/ical_cxx.dir/icalproperty_cxx.cpp.o
+[ 31%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardderivedproperty.c.o
+[ 32%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalgauge.c.o
+[ 32%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardderivedvalue.c.o
+[ 32%] Building C object src/libicalss/CMakeFiles/icalss.dir/icaldirset.c.o
+[ 32%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcalendar.c.o
+[ 32%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardrestriction.c.o
+[ 33%] Building CXX object src/libical/CMakeFiles/ical_cxx.dir/vcomponent_cxx.cpp.o
+[ 33%] Building CXX object src/libical/CMakeFiles/ical_cxx.dir/icalparameter_cxx.cpp.o
+[ 34%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalclassify.c.o
+[ 34%] Building CXX object src/libical/CMakeFiles/ical_cxx.dir/icalvalue_cxx.cpp.o
+[ 34%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/icalvcal.c.o
+[ 34%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalcluster.c.o
+[ 34%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardderivedparameter.c.o
+[ 35%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalfileset.c.o
+[ 36%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vobject.c.o
+[ 36%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalset.c.o
+[ 37%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardcomponent.c.o
+[ 37%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardparameter.c.o
+[ 38%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalspanlist.c.o
+[ 38%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalmessage.c.o
+[ 39%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardparser.c.o
+[ 39%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcaltmp.c.o
+[ 40%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalsslexer.c.o
+[ 40%] Building C object src/libicalss/CMakeFiles/icalss.dir/icalssyacc.c.o
+[ 41%] Building C object src/libicalvcal/CMakeFiles/icalvcal.dir/vcc.c.o
+[ 41%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardproperty.c.o
+[ 42%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardstructured.c.o
+[ 42%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardtextlist.c.o
+[ 43%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardtime.c.o
+[ 43%] Building C object src/libicalvcard/CMakeFiles/icalvcard.dir/vcardvalue.c.o
+[ 44%] Linking C shared library ../../lib/libicalss.so
+[ 44%] Built target icalss
+[ 44%] Linking C shared library ../../lib/libicalvcal.so
+[ 44%] Linking CXX shared library ../../lib/libical_cxx.so
+[ 44%] Built target icalvcal
+[ 44%] Linking C shared library ../../lib/libicalvcard.so
+[ 44%] Building C object src/test/CMakeFiles/icalrecurtest.dir/icalrecur_test.c.o
+[ 44%] Building C object examples/CMakeFiles/doesnothing.dir/access_components.c.o
+[ 45%] Building C object examples/CMakeFiles/doesnothing.dir/access_properties_and_parameters.c.o
+[ 45%] Building C object examples/CMakeFiles/doesnothing.dir/errors.c.o
+[ 46%] Building C object examples/CMakeFiles/doesnothing.dir/main.c.o
+[ 46%] Building C object examples/CMakeFiles/doesnothing.dir/parse_text.c.o
+[ 46%] Built target ical_cxx
+[ 46%] Building CXX object src/libicalss/CMakeFiles/icalss_cxx.dir/icalspanlist_cxx.cpp.o
+[ 46%] Built target icalvcard
+[ 47%] Generate the libical-glib sources
+[ 47%] Building C object src/test/libicalvcard/CMakeFiles/vcardcomponent_fuzz1.dir/vcardcomponent_fuzz1.c.o
+[ 47%] Building C object src/test/libicalvcard/CMakeFiles/vcard_construct.dir/vcard_test.c.o
+[ 47%] Building C object src/test/libicalvcard/CMakeFiles/vcard_encode.dir/vcard_test_encode.c.o
+[ 48%] Linking CXX executable ../bin/doesnothing
+[ 48%] Built target doesnothing
+[ 49%] Linking C executable ../vcardcomponent_fuzz1
+[ 50%] Linking CXX executable icalrecurtest
+[ 50%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-array.c.o
+[ 50%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-datetimeperiod.c.o
+[ 52%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-attach.c.o
+[ 52%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-derived-parameter.c.o
+[ 53%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-derived-value.c.o
+[ 54%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-enum-array.c.o
+[ 55%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-component.c.o
+[ 55%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-comp-iter.c.o
+[ 55%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-derived-property.c.o
+[ 55%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-duration.c.o
+[ 55%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-enums.c.o
+[ 55%] Built target vcardcomponent_fuzz1
+[ 56%] Linking C executable ../vcard_construct
+[ 56%] Built target icalrecurtest
+[ 57%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-error.c.o
+[ 57%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-geo.c.o
+[ 58%] Linking C executable ../vcard_encode
+[ 58%] Built target vcard_construct
+[ 59%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-limits.c.o
+[ 59%] Built target vcard_encode
+[ 59%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-memory.c.o
+[ 60%] Linking CXX shared library ../../lib/libicalss_cxx.so
+/home/builder/build/src/build/src/libical-glib/i-cal-comp-iter.c:16:1: warning: variable 'i_cal_comp_iter_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalCompIter, i_cal_comp_iter, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_comp_iter_parent_class
+      | ^
+1 warning generated.
+[ 60%] Built target icalss_cxx
+/home/builder/build/src/build/src/libical-glib/i-cal-component.c:26:1: warning: variable 'i_cal_component_parent_class' set but not used [-Wunused-but-set-global]
+   26 | G_DEFINE_TYPE (ICalComponent, i_cal_component, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_component_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-attach.c:16:1: warning: variable 'i_cal_attach_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalAttach, i_cal_attach, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+[ 61%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-parameter.c.o
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_attach_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-geo.c:16:1: warning: variable 'i_cal_geo_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalGeo, i_cal_geo, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:161:1: note: expanded from here
+  161 | i_cal_geo_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-enum-array.c:16:1: warning: variable 'i_cal_enum_array_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalEnumArray, i_cal_enum_array, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ /home/builder/build/src/build/src/libical-glib/i-cal-duration.c:17:1: warning: variable 'i_cal_duration_parent_class' set but not used [-Wunused-but-set-global]
+   1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+17 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h | G_DEFINE_TYPE (ICalDuration, i_cal_duration, I_CAL_TYPE_OBJECT)
+      | ^
+:/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+2343 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ :2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+2343 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+  |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ :2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+:<scratch space>:2:1: note: expanded from here
+    2:1: note: expanded from here
+    2 | i_cal_duration_parent_class
+      | ^
+2 | i_cal_enum_array_parent_class
+      | ^
+[ 61%] Building C object src/test/CMakeFiles/copycluster.dir/copycluster.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-array.c:16:1: warning: variable 'i_cal_array_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalArray, i_cal_array, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_array_parent_class
+      | ^
+1 warning generated.
+1 warning generated.
+[ 61%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-param-iter.c.o
+[ 62%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-parser.c.o
+1 warning generated.
+/home/builder/build/src/build/src/libical-glib/i-cal-datetimeperiod.c:18:1: warning: variable 'i_cal_datetimeperiod_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalDatetimeperiod, i_cal_datetimeperiod, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_datetimeperiod_parent_class
+      | ^
+[ 62%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-period.c.o
+[ 62%] Building C object src/test/CMakeFiles/regression.dir/regression.c.o
+1 warning generated.
+[ 62%] Building C object src/test/CMakeFiles/parser.dir/icaltestparser.c.o
+1 warning generated.
+[ 63%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-property.c.o
+1 warning generated.
+[ 64%] Building C object src/test/CMakeFiles/regression.dir/regression-component.c.o
+[ 64%] Building C object src/test/CMakeFiles/recur.dir/recur.c.o
+[ 64%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-prop-iter.c.o
+[ 65%] Linking C executable copycluster
+[ 66%] Linking C executable parser
+[ 66%] Built target copycluster
+[ 66%] Building C object src/test/CMakeFiles/regression.dir/regression-classify.c.o
+[ 67%] Building C object src/test/CMakeFiles/icalrecur_test.dir/icalrecur_test.c.o
+[ 68%] Linking C executable recur
+[ 68%] Built target parser
+/home/builder/build/src/build/src/libical-glib/i-cal-parameter.c:18:1: warning: variable 'i_cal_parameter_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalParameter, i_cal_parameter, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_parameter_parent_class
+      | ^
+[ 69%] Building C object src/test/CMakeFiles/regression.dir/regression-utils.c.o
+[ 70%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-recur-iterator.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-param-iter.c:16:1: warning: variable 'i_cal_param_iter_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalParamIter, i_cal_param_iter, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_param_iter_parent_class
+      | ^
+1 warning generated.
+1 warning generated.
+[ 70%] Building C object src/test/CMakeFiles/regression.dir/regression-recur.c.o
+[ 70%] Built target recur
+[ 70%] Building C object src/test/CMakeFiles/icaltm_test.dir/icaltm_test.c.o
+[ 70%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-recurrence.c.o
+1 warning generated.
+[ 71%] Building C object src/test/CMakeFiles/testvcal.dir/testvcal.c.o
+[ 73%] Building C object src/test/CMakeFiles/regression.dir/regression-storage.c.o
+[ 73%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-recur.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-property.c:22:1: warning: variable 'i_cal_property_parent_class' set but not used [-Wunused-but-set-global]
+   22 | G_DEFINE_TYPE (ICalProperty, i_cal_property, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_property_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-period.c:18:1: warning: variable 'i_cal_period_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalPeriod, i_cal_period, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_period_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-parser.c:17:1: warning: variable 'i_cal_parser_parent_class' set but not used [-Wunused-but-set-global]
+   17 | G_DEFINE_TYPE (ICalParser, i_cal_parser, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_parser_parent_class
+      | ^
+[ 73%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-reqstat.c.o
+[ 73%] Linking C executable testvcal
+1 warning generated.
+[ 74%] Linking C executable icaltm_test
+[ 74%] Building C object src/test/CMakeFiles/regression.dir/test-malloc.c.o
+[ 75%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-restriction.c.o
+1 warning generated.
+[ 76%] Building CXX object src/test/CMakeFiles/regression.dir/regression-cxx.cpp.o
+/home/builder/build/src/build/src/libical-glib/i-cal-prop-iter.c:16:1: warning: variable 'i_cal_prop_iter_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalPropIter, i_cal_prop_iter, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_prop_iter_parent_class
+      | ^
+[ 76%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-str-array.c.o
+1 warning generated.
+[ 76%] Built target testvcal
+[ 77%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-time-span.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-recur-iterator.c:18:1: warning: variable 'i_cal_recur_iterator_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalRecurIterator, i_cal_recur_iterator, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_recur_iterator_parent_class
+      | ^
+[ 77%] Linking C executable icalrecur_test
+[ 77%] Building C object src/test/CMakeFiles/process.dir/process.c.o
+1 warning generated.
+[ 78%] Building C object src/test/CMakeFiles/timezones.dir/timezones.c.o
+[ 78%] Built target icaltm_test
+[ 78%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-time.c.o
+[ 79%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-timezone.c.o
+1 warning generated.
+[ 79%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-trigger.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-recurrence.c:18:1: warning: variable 'i_cal_recurrence_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalRecurrence, i_cal_recurrence, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_recurrence_parent_class
+      | ^
+[ 79%] Built target icalrecur_test
+[ 79%] Building C object src/test/CMakeFiles/builtin_timezones.dir/builtin_timezones.c.o
+[ 80%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-unknowntokenhandling.c.o
+[ 80%] Building C object src/test/CMakeFiles/parser_ctrl.dir/icalparser_ctrl_test.c.o
+[ 80%] Linking C executable timezones
+1 warning generated.
+[ 80%] Building CXX object src/test/CMakeFiles/vcf_leak.dir/vcf_leak.cpp.o
+[ 81%] Linking C executable process
+[ 81%] Built target timezones
+[ 82%] Linking C executable builtin_timezones
+[ 82%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-value.c.o
+[ 83%] Linking C executable parser_ctrl
+/home/builder/build/src/build/src/libical-glib/i-cal-reqstat.c:17:1: warning: variable 'i_cal_reqstat_parent_class' set but not used [-Wunused-but-set-global]
+   17 | G_DEFINE_TYPE (ICalReqstat, i_cal_reqstat, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+[ 83%] Built target process
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_reqstat_parent_class
+      | ^
+[ 84%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-component.c.o
+[ 84%] Built target builtin_timezones
+/home/builder/build/src/build/src/libical-glib/i-cal-str-array.c:16:1: warning: variable 'i_cal_str_array_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalStrArray, i_cal_str_array, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_str_array_parent_class
+      | ^
+1 warning generated.
+[ 85%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-derived-parameter.c.o
+[ 85%] Building C object src/test/CMakeFiles/icalcomponent_fuzz1.dir/icalcomponent_fuzz1.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-time-span.c:16:1: warning: variable 'i_cal_time_span_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalTimeSpan, i_cal_time_span, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_time_span_parent_class
+      | ^
+[ 86%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-derived-property.c.o
+[ 86%] Built target parser_ctrl
+/home/builder/build/src/build/src/libical-glib/i-cal-time.c:18:1: warning: variable 'i_cal_time_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalTime, i_cal_time, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_time_parent_class
+      | ^
+1 warning generated.
+[ 87%] Building C object src/test/CMakeFiles/icalcomponent_fuzz2.dir/icalcomponent_fuzz2.c.o
+[ 87%] Building C object src/test/CMakeFiles/icaltime_fuzz.dir/icaltime_fuzz.c.o
+1 warning generated.
+[ 87%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-derived-value.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-timezone.c:19:1: warning: variable 'i_cal_timezone_parent_class' set but not used [-Wunused-but-set-global]
+   19 | G_DEFINE_TYPE (ICalTimezone, i_cal_timezone, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_timezone_parent_class
+      | ^
+[ 88%] Building C object src/test/CMakeFiles/icalcomponent_timefuzz.dir/icalcomponent_timefuzz.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-trigger.c:18:1: warning: variable 'i_cal_trigger_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalTrigger, i_cal_trigger, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_trigger_parent_class
+      | ^
+[ 88%] Building C object src/test/CMakeFiles/icaltimezone_fuzz.dir/icaltimezone_fuzz.c.o
+[ 88%] Linking C executable icalcomponent_fuzz1
+1 warning generated.
+1 warning generated.
+[ 89%] Linking C executable icaltime_fuzz
+[ 90%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-enum-array.c.o
+[ 90%] Linking C executable icalcomponent_fuzz2
+[ 91%] Building C object src/test/CMakeFiles/icalmerge_fuzz1.dir/icalmerge_fuzz1.c.o
+[ 91%] Built target icalcomponent_fuzz1
+[ 91%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-geo.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-value.c:18:1: warning: variable 'i_cal_value_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalValue, i_cal_value, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_value_parent_class
+      | ^
+[ 91%] Linking C executable icalcomponent_timefuzz
+1 warning generated.
+[ 91%] Built target icalcomponent_fuzz2
+[ 91%] Built target icaltime_fuzz
+[ 92%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-parser.c.o
+[ 92%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-property.c.o
+1 warning generated.
+[ 92%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-parameter.c.o
+[ 93%] Linking C executable icaltimezone_fuzz
+[ 94%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-restriction.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-component.c:19:1: warning: variable 'i_cal_vcard_component_parent_class' set but not used [-Wunused-but-set-global]
+   19 | G_DEFINE_TYPE (ICalVcardComponent, i_cal_vcard_component, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_vcard_component_parent_class
+      | ^
+[ 94%] Built target icalcomponent_timefuzz
+[ 94%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-str-array.c.o
+[ 94%] Linking C executable icalmerge_fuzz1
+[ 94%] Built target icaltimezone_fuzz
+[ 95%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-structured.c.o
+1 warning generated.
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-enum-array.c:16:1: warning: variable 'i_cal_vcard_enum_array_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalVcardEnumArray, i_cal_vcard_enum_array, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_vcard_enum_array_parent_class
+      | ^
+[ 95%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-time.c.o
+[ 95%] Built target icalmerge_fuzz1
+[ 96%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-tz.c.o
+[ 97%] Linking CXX executable vcf_leak
+1 warning generated.
+[ 97%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-vcard-value.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-parameter.c:18:1: warning: variable 'i_cal_vcard_parameter_parent_class' set but not used [-Wunused-but-set-global]
+   18 | G_DEFINE_TYPE (ICalVcardParameter, i_cal_vcard_parameter, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_vcard_parameter_parent_class
+      | ^
+[ 98%] Building C object src/libical-glib/CMakeFiles/ical-glib.dir/i-cal-object.c.o
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-geo.c:16:1: warning: variable 'i_cal_vcard_geo_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalVcardGeo, i_cal_vcard_geo, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:156:1: note: expanded from here
+  156 | i_cal_vcard_geo_parent_class
+      | ^
+[ 98%] Built target vcf_leak
+[ 98%] Linking CXX executable regression
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-property.c:21:1: warning: variable 'i_cal_vcard_property_parent_class' set but not used [-Wunused-but-set-global]
+   21 | G_DEFINE_TYPE (ICalVcardProperty, i_cal_vcard_property, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:158:1: note: expanded from here
+  158 | i_cal_vcard_property_parent_class
+      | ^
+1 warning generated.
+1 warning generated.
+[ 98%] Built target regression
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-time.c:16:1: warning: variable 'i_cal_vcard_time_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalVcardTime, i_cal_vcard_time, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:159:1: note: expanded from here
+  159 | i_cal_vcard_time_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-str-array.c:16:1: warning: variable 'i_cal_vcard_str_array_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalVcardStrArray, i_cal_vcard_str_array, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_vcard_str_array_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-structured.c:17:1: warning: variable 'i_cal_vcard_structured_parent_class' set but not used [-Wunused-but-set-global]
+   17 | G_DEFINE_TYPE (ICalVcardStructured, i_cal_vcard_structured, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:3:1: note: expanded from here
+    3 | i_cal_vcard_structured_parent_class
+      | ^
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-tz.c:16:1: warning: variable 'i_cal_vcard_tz_parent_class' set but not used [-Wunused-but-set-global]
+   16 | G_DEFINE_TYPE (ICalVcardTz, i_cal_vcard_tz, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:2:1: note: expanded from here
+    2 | i_cal_vcard_tz_parent_class
+      | ^
+1 warning generated.
+1 warning generated.
+1 warning generated.
+1 warning generated.
+1 warning generated.
+/home/builder/build/src/build/src/libical-glib/i-cal-vcard-value.c:17:1: warning: variable 'i_cal_vcard_value_parent_class' set but not used [-Wunused-but-set-global]
+   17 | G_DEFINE_TYPE (ICalVcardValue, i_cal_vcard_value, I_CAL_TYPE_OBJECT)
+      | ^
+/usr/include/glib-2.0/gobject/gtype.h:1834:43: note: expanded from macro 'G_DEFINE_TYPE'
+ 1834 | #define G_DEFINE_TYPE(TN, t_n, T_P)                         G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2053:60: note: expanded from macro 'G_DEFINE_TYPE_EXTENDED'
+ 2053 | #define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)      _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+      |                                                             ^
+/usr/include/glib-2.0/gobject/gtype.h:2343:3: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN'
+ 2343 |   _G_DEFINE_TYPE_EXTENDED_BEGIN_PRE (TypeName, type_name)                      \
+      |   ^
+/usr/include/glib-2.0/gobject/gtype.h:2292:17: note: expanded from macro '_G_DEFINE_TYPE_EXTENDED_BEGIN_PRE'
+ 2292 | static gpointer type_name##_parent_class = NULL; \
+      |                 ^
+<scratch space>:159:1: note: expanded from here
+  159 | i_cal_vcard_value_parent_class
+      | ^
+1 warning generated.
+[ 98%] Linking C shared library ../../lib/libical-glib.so
+[ 98%] Built target ical-glib
+[100%] Building C object src/libical-glib/CMakeFiles/ical-glib-build-check.dir/ical-glib-build-check.c.o
+[100%] Linking C executable ../../bin/ical-glib-build-check
+[100%] Built target ical-glib-build-check
+==> Entering fakeroot environment...
+==> Starting package_libical()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical.so.4.0
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical.so
+-- Installing: /home/builder/build/pkg/libical/usr/lib/pkgconfig/libical.pc
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical_cxx.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical_cxx.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libical_cxx.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical_cxx.so
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/ical.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalarray.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalattach.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalcomponent.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalderivedproperty.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalderivedparameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalderivedvalue.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalduration.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalenumarray.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalenums.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalerror.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icallimits.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalmemory.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalparameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalparser.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalperiod.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalproperty.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalrecur.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalrestriction.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalstrarray.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaltime_p.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaltime.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaltimezone.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaltypes.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalvalue.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_deprecated.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_sentinel.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_ical_export.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalparameter_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalproperty_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalvalue_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icptrholder_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcomponent_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libicalss.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss.so
+-- Installing: /home/builder/build/pkg/libical/usr/lib/pkgconfig/libicalss.pc
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss_cxx.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss_cxx.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libicalss_cxx.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalss_cxx.so
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalss.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalcalendar.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalclassify.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalcluster.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaldirset.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icaldirsetimpl.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalfileset.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalfilesetimpl.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalgauge.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalgaugeimpl.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalmessage.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalset.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalspanlist.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalssyacc.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_icalss_export.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalspanlist_cxx.hpp
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcal.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcal.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libicalvcal.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcal.so
+-- Installing: /home/builder/build/pkg/libical/usr/lib/pkgconfig/libicalvcal.pc
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/icalvcal.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcaltmp.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcc.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vobject.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_vcal_export.h
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical/ical-glib-src-generator
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/IcalGlibSrcGenerator.cmake
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/IcalGlibSrcGenerator-none.cmake
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical-glib.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical-glib.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libical-glib.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libical-glib.so
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/libical-glib.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-object.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-forward-declarations.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-array.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-attach.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-comp-iter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-component.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-datetimeperiod.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-derived-parameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-derived-property.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-derived-value.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-duration.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-enum-array.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-enums.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-error.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-geo.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-limits.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-memory.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-parameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-param-iter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-parser.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-period.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-property.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-prop-iter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-recur-iterator.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-recurrence.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-recur.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-reqstat.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-restriction.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-str-array.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-time-span.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-time.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-timezone.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-trigger.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-unknowntokenhandling.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-value.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-component.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-derived-parameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-derived-property.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-derived-value.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-enum-array.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-geo.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-parameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-parser.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-property.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-restriction.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-str-array.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-structured.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-time.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-tz.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical-glib/i-cal-vcard-value.h
+-- Installing: /home/builder/build/pkg/libical/usr/lib/pkgconfig/libical-glib.pc
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcard.so.4.0.5
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcard.so.4.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/libical/usr/lib/libicalvcard.so.4.0.5" to ""
+-- Installing: /home/builder/build/pkg/libical/usr/lib/libicalvcard.so
+-- Installing: /home/builder/build/pkg/libical/usr/lib/pkgconfig/libicalvcard.pc
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcard.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardderivedproperty.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardderivedparameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardderivedvalue.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/libical_vcard_export.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardtime.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardtypes.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardcomponent.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardenumarray.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardparameter.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardparser.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardproperty.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardstrarray.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardstructured.h
+-- Installing: /home/builder/build/pkg/libical/usr/include/libical/vcardvalue.h
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/LibIcalConfigVersion.cmake
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/LibIcalConfig.cmake
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/LibIcalTargets.cmake
+-- Installing: /home/builder/build/pkg/libical/usr/lib/cmake/LibIcal/LibIcalTargets-none.cmake
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libical.so.4.0.5
+usr/lib/libical_cxx.so.4.0.5
+usr/lib/libicalss.so.4.0.5
+usr/lib/libicalvcal.so.4.0.5
+usr/lib/libical-glib.so.4.0.5
+usr/lib/libicalvcard.so.4.0.5
+==> Creating package "libical"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libical 4.0.5-1 (Sun Sep 20 02:14:54 2026)

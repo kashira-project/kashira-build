@@ -1,0 +1,745 @@
+== build libxml2 (deps:  bash docbook-xsl doxygen git glibc icu libicuuc.so meson python readline zlib )
+resolving dependencies...
+warning: bash-5.3-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: icu-78.3-1 is up to date -- skipping
+warning: icu-78.3-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: readline-8.3-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (14) docbook-xml-4.5-11  fmt-12.2.0-1  libxslt-1.1.45-2  ninja-1.13.2-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-tqdm-4.70.1-1  spdlog-1.17.0-2  sqlite-3.53.4-1  docbook-xsl-1.79.2-9  doxygen-1.18.0-2  git-2.55.0-1  meson-1.12.0-1
+
+Total Download Size:    20.07 MiB
+Total Installed Size:  141.61 MiB
+Net Upgrade Size:      137.23 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ doxygen-1.18.0-2-x86_64 downloading...
+ meson-1.12.0-1-any downloading...
+ sqlite-3.53.4-1-x86_64 downloading...
+ docbook-xsl-1.79.2-9-any downloading...
+ libxslt-1.1.45-2-x86_64 downloading...
+ fmt-12.2.0-1-x86_64 downloading...
+ spdlog-1.17.0-2-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ docbook-xml-4.5-11-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing docbook-xml...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+installing docbook-xsl...
+installing fmt...
+installing spdlog...
+reinstalling sqlite...
+installing doxygen...
+Optional dependencies for doxygen
+    texlive-fontsrecommended: for generating LaTeX, Postscript and PDF output
+    texlive-fontutils: for generating LaTeX, Postscript and PDF output
+    texlive-latexextra: for generating LaTeX, Postscript and PDF output
+    texlive-plaingeneric: for generating LaTeX, Postscript and PDF output
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libxml2 2.15.4-1 (Sun Sep 20 01:02:32 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating libxml2 git repo...
+  -> Found xmlts20130923.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    libxml2 ... Passed
+    xmlts20130923.tar.gz ... Passed
+==> Extracting sources...
+  -> Creating working copy of libxml2 git repo...
+Cloning into 'libxml2'...
+done.
+Switched to a new branch 'makepkg'
+  -> Extracting xmlts20130923.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+libxml2 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 libxml2 build -D icu=enabled -D legacy=enabled
+Generating targets:   0%|          | 0/37 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/libxml2
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: libxml2
+Project version: 2.15.4
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Compiler for C supports arguments -D_XOPEN_SOURCE=600: YES 
+Compiler for C supports arguments -Wshadow: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wcast-align: YES 
+Compiler for C supports arguments -Wwrite-strings: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wmissing-variable-declarations: YES 
+Compiler for C supports arguments -Wno-long-long: YES 
+Compiler for C supports arguments -Wno-format-extra-args: YES 
+Compiler for C supports arguments -Wno-array-bounds: YES 
+Compiler for C supports arguments -Wshadow: YES (cached)
+Compiler for C supports arguments -Wpointer-arith: YES (cached)
+Compiler for C supports arguments -Wcast-align: YES (cached)
+Compiler for C supports arguments -Wwrite-strings: YES (cached)
+Compiler for C supports arguments -Wstrict-prototypes: YES (cached)
+Compiler for C supports arguments -Wmissing-prototypes: YES (cached)
+Compiler for C supports arguments -Wno-long-long: YES (cached)
+Compiler for C supports arguments -Wno-format-extra-args: YES (cached)
+Compiler for C supports arguments -Wno-array-bounds: YES (cached)
+Has header "stdint.h" : YES 
+Header "sys/random.h" has symbol "getentropy" : YES 
+Header "glob.h" has symbol "glob" : YES 
+Header "sys/mman.h" has symbol "mmap" : YES 
+Library m found: YES
+Compiler for C supports function attribute destructor: YES 
+Run-time dependency dl found: YES
+Run-time dependency threads found: YES
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency readline found: YES 8.3
+Run-time dependency history found: YES 8.3
+Run-time dependency zlib found: YES 1.3.1.zlib-ng
+Dependency zlib for host machine found: YES 1.3.1.zlib-ng (cached)
+Run-time dependency icu-uc found: YES 78.3
+Compiler for C supports arguments : YES 
+Run-time dependency iconv found: YES
+Configuring xmlversion.h using configuration
+Configuring config.h using configuration
+Program sh found: YES (/usr/sbin/sh)
+Program doxygen found: YES (/usr/sbin/doxygen)
+Program xsltproc found: YES (/usr/sbin/xsltproc)
+Program python3 found: YES (/usr/sbin/python3)
+Message: Installing python modules to /usr/lib/python3.14/site-packages/
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency python found: YES 3.14
+Configuring setup.py using configuration
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Configuring libxml2-config.cmake using configuration
+Build targets in project: 37
+
+libxml2 2.15.4
+
+  Configuration Options Summary:
+    OS                : linux
+    c14n              : true
+    catalog           : true
+    debug             : true
+    docs              : true
+    history           : true
+    html              : true
+    http              : true
+    iconv             : true
+    icu               : true
+    iso8859x          : true
+    legacy            : true
+    modules           : true
+    output            : true
+    pattern           : true
+    push              : true
+    python            : true
+    reader            : true
+    readline          : true
+    regexps           : true
+    relaxng           : true
+    sax1              : true
+    schemas           : true
+    schematron        : true
+    threads           : true
+    thread-alloc      : false
+    tls               : false
+    valid             : true
+    writer            : true
+    xinclude          : true
+    xpath             : true
+    xptr              : true
+    zlib              : true
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    icu               : enabled
+    legacy            : enabled
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+                                               Writing build.ninja:   0%|          | 0/142 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/59] Compiling C object libxml2.so.16.1.4.p/chvalid.c.o
+[2/59] Compiling C object libxml2.so.16.1.4.p/globals.c.o
+[3/59] Compiling C object libxml2.so.16.1.4.p/entities.c.o
+[4/59] Compiling C object libxml2.so.16.1.4.p/threads.c.o
+[5/59] Compiling C object libxml2.so.16.1.4.p/list.c.o
+[6/59] Compiling C object libxml2.so.16.1.4.p/error.c.o
+[7/59] Compiling C object libxml2.so.16.1.4.p/xmlmemory.c.o
+[8/59] Compiling C object libxml2.so.16.1.4.p/dict.c.o
+[9/59] Compiling C object libxml2.so.16.1.4.p/buf.c.o
+[10/59] Compiling C object libxml2.so.16.1.4.p/xmlmodule.c.o
+[11/59] Compiling C object libxml2.so.16.1.4.p/nanohttp.c.o
+[12/59] Compiling C object libxml2.so.16.1.4.p/hash.c.o
+[13/59] Compiling C object libxml2.so.16.1.4.p/parserInternals.c.o
+[14/59] Compiling C object libxml2.so.16.1.4.p/encoding.c.o
+../libxml2/encoding.c:67:12: warning: variable 'xmlLittleEndian' set but not used [-Wunused-but-set-global]
+   67 | static int xmlLittleEndian = 1;
+      |            ^
+1 warning generated.
+[15/59] Compiling C object libxml2.so.16.1.4.p/c14n.c.o
+[16/59] Compiling C object libxml2.so.16.1.4.p/SAX2.c.o
+[17/59] Compiling C object libxml2.so.16.1.4.p/xmlIO.c.o
+[18/59] Compiling C object libxml2.so.16.1.4.p/debugXML.c.o
+[19/59] Compiling C object libxml2.so.16.1.4.p/xmlstring.c.o
+[20/59] Compiling C object libxml2.so.16.1.4.p/catalog.c.o
+[21/59] Compiling C object libxml2.so.16.1.4.p/HTMLtree.c.o
+[22/59] Compiling C object libxml2.so.16.1.4.p/uri.c.o
+[23/59] Compiling C object libxml2.so.16.1.4.p/xlink.c.o
+[24/59] Compiling C object libxml2.so.16.1.4.p/valid.c.o
+[25/59] Compiling C object libxml2.so.16.1.4.p/xpointer.c.o
+[26/59] Compiling C object libxml2.so.16.1.4.p/xmlsave.c.o
+[27/59] Compiling C object libxml2.so.16.1.4.p/xinclude.c.o
+[28/59] Compiling C object libxml2.so.16.1.4.p/schematron.c.o
+[29/59] Compiling C object xmllint.p/lintmain.c.o
+[30/59] Compiling C object testdso.so.p/testdso.c.o
+[31/59] Compiling C object libxml2.so.16.1.4.p/HTMLparser.c.o
+[32/59] Compiling C object libxml2.so.16.1.4.p/pattern.c.o
+[33/59] Linking target testdso.so
+[34/59] Generating doc/xmllint.1 with a custom command
+[35/59] Generating doc/xmllint.html with a custom command
+[36/59] Compiling C object xmlcatalog.p/xmlcatalog.c.o
+[37/59] Compiling C object libxml2.so.16.1.4.p/tree.c.o
+[38/59] Generating doc/xmlcatalog.html with a custom command
+[39/59] Compiling C object xmllint.p/shell.c.o
+[40/59] Compiling C object xmllint.p/xmllint.c.o
+../libxml2/xmllint.c:239:12: warning: variable 'xmllintOom' set but not used [-Wunused-but-set-global]
+  239 | static int xmllintOom;
+      |            ^
+1 warning generated.
+[41/59] Generating doc/xmlcatalog.1 with a custom command
+[42/59] Compiling C object libxml2.so.16.1.4.p/xmlwriter.c.o
+[43/59] Compiling C object libxml2.so.16.1.4.p/xmlreader.c.o
+[44/59] Compiling C object libxml2.so.16.1.4.p/xmlschemastypes.c.o
+[45/59] Compiling C object libxml2.so.16.1.4.p/xmlregexp.c.o
+[46/59] Compiling C object libxml2.so.16.1.4.p/relaxng.c.o
+[47/59] Compiling C object libxml2.so.16.1.4.p/parser.c.o
+[48/59] Compiling C object libxml2.so.16.1.4.p/xpath.c.o
+[49/59] Generating doc/Doxygen documentation with a custom command (wrapped by meson to set env)
+/home/builder/build/src/libxml2/c14n.c:2171: warning: Reached end of file while still searching closing '`' of a verbatim block starting at line 2062
+/home/builder/build/src/libxml2/c14n.c:2171: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (possible line reference(s): 1714)
+/home/builder/build/src/libxml2/c14n.c:1732: warning: Found end of C comment inside a '`' block without matching start of the comment! Maybe the end marker for the block is missing?
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'doc' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'is_visible_callback' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'user_data' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'mode' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'inclusive_ns_prefixes' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'with_comments' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: argument 'buf' of command @param is not found in the argument list of if(buf->encoder !=NULL)
+/home/builder/build/src/libxml2/c14n.c:1717: warning: too many @param commands for function if. Found 7 while function has 1 parameter
+[50/59] Generating python/Python generated files with a custom command
+[51/59] Compiling C object python/libxml2mod.cpython-314-x86_64-linux-gnu.so.p/types.c.o
+In file included from ../libxml2/python/types.c:9:
+In file included from ../libxml2/python/libxml_wrap.h:1:
+In file included from /usr/include/python3.14/Python.h:14:
+/usr/include/python3.14/pyconfig.h:2070:9: warning: '_XOPEN_SOURCE' macro redefined [-Wmacro-redefined]
+ 2070 | #define _XOPEN_SOURCE 700
+      |         ^
+<command line>:2:9: note: previous definition is here
+    2 | #define _XOPEN_SOURCE 600
+      |         ^
+1 warning generated.
+[52/59] Compiling C object python/libxml2mod.cpython-314-x86_64-linux-gnu.so.p/libxml.c.o
+In file included from ../libxml2/python/libxml.c:15:
+In file included from /usr/include/python3.14/Python.h:14:
+/usr/include/python3.14/pyconfig.h:2070:9: warning: '_XOPEN_SOURCE' macro redefined [-Wmacro-redefined]
+ 2070 | #define _XOPEN_SOURCE 700
+      |         ^
+<command line>:2:9: note: previous definition is here
+    2 | #define _XOPEN_SOURCE 600
+      |         ^
+1 warning generated.
+[53/59] Compiling C object libxml2.so.16.1.4.p/xmlschemas.c.o
+[54/59] Linking target libxml2.so.16.1.4
+[55/59] Generating symbol file libxml2.so.16.1.4.p/libxml2.so.16.1.4.symbols
+[56/59] Linking target xmlcatalog
+[57/59] Linking target xmllint
+[58/59] Compiling C object python/libxml2mod.cpython-314-x86_64-linux-gnu.so.p/meson-generated_.._libxml2-py.c.o
+In file included from python/libxml2-py.c:4:
+In file included from /usr/include/python3.14/Python.h:14:
+/usr/include/python3.14/pyconfig.h:2070:9: warning: '_XOPEN_SOURCE' macro redefined [-Wmacro-redefined]
+ 2070 | #define _XOPEN_SOURCE 700
+      |         ^
+<command line>:2:9: note: previous definition is here
+    2 | #define _XOPEN_SOURCE 600
+      |         ^
+1 warning generated.
+[59/59] Linking target python/libxml2mod.cpython-314-x86_64-linux-gnu.so
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package_libxml2()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Compiling '/home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages/libxml2.py'...
+Compiling '/home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages/drv_libxml2.py'...
+Compiling '/home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages/libxml2.py'...
+Compiling '/home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages/drv_libxml2.py'...
+Installing libxml2.so.16.1.4 to /home/builder/build/pkg/libxml2/usr/lib
+Installing xmllint to /home/builder/build/pkg/libxml2/usr/bin
+Installing xmlcatalog to /home/builder/build/pkg/libxml2/usr/bin
+Installing /home/builder/build/src/build/doc/html/doxygen_crawl.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/tabs.css to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/menu.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/navtree.css to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/clipboard.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/cookie.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/codefolding.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/doxygen.svg to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/doxygen.css to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/libxml2.css to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlversion_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/c14n_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/catalog_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/chvalid_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/debugXML_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/dict_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/encoding_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/entities_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/hash_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/HTMLparser_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/HTMLtree_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/list_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/parser_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/parserInternals_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/pattern_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/relaxng_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/SAX2_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/schemasInternals_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/schematron_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/threads_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/tree_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/uri_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/valid_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xinclude_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xlink_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlautomata_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlerror_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlIO_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlmemory_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlmodule_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlreader_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlregexp_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlsave_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlschemas_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlschemastypes_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlstring_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xmlwriter_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xpath_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xpathInternals_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/xpointer_8h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/deprecated.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xlinkHandler.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlAttr.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlAttribute.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlBuffer.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlCharEncodingHandler.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/union__xmlCharEncodingHandler_1_1_0funion_0e_8input.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/union__xmlCharEncodingHandler_1_1_0funion_0e_8output.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlDoc.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlDOMWrapCtxt.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlDtd.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlElement.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlElementContent.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlEntity.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlEnumeration.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlError.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlID.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlNode.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlNodeSet.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlNotation.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlNs.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlOutputBuffer.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlParserCtxt.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlParserInput.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlParserInputBuffer.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSAXHandler.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSAXHandlerV1.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSAXLocator.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchema.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaAnnot.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaAttribute.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaAttributeGroup.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaAttributeLink.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaElement.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaFacet.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaFacetLink.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaNotation.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaType.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaTypeLink.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaWildcard.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlSchemaWildcardNs.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlURI.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlValidCtxt.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlXPathContext.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlXPathObject.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/struct__xmlXPathParserContext.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/dir_e68e8157741866f444e17edd764ebbae.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/menudata.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/index.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/pages.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/annotated.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/classes.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_a.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_b.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_c.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_d.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_e.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_f.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_g.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_i.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_k.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_l.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_m.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_n.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_o.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_p.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_r.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_s.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_t.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_u.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_v.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_w.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_a.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_b.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_c.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_d.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_e.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_f.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_g.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_i.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_k.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_l.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_m.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_n.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_o.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_p.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_r.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_s.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_t.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_u.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_v.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/functions_vars_w.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/files.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_a.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_b.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_c.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_e.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_f.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_g.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_i.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_l.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_n.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_p.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_r.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_s.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_u.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_v.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_w.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_x.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_func.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_func_h.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_func_x.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_vars.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_type.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_enum.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_eval.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_eval_x.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs_c.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs_i.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs_l.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs_v.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/globals_defs_x.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html
+Installing /home/builder/build/src/build/doc/html/search/search.css to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_6.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_7.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_8.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_9.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_a.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_b.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_c.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_d.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_e.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_f.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_10.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_11.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_12.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_13.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_14.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_15.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_16.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/all_17.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/classes_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/classes_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_6.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_7.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_8.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_9.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_a.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/files_b.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/functions_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/functions_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/functions_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_6.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_7.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_8.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_9.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_a.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_b.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_c.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_d.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_e.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_f.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_10.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_11.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_12.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_13.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_14.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_15.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/variables_16.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_6.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_7.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_8.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_9.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_a.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_b.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_c.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/typedefs_d.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/enums_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/enums_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/enumvalues_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/enumvalues_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/defines_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_0.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_1.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_2.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_3.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_4.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_5.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_6.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_7.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_8.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_9.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/pages_a.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/searchdata.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing /home/builder/build/src/build/doc/html/search/search.js to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2/html/search
+Installing doc/xmllint.1 to /home/builder/build/pkg/libxml2/usr/share/man/man1
+Installing doc/xmllint.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2
+Installing doc/xmlcatalog.1 to /home/builder/build/pkg/libxml2/usr/share/man/man1
+Installing doc/xmlcatalog.html to /home/builder/build/pkg/libxml2/usr/share/doc/libxml2
+Installing python/libxml2.py to /home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages
+Installing python/libxml2mod.cpython-314-x86_64-linux-gnu.so to /home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages
+Installing /home/builder/build/src/libxml2/include/libxml/HTMLparser.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/HTMLtree.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/SAX.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/SAX2.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/c14n.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/catalog.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/chvalid.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/debugXML.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/dict.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/encoding.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/entities.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/globals.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/hash.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/list.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/nanoftp.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/nanohttp.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/parser.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/parserInternals.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/pattern.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/relaxng.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/schemasInternals.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/schematron.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/threads.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/tree.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/uri.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/valid.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xinclude.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xlink.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlIO.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlautomata.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlerror.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlexports.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlmemory.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlmodule.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlreader.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlregexp.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlsave.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlschemas.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlschemastypes.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlstring.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlunicode.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xmlwriter.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xpath.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xpathInternals.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/include/libxml/xpointer.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/doc/xml2-config.1 to /home/builder/build/pkg/libxml2/usr/share/man/man1
+Installing /home/builder/build/src/build/include/libxml/xmlversion.h to /home/builder/build/pkg/libxml2/usr/include/libxml2/libxml
+Installing /home/builder/build/src/libxml2/python/drv_libxml2.py to /home/builder/build/pkg/libxml2/usr/lib/python3.14/site-packages
+Installing /home/builder/build/src/build/meson-private/libxml-2.0.pc to /home/builder/build/pkg/libxml2/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/libxml2-config.cmake to /home/builder/build/pkg/libxml2/usr/lib/cmake/libxml2
+Installing /home/builder/build/src/libxml2/xml2-config-meson to /home/builder/build/pkg/libxml2/usr/bin
+Installing symlink pointing to libxml2.so.16.1.4 to /home/builder/build/pkg/libxml2/usr/lib/libxml2.so.16
+Installing symlink pointing to libxml2.so.16 to /home/builder/build/pkg/libxml2/usr/lib/libxml2.so
+Running custom install script '/usr/sbin/python3 /home/builder/build/src/build/meson-private/pycompile.py python-3.14-installed.json 1'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libxml2"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_libxml2-docs()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/share/doc/libxml2/html/dir_e68e8157741866f444e17edd764ebbae.html
+==> Creating package "libxml2-docs"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libxml2 2.15.4-1 (Sun Sep 20 01:03:16 2026)

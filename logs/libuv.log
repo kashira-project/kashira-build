@@ -1,0 +1,273 @@
+== build libuv (deps: git glibc libnsl )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libnsl-2.0.1-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1
+
+Total Download Size:    6.94 MiB
+Total Installed Size:  46.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libuv 1.52.1-2 (Sun Sep 20 02:50:26 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating libuv git repo...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libuv ... Passed
+==> Extracting sources...
+  -> Creating working copy of libuv git repo...
+Cloning into 'libuv'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+==> Starting build()...
++ libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
++ aclocal -I m4
++ autoconf
+configure.ac:45: warning: The macro 'AC_PROG_LIBTOOL' is obsolete.
+configure.ac:45: You should run autoupdate.
+m4/libtool.m4:100: AC_PROG_LIBTOOL is expanded from...
+configure.ac:45: the top level
+configure.ac:48: warning: $as_echo is obsolete; use AS_ECHO(["message"]) instead
+lib/m4sugar/m4sh.m4:961: _as_echo_var_prepare is expanded from...
+lib/m4sugar/m4sh.m4:951: as_echo is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+m4/ax_pthread.m4:88: AX_PTHREAD is expanded from...
+configure.ac:48: the top level
++ automake --add-missing --copy
+configure.ac:43: installing './ar-lib'
+configure.ac:26: installing './compile'
+configure.ac:23: installing './config.guess'
+configure.ac:23: installing './config.sub'
+configure.ac:21: installing './install-sh'
+configure.ac:21: installing './missing'
+Makefile.am: installing './depcomp'
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking for clang -std=gnu23 way to treat warnings as errors... -Werror
+checking if clang -std=gnu23 supports __attribute__(( visibility("default") ))... yes
+checking if clang -std=gnu23 supports -fvisibility=hidden flag... yes
+checking if clang -std=gnu23 supports -fno-strict-aliasing flag... yes
+checking if clang -std=gnu23 supports -fno-strict-aliasing flag... yes
+checking if clang -std=gnu23 supports -g flag... yes
+checking if clang -std=gnu23 supports -std=gnu11 flag... yes
+checking if clang -std=gnu23 supports -Wall flag... yes
+checking if clang -std=gnu23 supports -Wextra flag... yes
+checking if clang -std=gnu23 supports -Wno-long-long flag... yes
+checking if clang -std=gnu23 supports -Wno-unused-parameter flag... yes
+checking if clang -std=gnu23 supports -Wstrict-prototypes flag... yes
+checking the archiver (llvm-ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C preprocessor... clang -std=gnu23 -E
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking whether clang -std=gnu23 is Clang... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for library containing dlopen... none required
+checking for library containing kstat_lookup... no
+checking for library containing gethostbyname... none required
+checking for library containing perfstat_cpu... no
+checking for library containing clock_gettime... none required
+checking for library containing sendfile... none required
+checking for library containing socket... none required
+checking for clang -std=gnu23 option to support large files... none needed
+checking for sys/ahafs_evProds.h... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libuv.pc
+config.status: executing depfiles commands
+config.status: executing libtool commands
+  CC       src/libuv_la-fs-poll.lo
+  CC       src/libuv_la-idna.lo
+  CC       src/libuv_la-strscpy.lo
+  CC       src/libuv_la-random.lo
+  CC       src/libuv_la-thread-common.lo
+  CC       src/libuv_la-inet.lo
+  CC       src/libuv_la-threadpool.lo
+  CC       src/libuv_la-uv-data-getter-setters.lo
+  CC       src/libuv_la-uv-common.lo
+  CC       src/libuv_la-timer.lo
+  CC       src/libuv_la-version.lo
+  CC       src/libuv_la-strtok.lo
+  CC       src/unix/libuv_la-async.lo
+  CC       src/unix/libuv_la-core.lo
+  CC       src/unix/libuv_la-dl.lo
+  CC       src/unix/libuv_la-fs.lo
+  CC       src/unix/libuv_la-getaddrinfo.lo
+  CC       src/unix/libuv_la-getnameinfo.lo
+  CC       src/unix/libuv_la-loop-watcher.lo
+  CC       src/unix/libuv_la-loop.lo
+  CC       src/unix/libuv_la-pipe.lo
+  CC       src/unix/libuv_la-poll.lo
+  CC       src/unix/libuv_la-process.lo
+  CC       src/unix/libuv_la-random-devurandom.lo
+  CC       src/unix/libuv_la-signal.lo
+  CC       src/unix/libuv_la-stream.lo
+  CC       src/unix/libuv_la-tcp.lo
+  CC       src/unix/libuv_la-thread.lo
+  CC       src/unix/libuv_la-tty.lo
+  CC       src/unix/libuv_la-udp.lo
+  CC       src/unix/libuv_la-linux.lo
+  CC       src/unix/libuv_la-procfs-exepath.lo
+  CC       src/unix/libuv_la-proctitle.lo
+  CC       src/unix/libuv_la-random-getrandom.lo
+  CC       src/unix/libuv_la-random-sysctl-linux.lo
+  CCLD     libuv.la
+==> Entering fakeroot environment...
+==> Starting package()...
+make[1]: Entering directory '/home/builder/build/src/libuv'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libuv/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libuv/usr/include/uv'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libuv/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libuv/usr/lib/pkgconfig'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libuv.la '/home/builder/build/pkg/libuv/usr/lib'
+ /usr/bin/install -c -m 644 include/uv.h '/home/builder/build/pkg/libuv/usr/include'
+ /usr/bin/install -c -m 644 libuv.pc '/home/builder/build/pkg/libuv/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 include/uv/errno.h include/uv/threadpool.h include/uv/version.h include/uv/unix.h include/uv/linux.h '/home/builder/build/pkg/libuv/usr/include/uv'
+libtool: install: /usr/bin/install -c .libs/libuv.so.1.0.0 /home/builder/build/pkg/libuv/usr/lib/libuv.so.1.0.0
+libtool: install: (cd /home/builder/build/pkg/libuv/usr/lib && { ln -s -f libuv.so.1.0.0 libuv.so.1 || { rm -f libuv.so.1 && ln -s libuv.so.1.0.0 libuv.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/libuv/usr/lib && { ln -s -f libuv.so.1.0.0 libuv.so || { rm -f libuv.so && ln -s libuv.so.1.0.0 libuv.so; }; })
+libtool: install: /usr/bin/install -c .libs/libuv.lai /home/builder/build/pkg/libuv/usr/lib/libuv.la
+libtool: install: /usr/bin/install -c .libs/libuv.a /home/builder/build/pkg/libuv/usr/lib/libuv.a
+libtool: install: chmod 644 /home/builder/build/pkg/libuv/usr/lib/libuv.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/libuv/usr/lib/libuv.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[1]: Leaving directory '/home/builder/build/src/libuv'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libuv"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libuv 1.52.1-2 (Sun Sep 20 02:50:58 2026)

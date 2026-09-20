@@ -1,0 +1,269 @@
+== build libxau (deps: glibc meson xorgproto )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) ninja-1.13.2-1  python-tqdm-4.70.1-1  meson-1.12.0-1  xorgproto-2025.1-1
+
+Total Download Size:    3.00 MiB
+Total Installed Size:  19.63 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ meson-1.12.0-1-any downloading...
+ xorgproto-2025.1-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing xorgproto...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libxau 1.0.12-1 (Sun Sep 20 03:27:00 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading libXau-1.0.12.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0 99 276.0k  99 273.4k   0      0 118.1k      0   00:02   00:02         225.3k100 276.0k 100 276.0k   0      0 119.2k      0   00:02   00:02         225.3k100 276.0k 100 276.0k   0      0 119.2k      0   00:02   00:02         225.3k100 276.0k 100 276.0k   0      0 119.2k      0   00:02   00:02         225.3k
+  -> Downloading libXau-1.0.12.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0100    566 100    566   0      0    445      0   00:01   00:01              0100    566 100    566   0      0    445      0   00:01   00:01              0100    566 100    566   0      0    445      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libXau-1.0.12.tar.xz ... Passed
+    libXau-1.0.12.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting libXau-1.0.12.tar.xz with bsdtar
+==> Starting build()...
+libXau-1.0.12 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 libXau-1.0.12 build
+The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/libXau-1.0.12
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: libXau
+Project version: 1.0.12
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Checking for function "explicit_bzero" : YES 
+Checking for function "explicit_memset" : NO 
+Checking for function "pathconf" : YES 
+Has header "unistd.h" : YES 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency xproto found: YES 7.0.34
+Checking for function "gethostbyname_r" : YES 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Program sed found: YES (/usr/sbin/sed)
+Build targets in project: 11
+
+libXau 1.0.12
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   0%|          | 0/11 eta ?                                               Writing build.ninja:   0%|          | 0/50 eta ?                                                Core properties:
+  Source dir /home/builder/build/src/libXau-1.0.12
+  Build dir  /home/builder/build/src/build
+
+Global build options:
+  
+  Core options                   Current Value                    Possible Values                  Description                                                  
+  --------------                 -------------                    ---------------                  -----------                                                  
+  auto_features                  enabled                          [enabled, disabled, auto]        Override value of all 'auto' features                        
+  backend                        ninja                            [ninja, vs, vs2010, vs2012,      Backend to use                                               
+                                                                   vs2013, vs2015, vs2017, vs2019,                                                              
+                                                                   vs2022, vs2026, xcode, none]                                                                 
+  genvslite                      vs2022                           [vs2022, vs2026]                 Setup multiple buildtype-suffixed ninja-backend build        
+                                                                                                   directories, and a [builddir]_vs containing a Visual Studio  
+                                                                                                   meta-backend with multiple configurations that calls into    
+                                                                                                   them                                                         
+  buildtype                      plain                            [plain, debug, debugoptimized,   Build type to use                                            
+                                                                   release, minsize, custom]                                                                    
+  debug                          false                            [True, False]                    Enable debug symbols and other information                   
+  default_library                shared                           [shared, static, both]           Default library type                                         
+  default_both_libraries         shared                           [shared, static, auto]           Default library type for both_libraries                      
+  install_umask                  0022                             [>= 0, <= 511]                   Default umask to apply on permissions of installed files     
+  layout                         mirror                           [mirror, flat]                   Build directory layout                                       
+  optimization                   plain                            [plain, 0, g, 1, 2, 3, s]        Optimization level                                           
+  prefer_static                  false                            [True, False]                    Whether to try static linking before shared linking          
+  strip                          false                            [True, False]                    Strip targets on install                                     
+  unity                          off                              [on, off, subprojects]           Unity build                                                  
+  unity_size                     4                                [>= 2]                           Unity block size                                             
+  warning_level                  1                                [0, 1, 2, 3, everything]         Compiler warning level to use                                
+  werror                         false                            [True, False]                    Treat warnings as errors                                     
+  wrap_mode                      nodownload                       [default, nofallback,            Wrap mode                                                    
+                                                                   nodownload, forcefallback,                                                                   
+                                                                   nopromote]                                                                                   
+  force_fallback_for             []                                                                Force fallback for those subprojects                         
+  vsenv                          false                            [True, False]                    Activate Visual Studio environment                           
+  os2_emxomf                     false                            [True, False]                    Use OMF format on OS/2                                       
+  pkg_config_path                []                                                                List of additional paths for pkg-config to search            
+  cmake_prefix_path              []                                                                List of additional prefixes for cmake to search              
+  
+  Backend options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  backend_max_links              0                                [>= 0]                           Maximum number of linker processes to run or 0 for no limit  
+  
+  Base options                   Current Value                    Possible Values                  Description                                                  
+  --------------                 -------------                    ---------------                  -----------                                                  
+  b_colorout                     always                           [auto, always, never]            Use colored output                                           
+  b_pie                          true                             [True, False]                    Build executables as position independent                    
+  b_coverage                     false                            [True, False]                    Enable coverage tracking.                                    
+  b_asneeded                     true                             [True, False]                    Use -Wl,--as-needed when linking                             
+  b_thinlto_cache_dir                                                                              Directory to store ThinLTO cache objects                     
+  b_lto                          false                            [True, False]                    Use link time optimization                                   
+  b_lundef                       true                             [True, False]                    Use -Wl,--no-undefined when linking                          
+  b_thinlto_cache                false                            [True, False]                    Use LLVM ThinLTO caching for faster incremental builds       
+  b_sanitize                     []                                                                Code sanitizer to use                                        
+  b_lto_mode                     default                          [default, thin]                  Select between different LTO modes.                          
+  b_lto_threads                  0                                []                               Use multiple threads for Link Time Optimization              
+  b_staticpic                    true                             [True, False]                    Build static libraries as position independent               
+  b_ndebug                       false                            [true, false, if-release]        Disable asserts                                              
+  b_pch                          true                             [True, False]                    Use precompiled headers                                      
+  b_pgo                          off                              [off, generate, use]             Use profile guided optimization                              
+  
+  Compiler options               Current Value                    Possible Values                  Description                                                  
+  ------------------             -------------                    ---------------                  -----------                                                  
+  c_args                         [-march=x86-64-v3, -O2, -pipe,                                    Extra arguments passed to the c compiler                     
+                                  -fno-plt, -fexceptions,                                                                                                       
+                                  -Wp,-D_FORTIFY_SOURCE=3,                                                                                                      
+                                  -fstack-clash-protection, -fcf-                                                                                               
+                                  protection]                                                                                                                   
+  c_link_args                    [-Wl,-O1, -Wl,--sort-common,                                      Extra arguments passed to the c linker                       
+                                  -Wl,--as-needed, -Wl,-z,relro,                                                                                                
+                                  -Wl,-z,now, -Wl,--undefined-                                                                                                  
+                                  version, -Wl,--hash-style=gnu,                                                                                                
+                                  -Wl,--compress-debug-                                                                                                         
+                                  sections=zstd,                                                                                                                
+                                  -march=x86-64-v3, -O2, -pipe,                                                                                                 
+                                  -fno-plt, -fexceptions,                                                                                                       
+                                  -Wp,-D_FORTIFY_SOURCE=3,                                                                                                      
+                                  -fstack-clash-protection, -fcf-                                                                                               
+                                  protection]                                                                                                                   
+  c_std                          none                             [none, c89, c99, c11, c17, c18,  c language standard to use                                   
+                                                                   c2x, c23, c2y, gnu89, gnu99,                                                                 
+                                                                   gnu11, gnu17, gnu18, gnu2x,                                                                  
+                                                                   gnu23, gnu2y]                                                                                
+  
+  pkgconfig module options       Current Value                    Possible Values                  Description                                                  
+  --------------------------     -------------                    ---------------                  -----------                                                  
+  pkgconfig.relocatable          false                            [True, False]                    Generate pkgconfig files as relocatable                      
+  
+  Directories                    Current Value                    Possible Values                  Description                                                  
+  -------------                  -------------                    ---------------                  -----------                                                  
+  prefix                         /usr                                                              Installation prefix                                          
+  bindir                         bin                                                               Executable directory                                         
+  datadir                        share                                                             Data file directory                                          
+  includedir                     include                                                           Header file directory                                        
+  infodir                        share/info                                                        Info page directory                                          
+  libdir                         lib                                                               Library directory                                            
+  licensedir                                                                                       Licenses directory                                           
+  libexecdir                     lib                                                               Library executable directory                                 
+  localedir                      share/locale                                                      Locale data directory                                        
+  localstatedir                  /var                                                              Localstate data directory                                    
+  mandir                         share/man                                                         Manual page directory                                        
+  sbindir                        bin                                                               System executable directory                                  
+  sharedstatedir                 /var/lib                                                          Architecture-independent data directory                      
+  sysconfdir                     /etc                                                              Sysconf data directory                                       
+  
+  Testing options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  errorlogs                      true                             [True, False]                    Whether to print the logs from failing tests                 
+  stdsplit                       true                             [True, False]                    Split stdout and stderr in test logs                         
+  
+  Project options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  xthreads                       true                             [True, False]                    Whether libXau should be compiled with thread support.       
+
+There are no option augments.
+ninja: Entering directory `/home/builder/build/src/build'
+[1/21] Compiling C object libXau.so.6.0.0.p/AuDispose.c.o
+[2/21] Compiling C object libXau.so.6.0.0.p/AuGetAddr.c.o
+[3/21] Compiling C object libXau.so.6.0.0.p/AuWrite.c.o
+[4/21] Compiling C object autest.p/Autest.c.o
+[5/21] Compiling C object libXau.so.6.0.0.p/AuRead.c.o
+[6/21] Compiling C object libXau.so.6.0.0.p/AuUnlock.c.o
+[7/21] Compiling C object libXau.so.6.0.0.p/AuFileName.c.o
+[8/21] Compiling C object libXau.so.6.0.0.p/AuGetBest.c.o
+[9/21] Compiling C object libXau.so.6.0.0.p/AuLock.c.o
+[10/21] Generating man/XauReadAuth.man with a custom command (wrapped by meson to capture output)
+[11/21] Generating man/XauLockAuth.man with a custom command (wrapped by meson to capture output)
+[12/21] Generating man/XauFileName.man with a custom command (wrapped by meson to capture output)
+[13/21] Linking target libXau.so.6.0.0
+[14/21] Generating man/XauDisposeAuth.man with a custom command (wrapped by meson to capture output)
+[15/21] Generating man/XauWriteAuth.man with a custom command (wrapped by meson to capture output)
+[16/21] Generating man/Xau.man with a custom command (wrapped by meson to capture output)
+[17/21] Generating man/XauGetAuthByAddr.man with a custom command (wrapped by meson to capture output)
+[18/21] Generating man/XauGetBestAuthByAddr.man with a custom command (wrapped by meson to capture output)
+[19/21] Generating man/XauUnlockAuth.man with a custom command (wrapped by meson to capture output)
+[20/21] Generating symbol file libXau.so.6.0.0.p/libXau.so.6.0.0.symbols
+[21/21] Linking target autest
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Installing libXau.so.6.0.0 to /home/builder/build/pkg/libxau/usr/lib
+Installing man/Xau.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauDisposeAuth.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauFileName.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauGetAuthByAddr.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauGetBestAuthByAddr.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauLockAuth.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauReadAuth.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauUnlockAuth.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing man/XauWriteAuth.3 to /home/builder/build/pkg/libxau/usr/share/man/man3
+Installing /home/builder/build/src/libXau-1.0.12/include/X11/Xauth.h to /home/builder/build/pkg/libxau/usr/include/X11
+Installing /home/builder/build/src/build/meson-private/xau.pc to /home/builder/build/pkg/libxau/usr/lib/pkgconfig
+Installing symlink pointing to libXau.so.6.0.0 to /home/builder/build/pkg/libxau/usr/lib/libXau.so.6
+Installing symlink pointing to libXau.so.6 to /home/builder/build/pkg/libxau/usr/lib/libXau.so
+install: creating directory '/home/builder/build/pkg/libxau/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/libxau/usr/share/licenses/libxau'
+'libXau-1.0.12/COPYING' -> '/home/builder/build/pkg/libxau/usr/share/licenses/libxau/COPYING'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libxau"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libxau 1.0.12-1 (Sun Sep 20 03:27:14 2026)

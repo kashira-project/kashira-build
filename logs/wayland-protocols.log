@@ -1,0 +1,1014 @@
+== build wayland-protocols (deps: gcc meson wayland )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (8) default-cursors-3-1  expat-2.8.4-1  mpc-1.4.1-1  ninja-1.13.2-1  python-tqdm-4.70.1-1  gcc-16.2.0-6  meson-1.12.0-1  wayland-1.26.0-1
+
+Total Download Size:    93.25 MiB
+Total Installed Size:  350.79 MiB
+Net Upgrade Size:      350.25 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ meson-1.12.0-1-any downloading...
+ wayland-1.26.0-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ expat-2.8.4-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ default-cursors-3-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing ninja...
+upgrading expat...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing default-cursors...
+Optional dependencies for default-cursors
+    adwaita-cursors: default cursor theme
+installing wayland...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: wayland-protocols 1.49-1 (Sun Sep 20 03:59:32 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found wayland-protocols-1.49.tar.xz
+  -> Found wayland-protocols-1.49.tar.xz.sig
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    wayland-protocols-1.49.tar.xz ... Passed
+    wayland-protocols-1.49.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting wayland-protocols-1.49.tar.xz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+wayland-protocols-1.49 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 wayland-protocols-1.49 build
+Generating targets:   0%|          | 0/510 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/wayland-protocols-1.49
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: wayland-protocols
+Project version: 1.49
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency wayland-scanner found: YES 1.26.0
+Program /usr/bin/wayland-scanner found: YES (/usr/bin/wayland-scanner)
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Program scan.sh found: YES (/home/builder/build/src/wayland-protocols-1.49/tests/scan.sh)
+Run-time dependency wayland-client found: YES 1.26.0
+Run-time dependency wayland-server found: YES 1.26.0
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+C++ compiler for the host machine: clang++ (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C++ linker for the host machine: clang++ ld.lld 23.1.1
+Program replace.py found: YES (/home/builder/build/src/wayland-protocols-1.49/tests/replace.py)
+Build targets in project: 510
+NOTICE: Future-deprecated features used:
+ * 0.62.0: {'pkgconfig.generate variable for builtin directories'}
+
+wayland-protocols 1.49
+
+    Headers           : YES
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:  51%|█████     | 258/510 eta 00:00Generating targets:  94%|█████████▎| 478/510 eta 00:00                                                      Writing build.ninja:   0%|          | 0/755 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/727] Generating tests/presentation-time-server.h with a custom command
+[2/727] Generating tests/linux-dmabuf-v1-client.h with a custom command
+[3/727] Generating tests/presentation-time-code.c with a custom command
+[4/727] Generating tests/viewporter-code.c with a custom command
+[5/727] Generating tests/linux-dmabuf-v1-server.h with a custom command
+[6/727] Generating tests/presentation-time-client.h with a custom command
+[7/727] Generating tests/tablet-v2-code.c with a custom command
+[8/727] Generating tests/linux-dmabuf-v1-code.c with a custom command
+[9/727] Generating tests/viewporter-client.h with a custom command
+[10/727] Generating tests/viewporter-server.h with a custom command
+[11/727] Generating tests/xdg-shell-client.h with a custom command
+[12/727] Generating tests/tablet-v2-server.h with a custom command
+[13/727] Generating tests/xdg-shell-server.h with a custom command
+[14/727] Generating tests/tablet-v2-client.h with a custom command
+[15/727] Generating tests/xdg-shell-code.c with a custom command
+[16/727] Generating tests/alpha-modifier-v1-client.h with a custom command
+[17/727] Generating tests/alpha-modifier-v1-server.h with a custom command
+[18/727] Generating tests/alpha-modifier-v1-code.c with a custom command
+[19/727] Generating tests/color-representation-v1-client.h with a custom command
+[20/727] Generating tests/color-management-v1-client.h with a custom command
+[21/727] Generating tests/color-management-v1-code.c with a custom command
+[22/727] Generating tests/color-management-v1-server.h with a custom command
+[23/727] Generating tests/color-representation-v1-code.c with a custom command
+[24/727] Generating tests/commit-timing-v1-code.c with a custom command
+[25/727] Generating tests/commit-timing-v1-client.h with a custom command
+[26/727] Generating tests/commit-timing-v1-server.h with a custom command
+[27/727] Generating tests/cursor-shape-v1-client.h with a custom command
+[28/727] Generating tests/color-representation-v1-server.h with a custom command
+[29/727] Generating tests/cursor-shape-v1-code.c with a custom command
+[30/727] Generating tests/content-type-v1-client.h with a custom command
+[31/727] Generating tests/content-type-v1-server.h with a custom command
+[32/727] Generating tests/content-type-v1-code.c with a custom command
+[33/727] Generating tests/cursor-shape-v1-server.h with a custom command
+[34/727] Generating tests/drm-lease-v1-server.h with a custom command
+[35/727] Generating tests/drm-lease-v1-code.c with a custom command
+[36/727] Generating tests/drm-lease-v1-client.h with a custom command
+[37/727] Generating tests/ext-data-control-v1-client.h with a custom command
+[38/727] Generating tests/ext-data-control-v1-server.h with a custom command
+[39/727] Generating tests/ext-background-effect-v1-client.h with a custom command
+[40/727] Generating tests/ext-background-effect-v1-code.c with a custom command
+[41/727] Generating tests/ext-data-control-v1-code.c with a custom command
+[42/727] Generating tests/ext-background-effect-v1-server.h with a custom command
+[43/727] Generating tests/ext-foreign-toplevel-list-v1-client.h with a custom command
+[44/727] Generating tests/ext-idle-notify-v1-code.c with a custom command
+[45/727] Generating tests/ext-foreign-toplevel-list-v1-server.h with a custom command
+[46/727] Generating tests/ext-foreign-toplevel-list-v1-code.c with a custom command
+[47/727] Generating tests/ext-idle-notify-v1-client.h with a custom command
+[48/727] Generating tests/ext-idle-notify-v1-server.h with a custom command
+[49/727] Generating tests/ext-image-capture-source-v1-client.h with a custom command
+[50/727] Generating tests/ext-image-capture-source-v1-server.h with a custom command
+[51/727] Generating tests/ext-image-capture-source-v1-code.c with a custom command
+[52/727] Generating tests/ext-image-copy-capture-v1-client.h with a custom command
+[53/727] Generating tests/ext-image-copy-capture-v1-code.c with a custom command
+[54/727] Generating tests/ext-session-lock-v1-code.c with a custom command
+[55/727] Generating tests/ext-transient-seat-v1-client.h with a custom command
+[56/727] Generating tests/ext-image-copy-capture-v1-server.h with a custom command
+[57/727] Generating tests/ext-session-lock-v1-client.h with a custom command
+[58/727] Generating tests/ext-session-lock-v1-server.h with a custom command
+[59/727] Generating tests/ext-transient-seat-v1-code.c with a custom command
+[60/727] Generating tests/ext-workspace-v1-client.h with a custom command
+[61/727] Generating tests/fifo-v1-client.h with a custom command
+[62/727] Generating tests/ext-transient-seat-v1-server.h with a custom command
+[63/727] Generating tests/ext-workspace-v1-server.h with a custom command
+[64/727] Generating tests/fifo-v1-server.h with a custom command
+[65/727] Generating tests/ext-workspace-v1-code.c with a custom command
+[66/727] Generating tests/fractional-scale-v1-code.c with a custom command
+[67/727] Generating tests/fifo-v1-code.c with a custom command
+[68/727] Generating tests/fractional-scale-v1-client.h with a custom command
+[69/727] Generating tests/fractional-scale-v1-server.h with a custom command
+[70/727] Generating tests/linux-drm-syncobj-v1-server.h with a custom command
+[71/727] Generating tests/pointer-warp-v1-server.h with a custom command
+[72/727] Generating tests/linux-drm-syncobj-v1-client.h with a custom command
+[73/727] Generating tests/linux-drm-syncobj-v1-code.c with a custom command
+[74/727] Generating tests/pointer-warp-v1-client.h with a custom command
+[75/727] Generating tests/pointer-warp-v1-code.c with a custom command
+[76/727] Generating tests/security-context-v1-server.h with a custom command
+[77/727] Generating tests/single-pixel-buffer-v1-client.h with a custom command
+[78/727] Generating tests/single-pixel-buffer-v1-code.c with a custom command
+[79/727] Generating tests/security-context-v1-client.h with a custom command
+[80/727] Generating tests/security-context-v1-code.c with a custom command
+[81/727] Generating tests/single-pixel-buffer-v1-server.h with a custom command
+[82/727] Generating tests/tearing-control-v1-client.h with a custom command
+[83/727] Generating tests/tearing-control-v1-code.c with a custom command
+[84/727] Generating tests/tearing-control-v1-server.h with a custom command
+[85/727] Generating tests/xdg-activation-v1-client.h with a custom command
+[86/727] Generating tests/xdg-activation-v1-code.c with a custom command
+[87/727] Generating tests/xdg-dialog-v1-client.h with a custom command
+[88/727] Generating tests/xdg-activation-v1-server.h with a custom command
+[89/727] Generating tests/xdg-session-management-v1-client.h with a custom command
+[90/727] Generating tests/xdg-session-management-v1-server.h with a custom command
+[91/727] Generating tests/xdg-session-management-v1-code.c with a custom command
+[92/727] Generating tests/xdg-dialog-v1-server.h with a custom command
+[93/727] Generating tests/xdg-dialog-v1-code.c with a custom command
+[94/727] Generating tests/xdg-toplevel-drag-v1-client.h with a custom command
+[95/727] Generating tests/xdg-system-bell-v1-client.h with a custom command
+[96/727] Generating tests/xdg-system-bell-v1-server.h with a custom command
+[97/727] Generating tests/xdg-system-bell-v1-code.c with a custom command
+[98/727] Generating tests/xdg-toplevel-drag-v1-server.h with a custom command
+[99/727] Generating tests/xdg-toplevel-drag-v1-code.c with a custom command
+[100/727] Generating tests/xdg-toplevel-icon-v1-server.h with a custom command
+[101/727] Generating tests/xdg-toplevel-icon-v1-code.c with a custom command
+[102/727] Generating tests/xdg-toplevel-tag-v1-client.h with a custom command
+[103/727] Generating tests/xdg-toplevel-icon-v1-client.h with a custom command
+[104/727] Generating tests/xdg-toplevel-tag-v1-code.c with a custom command
+[105/727] Generating tests/xwayland-shell-v1-client.h with a custom command
+[106/727] Generating tests/xwayland-shell-v1-server.h with a custom command
+[107/727] Generating tests/xdg-toplevel-tag-v1-server.h with a custom command
+[108/727] Generating tests/fullscreen-shell-unstable-v1-server.h with a custom command
+[109/727] Generating tests/xwayland-shell-v1-code.c with a custom command
+[110/727] Generating tests/idle-inhibit-unstable-v1-server.h with a custom command
+[111/727] Generating tests/fullscreen-shell-unstable-v1-client.h with a custom command
+[112/727] Generating tests/input-method-unstable-v1-server.h with a custom command
+[113/727] Generating tests/fullscreen-shell-unstable-v1-code.c with a custom command
+[114/727] Generating tests/idle-inhibit-unstable-v1-client.h with a custom command
+[115/727] Generating tests/input-method-unstable-v1-code.c with a custom command
+[116/727] Generating tests/input-timestamps-unstable-v1-client.h with a custom command
+[117/727] Generating tests/idle-inhibit-unstable-v1-code.c with a custom command
+[118/727] Generating tests/input-timestamps-unstable-v1-server.h with a custom command
+[119/727] Generating tests/input-timestamps-unstable-v1-code.c with a custom command
+[120/727] Generating tests/input-method-unstable-v1-client.h with a custom command
+[121/727] Generating tests/linux-dmabuf-unstable-v1-client.h with a custom command
+[122/727] Generating tests/linux-dmabuf-unstable-v1-code.c with a custom command
+[123/727] Generating tests/keyboard-shortcuts-inhibit-unstable-v1-server.h with a custom command
+[124/727] Generating tests/keyboard-shortcuts-inhibit-unstable-v1-code.c with a custom command
+[125/727] Generating tests/linux-explicit-synchronization-unstable-v1-server.h with a custom command
+[126/727] Generating tests/linux-explicit-synchronization-unstable-v1-code.c with a custom command
+[127/727] Generating tests/pointer-constraints-unstable-v1-client.h with a custom command
+[128/727] Generating tests/linux-explicit-synchronization-unstable-v1-client.h with a custom command
+[129/727] Generating tests/pointer-constraints-unstable-v1-server.h with a custom command
+[130/727] Generating tests/pointer-gestures-unstable-v1-client.h with a custom command
+[131/727] Generating tests/pointer-gestures-unstable-v1-server.h with a custom command
+[132/727] Generating tests/keyboard-shortcuts-inhibit-unstable-v1-client.h with a custom command
+[133/727] Generating tests/linux-dmabuf-unstable-v1-server.h with a custom command
+[134/727] Generating tests/pointer-constraints-unstable-v1-code.c with a custom command
+[135/727] Generating tests/pointer-gestures-unstable-v1-code.c with a custom command
+[136/727] Generating tests/primary-selection-unstable-v1-server.h with a custom command
+[137/727] Generating tests/primary-selection-unstable-v1-code.c with a custom command
+[138/727] Generating tests/relative-pointer-unstable-v1-client.h with a custom command
+[139/727] Generating tests/relative-pointer-unstable-v1-code.c with a custom command
+[140/727] Generating tests/primary-selection-unstable-v1-client.h with a custom command
+[141/727] Generating tests/tablet-unstable-v1-code.c with a custom command
+[142/727] Generating tests/relative-pointer-unstable-v1-server.h with a custom command
+[143/727] Generating tests/tablet-unstable-v1-server.h with a custom command
+[144/727] Generating tests/tablet-unstable-v1-client.h with a custom command
+[145/727] Generating tests/tablet-unstable-v2-server.h with a custom command
+[146/727] Generating tests/text-input-unstable-v1-code.c with a custom command
+[147/727] Generating tests/text-input-unstable-v3-server.h with a custom command
+[148/727] Generating tests/text-input-unstable-v1-client.h with a custom command
+[149/727] Generating tests/xdg-decoration-unstable-v1-client.h with a custom command
+[150/727] Generating tests/xdg-decoration-unstable-v1-code.c with a custom command
+[151/727] Generating tests/tablet-unstable-v2-code.c with a custom command
+[152/727] Generating tests/text-input-unstable-v1-server.h with a custom command
+[153/727] Generating tests/xdg-foreign-unstable-v1-client.h with a custom command
+[154/727] Generating tests/tablet-unstable-v2-client.h with a custom command
+[155/727] Generating tests/text-input-unstable-v3-client.h with a custom command
+[156/727] Generating tests/text-input-unstable-v3-code.c with a custom command
+[157/727] Generating tests/xdg-decoration-unstable-v1-server.h with a custom command
+[158/727] Generating tests/xdg-foreign-unstable-v1-server.h with a custom command
+[159/727] Generating tests/xdg-foreign-unstable-v1-code.c with a custom command
+[160/727] Generating tests/xdg-foreign-unstable-v2-client.h with a custom command
+[161/727] Generating tests/xdg-output-unstable-v1-client.h with a custom command
+[162/727] Generating tests/xdg-output-unstable-v1-server.h with a custom command
+[163/727] Generating tests/xdg-foreign-unstable-v2-server.h with a custom command
+[164/727] Generating tests/xdg-output-unstable-v1-code.c with a custom command
+[165/727] Generating tests/xdg-shell-unstable-v5-server.h with a custom command
+[166/727] Generating tests/xdg-foreign-unstable-v2-code.c with a custom command
+[167/727] Generating tests/xdg-shell-unstable-v5-client.h with a custom command
+[168/727] Generating tests/xdg-shell-unstable-v5-code.c with a custom command
+[169/727] Generating tests/xwayland-keyboard-grab-unstable-v1-server.h with a custom command
+[170/727] Generating tests/xwayland-keyboard-grab-unstable-v1-code.c with a custom command
+[171/727] Generating tests/xdg-shell-unstable-v6-server.h with a custom command
+[172/727] Generating tests/xwayland-keyboard-grab-unstable-v1-client.h with a custom command
+[173/727] Generating tests/xx-cutouts-v1-code.c with a custom command
+[174/727] Generating tests/xdg-shell-unstable-v6-code.c with a custom command
+[175/727] Generating tests/xx-input-method-v2-client.h with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:252: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:286: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:393: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:448: warning: since version not increasing
+
+[176/727] Generating tests/xx-keyboard-filter-v1-client.h with a custom command
+[177/727] Generating tests/xdg-shell-unstable-v6-client.h with a custom command
+[178/727] Generating tests/xx-cutouts-v1-client.h with a custom command
+[179/727] Generating tests/xx-input-method-v2-code.c with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:252: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:286: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:393: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:448: warning: since version not increasing
+
+[180/727] Generating tests/xx-cutouts-v1-server.h with a custom command
+[181/727] Generating tests/xx-keyboard-filter-v1-code.c with a custom command
+[182/727] Generating tests/xx-input-method-v2-server.h with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:252: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:286: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:393: warning: since version not increasing
+
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-input-method/xx-input-method-v2.xml:448: warning: since version not increasing
+
+[183/727] Generating tests/xx-keyboard-filter-v1-server.h with a custom command
+[184/727] Generating tests/xx-session-management-v1-client.h with a custom command
+[185/727] Generating tests/xx-session-management-v1-code.c with a custom command
+[186/727] Generating tests/xx-text-input-v3-client.h with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-text-input/xx-text-input-v3.xml:448: warning: since version not increasing
+
+[187/727] Generating tests/xx-text-input-v3-server.h with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-text-input/xx-text-input-v3.xml:448: warning: since version not increasing
+
+[188/727] Generating tests/xx-text-input-v3-code.c with a custom command
+/home/builder/build/src/wayland-protocols-1.49/experimental/xx-text-input/xx-text-input-v3.xml:448: warning: since version not increasing
+
+[189/727] Generating tests/xx-session-management-v1-server.h with a custom command
+[190/727] Generating tests/xx-zones-v1-code.c with a custom command
+[191/727] Generating tests/xx-zones-v1-client.h with a custom command
+[192/727] Generating tests/xx-zones-v1-server.h with a custom command
+[193/727] Generating tests/test-build-pedantic-stable_presentation_time_presentation_time_xml.c with a custom command
+[194/727] Generating tests/test-build-pedantic-stable_linux_dmabuf_linux_dmabuf_v1_xml.c with a custom command
+[195/727] Generating tests/test-build-cxx-stable_presentation_time_presentation_time_xml.cc with a custom command
+[196/727] Generating tests/test-build-pedantic-stable_tablet_tablet_v2_xml.c with a custom command
+[197/727] Generating tests/test-build-cxx-staging_alpha_modifier_alpha_modifier_v1_xml.cc with a custom command
+[198/727] Generating tests/test-build-cxx-staging_color_representation_color_representation_v1_xml.cc with a custom command
+[199/727] Generating tests/test-build-cxx-stable_linux_dmabuf_linux_dmabuf_v1_xml.cc with a custom command
+[200/727] Generating tests/test-build-cxx-stable_viewporter_viewporter_xml.cc with a custom command
+[201/727] Generating tests/test-build-cxx-stable_xdg_shell_xdg_shell_xml.cc with a custom command
+[202/727] Generating tests/test-build-pedantic-stable_xdg_shell_xdg_shell_xml.c with a custom command
+[203/727] Generating tests/test-build-cxx-stable_tablet_tablet_v2_xml.cc with a custom command
+[204/727] Generating tests/test-build-pedantic-staging_alpha_modifier_alpha_modifier_v1_xml.c with a custom command
+[205/727] Generating tests/test-build-pedantic-staging_color_management_color_management_v1_xml.c with a custom command
+[206/727] Generating tests/test-build-pedantic-staging_commit_timing_commit_timing_v1_xml.c with a custom command
+[207/727] Generating tests/test-build-cxx-staging_color_management_color_management_v1_xml.cc with a custom command
+[208/727] Generating tests/test-build-pedantic-staging_color_representation_color_representation_v1_xml.c with a custom command
+[209/727] Generating tests/test-build-pedantic-stable_viewporter_viewporter_xml.c with a custom command
+[210/727] Generating tests/test-build-cxx-staging_commit_timing_commit_timing_v1_xml.cc with a custom command
+[211/727] Generating tests/test-build-pedantic-staging_content_type_content_type_v1_xml.c with a custom command
+[212/727] Generating tests/test-build-pedantic-staging_drm_lease_drm_lease_v1_xml.c with a custom command
+[213/727] Generating tests/test-build-cxx-staging_content_type_content_type_v1_xml.cc with a custom command
+[214/727] Generating tests/test-build-cxx-staging_cursor_shape_cursor_shape_v1_xml.cc with a custom command
+[215/727] Generating tests/test-build-cxx-staging_ext_data_control_ext_data_control_v1_xml.cc with a custom command
+[216/727] Generating tests/test-build-cxx-staging_ext_background_effect_ext_background_effect_v1_xml.cc with a custom command
+[217/727] Generating tests/test-build-pedantic-staging_ext_idle_notify_ext_idle_notify_v1_xml.c with a custom command
+[218/727] Generating tests/test-build-cxx-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.cc with a custom command
+[219/727] Generating tests/test-build-pedantic-staging_ext_background_effect_ext_background_effect_v1_xml.c with a custom command
+[220/727] Generating tests/test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml.c with a custom command
+[221/727] Generating tests/test-build-cxx-staging_drm_lease_drm_lease_v1_xml.cc with a custom command
+[222/727] Generating tests/test-build-pedantic-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.c with a custom command
+[223/727] Generating tests/test-build-pedantic-staging_ext_data_control_ext_data_control_v1_xml.c with a custom command
+[224/727] Generating tests/test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.c with a custom command
+[225/727] Generating tests/test-build-cxx-staging_ext_idle_notify_ext_idle_notify_v1_xml.cc with a custom command
+[226/727] Generating tests/test-build-cxx-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.cc with a custom command
+[227/727] Generating tests/test-build-pedantic-staging_ext_session_lock_ext_session_lock_v1_xml.c with a custom command
+[228/727] Generating tests/test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.cc with a custom command
+[229/727] Generating tests/test-build-cxx-staging_ext_workspace_ext_workspace_v1_xml.cc with a custom command
+[230/727] Generating tests/test-build-pedantic-staging_ext_transient_seat_ext_transient_seat_v1_xml.c with a custom command
+[231/727] Generating tests/test-build-pedantic-staging_ext_workspace_ext_workspace_v1_xml.c with a custom command
+[232/727] Generating tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.c with a custom command
+[233/727] Generating tests/test-build-cxx-staging_fifo_fifo_v1_xml.cc with a custom command
+[234/727] Generating tests/test-build-cxx-staging_ext_transient_seat_ext_transient_seat_v1_xml.cc with a custom command
+[235/727] Generating tests/test-build-cxx-staging_ext_session_lock_ext_session_lock_v1_xml.cc with a custom command
+[236/727] Generating tests/test-build-pedantic-staging_fractional_scale_fractional_scale_v1_xml.c with a custom command
+[237/727] Generating tests/test-build-pedantic-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.c with a custom command
+[238/727] Generating tests/test-build-cxx-staging_fractional_scale_fractional_scale_v1_xml.cc with a custom command
+[239/727] Generating tests/test-build-cxx-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.cc with a custom command
+[240/727] Generating tests/test-build-cxx-staging_pointer_warp_pointer_warp_v1_xml.cc with a custom command
+[241/727] Generating tests/test-build-pedantic-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.c with a custom command
+[242/727] Generating tests/test-build-pedantic-staging_tearing_control_tearing_control_v1_xml.c with a custom command
+[243/727] Generating tests/test-build-cxx-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.cc with a custom command
+[244/727] Generating tests/test-build-pedantic-staging_security_context_security_context_v1_xml.c with a custom command
+[245/727] Generating tests/test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml.c with a custom command
+[246/727] Generating tests/test-build-cxx-staging_security_context_security_context_v1_xml.cc with a custom command
+[247/727] Generating tests/test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml.c with a custom command
+[248/727] Generating tests/test-build-cxx-staging_xdg_activation_xdg_activation_v1_xml.cc with a custom command
+[249/727] Generating tests/test-build-cxx-staging_xdg_session_management_xdg_session_management_v1_xml.cc with a custom command
+[250/727] Generating tests/test-build-pedantic-staging_xdg_activation_xdg_activation_v1_xml.c with a custom command
+[251/727] Generating tests/test-build-cxx-staging_xdg_dialog_xdg_dialog_v1_xml.cc with a custom command
+[252/727] Generating tests/test-build-cxx-staging_tearing_control_tearing_control_v1_xml.cc with a custom command
+[253/727] Generating tests/test-build-pedantic-staging_fifo_fifo_v1_xml.c with a custom command
+[254/727] Generating tests/test-build-pedantic-staging_xdg_system_bell_xdg_system_bell_v1_xml.c with a custom command
+[255/727] Generating tests/test-build-pedantic-staging_pointer_warp_pointer_warp_v1_xml.c with a custom command
+[256/727] Generating tests/test-build-cxx-staging_xdg_system_bell_xdg_system_bell_v1_xml.cc with a custom command
+[257/727] Generating tests/test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.c with a custom command
+[258/727] Generating tests/test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.c with a custom command
+[259/727] Generating tests/test-build-cxx-staging_xwayland_shell_xwayland_shell_v1_xml.cc with a custom command
+[260/727] Generating tests/test-build-cxx-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.cc with a custom command
+[261/727] Generating tests/test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.c with a custom command
+[262/727] Generating tests/test-build-cxx-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.cc with a custom command
+[263/727] Generating tests/test-build-cxx-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.cc with a custom command
+[264/727] Generating tests/test-build-cxx-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.cc with a custom command
+[265/727] Generating tests/test-build-cxx-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.cc with a custom command
+[266/727] Generating tests/test-build-pedantic-staging_xwayland_shell_xwayland_shell_v1_xml.c with a custom command
+[267/727] Generating tests/test-build-pedantic-unstable_input_timestamps_input_timestamps_unstable_v1_xml.c with a custom command
+[268/727] Generating tests/test-build-pedantic-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.c with a custom command
+[269/727] Generating tests/test-build-pedantic-unstable_input_method_input_method_unstable_v1_xml.c with a custom command
+[270/727] Generating tests/test-build-pedantic-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.c with a custom command
+[271/727] Generating tests/test-build-pedantic-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.c with a custom command
+[272/727] Generating tests/test-build-pedantic-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.c with a custom command
+[273/727] Generating tests/test-build-pedantic-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.c with a custom command
+[274/727] Generating tests/test-build-cxx-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.cc with a custom command
+[275/727] Generating tests/test-build-cxx-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.cc with a custom command
+[276/727] Generating tests/test-build-cxx-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.cc with a custom command
+[277/727] Generating tests/test-build-cxx-unstable_input_method_input_method_unstable_v1_xml.cc with a custom command
+[278/727] Generating tests/test-build-cxx-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.cc with a custom command
+[279/727] Generating tests/test-build-cxx-unstable_input_timestamps_input_timestamps_unstable_v1_xml.cc with a custom command
+[280/727] Generating tests/test-build-pedantic-unstable_primary_selection_primary_selection_unstable_v1_xml.c with a custom command
+[281/727] Generating tests/test-build-pedantic-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.c with a custom command
+[282/727] Generating tests/test-build-cxx-unstable_tablet_tablet_unstable_v1_xml.cc with a custom command
+[283/727] Generating tests/test-build-pedantic-unstable_relative_pointer_relative_pointer_unstable_v1_xml.c with a custom command
+[284/727] Generating tests/test-build-pedantic-unstable_tablet_tablet_unstable_v2_xml.c with a custom command
+[285/727] Generating tests/test-build-pedantic-unstable_tablet_tablet_unstable_v1_xml.c with a custom command
+[286/727] Generating tests/test-build-pedantic-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.c with a custom command
+[287/727] Generating tests/test-build-cxx-unstable_primary_selection_primary_selection_unstable_v1_xml.cc with a custom command
+[288/727] Generating tests/test-build-cxx-unstable_relative_pointer_relative_pointer_unstable_v1_xml.cc with a custom command
+[289/727] Generating tests/test-build-cxx-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.cc with a custom command
+[290/727] Generating tests/test-build-cxx-unstable_tablet_tablet_unstable_v2_xml.cc with a custom command
+[291/727] Generating tests/test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.c with a custom command
+[292/727] Generating tests/test-build-cxx-unstable_text_input_text_input_unstable_v3_xml.cc with a custom command
+[293/727] Generating tests/test-build-pedantic-unstable_text_input_text_input_unstable_v1_xml.c with a custom command
+[294/727] Generating tests/test-build-cxx-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.cc with a custom command
+[295/727] Generating tests/test-build-cxx-unstable_xdg_output_xdg_output_unstable_v1_xml.cc with a custom command
+[296/727] Generating tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v5_xml.c with a custom command
+[297/727] Generating tests/test-build-pedantic-unstable_xdg_output_xdg_output_unstable_v1_xml.c with a custom command
+[298/727] Generating tests/test-build-cxx-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.cc with a custom command
+[299/727] Generating tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.c with a custom command
+[300/727] Generating tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v1_xml.c with a custom command
+[301/727] Generating tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v6_xml.cc with a custom command
+[302/727] Generating tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v5_xml.cc with a custom command
+[303/727] Generating tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v6_xml.c with a custom command
+[304/727] Generating tests/test-build-cxx-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.cc with a custom command
+[305/727] Generating tests/test-build-cxx-experimental_xx_cutouts_xx_cutouts_v1_xml.cc with a custom command
+[306/727] Generating tests/test-build-cxx-unstable_text_input_text_input_unstable_v1_xml.cc with a custom command
+[307/727] Generating tests/test-build-pedantic-unstable_text_input_text_input_unstable_v3_xml.c with a custom command
+[308/727] Generating tests/test-build-pedantic-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.c with a custom command
+[309/727] Generating tests/test-build-cxx-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.cc with a custom command
+[310/727] Generating tests/test-build-pedantic-experimental_xx_cutouts_xx_cutouts_v1_xml.c with a custom command
+[311/727] Generating tests/test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml.c with a custom command
+[312/727] Generating tests/test-build-pedantic-experimental_xx_text_input_xx_text_input_v3_xml.c with a custom command
+[313/727] Generating tests/test-build-cxx-experimental_xx_text_input_xx_text_input_v3_xml.cc with a custom command
+[314/727] Generating tests/test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.c with a custom command
+[315/727] Generating tests/test-build-cxx-experimental_xx_session_management_xx_session_management_v1_xml.cc with a custom command
+[316/727] Generating tests/test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml.c with a custom command
+[317/727] Generating tests/test-build-cxx-experimental_xx_zones_xx_zones_v1_xml.cc with a custom command
+[318/727] Generating tests/test-build-pedantic-experimental_xx_input_method_xx_input_method_v2_xml.c with a custom command
+[319/727] Generating tests/test-build-cxx-experimental_xx_input_method_xx_input_method_v2_xml.cc with a custom command
+[320/727] Compiling C object tests/test-build-pedantic-stable_linux_dmabuf_linux_dmabuf_v1_xml.p/meson-generated_.._linux-dmabuf-v1-code.c.o
+[321/727] Compiling C object tests/test-build-pedantic-stable_tablet_tablet_v2_xml.p/meson-generated_.._tablet-v2-code.c.o
+[322/727] Compiling C object tests/test-build-pedantic-stable_presentation_time_presentation_time_xml.p/meson-generated_.._presentation-time-code.c.o
+[323/727] Compiling C object tests/test-build-pedantic-stable_presentation_time_presentation_time_xml.p/meson-generated_.._test-build-pedantic-stable_presentation_time_presentation_time_xml.c.o
+[324/727] Compiling C object tests/test-build-pedantic-stable_xdg_shell_xdg_shell_xml.p/meson-generated_.._xdg-shell-code.c.o
+[325/727] Compiling C object tests/test-build-pedantic-stable_linux_dmabuf_linux_dmabuf_v1_xml.p/meson-generated_.._test-build-pedantic-stable_linux_dmabuf_linux_dmabuf_v1_xml.c.o
+[326/727] Compiling C object tests/test-build-pedantic-stable_tablet_tablet_v2_xml.p/meson-generated_.._test-build-pedantic-stable_tablet_tablet_v2_xml.c.o
+[327/727] Compiling C object tests/test-build-pedantic-staging_alpha_modifier_alpha_modifier_v1_xml.p/meson-generated_.._alpha-modifier-v1-code.c.o
+[328/727] Compiling C object tests/test-build-pedantic-staging_color_management_color_management_v1_xml.p/meson-generated_.._color-management-v1-code.c.o
+[329/727] Compiling C object tests/test-build-pedantic-stable_viewporter_viewporter_xml.p/meson-generated_.._viewporter-code.c.o
+[330/727] Compiling C object tests/test-build-pedantic-staging_alpha_modifier_alpha_modifier_v1_xml.p/meson-generated_.._test-build-pedantic-staging_alpha_modifier_alpha_modifier_v1_xml.c.o
+[331/727] Compiling C object tests/test-build-pedantic-staging_color_management_color_management_v1_xml.p/meson-generated_.._test-build-pedantic-staging_color_management_color_management_v1_xml.c.o
+[332/727] Compiling C object tests/test-build-pedantic-stable_viewporter_viewporter_xml.p/meson-generated_.._test-build-pedantic-stable_viewporter_viewporter_xml.c.o
+[333/727] Compiling C object tests/test-build-pedantic-stable_xdg_shell_xdg_shell_xml.p/meson-generated_.._test-build-pedantic-stable_xdg_shell_xdg_shell_xml.c.o
+[334/727] Compiling C object tests/test-build-pedantic-staging_commit_timing_commit_timing_v1_xml.p/meson-generated_.._commit-timing-v1-code.c.o
+[335/727] Compiling C object tests/test-build-pedantic-staging_content_type_content_type_v1_xml.p/meson-generated_.._content-type-v1-code.c.o
+[336/727] Compiling C object tests/test-build-pedantic-staging_color_representation_color_representation_v1_xml.p/meson-generated_.._color-representation-v1-code.c.o
+[337/727] Compiling C object tests/test-build-pedantic-staging_commit_timing_commit_timing_v1_xml.p/meson-generated_.._test-build-pedantic-staging_commit_timing_commit_timing_v1_xml.c.o
+[338/727] Compiling C object tests/test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml.p/meson-generated_.._test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml.c.o
+[339/727] Compiling C object tests/test-build-pedantic-staging_color_representation_color_representation_v1_xml.p/meson-generated_.._test-build-pedantic-staging_color_representation_color_representation_v1_xml.c.o
+[340/727] Compiling C object tests/test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml.p/meson-generated_.._cursor-shape-v1-code.c.o
+[341/727] Compiling C object tests/test-build-pedantic-staging_content_type_content_type_v1_xml.p/meson-generated_.._test-build-pedantic-staging_content_type_content_type_v1_xml.c.o
+[342/727] Compiling C object tests/test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml.p/meson-generated_.._tablet-v2-code.c.o
+[343/727] Compiling C object tests/test-build-pedantic-staging_ext_background_effect_ext_background_effect_v1_xml.p/meson-generated_.._ext-background-effect-v1-code.c.o
+[344/727] Compiling C object tests/test-build-pedantic-staging_drm_lease_drm_lease_v1_xml.p/meson-generated_.._drm-lease-v1-code.c.o
+[345/727] Compiling C object tests/test-build-pedantic-staging_drm_lease_drm_lease_v1_xml.p/meson-generated_.._test-build-pedantic-staging_drm_lease_drm_lease_v1_xml.c.o
+[346/727] Compiling C++ object tests/test-build-cxx-stable_linux_dmabuf_linux_dmabuf_v1_xml.p/meson-generated_.._test-build-cxx-stable_linux_dmabuf_linux_dmabuf_v1_xml.cc.o
+[347/727] Compiling C object tests/test-build-pedantic-staging_ext_background_effect_ext_background_effect_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_background_effect_ext_background_effect_v1_xml.c.o
+[348/727] Compiling C++ object tests/test-build-cxx-stable_viewporter_viewporter_xml.p/meson-generated_.._test-build-cxx-stable_viewporter_viewporter_xml.cc.o
+[349/727] Compiling C object tests/test-build-cxx-staging_cursor_shape_cursor_shape_v1_xml.p/meson-generated_.._tablet-v2-code.c.o
+[350/727] Compiling C object tests/test-build-pedantic-staging_ext_data_control_ext_data_control_v1_xml.p/meson-generated_.._ext-data-control-v1-code.c.o
+[351/727] Compiling C++ object tests/test-build-cxx-stable_presentation_time_presentation_time_xml.p/meson-generated_.._test-build-cxx-stable_presentation_time_presentation_time_xml.cc.o
+[352/727] Compiling C object tests/test-build-pedantic-staging_ext_data_control_ext_data_control_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_data_control_ext_data_control_v1_xml.c.o
+[353/727] Compiling C object tests/test-build-pedantic-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.p/meson-generated_.._ext-foreign-toplevel-list-v1-code.c.o
+[354/727] Compiling C object tests/test-build-pedantic-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.c.o
+[355/727] Compiling C++ object tests/test-build-cxx-stable_xdg_shell_xdg_shell_xml.p/meson-generated_.._test-build-cxx-stable_xdg_shell_xdg_shell_xml.cc.o
+[356/727] Compiling C++ object tests/test-build-cxx-staging_content_type_content_type_v1_xml.p/meson-generated_.._test-build-cxx-staging_content_type_content_type_v1_xml.cc.o
+[357/727] Compiling C object tests/test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.p/meson-generated_.._ext-foreign-toplevel-list-v1-code.c.o
+[358/727] Compiling C object tests/test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.c.o
+[359/727] Compiling C++ object tests/test-build-cxx-stable_tablet_tablet_v2_xml.p/meson-generated_.._test-build-cxx-stable_tablet_tablet_v2_xml.cc.o
+[360/727] Compiling C++ object tests/test-build-cxx-staging_alpha_modifier_alpha_modifier_v1_xml.p/meson-generated_.._test-build-cxx-staging_alpha_modifier_alpha_modifier_v1_xml.cc.o
+[361/727] Compiling C object tests/test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.p/meson-generated_.._ext-image-capture-source-v1-code.c.o
+[362/727] Compiling C object tests/test-build-pedantic-staging_ext_idle_notify_ext_idle_notify_v1_xml.p/meson-generated_.._ext-idle-notify-v1-code.c.o
+[363/727] Compiling C object tests/test-build-cxx-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.p/meson-generated_.._ext-foreign-toplevel-list-v1-code.c.o
+[364/727] Compiling C++ object tests/test-build-cxx-staging_color_management_color_management_v1_xml.p/meson-generated_.._test-build-cxx-staging_color_management_color_management_v1_xml.cc.o
+[365/727] Compiling C object tests/test-build-pedantic-staging_ext_idle_notify_ext_idle_notify_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_idle_notify_ext_idle_notify_v1_xml.c.o
+[366/727] Compiling C++ object tests/test-build-cxx-staging_commit_timing_commit_timing_v1_xml.p/meson-generated_.._test-build-cxx-staging_commit_timing_commit_timing_v1_xml.cc.o
+[367/727] Compiling C++ object tests/test-build-cxx-staging_color_representation_color_representation_v1_xml.p/meson-generated_.._test-build-cxx-staging_color_representation_color_representation_v1_xml.cc.o
+[368/727] Compiling C++ object tests/test-build-cxx-staging_drm_lease_drm_lease_v1_xml.p/meson-generated_.._test-build-cxx-staging_drm_lease_drm_lease_v1_xml.cc.o
+[369/727] Compiling C object tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._ext-image-copy-capture-v1-code.c.o
+[370/727] Compiling C object tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.c.o
+[371/727] Compiling C object tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._ext-image-capture-source-v1-code.c.o
+[372/727] Compiling C object tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._ext-foreign-toplevel-list-v1-code.c.o
+[373/727] Compiling C object tests/test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._ext-image-capture-source-v1-code.c.o
+[374/727] Compiling C object tests/test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._ext-foreign-toplevel-list-v1-code.c.o
+[375/727] Compiling C++ object tests/test-build-cxx-staging_cursor_shape_cursor_shape_v1_xml.p/meson-generated_.._test-build-cxx-staging_cursor_shape_cursor_shape_v1_xml.cc.o
+[376/727] Compiling C object tests/test-build-pedantic-staging_ext_transient_seat_ext_transient_seat_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_transient_seat_ext_transient_seat_v1_xml.c.o
+[377/727] Compiling C object tests/test-build-pedantic-staging_ext_workspace_ext_workspace_v1_xml.p/meson-generated_.._ext-workspace-v1-code.c.o
+[378/727] Compiling C object tests/test-build-pedantic-staging_ext_session_lock_ext_session_lock_v1_xml.p/meson-generated_.._ext-session-lock-v1-code.c.o
+[379/727] Compiling C object tests/test-build-pedantic-staging_ext_session_lock_ext_session_lock_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_session_lock_ext_session_lock_v1_xml.c.o
+[380/727] Compiling C object tests/test-build-pedantic-staging_fifo_fifo_v1_xml.p/meson-generated_.._fifo-v1-code.c.o
+[381/727] Compiling C object tests/test-build-pedantic-staging_fifo_fifo_v1_xml.p/meson-generated_.._test-build-pedantic-staging_fifo_fifo_v1_xml.c.o
+[382/727] Compiling C object tests/test-build-pedantic-staging_ext_transient_seat_ext_transient_seat_v1_xml.p/meson-generated_.._ext-transient-seat-v1-code.c.o
+[383/727] Compiling C++ object tests/test-build-cxx-staging_ext_data_control_ext_data_control_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_data_control_ext_data_control_v1_xml.cc.o
+[384/727] Compiling C object tests/test-build-pedantic-staging_ext_workspace_ext_workspace_v1_xml.p/meson-generated_.._test-build-pedantic-staging_ext_workspace_ext_workspace_v1_xml.c.o
+[385/727] Compiling C object tests/test-build-pedantic-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.p/meson-generated_.._linux-drm-syncobj-v1-code.c.o
+[386/727] Compiling C++ object tests/test-build-cxx-staging_ext_idle_notify_ext_idle_notify_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_idle_notify_ext_idle_notify_v1_xml.cc.o
+[387/727] Compiling C object tests/test-build-pedantic-staging_fractional_scale_fractional_scale_v1_xml.p/meson-generated_.._fractional-scale-v1-code.c.o
+[388/727] Compiling C object tests/test-build-pedantic-staging_fractional_scale_fractional_scale_v1_xml.p/meson-generated_.._test-build-pedantic-staging_fractional_scale_fractional_scale_v1_xml.c.o
+[389/727] Compiling C++ object tests/test-build-cxx-staging_ext_background_effect_ext_background_effect_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_background_effect_ext_background_effect_v1_xml.cc.o
+[390/727] Compiling C object tests/test-build-pedantic-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.p/meson-generated_.._test-build-pedantic-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.c.o
+[391/727] Compiling C object tests/test-build-pedantic-staging_pointer_warp_pointer_warp_v1_xml.p/meson-generated_.._test-build-pedantic-staging_pointer_warp_pointer_warp_v1_xml.c.o
+[392/727] Compiling C object tests/test-build-pedantic-staging_pointer_warp_pointer_warp_v1_xml.p/meson-generated_.._pointer-warp-v1-code.c.o
+[393/727] Compiling C object tests/test-build-pedantic-staging_security_context_security_context_v1_xml.p/meson-generated_.._security-context-v1-code.c.o
+[394/727] Compiling C object tests/test-build-pedantic-staging_security_context_security_context_v1_xml.p/meson-generated_.._test-build-pedantic-staging_security_context_security_context_v1_xml.c.o
+[395/727] Compiling C object tests/test-build-pedantic-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.p/meson-generated_.._test-build-pedantic-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.c.o
+[396/727] Compiling C++ object tests/test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml.cc.o
+[397/727] Compiling C++ object tests/test-build-cxx-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml.cc.o
+[398/727] Compiling C object tests/test-build-pedantic-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.p/meson-generated_.._single-pixel-buffer-v1-code.c.o
+[399/727] Compiling C++ object tests/test-build-cxx-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_image_capture_source_ext_image_capture_source_v1_xml.cc.o
+[400/727] Compiling C object tests/test-build-pedantic-staging_tearing_control_tearing_control_v1_xml.p/meson-generated_.._test-build-pedantic-staging_tearing_control_tearing_control_v1_xml.c.o
+[401/727] Compiling C++ object tests/test-build-cxx-staging_ext_transient_seat_ext_transient_seat_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_transient_seat_ext_transient_seat_v1_xml.cc.o
+[402/727] Compiling C object tests/test-build-pedantic-staging_tearing_control_tearing_control_v1_xml.p/meson-generated_.._tearing-control-v1-code.c.o
+[403/727] Compiling C++ object tests/test-build-cxx-staging_ext_session_lock_ext_session_lock_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_session_lock_ext_session_lock_v1_xml.cc.o
+[404/727] Compiling C object tests/test-build-pedantic-staging_xdg_activation_xdg_activation_v1_xml.p/meson-generated_.._xdg-activation-v1-code.c.o
+[405/727] Compiling C object tests/test-build-pedantic-staging_xdg_activation_xdg_activation_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_activation_xdg_activation_v1_xml.c.o
+[406/727] Compiling C object tests/test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml.p/meson-generated_.._xdg-dialog-v1-code.c.o
+[407/727] Compiling C++ object tests/test-build-cxx-staging_fifo_fifo_v1_xml.p/meson-generated_.._test-build-cxx-staging_fifo_fifo_v1_xml.cc.o
+[408/727] Compiling C object tests/test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml.c.o
+[409/727] Compiling C object tests/test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[410/727] Compiling C++ object tests/test-build-cxx-staging_fractional_scale_fractional_scale_v1_xml.p/meson-generated_.._test-build-cxx-staging_fractional_scale_fractional_scale_v1_xml.cc.o
+[411/727] Compiling C object tests/test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[412/727] Compiling C object tests/test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml.p/meson-generated_.._xdg-session-management-v1-code.c.o
+[413/727] Compiling C object tests/test-build-cxx-staging_xdg_dialog_xdg_dialog_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[414/727] Compiling C object tests/test-build-cxx-staging_xdg_session_management_xdg_session_management_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[415/727] Compiling C object tests/test-build-pedantic-staging_xdg_system_bell_xdg_system_bell_v1_xml.p/meson-generated_.._xdg-system-bell-v1-code.c.o
+[416/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[417/727] Compiling C object tests/test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml.c.o
+[418/727] Compiling C++ object tests/test-build-cxx-staging_ext_workspace_ext_workspace_v1_xml.p/meson-generated_.._test-build-cxx-staging_ext_workspace_ext_workspace_v1_xml.cc.o
+[419/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.p/meson-generated_.._xdg-toplevel-drag-v1-code.c.o
+[420/727] Compiling C object tests/test-build-cxx-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[421/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[422/727] Compiling C++ object tests/test-build-cxx-staging_security_context_security_context_v1_xml.p/meson-generated_.._test-build-cxx-staging_security_context_security_context_v1_xml.cc.o
+[423/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.p/meson-generated_.._xdg-toplevel-icon-v1-code.c.o
+[424/727] Compiling C object tests/test-build-pedantic-staging_xdg_system_bell_xdg_system_bell_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_system_bell_xdg_system_bell_v1_xml.c.o
+[425/727] Compiling C++ object tests/test-build-cxx-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.p/meson-generated_.._test-build-cxx-staging_single_pixel_buffer_single_pixel_buffer_v1_xml.cc.o
+[426/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.c.o
+[427/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.c.o
+[428/727] Compiling C object tests/test-build-cxx-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[429/727] Compiling C++ object tests/test-build-cxx-staging_tearing_control_tearing_control_v1_xml.p/meson-generated_.._test-build-cxx-staging_tearing_control_tearing_control_v1_xml.cc.o
+[430/727] Compiling C++ object tests/test-build-cxx-staging_pointer_warp_pointer_warp_v1_xml.p/meson-generated_.._test-build-cxx-staging_pointer_warp_pointer_warp_v1_xml.cc.o
+[431/727] Compiling C object tests/test-build-pedantic-staging_xwayland_shell_xwayland_shell_v1_xml.p/meson-generated_.._xwayland-shell-v1-code.c.o
+[432/727] Compiling C++ object tests/test-build-cxx-staging_xdg_activation_xdg_activation_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_activation_xdg_activation_v1_xml.cc.o
+[433/727] Compiling C++ object tests/test-build-cxx-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.p/meson-generated_.._test-build-cxx-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml.cc.o
+[434/727] Compiling C object tests/test-build-cxx-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[435/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[436/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.c.o
+[437/727] Compiling C object tests/test-build-pedantic-staging_xwayland_shell_xwayland_shell_v1_xml.p/meson-generated_.._test-build-pedantic-staging_xwayland_shell_xwayland_shell_v1_xml.c.o
+[438/727] Compiling C object tests/test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.p/meson-generated_.._xdg-toplevel-tag-v1-code.c.o
+[439/727] Compiling C object tests/test-build-pedantic-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.p/meson-generated_.._fullscreen-shell-unstable-v1-code.c.o
+[440/727] Compiling C++ object tests/test-build-cxx-staging_xdg_session_management_xdg_session_management_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_session_management_xdg_session_management_v1_xml.cc.o
+[441/727] Compiling C++ object tests/test-build-cxx-staging_xdg_dialog_xdg_dialog_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_dialog_xdg_dialog_v1_xml.cc.o
+[442/727] Compiling C object tests/test-build-pedantic-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.c.o
+[443/727] Compiling C object tests/test-build-pedantic-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.p/meson-generated_.._idle-inhibit-unstable-v1-code.c.o
+[444/727] Compiling C object tests/test-build-pedantic-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.c.o
+[445/727] Compiling C object tests/test-build-pedantic-unstable_input_method_input_method_unstable_v1_xml.p/meson-generated_.._input-method-unstable-v1-code.c.o
+[446/727] Compiling C object tests/test-build-pedantic-unstable_input_timestamps_input_timestamps_unstable_v1_xml.p/meson-generated_.._input-timestamps-unstable-v1-code.c.o
+[447/727] Compiling C object tests/test-build-pedantic-unstable_input_method_input_method_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_input_method_input_method_unstable_v1_xml.c.o
+[448/727] Compiling C object tests/test-build-pedantic-unstable_input_timestamps_input_timestamps_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_input_timestamps_input_timestamps_unstable_v1_xml.c.o
+[449/727] Compiling C object tests/test-build-pedantic-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.p/meson-generated_.._keyboard-shortcuts-inhibit-unstable-v1-code.c.o
+[450/727] Compiling C object tests/test-build-pedantic-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.p/meson-generated_.._linux-dmabuf-unstable-v1-code.c.o
+[451/727] Compiling C object tests/test-build-pedantic-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.p/meson-generated_.._linux-explicit-synchronization-unstable-v1-code.c.o
+[452/727] Compiling C object tests/test-build-pedantic-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.c.o
+[453/727] Compiling C++ object tests/test-build-cxx-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml.cc.o
+[454/727] Compiling C object tests/test-build-pedantic-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.p/meson-generated_.._pointer-constraints-unstable-v1-code.c.o
+[455/727] Compiling C object tests/test-build-pedantic-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.c.o
+[456/727] Compiling C object tests/test-build-pedantic-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.c.o
+[457/727] Compiling C object tests/test-build-pedantic-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.c.o
+[458/727] Compiling C++ object tests/test-build-cxx-staging_xdg_system_bell_xdg_system_bell_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_system_bell_xdg_system_bell_v1_xml.cc.o
+[459/727] Compiling C++ object tests/test-build-cxx-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml.cc.o
+[460/727] Compiling C++ object tests/test-build-cxx-staging_xwayland_shell_xwayland_shell_v1_xml.p/meson-generated_.._test-build-cxx-staging_xwayland_shell_xwayland_shell_v1_xml.cc.o
+[461/727] Compiling C object tests/test-build-pedantic-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.c.o
+[462/727] Compiling C object tests/test-build-pedantic-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.p/meson-generated_.._pointer-gestures-unstable-v1-code.c.o
+[463/727] Compiling C object tests/test-build-pedantic-unstable_relative_pointer_relative_pointer_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_relative_pointer_relative_pointer_unstable_v1_xml.c.o
+[464/727] Compiling C object tests/test-build-pedantic-unstable_relative_pointer_relative_pointer_unstable_v1_xml.p/meson-generated_.._relative-pointer-unstable-v1-code.c.o
+[465/727] Compiling C object tests/test-build-pedantic-unstable_primary_selection_primary_selection_unstable_v1_xml.p/meson-generated_.._primary-selection-unstable-v1-code.c.o
+[466/727] Compiling C object tests/test-build-pedantic-unstable_primary_selection_primary_selection_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_primary_selection_primary_selection_unstable_v1_xml.c.o
+[467/727] Compiling C object tests/test-build-pedantic-unstable_tablet_tablet_unstable_v1_xml.p/meson-generated_.._tablet-unstable-v1-code.c.o
+[468/727] Compiling C++ object tests/test-build-cxx-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.p/meson-generated_.._test-build-cxx-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml.cc.o
+[469/727] Compiling C++ object tests/test-build-cxx-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml.cc.o
+[470/727] Compiling C++ object tests/test-build-cxx-unstable_input_method_input_method_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_input_method_input_method_unstable_v1_xml.cc.o
+[471/727] Compiling C object tests/test-build-pedantic-unstable_tablet_tablet_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_tablet_tablet_unstable_v1_xml.c.o
+[472/727] Compiling C object tests/test-build-pedantic-unstable_tablet_tablet_unstable_v2_xml.p/meson-generated_.._test-build-pedantic-unstable_tablet_tablet_unstable_v2_xml.c.o
+[473/727] Compiling C++ object tests/test-build-cxx-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml.cc.o
+[474/727] Compiling C object tests/test-build-pedantic-unstable_tablet_tablet_unstable_v2_xml.p/meson-generated_.._tablet-unstable-v2-code.c.o
+[475/727] Compiling C object tests/test-build-pedantic-unstable_text_input_text_input_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_text_input_text_input_unstable_v1_xml.c.o
+[476/727] Compiling C object tests/test-build-pedantic-unstable_text_input_text_input_unstable_v3_xml.p/meson-generated_.._test-build-pedantic-unstable_text_input_text_input_unstable_v3_xml.c.o
+[477/727] Compiling C++ object tests/test-build-cxx-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml.cc.o
+[478/727] Compiling C object tests/test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.p/meson-generated_.._xdg-decoration-unstable-v1-code.c.o
+[479/727] Compiling C object tests/test-build-pedantic-unstable_text_input_text_input_unstable_v1_xml.p/meson-generated_.._text-input-unstable-v1-code.c.o
+[480/727] Compiling C++ object tests/test-build-cxx-unstable_input_timestamps_input_timestamps_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_input_timestamps_input_timestamps_unstable_v1_xml.cc.o
+[481/727] Compiling C++ object tests/test-build-cxx-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml.cc.o
+[482/727] Compiling C object tests/test-build-pedantic-unstable_text_input_text_input_unstable_v3_xml.p/meson-generated_.._text-input-unstable-v3-code.c.o
+[483/727] Compiling C object tests/test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.c.o
+[484/727] Compiling C object tests/test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[485/727] Compiling C object tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v1_xml.p/meson-generated_.._xdg-foreign-unstable-v1-code.c.o
+[486/727] Compiling C object tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.p/meson-generated_.._xdg-foreign-unstable-v2-code.c.o
+[487/727] Compiling C object tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v1_xml.c.o
+[488/727] Compiling C object tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.c.o
+[489/727] Compiling C object tests/test-build-pedantic-unstable_xdg_output_xdg_output_unstable_v1_xml.p/meson-generated_.._xdg-output-unstable-v1-code.c.o
+[490/727] Compiling C++ object tests/test-build-cxx-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml.cc.o
+[491/727] Compiling C object tests/test-build-pedantic-unstable_xdg_output_xdg_output_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_output_xdg_output_unstable_v1_xml.c.o
+[492/727] Compiling C++ object tests/test-build-cxx-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml.cc.o
+[493/727] Compiling C object tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v5_xml.p/meson-generated_.._xdg-shell-unstable-v5-code.c.o
+[494/727] Compiling C object tests/test-build-cxx-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[495/727] Compiling C object tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v6_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v6_xml.c.o
+[496/727] Compiling C++ object tests/test-build-cxx-unstable_tablet_tablet_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_tablet_tablet_unstable_v1_xml.cc.o
+[497/727] Compiling C++ object tests/test-build-cxx-unstable_relative_pointer_relative_pointer_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_relative_pointer_relative_pointer_unstable_v1_xml.cc.o
+[498/727] Compiling C++ object tests/test-build-cxx-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml.cc.o
+[499/727] Compiling C++ object tests/test-build-cxx-unstable_tablet_tablet_unstable_v2_xml.p/meson-generated_.._test-build-cxx-unstable_tablet_tablet_unstable_v2_xml.cc.o
+[500/727] Compiling C object tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v5_xml.p/meson-generated_.._test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v5_xml.c.o
+[501/727] Compiling C object tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v6_xml.p/meson-generated_.._xdg-shell-unstable-v6-code.c.o
+[502/727] Compiling C object tests/test-build-pedantic-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.p/meson-generated_.._xwayland-keyboard-grab-unstable-v1-code.c.o
+[503/727] Compiling C++ object tests/test-build-cxx-unstable_primary_selection_primary_selection_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_primary_selection_primary_selection_unstable_v1_xml.cc.o
+[504/727] Compiling C object tests/test-build-pedantic-experimental_xx_input_method_xx_input_method_v2_xml.p/meson-generated_.._xx-input-method-v2-code.c.o
+[505/727] Compiling C object tests/test-build-pedantic-experimental_xx_cutouts_xx_cutouts_v1_xml.p/meson-generated_.._xx-cutouts-v1-code.c.o
+[506/727] Compiling C object tests/test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.c.o
+[507/727] Compiling C object tests/test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.p/meson-generated_.._xx-keyboard-filter-v1-code.c.o
+[508/727] Compiling C object tests/test-build-pedantic-experimental_xx_input_method_xx_input_method_v2_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_input_method_xx_input_method_v2_xml.c.o
+[509/727] Compiling C object tests/test-build-pedantic-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.p/meson-generated_.._test-build-pedantic-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.c.o
+[510/727] Compiling C object tests/test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.p/meson-generated_.._xx-input-method-v2-code.c.o
+[511/727] Compiling C object tests/test-build-pedantic-experimental_xx_cutouts_xx_cutouts_v1_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_cutouts_xx_cutouts_v1_xml.c.o
+[512/727] Compiling C object tests/test-build-cxx-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.p/meson-generated_.._xx-input-method-v2-code.c.o
+[513/727] Compiling C++ object tests/test-build-cxx-unstable_text_input_text_input_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_text_input_text_input_unstable_v1_xml.cc.o
+[514/727] Compiling C++ object tests/test-build-cxx-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml.cc.o
+[515/727] Compiling C object tests/test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[516/727] Compiling C++ object tests/test-build-cxx-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.p/meson-generated_.._test-build-cxx-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml.cc.o
+[517/727] Compiling C object tests/test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml.p/meson-generated_.._xx-session-management-v1-code.c.o
+[518/727] Compiling C object tests/test-build-pedantic-experimental_xx_text_input_xx_text_input_v3_xml.p/meson-generated_.._xx-text-input-v3-code.c.o
+[519/727] Compiling C object tests/test-build-cxx-experimental_xx_session_management_xx_session_management_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[520/727] Compiling C object tests/test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml.c.o
+[521/727] Generating include/wayland-protocols/presentation-time-enum.h with a custom command
+[522/727] Generating include/wayland-protocols/linux-dmabuf-v1-enum.h with a custom command
+[523/727] Generating include/wayland-protocols/tablet-v2-enum.h with a custom command
+[524/727] Generating include/wayland-protocols/viewporter-enum.h with a custom command
+[525/727] Generating include/wayland-protocols/alpha-modifier-v1-enum.h with a custom command
+[526/727] Compiling C object tests/test-build-pedantic-experimental_xx_text_input_xx_text_input_v3_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_text_input_xx_text_input_v3_xml.c.o
+[527/727] Generating include/wayland-protocols/xdg-shell-enum.h with a custom command
+[528/727] Generating include/wayland-protocols/color-management-v1-enum.h with a custom command
+[529/727] Compiling C object tests/test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml.p/meson-generated_.._xx-zones-v1-code.c.o
+[530/727] Compiling C object tests/test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml.p/meson-generated_.._test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml.c.o
+[531/727] Generating include/wayland-protocols/drm-lease-v1-enum.h with a custom command
+[532/727] Generating include/wayland-protocols/cursor-shape-v1-enum.h with a custom command
+[533/727] Generating include/wayland-protocols/content-type-v1-enum.h with a custom command
+[534/727] Compiling C object tests/test-build-cxx-experimental_xx_zones_xx_zones_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[535/727] Generating include/wayland-protocols/commit-timing-v1-enum.h with a custom command
+[536/727] Generating include/wayland-protocols/ext-background-effect-v1-enum.h with a custom command
+[537/727] Generating include/wayland-protocols/color-representation-v1-enum.h with a custom command
+[538/727] Generating include/wayland-protocols/ext-data-control-v1-enum.h with a custom command
+[539/727] Generating include/wayland-protocols/ext-foreign-toplevel-list-v1-enum.h with a custom command
+[540/727] Generating include/wayland-protocols/ext-idle-notify-v1-enum.h with a custom command
+[541/727] Generating include/wayland-protocols/ext-transient-seat-v1-enum.h with a custom command
+[542/727] Generating include/wayland-protocols/ext-image-capture-source-v1-enum.h with a custom command
+[543/727] Generating include/wayland-protocols/ext-session-lock-v1-enum.h with a custom command
+[544/727] Generating include/wayland-protocols/ext-image-copy-capture-v1-enum.h with a custom command
+[545/727] Compiling C object tests/test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml.p/meson-generated_.._xdg-shell-code.c.o
+[546/727] Generating include/wayland-protocols/ext-workspace-v1-enum.h with a custom command
+[547/727] Generating include/wayland-protocols/pointer-warp-v1-enum.h with a custom command
+[548/727] Generating include/wayland-protocols/security-context-v1-enum.h with a custom command
+[549/727] Generating include/wayland-protocols/linux-drm-syncobj-v1-enum.h with a custom command
+[550/727] Generating include/wayland-protocols/fifo-v1-enum.h with a custom command
+[551/727] Generating include/wayland-protocols/fractional-scale-v1-enum.h with a custom command
+[552/727] Generating include/wayland-protocols/single-pixel-buffer-v1-enum.h with a custom command
+[553/727] Generating include/wayland-protocols/xdg-activation-v1-enum.h with a custom command
+[554/727] Generating include/wayland-protocols/tearing-control-v1-enum.h with a custom command
+[555/727] Generating include/wayland-protocols/xdg-session-management-v1-enum.h with a custom command
+[556/727] Generating include/wayland-protocols/xdg-toplevel-tag-v1-enum.h with a custom command
+[557/727] Generating include/wayland-protocols/xdg-system-bell-v1-enum.h with a custom command
+[558/727] Generating include/wayland-protocols/xdg-toplevel-drag-v1-enum.h with a custom command
+[559/727] Generating include/wayland-protocols/xdg-dialog-v1-enum.h with a custom command
+[560/727] Generating include/wayland-protocols/xdg-toplevel-icon-v1-enum.h with a custom command
+[561/727] Generating include/wayland-protocols/fullscreen-shell-unstable-v1-enum.h with a custom command
+[562/727] Generating include/wayland-protocols/xwayland-shell-v1-enum.h with a custom command
+[563/727] Generating include/wayland-protocols/idle-inhibit-unstable-v1-enum.h with a custom command
+[564/727] Generating include/wayland-protocols/input-timestamps-unstable-v1-enum.h with a custom command
+[565/727] Generating include/wayland-protocols/pointer-constraints-unstable-v1-enum.h with a custom command
+[566/727] Generating include/wayland-protocols/pointer-gestures-unstable-v1-enum.h with a custom command
+[567/727] Generating include/wayland-protocols/input-method-unstable-v1-enum.h with a custom command
+[568/727] Generating include/wayland-protocols/keyboard-shortcuts-inhibit-unstable-v1-enum.h with a custom command
+[569/727] Generating include/wayland-protocols/linux-explicit-synchronization-unstable-v1-enum.h with a custom command
+[570/727] Generating include/wayland-protocols/linux-dmabuf-unstable-v1-enum.h with a custom command
+[571/727] Generating include/wayland-protocols/primary-selection-unstable-v1-enum.h with a custom command
+[572/727] Compiling C++ object tests/test-build-cxx-unstable_text_input_text_input_unstable_v3_xml.p/meson-generated_.._test-build-cxx-unstable_text_input_text_input_unstable_v3_xml.cc.o
+[573/727] Generating include/wayland-protocols/tablet-unstable-v1-enum.h with a custom command
+[574/727] Generating include/wayland-protocols/text-input-unstable-v3-enum.h with a custom command
+[575/727] Generating include/wayland-protocols/xdg-decoration-unstable-v1-enum.h with a custom command
+[576/727] Generating include/wayland-protocols/relative-pointer-unstable-v1-enum.h with a custom command
+[577/727] Generating include/wayland-protocols/xdg-foreign-unstable-v1-enum.h with a custom command
+[578/727] Compiling C++ object tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v6_xml.p/meson-generated_.._test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v6_xml.cc.o
+[579/727] Generating include/wayland-protocols/xdg-foreign-unstable-v2-enum.h with a custom command
+[580/727] Generating include/wayland-protocols/text-input-unstable-v1-enum.h with a custom command
+[581/727] Generating include/wayland-protocols/xwayland-keyboard-grab-unstable-v1-enum.h with a custom command
+[582/727] Generating include/wayland-protocols/tablet-unstable-v2-enum.h with a custom command
+[583/727] Generating include/wayland-protocols/xdg-output-unstable-v1-enum.h with a custom command
+[584/727] Generating include/wayland-protocols/xdg-shell-unstable-v5-enum.h with a custom command
+[585/727] Generating include/wayland-protocols/xx-input-method-v2-enum.h with a custom command
+../wayland-protocols-1.49/include/wayland-protocols/../../experimental/xx-input-method/xx-input-method-v2.xml:252: warning: since version not increasing
+
+../wayland-protocols-1.49/include/wayland-protocols/../../experimental/xx-input-method/xx-input-method-v2.xml:286: warning: since version not increasing
+
+../wayland-protocols-1.49/include/wayland-protocols/../../experimental/xx-input-method/xx-input-method-v2.xml:393: warning: since version not increasing
+
+../wayland-protocols-1.49/include/wayland-protocols/../../experimental/xx-input-method/xx-input-method-v2.xml:448: warning: since version not increasing
+
+[586/727] Generating include/wayland-protocols/xdg-shell-unstable-v6-enum.h with a custom command
+[587/727] Compiling C++ object tests/test-build-cxx-unstable_xdg_output_xdg_output_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_xdg_output_xdg_output_unstable_v1_xml.cc.o
+[588/727] Generating include/wayland-protocols/xx-cutouts-v1-enum.h with a custom command
+[589/727] Generating include/wayland-protocols/xx-session-management-v1-enum.h with a custom command
+[590/727] Generating include/wayland-protocols/xx-text-input-v3-enum.h with a custom command
+../wayland-protocols-1.49/include/wayland-protocols/../../experimental/xx-text-input/xx-text-input-v3.xml:448: warning: since version not increasing
+
+[591/727] Generating include/wayland-protocols/xx-keyboard-filter-v1-enum.h with a custom command
+[592/727] Generating include/wayland-protocols/xx-zones-v1-enum.h with a custom command
+[593/727] Compiling C++ object tests/test-build-cxx-experimental_xx_input_method_xx_input_method_v2_xml.p/meson-generated_.._test-build-cxx-experimental_xx_input_method_xx_input_method_v2_xml.cc.o
+[594/727] Compiling C++ object tests/test-build-cxx-experimental_xx_cutouts_xx_cutouts_v1_xml.p/meson-generated_.._test-build-cxx-experimental_xx_cutouts_xx_cutouts_v1_xml.cc.o
+[595/727] Linking target tests/test-build-pedantic-stable_presentation_time_presentation_time_xml
+[596/727] Linking target tests/test-build-pedantic-stable_linux_dmabuf_linux_dmabuf_v1_xml
+[597/727] Linking target tests/test-build-cxx-stable_presentation_time_presentation_time_xml
+[598/727] Linking target tests/test-build-pedantic-stable_viewporter_viewporter_xml
+[599/727] Linking target tests/test-build-cxx-stable_linux_dmabuf_linux_dmabuf_v1_xml
+[600/727] Linking target tests/test-build-pedantic-stable_xdg_shell_xdg_shell_xml
+[601/727] Linking target tests/test-build-pedantic-stable_tablet_tablet_v2_xml
+[602/727] Linking target tests/test-build-cxx-stable_xdg_shell_xdg_shell_xml
+[603/727] Linking target tests/test-build-cxx-stable_viewporter_viewporter_xml
+[604/727] Linking target tests/test-build-cxx-stable_tablet_tablet_v2_xml
+[605/727] Linking target tests/test-build-pedantic-staging_alpha_modifier_alpha_modifier_v1_xml
+[606/727] Compiling C++ object tests/test-build-cxx-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.p/meson-generated_.._test-build-cxx-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml.cc.o
+[607/727] Compiling C++ object tests/test-build-cxx-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.p/meson-generated_.._test-build-cxx-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml.cc.o
+[608/727] Linking target tests/test-build-pedantic-staging_color_management_color_management_v1_xml
+[609/727] Linking target tests/test-build-cxx-staging_alpha_modifier_alpha_modifier_v1_xml
+[610/727] Linking target tests/test-build-pedantic-staging_color_representation_color_representation_v1_xml
+[611/727] Linking target tests/test-build-cxx-staging_commit_timing_commit_timing_v1_xml
+[612/727] Compiling C++ object tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v5_xml.p/meson-generated_.._test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v5_xml.cc.o
+[613/727] Linking target tests/test-build-pedantic-staging_commit_timing_commit_timing_v1_xml
+[614/727] Linking target tests/test-build-cxx-staging_color_management_color_management_v1_xml
+[615/727] Linking target tests/test-build-pedantic-staging_cursor_shape_cursor_shape_v1_xml
+[616/727] Linking target tests/test-build-cxx-staging_color_representation_color_representation_v1_xml
+[617/727] Linking target tests/test-build-cxx-staging_cursor_shape_cursor_shape_v1_xml
+[618/727] Linking target tests/test-build-cxx-staging_drm_lease_drm_lease_v1_xml
+[619/727] Linking target tests/test-build-pedantic-staging_drm_lease_drm_lease_v1_xml
+[620/727] Linking target tests/test-build-pedantic-staging_content_type_content_type_v1_xml
+[621/727] Linking target tests/test-build-cxx-staging_content_type_content_type_v1_xml
+[622/727] Linking target tests/test-build-pedantic-staging_ext_data_control_ext_data_control_v1_xml
+[623/727] Linking target tests/test-build-pedantic-staging_ext_background_effect_ext_background_effect_v1_xml
+[624/727] Linking target tests/test-build-cxx-staging_ext_background_effect_ext_background_effect_v1_xml
+[625/727] Compiling C++ object tests/test-build-cxx-experimental_xx_text_input_xx_text_input_v3_xml.p/meson-generated_.._test-build-cxx-experimental_xx_text_input_xx_text_input_v3_xml.cc.o
+[626/727] Linking target tests/test-build-cxx-staging_ext_data_control_ext_data_control_v1_xml
+[627/727] Linking target tests/test-build-pedantic-staging_ext_idle_notify_ext_idle_notify_v1_xml
+[628/727] Linking target tests/test-build-pedantic-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml
+[629/727] Linking target tests/test-build-cxx-staging_ext_idle_notify_ext_idle_notify_v1_xml
+[630/727] Linking target tests/test-build-pedantic-staging_ext_image_capture_source_ext_image_capture_source_v1_xml
+[631/727] Linking target tests/test-build-cxx-staging_ext_image_capture_source_ext_image_capture_source_v1_xml
+[632/727] Linking target tests/test-build-pedantic-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml
+[633/727] Linking target tests/test-build-cxx-staging_ext_foreign_toplevel_list_ext_foreign_toplevel_list_v1_xml
+[634/727] Linking target tests/test-build-cxx-staging_ext_image_copy_capture_ext_image_copy_capture_v1_xml
+[635/727] Linking target tests/test-build-pedantic-staging_ext_session_lock_ext_session_lock_v1_xml
+[636/727] Linking target tests/test-build-cxx-staging_ext_session_lock_ext_session_lock_v1_xml
+[637/727] Compiling C++ object tests/test-build-cxx-experimental_xx_session_management_xx_session_management_v1_xml.p/meson-generated_.._test-build-cxx-experimental_xx_session_management_xx_session_management_v1_xml.cc.o
+[638/727] Linking target tests/test-build-cxx-staging_ext_transient_seat_ext_transient_seat_v1_xml
+[639/727] Linking target tests/test-build-pedantic-staging_ext_workspace_ext_workspace_v1_xml
+[640/727] Linking target tests/test-build-pedantic-staging_ext_transient_seat_ext_transient_seat_v1_xml
+[641/727] Linking target tests/test-build-pedantic-staging_fractional_scale_fractional_scale_v1_xml
+[642/727] Linking target tests/test-build-pedantic-staging_fifo_fifo_v1_xml
+[643/727] Linking target tests/test-build-cxx-staging_fifo_fifo_v1_xml
+[644/727] Linking target tests/test-build-cxx-staging_fractional_scale_fractional_scale_v1_xml
+[645/727] Linking target tests/test-build-pedantic-staging_pointer_warp_pointer_warp_v1_xml
+[646/727] Linking target tests/test-build-cxx-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml
+[647/727] Linking target tests/test-build-cxx-staging_ext_workspace_ext_workspace_v1_xml
+[648/727] Linking target tests/test-build-pedantic-staging_security_context_security_context_v1_xml
+[649/727] Linking target tests/test-build-pedantic-staging_linux_drm_syncobj_linux_drm_syncobj_v1_xml
+[650/727] Linking target tests/test-build-cxx-staging_pointer_warp_pointer_warp_v1_xml
+[651/727] Linking target tests/test-build-pedantic-staging_single_pixel_buffer_single_pixel_buffer_v1_xml
+[652/727] Linking target tests/test-build-pedantic-staging_tearing_control_tearing_control_v1_xml
+[653/727] Linking target tests/test-build-cxx-staging_security_context_security_context_v1_xml
+[654/727] Linking target tests/test-build-cxx-staging_single_pixel_buffer_single_pixel_buffer_v1_xml
+[655/727] Linking target tests/test-build-pedantic-staging_xdg_activation_xdg_activation_v1_xml
+[656/727] Linking target tests/test-build-cxx-staging_tearing_control_tearing_control_v1_xml
+[657/727] Linking target tests/test-build-cxx-staging_xdg_activation_xdg_activation_v1_xml
+[658/727] Linking target tests/test-build-pedantic-staging_xdg_system_bell_xdg_system_bell_v1_xml
+[659/727] Linking target tests/test-build-pedantic-staging_xdg_dialog_xdg_dialog_v1_xml
+[660/727] Linking target tests/test-build-cxx-staging_xdg_dialog_xdg_dialog_v1_xml
+[661/727] Linking target tests/test-build-pedantic-staging_xdg_session_management_xdg_session_management_v1_xml
+[662/727] Linking target tests/test-build-pedantic-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml
+[663/727] Linking target tests/test-build-pedantic-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml
+[664/727] Linking target tests/test-build-cxx-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml
+[665/727] Linking target tests/test-build-cxx-staging_xdg_system_bell_xdg_system_bell_v1_xml
+[666/727] Linking target tests/test-build-cxx-staging_xdg_toplevel_icon_xdg_toplevel_icon_v1_xml
+[667/727] Compiling C++ object tests/test-build-cxx-experimental_xx_zones_xx_zones_v1_xml.p/meson-generated_.._test-build-cxx-experimental_xx_zones_xx_zones_v1_xml.cc.o
+[668/727] Linking target tests/test-build-pedantic-staging_xwayland_shell_xwayland_shell_v1_xml
+[669/727] Linking target tests/test-build-pedantic-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml
+[670/727] Linking target tests/test-build-pedantic-staging_xdg_toplevel_tag_xdg_toplevel_tag_v1_xml
+[671/727] Linking target tests/test-build-cxx-staging_xdg_session_management_xdg_session_management_v1_xml
+[672/727] Linking target tests/test-build-cxx-staging_xdg_toplevel_drag_xdg_toplevel_drag_v1_xml
+[673/727] Linking target tests/test-build-cxx-staging_xwayland_shell_xwayland_shell_v1_xml
+[674/727] Linking target tests/test-build-cxx-unstable_fullscreen_shell_fullscreen_shell_unstable_v1_xml
+[675/727] Linking target tests/test-build-pedantic-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml
+[676/727] Linking target tests/test-build-cxx-unstable_idle_inhibit_idle_inhibit_unstable_v1_xml
+[677/727] Linking target tests/test-build-cxx-unstable_input_method_input_method_unstable_v1_xml
+[678/727] Linking target tests/test-build-pedantic-unstable_input_timestamps_input_timestamps_unstable_v1_xml
+[679/727] Linking target tests/test-build-pedantic-unstable_input_method_input_method_unstable_v1_xml
+[680/727] Linking target tests/test-build-pedantic-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml
+[681/727] Linking target tests/test-build-pedantic-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml
+[682/727] Linking target tests/test-build-cxx-unstable_input_timestamps_input_timestamps_unstable_v1_xml
+[683/727] Linking target tests/test-build-cxx-unstable_linux_explicit_synchronization_linux_explicit_synchronization_unstable_v1_xml
+[684/727] Linking target tests/test-build-pedantic-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml
+[685/727] Linking target tests/test-build-pedantic-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml
+[686/727] Linking target tests/test-build-pedantic-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml
+[687/727] Linking target tests/test-build-cxx-unstable_keyboard_shortcuts_inhibit_keyboard_shortcuts_inhibit_unstable_v1_xml
+[688/727] Linking target tests/test-build-cxx-unstable_pointer_constraints_pointer_constraints_unstable_v1_xml
+[689/727] Linking target tests/test-build-cxx-unstable_linux_dmabuf_linux_dmabuf_unstable_v1_xml
+[690/727] Linking target tests/test-build-cxx-unstable_pointer_gestures_pointer_gestures_unstable_v1_xml
+[691/727] Linking target tests/test-build-cxx-unstable_primary_selection_primary_selection_unstable_v1_xml
+[692/727] Linking target tests/test-build-pedantic-unstable_primary_selection_primary_selection_unstable_v1_xml
+[693/727] Linking target tests/test-build-pedantic-unstable_relative_pointer_relative_pointer_unstable_v1_xml
+[694/727] Linking target tests/test-build-cxx-unstable_relative_pointer_relative_pointer_unstable_v1_xml
+[695/727] Linking target tests/test-build-pedantic-unstable_tablet_tablet_unstable_v1_xml
+[696/727] Linking target tests/test-build-cxx-unstable_tablet_tablet_unstable_v1_xml
+[697/727] Linking target tests/test-build-pedantic-unstable_tablet_tablet_unstable_v2_xml
+[698/727] Linking target tests/test-build-pedantic-unstable_text_input_text_input_unstable_v3_xml
+[699/727] Linking target tests/test-build-pedantic-unstable_text_input_text_input_unstable_v1_xml
+[700/727] Linking target tests/test-build-cxx-unstable_text_input_text_input_unstable_v1_xml
+[701/727] Linking target tests/test-build-pedantic-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml
+[702/727] Linking target tests/test-build-cxx-unstable_text_input_text_input_unstable_v3_xml
+[703/727] Linking target tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v1_xml
+[704/727] Linking target tests/test-build-pedantic-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml
+[705/727] Linking target tests/test-build-cxx-unstable_xdg_foreign_xdg_foreign_unstable_v2_xml
+[706/727] Linking target tests/test-build-pedantic-unstable_xdg_output_xdg_output_unstable_v1_xml
+[707/727] Linking target tests/test-build-cxx-unstable_tablet_tablet_unstable_v2_xml
+[708/727] Linking target tests/test-build-cxx-unstable_xdg_decoration_xdg_decoration_unstable_v1_xml
+[709/727] Linking target tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v6_xml
+[710/727] Linking target tests/test-build-pedantic-unstable_xdg_shell_xdg_shell_unstable_v5_xml
+[711/727] Linking target tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v5_xml
+[712/727] Linking target tests/test-build-pedantic-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml
+[713/727] Linking target tests/test-build-cxx-unstable_xdg_shell_xdg_shell_unstable_v6_xml
+[714/727] Linking target tests/test-build-pedantic-experimental_xx_cutouts_xx_cutouts_v1_xml
+[715/727] Linking target tests/test-build-pedantic-experimental_xx_input_method_xx_input_method_v2_xml
+[716/727] Linking target tests/test-build-cxx-unstable_xwayland_keyboard_grab_xwayland_keyboard_grab_unstable_v1_xml
+[717/727] Linking target tests/test-build-cxx-unstable_xdg_output_xdg_output_unstable_v1_xml
+[718/727] Linking target tests/test-build-pedantic-experimental_xx_session_management_xx_session_management_v1_xml
+[719/727] Linking target tests/test-build-pedantic-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml
+[720/727] Linking target tests/test-build-cxx-experimental_xx_input_method_xx_input_method_v2_xml
+[721/727] Linking target tests/test-build-pedantic-experimental_xx_text_input_xx_text_input_v3_xml
+[722/727] Linking target tests/test-build-cxx-experimental_xx_cutouts_xx_cutouts_v1_xml
+[723/727] Linking target tests/test-build-cxx-experimental_xx_keyboard_filter_xx_keyboard_filter_v1_xml
+[724/727] Linking target tests/test-build-cxx-experimental_xx_session_management_xx_session_management_v1_xml
+[725/727] Linking target tests/test-build-cxx-experimental_xx_text_input_xx_text_input_v3_xml
+[726/727] Linking target tests/test-build-pedantic-experimental_xx_zones_xx_zones_v1_xml
+[727/727] Linking target tests/test-build-cxx-experimental_xx_zones_xx_zones_v1_xml
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Installing include/wayland-protocols/linux-dmabuf-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/presentation-time-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/tablet-v2-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/viewporter-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-shell-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/alpha-modifier-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/color-management-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/color-representation-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/commit-timing-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/content-type-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/cursor-shape-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/drm-lease-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-background-effect-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-data-control-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-foreign-toplevel-list-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-idle-notify-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-image-capture-source-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-image-copy-capture-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-session-lock-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-transient-seat-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/ext-workspace-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/fifo-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/fractional-scale-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/linux-drm-syncobj-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/pointer-warp-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/security-context-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/single-pixel-buffer-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/tearing-control-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-activation-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-dialog-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-session-management-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-system-bell-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-toplevel-drag-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-toplevel-icon-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-toplevel-tag-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xwayland-shell-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/fullscreen-shell-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/idle-inhibit-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/input-method-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/input-timestamps-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/keyboard-shortcuts-inhibit-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/linux-dmabuf-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/linux-explicit-synchronization-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/pointer-constraints-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/pointer-gestures-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/primary-selection-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/relative-pointer-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/tablet-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/tablet-unstable-v2-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/text-input-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/text-input-unstable-v3-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-decoration-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-foreign-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-foreign-unstable-v2-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-output-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-shell-unstable-v5-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xdg-shell-unstable-v6-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xwayland-keyboard-grab-unstable-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-cutouts-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-input-method-v2-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-keyboard-filter-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-session-management-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-text-input-v3-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing include/wayland-protocols/xx-zones-v1-enum.h to /home/builder/build/pkg/wayland-protocols/usr/include/wayland-protocols
+Installing /home/builder/build/src/wayland-protocols-1.49/stable/linux-dmabuf/linux-dmabuf-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/stable/linux-dmabuf
+Installing /home/builder/build/src/wayland-protocols-1.49/stable/presentation-time/presentation-time.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/stable/presentation-time
+Installing /home/builder/build/src/wayland-protocols-1.49/stable/tablet/tablet-v2.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/stable/tablet
+Installing /home/builder/build/src/wayland-protocols-1.49/stable/viewporter/viewporter.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/stable/viewporter
+Installing /home/builder/build/src/wayland-protocols-1.49/stable/xdg-shell/xdg-shell.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/stable/xdg-shell
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/alpha-modifier/alpha-modifier-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/alpha-modifier
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/color-management/color-management-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/color-management
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/color-representation/color-representation-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/color-representation
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/commit-timing/commit-timing-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/commit-timing
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/content-type/content-type-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/content-type
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/cursor-shape/cursor-shape-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/cursor-shape
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/drm-lease/drm-lease-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/drm-lease
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-background-effect/ext-background-effect-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-background-effect
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-data-control/ext-data-control-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-data-control
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-foreign-toplevel-list/ext-foreign-toplevel-list-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-foreign-toplevel-list
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-idle-notify/ext-idle-notify-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-idle-notify
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-image-capture-source/ext-image-capture-source-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-image-capture-source
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-image-copy-capture/ext-image-copy-capture-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-image-copy-capture
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-session-lock/ext-session-lock-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-session-lock
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-transient-seat/ext-transient-seat-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-transient-seat
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/ext-workspace/ext-workspace-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/ext-workspace
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/fifo/fifo-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/fifo
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/fractional-scale/fractional-scale-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/fractional-scale
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/linux-drm-syncobj/linux-drm-syncobj-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/linux-drm-syncobj
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/pointer-warp/pointer-warp-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/pointer-warp
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/security-context/security-context-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/security-context
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/single-pixel-buffer/single-pixel-buffer-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/single-pixel-buffer
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/tearing-control/tearing-control-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/tearing-control
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-activation/xdg-activation-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-activation
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-dialog/xdg-dialog-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-dialog
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-session-management/xdg-session-management-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-session-management
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-system-bell/xdg-system-bell-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-system-bell
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-toplevel-drag/xdg-toplevel-drag-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-toplevel-drag
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-toplevel-icon/xdg-toplevel-icon-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-toplevel-icon
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xdg-toplevel-tag/xdg-toplevel-tag-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xdg-toplevel-tag
+Installing /home/builder/build/src/wayland-protocols-1.49/staging/xwayland-shell/xwayland-shell-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/staging/xwayland-shell
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/fullscreen-shell/fullscreen-shell-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/fullscreen-shell
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/idle-inhibit/idle-inhibit-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/idle-inhibit
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/input-method/input-method-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/input-method
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/input-timestamps/input-timestamps-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/input-timestamps
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/keyboard-shortcuts-inhibit/keyboard-shortcuts-inhibit-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/keyboard-shortcuts-inhibit
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/linux-dmabuf/linux-dmabuf-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/linux-dmabuf
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/linux-explicit-synchronization/linux-explicit-synchronization-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/linux-explicit-synchronization
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/pointer-constraints
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/pointer-gestures/pointer-gestures-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/pointer-gestures
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/primary-selection/primary-selection-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/primary-selection
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/relative-pointer/relative-pointer-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/relative-pointer
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/tablet/tablet-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/tablet
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/tablet/tablet-unstable-v2.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/tablet
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/text-input/text-input-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/text-input
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/text-input/text-input-unstable-v3.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/text-input
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-decoration/xdg-decoration-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-decoration
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-foreign/xdg-foreign-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-foreign
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-foreign/xdg-foreign-unstable-v2.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-foreign
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-output/xdg-output-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-output
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-shell/xdg-shell-unstable-v5.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-shell
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xdg-shell/xdg-shell-unstable-v6.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xdg-shell
+Installing /home/builder/build/src/wayland-protocols-1.49/unstable/xwayland-keyboard-grab/xwayland-keyboard-grab-unstable-v1.xml to /home/builder/build/pkg/wayland-protocols/usr/share/wayland-protocols/unstable/xwayland-keyboard-grab
+Installing /home/builder/build/src/build/meson-private/wayland-protocols.pc to /home/builder/build/pkg/wayland-protocols/usr/share/pkgconfig
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "wayland-protocols"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: wayland-protocols 1.49-1 (Sun Sep 20 03:59:52 2026)

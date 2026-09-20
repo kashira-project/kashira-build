@@ -1,0 +1,307 @@
+== build xorgproto (deps: meson xorg-util-macros )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (4) ninja-1.13.2-1  python-tqdm-4.70.1-1  meson-1.12.0-1  xorg-util-macros-1.20.2-1
+
+Total Download Size:    2.79 MiB
+Total Installed Size:  18.24 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ meson-1.12.0-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ xorg-util-macros-1.20.2-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing xorg-util-macros...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: xorgproto 2025.1-1 (Sun Sep 20 03:26:23 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading xorgproto-2025.1.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0 20 748.9k  20 156.2k   0      0  76818      0   00:09   00:02   00:07 156.1k 93 748.9k  93 703.0k   0      0 221.4k      0   00:03   00:03         335.9k100 748.9k 100 748.9k   0      0 206.3k      0   00:03   00:03         335.9k100 748.9k 100 748.9k   0      0 206.3k      0   00:03   00:03         335.9k100 748.9k 100 748.9k   0      0 206.3k      0   00:03   00:03         335.9k
+  -> Downloading xorgproto-2025.1.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     95 100     95   0      0    140      0                              0100     95 100     95   0      0    140      0                              0100     95 100     95   0      0    140      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    xorgproto-2025.1.tar.xz ... Passed
+    xorgproto-2025.1.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting xorgproto-2025.1.tar.xz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+xorgproto-2025.1 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 xorgproto-2025.1 build
+Generating targets: |          | 0/0 eta ?                                          The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/xorgproto-2025.1
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: xorgproto
+Project version: 2025.1
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Configuring applewmproto.pc using configuration
+Configuring bigreqsproto.pc using configuration
+Configuring compositeproto.pc using configuration
+Configuring damageproto.pc using configuration
+Configuring dmxproto.pc using configuration
+Configuring dpmsproto.pc using configuration
+Configuring dri2proto.pc using configuration
+Configuring dri3proto.pc using configuration
+Configuring fixesproto.pc using configuration
+Configuring fontsproto.pc using configuration
+Configuring glproto.pc using configuration
+Configuring inputproto.pc using configuration
+Configuring kbproto.pc using configuration
+Configuring presentproto.pc using configuration
+Configuring randrproto.pc using configuration
+Configuring recordproto.pc using configuration
+Configuring renderproto.pc using configuration
+Configuring resourceproto.pc using configuration
+Configuring scrnsaverproto.pc using configuration
+Configuring videoproto.pc using configuration
+Configuring xcmiscproto.pc using configuration
+Configuring xextproto.pc using configuration
+Configuring xf86bigfontproto.pc using configuration
+Configuring xf86dgaproto.pc using configuration
+Configuring xf86driproto.pc using configuration
+Configuring xf86vidmodeproto.pc using configuration
+Configuring xineramaproto.pc using configuration
+Configuring xproto.pc using configuration
+Configuring xwaylandproto.pc using configuration
+Has header "sys/param.h" : YES 
+Has header "sys/types.h" : YES 
+Has header "sys/time.h" : YES 
+Has header "sys/select.h" : YES 
+Checking whether type "fd_set" has member "fds_bits" : NO 
+Checking whether type "fd_set" has member "__fds_bits" : YES 
+Configuring Xpoll.h using configuration
+Program scripts/keysym-generator.py found: YES (/home/builder/build/src/xorgproto-2025.1/scripts/keysym-generator.py)
+Build targets in project: 0
+
+xorgproto 2025.1
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Writing build.ninja:   0%|          | 0/28 eta ?                                                ninja: Entering directory `build'
+ninja: no work to do.
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `build'
+[0/1] Installing files
+Installing /home/builder/build/src/xorgproto-2025.1/include/GL/glxint.h to /home/builder/build/pkg/xorgproto/usr/include/GL
+Installing /home/builder/build/src/xorgproto-2025.1/include/GL/glxmd.h to /home/builder/build/pkg/xorgproto/usr/include/GL
+Installing /home/builder/build/src/xorgproto-2025.1/include/GL/glxproto.h to /home/builder/build/pkg/xorgproto/usr/include/GL
+Installing /home/builder/build/src/xorgproto-2025.1/include/GL/glxtokens.h to /home/builder/build/pkg/xorgproto/usr/include/GL
+Installing /home/builder/build/src/xorgproto-2025.1/include/GL/internal/glcore.h to /home/builder/build/pkg/xorgproto/usr/include/GL/internal
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/ap_keysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/DECkeysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/HPkeysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/keysymdef.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/keysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Sunkeysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xalloca.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xarch.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xatom.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xdefs.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/XF86keysym.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xfuncs.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xfuncproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/X.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xmd.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xosdefs.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xos.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xos_r.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xprotostr.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xthreads.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xw32defs.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/XWDFile.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xwindows.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/Xwinsock.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/dri/xf86dri.h to /home/builder/build/pkg/xorgproto/usr/include/X11/dri
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/dri/xf86driproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/dri
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/dri/xf86dristr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/dri
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/ag.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/agproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/applewmconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/applewmproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/bigreqsproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/bigreqstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/composite.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/compositeproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/cup.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/cupproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/damageproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/damagewire.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dbe.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dbeproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dmx.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dmxproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dpmsconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dpmsproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dri2proto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dri2tokens.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/dri3proto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/EVI.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/EVIproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/ge.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/geproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/lbx.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/lbxproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/mitmiscconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/mitmiscproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/multibufconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/multibufproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/panoramiXproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/presentproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/presenttokens.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/randr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/randrproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/recordconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/recordproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/recordstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/render.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/renderproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/saver.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/saverproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/secur.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/securproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shapeconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shapeproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shapestr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shm.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shmproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/shmstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/syncconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/syncproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/syncstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xcmiscproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xcmiscstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86bigfont.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86bigfproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86bigfstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dga1const.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dga1proto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dga1str.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dgaconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dga.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dgaproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86dgastr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86vm.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86vmproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xf86vmstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xfixesproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xfixeswire.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XI2.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XI2proto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XI.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XIproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XKB.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XKBproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XKBsrv.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XKBstr.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XResproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xtestconst.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xtestext1const.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xtestext1proto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xtestproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/Xv.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XvMC.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/XvMCproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/Xvproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/extensions/xwaylandproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/extensions
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/font.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/fontproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/fontstruct.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/FS.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/fsmasks.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/xorgproto-2025.1/include/X11/fonts/FSproto.h to /home/builder/build/pkg/xorgproto/usr/include/X11/fonts
+Installing /home/builder/build/src/build/applewmproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/bigreqsproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/compositeproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/damageproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/dmxproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/dpmsproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/dri2proto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/dri3proto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/fixesproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/fontsproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/glproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/inputproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/kbproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/presentproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/randrproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/recordproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/renderproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/resourceproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/scrnsaverproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/videoproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xcmiscproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xextproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xf86bigfontproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xf86dgaproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xf86driproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xf86vidmodeproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xineramaproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/build/xwaylandproto.pc to /home/builder/build/pkg/xorgproto/usr/share/pkgconfig
+Installing /home/builder/build/src/xorgproto-2025.1/compositeproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/damageproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/dri2proto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/dri3proto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/fixesproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/presentproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/randrproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/renderproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/resproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/xv-protocol-v2.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/xorgproto-2025.1/xwaylandproto.txt to /home/builder/build/pkg/xorgproto/usr/share/doc/xorgproto
+Installing /home/builder/build/src/build/include/X11/Xpoll.h to /home/builder/build/pkg/xorgproto/usr/include/X11
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xorgproto"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xorgproto 2025.1-1 (Sun Sep 20 03:26:40 2026)

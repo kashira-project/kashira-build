@@ -1,0 +1,210 @@
+== build libverto (deps: glibc libevent )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libevent-2.1.13-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: libverto 0.3.2-6 (Sat Sep 19 23:39:14 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found libverto-0.3.2.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    libverto-0.3.2.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting libverto-0.3.2.tar.gz with bsdtar
+==> Starting build()...
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+checking whether clang understands -c and -o together... yes
+checking how to run the C preprocessor... clang -E
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for clang option to accept ISO C99... none needed
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... ./install-sh -c -d
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports the include directive... yes (GNU style)
+checking whether make supports nested variables... yes
+checking dependency style of clang... gcc3
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking for ranlib... llvm-ranlib
+checking command to parse llvm-nm output from clang object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang supports -fno-rtti -fno-exceptions... yes
+checking for clang option to produce PIC... -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... yes
+checking if clang static flag -static works... yes
+checking if clang supports -c -o file.o... yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking whether make supports nested variables... (cached) yes
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for dlopen in -ldl... yes
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for libevent >= 2.0... yes
+configure: 
+configure: BUILD CONFIGURATION
+configure:   pthread                 yes
+configure:   glib                    no
+configure:   libev                   no
+configure:   libevent                yes
+configure: 
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating tests/Makefile
+config.status: creating libverto-glib.pc
+config.status: creating libverto-libev.pc
+config.status: creating libverto-libevent.pc
+config.status: creating libverto.pc
+config.status: executing depfiles commands
+config.status: executing libtool commands
+Making all in src
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2/src'
+  CC       libverto_la-verto.lo
+  CC       libverto_libevent_la-verto-libevent.lo
+  CC       libverto_la-module.lo
+verto.c:118:12: warning: variable 'resize_cb_hierarchical' set but not used [-Wunused-but-set-global]
+  118 | static int resize_cb_hierarchical;
+      |            ^
+1 warning generated.
+  CCLD     libverto.la
+  CCLD     libverto-libevent.la
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2/src'
+Making all in tests
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2'
+==> Entering fakeroot environment...
+==> Starting package_libverto()...
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2/src'
+make[2]: Entering directory '/home/builder/build/src/libverto-0.3.2/src'
+ .././install-sh -c -d '/home/builder/build/pkg/libverto/usr/lib'
+ .././install-sh -c -d '/home/builder/build/pkg/libverto/usr/include'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libverto.la libverto-libevent.la '/home/builder/build/pkg/libverto/usr/lib'
+ /usr/bin/install -c -m 644 verto.h verto-module.h verto-libevent.h '/home/builder/build/pkg/libverto/usr/include'
+libtool: install: /usr/bin/install -c .libs/libverto.so.1.0.0 /home/builder/build/pkg/libverto/usr/lib/libverto.so.1.0.0
+libtool: install: (cd /home/builder/build/pkg/libverto/usr/lib && { ln -s -f libverto.so.1.0.0 libverto.so.1 || { rm -f libverto.so.1 && ln -s libverto.so.1.0.0 libverto.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/libverto/usr/lib && { ln -s -f libverto.so.1.0.0 libverto.so || { rm -f libverto.so && ln -s libverto.so.1.0.0 libverto.so; }; })
+libtool: install: /usr/bin/install -c .libs/libverto.lai /home/builder/build/pkg/libverto/usr/lib/libverto.la
+libtool: warning: relinking 'libverto-libevent.la'
+libtool: install: (cd /home/builder/build/src/libverto-0.3.2/src; /bin/sh "/home/builder/build/src/libverto-0.3.2/libtool"  --silent --tag CC --mode=relink clang -Wall -Wdeclaration-after-statement -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wall -Wextra -Wno-cast-function-type -version-info 1:0:0 -levent -export-symbols ./libverto-libevent.symbols -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libverto-libevent.la -rpath /usr/lib libverto_libevent_la-verto-libevent.lo libverto.la -ldl -inst-prefix-dir /home/builder/build/pkg/libverto)
+libtool: install: /usr/bin/install -c .libs/libverto-libevent.so.1.0.0T /home/builder/build/pkg/libverto/usr/lib/libverto-libevent.so.1.0.0
+libtool: install: (cd /home/builder/build/pkg/libverto/usr/lib && { ln -s -f libverto-libevent.so.1.0.0 libverto-libevent.so.1 || { rm -f libverto-libevent.so.1 && ln -s libverto-libevent.so.1.0.0 libverto-libevent.so.1; }; })
+libtool: install: (cd /home/builder/build/pkg/libverto/usr/lib && { ln -s -f libverto-libevent.so.1.0.0 libverto-libevent.so || { rm -f libverto-libevent.so && ln -s libverto-libevent.so.1.0.0 libverto-libevent.so; }; })
+libtool: install: /usr/bin/install -c .libs/libverto-libevent.lai /home/builder/build/pkg/libverto/usr/lib/libverto-libevent.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[2]: Leaving directory '/home/builder/build/src/libverto-0.3.2/src'
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2/src'
+Making install in tests
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[2]: Entering directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2/tests'
+make[1]: Entering directory '/home/builder/build/src/libverto-0.3.2'
+make[2]: Entering directory '/home/builder/build/src/libverto-0.3.2'
+make[2]: Nothing to be done for 'install-exec-am'.
+ ./install-sh -c -d '/home/builder/build/pkg/libverto/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libverto.pc libverto-libevent.pc '/home/builder/build/pkg/libverto/usr/lib/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/libverto-0.3.2'
+make[1]: Leaving directory '/home/builder/build/src/libverto-0.3.2'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libverto"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libverto 0.3.2-6 (Sat Sep 19 23:39:30 2026)

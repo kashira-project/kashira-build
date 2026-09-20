@@ -1,0 +1,68 @@
+== build perl-pod-parser (deps: perl )
+warning: perl-5.44.0-2 is up to date -- skipping
+ there is nothing to do
+==> Making package: perl-pod-parser 1.67-4 (Sun Sep 20 01:29:29 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found Pod-Parser-1.67.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    Pod-Parser-1.67.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting Pod-Parser-1.67.tar.gz with bsdtar
+==> Starting build()...
+Checking if your kit is complete...
+Looks good
+Generating a Unix-style Makefile
+Writing Makefile for Pod::Parser
+Writing MYMETA.yml and MYMETA.json
+cp lib/Pod/Parser.pm blib/lib/Pod/Parser.pm
+cp lib/Pod/InputObjects.pm blib/lib/Pod/InputObjects.pm
+cp lib/Pod/ParseUtils.pm blib/lib/Pod/ParseUtils.pm
+cp lib/Pod/Find.pm blib/lib/Pod/Find.pm
+cp lib/Pod/PlainText.pm blib/lib/Pod/PlainText.pm
+cp lib/Pod/Select.pm blib/lib/Pod/Select.pm
+"/usr/bin/perl" "-Iblib/arch" "-Iblib/lib" scripts/podselect.PL scripts/podselect 
+Extracting podselect (with variable substitutions)
+cp scripts/podselect blib/script/podselect
+"/usr/bin/perl" -MExtUtils::MY -e 'MY->fixin(shift)' -- blib/script/podselect
+Manifying 1 pod document
+Manifying 6 pod documents
+==> Entering fakeroot environment...
+==> Starting package()...
+Manifying 1 pod document
+Manifying 6 pod documents
+Appending installation info to /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/core_perl/perllocal.pod
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/Parser.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/InputObjects.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/ParseUtils.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/Find.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/PlainText.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/lib/perl5/5.44/vendor_perl/Pod/Select.pm
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man1/podselect.1
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::Find.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::InputObjects.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::ParseUtils.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::Parser.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::PlainText.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/share/man/man3/Pod::Select.3
+Installing /home/builder/build/pkg/perl-pod-parser/usr/bin/podselect
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "perl-pod-parser"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: perl-pod-parser 1.67-4 (Sun Sep 20 01:29:33 2026)

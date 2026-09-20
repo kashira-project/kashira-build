@@ -1,0 +1,4 @@
+== build libxkbcommon (deps: bash-completion git glibc libxcb libxkbcommon.so libxml2 meson wayland wayland-protocols xkeyboard-config xorgproto )
+warning: glibc-2.44-2 is up to date -- skipping
+error: target not found: libxkbcommon.so
+warning: libxml2-2.15.4-1 is up to date -- skipping

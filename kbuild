@@ -30,7 +30,16 @@ pkg_deps() {
   names=$(grep -E "^\s*pkgname = " <<<"$info" | sed 's/.*= //' | sort -u)
   grep -E "^\s+(make)?depends(_x86_64)? = " <<<"$info" | \
     sed -E 's/.*= //; s/[<>=].*//' | sort -u | \
-    grep -vxF "$names" | tr '\n' ' '
+    grep -vxF "$names" | \
+    while read -r dep; do
+      # skip soname deps provided by this same pkgbase (libfoo.so where a
+      # split pkgname starts with libfoo)
+      if [[ $dep == lib*.so ]]; then
+        local_base=${dep%.so}
+        grep -qF "$local_base" <<<"$names" && continue
+      fi
+      printf '%s\n' "$dep"
+    done | tr '\n' ' '
 }
 
 # build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/

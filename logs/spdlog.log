@@ -1,0 +1,949 @@
+== build spdlog (deps: catch2 cmake gcc glibc libfmt.so libgcc libstdc++ )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) mpc-1.4.1-1  catch2-3.16.0-1  cmake-4.4.2-1  fmt-12.2.0-1  gcc-16.2.0-6
+
+Total Download Size:   107.12 MiB
+Total Installed Size:  397.16 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ cmake-4.4.2-1-x86_64 downloading...
+ catch2-3.16.0-1-x86_64 downloading...
+ fmt-12.2.0-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing catch2...
+installing cmake...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing fmt...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: spdlog 1.17.0-2 (Sun Sep 20 00:12:22 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found spdlog-1.17.0.tar.gz
+  -> Found spdlog-fmt-external.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    spdlog-1.17.0.tar.gz ... Passed
+    spdlog-fmt-external.patch ... Passed
+==> Extracting sources...
+  -> Extracting spdlog-1.17.0.tar.gz with bsdtar
+==> Starting prepare()...
+patching file include/spdlog/tweakme.h
+==> Starting build()...
+The no-dev option is deprecated.  Use -Wno-author instead.
+-- The CXX compiler identification is Clang 23.1.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Build spdlog: 1.17.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Build type: None
+-- Looking for fwrite_unlocked
+-- Looking for fwrite_unlocked - found
+-- Generating example(s)
+-- Generating tests
+-- Found PkgConfig: /usr/sbin/pkg-config (found version "3.0.5")
+-- Checking for module 'libsystemd'
+--   Found libsystemd, version 261
+-- Packaged version of Catch will be used.
+-- Generating install
+-- Configuring done (1.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/builder/build/src/build
+[  8%] Building CXX object CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o
+[  8%] Building CXX object CMakeFiles/spdlog.dir/src/cfg.cpp.o
+[  8%] Building CXX object CMakeFiles/spdlog.dir/src/async.cpp.o
+[ 10%] Building CXX object CMakeFiles/spdlog.dir/src/spdlog.cpp.o
+[ 13%] Building CXX object CMakeFiles/spdlog.dir/src/file_sinks.cpp.o
+[ 16%] Building CXX object CMakeFiles/spdlog.dir/src/color_sinks.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/src/cfg.cpp:8:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/cfg/helpers-inl.h:7:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/cfg/helpers.h:6:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #In file included from deIn file included from f/home/builder/build/src/spdlog-1.17.0/src/spdlog.cppi/home/builder/build/src/spdlog-1.17.0/src/async.cpp:n:8e8:
+ :
+In file included from SIn file included from P/home/builder/build/src/spdlog-1.17.0/include/spdlog/common-inl.h/home/builder/build/src/spdlog-1.17.0/include/spdlog/async.hD::L717O:
+:
+GIn file included from In file included from _/home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h/home/builder/build/src/spdlog-1.17.0/include/spdlog/async_logger.h:F:7M17:
+T:
+_In file included from E/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.hX::T1781E:
+:RIn file included from 9N/home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:A: 7L:
+warning: 
+      'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]| 
+        ^/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h
+:81:9: warning: <command line>:'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]3:9
+:    note: 81 | previous definition is here
+#def       i813n |  | #e#d edSfePifDniLenO GSe_P FDSMLTPO_DGE_LXFTOMEGTR_N_FEAMLXT_T
+EEXR      TN| EA        ^RL
+N
+A      L|          ^1
+
+      <command line>| :        ^<command line>3:
+3::99::  note: note: previous definition is here
+previous definition is here
+    3     | 3 | ##ddeeffiinnee  SSPPDDLLOGO_GF_MFTM_TE_XETXETRENRANLA L1 
+1      | 
+        ^      
+|         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/src/file_sinks.cpp:8:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/details/file_helper-inl.h:7:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/details/file_helper.h:6:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/src/stdout_sinks.cpp:10:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/async.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/async_logger.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/src/color_sinks.cpp:10:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/async.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/async_logger.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:17:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+1 warning generated.
+1 warning generated.
+1 warning generated.
+1 warning generated.
+1 warning generated.
+1 warning generated.
+[ 18%] Linking CXX shared library libspdlog.so
+[ 18%] Built target spdlog
+[ 21%] Building CXX object example/CMakeFiles/example.dir/example.cpp.o
+[ 27%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_misc.cpp.o
+[ 27%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_daily_logger.cpp.o
+[ 29%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_pattern_formatter.cpp.o
+[ 35%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_registry.cpp.o
+[ 35%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_async.cpp.o
+[ 37%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_dup_filter.cpp.o
+[ 40%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_mpmc_q.cpp.o
+[ 43%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_file_helper.cpp.o
+[ 48%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_file_logging.cpp.o
+[ 48%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_stdout_api.cpp.o
+[ 51%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_eventlog.cpp.o
+[ 54%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_macros.cpp.o
+[ 56%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/utils.cpp.o
+[ 59%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/main.cpp.o
+[ 62%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_fmt_helper.cpp.o
+[ 64%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_backtrace.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/example/example.cpp:31:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_async.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_file_helper.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_macros.cpp:6:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_registry.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_daily_logger.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_dup_filter.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_stdout_api.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_mpmc_q.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_fmt_helper.cpp:2:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_backtrace.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_pattern_formatter.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+[ 67%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_create_dir.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/utils.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_macros.cpp:6:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_macros.cpp:35:5: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+   35 |     SPDLOG_DEBUG("Test message {}", 4);
+      |     ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:311:27: note: expanded from macro 'SPDLOG_DEBUG'
+  311 | #define SPDLOG_DEBUG(...) SPDLOG_LOGGER_DEBUG(spdlog::default_logger_raw(), __VA_ARGS__)
+      |                           ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:310:5: note: expanded from macro 'SPDLOG_LOGGER_DEBUG'
+  310 |     SPDLOG_LOGGER_CALL(logger, spdlog::level::debug, __VA_ARGS__)
+      |     ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:293:15: note: expanded from macro 'SPDLOG_LOGGER_CALL'
+  293 |     (logger)->log(spdlog::source_loc{__FILE__, __LINE__, SPDLOG_FUNCTION}, level, __VA_ARGS__)
+      |               ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_async.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<unsigned long &>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<unsigned long &>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_async.cpp:18:21: note: in instantiation of function template specialization 'spdlog::logger::info<unsigned long &>' requested here
+   18 |             logger->info("Hello message #{}", i);
+      |                     ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:17:13: note: in instantiation of function template specialization 'spdlog::logger::info<int>' requested here
+   17 |     logger->info("Test message {}", 1);
+      |             ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<double>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<double>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:55:13: note: in instantiation of function template specialization 'spdlog::logger::info<double>' requested here
+   55 |     logger->info("Test message {}", 3.14);
+      |             ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_file_logging.cpp:75:17: note: in instantiation of function template specialization 'spdlog::logger::info<int &>' requested here
+   75 |         logger->info("Test message {}", i);
+      |                 ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_daily_logger.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_daily_logger.cpp:40:17: note: in instantiation of function template specialization 'spdlog::logger::info<int &>' requested here
+   40 |         logger->info("Test message {}", i);
+      |                 ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+1 warning generated.
+2 warnings generated.
+[ 70%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_custom_callbacks.cpp.o
+[ 72%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_cfg.cpp.o
+1 warning generated.
+[ 75%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_time_point.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_backtrace.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:135:9: note: in instantiation of function template specialization 'spdlog::logger::log<int &>' requested here
+  135 |         log(level::debug, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_backtrace.cpp:15:42: note: in instantiation of function template specialization 'spdlog::logger::debug<int &>' requested here
+   15 |     for (int i = 0; i < 100; i++) logger.debug("debug message {}", i);
+      |                                          ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+1 warning generated.
+4 warnings generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:98:9: note: in instantiation of function template specialization 'spdlog::logger::log<const int &>' requested here
+   98 |         log(loc, lvl, "{}", msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:90:9: note: in instantiation of function template specialization 'spdlog::logger::log<int, 0>' requested here
+   90 |         log(source_loc{}, lvl, msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:243:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+  243 |         log(level::info, msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:16:16: note: in instantiation of function template specialization 'spdlog::logger::info<int>' requested here
+   16 |     oss_logger.info(what);
+      |                ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:31:13: note: in instantiation of function template specialization 'log_info<int>' requested here
+   31 |     REQUIRE(log_info(5) == "5");
+      |             ^
+/usr/include/catch2/catch_test_macros.hpp:134:92: note: expanded from macro 'REQUIRE'
+  134 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^
+/usr/include/catch2/internal/catch_test_macro_impl.hpp:51:40: note: expanded from macro 'INTERNAL_CATCH_TEST'
+   51 |         CATCH_INTERNAL_IGNORE_BUT_WARN(__VA_ARGS__); \
+      |                                        ^
+/usr/include/catch2/internal/catch_compiler_capabilities.hpp:404:37: note: expanded from macro 'CATCH_INTERNAL_IGNORE_BUT_WARN'
+  404 |         (void)__builtin_constant_p( __VA_ARGS__ ) /* NOLINT(cppcoreguidelines-pro-type-vararg, \
+      |                                     ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+[ 78%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_stopwatch.cpp.o
+[ 81%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_circular_q.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:98:9: note: in instantiation of function template specialization 'spdlog::logger::log<const double &>' requested here
+   98 |         log(loc, lvl, "{}", msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:90:9: note: in instantiation of function template specialization 'spdlog::logger::log<double, 0>' requested here
+   90 |         log(source_loc{}, lvl, msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:243:9: note: in instantiation of function template specialization 'spdlog::logger::log<double>' requested here
+  243 |         log(level::info, msg);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:16:16: note: in instantiation of function template specialization 'spdlog::logger::info<double>' requested here
+   16 |     oss_logger.info(what);
+      |                ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:32:13: note: in instantiation of function template specialization 'log_info<double>' requested here
+   32 |     REQUIRE(log_info(5.6) == "5.6");
+      |             ^
+/usr/include/catch2/catch_test_macros.hpp:134:92: note: expanded from macro 'REQUIRE'
+  134 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^
+/usr/include/catch2/internal/catch_test_macro_impl.hpp:51:40: note: expanded from macro 'INTERNAL_CATCH_TEST'
+   51 |         CATCH_INTERNAL_IGNORE_BUT_WARN(__VA_ARGS__); \
+      |                                        ^
+/usr/include/catch2/internal/catch_compiler_capabilities.hpp:404:37: note: expanded from macro 'CATCH_INTERNAL_IGNORE_BUT_WARN'
+  404 |         (void)__builtin_constant_p( __VA_ARGS__ ) /* NOLINT(cppcoreguidelines-pro-type-vararg, \
+      |                                     ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+1 warning generated.
+[ 83%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_bin_to_hex.cpp.o
+1 warning generated.
+[ 86%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_ringbuffer.cpp.o
+1 warning generated.
+1 warning generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:145:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+  145 |         log(level::warn, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:178:27: note: in instantiation of function template specialization 'spdlog::logger::warn<int>' requested here
+  178 |     default_logger_raw()->warn(fmt, std::forward<Args>(args)...);
+      |                           ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_misc.cpp:156:13: note: in instantiation of function template specialization 'spdlog::warn<int>' requested here
+  156 |     spdlog::warn("Hello again {}", 2);
+      |             ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+[ 89%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_timezone.cpp.o
+[ 91%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_errors.cpp.o
+2 warnings generated.
+2 warnings generated.
+[ 94%] Building CXX object tests/CMakeFiles/spdlog-utests.dir/test_systemd.cpp.o
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_create_dir.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_cfg.cpp:2:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_custom_callbacks.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_time_point.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+2 warnings generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_circular_q.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_stopwatch.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_timezone.cpp:3:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_systemd.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_errors.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+1 warning generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_bin_to_hex.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+1 warning generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_ringbuffer.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:12:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/common.h:7:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/tweakme.h:81:9: warning: 'SPDLOG_FMT_EXTERNAL' macro redefined [-Wmacro-redefined]
+   81 | #define SPDLOG_FMT_EXTERNAL
+      |         ^
+<command line>:3:9: note: previous definition is here
+    3 | #define SPDLOG_FMT_EXTERNAL 1
+      |         ^
+1 warning generated.
+1 warning generated.
+1 warning generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_stopwatch.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<spdlog::stopwatch &>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<spdlog::stopwatch &>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_stopwatch.cpp:36:12: note: in instantiation of function template specialization 'spdlog::logger::info<spdlog::stopwatch &>' requested here
+   36 |     logger.info("{}", sw);
+      |            ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_errors.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<int>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_errors.cpp:29:13: note: in instantiation of function template specialization 'spdlog::logger::info<int>' requested here
+   29 |     logger->info(SPDLOG_FMT_RUNTIME("Test message {} {}"), 1);
+      |             ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_errors.cpp:5:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<const char (&)[4]>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<const char (&)[4]>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_errors.cpp:45:31: note: in instantiation of function template specialization 'spdlog::logger::info<const char (&)[4]>' requested here
+   45 |     REQUIRE_THROWS_AS(logger->info(SPDLOG_FMT_RUNTIME("Bad format msg {} {}"), "xxx"), custom_ex);
+      |                               ^
+/usr/include/catch2/catch_test_macros.hpp:138:148: note: expanded from macro 'REQUIRE_THROWS_AS'
+  138 |   #define REQUIRE_THROWS_AS( expr, exceptionType ) INTERNAL_CATCH_THROWS_AS( "REQUIRE_THROWS_AS", exceptionType, Catch::ResultDisposition::Normal, expr )
+      |                                                                                                                                                    ^
+/usr/include/catch2/internal/catch_test_macro_impl.hpp:120:35: note: expanded from macro 'INTERNAL_CATCH_THROWS_AS'
+  120 |                 static_cast<void>(expr); \
+      |                                   ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+4 warnings generated.
+1 warning generated.
+1 warning generated.
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/test_bin_to_hex.cpp:1:
+In file included from /home/builder/build/src/spdlog-1.17.0/tests/includes.h:29:
+In file included from /home/builder/build/src/spdlog-1.17.0/include/spdlog/spdlog.h:15:
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:80:48: warning: 'operator const fmt::basic_string_view<char> &' is deprecated [-Wdeprecated-declarations]
+   80 |         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
+      |                                                ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:85:9: note: in instantiation of function template specialization 'spdlog::logger::log<spdlog::details::dump_info<__gnu_cxx::__normal_iterator<const unsigned char *, std::vector<unsigned char>>>>' requested here
+   85 |         log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/include/spdlog/logger.h:140:9: note: in instantiation of function template specialization 'spdlog::logger::log<spdlog::details::dump_info<__gnu_cxx::__normal_iterator<const unsigned char *, std::vector<unsigned char>>>>' requested here
+  140 |         log(level::info, fmt, std::forward<Args>(args)...);
+      |         ^
+/home/builder/build/src/spdlog-1.17.0/tests/test_bin_to_hex.cpp:11:16: note: in instantiation of function template specialization 'spdlog::logger::info<spdlog::details::dump_info<__gnu_cxx::__normal_iterator<const unsigned char *, std::vector<unsigned char>>>>' requested here
+   11 |     oss_logger.info("{}", spdlog::to_hex(v));
+      |                ^
+/usr/include/fmt/base.h:2728:3: note: 'operator const fmt::basic_string_view<char> &' has been explicitly marked deprecated here
+ 2728 |   FMT_DEPRECATED operator const string_view&() const { return str; }
+      |   ^
+/usr/include/fmt/base.h:241:28: note: expanded from macro 'FMT_DEPRECATED'
+  241 | #  define FMT_DEPRECATED [[deprecated]]
+      |                            ^
+1 warning generated.
+3 warnings generated.
+2 warnings generated.
+2 warnings generated.
+1 warning generated.
+[ 97%] Linking CXX executable example
+[ 97%] Built target example
+1 warning generated.
+[100%] Linking CXX executable spdlog-utests
+[100%] Built target spdlog-utests
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/spdlog/usr/include
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/async.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/async_logger-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/async_logger.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/cfg
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/cfg/argv.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/cfg/env.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/cfg/helpers-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/cfg/helpers.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/common-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/common.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/backtracer-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/backtracer.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/circular_q.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/console_globals.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/file_helper-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/file_helper.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/fmt_helper.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/log_msg-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/log_msg.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/log_msg_buffer-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/log_msg_buffer.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/mpmc_blocking_q.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/null_mutex.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/os-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/os.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/periodic_worker-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/periodic_worker.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/registry-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/registry.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/synchronous_factory.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/tcp_client-windows.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/tcp_client.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/thread_pool-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/thread_pool.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/udp_client-windows.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/udp_client.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/details/windows_include.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/bin_to_hex.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/chrono.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/compile.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/fmt.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/ostr.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/ranges.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/std.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fmt/xchar.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/formatter.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/fwd.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/logger-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/logger.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/mdc.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/pattern_formatter-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/pattern_formatter.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/android_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/ansicolor_sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/ansicolor_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/base_sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/base_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/basic_file_sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/basic_file_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/callback_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/daily_file_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/dist_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/dup_filter_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/hourly_file_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/kafka_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/mongo_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/msvc_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/null_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/ostream_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/qt_sinks.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/ringbuffer_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/rotating_file_sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/rotating_file_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/stdout_color_sinks-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/stdout_color_sinks.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/stdout_sinks-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/stdout_sinks.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/syslog_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/systemd_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/tcp_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/udp_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/win_eventlog_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/wincolor_sink-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/sinks/wincolor_sink.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/spdlog-inl.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/spdlog.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/stopwatch.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/tweakme.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/include/spdlog/version.h
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/libspdlog.so.1.17.0
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/libspdlog.so.1.17
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/libspdlog.so
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/pkgconfig/spdlog.pc
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/cmake/spdlog/spdlogConfigTargets.cmake
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/cmake/spdlog/spdlogConfigTargets-none.cmake
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/cmake/spdlog/spdlogConfig.cmake
+-- Installing: /home/builder/build/pkg/spdlog/usr/lib/cmake/spdlog/spdlogConfigVersion.cmake
+install: creating directory '/home/builder/build/pkg/spdlog/usr/share'
+install: creating directory '/home/builder/build/pkg/spdlog/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/spdlog/usr/share/licenses/spdlog'
+'spdlog-1.17.0/LICENSE' -> '/home/builder/build/pkg/spdlog/usr/share/licenses/spdlog/LICENSE'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libspdlog.so.1.17.0
+==> Creating package "spdlog"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: spdlog 1.17.0-2 (Sun Sep 20 00:13:04 2026)

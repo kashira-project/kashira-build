@@ -1,0 +1,69 @@
+== build perl-locale-gettext (deps: gettext perl )
+warning: gettext-1.0-2 is up to date -- skipping
+warning: perl-5.44.0-2 is up to date -- skipping
+ there is nothing to do
+==> Making package: perl-locale-gettext 1.07-16 (Sun Sep 20 01:27:59 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found Locale-gettext-1.07.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    Locale-gettext-1.07.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting Locale-gettext-1.07.tar.gz with bsdtar
+==> Starting build()...
+checking for gettext... yes
+checking for dgettext... yes
+checking for ngettext... yes
+checking for bind_textdomain_codeset... yes
+Checking if your kit is complete...
+Looks good
+Generating a Unix-style Makefile
+Writing Makefile for Locale::gettext
+Writing MYMETA.yml and MYMETA.json
+"/usr/bin/perl" "/usr/lib/perl5/5.44/core_perl/ExtUtils/xsubpp" -noprototypes -typemap '/usr/lib/perl5/5.44/core_perl/ExtUtils/typemap'  gettext.xs > gettext.xsc
+Running Mkbootstrap for gettext ()
+chmod 644 "gettext.bs"
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- gettext.bs blib/arch/auto/Locale/gettext/gettext.bs 644
+cp gettext.pm blib/lib/Locale/gettext.pm
+mv gettext.xsc gettext.c
+clang -c   -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -fwrapv -pipe -fstack-protector-strong -I/usr/include/db5.3 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\"1.07\" -DXS_VERSION=\"1.07\" -fPIC "-I/usr/lib/perl5/5.44/core_perl/CORE"   gettext.c
+rm -f blib/arch/auto/Locale/gettext/gettext.so
+clang  -shared -O2 -L/usr/lib/db5.3 -fstack-protector-strong  gettext.o  -o blib/arch/auto/Locale/gettext/gettext.so  \
+      \
+  
+chmod 755 blib/arch/auto/Locale/gettext/gettext.so
+Manifying 1 pod document
+==> Entering fakeroot environment...
+==> Starting package()...
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- gettext.bs blib/arch/auto/Locale/gettext/gettext.bs 644
+Manifying 1 pod document
+Appending installation info to /home/builder/build/pkg/perl-locale-gettext/usr/lib/perl5/5.44/core_perl/perllocal.pod
+Files found in blib/arch: installing files in blib/lib into architecture dependent library tree
+Installing /home/builder/build/pkg/perl-locale-gettext/usr/lib/perl5/5.44/vendor_perl/auto/Locale/gettext/gettext.so
+Installing /home/builder/build/pkg/perl-locale-gettext/usr/lib/perl5/5.44/vendor_perl/Locale/gettext.pm
+Installing /home/builder/build/pkg/perl-locale-gettext/usr/share/man/man3/Locale::gettext.3
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "perl-locale-gettext"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: perl-locale-gettext 1.07-16 (Sun Sep 20 01:28:04 2026)

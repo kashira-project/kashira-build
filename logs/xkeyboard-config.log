@@ -1,0 +1,726 @@
+== build xkeyboard-config (deps: libxslt meson python xorg-xkbcomp )
+warning: python-3.14.7-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (12) libx11-1.8.13-1  libxau-1.0.12-1  libxcb-1.17.0-1  libxdmcp-1.1.5-2  libxkbfile-1.2.0-1  ninja-1.13.2-1  python-tqdm-4.70.1-1  xcb-proto-1.17.0-4  xorgproto-2025.1-1  libxslt-1.1.45-2  meson-1.12.0-1  xorg-xkbcomp-1.5.0-1
+
+Total Download Size:    5.41 MiB
+Total Installed Size:  37.26 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ meson-1.12.0-1-any downloading...
+ libx11-1.8.13-1-x86_64 downloading...
+ libxcb-1.17.0-1-x86_64 downloading...
+ xorgproto-2025.1-1-any downloading...
+ libxslt-1.1.45-2-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ xcb-proto-1.17.0-4-any downloading...
+ xorg-xkbcomp-1.5.0-1-x86_64 downloading...
+ libxkbfile-1.2.0-1-x86_64 downloading...
+ libxdmcp-1.1.5-2-x86_64 downloading...
+ libxau-1.0.12-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing xcb-proto...
+installing xorgproto...
+installing libxdmcp...
+installing libxau...
+installing libxcb...
+installing libx11...
+installing libxkbfile...
+installing xorg-xkbcomp...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: xkeyboard-config 2.48-1 (Sun Sep 20 03:53:10 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading xkeyboard-config-2.48.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0 15 930.9k  15 140.5k   0      0  89378      0   00:10   00:01   00:09 131.3k 44 930.9k  44 414.0k   0      0 153.6k      0   00:06   00:02   00:04 192.2k 78 930.9k  78 726.5k   0      0 190.0k      0   00:04   00:03   00:01 221.3k 95 930.9k  95 890.5k   0      0 184.2k      0   00:05   00:04   00:01 207.4k100 930.9k 100 930.9k   0      0 185.1k      0   00:05   00:05         207.4k100 930.9k 100 930.9k   0      0 185.1k      0   00:05   00:05         207.4k100 930.9k 100 930.9k   0      0 185.1k      0   00:05   00:05         207.4k
+  -> Downloading xkeyboard-config-2.48.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    310 100    310   0      0    388      0                              0100    310 100    310   0      0    388      0                              0100    310 100    310   0      0    388      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    xkeyboard-config-2.48.tar.xz ... Passed
+    xkeyboard-config-2.48.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting xkeyboard-config-2.48.tar.xz with bsdtar
+==> Starting build()...
+xkeyboard-config-2.48 has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 xkeyboard-config-2.48 build -D compat-rules=true -D xorg-rules-symlinks=true
+Generating targets:   0%|          | 0/104 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/xkeyboard-config-2.48
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: xkeyboard-config
+Project version: 2.48
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Program python3 found: YES (/usr/sbin/python3)
+Program xml2lst.pl found: YES (/home/builder/build/src/xkeyboard-config-2.48/rules/xml2lst.pl)
+xkeyboard-config-2.48/rules/meson.build:78: WARNING: Conditional on version '>= 0.61' always evaluates to true
+xkeyboard-config-2.48/rules/meson.build:78: WARNING: Conditional on version '>= 0.61' always evaluates to true
+xkeyboard-config-2.48/rules/meson.build:78: WARNING: Conditional on version '>= 0.61' always evaluates to true
+Program xsltproc found: YES (/usr/sbin/xsltproc)
+Configuring man.xsl using configuration
+Program tests/verify-group-names.sh found: YES (/home/builder/build/src/xkeyboard-config-2.48/tests/verify-group-names.sh)
+Program python3 (pytest) found: NO
+Program pytest-3 pytest found: NO
+Program msgfmt found: YES (/usr/sbin/msgfmt)
+Program msginit found: YES (/usr/sbin/msginit)
+Program msgmerge found: YES (/usr/sbin/msgmerge)
+Program xgettext found: YES (/usr/sbin/xgettext)
+Build targets in project: 104
+
+xkeyboard-config 2.48
+
+  User defined options
+    auto_features      : enabled
+    b_pie              : true
+    buildtype          : plain
+    compat-rules       : true
+    libexecdir         : lib
+    prefix             : /usr
+    python.bytecompile : 1
+    sbindir            : bin
+    wrap_mode          : nodownload
+    xorg-rules-symlinks: true
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+                                                Writing build.ninja:   0%|          | 0/136 eta ?                                                 Core properties:
+  Source dir /home/builder/build/src/xkeyboard-config-2.48
+  Build dir  /home/builder/build/src/build
+
+Global build options:
+  
+  Core options                   Current Value                    Possible Values                  Description                                                  
+  --------------                 -------------                    ---------------                  -----------                                                  
+  auto_features                  enabled                          [enabled, disabled, auto]        Override value of all 'auto' features                        
+  backend                        ninja                            [ninja, vs, vs2010, vs2012,      Backend to use                                               
+                                                                   vs2013, vs2015, vs2017, vs2019,                                                              
+                                                                   vs2022, vs2026, xcode, none]                                                                 
+  genvslite                      vs2022                           [vs2022, vs2026]                 Setup multiple buildtype-suffixed ninja-backend build        
+                                                                                                   directories, and a [builddir]_vs containing a Visual Studio  
+                                                                                                   meta-backend with multiple configurations that calls into    
+                                                                                                   them                                                         
+  buildtype                      plain                            [plain, debug, debugoptimized,   Build type to use                                            
+                                                                   release, minsize, custom]                                                                    
+  debug                          false                            [True, False]                    Enable debug symbols and other information                   
+  default_library                shared                           [shared, static, both]           Default library type                                         
+  default_both_libraries         shared                           [shared, static, auto]           Default library type for both_libraries                      
+  install_umask                  0022                             [>= 0, <= 511]                   Default umask to apply on permissions of installed files     
+  layout                         mirror                           [mirror, flat]                   Build directory layout                                       
+  optimization                   plain                            [plain, 0, g, 1, 2, 3, s]        Optimization level                                           
+  prefer_static                  false                            [True, False]                    Whether to try static linking before shared linking          
+  strip                          false                            [True, False]                    Strip targets on install                                     
+  unity                          off                              [on, off, subprojects]           Unity build                                                  
+  unity_size                     4                                [>= 2]                           Unity block size                                             
+  warning_level                  1                                [0, 1, 2, 3, everything]         Compiler warning level to use                                
+  werror                         false                            [True, False]                    Treat warnings as errors                                     
+  wrap_mode                      nodownload                       [default, nofallback,            Wrap mode                                                    
+                                                                   nodownload, forcefallback,                                                                   
+                                                                   nopromote]                                                                                   
+  force_fallback_for             []                                                                Force fallback for those subprojects                         
+  vsenv                          false                            [True, False]                    Activate Visual Studio environment                           
+  os2_emxomf                     false                            [True, False]                    Use OMF format on OS/2                                       
+  pkg_config_path                []                                                                List of additional paths for pkg-config to search            
+  cmake_prefix_path              []                                                                List of additional prefixes for cmake to search              
+  
+  Backend options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  backend_max_links              0                                [>= 0]                           Maximum number of linker processes to run or 0 for no limit  
+  
+  pkgconfig module options       Current Value                    Possible Values                  Description                                                  
+  --------------------------     -------------                    ---------------                  -----------                                                  
+  pkgconfig.relocatable          false                            [True, False]                    Generate pkgconfig files as relocatable                      
+  
+  python module options          Current Value                    Possible Values                  Description                                                  
+  -----------------------        -------------                    ---------------                  -----------                                                  
+  python.bytecompile             1                                [>= -1, <= 2]                    Whether to compile bytecode                                  
+  python.install_env             prefix                           [auto, prefix, system, venv]     Which python environment to install to                       
+  python.platlibdir                                                                                Directory for site-specific, platform-specific files.        
+  python.purelibdir                                                                                Directory for site-specific, non-platform-specific files.    
+  python.allow_limited_api       true                             [True, False]                    Whether to allow use of the Python Limited API               
+  python.build_config                                                                              Config file containing the build details for the target      
+                                                                                                   Python installation.                                         
+  
+  Directories                    Current Value                    Possible Values                  Description                                                  
+  -------------                  -------------                    ---------------                  -----------                                                  
+  prefix                         /usr                                                              Installation prefix                                          
+  bindir                         bin                                                               Executable directory                                         
+  datadir                        share                                                             Data file directory                                          
+  includedir                     include                                                           Header file directory                                        
+  infodir                        share/info                                                        Info page directory                                          
+  libdir                         lib                                                               Library directory                                            
+  licensedir                                                                                       Licenses directory                                           
+  libexecdir                     lib                                                               Library executable directory                                 
+  localedir                      share/locale                                                      Locale data directory                                        
+  localstatedir                  /var                                                              Localstate data directory                                    
+  mandir                         share/man                                                         Manual page directory                                        
+  sbindir                        bin                                                               System executable directory                                  
+  sharedstatedir                 /var/lib                                                          Architecture-independent data directory                      
+  sysconfdir                     /etc                                                              Sysconf data directory                                       
+  
+  Testing options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  errorlogs                      true                             [True, False]                    Whether to print the logs from failing tests                 
+  stdsplit                       true                             [True, False]                    Split stdout and stderr in test logs                         
+  
+  Project options                Current Value                    Possible Values                  Description                                                  
+  -----------------              -------------                    ---------------                  -----------                                                  
+  compat-rules                   true                             [True, False]                    create compatibility rules [default=true]                    
+  nls                            true                             [True, False]                    build with native language support (NLS) [default=true]      
+  non-latin-layouts-list         false                            [True, False]                    create the list of non-Latin layouts [default=false]         
+  xorg-rules-symlinks            true                             [True, False]                    create "xorg" symlinks to the "base" rules files             
+                                                                                                   [default=false]                                              
+
+There are no option augments.
+ninja: Entering directory `build'
+[1/98] Building translation po/az/LC_MESSAGES/xkeyboard-config-2-az.mo
+[2/98] Building translation po/af/LC_MESSAGES/xkeyboard-config-2-af.mo
+[3/98] Building translation po/crh/LC_MESSAGES/xkeyboard-config-2-crh.mo
+[4/98] Building translation po/da/LC_MESSAGES/xkeyboard-config-2-da.mo
+[5/98] Building translation po/de/LC_MESSAGES/xkeyboard-config-2-de.mo
+[6/98] Building translation po/ar/LC_MESSAGES/xkeyboard-config-2-ar.mo
+[7/98] Building translation po/cs/LC_MESSAGES/xkeyboard-config-2-cs.mo
+[8/98] Building translation po/en_GB/LC_MESSAGES/xkeyboard-config-2-en_GB.mo
+[9/98] Building translation po/ca/LC_MESSAGES/xkeyboard-config-2-ca.mo
+[10/98] Building translation po/bg/LC_MESSAGES/xkeyboard-config-2-bg.mo
+[11/98] Building translation po/el/LC_MESSAGES/xkeyboard-config-2-el.mo
+[12/98] Building translation po/eo/LC_MESSAGES/xkeyboard-config-2-eo.mo
+[13/98] Building translation po/fa/LC_MESSAGES/xkeyboard-config-2-fa.mo
+[14/98] Building translation po/fr/LC_MESSAGES/xkeyboard-config-2-fr.mo
+[15/98] Building translation po/fur/LC_MESSAGES/xkeyboard-config-2-fur.mo
+[16/98] Building translation po/hu/LC_MESSAGES/xkeyboard-config-2-hu.mo
+[17/98] Building translation po/hr/LC_MESSAGES/xkeyboard-config-2-hr.mo
+[18/98] Building translation po/ja/LC_MESSAGES/xkeyboard-config-2-ja.mo
+[19/98] Building translation po/fi/LC_MESSAGES/xkeyboard-config-2-fi.mo
+[20/98] Building translation po/it/LC_MESSAGES/xkeyboard-config-2-it.mo
+[21/98] Building translation po/he/LC_MESSAGES/xkeyboard-config-2-he.mo
+[22/98] Building translation po/id/LC_MESSAGES/xkeyboard-config-2-id.mo
+[23/98] Building translation po/gl/LC_MESSAGES/xkeyboard-config-2-gl.mo
+[24/98] Building translation po/es/LC_MESSAGES/xkeyboard-config-2-es.mo
+[25/98] Building translation po/ka/LC_MESSAGES/xkeyboard-config-2-ka.mo
+[26/98] Building translation po/ky/LC_MESSAGES/xkeyboard-config-2-ky.mo
+[27/98] Building translation po/nb/LC_MESSAGES/xkeyboard-config-2-nb.mo
+[28/98] Building translation po/ko/LC_MESSAGES/xkeyboard-config-2-ko.mo
+[29/98] Building translation po/rw/LC_MESSAGES/xkeyboard-config-2-rw.mo
+[30/98] Building translation po/nl/LC_MESSAGES/xkeyboard-config-2-nl.mo
+[31/98] Building translation po/lt/LC_MESSAGES/xkeyboard-config-2-lt.mo
+[32/98] Building translation po/pt/LC_MESSAGES/xkeyboard-config-2-pt.mo
+[33/98] Building translation po/sk/LC_MESSAGES/xkeyboard-config-2-sk.mo
+[34/98] Building translation po/pl/LC_MESSAGES/xkeyboard-config-2-pl.mo
+[35/98] Building translation po/pt_BR/LC_MESSAGES/xkeyboard-config-2-pt_BR.mo
+[36/98] Building translation po/ro/LC_MESSAGES/xkeyboard-config-2-ro.mo
+[37/98] Building translation po/sv/LC_MESSAGES/xkeyboard-config-2-sv.mo
+[38/98] Building translation po/sq/LC_MESSAGES/xkeyboard-config-2-sq.mo
+[39/98] Building translation po/ru/LC_MESSAGES/xkeyboard-config-2-ru.mo
+[40/98] Building translation po/sl/LC_MESSAGES/xkeyboard-config-2-sl.mo
+[41/98] Building translation po/zh_CN/LC_MESSAGES/xkeyboard-config-2-zh_CN.mo
+[42/98] Building translation po/tr/LC_MESSAGES/xkeyboard-config-2-tr.mo
+[43/98] Building translation po/az/LC_MESSAGES/xkeyboard-config-az.mo
+[44/98] Building translation po/af/LC_MESSAGES/xkeyboard-config-af.mo
+[45/98] Building translation po/zh_TW/LC_MESSAGES/xkeyboard-config-2-zh_TW.mo
+[46/98] Building translation po/sr/LC_MESSAGES/xkeyboard-config-2-sr.mo
+[47/98] Building translation po/uk/LC_MESSAGES/xkeyboard-config-2-uk.mo
+[48/98] Building translation po/vi/LC_MESSAGES/xkeyboard-config-2-vi.mo
+[49/98] Building translation po/crh/LC_MESSAGES/xkeyboard-config-crh.mo
+[50/98] Building translation po/ca/LC_MESSAGES/xkeyboard-config-ca.mo
+[51/98] Building translation po/en_GB/LC_MESSAGES/xkeyboard-config-en_GB.mo
+[52/98] Building translation po/ar/LC_MESSAGES/xkeyboard-config-ar.mo
+[53/98] Building translation po/bg/LC_MESSAGES/xkeyboard-config-bg.mo
+[54/98] Building translation po/fa/LC_MESSAGES/xkeyboard-config-fa.mo
+[55/98] Building translation po/cs/LC_MESSAGES/xkeyboard-config-cs.mo
+[56/98] Building translation po/eo/LC_MESSAGES/xkeyboard-config-eo.mo
+[57/98] Building translation po/fr/LC_MESSAGES/xkeyboard-config-fr.mo
+[58/98] Building translation po/es/LC_MESSAGES/xkeyboard-config-es.mo
+[59/98] Building translation po/gl/LC_MESSAGES/xkeyboard-config-gl.mo
+[60/98] Building translation po/fi/LC_MESSAGES/xkeyboard-config-fi.mo
+[61/98] Building translation po/hr/LC_MESSAGES/xkeyboard-config-hr.mo
+[62/98] Building translation po/fur/LC_MESSAGES/xkeyboard-config-fur.mo
+[63/98] Building translation po/el/LC_MESSAGES/xkeyboard-config-el.mo
+[64/98] Building translation po/da/LC_MESSAGES/xkeyboard-config-da.mo
+[65/98] Building translation po/de/LC_MESSAGES/xkeyboard-config-de.mo
+[66/98] Building translation po/he/LC_MESSAGES/xkeyboard-config-he.mo
+[67/98] Building translation po/it/LC_MESSAGES/xkeyboard-config-it.mo
+[68/98] Building translation po/hu/LC_MESSAGES/xkeyboard-config-hu.mo
+[69/98] Building translation po/id/LC_MESSAGES/xkeyboard-config-id.mo
+[70/98] Generating man page with a custom command (wrapped by meson to capture output)
+[71/98] Building translation po/ky/LC_MESSAGES/xkeyboard-config-ky.mo
+[72/98] Building translation po/ja/LC_MESSAGES/xkeyboard-config-ja.mo
+[73/98] Building translation po/ka/LC_MESSAGES/xkeyboard-config-ka.mo
+[74/98] Building translation po/nb/LC_MESSAGES/xkeyboard-config-nb.mo
+[75/98] Building translation po/lt/LC_MESSAGES/xkeyboard-config-lt.mo
+[76/98] Generating symbols/compat-symbols with a custom command (wrapped by meson to set env)
+ara
+de
+fi
+gr
+in
+ir
+pk
+ro
+ru
+[77/98] Building translation po/rw/LC_MESSAGES/xkeyboard-config-rw.mo
+[78/98] Building translation po/ko/LC_MESSAGES/xkeyboard-config-ko.mo
+[79/98] Building translation po/pt_BR/LC_MESSAGES/xkeyboard-config-pt_BR.mo
+[80/98] Building translation po/pt/LC_MESSAGES/xkeyboard-config-pt.mo
+[81/98] Building translation po/sr/LC_MESSAGES/xkeyboard-config-sr.mo
+[82/98] Building translation po/sk/LC_MESSAGES/xkeyboard-config-sk.mo
+[83/98] Building translation po/tr/LC_MESSAGES/xkeyboard-config-tr.mo
+[84/98] Building translation po/sv/LC_MESSAGES/xkeyboard-config-sv.mo
+[85/98] Building translation po/ro/LC_MESSAGES/xkeyboard-config-ro.mo
+[86/98] Building translation po/ru/LC_MESSAGES/xkeyboard-config-ru.mo
+[87/98] Building translation po/zh_TW/LC_MESSAGES/xkeyboard-config-zh_TW.mo
+[88/98] Building translation po/nl/LC_MESSAGES/xkeyboard-config-nl.mo
+[89/98] Building translation po/zh_CN/LC_MESSAGES/xkeyboard-config-zh_CN.mo
+[90/98] Building translation po/pl/LC_MESSAGES/xkeyboard-config-pl.mo
+[91/98] Building translation po/uk/LC_MESSAGES/xkeyboard-config-uk.mo
+[92/98] Building translation po/sq/LC_MESSAGES/xkeyboard-config-sq.mo
+[93/98] Building translation po/vi/LC_MESSAGES/xkeyboard-config-vi.mo
+[94/98] Building translation po/sl/LC_MESSAGES/xkeyboard-config-sl.mo
+[95/98] Generating rules/base.lst with a custom command (wrapped by meson to capture output)
+[96/98] Generating rules/evdev.lst with a custom command (wrapped by meson to capture output)
+[97/98] Generating rules/rules-base with a custom command (wrapped by meson to set env)
+[98/98] Generating rules/rules-evdev with a custom command (wrapped by meson to set env)
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `build'
+[0/1] Installing files
+Installing subdir /home/builder/build/src/xkeyboard-config-2.48/compat to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/README to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/accessx to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/basic to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/caps to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/complete to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/grab to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/grp_led to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/iso9995 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/japan to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/ledcaps to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/ledcompose to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/lednum to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/ledscroll to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/level5 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/misc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/mod_led to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/mousekeys to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/olpc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/pc98 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/xfree86 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing /home/builder/build/src/xkeyboard-config-2.48/compat/xtest to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/compat
+Installing subdir /home/builder/build/src/xkeyboard-config-2.48/geometry to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/README to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/amiga to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/ataritt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/chicony to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/dell to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/everex to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/fujitsu to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/hhk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/hp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/keytronic to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/kinesis to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/macintosh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/microsoft to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/nec to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/northgate to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sanwa to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sony to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/steelseries to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sun to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/teck to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/thinkpad to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/typematrix to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/winbook to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/digital_vndr/lk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/digital_vndr/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/digital_vndr/unix to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sgi_vndr/O2 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/sgi_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sgi_vndr/indigo to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/sgi_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/geometry/sgi_vndr/indy to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/geometry/sgi_vndr
+Installing subdir /home/builder/build/src/xkeyboard-config-2.48/keycodes to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/README to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/aliases to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/amiga to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/ataritt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/empty to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/evdev to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/fujitsu to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/hp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/ibm to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/jolla to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/macintosh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/olpc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/sony to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/sun to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/xfree86 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/xfree98 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/digital_vndr/lk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/digital_vndr/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/sgi_vndr/indigo to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes/sgi_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/sgi_vndr/indy to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes/sgi_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/keycodes/sgi_vndr/iris to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/keycodes/sgi_vndr
+Installing subdir /home/builder/build/src/xkeyboard-config-2.48/types to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/README to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/basic to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/cancel to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/caps to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/complete to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/default to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/extra to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/iso9995 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/level5 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/mousekeys to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/numpad to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing /home/builder/build/src/xkeyboard-config-2.48/types/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/types
+Installing subdir /home/builder/build/src/xkeyboard-config-2.48/symbols/. to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./af to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./al to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./altwin to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./am to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ancient to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./apl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./at to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./au to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./az to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ba to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./bd to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./be to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./bg to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./bqn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./br to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./brai to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./bt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./bw to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./by to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ca to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./capslock to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./cd to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ch to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./cm to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./cn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./compose to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ctrl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./cz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./dk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./dz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ee to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./eg to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./empty to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./epo to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./es to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./et to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./eu to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./eurosign to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./fkeys to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./fo to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./fr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./gb to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ge to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./gh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./gn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./grab to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./group to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./hr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./hu to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./hyper to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./id to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ie to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./il to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./inet to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./iq to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./is to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./it to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ke to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./keypad to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./kg to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./kh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./kpdl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./kr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./kz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./la to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./latam to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./latin to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./level2 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./level3 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./level5 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./lk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./lt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./lv to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ma to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./md to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./me to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./mk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./mm to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./mn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./mt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./mv to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./my to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./nbsp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ng to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./nl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./no to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./np to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./nz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./olpc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./parens to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ph to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./pl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./pt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./rs to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./rupeesign to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./scrolllock to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./se to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./shift to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./si to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./srvr_ctrl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./srvrkeys to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sy to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./terminate to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tg to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./th to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tj to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tm to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./trans to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tw to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./typo to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./tz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./ua to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./uz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./vn to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./za to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./digital_vndr/lk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./digital_vndr/pc to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./digital_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./digital_vndr/vt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/digital_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./fujitsu_vndr/jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/fujitsu_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./fujitsu_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/fujitsu_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./hp_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/hp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./jolla_vndr/sbj to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/jolla_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/apple to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/ch to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/de to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/dk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/fi to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/fr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/gb to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/is to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/it to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/latam to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/nl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/no to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/pt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/se to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./macintosh_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/macintosh_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./nec_vndr/jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/nec_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sgi_vndr/jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sgi_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sharp_vndr/sl-c3x00 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sharp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sharp_vndr/ws003sh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sharp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sharp_vndr/ws007sh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sharp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sharp_vndr/ws011sh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sharp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sharp_vndr/ws020sh to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sharp_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sony_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sony_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ara to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/be to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/br to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ca to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ch to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/cz to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/de to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/dk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ee to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/es to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/fi to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/fr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/gb to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/gr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/it to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/jp to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/kr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/lt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/lv to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/nl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/no to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/pl to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/pt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ro to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ru to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/se to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/sk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/solaris to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/tr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/tw to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/ua to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./sun_vndr/us to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/sun_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./xfree68_vndr/amiga to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/xfree68_vndr
+Installing /home/builder/build/src/xkeyboard-config-2.48/symbols/./xfree68_vndr/ataritt to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols/xfree68_vndr
+Installing rules/base to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing rules/base.lst to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing rules/evdev to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing rules/evdev.lst to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing symbols/ara to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/de to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/fi to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/gr to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/in to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/ir to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/pk to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/ro to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing symbols/ru to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/symbols
+Installing xkeyboard-config-2.7 to /home/builder/build/pkg/xkeyboard-config/usr/share/man/man7
+Installing po/af/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/af/LC_MESSAGES
+Installing po/ar/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ar/LC_MESSAGES
+Installing po/az/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/az/LC_MESSAGES
+Installing po/bg/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/bg/LC_MESSAGES
+Installing po/ca/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ca/LC_MESSAGES
+Installing po/crh/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/crh/LC_MESSAGES
+Installing po/cs/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/cs/LC_MESSAGES
+Installing po/da/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/da/LC_MESSAGES
+Installing po/de/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/de/LC_MESSAGES
+Installing po/el/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/el/LC_MESSAGES
+Installing po/en_GB/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/en_GB/LC_MESSAGES
+Installing po/eo/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/eo/LC_MESSAGES
+Installing po/es/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/es/LC_MESSAGES
+Installing po/fa/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fa/LC_MESSAGES
+Installing po/fi/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fi/LC_MESSAGES
+Installing po/fr/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fr/LC_MESSAGES
+Installing po/fur/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fur/LC_MESSAGES
+Installing po/gl/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/gl/LC_MESSAGES
+Installing po/he/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/he/LC_MESSAGES
+Installing po/hr/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/hr/LC_MESSAGES
+Installing po/hu/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/hu/LC_MESSAGES
+Installing po/id/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/id/LC_MESSAGES
+Installing po/it/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/it/LC_MESSAGES
+Installing po/ja/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ja/LC_MESSAGES
+Installing po/ka/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ka/LC_MESSAGES
+Installing po/ko/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ko/LC_MESSAGES
+Installing po/ky/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ky/LC_MESSAGES
+Installing po/lt/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/lt/LC_MESSAGES
+Installing po/nb/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/nb/LC_MESSAGES
+Installing po/nl/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/nl/LC_MESSAGES
+Installing po/pl/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pl/LC_MESSAGES
+Installing po/pt/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pt/LC_MESSAGES
+Installing po/pt_BR/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pt_BR/LC_MESSAGES
+Installing po/ro/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ro/LC_MESSAGES
+Installing po/ru/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ru/LC_MESSAGES
+Installing po/rw/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/rw/LC_MESSAGES
+Installing po/sk/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sk/LC_MESSAGES
+Installing po/sl/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sl/LC_MESSAGES
+Installing po/sq/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sq/LC_MESSAGES
+Installing po/sr/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sr/LC_MESSAGES
+Installing po/sv/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sv/LC_MESSAGES
+Installing po/tr/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/tr/LC_MESSAGES
+Installing po/uk/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/uk/LC_MESSAGES
+Installing po/vi/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/vi/LC_MESSAGES
+Installing po/zh_CN/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/zh_CN/LC_MESSAGES
+Installing po/zh_TW/LC_MESSAGES/xkeyboard-config-2.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/zh_TW/LC_MESSAGES
+Installing po/af/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/af/LC_MESSAGES
+Installing po/ar/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ar/LC_MESSAGES
+Installing po/az/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/az/LC_MESSAGES
+Installing po/bg/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/bg/LC_MESSAGES
+Installing po/ca/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ca/LC_MESSAGES
+Installing po/crh/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/crh/LC_MESSAGES
+Installing po/cs/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/cs/LC_MESSAGES
+Installing po/da/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/da/LC_MESSAGES
+Installing po/de/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/de/LC_MESSAGES
+Installing po/el/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/el/LC_MESSAGES
+Installing po/en_GB/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/en_GB/LC_MESSAGES
+Installing po/eo/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/eo/LC_MESSAGES
+Installing po/es/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/es/LC_MESSAGES
+Installing po/fa/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fa/LC_MESSAGES
+Installing po/fi/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fi/LC_MESSAGES
+Installing po/fr/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fr/LC_MESSAGES
+Installing po/fur/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/fur/LC_MESSAGES
+Installing po/gl/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/gl/LC_MESSAGES
+Installing po/he/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/he/LC_MESSAGES
+Installing po/hr/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/hr/LC_MESSAGES
+Installing po/hu/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/hu/LC_MESSAGES
+Installing po/id/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/id/LC_MESSAGES
+Installing po/it/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/it/LC_MESSAGES
+Installing po/ja/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ja/LC_MESSAGES
+Installing po/ka/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ka/LC_MESSAGES
+Installing po/ko/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ko/LC_MESSAGES
+Installing po/ky/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ky/LC_MESSAGES
+Installing po/lt/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/lt/LC_MESSAGES
+Installing po/nb/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/nb/LC_MESSAGES
+Installing po/nl/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/nl/LC_MESSAGES
+Installing po/pl/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pl/LC_MESSAGES
+Installing po/pt/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pt/LC_MESSAGES
+Installing po/pt_BR/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/pt_BR/LC_MESSAGES
+Installing po/ro/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ro/LC_MESSAGES
+Installing po/ru/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/ru/LC_MESSAGES
+Installing po/rw/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/rw/LC_MESSAGES
+Installing po/sk/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sk/LC_MESSAGES
+Installing po/sl/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sl/LC_MESSAGES
+Installing po/sq/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sq/LC_MESSAGES
+Installing po/sr/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sr/LC_MESSAGES
+Installing po/sv/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/sv/LC_MESSAGES
+Installing po/tr/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/tr/LC_MESSAGES
+Installing po/uk/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/uk/LC_MESSAGES
+Installing po/vi/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/vi/LC_MESSAGES
+Installing po/zh_CN/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/zh_CN/LC_MESSAGES
+Installing po/zh_TW/LC_MESSAGES/xkeyboard-config.mo to /home/builder/build/pkg/xkeyboard-config/usr/share/locale/zh_TW/LC_MESSAGES
+Installing /home/builder/build/src/build/meson-private/xkeyboard-config-2.pc to /home/builder/build/pkg/xkeyboard-config/usr/share/pkgconfig
+Installing /home/builder/build/src/xkeyboard-config-2.48/rules/README to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/xkeyboard-config-2.48/rules/xkb.dtd to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/xkeyboard-config-2.48/rules/xfree98 to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/build/rules/base.xml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/build/rules/base.extras.xml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/build/rules/evdev.xml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing /home/builder/build/src/build/rules/evdev.extras.xml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules
+Installing symlink pointing to xkeyboard-config-2.pc to /home/builder/build/pkg/xkeyboard-config/usr/share/pkgconfig/xkeyboard-config.pc
+Installing symlink pointing to base to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules/xorg
+Installing symlink pointing to base.lst to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules/xorg.lst
+Installing symlink pointing to base.xml to /home/builder/build/pkg/xkeyboard-config/usr/share/xkeyboard-config-2/rules/xorg.xml
+Installing symlink pointing to xkeyboard-config-2.7 to /home/builder/build/pkg/xkeyboard-config/usr/share/man/man7/xkeyboard-config.7
+Installing symlink pointing to /usr/share/xkeyboard-config-2 to /home/builder/build/pkg/xkeyboard-config/usr/share/X11/xkb
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xkeyboard-config"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xkeyboard-config 2.48-1 (Sun Sep 20 03:53:39 2026)

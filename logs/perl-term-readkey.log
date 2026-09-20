@@ -1,0 +1,824 @@
+== build perl-term-readkey (deps: glibc perl )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: perl-5.44.0-2 is up to date -- skipping
+ there is nothing to do
+==> Making package: perl-term-readkey 2.38-11 (Sun Sep 20 01:28:25 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found TermReadKey-2.38.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    TermReadKey-2.38.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting TermReadKey-2.38.tar.gz with bsdtar
+==> Starting build()...
+Checking if your kit is complete...
+Looks good
+Generating a Unix-style Makefile
+Writing Makefile for Term::ReadKey
+Writing MYMETA.yml and MYMETA.json
+"/usr/bin/perl" "/usr/lib/perl5/5.44/core_perl/ExtUtils/xsubpp" -noprototypes -typemap '/usr/lib/perl5/5.44/core_perl/ExtUtils/typemap'  ReadKey.xs > ReadKey.xsc
+"/usr/bin/perl" genchars.pl
+Running Mkbootstrap for ReadKey ()
+chmod 644 "ReadKey.bs"
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- ReadKey.bs blib/arch/auto/Term/ReadKey/ReadKey.bs 644
+
+Writing termio/termios section of cchars.h... Done.
+Checking for sgtty...
+	Sgtty NOT found.
+Writing sgtty section of cchars.h... Done.
+mv ReadKey.xsc ReadKey.c
+clang -c   -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -fwrapv -pipe -fstack-protector-strong -I/usr/include/db5.3 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\"2.38\" -DXS_VERSION=\"2.38\" -fPIC "-I/usr/lib/perl5/5.44/core_perl/CORE"   ReadKey.c
+In file included from ReadKey.xs:7:
+./ppport.h:4385:10: warning: 'WIDEST_UTYPE' macro redefined [-Wmacro-redefined]
+ 4385 | # define WIDEST_UTYPE U64TYPE
+      |          ^
+/usr/lib/perl5/5.44/core_perl/CORE/handy.h:1420:9: note: previous definition is here
+ 1420 | #define WIDEST_UTYPE PERL_UINTMAX_T
+      |         ^
+In file included from ReadKey.xs:379:
+./cchars.h:250:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  250 |                         EXTEND(sp,MAXCC*2);             
+      |                         ^~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+./cchars.h:250:4: note: '{' token is here
+  250 |                         EXTEND(sp,MAXCC*2);             
+      |                         ^~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+In file included from ReadKey.xs:379:
+./cchars.h:250:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  250 |                         EXTEND(sp,MAXCC*2);             
+      |                         ^~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+./cchars.h:250:4: note: ')' token is here
+  250 |                         EXTEND(sp,MAXCC*2);             
+      |                         ^~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+In file included from ReadKey.xs:379:
+./cchars.h:483:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  483 |         XSRETURN(1);
+      |         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+./cchars.h:483:2: note: '{' token is here
+  483 |         XSRETURN(1);
+      |         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+In file included from ReadKey.xs:379:
+./cchars.h:483:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  483 |         XSRETURN(1);
+      |         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+./cchars.h:483:2: note: ')' token is here
+  483 |         XSRETURN(1);
+      |         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1938:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1938 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1938:2: note: '{' token is here
+ 1938 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:1938:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1938 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:1938:2: note: ')' token is here
+ 1938 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1941:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1941 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1941:5: note: '{' token is here
+ 1941 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:1941:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1941 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:1941:5: note: ')' token is here
+ 1941 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1968:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:27: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                           ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1968:5: note: '{' token is here
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:38: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                      ^
+ReadKey.c:1968:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:57: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1968:5: note: '{' token is here
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:57: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:1968:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:57: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:1968:5: note: ')' token is here
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:57: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                         ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1968:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:70: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                                      ^
+ReadKey.c:1968:5: note: ')' token is here
+ 1968 |     XSRETURN_EMPTY;
+      |     ^~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:332:72: note: expanded from macro 'XSRETURN_EMPTY'
+  332 | #define XSRETURN_EMPTY    STMT_START {                  XSRETURN(0); } STMT_END
+      |                                                                        ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1988:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1988 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1988:2: note: '{' token is here
+ 1988 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:1988:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1988 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:1988:2: note: ')' token is here
+ 1988 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:1991:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1991 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:1991:5: note: '{' token is here
+ 1991 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:1991:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1991 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:1991:5: note: ')' token is here
+ 1991 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2011:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2011 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2011:2: note: '{' token is here
+ 2011 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:2011:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2011 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:2011:2: note: ')' token is here
+ 2011 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2014:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2014 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2014:5: note: '{' token is here
+ 2014 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2014:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2014 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2014:5: note: ')' token is here
+ 2014 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2042:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2042 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2042:5: note: '{' token is here
+ 2042 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2042:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2042 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2042:5: note: ')' token is here
+ 2042 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2057:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2057 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2057:2: note: '{' token is here
+ 2057 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:2057:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2057 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:2057:2: note: ')' token is here
+ 2057 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2060:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2060 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2060:5: note: '{' token is here
+ 2060 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2060:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2060 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2060:5: note: ')' token is here
+ 2060 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2075:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2075 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2075:2: note: '{' token is here
+ 2075 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:2075:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2075 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:2075:2: note: ')' token is here
+ 2075 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2078:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2078 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2078:5: note: '{' token is here
+ 2078 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2078:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2078 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2078:5: note: ')' token is here
+ 2078 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2093:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2093 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2093:2: note: '{' token is here
+ 2093 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:2093:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2093 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:2093:2: note: ')' token is here
+ 2093 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2096:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2096 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2096:5: note: '{' token is here
+ 2096 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2096:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2096 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2096:5: note: ')' token is here
+ 2096 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.xs:1831:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1831 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.xs:1831:4: note: '{' token is here
+ 1831 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+ReadKey.xs:1831:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1831 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+ReadKey.xs:1831:4: note: ')' token is here
+ 1831 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.xs:1851:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1851 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.xs:1851:4: note: '{' token is here
+ 1851 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+ReadKey.xs:1851:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1851 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+ReadKey.xs:1851:4: note: ')' token is here
+ 1851 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.xs:1871:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1871 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.xs:1871:4: note: '{' token is here
+ 1871 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+ReadKey.xs:1871:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1871 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+ReadKey.xs:1871:4: note: ')' token is here
+ 1871 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.xs:1891:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1891 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.xs:1891:4: note: '{' token is here
+ 1891 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+ReadKey.xs:1891:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1891 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+ReadKey.xs:1891:4: note: ')' token is here
+ 1891 |                         EXTEND(sp, 4);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2290:2: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2290 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:5: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2290:2: note: '{' token is here
+ 2290 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:482:16: note: expanded from macro 'TARGi'
+  482 |     STMT_START {                                                        \
+      |                ^
+ReadKey.c:2290:2: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2290 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:5: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |     ^
+ReadKey.c:2290:2: note: ')' token is here
+ 2290 |         TARGi((IV)RETVAL, 1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:499:7: note: expanded from macro 'TARGi'
+  499 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.c:2293:5: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2293 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:5: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |     ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.c:2293:5: note: '{' token is here
+ 2293 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:317:16: note: expanded from macro 'XSRETURN'
+  317 |     STMT_START {                                        \
+      |                ^
+ReadKey.c:2293:5: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 2293 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:5: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |     ^
+ReadKey.c:2293:5: note: ')' token is here
+ 2293 |     XSRETURN(1);
+      |     ^~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/XSUB.h:322:7: note: expanded from macro 'XSRETURN'
+  322 |     } STMT_END
+      |       ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+ReadKey.xs:1934:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1934 |                         EXTEND(sp, 2);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:25: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                         ^~~~~~~~~~
+./ppport.h:4184:31: note: expanded from macro 'STMT_START'
+ 4184 | #  define STMT_START    (void)( /* gcc supports ``({ STATEMENTS; })'' */
+      |                               ^
+ReadKey.xs:1934:4: note: '{' token is here
+ 1934 |                         EXTEND(sp, 2);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:459:36: note: expanded from macro 'EXTEND'
+  459 | #  define EXTEND(p,n)   STMT_START {                                    \
+      |                                    ^
+ReadKey.xs:1934:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+ 1934 |                         EXTEND(sp, 2);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:25: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                         ^
+ReadKey.xs:1934:4: note: ')' token is here
+ 1934 |                         EXTEND(sp, 2);
+      |                         ^~~~~~~~~~~~~
+/usr/lib/perl5/5.44/core_perl/CORE/pp.h:465:27: note: expanded from macro 'EXTEND'
+  465 |                         } STMT_END
+      |                           ^~~~~~~~
+./ppport.h:4185:25: note: expanded from macro 'STMT_END'
+ 4185 | #  define STMT_END      )
+      |                         ^
+49 warnings generated.
+rm -f blib/arch/auto/Term/ReadKey/ReadKey.so
+clang  -shared -O2 -L/usr/lib/db5.3 -fstack-protector-strong  ReadKey.o  -o blib/arch/auto/Term/ReadKey/ReadKey.so  \
+      \
+  
+chmod 755 blib/arch/auto/Term/ReadKey/ReadKey.so
+"/usr/bin/perl" "-Iblib/arch" "-Iblib/lib" ReadKey.pm.PL ReadKey.pm 
+Creating ReadKey.pm
+Bootstrapping the XS for blockoptions: 5
+Done
+cp ReadKey.pm blib/arch/Term/ReadKey.pm
+Manifying 1 pod document
+==> Entering fakeroot environment...
+==> Starting package()...
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- ReadKey.bs blib/arch/auto/Term/ReadKey/ReadKey.bs 644
+"/usr/bin/perl" "-Iblib/arch" "-Iblib/lib" ReadKey.pm.PL ReadKey.pm 
+Creating ReadKey.pm
+Bootstrapping the XS for blockoptions: 5
+Done
+Skip blib/arch/Term/ReadKey.pm (unchanged)
+Manifying 1 pod document
+Appending installation info to /home/builder/build/pkg/perl-term-readkey/usr/lib/perl5/5.44/core_perl/perllocal.pod
+Files found in blib/arch: installing files in blib/lib into architecture dependent library tree
+Installing /home/builder/build/pkg/perl-term-readkey/usr/lib/perl5/5.44/vendor_perl/auto/Term/ReadKey/ReadKey.so
+Installing /home/builder/build/pkg/perl-term-readkey/usr/lib/perl5/5.44/vendor_perl/Term/ReadKey.pm
+Installing /home/builder/build/pkg/perl-term-readkey/usr/share/man/man3/Term::ReadKey.3
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "perl-term-readkey"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: perl-term-readkey 2.38-11 (Sun Sep 20 01:28:30 2026)

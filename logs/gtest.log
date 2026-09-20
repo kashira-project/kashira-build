@@ -1,0 +1,364 @@
+== build gtest (deps: cmake gcc glibc libgcc libstdc++ python )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (3) mpc-1.4.1-1  cmake-4.4.2-1  gcc-16.2.0-6
+
+Total Download Size:   106.37 MiB
+Total Installed Size:  393.18 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ cmake-4.4.2-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing cmake...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: gtest 1.18.0-1 (Sun Sep 20 01:05:50 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading googletest-1.18.0.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0 68 873.7k  68 601.8k   0      0 377.8k      0   00:02   00:01   00:01 601.4k100 873.7k 100 873.7k   0      0 452.7k      0   00:01   00:01         601.4k100 873.7k 100 873.7k   0      0 452.7k      0   00:01   00:01         601.4k100 873.7k 100 873.7k   0      0 452.7k      0   00:01   00:01         601.4k
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    googletest-1.18.0.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting googletest-1.18.0.tar.gz with bsdtar
+==> Starting build()...
+The no-dev option is deprecated.  Use -Wno-author instead.
+-- The C compiler identification is Clang 23.1.1
+-- The CXX compiler identification is Clang 23.1.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (3.4s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/builder/build/src/build
+[  2%] Building CXX object googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[  2%] Building CXX object googletest/CMakeFiles/gtest_no_exception.dir/src/gtest-all.cc.o
+[  2%] Building CXX object googletest/CMakeFiles/gtest_main_no_rtti.dir/src/gtest_main.cc.o
+[  3%] Building CXX object googletest/CMakeFiles/gtest_dll.dir/src/gtest_main.cc.o
+[  4%] Building CXX object googletest/CMakeFiles/gtest_main_no_rtti.dir/src/gtest-all.cc.o
+[  5%] Building CXX object googletest/CMakeFiles/gtest_dll.dir/src/gtest-all.cc.o
+[  6%] Building CXX object googletest/CMakeFiles/gtest_main_no_exception.dir/src/gtest-all.cc.o
+[  7%] Building CXX object googletest/CMakeFiles/gtest_main_no_exception.dir/src/gtest_main.cc.o
+[  8%] Linking CXX shared library ../lib/libgtest_no_exception.so
+[  8%] Built target gtest_no_exception
+[  9%] Building CXX object googletest/CMakeFiles/googletest-throw-on-failure-test_.dir/test/googletest-throw-on-failure-test_.cc.o
+[ 10%] Linking CXX shared library ../lib/libgtest.so
+[ 10%] Built target gtest
+[ 13%] Building CXX object googletest/CMakeFiles/gtest_throw_on_failure_ex_test.dir/test/gtest_throw_on_failure_ex_test.cc.o
+[ 13%] Building CXX object googletest/CMakeFiles/gtest-unittest-api_test.dir/test/gtest-unittest-api_test.cc.o
+[ 13%] Building CXX object googletest/CMakeFiles/gtest_no_test_unittest.dir/test/gtest_no_test_unittest.cc.o
+[ 15%] Building CXX object googletest/CMakeFiles/gtest_repeat_test.dir/test/gtest_repeat_test.cc.o
+[ 15%] Building CXX object googletest/CMakeFiles/gtest_stress_test.dir/test/gtest_stress_test.cc.o
+[ 16%] Building CXX object googletest/CMakeFiles/gtest-death-test_ex_catch_test.dir/test/googletest-death-test_ex_test.cc.o
+[ 18%] Building CXX object googletest/CMakeFiles/gtest_environment_test.dir/test/gtest_environment_test.cc.o
+[ 18%] Building CXX object googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 19%] Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 19%] Building CXX object googletest/CMakeFiles/gtest_premature_exit_test.dir/test/gtest_premature_exit_test.cc.o
+[ 20%] Building CXX object googletest/CMakeFiles/googletest-param-test-test.dir/test/googletest-param-test-test.cc.o
+[ 21%] Building CXX object googletest/CMakeFiles/gtest-death-test_ex_nocatch_test.dir/test/googletest-death-test_ex_test.cc.o
+[ 22%] Linking CXX executable googletest-throw-on-failure-test_
+[ 22%] Built target googletest-throw-on-failure-test_
+[ 23%] Building CXX object googletest/CMakeFiles/googletest-break-on-failure-unittest_.dir/test/googletest-break-on-failure-unittest_.cc.o
+[ 24%] Linking CXX shared library ../lib/libgtest_main_no_rtti.so
+[ 24%] Built target gtest_main_no_rtti
+[ 25%] Linking CXX shared library ../lib/libgtest_main_no_exception.so
+[ 26%] Building CXX object googletest/CMakeFiles/googletest-color-test_.dir/test/googletest-color-test_.cc.o
+[ 26%] Built target gtest_main_no_exception
+[ 27%] Building CXX object googletest/CMakeFiles/googletest-env-var-test_.dir/test/googletest-env-var-test_.cc.o
+[ 28%] Linking CXX shared library ../lib/libgtest_dll.so
+[ 28%] Built target gtest_dll
+[ 29%] Building CXX object googletest/CMakeFiles/googletest-filter-unittest_.dir/test/googletest-filter-unittest_.cc.o
+[ 30%] Linking CXX executable gtest_throw_on_failure_ex_test
+[ 31%] Linking CXX executable gtest_no_test_unittest
+[ 31%] Built target gtest_throw_on_failure_ex_test
+[ 31%] Built target gtest_no_test_unittest
+[ 32%] Building CXX object googletest/CMakeFiles/googletest-param-test-test.dir/test/googletest-param-test2-test.cc.o
+[ 33%] Building CXX object googletest/CMakeFiles/googletest-list-tests-unittest_.dir/test/googletest-list-tests-unittest_.cc.o
+[ 34%] Linking CXX executable googletest-break-on-failure-unittest_
+[ 34%] Built target googletest-break-on-failure-unittest_
+[ 35%] Building CXX object googletest/CMakeFiles/googletest-output-test_.dir/test/googletest-output-test_.cc.o
+[ 35%] Linking CXX executable googletest-color-test_
+[ 36%] Linking CXX shared library ../lib/libgtest_main.so
+[ 36%] Built target googletest-color-test_
+[ 37%] Building CXX object googletest/CMakeFiles/googletest-shuffle-test_.dir/test/googletest-shuffle-test_.cc.o
+[ 37%] Built target gtest_main
+[ 38%] Building CXX object googletest/CMakeFiles/googletest-uninitialized-test_.dir/test/googletest-uninitialized-test_.cc.o
+[ 38%] Linking CXX executable gtest_stress_test
+[ 39%] Linking CXX executable googletest-env-var-test_
+[ 39%] Built target gtest_stress_test
+[ 39%] Built target googletest-env-var-test_
+[ 40%] Building CXX object googletest/CMakeFiles/gtest_list_output_unittest_.dir/test/gtest_list_output_unittest_.cc.o
+[ 41%] Building CXX object googletest/CMakeFiles/gtest_xml_outfile1_test_.dir/test/gtest_xml_outfile1_test_.cc.o
+[ 42%] Linking CXX executable gtest_premature_exit_test
+[ 43%] Linking CXX executable gtest_environment_test
+[ 43%] Built target gtest_premature_exit_test
+[ 44%] Linking CXX executable gtest-death-test_ex_nocatch_test
+[ 45%] Building CXX object googletest/CMakeFiles/gtest_xml_outfile2_test_.dir/test/gtest_xml_outfile2_test_.cc.o
+[ 45%] Built target gtest_environment_test
+[ 46%] Linking CXX executable gtest-death-test_ex_catch_test
+[ 46%] Built target gtest-death-test_ex_nocatch_test
+[ 47%] Building CXX object googletest/CMakeFiles/gtest_xml_output_unittest_.dir/test/gtest_xml_output_unittest_.cc.o
+[ 48%] Building CXX object googletest/CMakeFiles/googletest-death-test-test.dir/test/googletest-death-test-test.cc.o
+[ 48%] Built target gtest-death-test_ex_catch_test
+[ 49%] Building CXX object googletest/CMakeFiles/googletest-filepath-test.dir/test/googletest-filepath-test.cc.o
+[ 49%] Linking CXX executable gtest-unittest-api_test
+[ 49%] Built target gtest-unittest-api_test
+[ 49%] Building CXX object googletest/CMakeFiles/googletest-listener-test.dir/test/googletest-listener-test.cc.o
+[ 50%] Linking CXX executable gtest_repeat_test
+[ 50%] Built target gtest_repeat_test
+[ 51%] Building CXX object googletest/CMakeFiles/gtest_main_unittest.dir/test/gtest_main_unittest.cc.o
+[ 52%] Linking CXX executable googletest-shuffle-test_
+[ 52%] Built target googletest-shuffle-test_
+[ 53%] Building CXX object googletest/CMakeFiles/googletest-message-test.dir/test/googletest-message-test.cc.o
+[ 54%] Building CXX object googletest/CMakeFiles/googletest-options-test.dir/test/googletest-options-test.cc.o
+[ 54%] Linking CXX executable googletest-uninitialized-test_
+[ 55%] Linking CXX executable googletest-filter-unittest_
+[ 55%] Built target googletest-uninitialized-test_
+[ 55%] Built target googletest-filter-unittest_
+[ 55%] Building CXX object googletest/CMakeFiles/googletest-port-test.dir/test/googletest-port-test.cc.o
+[ 56%] Building CXX object googletest/CMakeFiles/gtest_pred_impl_unittest.dir/test/gtest_pred_impl_unittest.cc.o
+[ 57%] Linking CXX executable gtest_xml_outfile1_test_
+[ 57%] Built target gtest_xml_outfile1_test_
+[ 58%] Building CXX object googletest/CMakeFiles/googletest-printers-test.dir/test/googletest-printers-test.cc.o
+[ 59%] Linking CXX executable gtest_xml_outfile2_test_
+[ 60%] Linking CXX executable googletest-listener-test
+[ 60%] Built target googletest-listener-test
+[ 60%] Built target gtest_xml_outfile2_test_
+[ 61%] Building CXX object googletest/CMakeFiles/gtest_prod_test.dir/test/gtest_prod_test.cc.o
+[ 62%] Building CXX object googletest/CMakeFiles/gtest_sole_header_test.dir/test/gtest_sole_header_test.cc.o
+[ 63%] Linking CXX shared library ../lib/libgmock.so
+[ 64%] Linking CXX executable googletest-list-tests-unittest_
+[ 64%] Built target googletest-list-tests-unittest_
+[ 64%] Built target gmock
+[ 65%] Building CXX object googletest/CMakeFiles/googletest-test-part-test.dir/test/googletest-test-part-test.cc.o
+[ 66%] Building CXX object googletest/CMakeFiles/gtest-typed-test_test.dir/test/gtest-typed-test_test.cc.o
+[ 67%] Linking CXX executable gtest_main_unittest
+[ 67%] Built target gtest_main_unittest
+[ 67%] Linking CXX executable gtest_list_output_unittest_
+[ 68%] Building CXX object googletest/CMakeFiles/gtest_unittest.dir/test/gtest_unittest.cc.o
+[ 68%] Built target gtest_list_output_unittest_
+[ 69%] Building CXX object googletest/CMakeFiles/gtest_skip_in_environment_setup_test.dir/test/gtest_skip_in_environment_setup_test.cc.o
+[ 70%] Linking CXX executable gtest_xml_output_unittest_
+[ 70%] Built target gtest_xml_output_unittest_
+[ 71%] Building CXX object googletest/CMakeFiles/gtest_skip_test.dir/test/gtest_skip_test.cc.o
+[ 72%] Linking CXX executable googletest-message-test
+[ 72%] Built target googletest-message-test
+[ 73%] Building CXX object googletest/CMakeFiles/gtest_no_rtti_unittest.dir/test/gtest_unittest.cc.o
+[ 74%] Linking CXX executable googletest-options-test
+[ 74%] Built target googletest-options-test
+[ 75%] Linking CXX executable gtest_sole_header_test
+[ 75%] Building CXX object googletest/CMakeFiles/gtest_prod_test.dir/test/production.cc.o
+[ 76%] Building CXX object googletest/CMakeFiles/gtest_dll_test_.dir/test/gtest_all_test.cc.o
+[ 77%] Linking CXX executable gtest_prod_test
+[ 77%] Built target gtest_sole_header_test
+[ 78%] Linking CXX executable googletest-filepath-test
+[ 79%] Building CXX object googletest/CMakeFiles/googletest-catch-exceptions-no-ex-test_.dir/test/googletest-catch-exceptions-test_.cc.o
+[ 79%] Built target gtest_prod_test
+[ 80%] Building CXX object googletest/CMakeFiles/gtest-typed-test_test.dir/test/gtest-typed-test2_test.cc.o
+[ 80%] Built target googletest-filepath-test
+[ 81%] Linking CXX executable gtest_skip_in_environment_setup_test
+[ 82%] Building CXX object googletest/CMakeFiles/googletest-catch-exceptions-ex-test_.dir/test/googletest-catch-exceptions-test_.cc.o
+[ 82%] Built target gtest_skip_in_environment_setup_test
+[ 83%] Building CXX object googletest/CMakeFiles/gtest_help_test_.dir/test/gtest_help_test_.cc.o
+[ 84%] Linking CXX executable gtest_skip_test
+[ 84%] Built target gtest_skip_test
+[ 85%] Linking CXX executable googletest-test-part-test
+[ 86%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 86%] Built target googletest-test-part-test
+[ 87%] Linking CXX executable googletest-catch-exceptions-no-ex-test_
+[ 87%] Built target googletest-catch-exceptions-no-ex-test_
+[ 88%] Linking CXX executable googletest-port-test
+[ 89%] Linking CXX executable googletest-output-test_
+[ 89%] Built target googletest-port-test
+[ 90%] Linking CXX executable googletest-catch-exceptions-ex-test_
+[ 90%] Built target googletest-output-test_
+[ 90%] Built target googletest-catch-exceptions-ex-test_
+[ 91%] Linking CXX shared library ../lib/libgmock_main.so
+[ 92%] Linking CXX executable gtest_help_test_
+[ 92%] Built target gtest_help_test_
+[ 92%] Built target gmock_main
+[ 93%] Linking CXX executable googletest-death-test-test
+[ 93%] Built target googletest-death-test-test
+[ 94%] Linking CXX executable gtest_pred_impl_unittest
+[ 95%] Linking CXX executable gtest-typed-test_test
+[ 95%] Built target gtest_pred_impl_unittest
+[ 95%] Built target gtest-typed-test_test
+[ 96%] Linking CXX executable googletest-printers-test
+[ 96%] Built target googletest-printers-test
+[ 97%] Linking CXX executable googletest-param-test-test
+[ 97%] Built target googletest-param-test-test
+[ 98%] Linking CXX executable gtest_unittest
+[ 98%] Built target gtest_unittest
+[ 99%] Linking CXX executable gtest_no_rtti_unittest
+[ 99%] Built target gtest_no_rtti_unittest
+[100%] Linking CXX executable gtest_dll_test_
+[100%] Built target gtest_dll_test_
+==> Entering fakeroot environment...
+==> Starting package()...
+-- Install configuration: "None"
+-- Installing: /home/builder/build/pkg/gtest/usr/include
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-actions.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-cardinalities.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-function-mocker.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-matchers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-more-actions.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-more-matchers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-nice-strict.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock-spec-builders.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/gmock.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/custom
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/custom/README.md
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/custom/gmock-generated-actions.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/custom/gmock-matchers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/custom/gmock-port.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/gmock-internal-utils.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/gmock-port.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gmock/internal/gmock-pp.h
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgmock.so.1.18.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/gtest/usr/lib/libgmock.so.1.18.0" to "$ORIGIN"
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgmock.so
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgmock_main.so.1.18.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/gtest/usr/lib/libgmock_main.so.1.18.0" to "$ORIGIN"
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgmock_main.so
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/pkgconfig/gmock.pc
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/pkgconfig/gmock_main.pc
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/cmake/GTest/GTestTargets.cmake
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/cmake/GTest/GTestTargets-none.cmake
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/cmake/GTest/GTestConfigVersion.cmake
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/cmake/GTest/GTestConfig.cmake
+-- Up-to-date: /home/builder/build/pkg/gtest/usr/include
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-assertion-result.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-death-test.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-matchers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-message.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-param-test.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-printers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-spi.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-test-part.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest-typed-test.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest_pred_impl.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/gtest_prod.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/custom
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/custom/README.md
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/custom/gtest-port.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/custom/gtest-printers.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/custom/gtest.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-death-test-internal.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-filepath.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-internal.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-param-util.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-port-arch.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-port.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-string.h
+-- Installing: /home/builder/build/pkg/gtest/usr/include/gtest/internal/gtest-type-util.h
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgtest.so.1.18.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/gtest/usr/lib/libgtest.so.1.18.0" to "$ORIGIN"
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgtest.so
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgtest_main.so.1.18.0
+-- Set non-toolchain portion of runtime path of "/home/builder/build/pkg/gtest/usr/lib/libgtest_main.so.1.18.0" to "$ORIGIN"
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/libgtest_main.so
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/pkgconfig/gtest.pc
+-- Installing: /home/builder/build/pkg/gtest/usr/lib/pkgconfig/gtest_main.pc
+install: creating directory '/home/builder/build/pkg/gtest/usr/share'
+install: creating directory '/home/builder/build/pkg/gtest/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/gtest/usr/share/licenses/gtest'
+'LICENSE' -> '/home/builder/build/pkg/gtest/usr/share/licenses/gtest/LICENSE'
+install: creating directory '/home/builder/build/pkg/gtest/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/gtest/usr/share/doc/gtest'
+'README.md' -> '/home/builder/build/pkg/gtest/usr/share/doc/gtest/README.md'
+'CONTRIBUTORS' -> '/home/builder/build/pkg/gtest/usr/share/doc/gtest/CONTRIBUTORS'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> WARNING: Package contains reference to $srcdir
+usr/lib/libgmock.so.1.18.0
+usr/lib/libgtest.so.1.18.0
+usr/lib/libgtest_main.so.1.18.0
+==> Creating package "gtest"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: gtest 1.18.0-1 (Sun Sep 20 01:08:05 2026)

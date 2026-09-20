@@ -1,0 +1,103 @@
+== build xcb-proto (deps: libxml2 python )
+warning: libxml2-2.15.4-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: xcb-proto 1.17.0-4 (Sun Sep 20 03:26:45 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading xcb-proto-1.17.0.tar.xz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100 148.1k 100 148.1k   0      0  82531      0   00:01   00:01              0100 148.1k 100 148.1k   0      0  82526      0   00:01   00:01              0100 148.1k 100 148.1k   0      0  82522      0   00:01   00:01              0
+  -> Downloading xcb-proto-1.17.0.tar.xz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    215 100    215   0      0    316      0                              0100    215 100    215   0      0    316      0                              0100    215 100    215   0      0    316      0                              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    xcb-proto-1.17.0.tar.xz ... Passed
+    xcb-proto-1.17.0.tar.xz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting xcb-proto-1.17.0.tar.xz with bsdtar
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for xmllint... /usr/sbin/xmllint
+checking for a Python interpreter with version >= 2.5... python
+checking for python... /usr/sbin/python
+checking for python version... 3.14
+checking for python platform... linux
+checking for GNU default python prefix... ${prefix}
+checking for GNU default python exec_prefix... ${exec_prefix}
+checking for python script directory (pythondir)... ${PYTHON_PREFIX}/lib/python3.14/site-packages
+checking for python extension module directory (pyexecdir)... ${PYTHON_EXEC_PREFIX}/lib/python3.14/site-packages
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating xcbgen/Makefile
+config.status: creating xcb-proto.pc
+Making all in src
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+Making all in xcbgen
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+make[2]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xcb-proto/usr/share/xcb'
+ /usr/bin/install -c -m 644 xcb.xsd xproto.xml bigreq.xml composite.xml damage.xml dbe.xml dpms.xml dri2.xml dri3.xml ge.xml glx.xml present.xml randr.xml record.xml render.xml res.xml screensaver.xml shape.xml shm.xml sync.xml xc_misc.xml xevie.xml xf86dri.xml xf86vidmode.xml xfixes.xml xinerama.xml xinput.xml xkb.xml xprint.xml xselinux.xml xtest.xml xv.xml xvmc.xml '/home/builder/build/pkg/xcb-proto/usr/share/xcb'
+make[2]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/src'
+Making install in xcbgen
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[2]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xcb-proto/usr/lib/python3.14/site-packages/xcbgen'
+ /usr/bin/install -c -m 644 __init__.py error.py expr.py align.py matcher.py state.py xtypes.py '/home/builder/build/pkg/xcb-proto/usr/lib/python3.14/site-packages/xcbgen'
+Byte-compiling python modules...
+__init__.pyerror.pyexpr.pyalign.pymatcher.pystate.pyxtypes.py
+Byte-compiling python modules (optimized versions) ...
+__init__.pyerror.pyexpr.pyalign.pymatcher.pystate.pyxtypes.py
+Byte-compiling python modules (optimized versions) ...
+__init__.pyerror.pyexpr.pyalign.pymatcher.pystate.pyxtypes.py
+make[2]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0/xcbgen'
+make[1]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0'
+make[2]: Entering directory '/home/builder/build/src/xcb-proto-1.17.0'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/xcb-proto/usr/share/pkgconfig'
+ /usr/bin/install -c -m 644 xcb-proto.pc '/home/builder/build/pkg/xcb-proto/usr/share/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0'
+make[1]: Leaving directory '/home/builder/build/src/xcb-proto-1.17.0'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "xcb-proto"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xcb-proto 1.17.0-4 (Sun Sep 20 03:26:55 2026)
