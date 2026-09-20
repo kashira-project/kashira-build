@@ -1,0 +1,4 @@
+# post-glibc-r48 toolchain rebuild (planning/glibc-rebase.md step 8)
+/mnt/lfs/src/kashira/pkgs/gcc
+/mnt/lfs/src/kashira/pkgs/llvm
+/mnt/lfs/src/kashira/pkgs/pacman
