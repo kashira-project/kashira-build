@@ -1,4 +1,4 @@
-== build iproute2 (deps: git glibc iptables libbpf libbpf.so libcap libcap.so libelf libxtables.so )
+== build iproute2 (deps: gcc git glibc iptables libbpf libbpf.so libcap libcap.so libelf libxtables.so )
 :: Synchronizing package databases...
  kashira downloading...
 :: Starting full system upgrade...
@@ -8,11 +8,11 @@ warning: base: unknown key '%INSTALLED_DB%' in local database
 warning: base-devel: unknown key '%INSTALLED_DB%' in local database
 looking for conflicting packages...
 
-Packages (29) acl-2.4.0-1  bash-5.3.20-1  bzip2-1.0.8-6  dbus-1.16.2-1  elfutils-0.196-1  expat-2.8.4-1  isl-0.27-2 [removal]  keyutils-1.6.3-4  less-1:710-1  libarchive-3.8.9-1  libelf-0.196-1  libisl-0.28-1  libpcap-1.11.0-1  libverto-0.3.2-6  lmdb-1.0.0-1  man-pages-6.19-1  ncurses-6.6-2  openssl-4.0.1-1  pacman-7.1.0-5  pcre2-10.48-1  pkgconf-3.0.7-1  readline-8.3.6-1  systemd-261.2-4  tzdata-2026d-1  util-linux-2.42.3-1  util-linux-libs-2.42.3-1  xxhash-0.8.4-1  xz-5.8.4-1  zstd-1.5.7-3
+Packages (30) acl-2.4.0-1  bash-5.3.20-1  bzip2-1.0.8-6  dbus-1.16.2-1  elfutils-0.196-1  expat-2.8.4-1  isl-0.27-2 [removal]  keyutils-1.6.3-4  less-1:710-1  libarchive-3.8.9-1  libelf-0.196-1  libisl-0.28-1  libpcap-1.11.0-1  libverto-0.3.2-6  lmdb-1.0.0-1  man-pages-6.19-1  ncurses-6.6-2  openssl-4.0.1-1  pacman-7.1.0-5  pcre2-10.48-1  pkgconf-3.0.7-1  readline-8.3.6-1  shadow-4.20.2-2  systemd-261.2-4  tzdata-2026d-1  util-linux-2.42.3-1  util-linux-libs-2.42.3-1  xxhash-0.8.4-1  xz-5.8.4-1  zstd-1.5.7-3
 
-Total Download Size:    33.32 MiB
-Total Installed Size:  177.05 MiB
-Net Upgrade Size:        8.69 MiB
+Total Download Size:    33.88 MiB
+Total Installed Size:  180.60 MiB
+Net Upgrade Size:        8.41 MiB
 
 :: Proceed with installation? [Y/n] 
 :: Retrieving packages...
@@ -28,6 +28,7 @@ Net Upgrade Size:        8.69 MiB
  elfutils-0.196-1-x86_64 downloading...
  xz-5.8.4-1-x86_64 downloading...
  libelf-0.196-1-x86_64 downloading...
+ shadow-4.20.2-2-x86_64 downloading...
  util-linux-libs-2.42.3-1-x86_64 downloading...
  zstd-1.5.7-3-x86_64 downloading...
  libarchive-3.8.9-1-x86_64 downloading...
@@ -48,18 +49,1025 @@ checking keyring...
 checking package integrity...
 loading package files...
 checking for file conflicts...
-error: failed to commit transaction (conflicting files)
-util-linux: /etc/pam.d/chfn exists in filesystem (owned by shadow)
-util-linux: /etc/pam.d/chsh exists in filesystem (owned by shadow)
-util-linux: /etc/pam.d/login exists in filesystem (owned by shadow)
-util-linux: /etc/pam.d/su exists in filesystem (owned by shadow)
-util-linux: /etc/pam.d/su-l exists in filesystem (owned by shadow)
-util-linux: /usr/bin/chfn exists in filesystem (owned by shadow)
-util-linux: /usr/bin/chsh exists in filesystem (owned by shadow)
-util-linux: /usr/bin/login exists in filesystem (owned by shadow)
-util-linux: /usr/bin/newgrp exists in filesystem (owned by shadow)
-util-linux: /usr/bin/nologin exists in filesystem (owned by shadow)
-util-linux: /usr/bin/vigr exists in filesystem (owned by shadow)
-util-linux: /usr/bin/vipw exists in filesystem (owned by shadow)
-util-linux: /usr/share/man/man8/vigr.8 exists in filesystem (owned by shadow)
-Errors occurred, no packages were upgraded.
+:: Processing package changes...
+removing isl...
+upgrading tzdata...
+New optional dependencies for tzdata
+    bash: for tzselect [installed]
+    glibc: for zdump, zic [installed]
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+upgrading readline...
+upgrading bash...
+New optional dependencies for bash
+    bash-completion: for tab completion
+upgrading bzip2...
+upgrading xz...
+upgrading zstd...
+reinstalling acl...
+reinstalling openssl...
+reinstalling libarchive...
+upgrading pcre2...
+New optional dependencies for pcre2
+    sh: for pcre2-config [installed]
+upgrading expat...
+reinstalling dbus...
+installing util-linux-libs...
+Optional dependencies for util-linux-libs
+    python: python bindings to libmount [installed]
+upgrading keyutils...
+upgrading libverto...
+upgrading lmdb...
+upgrading shadow...
+upgrading util-linux...
+warning: /etc/pam.d/chfn installed as /etc/pam.d/chfn.pacnew
+warning: /etc/pam.d/chsh installed as /etc/pam.d/chsh.pacnew
+warning: /etc/pam.d/login installed as /etc/pam.d/login.pacnew
+warning: /etc/pam.d/su installed as /etc/pam.d/su.pacnew
+warning: /etc/pam.d/su-l installed as /etc/pam.d/su-l.pacnew
+New optional dependencies for util-linux
+    words: default dictionary for look
+upgrading less...
+reinstalling systemd...
+Creating group 'rfkill' with GID 993.
+Creating group 'dbus' with GID 992.
+Suggested user ID 81 for dbus already used.
+Creating user 'dbus' (System Message Bus) with UID 992 and GID 992.
+installing libelf...
+upgrading elfutils...
+installing libisl...
+upgrading libpcap...
+upgrading man-pages...
+upgrading pacman...
+upgrading pkgconf...
+upgrading xxhash...
+:: Running post-transaction hooks...
+( 1/12) Creating system user accounts...
+( 2/12) Creating temporary files...
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/dbus (owned by root) during canonicalization of var/lib/dbus.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var (owned by 1000) → /var/cache (owned by root) during canonicalization of var/cache.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/systemd (owned by root) during canonicalization of var/lib/systemd.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/systemd (owned by root) during canonicalization of var/lib/systemd.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/systemd (owned by root) during canonicalization of var/lib/systemd.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/systemd (owned by root) during canonicalization of var/lib/systemd.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var (owned by 1000) → /var/cache (owned by root) during canonicalization of var/cache.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/tpm2-tss (owned by root) during canonicalization of var/lib/tpm2-tss/system.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log/journal.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log/journal.
+Detected unsafe path transition /var (owned by 1000) → /var/log (owned by root) during canonicalization of var/log/journal.
+Detected unsafe path transition /var/lib (owned by 1000) → /var/lib/tpm2-tss (owned by root) during canonicalization of var/lib/tpm2-tss/system/keystore.
+error: command failed to execute correctly
+( 3/12) Updating journal message catalog...
+( 4/12) Updating udev hardware database...
+( 5/12) Applying kernel sysctl settings...
+  Skipped: Current root is not booted.
+( 6/12) Reloading system manager configuration...
+  Skipped: Current root is not booted.
+( 7/12) Reloading user manager configuration...
+  Skipped: Current root is not booted.
+( 8/12) Enqueuing marked services...
+  Skipped: Current root is not booted.
+( 9/12) Reloading device manager configuration...
+  Skipped: Current root is not booted.
+(10/12) Arming ConditionNeedsUpdate...
+(11/12) Reloading system bus configuration...
+  Skipped: Current root is not booted.
+(12/12) Updating the info directory file...
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: iptables-1:1.8.13-1 is up to date -- skipping
+warning: libbpf-1.7.0-1 is up to date -- skipping
+warning: libbpf-1.7.0-1 is up to date -- skipping
+warning: libcap-2.78-1 is up to date -- skipping
+warning: libcap-2.78-1 is up to date -- skipping
+warning: libelf-0.196-1 is up to date -- skipping
+warning: iptables-1:1.8.13-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (6) mpc-1.4.1-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  gcc-16.2.0-6  git-2.55.0-1
+
+Total Download Size:    97.15 MiB
+Total Installed Size:  377.33 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: iproute2 7.2.0-1 (Sun Sep 20 09:18:10 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating iproute2 git repo...
+  -> Found 0001-make-iproute2-fhs-compliant.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    iproute2 ... Passed
+    0001-make-iproute2-fhs-compliant.patch ... Passed
+==> Extracting sources...
+  -> Creating working copy of iproute2 git repo...
+Cloning into 'iproute2'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+patching file Makefile
+Hunk #1 succeeded at 33 (offset 1 line).
+patching file netem/Makefile
+patching file tc/q_netem.c
+Hunk #1 succeeded at 131 (offset 3 lines).
+patching file tc/tc_util.c
+Hunk #1 succeeded at 26 with fuzz 1 (offset -5 lines).
+Hunk #2 succeeded at 79 with fuzz 1 (offset 3 lines).
+patching file tc/tc_util.h
+Hunk #1 succeeded at 72 with fuzz 2 (offset 1 line).
+==> Starting build()...
+TC schedulers
+ IPT	using xtables
+ IPSET  yes
+
+lib directory: /usr/lib
+libc has setns: yes
+libc has name_to_handle_at: yes
+SELinux support: no
+libtirpc support: yes
+libbpf support: yes
+	libbpf version 1.7.0
+ELF support: yes
+libmnl support: yes
+Berkeley DB: no
+need for strlcpy: no
+libcap support: yes
+color output: auto
+
+lib
+    CC       libgenl.o
+    CC       libnetlink.o
+    CC       utils.o
+    CC       utils_math.o
+    CC       mnl_utils.o
+    CC       mnlg.o
+    CC       ll_map.o
+    CC       rt_names.o
+    CC       ll_types.o
+    CC       ll_proto.o
+    CC       namespace.o
+    CC       ll_addr.o
+    CC       json_writer.o
+    CC       inet_proto.o
+    CC       json_print.o
+    CC       json_print_math.o
+    CC       names.o
+    CC       color.o
+    CC       bpf_legacy.o
+ll_addr.c:63:10: warning: initializing 'char *' with an expression of type 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+   63 |                         char *cp = strchr(arg, ':');
+      |                               ^    ~~~~~~~~~~~~~~~~
+    CC       bpf_glue.o
+    CC       exec.o
+    CC       fs.o
+    CC       cg_map.o
+    CC       ppp_proto.o
+    CC       bridge.o
+1 warning generated.
+    CC       sha1.o
+    CC       escape.o
+    CC       bpf_libbpf.o
+    CC       mpls_ntop.o
+    CC       selinux.o
+    CC       mpls_pton.o
+    AR       libnetlink.a
+    AR       libutil.a
+
+ip
+    CC       ip.o
+    CC       ipaddress.o
+    CC       ipaddrlabel.o
+    CC       iproute.o
+    CC       rtm_map.o
+    CC       iprule.o
+    CC       iptunnel.o
+    CC       ipnetns.o
+    CC       tunnel.o
+    CC       ipneigh.o
+    CC       ip6tunnel.o
+    CC       ipntable.o
+    CC       iplink.o
+    CC       ipmonitor.o
+    CC       ipmroute.o
+    CC       ipmaddr.o
+    CC       ipprefix.o
+    CC       iptuntap.o
+    CC       iptoken.o
+    CC       ipxfrm.o
+    CC       xfrm_state.o
+    CC       xfrm_policy.o
+    CC       xfrm_monitor.o
+    CC       iplink_dummy.o
+    CC       iplink_ifb.o
+xfrm_state.c:483:8: warning: field 'u' with variable sized type 'union (unnamed at xfrm_state.c:479:6)' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+  483 |                                         } u;
+      |                                           ^
+    CC       iplink_nlmon.o
+    CC       iplink_team.o
+    CC       iplink_vcan.o
+    CC       iplink_vxcan.o
+    CC       iplink_vlan.o
+    CC       link_gre.o
+    CC       link_veth.o
+    CC       iplink_can.o
+    CC       iplink_xdp.o
+    CC       iplink_macvlan.o
+    CC       link_vti.o
+    CC       ipl2tp.o
+    CC       link_vti6.o
+iplink_can.c:531:36: warning: format string is not a string literal [-Wformat-nonliteral]
+  531 |                 can_print_timing_min_max("tdcv", tdcv, *tdcv_min, *tdcv_max);
+      |                                                  ^~~~
+iplink_can.c:538:36: warning: format string is not a string literal [-Wformat-nonliteral]
+  538 |                 can_print_timing_min_max("tdco", tdco, *tdco_min, *tdco_max);
+      |                                                  ^~~~
+iplink_can.c:545:36: warning: format string is not a string literal [-Wformat-nonliteral]
+  545 |                 can_print_timing_min_max("tdcf", tdcf, *tdcf_min, *tdcf_max);
+      |                                                  ^~~~
+    CC       link_xfrm.o
+    CC       iplink_vxlan.o
+    CC       tcp_metrics.o
+    CC       iplink_ipoib.o
+1 warning generated.
+    CC       ipnetconf.o
+    CC       link_ip6tnl.o
+    CC       link_iptnl.o
+    CC       link_gre6.o
+    CC       iplink_bond.o
+    CC       iplink_bond_slave.o
+    CC       iplink_hsr.o
+    CC       iplink_bridge.o
+3 warnings generated.
+    CC       iplink_bridge_slave.o
+    CC       iplink_dsa.o
+    CC       ipfou.o
+    CC       iplink_geneve.o
+    CC       iplink_ipvlan.o
+    CC       iplink_vrf.o
+    CC       iproute_lwtunnel.o
+    CC       ipmacsec.o
+    CC       ipila.o
+    CC       ipvrf.o
+    CC       iplink_xstats.o
+    CC       ipseg6.o
+    CC       iplink_netdevsim.o
+    CC       iplink_rmnet.o
+    CC       ipnexthop.o
+    CC       ipmptcp.o
+    CC       iplink_bareudp.o
+    CC       iplink_wwan.o
+    CC       ipioam6.o
+    CC       iplink_amt.o
+    CC       iplink_batadv.o
+    CC       iplink_gtp.o
+    CC       iplink_virt_wifi.o
+    CC       iplink_netkit.o
+    CC       ipstats.o
+    CC       rtmon.o
+    LINK     rtmon
+    LINK     ip
+
+tc
+    CC       tc.o
+    CC       tc_qdisc.o
+    CC       tc_util.o
+    CC       tc_class.o
+    CC       tc_filter.o
+    CC       tc_exec.o
+    CC       m_police.o
+    CC       tc_monitor.o
+    CC       m_estimator.o
+    CC       m_ematch.o
+    YACC     emp_ematch.tab.c
+    CC       m_action.o
+    CC       q_fifo.o
+    LEX      emp_ematch.lex.c
+    CC       q_sfq.o
+    CC       q_dualpi2.o
+    CC       q_red.o
+    CC       q_prio.o
+    CC       q_skbprio.o
+    CC       q_tbf.o
+    CC       q_multiq.o
+    CC       q_netem.o
+    CC       q_choke.o
+    CC       q_sfb.o
+    CC       f_u32.o
+    CC       f_route.o
+    CC       f_fw.o
+    CC       f_basic.o
+    CC       f_bpf.o
+    CC       f_flow.o
+    CC       f_cgroup.o
+    CC       q_gred.o
+    CC       f_flower.o
+    CC       q_ingress.o
+    CC       q_hfsc.o
+    CC       q_htb.o
+f_u32.c:44:8: warning: initializing 'char *' with an expression of type 'const char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+   44 |         char *tmp = strchr(str, ':');
+      |               ^     ~~~~~~~~~~~~~~~~
+    CC       q_drr.o
+    CC       q_qfq.o
+f_u32.c:1025:21: warning: field 'sel' with variable sized type 'struct tc_u32_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 1025 |                 struct tc_u32_sel sel;
+      |                                   ^
+f_u32.c:1130:23: warning: field 'sel' with variable sized type 'struct tc_u32_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+ 1130 |                                 struct tc_u32_sel sel;
+      |                                                   ^
+    CC       m_gact.o
+    CC       m_mirred.o
+    CC       m_mpls.o
+    CC       m_nat.o
+    CC       m_ife.o
+    CC       m_pedit.o
+    CC       m_skbedit.o
+    CC       m_skbmod.o
+    CC       m_csum.o
+    CC       m_simple.o
+    CC       m_vlan.o
+    CC       m_connmark.o
+    CC       m_ctinfo.o
+    CC       m_tunnel_key.o
+In file included from m_pedit.c:24:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+    CC       m_bpf.o
+    CC       m_sample.o
+    CC       m_ct.o
+    CC       m_gate.o
+    CC       p_ip.o
+    CC       p_ip6.o
+    CC       p_icmp.o
+    CC       p_eth.o
+    CC       p_tcp.o
+    CC       p_udp.o
+    CC       em_nbyte.o
+    CC       em_cmp.o
+    CC       em_u32.o
+    CC       em_canid.o
+In file included from p_ip.c:18:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+3 warnings generated.
+    CC       em_meta.o
+In file included from p_eth.c:19:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+1 warning generated.
+1 warning generated.
+    CC       q_mqprio.o
+    CC       q_codel.o
+In file included from In file included from p_ip6.c:18:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+p_icmp.c:18:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+In file included from p_tcp.c:18:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+1 warning generated.
+1 warning generated.
+    CC       q_fq_codel.o
+    CC       q_fq.o
+1 warning generated.
+1 warning generated.
+    CC       q_pie.o
+    CC       q_fq_pie.o
+In file included from p_udp.c:18:
+./m_pedit.h:61:22: warning: field 'sel' with variable sized type 'struct tc_pedit_sel' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
+   61 |         struct tc_pedit_sel sel;
+      |                             ^
+    CC       q_cake.o
+    CC       q_hhf.o
+1 warning generated.
+    CC       q_clsact.o
+    CC       e_bpf.o
+    CC       f_matchall.o
+    CC       q_cbs.o
+    CC       q_etf.o
+    CC       q_taprio.o
+    CC       q_plug.o
+    CC       q_ets.o
+    CC       em_ipt.o
+    CC       em_ipset.o
+    CC       tc_core.o
+    CC       tc_red.o
+    CC       tc_estimator.o
+    CC       tc_stab.o
+    CC       tc_qevent.o
+    CC       emp_ematch.tab.o
+    CC       emp_ematch.lex.o
+    AR       libtc.a
+    LINK     tc
+rm emp_ematch.lex.c
+
+bridge
+    CC       bridge.o
+    CC       monitor.o
+    CC       link.o
+    CC       fdb.o
+    CC       mst.o
+    CC       mdb.o
+    CC       vlan.o
+    CC       vni.o
+    LINK     bridge
+
+misc
+    CC       ss.o
+    CC       ssfilter_check.o
+    YACC     ssfilter.tab.c
+    CC       nstat
+    CC       lnstat.o
+    CC       ifstat
+    CC       rtacct
+    CC       lnstat_util.o
+    CC       ssfilter.tab.o
+    LINK     lnstat
+    LINK     ss
+
+netem
+gcc  -I../include -o maketable maketable.c -lm
+gcc  -I../include -o normal normal.c -lm
+gcc  -I../include -o pareto pareto.c -lm
+gcc  -I../include -o paretonormal paretonormal.c -lm
+./normal > normal.dist
+./pareto > pareto.dist
+./paretonormal > paretonormal.dist
+./maketable experimental.dat > experimental.dist
+
+genl
+    CC       genl.o
+    CC       ctrl.o
+    LINK     genl
+
+man
+make[2]: Nothing to be done for 'all'.
+sed \
+	-e "s|@NETNS_ETC_DIR@|/etc/netns|g" \
+	-e "s|@NETNS_RUN_DIR@|/var/run/netns|g" \
+	-e "s|@SYSCONF_ETC_DIR@|/etc/iproute2|g" \
+	-e "s|@SYSCONF_USR_DIR@|/usr/share/iproute2|g" \
+	ip-address.8.in > ip-address.8
+sed \
+	-e "s|@NETNS_ETC_DIR@|/etc/netns|g" \
+	-e "s|@NETNS_RUN_DIR@|/var/run/netns|g" \
+	-e "s|@SYSCONF_ETC_DIR@|/etc/iproute2|g" \
+	-e "s|@SYSCONF_USR_DIR@|/usr/share/iproute2|g" \
+	ip-link.8.in > ip-link.8
+sed \
+	-e "s|@NETNS_ETC_DIR@|/etc/netns|g" \
+	-e "s|@NETNS_RUN_DIR@|/var/run/netns|g" \
+	-e "s|@SYSCONF_ETC_DIR@|/etc/iproute2|g" \
+	-e "s|@SYSCONF_USR_DIR@|/usr/share/iproute2|g" \
+	ip-netns.8.in > ip-netns.8
+sed \
+	-e "s|@NETNS_ETC_DIR@|/etc/netns|g" \
+	-e "s|@NETNS_RUN_DIR@|/var/run/netns|g" \
+	-e "s|@SYSCONF_ETC_DIR@|/etc/iproute2|g" \
+	-e "s|@SYSCONF_USR_DIR@|/usr/share/iproute2|g" \
+	ip-route.8.in > ip-route.8
+sed \
+	-e "s|@NETNS_ETC_DIR@|/etc/netns|g" \
+	-e "s|@NETNS_RUN_DIR@|/var/run/netns|g" \
+	-e "s|@SYSCONF_ETC_DIR@|/etc/iproute2|g" \
+	-e "s|@SYSCONF_USR_DIR@|/usr/share/iproute2|g" \
+	ip-rule.8.in > ip-rule.8
+
+tipc
+    CC       bearer.o
+    CC       link.o
+    CC       cmdl.o
+    CC       media.o
+    CC       msg.o
+    CC       node.o
+    CC       misc.o
+    CC       nametable.o
+    CC       socket.o
+    CC       peer.o
+    CC       tipc.o
+    LINK     tipc
+
+devlink
+    CC       devlink.o
+    LINK     devlink
+
+rdma
+    CC       rdma.o
+    CC       utils.o
+    CC       dev.o
+    CC       res.o
+    CC       res-pd.o
+    CC       link.o
+    CC       res-mr.o
+    CC       res-cq.o
+    CC       res-qp.o
+    CC       res-cmid.o
+    CC       stat.o
+    CC       sys.o
+    CC       res-ctx.o
+    CC       stat-mr.o
+    CC       res-srq.o
+    CC       monitor.o
+    CC       res-frmr-pools.o
+    LINK     rdma
+
+dcb
+    CC       dcb_app.o
+    CC       dcb.o
+    CC       dcb_buffer.o
+    CC       dcb_dcbx.o
+    CC       dcb_ets.o
+    CC       dcb_maxrate.o
+    CC       dcb_apptrust.o
+    CC       dcb_pfc.o
+    CC       dcb_rewr.o
+    LINK     dcb
+
+vdpa
+    CC       vdpa.o
+    LINK     vdpa
+
+netshaper
+    CC       netshaper.o
+    LINK     netshaper
+
+dpll
+    CC       dpll.o
+    LINK     dpll
+==> Entering fakeroot environment...
+==> Starting package()...
+
+lib
+make[1]: Nothing to be done for 'all'.
+
+ip
+make[1]: Nothing to be done for 'all'.
+
+tc
+make[1]: Nothing to be done for 'all'.
+
+bridge
+make[1]: Nothing to be done for 'all'.
+
+misc
+make[1]: Nothing to be done for 'all'.
+
+netem
+make[1]: Nothing to be done for 'all'.
+
+genl
+make[1]: Nothing to be done for 'all'.
+
+man
+make[2]: Nothing to be done for 'all'.
+make[2]: Nothing to be done for 'all'.
+
+tipc
+make[1]: Nothing to be done for 'all'.
+
+devlink
+make[1]: Nothing to be done for 'all'.
+
+rdma
+make[1]: Nothing to be done for 'all'.
+
+dcb
+make[1]: Nothing to be done for 'all'.
+
+vdpa
+make[1]: Nothing to be done for 'all'.
+
+netshaper
+make[1]: Nothing to be done for 'all'.
+
+dpll
+make[1]: Nothing to be done for 'all'.
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/bin
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/share/iproute2
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/include/iproute2
+make[1]: Nothing to be done for 'install'.
+install -m 0755 ip rtmon /home/builder/build/pkg/iproute2/usr/bin
+install -m 0755 routel /home/builder/build/pkg/iproute2/usr/bin
+mkdir -p /home/builder/build/pkg/iproute2/usr/lib/tc
+install -m 0755 tc /home/builder/build/pkg/iproute2/usr/bin
+for i in ; \
+do install -m 755 $i /home/builder/build/pkg/iproute2/usr/lib/tc; \
+done
+if [ ! -f /home/builder/build/pkg/iproute2/usr/lib/tc/m_ipt.so ]; then \
+if [ -f /home/builder/build/pkg/iproute2/usr/lib/tc/m_xt.so ]; \
+	then ln -s m_xt.so /home/builder/build/pkg/iproute2/usr/lib/tc/m_ipt.so ; \
+elif [ -f /home/builder/build/pkg/iproute2/usr/lib/tc/m_xt_old.so ]; \
+	then ln -s m_xt_old.so /home/builder/build/pkg/iproute2/usr/lib/tc/m_ipt.so ; \
+fi; \
+fi
+install -m 0755 bridge /home/builder/build/pkg/iproute2/usr/bin
+install -m 0755 ss nstat ifstat rtacct lnstat /home/builder/build/pkg/iproute2/usr/bin
+ln -sf lnstat /home/builder/build/pkg/iproute2/usr/bin/rtstat
+ln -sf lnstat /home/builder/build/pkg/iproute2/usr/bin/ctstat
+mkdir -p /home/builder/build/pkg/iproute2/usr/share/tc
+for i in normal.dist pareto.dist paretonormal.dist experimental.dist; \
+do install -m 644 $i /home/builder/build/pkg/iproute2/usr/share/tc; \
+done
+install -m 0755 genl /home/builder/build/pkg/iproute2/usr/bin
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/share/man/man7
+install -m 0644 tc-hfsc.7 /home/builder/build/pkg/iproute2/usr/share/man/man7
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/share/man/man8
+install -m 0644 ip-address.8 ip-link.8 ip-netns.8 ip-route.8 ip-rule.8 arpd.8 bridge.8 ctstat.8 dcb-app.8 dcb-apptrust.8 dcb-buffer.8 dcb-dcbx.8 dcb-ets.8 dcb-maxrate.8 dcb-pfc.8 dcb-rewr.8 dcb.8 devlink-dev.8 devlink-dpipe.8 devlink-health.8 devlink-lc.8 devlink-monitor.8 devlink-port.8 devlink-rate.8 devlink-region.8 devlink-resource.8 devlink-sb.8 devlink-trap.8 devlink.8 dpll.8 genl.8 ifstat.8 ip-addrlabel.8 ip-fou.8 ip-gue.8 ip-ioam.8 ip-l2tp.8 ip-macsec.8 ip-maddress.8 ip-monitor.8 ip-mptcp.8 ip-mroute.8 ip-neighbour.8 ip-netconf.8 ip-nexthop.8 ip-ntable.8 ip-sr.8 ip-stats.8 ip-tcp_metrics.8 ip-token.8 ip-tunnel.8 ip-vrf.8 ip-xfrm.8 ip.8 lnstat.8 netshaper.8 nstat.8 rdma-dev.8 rdma-link.8 rdma-monitor.8 rdma-resource.8 rdma-statistic.8 rdma-system.8 rdma.8 routel.8 rtacct.8 rtmon.8 rtstat.8 ss.8 tc-actions.8 tc-basic.8 tc-bfifo.8 tc-bpf.8 tc-cake.8 tc-cbs.8 tc-cgroup.8 tc-choke.8 tc-codel.8 tc-connmark.8 tc-csum.8 tc-ct.8 tc-ctinfo.8 tc-drr.8 tc-dualpi2.8 tc-ematch.8 tc-etf.8 tc-ets.8 tc-flow.8 tc-flower.8 tc-fq.8 tc-fq_codel.8 tc-fq_pie.8 tc-fw.8 tc-gact.8 tc-gate.8 tc-hfsc.8 tc-htb.8 tc-ife.8 tc-matchall.8 tc-mirred.8 tc-mpls.8 tc-mqprio.8 tc-nat.8 tc-netem.8 tc-pedit.8 tc-pfifo.8 tc-pfifo_fast.8 tc-pie.8 tc-police.8 tc-prio.8 tc-red.8 tc-route.8 tc-sample.8 tc-sfb.8 tc-sfq.8 tc-simple.8 tc-skbedit.8 tc-skbmod.8 tc-skbprio.8 tc-stab.8 tc-taprio.8 tc-tbf.8 tc-tunnel_key.8 tc-u32.8 tc-vlan.8 tc.8 tipc-bearer.8 tipc-link.8 tipc-media.8 tipc-nametable.8 tipc-node.8 tipc-peer.8 tipc-socket.8 tipc.8 vdpa-dev.8 vdpa-mgmtdev.8 vdpa.8 /home/builder/build/pkg/iproute2/usr/share/man/man8
+for i in tipc; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in devlink; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in rdma; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in dcb; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in vdpa; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in netshaper; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+for i in dpll; \
+do install -m 0755 $i /home/builder/build/pkg/iproute2/usr/bin; \
+done
+install -m 0644 etc/iproute2/bpf_pinning etc/iproute2/ematch_map etc/iproute2/group etc/iproute2/nl_protos etc/iproute2/rt_dsfield etc/iproute2/rt_protos etc/iproute2/rt_realms etc/iproute2/rt_scopes etc/iproute2/rt_tables /home/builder/build/pkg/iproute2/usr/share/iproute2
+install -m 0755 -d /home/builder/build/pkg/iproute2/usr/share/bash-completion/completions
+install -m 0644 bash-completion/tc /home/builder/build/pkg/iproute2/usr/share/bash-completion/completions
+install -m 0644 bash-completion/devlink /home/builder/build/pkg/iproute2/usr/share/bash-completion/completions
+install -m 0644 bash-completion/dpll /home/builder/build/pkg/iproute2/usr/share/bash-completion/completions
+install -m 0644 include/bpf_elf.h /home/builder/build/pkg/iproute2/usr/include/iproute2
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "iproute2"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: iproute2 7.2.0-1 (Sun Sep 20 09:18:52 2026)
