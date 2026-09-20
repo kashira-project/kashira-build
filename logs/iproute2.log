@@ -1,171 +1,65 @@
 == build iproute2 (deps: git glibc iptables libbpf libbpf.so libcap libcap.so libelf libxtables.so )
+:: Synchronizing package databases...
+ kashira downloading...
+:: Starting full system upgrade...
+:: Replace isl with kashira/libisl? [Y/n] 
 resolving dependencies...
-warning: glibc-2.44-2 is up to date -- skipping
-warning: iptables-1:1.8.13-1 is up to date -- skipping
-warning: libbpf-1.7.0-1 is up to date -- skipping
-warning: libbpf-1.7.0-1 is up to date -- skipping
-warning: libcap-2.78-1 is up to date -- skipping
-warning: libcap-2.78-1 is up to date -- skipping
-warning: iptables-1:1.8.13-1 is up to date -- skipping
 warning: base: unknown key '%INSTALLED_DB%' in local database
 warning: base-devel: unknown key '%INSTALLED_DB%' in local database
 looking for conflicting packages...
 
-Packages (8) bzip2-1.0.8-6  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  xz-5.8.4-1  zstd-1.5.7-3  git-2.55.0-1  libelf-0.196-1
+Packages (29) acl-2.4.0-1  bash-5.3.20-1  bzip2-1.0.8-6  dbus-1.16.2-1  elfutils-0.196-1  expat-2.8.4-1  isl-0.27-2 [removal]  keyutils-1.6.3-4  less-1:710-1  libarchive-3.8.9-1  libelf-0.196-1  libisl-0.28-1  libpcap-1.11.0-1  libverto-0.3.2-6  lmdb-1.0.0-1  man-pages-6.19-1  ncurses-6.6-2  openssl-4.0.1-1  pacman-7.1.0-5  pcre2-10.48-1  pkgconf-3.0.7-1  readline-8.3.6-1  systemd-261.2-4  tzdata-2026d-1  util-linux-2.42.3-1  util-linux-libs-2.42.3-1  xxhash-0.8.4-1  xz-5.8.4-1  zstd-1.5.7-3
 
-Total Download Size:    8.65 MiB
-Total Installed Size:  53.63 MiB
-Net Upgrade Size:      47.51 MiB
+Total Download Size:    33.32 MiB
+Total Installed Size:  177.05 MiB
+Net Upgrade Size:        8.69 MiB
 
 :: Proceed with installation? [Y/n] 
 :: Retrieving packages...
- git-2.55.0-1-x86_64 downloading...
+ systemd-261.2-4-x86_64 downloading...
+ openssl-4.0.1-1-x86_64 downloading...
+ util-linux-2.42.3-1-x86_64 downloading...
+ man-pages-6.19-1-any downloading...
+ bash-5.3.20-1-x86_64 downloading...
+ libisl-0.28-1-x86_64 downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ pcre2-10.48-1-x86_64 downloading...
+ pacman-7.1.0-5-x86_64 downloading...
+ elfutils-0.196-1-x86_64 downloading...
  xz-5.8.4-1-x86_64 downloading...
  libelf-0.196-1-x86_64 downloading...
+ util-linux-libs-2.42.3-1-x86_64 downloading...
  zstd-1.5.7-3-x86_64 downloading...
+ libarchive-3.8.9-1-x86_64 downloading...
+ readline-8.3.6-1-x86_64 downloading...
+ tzdata-2026d-1-x86_64 downloading...
+ dbus-1.16.2-1-x86_64 downloading...
+ libpcap-1.11.0-1-x86_64 downloading...
+ less-1:710-1-x86_64 downloading...
+ expat-2.8.4-1-x86_64 downloading...
+ lmdb-1.0.0-1-x86_64 downloading...
+ pkgconf-3.0.7-1-x86_64 downloading...
+ xxhash-0.8.4-1-x86_64 downloading...
+ acl-2.4.0-1-x86_64 downloading...
+ keyutils-1.6.3-4-x86_64 downloading...
  bzip2-1.0.8-6-x86_64 downloading...
- perl-mailtools-2.22-1-any downloading...
- perl-timedate-2.35-1-any downloading...
- perl-error-0.17030-1-any downloading...
+ libverto-0.3.2-6-x86_64 downloading...
 checking keyring...
 checking package integrity...
 loading package files...
 checking for file conflicts...
 error: failed to commit transaction (conflicting files)
-libelf: /etc/profile.d/debuginfod.csh exists in filesystem (owned by elfutils)
-libelf: /etc/profile.d/debuginfod.sh exists in filesystem (owned by elfutils)
-libelf: /usr/include/dwarf.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/debuginfod.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/elf-knowledge.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/known-dwarf.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/libasm.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/libdw.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/libdwelf.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/libdwfl.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/libdwfl_stacktrace.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/elfutils/version.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/gelf.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/libelf.h exists in filesystem (owned by elfutils)
-libelf: /usr/include/nlist.h exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libasm.so exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libasm.so.1 exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libdebuginfod.so exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libdebuginfod.so.1 exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libdw.so exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libdw.so.1 exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libelf.so exists in filesystem (owned by elfutils)
-libelf: /usr/lib/libelf.so.1 exists in filesystem (owned by elfutils)
-libelf: /usr/lib/pkgconfig/libdebuginfod.pc exists in filesystem (owned by elfutils)
-libelf: /usr/lib/pkgconfig/libdw.pc exists in filesystem (owned by elfutils)
-libelf: /usr/lib/pkgconfig/libelf.pc exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_checksum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_fsize.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_getchdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_getehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_getphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_getshdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_newehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_newphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_offscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_xlatetof.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf32_xlatetom.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_checksum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_fsize.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_getchdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_getehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_getphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_getshdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_newehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_newphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_offscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_xlatetof.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf64_xlatetom.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_begin.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_clone.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_cntl.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_end.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_errmsg.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_errno.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_fill.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagdata.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagelf.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_flagshdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getarhdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getaroff.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getarsym.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getbase.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getdata.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getdata_rawchunk.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getident.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getphdrnum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getshdrnum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getshdrstrndx.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getshnum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_getshstrndx.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_gnu_hash.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_hash.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_kind.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_memory.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_ndxscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_newdata.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_newscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_next.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_nextscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_rand.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_rawdata.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_rawfile.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_scnshndx.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_strptr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_update.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/elf_version.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_checksum.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_fsize.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getauxv.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getchdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getclass.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getdyn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getlib.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getmove.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getnote.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getrel.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getrela.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getshdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getsym.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getsyminfo.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getsymshndx.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getverdaux.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getverdef.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getvernaux.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getverneed.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_getversym.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_newehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_newphdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_offscn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_auxv.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_dyn.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_ehdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_lib.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_move.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_phdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_rel.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_rela.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_shdr.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_sym.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_syminfo.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_symshndx.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_verdaux.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_verdef.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_vernaux.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_verneed.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_update_versym.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_xlatetof.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/gelf_xlatetom.3 exists in filesystem (owned by elfutils)
-libelf: /usr/share/man/man3/libelf.3 exists in filesystem (owned by elfutils)
+util-linux: /etc/pam.d/chfn exists in filesystem (owned by shadow)
+util-linux: /etc/pam.d/chsh exists in filesystem (owned by shadow)
+util-linux: /etc/pam.d/login exists in filesystem (owned by shadow)
+util-linux: /etc/pam.d/su exists in filesystem (owned by shadow)
+util-linux: /etc/pam.d/su-l exists in filesystem (owned by shadow)
+util-linux: /usr/bin/chfn exists in filesystem (owned by shadow)
+util-linux: /usr/bin/chsh exists in filesystem (owned by shadow)
+util-linux: /usr/bin/login exists in filesystem (owned by shadow)
+util-linux: /usr/bin/newgrp exists in filesystem (owned by shadow)
+util-linux: /usr/bin/nologin exists in filesystem (owned by shadow)
+util-linux: /usr/bin/vigr exists in filesystem (owned by shadow)
+util-linux: /usr/bin/vipw exists in filesystem (owned by shadow)
+util-linux: /usr/share/man/man8/vigr.8 exists in filesystem (owned by shadow)
 Errors occurred, no packages were upgraded.

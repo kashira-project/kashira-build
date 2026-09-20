@@ -53,6 +53,7 @@ build_one() {
   echo "== build $name (deps: ${deps:-none})"
   sudo docker run --rm \
     -e KBUILD_DEPS="$deps" \
+    -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
     -v "$pkgdir":/pkg:ro \
     -v "$SOURCES":/sources \
     -v "$OUT/$name":/out \

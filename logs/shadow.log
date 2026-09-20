@@ -1,0 +1,3481 @@
+== build shadow (deps: acl attr audit glibc libxcrypt pam )
+:: Synchronizing package databases...
+ kashira downloading...
+warning: acl-2.4.0-1 is up to date -- skipping
+warning: attr-2.6.0-1 is up to date -- skipping
+warning: audit-4.2.1-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libxcrypt-4.5.2-1 is up to date -- skipping
+warning: pam-1.7.2-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: shadow 4.20.2-2 (Sun Sep 20 08:49:43 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found shadow-4.20.2.tar.xz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    shadow-4.20.2.tar.xz ... Passed
+==> Extracting sources...
+  -> Extracting shadow-4.20.2.tar.xz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for x86_64-kashira-linux-gnu-strip... llvm-strip
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking how to create a pax tar archive... gnutar
+checking whether make supports the include directive... yes (GNU style)
+checking for x86_64-kashira-linux-gnu-gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking dependency style of clang -std=gnu23... gcc3
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for x86_64-kashira-linux-gnu-gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C23 features... (cached) -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... (cached) yes
+checking dependency style of clang -std=gnu23... (cached) gcc3
+checking whether ln -s works... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-kashira-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-kashira-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for x86_64-kashira-linux-gnu-objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for x86_64-kashira-linux-gnu-dlltool... no
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for x86_64-kashira-linux-gnu-ranlib... llvm-ranlib
+checking for x86_64-kashira-linux-gnu-ar... llvm-ar
+checking for archiver @FILE support... @
+checking for x86_64-kashira-linux-gnu-strip... (cached) llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for x86_64-kashira-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking for library containing dlopen... none required
+checking for dlerror... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dld_link in -ldld... no
+checking for shadow.h... yes
+checking for arc4random_buf... yes
+checking for getentropy... yes
+checking for getrandom... yes
+checking for lckpwdf... yes
+checking for lutimes... yes
+checking for updwtmpx... yes
+checking for innetgr... yes
+checking for getspnam_r... yes
+checking for rpmatch... yes
+checking for memset_explicit... yes
+checking for explicit_bzero... yes
+checking for stpecpy... no
+checking for seprintf... no
+checking for clang -std=gnu23 option to support large files... none needed
+checking for struct utmpx.ut_name... no
+checking for struct utmpx.ut_host... yes
+checking for struct utmpx.ut_syslen... no
+checking for struct utmpx.ut_addr... no
+checking for struct utmpx.ut_addr_v6... yes
+checking for struct utmpx.ut_time... no
+checking for struct utmpx.ut_xtime... no
+checking for putgrent... yes
+checking for putpwent... yes
+checking for putspent... yes
+checking for sgetgrent... no
+checking for sgetpwent... no
+checking for sgetspent... yes
+checking whether secure_getenv is declared... yes
+checking location of shared mail directory... /var/mail
+checking location of user mail file... none
+checking location of faillog/lastlog/wtmp... /var/log
+checking for posix_spawn... yes
+checking for posix_spawn... (cached) yes
+checking for library containing gethostbyname... none required
+checking for x86_64-kashira-linux-gnu-pkg-config... no
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for cmocka... no
+configure: WARNING: libcmocka not found, cmocka tests will not be built
+checking for econf_readDirs in -leconf... no
+checking size of uid_t... 4
+checking size of gid_t... 4
+checking for crypt in -lcrypt... yes
+checking for acl/libacl.h... yes
+checking for attr/error_context.h... yes
+checking for perm_copy_file in -lacl... yes
+checking for perm_copy_fd in -lacl... yes
+checking for libaudit.h... yes
+checking whether AUDIT_ADD_USER is declared... yes
+checking whether AUDIT_DEL_USER is declared... yes
+checking whether AUDIT_ADD_GROUP is declared... yes
+checking whether AUDIT_DEL_GROUP is declared... yes
+checking for audit_log_acct_message in -laudit... yes
+checking for sys/statfs.h... yes
+checking for linux/magic.h... yes
+checking for linux/btrfs_tree.h... yes
+checking for selinux/selinux.h... no
+checking for semanage/semanage.h... no
+checking for tcb.h... no
+checking for pam_start in -lpam... yes
+checking for openpam_ttyconv in -lpam... no
+checking for misc_conv in -lpam_misc... yes
+checking for security/openpam.h... no
+checking for security/pam_misc.h... yes
+checking whether PAM_ESTABLISH_CRED is declared... yes
+checking whether PAM_DELETE_CRED is declared... yes
+checking whether PAM_NEW_AUTHTOK_REQD is declared... yes
+checking whether PAM_DATA_SILENT is declared... yes
+checking use login and su access checking if PAM not used... no
+checking for fgetpwent_r... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/sbin/msgfmt
+checking for gmsgfmt... /usr/sbin/msgfmt
+checking for xgettext... /usr/sbin/xgettext
+checking for msgmerge... /usr/sbin/msgmerge
+checking for ld used by clang -std=gnu23... ld.lld -m elf_x86_64
+checking if the linker (ld.lld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking how to run the C preprocessor... clang-cpp
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating po/Makefile.in
+config.status: creating doc/Makefile
+config.status: creating man/Makefile
+config.status: creating man/config.xml
+config.status: creating man/po/Makefile
+config.status: creating man/cs/Makefile
+config.status: creating man/da/Makefile
+config.status: creating man/de/Makefile
+config.status: creating man/es/Makefile
+config.status: creating man/fi/Makefile
+config.status: creating man/fr/Makefile
+config.status: creating man/hu/Makefile
+config.status: creating man/id/Makefile
+config.status: creating man/it/Makefile
+config.status: creating man/ja/Makefile
+config.status: creating man/ko/Makefile
+config.status: creating man/pl/Makefile
+config.status: creating man/pt_BR/Makefile
+config.status: creating man/ru/Makefile
+config.status: creating man/sv/Makefile
+config.status: creating man/tr/Makefile
+config.status: creating man/uk/Makefile
+config.status: creating man/zh_CN/Makefile
+config.status: creating man/zh_TW/Makefile
+config.status: creating lib/Makefile
+config.status: creating libsubid/Makefile
+config.status: creating libsubid/subid.h
+config.status: creating src/Makefile
+config.status: creating etc/Makefile
+config.status: creating etc/pam.d/Makefile
+config.status: creating etc/shadow-maint/Makefile
+config.status: creating tests/unit/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: shadow 4.20.2 has been configured with the following features:
+
+	auditing support:		yes
+	PAM support:			yes
+	SELinux support:		no
+	BtrFS support:			yes
+	ACL support:			yes
+	tcb support (incomplete):	no
+	shadow group support:		yes
+	S/Key support:			no
+	bcrypt passwords encryption:	yes
+	yescrypt passwords encryption:	yes
+	nscd support:			yes
+	sssd support:			yes
+	subordinate IDs support:	yes
+	enable lastlog:			no
+	enable logind:			no
+	use file caps:			no
+	install su:			yes
+	enabled vendor dir:             
+	enable syslog: 			yes
+
+
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2'
+Making all in lib
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/lib'
+  CC       libshadow_la-age.lo
+  CC       libshadow_la-addgrps.lo
+  CC       libshadow_la-adds.lo
+  CC       libshadow_la-agetpass.lo
+  CC       libshadow_la-audit_help.lo
+  CC       libshadow_la-chkname.lo
+  CC       libshadow_la-basename.lo
+  CC       libshadow_la-bit.lo
+  CC       libshadow_la-chkhash.lo
+  CC       libshadow_la-chowndir.lo
+  CC       libshadow_la-chowntty.lo
+  CC       libshadow_la-cleanup_group.lo
+  CC       libshadow_la-cleanup.lo
+  CC       libshadow_la-cleanup_user.lo
+  CC       libshadow_la-commonio.lo
+  CC       libshadow_la-console.lo
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]warning: 
+-lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-copydir.lo
+  CC       libshadow_la-csrand.lo
+In file included from commonio.c:23:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from commonio.c:23:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+audit_help.c:71:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   71 |                 audit_log_acct_message (audit_fd, type, NULL, op, name, id,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |                                         NULL, NULL, NULL, result);
+      |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+audit_help.c:113:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  113 |         audit_log_acct_message(audit_fd, type, NULL, buf, name, id,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  114 |                                NULL, NULL, NULL, result);
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+audit_help.c:122:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  122 |                 audit_log_user_message (audit_fd,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  123 |                                         AUDIT_USYS_CONFIG,
+      |                                         ~~~~~~~~~~~~~~~~~~
+  124 |                                         message,
+      |                                         ~~~~~~~~
+  125 |                                         NULL, /* hostname */
+      |                                         ~~~~~~~~~~~~~~~~~~~~
+  126 |                                         NULL, /* addr */
+      |                                         ~~~~~~~~~~~~~~~~
+  127 |                                         NULL, /* tty */
+      |                                         ~~~~~~~~~~~~~~~
+  128 |                                         result);
+      |                                         ~~~~~~~
+In file included from agetpass.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from agetpass.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-encrypt.lo
+  CC       libshadow_la-env.lo
+2 warnings generated.
+3 warnings generated.
+In file included from chowntty.c:23:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from chowntty.c:23:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-exit_if_null.lo
+  CC       libshadow_la-failure.lo
+  CC       libshadow_la-fields.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-fd.lo
+  CC       libshadow_la-find_new_gid.lo
+2 warnings generated.
+  CC       libshadow_la-find_new_uid.lo
+  CC       libshadow_la-find_new_sub_gids.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-find_new_sub_uids.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from copydir.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from copydir.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-get_pid.lo
+  CC       libshadow_la-getdef.lo
+  CC       libshadow_la-getgr_nam_gid.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from env.c:16:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from env.c:16:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from exit_if_null.c:7:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from exit_if_null.c:7:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-getrange.lo
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from find_new_gid.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+clang/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_c: lang_ovewarning: rl-lcrypt: 'linker' input unused [-Wunused-command-line-argument]o
+ad_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from find_new_gid.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from find_new_uid.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from find_new_uid.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-gettime.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-groupio.lo
+  CC       libshadow_la-groupmem.lo
+  CC       libshadow_la-hushed.lo
+2 warnings generated.
+2 warnings generated.
+  CC       libshadow_la-idmapping.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from getdef.c:33:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from getdef.c:33:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from get_pid.c:16:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+2   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+ warnings/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+   generated.
+123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from get_pid.c:16:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+  CC       libshadow_la-isexpired.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-limits.lo
+  CC       libshadow_la-list.lo
+  CC       libshadow_la-lockpw.lo
+  CC       libshadow_la-mail.lo
+  CC       libshadow_la-loginprompt.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-motd.lo
+2 warnings generated.
+2 warnings generated.
+In file included from groupio.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupio.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupmem.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupmem.c:15:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-myname.lo
+  CC       libshadow_la-nss.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from gettime.c:16:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from gettime.c:16:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clangclangclang: : : warning: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]-lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-nscd.lo
+  CC       libshadow_la-obscure.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-pam_pass.lo
+2 warnings generated.
+2 warnings generated.
+In file included from list.c:11:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from list.c:11:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from idmapping.c:22:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from idmapping.c:22:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-port.lo
+  CC       libshadow_la-pam_pass_non_interactive.lo
+  CC       libshadow_la-prefix_flag.lo
+  CC       libshadow_la-pwauth.lo
+In file included from mail.c:19:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from mail.c:19:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-pwio.lo
+  CC       libshadow_la-pwd_init.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from nss.c:12:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from nss.c:12:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-pwd2spwd.lo
+2 warnings generated.
+  CC       libshadow_la-pwdcheck.lo
+  CC       libshadow_la-pwmem.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-remove_tree.lo
+  CC       libshadow_la-root_flag.lo
+In file included from pam_pass_non_interactive.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pam_pass_non_interactive.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-run_part.lo
+  CC       libshadow_la-salt.lo
+2 warnings generated.
+clangclang: : warning: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]-lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+
+In file included from obscure.c:25:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from obscure.c:25:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+2 warnings generated.
+  CC       libshadow_la-selinux.lo
+  CC       libshadow_la-semanage.lo
+In file included from prefix_flag.c:19:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+  CC       libshadow_la-setugid.lo
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from prefix_flag.c:19:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-setupenv.lo
+  CC       libshadow_la-sgroupio.lo
+In file included from pwmem.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pwmem.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       libshadow_la-shadowio.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-shadowmem.lo
+  CC       libshadow_la-shadowlog.lo
+In file included from run_part.c:14:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from run_part.c:14:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from root_flag.c:17:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (  CC       libshadow_la-shell.lo
+FILE *, __restrict, __stream),
+      | ^
+In file included from root_flag.c:17:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-spawn.lo
+  CC       libshadow_la-sssd.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       libshadow_la-strtoday.lo
+  CC       libshadow_la-sub.lo
+  CC       libshadow_la-subordinateio.lo
+  CC       libshadow_la-sulog.lo
+  CC       libshadow_la-sysconf.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from setupenv.c:clang28: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from setupenv.c:28:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = clang: warning: fprintf(stream, "%s\n", strerror(e));
+      |              ^
+-lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from sgroupio.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from sgroupio.c:17:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline i  CC       libshadow_la-ttytype.lo
+nt vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-tz.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       libshadow_la-ulimit.lo
+  CC       libshadow_la-user_busy.lo
+  CC       libshadow_la-valid.lo
+In file included from shadowmem.c:20:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadowmem.c:20:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from spawn.c:17:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from spawn.c:17:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+In file included from sssd.c:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from sssd.c:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-write_full.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-xgetpwnam.lo
+  CC       libshadow_la-xprefix_getpwnam.lo
+  CC       libshadow_la-xgetpwuid.lo
+2 warnings generated.
+  CC       libshadow_la-xgetgrnam.lo
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       libshadow_la-xgetgrgid.lo
+  CC       libshadow_la-xgetspnam.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from subordinateio.c:24:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from subordinateio.c:24:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       libshadow_la-yesno.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-btrfs.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-utmp.lo
+  CC       libshadow_la-freezero.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       libshadow_la-readpassphrase.lo
+  CC       alloc/libshadow_la-calloc.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from xprefix_getpwnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xprefix_getpwnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetpwuid.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetpwuid.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       alloc/libshadow_la-malloc.lo
+In file included from xgetpwnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   clang: warning: 70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+-lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetpwnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetgrnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetgrnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from xgetgrgid.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from xgetgrgid.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetspnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from xgetspnam.c:40:
+In file included from ./xgetXXbyYY.c:35:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       alloc/libshadow_la-realloc.lo
+In file included from xgetspnam.c:40:
+./xgetXXbyYY.c:51:5: warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+   51 | #if HAVE_FUNCTION_R
+      |     ^
+xgetspnam.c:38:26: note: expanded from macro 'HAVE_FUNCTION_R'
+   38 | #define HAVE_FUNCTION_R (defined HAVE_GETSPNAM_R)
+      |                          ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       alloc/libshadow_la-reallocf.lo
+2 warnings generated.
+3 warnings generated.
+  CC       atoi/libshadow_la-a2i.lo
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       atoi/libshadow_la-getnum.lo
+  CC       atoi/strtoi/libshadow_la-strtoi.lo
+  CC       atoi/strtoi/libshadow_la-strtou.lo
+In file included from alloc/calloc.c:11:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from alloc/calloc.c:11:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       atoi/strtoi/libshadow_la-strtou_noneg.lo
+2 warnings generated.
+2 warnings generated.
+  CC       fs/mkstemp/libshadow_la-fmkomstemp.lo
+In file included from alloc/malloc.c:11:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from alloc/malloc.c:11:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       fs/mkstemp/libshadow_la-mkomstemp.lo
+2 warnings generated.
+  CC       fs/readlink/libshadow_la-areadlink.lo
+In file included from utmp.c:29:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from utmp.c:29:
+In file included from ./alloc/calloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\nclang": , warning: st-lcrypt: 'linker' input unused [-Wunused-command-line-argument]r
+error(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       fs/readlink/libshadow_la-readlinknul.lo
+  CC       io/fgets/libshadow_la-fgets.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       io/libshadow_la-fprintf.lo
+In file included from alloc/realloc.c:11:
+In file included from ./alloc/realloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from alloc/realloc.c:11:
+In file included from ./alloc/realloc.h:13:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       io/libshadow_la-syslog.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       search/cmp/libshadow_la-cmp.lo
+  CC       search/l/libshadow_la-lfind.lo
+2 warnings generated.
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       search/l/libshadow_la-lsearch.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       search/sort/libshadow_la-qsort.lo
+  CC       shadow/group/libshadow_la-sgetgrent.lo
+  CC       shadow/grp/libshadow_la-agetgroups.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       shadow/gshadow/libshadow_la-fgetsgent.lo
+  CC       shadow/gshadow/libshadow_la-endsgent.lo
+In file included from io/fprintf.c:7:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from io/fprintf.c:7:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       shadow/gshadow/libshadow_la-getsgnam.lo
+  CC       shadow/gshadow/libshadow_la-getsgent.lo
+  CC       shadow/gshadow/libshadow_la-gshadow.lo
+In file included from fs/readlink/areadlink.c:7:
+In file included from ./fs/readlink/areadlink.h:17:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from fs/readlink/areadlink.c:7:
+In file included from ./fs/readlink/areadlink.h:17:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       shadow/gshadow/libshadow_la-putsgent.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       shadow/gshadow/libshadow_la-setsgent.lo
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       shadow/gshadow/libshadow_la-sgetsgent.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       shadow/gshadow/libshadow_la-sgrp.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       shadow/passwd/libshadow_la-getpw.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       shadow/passwd/libshadow_la-sgetpwent.lo
+  CC       shadow/shadow/libshadow_la-sgetspent.lo
+clang:   CC       string/ctype/libshadow_la-isascii.lo
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/ctype/libshadow_la-toascii.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from shadow/gshadow/fgetsgent.c:17:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       string/memset/libshadow_la-memzero.lo
+In file included from shadow/gshadow/fgetsgent.c:17:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from shadow/group/sgetgrent.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadow/group/sgetgrent.c:19:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadow/grp/agetgroups.c:7:
+In file included from ./shadow/grp/agetgroups.h:16:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadow/grp/agetgroups.c:7:
+In file included from ./shadow/grp/agetgroups.h:16:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       string/sprintf/libshadow_la-aprintf.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/sprintf/libshadow_la-seprintf.lo
+2 warnings generated.
+2 warnings generated.
+In file included from shadow/gshadow/sgetsgent.c:19:
+In file included from ./string/strtok/astrsep2ls.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadow/gshadow/sgetsgent.c:19:
+In file included from ./string/strtok/astrsep2ls.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+In file included from shadow/gshadow/putsgent.c:18:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from shadow/gshadow/putsgent.c:18:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       string/sprintf/libshadow_la-stprintf.lo
+  CC       string/strchr/libshadow_la-strchrscnt.lo
+  CC       string/strchr/libshadow_la-strchrcnt.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strchr/libshadow_la-strnul.lo
+  CC       string/strcmp/libshadow_la-strcaseeq.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strcmp/libshadow_la-strcaseprefix.lo
+  CC       string/strcmp/libshadow_la-streq.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CC       string/strcmp/libshadow_la-strneq.lo
+  CC       string/strcpy/libshadow_la-stpecpy.lo
+  CC       string/strcmp/libshadow_la-strprefix.lo
+  CC       string/strcpy/libshadow_la-strncat.lo
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strcpy/libshadow_la-strncpy.lo
+  CC       string/strcpy/libshadow_la-strtcpy.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strdup/libshadow_la-memdup.lo
+  CC       string/strdup/libshadow_la-strdup.lo
+  CC       string/strdup/libshadow_la-strndupa.lo
+In file included from string/sprintf/aprintf.c:7:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from string/sprintf/aprintf.c:7:
+In file included from ./string/sprintf/aprintf.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       string/strdup/libshadow_la-strndup.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/libshadow_la-strftime.lo
+2 warnings generated.
+  CC       string/strspn/libshadow_la-stpspn.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strspn/libshadow_la-stprspn.lo
+  CC       string/strspn/libshadow_la-stprcspn.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strspn/libshadow_la-strrcspn.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strspn/libshadow_la-strrspn.lo
+  CC       string/strtok/libshadow_la-stpsep.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       string/strtok/libshadow_la-astrsep2ls.lo
+  CC       string/strtok/libshadow_la-strsep2arr.lo
+  CC       string/strtok/libshadow_la-strsep2ls.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+  CC       time/libshadow_la-day_to_str.lo
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from string/strdup/strdup.c:7:
+In file included from ./string/strdup/strdup.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from string/strdup/strdup.c:7:
+In file included from ./string/strdup/strdup.h:17:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+In file included from string/strdup/memdup.c:7:
+In file included from ./string/strdup/memdup.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:./io/fprintf.h15::
+41:1:./io/fprintf.h :note: 70use 'static' to give inline function 'vfprintec' internal linkage:
+7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   41 | inline    i70n | t         lv2f p=r ifpnrtienct(fF(sItLrEe a*mr,e slt1r i?c t":  s"t :r e"a"m),; 
+i      n| t             ^
+ e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from string/strdup/memdup.c:7:
+In file included from ./string/strdup/memdup.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+2 warnings generated.
+In file included from string/strdup/strndup.c:7:
+In file included from ./string/strdup/strndup.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from string/strdup/strndup.c:7:
+In file included from ./string/strdup/strndup.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clangclang: : warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+In file included from string/strtok/astrsep2ls.c:7:
+In file included from ./string/strtok/astrsep2ls.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from string/strtok/astrsep2ls.c:7:
+In file included from ./string/strtok/astrsep2ls.h:13:
+In file included from ./alloc/malloc.h:14:
+In file included from ./exit_if_null.h:15:
+./io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+./io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+clang: warning: -lcrypt: 'linker' input unused [-Wunused-command-line-argument]
+2 warnings generated.
+  CCLD     libshadow.la
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/lib'
+Making all in libsubid
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+  CC       api.lo
+  CCLD     libsubid.la
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+Making all in src
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/src'
+  CC       login.o
+  CC       su.o
+  CC       login_nopam.o
+  CC       getsubids-getsubids.o
+  CC       suauth.o
+  CC       get_subid_owners-get_subid_owners.o
+  CC       new_subid_range-new_subid_range.o
+  CC       sulogin.o
+  CC       nologin.o
+  CC       free_subid_range-free_subid_range.o
+  CC       faillog.o
+  CC       check_subid_range-check_subid_range.o
+  CC       chfn.o
+  CC       chage.o
+  CC       chsh.o
+  CC       gpasswd.o
+  CC       newgrp.o
+In file included from getsubids.c:8:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from getsubids.c:8:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from In file included from su.c:49:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from su.c:49:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __resfree_subid_range.c:8:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+t   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+rict, __stream),
+      | ../lib/io/fprintf.h^
+:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from free_subid_range.c:8:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from login.c:29:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+In file included from ../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.hget_subid_owners.c:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+:8:
+../lib/io/fprintf.h:70:In file included from login.c:29:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ?74  |         l3 = fprint"f(:s tr"e am:,  """%);s
+      \| n"             ^,
+ strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from get_subid_owners.c:8:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from new_subid_range.c:7:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fpIn file included from rchfn.c:28:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+i   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+ntf(stream, l../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   141 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+ /usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  ?123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+ ": " :In file included from  chfn.c:28:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream,In file included from  "faillog.c%:s26\:
+n",../lib/io/fprintf.h :s70t:r7e:r rwarning: orusing static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline](
+e));
+      |              ^
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+"");../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   
+41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123       | | fp             ^r
+intf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkageIn file included from 
+faillog.c:26:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+      74 | 41         | li3n l=i fnperi nitnft(s tvrfeapmr,i n"t%se\cn(",F IsLtEre r*rrore(set)r)i;c
+      t|               ^
+stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ../lib/io/fprintf.h:^41:
+1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from new_subid_range.c:7:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+In file included from chsh.c:26:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   /usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from chsh.c:26:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+su.c:218:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  218 |         audit_log_acct_message (audit_fd,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  219 |                                 AUDIT_USER_ROLE_CHANGE,
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~
+  220 |                                 NULL,    /* Prog. name */
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+  221 |                                 "su",
+      |                                 ~~~~~
+  222 |                                 ('\0' != caller_name[0]) ? caller_name : "???",
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  223 |                                 AUDIT_NO_ID,
+      |                                 ~~~~~~~~~~~~
+  224 |                                 "localhost",
+      |                                 ~~~~~~~~~~~~
+  225 |                                 NULL,    /* addr */
+      |                                 ~~~~~~~~~~~~~~~~~~~
+  226 |                                 tty,
+      |                                 ~~~~
+  227 |                                 0);      /* result */
+      |                                 ~~
+  CC       passwd.o
+su.c:1138:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1138 |         audit_log_acct_message (audit_fd,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1139 |                                 AUDIT_USER_ROLE_CHANGE,
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~
+ 1140 |                                 NULL,    /* Prog. name */
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1141 |                                 "su",
+      |                                 ~~~~~
+ 1142 |                                 (!streq(caller_name, "")) ? caller_name : "???",
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1143 |                                 AUDIT_NO_ID,
+      |                                 ~~~~~~~~~~~~
+ 1144 |                                 "localhost",
+      |                                 ~~~~~~~~~~~~
+ 1145 |                                 NULL,    /* addr */
+      |                                 ~~~~~~~~~~~~~~~~~~~
+ 1146 |                                 caller_tty,
+      |                                 ~~~~~~~~~~~
+ 1147 |                                 1);      /* result */
+      |                                 ~~
+login.c:717:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  717 |                         audit_log_acct_message (audit_fd,
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  718 |                                                 AUDIT_USER_LOGIN,
+      |                                                 ~~~~~~~~~~~~~~~~~
+  719 |                                                 NULL,    /* Prog. name */
+      |                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+  720 |                                                 "login",
+      |                                                 ~~~~~~~~
+  721 |                                                 failent_user,
+      |                                                 ~~~~~~~~~~~~~
+  722 |                                                 AUDIT_NO_ID,
+      |                                                 ~~~~~~~~~~~~
+  723 |                                                 hostname,
+      |                                                 ~~~~~~~~~
+  724 |                                                 NULL,    /* addr */
+      |                                                 ~~~~~~~~~~~~~~~~~~~
+  725 |                                                 tty,
+      |                                                 ~~~~
+  726 |                                                 0);      /* result */
+      |                                                 ~~
+login.c:1029:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1029 |         audit_log_acct_message (audit_fd,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1030 |                                 AUDIT_USER_LOGIN,
+      |                                 ~~~~~~~~~~~~~~~~~
+ 1031 |                                 NULL,    /* Prog. name */
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1032 |                                 "login",
+      |                                 ~~~~~~~~
+ 1033 |                                 username,
+      |                                 ~~~~~~~~~
+ 1034 |                                 AUDIT_NO_ID,
+      |                                 ~~~~~~~~~~~~
+ 1035 |                                 hostname,
+      |                                 ~~~~~~~~~
+ 1036 |                                 NULL,    /* addr */
+      |                                 ~~~~~~~~~~~~~~~~~~~
+ 1037 |                                 tty,
+      |                                 ~~~~
+ 1038 |                                 1);      /* result */
+      |                                 ~~
+In file included from sulogin.c:32:
+In file included from ../lib/string/strdup/strdup.h:17:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+In file included from gpasswd.c:24:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+In file included from newgrp.c:20:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+In file included from sulogin.c:32:
+In file included from ../lib/string/strdup/strdup.h:17:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline ../lib/io/fprintf.hi:n41:t1:  vnote: fuse 'static' to give inline function 'vfprintec' internal linkagep
+rintec(FILE *   r41e | sitnrliicnte  sitnrte avmf,p riinntt e../lib/io/fprintf.hec:(,41F
+:      I1| L:^E 
+       *note: | ruse 'static' to give inline function 'vfprintec' internal linkageestatic 
+s
+trict/usr/include/bits/stdio2.h: 123s:1t: renote: a'fprintf' declared herem
+, i   n41t |  ei,n
+      l|   i^123
+n |       | festatic p 
+riinnttf  v(_f_pfroritinfyt_e/usr/include/bits/stdio2.hcc:l123(a:Fn1I:g L_note: Eo 'fprintf' declared herev
+e*rrleoasdt_  ra123i | rfcpgtr  i(nsFttfIrLe E(a _m*_,f, or_t _iirfnetys t_erc,ilc
+at      n,| g^ __
+o_vs      etr| rlstatic oe
+aadm)_,a
+      r| g^ 
+(FILE *, __restrict, __strea/usr/include/bits/stdio2.hm:)123,:
+      1| :^ 
+note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from newgrp.c:20:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+In file included from gpasswd.c:24:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: ../lib/io/fprintf.h:using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]41
+:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   74 |            41 | li3n l=in ef ipnrt ivnftprfi(ntsetcr(eFaImLE,  *"re%stsr\inc"t ,s tsrtearme, rirnotr (e,e
+      )| ^)
+;      | 
+static       
+|              ^
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+sulogin.c:92:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   92 |                 dup(0);
+      |                 ^~~~~~
+sulogin.c:93:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   93 |                 dup(0);
+      |                 ^~~~~~
+2 warnings generated.
+  CC       newgidmap.o
+  CC       newuidmap.o
+  CC       chgpasswd.o
+In file included from chage.c:27:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from chage.c:27:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+  CC       chpasswd.o
+4 warnings generated.
+  CC       groupadd.o
+2 warnings generated.
+  CC       groupdel.o
+2 warnings generated.
+  CC       groupmod.o
+  CC       grpck.o
+2 warnings generated.
+2 warnings generated.
+  CC       grpconv.o
+In file included from passwd.c  CC       grpunconv.o
+:28:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from passwd.c:28:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from newuidmap.c:20:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from newuidmap.c:20:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from chgpasswd.c:24:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+In file included from chgpasswd.c:24:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline inIn file included from newgidmap.c:20:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   t vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^70
+ |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from newgidmap.c:20:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       newusers.o
+4 warnings generated.
+In file included from groupmod.c:24:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupmod.c:24:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inlineIn file included from chpasswd.c:29:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+    70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+int vfprintec(FI../lib/io/fprintf.hL:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+E   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+ */usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from chpasswd.c:29:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       pwck.o
+In file included from grpck.c:24:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from grpunconv.c:30:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");In file included from 
+      grpck.c| :             ^24
+:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   ../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int41 vfprintec(FILE *restrict stre | am, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1i: note: 'fprintf' declared here
+  123 | fprintf (__fortnify_clanline intg _overload_arg (FILE *, __restrict, _vf_stream)p,
+      | ^
+rintec(FILE *restrict stream, int e,
+      4 warnings generated.
+| ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from grpunconv.c:30:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+In file included from grpconv.c:32:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from grpconv.c:32:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CC       pwconv.o
+In file included from groupadd.c:27:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupadd.c:27:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:  CC       pwunconv.o
+41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupdel.c:24:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from groupdel.c:24:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+2 warnings generated.
+  CC       useradd.o
+  CC       userdel.o
+2 warnings generated.
+  CC       usermod.o
+2 warnings generated.
+2 warnings generated.
+  CC       vipw.o
+In file included from pwck.c:25:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  2123 |  warningfsp generatedr.
+intf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pwck.c:25:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CCLD     login
+In file included from pwconv.c:50:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pwconv.c:50:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pwunconv.c:25:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from pwunconv.c:25:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf   CCLD     su
+(__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+In file included from newusers.c:44:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from newusers.c:44:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CCLD     getsubids
+2 warnings generated.
+In file included from useradd.c:34:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from useradd.c:34:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inl2i warnings generated.
+ne int vfprin2t warninges generatedc.
+(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+In file included from userdel.c:27:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from userdel.c:27:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CCLD     sulogin
+In file included from usermod.c:32:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from usermod.c:32:
+In file included from ../lib/alloc/malloc.h:14:
+In file included from ../lib/exit_if_null.h:15:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+2 warnings generated.
+  CCLD     get_subid_owners
+  CCLD     new_subid_range
+  CCLD     free_subid_range
+In file included from vipw.c:33:
+../lib/io/fprintf.h:70:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   70 |         l2 = fprintf(stream, l1 ? ": " : "");
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+In file included from vipw.c:33:
+../lib/io/fprintf.h:74:7: warning: using static function 'fprintf' in an inline function with external linkage is a C2y extension [-Wstatic-in-inline]
+   74 |         l3 = fprintf(stream, "%s\n", strerror(e));
+      |              ^
+../lib/io/fprintf.h:41:1: note: use 'static' to give inline function 'vfprintec' internal linkage
+   41 | inline int vfprintec(FILE *restrict stream, int e,
+      | ^
+      | static 
+/usr/include/bits/stdio2.h:123:1: note: 'fprintf' declared here
+  123 | fprintf (__fortify_clang_overload_arg (FILE *, __restrict, __stream),
+      | ^
+  CCLD     check_subid_range
+vipw.c:442:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  442 |         link (file, filebackup);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+2 warnings generated.
+  CCLD     nologin
+  CCLD     faillog
+3 warnings generated.
+  CCLD     chage
+2 warnings generated.
+  CCLD     chfn
+  CCLD     chsh
+  CCLD     gpasswd
+  CCLD     newgrp
+2 warnings generated.
+  CCLD     passwd
+  CCLD     newgidmap
+  CCLD     newuidmap
+2 warnings generated.
+  CCLD     chgpasswd
+  CCLD     chpasswd
+  CCLD     groupadd
+  CCLD     groupdel
+  CCLD     groupmod
+  CCLD     grpck
+  CCLD     grpconv
+  CCLD     grpunconv
+  CCLD     newusers
+  CCLD     pwck
+  CCLD     pwconv
+  CCLD     pwunconv
+  CCLD     userdel
+  CCLD     vipw
+2 warnings generated.
+  CCLD     useradd
+2 warnings generated.
+  CCLD     usermod
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/src'
+Making all in po
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/po'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/doc'
+Making all in etc
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc'
+Making all in pam.d
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+Making all in shadow-maint
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc'
+Making all in tests/unit
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in lib
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/lib'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/lib'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/lib'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/lib'
+Making install in libsubid
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/include/shadow'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libsubid.la '/home/builder/build/pkg/shadow/usr/lib'
+ /usr/bin/install -c -m 644 subid.h '/home/builder/build/pkg/shadow/usr/include/shadow'
+libtool: install: /usr/bin/install -c .libs/libsubid.so.6.0.0 /home/builder/build/pkg/shadow/usr/lib/libsubid.so.6.0.0
+libtool: install: (cd /home/builder/build/pkg/shadow/usr/lib && { ln -s -f libsubid.so.6.0.0 libsubid.so.6 || { rm -f libsubid.so.6 && ln -s libsubid.so.6.0.0 libsubid.so.6; }; })
+libtool: install: (cd /home/builder/build/pkg/shadow/usr/lib && { ln -s -f libsubid.so.6.0.0 libsubid.so || { rm -f libsubid.so && ln -s libsubid.so.6.0.0 libsubid.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsubid.lai /home/builder/build/pkg/shadow/usr/lib/libsubid.la
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/libsubid'
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/src'
+make  install-exec-am install-data-am
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/src'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c login su getsubids '/home/builder/build/pkg/shadow/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c faillog chage chfn chsh gpasswd newgrp passwd newgidmap newuidmap '/home/builder/build/pkg/shadow/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c nologin '/home/builder/build/pkg/shadow/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c chgpasswd chpasswd groupadd groupdel groupmod grpck grpconv grpunconv newusers pwck pwconv pwunconv useradd userdel usermod vipw '/home/builder/build/pkg/shadow/usr/bin'
+libtool: install: /usr/bin/install -c nologin /home/builder/build/pkg/shadow/usr/bin/nologin
+libtool: install: /usr/bin/install -c login /home/builder/build/pkg/shadow/usr/bin/login
+libtool: install: /usr/bin/install -c faillog /home/builder/build/pkg/shadow/usr/bin/faillog
+libtool: install: /usr/bin/install -c chgpasswd /home/builder/build/pkg/shadow/usr/bin/chgpasswd
+libtool: install: /usr/bin/install -c chage /home/builder/build/pkg/shadow/usr/bin/chage
+libtool: install: /usr/bin/install -c su /home/builder/build/pkg/shadow/usr/bin/su
+libtool: install: /usr/bin/install -c chpasswd /home/builder/build/pkg/shadow/usr/bin/chpasswd
+libtool: install: /usr/bin/install -c chfn /home/builder/build/pkg/shadow/usr/bin/chfn
+libtool: install: /usr/bin/install -c groupadd /home/builder/build/pkg/shadow/usr/bin/groupadd
+libtool: warning: '../libsubid/libsubid.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/getsubids /home/builder/build/pkg/shadow/usr/bin/getsubids
+libtool: install: /usr/bin/install -c chsh /home/builder/build/pkg/shadow/usr/bin/chsh
+libtool: install: /usr/bin/install -c groupdel /home/builder/build/pkg/shadow/usr/bin/groupdel
+libtool: install: /usr/bin/install -c gpasswd /home/builder/build/pkg/shadow/usr/bin/gpasswd
+libtool: install: /usr/bin/install -c groupmod /home/builder/build/pkg/shadow/usr/bin/groupmod
+libtool: install: /usr/bin/install -c newgrp /home/builder/build/pkg/shadow/usr/bin/newgrp
+libtool: install: /usr/bin/install -c grpck /home/builder/build/pkg/shadow/usr/bin/grpck
+libtool: install: /usr/bin/install -c passwd /home/builder/build/pkg/shadow/usr/bin/passwd
+libtool: install: /usr/bin/install -c grpconv /home/builder/build/pkg/shadow/usr/bin/grpconv
+libtool: install: /usr/bin/install -c newgidmap /home/builder/build/pkg/shadow/usr/bin/newgidmap
+libtool: install: /usr/bin/install -c grpunconv /home/builder/build/pkg/shadow/usr/bin/grpunconv
+libtool: install: /usr/bin/install -c newuidmap /home/builder/build/pkg/shadow/usr/bin/newuidmap
+libtool: install: /usr/bin/install -c newusers /home/builder/build/pkg/shadow/usr/bin/newusers
+libtool: install: /usr/bin/install -c pwck /home/builder/build/pkg/shadow/usr/bin/pwck
+libtool: install: /usr/bin/install -c pwconv /home/builder/build/pkg/shadow/usr/bin/pwconv
+libtool: install: /usr/bin/install -c pwunconv /home/builder/build/pkg/shadow/usr/bin/pwunconv
+libtool: install: /usr/bin/install -c useradd /home/builder/build/pkg/shadow/usr/bin/useradd
+libtool: install: /usr/bin/install -c userdel /home/builder/build/pkg/shadow/usr/bin/userdel
+libtool: install: /usr/bin/install -c usermod /home/builder/build/pkg/shadow/usr/bin/usermod
+libtool: install: /usr/bin/install -c vipw /home/builder/build/pkg/shadow/usr/bin/vipw
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/src'
+ln -sf newgrp	/home/builder/build/pkg/shadow/usr/bin/sg
+ln -sf vipw	/home/builder/build/pkg/shadow/usr/bin/vigr
+set -e; for i in su; do \
+	chmod 4755 /home/builder/build/pkg/shadow/usr/bin/$i; \
+done
+set -e; for i in chage chfn chsh gpasswd newgrp passwd newgidmap newuidmap; do \
+	chmod 4755 /home/builder/build/pkg/shadow/usr/bin/$i; \
+done
+set -e; for i in ; do \
+	chmod 4755 /home/builder/build/pkg/shadow/usr/bin/$i; \
+done
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/src'
+Making install in po
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/po'
+installing bs.gmo as /home/builder/build/pkg/shadow/usr/share/locale/bs/LC_MESSAGES/shadow.mo
+installing ca.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ca/LC_MESSAGES/shadow.mo
+installing cs.gmo as /home/builder/build/pkg/shadow/usr/share/locale/cs/LC_MESSAGES/shadow.mo
+installing da.gmo as /home/builder/build/pkg/shadow/usr/share/locale/da/LC_MESSAGES/shadow.mo
+installing de.gmo as /home/builder/build/pkg/shadow/usr/share/locale/de/LC_MESSAGES/shadow.mo
+installing dz.gmo as /home/builder/build/pkg/shadow/usr/share/locale/dz/LC_MESSAGES/shadow.mo
+installing el.gmo as /home/builder/build/pkg/shadow/usr/share/locale/el/LC_MESSAGES/shadow.mo
+installing es.gmo as /home/builder/build/pkg/shadow/usr/share/locale/es/LC_MESSAGES/shadow.mo
+installing eu.gmo as /home/builder/build/pkg/shadow/usr/share/locale/eu/LC_MESSAGES/shadow.mo
+installing fi.gmo as /home/builder/build/pkg/shadow/usr/share/locale/fi/LC_MESSAGES/shadow.mo
+installing fr.gmo as /home/builder/build/pkg/shadow/usr/share/locale/fr/LC_MESSAGES/shadow.mo
+installing gl.gmo as /home/builder/build/pkg/shadow/usr/share/locale/gl/LC_MESSAGES/shadow.mo
+installing he.gmo as /home/builder/build/pkg/shadow/usr/share/locale/he/LC_MESSAGES/shadow.mo
+installing hu.gmo as /home/builder/build/pkg/shadow/usr/share/locale/hu/LC_MESSAGES/shadow.mo
+installing id.gmo as /home/builder/build/pkg/shadow/usr/share/locale/id/LC_MESSAGES/shadow.mo
+installing it.gmo as /home/builder/build/pkg/shadow/usr/share/locale/it/LC_MESSAGES/shadow.mo
+installing ja.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ja/LC_MESSAGES/shadow.mo
+installing ka.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ka/LC_MESSAGES/shadow.mo
+installing kk.gmo as /home/builder/build/pkg/shadow/usr/share/locale/kk/LC_MESSAGES/shadow.mo
+installing km.gmo as /home/builder/build/pkg/shadow/usr/share/locale/km/LC_MESSAGES/shadow.mo
+installing ko.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ko/LC_MESSAGES/shadow.mo
+installing nb.gmo as /home/builder/build/pkg/shadow/usr/share/locale/nb/LC_MESSAGES/shadow.mo
+installing ne.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ne/LC_MESSAGES/shadow.mo
+installing nl.gmo as /home/builder/build/pkg/shadow/usr/share/locale/nl/LC_MESSAGES/shadow.mo
+installing nn.gmo as /home/builder/build/pkg/shadow/usr/share/locale/nn/LC_MESSAGES/shadow.mo
+installing pl.gmo as /home/builder/build/pkg/shadow/usr/share/locale/pl/LC_MESSAGES/shadow.mo
+installing pt.gmo as /home/builder/build/pkg/shadow/usr/share/locale/pt/LC_MESSAGES/shadow.mo
+installing pt_BR.gmo as /home/builder/build/pkg/shadow/usr/share/locale/pt_BR/LC_MESSAGES/shadow.mo
+installing ro.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ro/LC_MESSAGES/shadow.mo
+installing ru.gmo as /home/builder/build/pkg/shadow/usr/share/locale/ru/LC_MESSAGES/shadow.mo
+installing sk.gmo as /home/builder/build/pkg/shadow/usr/share/locale/sk/LC_MESSAGES/shadow.mo
+installing sq.gmo as /home/builder/build/pkg/shadow/usr/share/locale/sq/LC_MESSAGES/shadow.mo
+installing sv.gmo as /home/builder/build/pkg/shadow/usr/share/locale/sv/LC_MESSAGES/shadow.mo
+installing tl.gmo as /home/builder/build/pkg/shadow/usr/share/locale/tl/LC_MESSAGES/shadow.mo
+installing tr.gmo as /home/builder/build/pkg/shadow/usr/share/locale/tr/LC_MESSAGES/shadow.mo
+installing uk.gmo as /home/builder/build/pkg/shadow/usr/share/locale/uk/LC_MESSAGES/shadow.mo
+installing vi.gmo as /home/builder/build/pkg/shadow/usr/share/locale/vi/LC_MESSAGES/shadow.mo
+installing zh_CN.gmo as /home/builder/build/pkg/shadow/usr/share/locale/zh_CN/LC_MESSAGES/shadow.mo
+installing zh_TW.gmo as /home/builder/build/pkg/shadow/usr/share/locale/zh_TW/LC_MESSAGES/shadow.mo
+if test "shadow" = "gettext-tools"; then \
+  /usr/sbin/mkdir -p /home/builder/build/pkg/shadow/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /home/builder/build/pkg/shadow/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /home/builder/build/pkg/shadow/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/po'
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/doc'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/doc'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/doc'
+Making install in etc
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc'
+Making install in pam.d
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/etc/pam.d'
+ /usr/bin/install -c -m 644 chpasswd chfn chsh login newusers passwd su '/home/builder/build/pkg/shadow/etc/pam.d'
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/pam.d'
+Making install in shadow-maint
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc/shadow-maint'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc'
+make[3]: Entering directory '/home/builder/build/src/shadow-4.20.2/etc'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/etc'
+ /usr/bin/install -c -m 644 login.defs '/home/builder/build/pkg/shadow/etc'
+make[3]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc'
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/etc'
+Making install in tests/unit
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2/tests/unit'
+make[1]: Entering directory '/home/builder/build/src/shadow-4.20.2'
+make[2]: Entering directory '/home/builder/build/src/shadow-4.20.2'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/shadow-4.20.2'
+make[1]: Leaving directory '/home/builder/build/src/shadow-4.20.2'
+make: Entering directory '/home/builder/build/src/shadow-4.20.2/man'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/share/man/man8'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/shadow/usr/share/man/man5'
+ /usr/bin/install -c -m 644 man3/shadow.3 '/home/builder/build/pkg/shadow/usr/share/man/man3'
+ /usr/bin/install -c -m 644 man5/faillog.5 man5/gshadow.5 man5/login.defs.5 man5/shadow.5 man5/subgid.5 man5/subuid.5 '/home/builder/build/pkg/shadow/usr/share/man/man5'
+ /usr/bin/install -c -m 644 man1/chage.1 man1/chfn.1 man1/chsh.1 man1/gpasswd.1 man1/login.1 man1/newgrp.1 man1/passwd.1 man1/sg.1 man1/su.1 man1/getsubids.1 man1/newgidmap.1 man1/newuidmap.1 '/home/builder/build/pkg/shadow/usr/share/man/man1'
+ /usr/bin/install -c -m 644 man8/chgpasswd.8 man8/chpasswd.8 man8/faillog.8 man8/groupadd.8 man8/groupdel.8 man8/groupmod.8 man8/grpck.8 man8/grpconv.8 man8/grpunconv.8 man8/newusers.8 man8/nologin.8 man8/pwck.8 man8/pwconv.8 man8/pwunconv.8 man8/useradd.8 man8/userdel.8 man8/usermod.8 man8/vigr.8 man8/vipw.8 '/home/builder/build/pkg/shadow/usr/share/man/man8'
+make: Leaving directory '/home/builder/build/src/shadow-4.20.2/man'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "shadow"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Adding install file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: shadow 4.20.2-2 (Sun Sep 20 08:50:38 2026)
