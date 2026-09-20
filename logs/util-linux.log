@@ -1,0 +1,3018 @@
+== build util-linux (deps: bash-completion coreutils file git glibc libcap-ng libcrypt.so libgcc libgcc_s.so libmagic.so libncursesw.so libsystemd.so libudev.so libxcrypt meson ncurses pam po4a python readline shadow sqlite systemd systemd-libs zlib )
+warning: uutils-coreutils-0.12.0-1 is up to date -- skipping
+warning: file-5.48-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: libcap-ng-0.9.6-1 is up to date -- skipping
+warning: libxcrypt-4.5.2-1 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: file-5.48-1 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: libxcrypt-4.5.2-1 is up to date -- skipping
+warning: pam-1.7.2-1 is up to date -- skipping
+warning: python-3.14.7-1 is up to date -- skipping
+warning: shadow-4.20.2-1 is up to date -- skipping
+warning: sqlite-3.53.4-1 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: systemd-261.2-4 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (16) libdatrie-0.2.14-1  libthai-0.1.30-1  ninja-1.13.2-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-mime-charset-1.013.1-6  perl-timedate-2.35-1  perl-unicode-linebreak-2019.001-9  perl-yaml-tiny-1.76-3  python-tqdm-4.70.1-1  bash-completion-2.18.0-1  git-2.55.0-1  meson-1.12.0-1  ncurses-6.6-2  po4a-0.74-1  readline-8.3.6-1
+
+Total Download Size:   14.26 MiB
+Total Installed Size:  79.09 MiB
+Net Upgrade Size:      64.98 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ po4a-0.74-1-any downloading...
+ meson-1.12.0-1-any downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ readline-8.3.6-1-x86_64 downloading...
+ bash-completion-2.18.0-1-any downloading...
+ libthai-0.1.30-1-x86_64 downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ perl-unicode-linebreak-2019.001-9-x86_64 downloading...
+ libdatrie-0.2.14-1-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-mime-charset-1.013.1-6-any downloading...
+ perl-yaml-tiny-1.76-3-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+upgrading readline...
+installing bash-completion...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+installing perl-yaml-tiny...
+installing perl-mime-charset...
+installing libdatrie...
+installing libthai...
+installing perl-unicode-linebreak...
+installing po4a...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: util-linux 2.42.3-1 (Sun Sep 20 08:07:07 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating util-linux git repo...
+  -> Found util-linux-BSD-2-Clause.txt
+  -> Found login.pam
+  -> Found common.pam
+  -> Found remote.pam
+  -> Found runuser.pam
+  -> Found su.pam
+  -> Found util-linux.sysusers
+  -> Found 60-rfkill.rules
+  -> Found rfkill-unblock_.service
+  -> Found rfkill-block_.service
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    util-linux ... Passed
+    util-linux-BSD-2-Clause.txt ... Passed
+    login.pam ... Passed
+    common.pam ... Passed
+    remote.pam ... Passed
+    runuser.pam ... Passed
+    su.pam ... Passed
+    util-linux.sysusers ... Passed
+    60-rfkill.rules ... Passed
+    rfkill-unblock_.service ... Passed
+    rfkill-block_.service ... Passed
+==> Extracting sources...
+  -> Creating working copy of util-linux git repo...
+Cloning into 'util-linux'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+==> Starting build()...
+util-linux has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 util-linux build -Dfs-search-path=/usr/bin:/usr/local/bin -Dlibuser=disabled -Dlibutempter=disabled -Dncurses=disabled -Dncursesw=enabled -Deconf=disabled -Dbuild-chfn-chsh=enabled -Dbuild-line=disabled -Dbuild-mesg=enabled -Dbuild-newgrp=enabled -Dbuild-vipw=enabled -Dbuild-write=enabled
+Generating targets:   0%|          | 0/289 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/util-linux
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: util-linux
+Project version: 2.42.3
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency bash-completion found: YES 2.18.0
+Library m found: YES
+Run-time dependency tinfo found: YES 6.6.20251230
+Run-time dependency ncursesw found: YES 6.6.20251230
+Dependency slang for host machine skipped: feature slang disabled
+Checking for function "use_default_colors" with dependency ncursesw: YES 
+Checking for function "resizeterm" with dependency ncursesw: YES 
+Checking for function "vw_printw" with dependency ncursesw: YES 
+Has header "byteswap.h" : YES 
+Has header "crypt.h" : YES 
+Has header "endian.h" : YES 
+Has header "err.h" : YES 
+Has header "errno.h" : YES 
+Has header "fcntl.h" : YES 
+Has header "getopt.h" : YES 
+Has header "inttypes.h" : YES 
+Has header "langinfo.h" : YES 
+Has header "lastlog.h" : YES 
+Has header "libutil.h" : NO 
+Has header "locale.h" : YES 
+Has header "mntent.h" : YES 
+Has header "paths.h" : YES 
+Has header "pty.h" : YES 
+Has header "semaphore.h" : YES 
+Has header "shadow.h" : YES 
+Has header "stdint.h" : YES 
+Has header "stdio_ext.h" : YES 
+Has header "stdlib.h" : YES 
+Has header "string.h" : YES 
+Has header "strings.h" : YES 
+Has header "unistd.h" : YES 
+Has header "utmp.h" : YES 
+Has header "utmpx.h" : YES 
+Has header "asm/io.h" : NO 
+Has header "linux/blkzoned.h" : YES 
+Has header "linux/capability.h" : YES 
+Has header "linux/cdrom.h" : YES 
+Has header "linux/compiler.h" : NO 
+Has header "linux/falloc.h" : YES 
+Has header "linux/fd.h" : YES 
+Has header "linux/fs.h" : YES 
+Has header "linux/fiemap.h" : YES 
+Has header "linux/gsmmux.h" : YES 
+Has header "linux/if_alg.h" : YES 
+Has header "linux/landlock.h" : YES 
+Has header "linux/kcmp.h" : YES 
+Has header "linux/net_namespace.h" : YES 
+Has header "linux/nsfs.h" : YES 
+Has header "linux/openat2.h" : YES 
+Has header "linux/mount.h" : YES 
+Has header "linux/pr.h" : YES 
+Has header "linux/securebits.h" : YES 
+Has header "linux/tiocl.h" : YES 
+Has header "linux/version.h" : YES 
+Has header "linux/vm_sockets_diag.h" : YES 
+Has header "linux/watchdog.h" : YES 
+Has header "mqueue.h" : YES 
+Has header "net/if.h" : YES 
+Has header "net/if_dl.h" : NO 
+Has header "netinet/in.h" : YES 
+Has header "security/openpam.h" : NO 
+Has header "security/pam_appl.h" : YES 
+Has header "security/pam_misc.h" : YES 
+Has header "security/pam_modules.h" : YES 
+Has header "sys/auxv.h" : YES 
+Has header "sys/disk.h" : NO 
+Has header "sys/disklabel.h" : NO 
+Has header "sys/endian.h" : NO 
+Has header "sys/file.h" : YES 
+Has header "sys/io.h" : YES 
+Has header "sys/ioccom.h" : NO 
+Has header "sys/ioctl.h" : YES 
+Has header "sys/mkdev.h" : NO 
+Has header "sys/mman.h" : YES 
+Has header "sys/mount.h" : YES 
+Has header "sys/param.h" : YES 
+Has header "sys/pidfd.h" : YES 
+Has header "sys/prctl.h" : YES 
+Has header "sys/resource.h" : YES 
+Has header "sys/sendfile.h" : YES 
+Has header "sys/signalfd.h" : YES 
+Has header "sys/socket.h" : YES 
+Has header "sys/sockio.h" : NO 
+Has header "sys/stat.h" : YES 
+Has header "sys/statfs.h" : YES 
+Has header "sys/swap.h" : YES 
+Has header "sys/syscall.h" : YES 
+Has header "sys/sysmacros.h" : YES 
+Has header "sys/time.h" : YES 
+Has header "sys/timex.h" : YES 
+Has header "sys/ttydefaults.h" : YES 
+Has header "sys/types.h" : YES 
+Has header "sys/ucred.h" : NO 
+Has header "sys/un.h" : YES 
+Has header "sys/vfs.h" : YES 
+Has header "sys/xattr.h" : YES 
+Has header "ncursesw/ncurses.h" : NO 
+Has header "ncursesw/term.h" : NO 
+Has header "ncurses.h" : YES 
+Has header "term.h" : YES 
+Run-time dependency sqlite3 found: YES 3.53.4
+Checking for type "struct fanotify_event_info_header" : YES 
+Checking for type "struct mount_attr" : YES 
+Checking for type "struct statx" : YES 
+Checking whether type "struct statx" has member "stx_mnt_id" : NO 
+Checking for type "struct statmount" : YES 
+Header "linux/mount.h" has symbol "LSMT_ROOT" : YES 
+Header "bits/syscall.h" has symbol "SYS_statmount" : NO 
+Header "bits/syscall.h" has symbol "SYS_listmount" : NO 
+Has header "sys/vfs.h" : YES (cached)
+Checking if "wchar_t support" compiles: YES 
+Run-time dependency zlib found: YES 1.3.1.zlib-ng
+Run-time dependency readline found: YES 8.3
+util-linux/meson.build:360: WARNING: Conditional on version '>= 0.59.0' always evaluates to true
+Run-time dependency intl found: YES
+Dependency libuser for host machine skipped: feature libuser disabled
+Library util found: YES
+Library utempter skipped: feature libutempter disabled
+Run-time dependency systemd found: YES 261
+Run-time dependency libsystemd found: YES 261
+Checking for function "sd_device_new_from_syspath" with dependency libsystemd: YES 
+Checking for function "sd_device_open" with dependency libsystemd: YES 
+Checking for function "sd_session_get_username" with dependency libsystemd: YES 
+Checking for function "sd_device_new_from_devname" with dependency libsystemd: YES 
+Run-time dependency libudev found: YES 261
+Library crypt found: YES
+Library pam found: YES
+Library pam_misc found: YES
+Run-time dependency libcryptsetup found: YES 2.8.8
+Run-time dependency dl found: YES
+Checking for function "crypt_activate_by_signed_key" with dependency libcryptsetup: YES 
+Run-time dependency libcap-ng found: YES 0.9.6
+Dependency libselinux for host machine skipped: feature selinux disabled
+Run-time dependency libmagic found: YES 5.48
+Dependency libeconf for host machine skipped: feature econf disabled
+Checking for function "econf_readConfig" with dependency libeconf: NO 
+Dependency audit for host machine skipped: feature audit disabled
+Has header "linux/btrfs.h" : YES 
+Has header "linux/blkpg.h" : YES 
+Has header "linux/major.h" : YES 
+Has header "sched.h" : YES 
+Checking for type "cpu_set_t" : YES 
+Header "unistd.h" has symbol "environ" : YES 
+Header "signal.h" has symbol "sighandler_t" : YES 
+Header "asm/signal.h" has symbol "sigset_t" : YES 
+Checking for function "strsignal" : YES 
+Checking for type "union semun" : NO 
+Checking for type "loff_t" : YES 
+Checking if "langinfo.h defines ALTMON_x constants" compiles: YES 
+Checking if "langinfo.h defines _NL_ABALTMON_x constants" compiles: YES 
+Checking if "langinfo.h defines _NL_TIME_WEEK_1STDAY constant" compiles: YES 
+Checking for function "cachestat" : NO 
+Checking for function "clearenv" : YES 
+Checking for function "close_range" : YES 
+Checking for function "copy_file_range" : YES 
+Checking for function "__fpurge" : YES 
+Checking for function "fpurge" : NO 
+Checking for function "__fpending" : YES 
+Checking for function "secure_getenv" : YES 
+Checking for function "__secure_getenv" : NO 
+Checking for function "eaccess" : YES 
+Checking for function "err" : YES 
+Checking for function "errx" : YES 
+Checking for function "explicit_bzero" : YES 
+Checking for function "fallocate" : YES 
+Checking for function "fnmatch" : YES 
+Checking for function "fseeko" : YES 
+Checking for function "fsconfig" : YES 
+Checking for function "fsmount" : YES 
+Checking for function "fsopen" : YES 
+Checking for function "fspick" : YES 
+Checking for function "fsync" : YES 
+Checking for function "getttynam" : YES 
+Checking for function "utimensat" : YES 
+Checking for function "getauxval" : YES 
+Checking for function "getdomainname" : YES 
+Checking for function "getdtablesize" : YES 
+Checking for function "getexecname" : NO 
+Checking for function "getmntinfo" : NO 
+Checking for function "getrandom" : YES 
+Checking for function "getrlimit" : YES 
+Checking for function "getsgnam" : YES 
+Checking for function "inotify_init" : YES 
+Checking for function "jrand48" : YES 
+Checking for function "landlock_create_ruleset" : NO 
+Checking for function "landlock_add_rule" : NO 
+Checking for function "landlock_restrict_self" : NO 
+Checking for function "lchown" : YES 
+Checking for function "lgetxattr" : YES 
+Checking for function "llistxattr" : YES 
+Checking for function "llseek" : NO 
+Checking for function "newlocale" : YES 
+Checking for function "mkostemp" : YES 
+Checking for function "move_mount" : YES 
+Checking for function "mount_setattr" : YES 
+Checking for function "nanosleep" : YES 
+Checking for function "ntp_gettime" : YES 
+Checking for function "open_tree" : YES 
+Checking for function "personality" : YES 
+Checking for function "pidfd_getfd" : YES 
+Checking for function "pidfd_open" : YES 
+Checking for function "pidfd_send_signal" : YES 
+Checking for function "posix_fadvise" : YES 
+Checking for function "posix_fallocate" : YES 
+Checking for function "prctl" : YES 
+Checking for function "qsort_r" : YES 
+Checking for function "reallocarray" : YES 
+Checking for function "renameat2" : YES 
+Checking for function "rpmatch" : YES 
+Checking for function "scandirat" : YES 
+Checking for function "setprogname" : NO 
+Checking for function "sendfile" : YES 
+Checking for function "setns" : YES 
+Checking for function "setresgid" : YES 
+Checking for function "setresuid" : YES 
+Checking for function "sched_setattr" : YES 
+Checking for function "sched_setscheduler" : YES 
+Checking for function "sigqueue" : YES 
+Checking for function "srandom" : YES 
+Checking for function "statx" : YES 
+Checking for function "strnchr" : NO 
+Checking for function "strndup" : YES 
+Checking for function "strnlen" : YES 
+Checking for function "strtod_l" : YES 
+Checking for function "sysconf" : YES 
+Checking for function "sysinfo" : YES 
+Checking for function "swapon" : YES 
+Checking for function "swapoff" : YES 
+Checking for function "timegm" : YES 
+Checking for function "unshare" : YES 
+Checking for function "usleep" : YES 
+Checking for function "uselocale" : YES 
+Checking for function "utimensat" : YES (cached)
+Checking for function "vwarnx" : YES 
+Checking for function "warn" : YES 
+Checking for function "warnx" : YES 
+Checking for function "prlimit" : YES 
+Checking for function "openat" : YES 
+Checking for function "fstatat" : YES 
+Checking for function "unlinkat" : YES 
+Checking for function "ioperm" : YES 
+Checking for function "iopl" : YES 
+Checking for function "futimens" : YES 
+Checking for function "inotify_init1" : YES 
+Checking for function "open_memstream" : YES 
+Checking for function "reboot" : YES 
+Checking for function "getusershell" : YES 
+Checking for function "fts_open" : YES 
+Checking for function "mempcpy" : YES 
+Checking for function "dirfd" : YES 
+Checking whether type "DIR" has member "dd_fd" : NO 
+Checking whether type "struct tm" has member "tm_gmtoff" : YES 
+Checking for type "enum fsconfig_command" : YES 
+Checking whether type "struct termios" has member "c_line" : YES 
+Checking whether type "struct stat" has member "st_mtim.tv_nsec" : YES 
+Checking whether type "struct tm" has member "tm_zone" : YES 
+Header "time.h" has symbol "tzname" : YES 
+Header "linux/blkzoned.h" has symbol "BLK_ZONE_REP_CAPACITY" : YES 
+Header "linux/pr.h" has symbol "PR_REP_CAPACITY" : NO 
+Checking if "using tzname[]" compiles: YES 
+Checking for size of "time_t" : 8 
+Checking for function "socket" : YES 
+Library rt found: YES
+Checking for function "clock_gettime" : YES 
+Run-time dependency threads found: YES
+Checking for function "timer_create" : YES 
+Library rtas found: NO
+Header "math.h" has symbol "isnan" : YES 
+Header "errno.h" has symbol "program_invocation_short_name" : YES 
+Checking if "using __progname" compiles: YES 
+Header "linux/sed-opal.h" has symbol "IOC_OPAL_GET_STATUS" : YES 
+Header "sys/ioctl.h" has symbol "TIOCGLCKTRMIOS" : YES 
+Header "sys/socket.h" has symbol "SOCK_CLOEXEC" : YES 
+Header "sys/socket.h" has symbol "SOCK_NONBLOCK" : YES 
+Header "sys/socket.h" has symbol "SO_PASSCRED" : YES 
+Header "linux/vm_sockets.h" has symbol "VMADDR_CID_LOCAL" : YES 
+Message: Use CMOS clock: true
+Header "limits.h" has symbol "__GLIBC__" : YES 
+Checking for type "struct nsfs_file_handle" : YES 
+Program bison found: YES (/usr/sbin/bison)
+Program flex found: YES (/usr/sbin/flex)
+Program sed found: YES (/usr/sbin/sed)
+Program python3 found: YES (/usr/sbin/python3)
+Configuring config.h using configuration
+Compiler for C supports arguments -fno-common: YES 
+Compiler for C supports arguments -Waddress-of-packed-member: YES 
+Compiler for C supports arguments -Wdiscarded-qualifiers: NO 
+Compiler for C supports arguments -Wembedded-directive: YES 
+Compiler for C supports arguments -Wextra-semi: YES 
+Compiler for C supports arguments -Wformat-security: YES 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Compiler for C supports arguments -Wmissing-declarations: YES 
+Compiler for C supports arguments -Wmissing-parameter-type: NO 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wnested-externs: YES 
+Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wredundant-decls: YES 
+Compiler for C supports arguments -Wsign-compare: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wtype-limits: YES 
+Compiler for C supports arguments -Wuninitialized: YES 
+Compiler for C supports arguments -Wunused-but-set-parameter: YES 
+Compiler for C supports arguments -Wunused-but-set-variable: YES 
+Compiler for C supports arguments -Wunused-parameter: YES 
+Compiler for C supports arguments -Wunused-result: YES 
+Compiler for C supports arguments -Wunused-variable: YES 
+Compiler for C supports arguments -Wvla: YES 
+Compiler for C supports arguments -Walloca: YES 
+Configuring blkid.h using configuration
+Compiler for C supports link arguments -Wl,--version-script=/home/builder/build/src/util-linux/libblkid/src/libblkid.sym: YES 
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+util-linux/libblkid/meson.build:173: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Configuring libmount.h using configuration
+util-linux/libmount/meson.build:123: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Program python3 found: YES (/usr/sbin/python3)
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Run-time dependency python found: YES 3.14
+Configuring libsmartcols.h using configuration
+util-linux/libsmartcols/meson.build:71: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Compiler for C supports link arguments -Wl,--version-script=/home/builder/build/src/util-linux/libuuid/src/libuuid.sym: YES 
+util-linux/libuuid/meson.build:59: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Configuring lastlog2.h using configuration
+Library dl found: YES
+Configuring libfdisk.h using configuration
+util-linux/libfdisk/meson.build:78: WARNING: Conditional on version '>= 0.54.0' always evaluates to true
+Library pam found: YES
+Configuring fstrim.service using configuration
+Configuring lastlog2-tmpfiles.conf using configuration
+Configuring lastlog2-import.service using configuration
+Configuring uuidd-tmpfiles.conf using configuration
+Configuring uuidd.service using configuration
+Configuring uuidd.socket using configuration
+Configuring uuidd-sysusers.conf using configuration
+Program gettext found: YES (/usr/sbin/gettext)
+Program msgfmt found: YES (/usr/sbin/msgfmt)
+Program msginit found: YES (/usr/sbin/msginit)
+Program msgmerge found: YES (/usr/sbin/msgmerge)
+Program xgettext found: YES (/usr/sbin/xgettext)
+Checking for type "struct seminfo" : YES 
+Checking for function "shm_open" : YES 
+Checking for function "sem_close" : YES 
+Has header "sys/klog.h" : YES 
+Has header "linux/pr.h" : YES (cached)
+Has header "linux/if.h" : YES 
+Has header "linux/rtc.h" : YES 
+Has header "sys/personality.h" : YES 
+Has header "linux/seccomp.h" : YES 
+Header "linux/bpf.h" has symbol "BPF_OBJ_NAME_LEN" : YES 
+Header "linux/bpf.h" has symbol "BPF_TAG_SIZE" : YES 
+Has header "linux/audit.h" : YES 
+Has header "linux/seccomp.h" : YES (cached)
+Checking if "has AUDIT_ARCH_NATIVE" compiles: YES 
+Configuring meson.conf with command
+Program tests/run.sh found: YES (/home/builder/build/src/util-linux/tests/run.sh)
+Program asciidoctor found: NO
+Build targets in project: 289
+
+util-linux 2.42.3
+
+  components
+    libblkid                   : enabled
+    libuuid                    : enabled
+    liblastlog2                : enabled
+    login-lastlogin            : disabled
+    login-stat-mail            : disabled
+    libmount                   : enabled
+    libsmartcols               : enabled
+    libfdisk                   : enabled
+    uuidd                      : enabled
+    libsystemd                 : enabled
+    cryptsetup support (dlopen): enabled
+    plymouth support           : enabled
+    pam_lastlog2               : enabled
+
+    static programs            :
+
+  User defined options
+    auto_features              : enabled
+    b_pie                      : true
+    build-chfn-chsh            : enabled
+    build-line                 : disabled
+    build-mesg                 : enabled
+    build-newgrp               : enabled
+    build-vipw                 : enabled
+    build-write                : enabled
+    buildtype                  : plain
+    econf                      : disabled
+    fs-search-path             : /usr/bin:/usr/local/bin
+    libexecdir                 : lib
+    libuser                    : disabled
+    libutempter                : disabled
+    ncurses                    : disabled
+    ncursesw                   : enabled
+    prefix                     : /usr
+    python.bytecompile         : 1
+    sbindir                    : bin
+    wrap_mode                  : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:   4%|▍         | 13/289 eta 00:02Generating targets:  28%|██▊       | 81/289 eta 00:00Generating targets:  44%|████▍     | 128/289 eta 00:00Generating targets:  60%|██████    | 174/289 eta 00:00Generating targets:  75%|███████▌  | 218/289 eta 00:00Generating targets:  94%|█████████▍| 271/289 eta 00:00                                                      Writing build.ninja:   0%|          | 0/925 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/856] Compiling C object lib/libcommon.a.p/crc32.c.o
+[2/856] Compiling C object lib/libcommon.a.p/crc32c.c.o
+[3/856] Compiling C object lib/libcommon.a.p/crc64.c.o
+[4/856] Compiling C object lib/libcommon.a.p/encode.c.o
+[5/856] Compiling C object lib/libcommon.a.p/default_shell.c.o
+[6/856] Compiling C object lib/libcommon.a.p/c_strtod.c.o
+[7/856] Compiling C object lib/libcommon.a.p/debug.c.o
+[8/856] Compiling C object lib/libcommon.a.p/mangle.c.o
+[9/856] Compiling C object lib/libcommon.a.p/match.c.o
+[10/856] Compiling C object lib/libcommon.a.p/mbsedit.c.o
+[11/856] Compiling C object lib/libcommon.a.p/color-names.c.o
+[12/856] Compiling C object lib/libcommon.a.p/jsonwrt.c.o
+[13/856] Compiling C object lib/libcommon.a.p/blkdev.c.o
+[14/856] Compiling C object lib/libcommon.a.p/pidutils.c.o
+[15/856] Compiling C object lib/libcommon.a.p/env.c.o
+[16/856] Compiling C object lib/libcommon.a.p/canonicalize.c.o
+[17/856] Compiling C object lib/libcommon.a.p/signames.c.o
+[18/856] Compiling C object lib/libcommon.a.p/buffer.c.o
+[19/856] Compiling C object lib/libcommon.a.p/fileutils.c.o
+[20/856] Compiling C object lib/libcommon.a.p/sha256.c.o
+[21/856] Compiling C object lib/libcommon.a.p/ttyutils.c.o
+[22/856] Compiling C object lib/libcommon.a.p/idcache.c.o
+[23/856] Compiling C object lib/libcommon.a.p/pwdutils.c.o
+[24/856] Compiling C object lib/libcommon.a.p/md5.c.o
+[25/856] Compiling C object lib/libcommon.a.p/pidfd-utils.c.o
+[26/856] Compiling C object lib/libcommon.a.p/linux_version.c.o
+[27/856] Compiling C object lib/libcommon.a.p/randutils.c.o
+[28/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_init.c.o
+[29/856] Compiling C object lib/libcommon.a.p/plymouth-ctrl.c.o
+[30/856] Compiling C object lib/libcommon.a.p/timeutils.c.o
+[31/856] Compiling C object lib/libcommon.a.p/strv.c.o
+[32/856] Compiling C object lib/libcommon.a.p/cpuset.c.o
+[33/856] Compiling C object lib/libcommon.a.p/configs.c.o
+[34/856] Compiling C object lib/libcommon.a.p/mbsalign.c.o
+[35/856] Compiling C object lib/libcommon.a.p/xxhash.c.o
+[36/856] Compiling C object lib/libcommon.a.p/sha1.c.o
+[37/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_getsize.c.o
+[38/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_config.c.o
+[39/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_devno.c.o
+[40/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_cache.c.o
+[41/856] Compiling C object lib/libcommon.a.p/strutils.c.o
+[42/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_dev.c.o
+[43/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_encode.c.o
+[44/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_version.c.o
+[45/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_evaluate.c.o
+[46/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_resolve.c.o
+[47/856] Compiling C object lib/libcommon.a.p/procfs.c.o
+[48/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_atari.c.o
+[49/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_aix.c.o
+[50/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_bsd.c.o
+[51/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_save.c.o
+[52/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_read.c.o
+[53/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_devname.c.o
+[54/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_mac.c.o
+[55/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_verify.c.o
+[56/856] Compiling C object lib/libcommon.a.p/path.c.o
+[57/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_minix.c.o
+[58/856] Compiling C object lib/libcommon.a.p/sysfs.c.o
+[59/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_tag.c.o
+[60/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_sgi.c.o
+[61/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_apfs.c.o
+[62/856] Compiling C object lib/libcommon.a.p/loopdev.c.o
+[63/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_solaris_x86.c.o
+[64/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_bfs.c.o
+[65/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_adaptec_raid.c.o
+[66/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_ultrix.c.o
+[67/856] Linking static target lib/libcommon.a
+[68/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_gpt.c.o
+[69/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_bitlocker.c.o
+[70/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_dos.c.o
+[71/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_unixware.c.o
+[72/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_bluestore.c.o
+[73/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_btrfs.c.o
+[74/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_sun.c.o
+[75/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_drbd.c.o
+[76/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ddf_raid.c.o
+[77/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ext.c.o
+[78/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_befs.c.o
+[79/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_f2fs.c.o
+[80/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_exfs.c.o
+[81/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_exfat.c.o
+[82/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_cs_fvault2.c.o
+[83/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_drbdmanage.c.o
+[84/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_cramfs.c.o
+[85/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_hpfs.c.o
+[86/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_drbdproxy_datalog.c.o
+[87/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_bcache.c.o
+[88/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_probe.c.o
+[89/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_gfs.c.o
+[90/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_hfs.c.o
+[91/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_jfs.c.o
+[92/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_highpoint_raid.c.o
+[93/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_isw_raid.c.o
+[94/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_jmicron_raid.c.o
+[95/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_lsi_raid.c.o
+[96/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_partitions_partitions.c.o
+[97/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_lvm.c.o
+[98/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_mpool.c.o
+[99/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_netware.c.o
+[100/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_linux_raid.c.o
+[101/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_minix.c.o
+[102/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_luks.c.o
+[103/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_refs.c.o
+[104/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_nilfs.c.o
+[105/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_iso9660.c.o
+[106/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_nvidia_raid.c.o
+[107/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_promise_raid.c.o
+[108/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ocfs.c.o
+[109/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ntfs.c.o
+[110/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_scoutfs.c.o
+[111/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_squashfs.c.o
+[112/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_stratis.c.o
+[113/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_silicon_raid.c.o
+[114/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ubifs.c.o
+[115/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_swap.c.o
+[116/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_sysv.c.o
+[117/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_vdo.c.o
+[118/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ubi.c.o
+[119/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_romfs.c.o
+[120/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_ufs.c.o
+[121/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_reiserfs.c.o
+[122/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_via_raid.c.o
+[123/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_vxfs.c.o
+[124/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_clear.c.o
+[125/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_evms.c.o
+[126/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_vmfs.c.o
+[127/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_erofs.c.o
+[128/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_zonefs.c.o
+[129/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_md.c.o
+[130/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_vfat.c.o
+[131/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_ioctl.c.o
+[132/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_sysfs.c.o
+[133/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_xfs.c.o
+[134/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_dm.c.o
+[135/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_superblocks.c.o
+[136/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_compare.c.o
+[137/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_predefined.c.o
+[138/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_topology.c.o
+[139/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_pack.c.o
+[140/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_copy.c.o
+[141/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_udf.c.o
+[142/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_isnull.c.o
+[143/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_topology_lvm.c.o
+[144/856] Compiling C object libblkid/libblkid.so.1.1.0.p/src_superblocks_zfs.c.o
+[145/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_unpack.c.o
+[146/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_uuid_time.c.o
+[147/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_parse.c.o
+[148/856] Compiling C object libuuid/libuuid.so.1.3.0.p/.._lib_randutils.c.o
+[149/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_unparse.c.o
+[150/856] Linking target libblkid/libblkid.so.1.1.0
+[151/856] Compiling C object libuuid/libuuid.so.1.3.0.p/.._lib_md5.c.o
+[152/856] Compiling C object libmount/lib_mount.a.p/src_iter.c.o
+[153/856] Compiling C object libmount/lib_mount.a.p/src_init.c.o
+[154/856] Compiling C object libmount/lib_mount.a.p/src_optmap.c.o
+[155/856] Compiling C object libmount/lib_mount.a.p/src_lock.c.o
+[156/856] Compiling C object libmount/lib_mount.a.p/src_fs_statmount.c.o
+[157/856] Compiling C object libuuid/libuuid.so.1.3.0.p/src_gen_uuid.c.o
+[158/856] Compiling C object libmount/lib_mount.a.p/src_tab_diff.c.o
+[159/856] Compiling C object libuuid/libuuid.so.1.3.0.p/.._lib_sha1.c.o
+[160/856] Compiling C object libmount/lib_mount.a.p/.._lib_monotonic.c.o
+[161/856] Compiling C object libmount/lib_mount.a.p/src_optstr.c.o
+[162/856] Compiling C object libmount/lib_mount.a.p/src_test.c.o
+[163/856] Compiling C object libmount/lib_mount.a.p/src_tab_listmount.c.o
+[164/856] Compiling C object libmount/lib_mount.a.p/src_version.c.o
+[165/856] Compiling C object libmount/lib_mount.a.p/src_monitor.c.o
+[166/856] Compiling C object libmount/lib_mount.a.p/src_hook_selinux.c.o
+[167/856] Compiling C object libmount/lib_mount.a.p/src_hook_owner.c.o
+[168/856] Compiling C object libmount/lib_mount.a.p/src_monitor_mountinfo.c.o
+[169/856] Compiling C object libmount/lib_mount.a.p/src_utils.c.o
+[170/856] Compiling C object libmount/lib_mount.a.p/src_fs.c.o
+[171/856] Compiling C object libmount/lib_mount.a.p/src_cache.c.o
+[172/856] Compiling C object libmount/lib_mount.a.p/src_monitor_utab.c.o
+[173/856] Compiling C object libmount/lib_mount.a.p/src_hook_subdir.c.o
+[174/856] Compiling C object libmount/lib_mount.a.p/src_hook_veritydev.c.o
+[175/856] Compiling C object libmount/lib_mount.a.p/src_hook_mount_legacy.c.o
+[176/856] Compiling C object libmount/lib_mount.a.p/src_tab_update.c.o
+[177/856] Generating from 'src/filter-scanner.l'
+[178/856] Compiling C object libmount/lib_mount.a.p/src_hook_mkdir.c.o
+[179/856] Compiling C object libmount/lib_mount.a.p/src_hooks.c.o
+[180/856] Compiling C object libmount/lib_mount.a.p/src_monitor_fanotify.c.o
+[181/856] Linking target libuuid/libuuid.so.1.3.0
+[182/856] Compiling C object libmount/lib_mount.a.p/src_btrfs.c.o
+[183/856] Generating from 'src/filter-parser.y'
+[184/856] Compiling C object libmount/lib_mount.a.p/src_hook_loopdev.c.o
+[185/856] Compiling C object libfdisk/lib_fdisk.a.p/src_field.c.o
+[186/856] Compiling C object libfdisk/lib_fdisk.a.p/src_init.c.o
+[187/856] Compiling C object libmount/lib_mount.a.p/src_hook_mount.c.o
+[188/856] Compiling C object libmount/lib_mount.a.p/src_hook_idmap.c.o
+[189/856] Compiling C object libfdisk/lib_fdisk.a.p/src_item.c.o
+[190/856] Compiling C object libfdisk/lib_fdisk.a.p/src_test.c.o
+[191/856] Compiling C object libmount/lib_mount.a.p/src_tab_parse.c.o
+[192/856] Compiling C object libmount/lib_mount.a.p/src_tab.c.o
+[193/856] Compiling C object libfdisk/lib_fdisk.a.p/src_utils.c.o
+[194/856] Compiling C object libfdisk/lib_fdisk.a.p/src_version.c.o
+[195/856] Compiling C object libfdisk/lib_fdisk.a.p/src_parttype.c.o
+[196/856] Compiling C object libmount/lib_mount.a.p/src_optlist.c.o
+[197/856] Compiling C object libmount/lib_mount.a.p/src_context_umount.c.o
+[198/856] Compiling C object libfdisk/lib_fdisk.a.p/src_iter.c.o
+[199/856] Compiling C object libfdisk/lib_fdisk.a.p/src_label.c.o
+[200/856] Compiling C object libfdisk/lib_fdisk.a.p/src_alignment.c.o
+[201/856] Compiling C object libfdisk/lib_fdisk.a.p/src_context.c.o
+[202/856] Compiling C object libfdisk/lib_fdisk.a.p/src_wipe.c.o
+[203/856] Compiling C object libfdisk/lib_fdisk.a.p/src_table.c.o
+[204/856] Compiling C object libfdisk/lib_fdisk.a.p/src_ask.c.o
+[205/856] Compiling C object libfdisk/lib_fdisk.a.p/src_bsd.c.o
+[206/856] Compiling C object libfdisk/lib_fdisk.a.p/src_partition.c.o
+[207/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_iter.c.o
+[208/856] Compiling C object libmount/lib_mount.a.p/src_context.c.o
+[209/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/meson-generated_filter-parser.c.o
+[210/856] Compiling C object libmount/lib_mount.a.p/src_context_mount.c.o
+[211/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_symbols.c.o
+[212/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_cell.c.o
+[213/856] Linking static target libmount/lib_mount.a
+[214/856] Compiling C object libfdisk/lib_fdisk.a.p/src_sun.c.o
+[215/856] Generating symbol file libblkid/libblkid.so.1.1.0.p/libblkid.so.1.1.0.symbols
+[216/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_version.c.o
+[217/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_column.c.o
+[218/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_line.c.o
+[219/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/meson-generated_filter-scanner.c.o
+[220/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_grouping.c.o
+[221/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_walk.c.o
+[222/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_print-api.c.o
+[223/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_init.c.o
+[224/856] Compiling C object libfdisk/lib_fdisk.a.p/src_sgi.c.o
+[225/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_filter.c.o
+[226/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_filter-expr.c.o
+[227/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_table.c.o
+[228/856] Generating errnos.h with a custom command
+[229/856] Generating syscalls.h with a custom command
+[230/856] Compiling C object libfdisk/lib_fdisk.a.p/src_script.c.o
+[231/856] Linking target libmount/libmount.so.1.1.0
+[232/856] Compiling C object lib/libcommon_shells.a.p/shells.c.o
+[233/856] Linking static target libblkid/libblkid.a
+[234/856] Compiling C object lib/libtcolors.a.p/color-names.c.o
+[235/856] Linking static target lib/libcommon_shells.a
+[236/856] Generating from 'hwclock-parse-date.y'
+[237/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_print.c.o
+[238/856] Compiling C object lib/libcommon_logindefs.a.p/logindefs.c.o
+[239/856] Linking static target lib/libcommon_logindefs.a
+[240/856] Compiling C object liblastlog2/liblastlog2.so.2.0.0.p/src_lastlog2.c.o
+[241/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_filter-param.c.o
+[242/856] Compiling C object lib/libtcolors.a.p/colors.c.o
+[243/856] Linking target liblastlog2/liblastlog2.so.2.0.0
+[244/856] Generating symbol file libuuid/libuuid.so.1.3.0.p/libuuid.so.1.3.0.symbols
+[245/856] Linking static target lib/libtcolors.a
+[246/856] Compiling C object libmount/test_mount_lock.p/src_lock.c.o
+[247/856] Compiling C object libsmartcols/libsmartcols.so.1.1.0.p/src_calculate.c.o
+[248/856] Compiling C object libmount/test_mount_cache.p/src_cache.c.o
+[249/856] Compiling C object libfdisk/lib_fdisk.a.p/src_gpt.c.o
+[250/856] Linking target libsmartcols/libsmartcols.so.1.1.0
+[251/856] Compiling C object libmount/test_mount_tab_diff.p/src_tab_diff.c.o
+[252/856] Compiling C object libmount/test_mount_monitor.p/src_monitor.c.o
+[253/856] Compiling C object libmount/test_mount_version.p/src_version.c.o
+[254/856] Compiling C object libmount/test_mount_optstr.p/src_optstr.c.o
+[255/856] Compiling C object libmount/test_mount_debug.p/src_init.c.o
+[256/856] Generating symbol file libmount/libmount.so.1.1.0.p/libmount.so.1.1.0.symbols
+[257/856] Compiling C object libfdisk/lib_fdisk.a.p/src_dos.c.o
+[258/856] Compiling C object liblastlog2/test_lastlog2_write_read_user.p/src_tests_tst_write_read_user.c.o
+[259/856] Compiling C object libmount/test_mount_tab_update.p/src_tab_update.c.o
+[260/856] Compiling C object liblastlog2/test_lastlog2_dlopen.p/src_tests_tst_dlopen.c.o
+[261/856] Linking static target libfdisk/lib_fdisk.a
+[262/856] Linking static target libfdisk/libfdisk.a
+[263/856] Compiling C object liblastlog2/test_lastlog2_remove_entry.p/src_tests_tst_remove_entry.c.o
+[264/856] Compiling C object liblastlog2/test_lastlog2_pam_lastlog2_output.p/src_tests_tst_pam_lastlog2_output.c.o
+[265/856] Compiling C object liblastlog2/test_lastlog2_y2038_sqlite3_time.p/src_tests_tst_y2038_sqlite3_time.c.o
+[266/856] Compiling C object liblastlog2/test_lastlog2_rename_user.p/src_tests_tst_rename_user.c.o
+[267/856] Compiling C object liblastlog2/test_lastlog2_y2038_ll2_read_all.p/src_tests_tst_y2038_ll2_read_all.c.o
+[268/856] Linking target libfdisk/libfdisk.so.1.1.0
+[269/856] Compiling C object libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so.p/pylibmount.c.o
+[270/856] Compiling C object chfn.p/login-utils_ch-common.c.o
+[271/856] Compiling C object chfn.p/login-utils_auth.c.o
+[272/856] Compiling C object chfn.p/login-utils_islocal.c.o
+[273/856] Compiling C object chsh.p/login-utils_ch-common.c.o
+[274/856] Generating symbol file libsmartcols/libsmartcols.so.1.1.0.p/libsmartcols.so.1.1.0.symbols
+[275/856] Compiling C object libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so.p/tab.c.o
+[276/856] Generating symbol file liblastlog2/liblastlog2.so.2.0.0.p/liblastlog2.so.2.0.0.symbols
+[277/856] Compiling C object chfn.p/login-utils_setpwnam.c.o
+[278/856] Compiling C object libmount/test_mount_utils.p/src_utils.c.o
+[279/856] Compiling C object libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so.p/context.c.o
+[280/856] Compiling C object chsh.p/login-utils_auth.c.o
+[281/856] Compiling C object chfn.p/login-utils_chfn.c.o
+[282/856] Compiling C object libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so.p/fs.c.o
+[283/856] Compiling C object su.p/login-utils_su.c.o
+[284/856] Compiling C object pam_lastlog2/pam_lastlog2.so.p/src_pam_lastlog2.c.o
+[285/856] Compiling C object libmount/test_mount_context.p/src_context.c.o
+[286/856] Compiling C object chsh.p/login-utils_chsh.c.o
+[287/856] Compiling C object chsh.p/login-utils_islocal.c.o
+[288/856] Compiling C object libmount/test_mount_tab.p/src_tab.c.o
+[289/856] Compiling C object last.p/lib_monotonic.c.o
+[290/856] Compiling C object libmount/test_mount_optlist.p/src_optlist.c.o
+[291/856] Compiling C object runuser.p/login-utils_runuser.c.o
+[292/856] Compiling C object chsh.p/login-utils_setpwnam.c.o
+[293/856] Generating symbol file libfdisk/libfdisk.so.1.1.0.p/libfdisk.so.1.1.0.symbols
+[294/856] Compiling C object nologin.p/login-utils_nologin.c.o
+[295/856] Compiling C object su.p/lib_monotonic.c.o
+[296/856] Compiling C object test_islocal.p/login-utils_islocal.c.o
+[297/856] Compiling C object newgrp.p/login-utils_newgrp.c.o
+[298/856] Compiling C object runuser.p/lib_monotonic.c.o
+[299/856] Compiling C object colrm.p/text-utils_colrm.c.o
+[300/856] Compiling C object utmpdump.p/login-utils_utmpdump.c.o
+[301/856] Compiling C object test-consoles.p/login-utils_sulogin-consoles.c.o
+[302/856] Compiling C object rev.p/text-utils_rev.c.o
+[303/856] Compiling C object vipw.p/login-utils_vipw.c.o
+[304/856] Compiling C object su.p/lib_pty-session.c.o
+[305/856] Compiling C object su.p/login-utils_su-common.c.o
+[306/856] Compiling C object col.p/text-utils_col.c.o
+[307/856] Compiling C object last.p/login-utils_last.c.o
+../util-linux/login-utils/last.c:165:15: warning: variable 'lastdate' set but not used [-Wunused-but-set-global]
+  165 | static time_t lastdate;         /* Last date we've seen */
+      |               ^
+1 warning generated.
+[308/856] Compiling C object hexdump.p/text-utils_hexdump.c.o
+[309/856] Compiling C object colcrt.p/text-utils_colcrt.c.o
+[310/856] Compiling C object hexdump.p/text-utils_hexdump-conv.c.o
+[311/856] Compiling C object runuser.p/lib_pty-session.c.o
+[312/856] Compiling C object runuser.p/login-utils_su-common.c.o
+[313/856] Compiling C object bits.p/text-utils_bits.c.o
+[314/856] Compiling C object choom.p/sys-utils_choom.c.o
+[315/856] Compiling C object hexdump.p/text-utils_hexdump-display.c.o
+[316/856] Compiling C object ipcmk.p/sys-utils_ipcmk.c.o
+[317/856] Compiling C object column.p/text-utils_column.c.o
+[318/856] Compiling C object ipcrm.p/sys-utils_ipcrm.c.o
+[319/856] Compiling C object renice.p/sys-utils_renice.c.o
+[320/856] Compiling C object ul.p/text-utils_ul.c.o
+[321/856] Compiling C object ipcrm.p/sys-utils_ipcutils.c.o
+[322/856] Compiling C object setsid.p/sys-utils_setsid.c.o
+[323/856] Compiling C object chmem.p/sys-utils_chmem.c.o
+[324/856] Compiling C object lsmem.p/sys-utils_lsmem.c.o
+[325/856] Compiling C object hexdump.p/text-utils_hexdump-parse.c.o
+[326/856] Compiling C object ipcs.p/sys-utils_ipcs.c.o
+[327/856] Compiling C object setpgid.p/sys-utils_setpgid.c.o
+[328/856] Compiling C object test_dmesg.p/lib_monotonic.c.o
+[329/856] Compiling C object dmesg.p/lib_monotonic.c.o
+[330/856] Compiling C object lslogins.p/login-utils_lslogins.c.o
+[331/856] Compiling C object readprofile.p/sys-utils_readprofile.c.o
+[332/856] Compiling C object fstrim.p/sys-utils_fstrim.c.o
+[333/856] Compiling C object ipcs.p/sys-utils_ipcutils.c.o
+[334/856] Compiling C object test_dmesg.p/lib_pager.c.o
+[335/856] Compiling C object ctrlaltdel.p/sys-utils_ctrlaltdel.c.o
+[336/856] Compiling C object test_more.p/text-utils_more.c.o
+[337/856] Compiling C object tunelp.p/sys-utils_tunelp.c.o
+[338/856] Compiling C object pg.p/text-utils_pg.c.o
+[339/856] Compiling C object more.p/text-utils_more.c.o
+[340/856] Compiling C object fsfreeze.p/sys-utils_fsfreeze.c.o
+[341/856] Compiling C object blkdiscard.p/lib_monotonic.c.o
+[342/856] Compiling C object rfkill.p/sys-utils_rfkill.c.o
+[343/856] Compiling C object dmesg.p/lib_pager.c.o
+[344/856] Compiling C object blkdiscard.p/sys-utils_blkdiscard.c.o
+[345/856] Compiling C object ldattach.p/sys-utils_ldattach.c.o
+[346/856] Compiling C object blkzone.p/sys-utils_blkzone.c.o
+[347/856] Compiling C object setarch.p/sys-utils_setarch.c.o
+[348/856] Compiling C object eject.p/lib_monotonic.c.o
+[349/856] Compiling C object blkpr.p/sys-utils_blkpr.c.o
+../util-linux/sys-utils/blkpr.c:305:7: warning: overflow converting case value to switch condition type (2148561103 to 18446744071563145423) [-Wswitch]
+  305 |         case IOC_PR_READ_RESERVATION:
+      |              ^
+/usr/include/linux/pr.h:80:33: note: expanded from macro 'IOC_PR_READ_RESERVATION'
+   80 | #define IOC_PR_READ_RESERVATION _IOR('p', 207, struct pr_read_reservation)
+      |                                 ^
+/usr/include/asm-generic/ioctl.h:84:32: note: expanded from macro '_IOR'
+   84 | #define _IOR(type,nr,argtype)           _IOC(_IOC_READ,(type),(nr),(_IOC_TYPECHECK(argtype)))
+      |                                         ^
+/usr/include/asm-generic/ioctl.h:70:2: note: expanded from macro '_IOC'
+   70 |         (((dir)  << _IOC_DIRSHIFT) | \
+      |         ^
+../util-linux/sys-utils/blkpr.c:300:7: warning: overflow converting case value to switch condition type (3222302926 to 18446744072636887246) [-Wswitch]
+  300 |         case IOC_PR_READ_KEYS:
+      |              ^
+/usr/include/linux/pr.h:79:26: note: expanded from macro 'IOC_PR_READ_KEYS'
+   79 | #define IOC_PR_READ_KEYS        _IOWR('p', 206, struct pr_read_keys)
+      |                                 ^
+/usr/include/asm-generic/ioctl.h:86:33: note: expanded from macro '_IOWR'
+   86 | #define _IOWR(type,nr,argtype)          _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(argtype)))
+      |                                         ^
+/usr/include/asm-generic/ioctl.h:70:2: note: expanded from macro '_IOC'
+   70 |         (((dir)  << _IOC_DIRSHIFT) | \
+      |         ^
+2 warnings generated.
+[350/856] Compiling C object rtcwake.p/sys-utils_rtcwake.c.o
+[351/856] Compiling C object swapon.p/sys-utils_swapon-common.c.o
+[352/856] Compiling C object swapoff.p/lib_swapprober.c.o
+[353/856] Compiling C object prlimit.p/sys-utils_prlimit.c.o
+[354/856] Compiling C object swapon.p/lib_swapprober.c.o
+[355/856] Compiling C object zramctl.p/lib_ismounted.c.o
+[356/856] Compiling C object umount.p/sys-utils_umount.c.o
+[357/856] Compiling C object swapoff.p/sys-utils_swapoff.c.o
+[358/856] Compiling C object eject.p/sys-utils_eject.c.o
+[359/856] Compiling C object swapoff.p/sys-utils_swapon-common.c.o
+[360/856] Compiling C object mount.p/sys-utils_mount.c.o
+[361/856] Compiling C object lscpu.p/sys-utils_lscpu-cpu.c.o
+[362/856] Compiling C object zramctl.p/sys-utils_zramctl.c.o
+[363/856] Compiling C object losetup.p/sys-utils_losetup.c.o
+[364/856] Compiling C object lscpu.p/sys-utils_lscpu-dmi.c.o
+[365/856] Compiling C object dmesg.p/sys-utils_dmesg.c.o
+[366/856] Compiling C object lscpu.p/sys-utils_lscpu-arm.c.o
+[367/856] Compiling C object chcpu.p/sys-utils_chcpu.c.o
+[368/856] Compiling C object test_dmesg.p/sys-utils_dmesg.c.o
+[369/856] Compiling C object swapon.p/sys-utils_swapon.c.o
+[370/856] Compiling C object pivot_root.p/sys-utils_pivot_root.c.o
+[371/856] Compiling C object lscpu.p/sys-utils_lscpu-riscv.c.o
+[372/856] Compiling C object unshare.p/lib_caputils.c.o
+[373/856] Compiling C object lscpu.p/sys-utils_lscpu-virt.c.o
+[374/856] Compiling C object nsenter.p/lib_exec_shell.c.o
+[375/856] Compiling C object mountpoint.p/sys-utils_mountpoint.c.o
+[376/856] Compiling C object unshare.p/lib_exec_shell.c.o
+[377/856] Compiling C object switch_root.p/sys-utils_switch_root.c.o
+[378/856] Compiling C object lscpu.p/sys-utils_lscpu.c.o
+[379/856] Compiling C object lscpu.p/sys-utils_lscpu-topology.c.o
+[380/856] Compiling C object nsenter.p/lib_caputils.c.o
+[381/856] Compiling C object setpriv.p/lib_caputils.c.o
+[382/856] Compiling C object flock.p/lib_timer.c.o
+[383/856] Compiling C object flock.p/lib_monotonic.c.o
+[384/856] Compiling C object fallocate.p/sys-utils_fallocate.c.o
+[385/856] Compiling C object flock.p/sys-utils_flock.c.o
+[386/856] Compiling C object setpriv.p/sys-utils_setpriv-landlock.c.o
+[387/856] Compiling C object lscpu.p/sys-utils_lscpu-cputype.c.o
+[388/856] Compiling C object irqtop.p/lib_monotonic.c.o
+[389/856] Compiling C object lsns.p/sys-utils_lsns.c.o
+[390/856] Compiling C object wdctl.p/sys-utils_wdctl.c.o
+[391/856] Compiling C object hwclock.p/lib_monotonic.c.o
+[392/856] Compiling C object irqtop.p/sys-utils_irqtop.c.o
+[393/856] Compiling C object unshare.p/sys-utils_unshare.c.o
+[394/856] Compiling C object lsirq.p/sys-utils_lsirq.c.o
+[395/856] Compiling C object lsipc.p/sys-utils_ipcutils.c.o
+[396/856] Compiling C object hwclock.p/sys-utils_hwclock-rtc.c.o
+[397/856] Compiling C object setpriv.p/sys-utils_setpriv.c.o
+[398/856] Compiling C object mkfs.p/disk-utils_mkfs.c.o
+[399/856] Compiling C object hwclock.p/sys-utils_hwclock-cmos.c.o
+[400/856] Compiling C object mkfs.bfs.p/disk-utils_mkfs.bfs.c.o
+[401/856] Compiling C object swaplabel.p/disk-utils_swaplabel.c.o
+[402/856] Compiling C object isosize.p/disk-utils_isosize.c.o
+[403/856] Compiling C object swaplabel.p/lib_swapprober.c.o
+[404/856] Compiling C object lsirq.p/sys-utils_irq-common.c.o
+[405/856] Compiling C object nsenter.p/sys-utils_nsenter.c.o
+[406/856] Compiling C object irqtop.p/sys-utils_irq-common.c.o
+[407/856] Compiling C object mkswap.p/lib_ismounted.c.o
+[408/856] Compiling C object fsck.p/lib_monotonic.c.o
+[409/856] Compiling C object fsck.cramfs.p/disk-utils_cramfs_common.c.o
+[410/856] Compiling C object hwclock.p/sys-utils_hwclock.c.o
+[411/856] Compiling C object test_mkfs_minix.p/lib_ismounted.c.o
+[412/856] Compiling C object mkfs.minix.p/lib_ismounted.c.o
+[413/856] Compiling C object mkfs.cramfs.p/disk-utils_cramfs_common.c.o
+[414/856] Compiling C object mkswap.p/disk-utils_mkswap.c.o
+[415/856] Compiling C object hwclock.p/meson-generated_hwclock-parse-date.tab.c.o
+[416/856] Compiling C object fsck.cramfs.p/disk-utils_fsck.cramfs.c.o
+[417/856] Compiling C object fsck.minix.p/lib_ismounted.c.o
+[418/856] Compiling C object mkfs.cramfs.p/disk-utils_mkfs.cramfs.c.o
+[419/856] Compiling C object blockdev.p/disk-utils_blockdev.c.o
+[420/856] Compiling C object addpart.p/disk-utils_addpart.c.o
+[421/856] Compiling C object delpart.p/disk-utils_delpart.c.o
+[422/856] Compiling C object fdisk.p/lib_pager.c.o
+[423/856] Compiling C object sfdisk.p/disk-utils_fdisk-list.c.o
+[424/856] Compiling C object fdisk.p/disk-utils_fdisk-list.c.o
+[425/856] Compiling C object fsck.p/disk-utils_fsck.c.o
+[426/856] Compiling C object mkfs.minix.p/disk-utils_mkfs.minix.c.o
+[427/856] Compiling C object script.p/lib_monotonic.c.o
+[428/856] Compiling C object fdisk.p/disk-utils_fdisk-menu.c.o
+[429/856] Compiling C object resizepart.p/disk-utils_resizepart.c.o
+[430/856] Compiling C object scriptlive.p/term-utils_scriptlive.c.o
+[431/856] Compiling C object test_script.p/lib_monotonic.c.o
+[432/856] Compiling C object scriptlive.p/lib_monotonic.c.o
+[433/856] Compiling C object lsipc.p/sys-utils_lsipc.c.o
+[434/856] Compiling C object test_mkfs_minix.p/disk-utils_mkfs.minix.c.o
+[435/856] Compiling C object scriptlive.p/term-utils_script-playutils.c.o
+[436/856] Compiling C object script.p/term-utils_script.c.o
+[437/856] Compiling C object fdisk.p/disk-utils_fdisk.c.o
+[438/856] Compiling C object test_script.p/lib_pty-session.c.o
+[439/856] Compiling C object scriptreplay.p/term-utils_scriptreplay.c.o
+[440/856] Compiling C object sfdisk.p/disk-utils_sfdisk.c.o
+[441/856] Compiling C object partx.p/disk-utils_partx.c.o
+[442/856] Compiling C object test_script.p/term-utils_script.c.o
+[443/856] Compiling C object script.p/lib_pty-session.c.o
+[444/856] Compiling C object wall.p/term-utils_ttymsg.c.o
+[445/856] Compiling C object scriptlive.p/lib_pty-session.c.o
+[446/856] Compiling C object agetty.p/lib_netaddrq.c.o
+[447/856] Compiling C object mesg.p/term-utils_mesg.c.o
+[448/856] Compiling C object scriptreplay.p/term-utils_script-playutils.c.o
+[449/856] Compiling C object agetty.p/lib_netlink.c.o
+[450/856] Compiling C object fsck.minix.p/disk-utils_fsck.minix.c.o
+[451/856] Compiling C object write.p/term-utils_write.c.o
+[452/856] Compiling C object sulogin.p/login-utils_sulogin-consoles.c.o
+[453/856] Compiling C object test_logger.p/lib_strv.c.o
+[454/856] Compiling C object lastlog2.p/misc-utils_lastlog2.c.o
+[455/856] Compiling C object mcookie.p/lib_md5.c.o
+[456/856] Compiling C object wall.p/term-utils_wall.c.o
+[457/856] Compiling C object logger.p/misc-utils_logger.c.o
+[458/856] Compiling C object sulogin.p/login-utils_sulogin.c.o
+[459/856] Compiling C object login.p/login-utils_login.c.o
+[460/856] Compiling C object logger.p/lib_strv.c.o
+[461/856] Compiling C object mcookie.p/misc-utils_mcookie.c.o
+[462/856] Compiling C object test_logger.p/misc-utils_logger.c.o
+[463/856] Compiling C object look.p/misc-utils_look.c.o
+[464/856] Compiling C object namei.p/lib_idcache.c.o
+[465/856] Compiling C object cfdisk.p/disk-utils_cfdisk.c.o
+[466/856] Compiling C object namei.p/misc-utils_namei.c.o
+[467/856] Compiling C object setterm.p/term-utils_setterm.c.o
+[468/856] Compiling C object lsfd.p/lsfd-cmd_decode-file-flags.c.o
+[469/856] Compiling C object test_logger.p/lib_strutils.c.o
+[470/856] Compiling C object lastlog2.p/lib_strutils.c.o
+[471/856] Compiling C object lsblk.p/misc-utils_lsblk-mnt.c.o
+[472/856] Compiling C object logger.p/lib_strutils.c.o
+[473/856] Compiling C object whereis.p/misc-utils_whereis.c.o
+[474/856] Compiling C object lsfd.p/lsfd-cmd_error.c.o
+[475/856] Compiling C object lsfd.p/lsfd-cmd_bdev.c.o
+[476/856] Compiling C object lsfd.p/lsfd-cmd_file.c.o
+[477/856] Compiling C object lsfd.p/lsfd-cmd_fifo.c.o
+[478/856] Compiling C object lsblk.p/misc-utils_lsblk-properties.c.o
+[479/856] Compiling C object lslocks.p/misc-utils_lslocks.c.o
+[480/856] Compiling C object lsblk.p/misc-utils_lsblk-devtree.c.o
+[481/856] Compiling C object namei.p/lib_strutils.c.o
+[482/856] Compiling C object agetty.p/term-utils_agetty.c.o
+[483/856] Compiling C object lsfd.p/lsfd-cmd_pidfd.c.o
+[484/856] Compiling C object lsfd.p/lsfd-cmd_sock.c.o
+[485/856] Compiling C object lsfd.p/lsfd-cmd_util.c.o
+[486/856] Compiling C object uuidgen.p/misc-utils_uuidgen.c.o
+[487/856] Compiling C object lsfd.p/lsfd-cmd_cdev.c.o
+[488/856] Compiling C object cal.p/misc-utils_cal.c.o
+[489/856] Compiling C object uuidparse.p/misc-utils_uuidparse.c.o
+[490/856] Compiling C object uuidd.p/lib_timer.c.o
+[491/856] Compiling C object uuidd.p/lib_monotonic.c.o
+[492/856] Compiling C object sample-superblocks.p/libblkid_samples_superblocks.c.o
+[493/856] Compiling C object test_uuidd.p/misc-utils_test_uuidd.c.o
+[494/856] Compiling C object test_blkid_fuzz_sample.p/libblkid_src_fuzz.c.o
+[495/856] Compiling C object blkid.p/lib_ismounted.c.o
+[496/856] Compiling C object sample-mkfs.p/libblkid_samples_mkfs.c.o
+[497/856] Compiling C object sample-topology.p/libblkid_samples_topology.c.o
+[498/856] Compiling C object lsfd.p/lsfd-cmd_unkn.c.o
+[499/856] Compiling C object sample-partitions.p/libblkid_samples_partitions.c.o
+[500/856] Compiling C object findfs.p/misc-utils_findfs.c.o
+[501/856] Compiling C object hardlink.p/lib_monotonic.c.o
+[502/856] Compiling C object copyfilerange.p/misc-utils_copyfilerange.c.o
+[503/856] Compiling C object kill.p/misc-utils_kill.c.o
+[504/856] Compiling C object rename.p/misc-utils_rename.c.o
+[505/856] Compiling C object lsfd.p/lsfd-cmd_sock-xinfo.c.o
+[506/856] Compiling C object findmnt.p/misc-utils_findmnt-verify.c.o
+[507/856] Compiling C object fincore.p/misc-utils_fincore.c.o
+[508/856] Compiling C object lsblk.p/misc-utils_lsblk.c.o
+[509/856] Compiling C object fadvise.p/misc-utils_fadvise.c.o
+[510/856] Compiling C object getopt.p/misc-utils_getopt.c.o
+[511/856] Compiling C object blkid.p/misc-utils_blkid.c.o
+[512/856] Compiling C object wipefs.p/misc-utils_wipefs.c.o
+[513/856] Compiling C object hardlink.p/misc-utils_hardlink.c.o
+[514/856] Compiling C object waitpid.p/misc-utils_waitpid.c.o
+[515/856] Compiling C object exch.p/misc-utils_exch.c.o
+[516/856] Compiling C object uuidd.p/misc-utils_uuidd.c.o
+[517/856] Compiling C object pipesz.p/misc-utils_pipesz.c.o
+[518/856] Compiling C object hardlink.p/lib_fileeq.c.o
+[519/856] Compiling C object coresched.p/schedutils_coresched.c.o
+[520/856] Compiling C object enosys.p/misc-utils_enosys.c.o
+[521/856] Compiling C object lsfd.p/lsfd-cmd_lsfd.c.o
+[522/856] Compiling C object taskset.p/schedutils_taskset.c.o
+[523/856] Compiling C object test_ttyutils.p/lib_ttyutils.c.o
+[524/856] Compiling C object test_blkdev.p/lib_blkdev.c.o
+[525/856] Compiling C object getino.p/misc-utils_getino.c.o
+[526/856] Compiling C object lsclocks.p/misc-utils_lsclocks.c.o
+[527/856] Compiling C object uclampset.p/schedutils_uclampset.c.o
+[528/856] Compiling C object chrt.p/schedutils_chrt.c.o
+[529/856] Compiling C object test_ismounted.p/lib_ismounted.c.o
+[530/856] Compiling C object findmnt.p/misc-utils_findmnt.c.o
+[531/856] Compiling C object test_mangle.p/lib_mangle.c.o
+[532/856] Compiling C object test_colors.p/lib_color-names.c.o
+[533/856] Compiling C object ionice.p/schedutils_ionice.c.o
+[534/856] Compiling C object test_pty.p/lib_monotonic.c.o
+[535/856] Compiling C object test_cal.p/misc-utils_cal.c.o
+[536/856] Compiling C object test_linux_version.p/lib_linux_version.c.o
+[537/856] Compiling C object test_cpuset.p/lib_cpuset.c.o
+[538/856] Compiling C object test_randutils.p/lib_randutils.c.o
+[539/856] Compiling C object test_uuid_time.p/libuuid_src_pack.c.o
+[540/856] Compiling C object test_colors.p/lib_colors.c.o
+[541/856] Compiling C object test_canonicalize.p/lib_canonicalize.c.o
+[542/856] Compiling C object test_configs.p/lib_configs.c.o
+[543/856] Compiling C object test_uuid_time.p/libuuid_src_unpack.c.o
+[544/856] Compiling C object test_pager.p/lib_pager.c.o
+[545/856] Compiling C object test_procfs.p/lib_procfs.c.o
+[546/856] Compiling C object test_pwdutils.p/lib_pwdutils.c.o
+[547/856] Compiling C object test_canonicalize.p/lib_fileutils.c.o
+[548/856] Compiling C object test_uuid_parser.p/libuuid_src_test_uuid.c.o
+[549/856] Compiling C object test_fileutils.p/lib_fileutils.c.o
+[550/856] Compiling C object test_uuid_time.p/libuuid_src_gen_uuid.c.o
+[551/856] Compiling C object test_fdisk_version.p/libfdisk_src_version.c.o
+[552/856] Compiling C object test_uuid_time.p/lib_md5.c.o
+[553/856] Compiling C object test_pty.p/lib_pty-session.c.o
+[554/856] Compiling C object test_fdisk_item.p/libfdisk_src_item.c.o
+[555/856] Compiling C object test_timeutils.p/lib_timeutils.c.o
+[556/856] Compiling C object test_cap.p/tests_helpers_test_cap.c.o
+[557/856] Compiling C object test_uuid_time.p/lib_randutils.c.o
+[558/856] Compiling C object test_mbsencode.p/tests_helpers_test_mbsencode.c.o
+[559/856] Compiling C object test_logindefs.p/lib_logindefs.c.o
+[560/856] Compiling C object test_byteswap.p/tests_helpers_test_byteswap.c.o
+[561/856] Compiling C object test_sysfs.p/lib_sysfs.c.o
+[562/856] Compiling C object test_md5.p/tests_helpers_test_md5.c.o
+[563/856] Compiling C object test_md5.p/lib_md5.c.o
+[564/856] Compiling C object test_fdisk_utils.p/libfdisk_src_utils.c.o
+[565/856] Compiling C object test_sha1.p/tests_helpers_test_sha1.c.o
+[566/856] Compiling C object test_strutils.p/lib_strutils.c.o
+[567/856] Compiling C object test_tiocsti.p/tests_helpers_test_tiocsti.c.o
+[568/856] Compiling C object sample-fdisk-mkpart.p/libfdisk_samples_mkpart.c.o
+[569/856] Compiling C object sample-fdisk-mkpart-fullspec.p/libfdisk_samples_mkpart-fullspec.c.o
+[570/856] Compiling C object test_sigreceive.p/tests_helpers_test_sigreceive.c.o
+[571/856] Compiling C object test_strerror.p/tests_helpers_test_strerror.c.o
+[572/856] Compiling C object test_pathnames.p/tests_helpers_test_pathnames.c.o
+[573/856] Compiling C object test_uuid_namespace.p/tests_helpers_test_uuid_namespace.c.o
+[574/856] Compiling C object test_uuid_namespace.p/libuuid_src_predefined.c.o
+[575/856] Compiling C object test_fdisk_ask.p/libfdisk_src_ask.c.o
+[576/856] Compiling C object test_uuid_namespace.p/libuuid_src_unpack.c.o
+[577/856] Compiling C object test_sigstate.p/tests_helpers_test_sigstate.c.o
+[578/856] Compiling C object test_path.p/lib_path.c.o
+[579/856] Compiling C object test_enosys.p/tests_helpers_test_enosys.c.o
+[580/856] Compiling C object test_mkfds.p/tests_helpers_test_mkfds_ppoll.c.o
+[581/856] Compiling C object test_uuid_time.p/lib_sha1.c.o
+[582/856] Compiling C object test_open_twice.p/tests_helpers_test_open_twice.c.o
+[583/856] Compiling C object test_kill_pidfdino.p/tests_helpers_test_kill_pidfdino.c.o
+[584/856] Compiling C object test_uuid_namespace.p/libuuid_src_unparse.c.o
+[585/856] Linking static target libmount/libmount_static.a
+[586/856] Compiling C object sample-scols-maxout.p/libsmartcols_samples_maxout.c.o
+[587/856] Compiling C object sample-scols-title.p/libsmartcols_samples_title.c.o
+[588/856] Compiling C object test_sha1.p/lib_sha1.c.o
+[589/856] Compiling C object sample-scols-continuous-json.p/libsmartcols_samples_continuous-json.c.o
+[590/856] Compiling C object sample-scols-grouping-simple.p/libsmartcols_samples_grouping-simple.c.o
+[591/856] Compiling C object sample-scols-continuous.p/libsmartcols_samples_continuous.c.o
+[592/856] Compiling C object test_sysinfo.p/tests_helpers_test_sysinfo.c.o
+[593/856] Linking target libmount/test_mount_optlist
+[594/856] Linking target libmount/test_mount_lock
+[595/856] Compiling C object sample-scols-grouping-overlay.p/libsmartcols_samples_grouping-overlay.c.o
+[596/856] Linking target libmount/test_mount_context
+[597/856] Linking target libmount/test_mount_cache
+[598/856] Linking target libmount/test_mount_optstr
+[599/856] Compiling C object sample-mount-overwrite.p/libmount_samples_overwrite.c.o
+[600/856] Compiling C object sample-scols-tree.p/libsmartcols_samples_tree.c.o
+[601/856] Compiling C object sample-scols-wrap.p/libsmartcols_samples_wrap.c.o
+[602/856] Linking target libmount/test_mount_tab
+[603/856] Linking static target libsmartcols/libsmartcols.a
+[604/856] Linking target libmount/test_mount_tab_diff
+[605/856] Linking target libmount/test_mount_version
+[606/856] Linking target libmount/test_mount_debug
+[607/856] Linking target liblastlog2/test_lastlog2_pam_lastlog2_output
+[608/856] Linking target libmount/test_mount_monitor
+[609/856] Linking target libmount/test_mount_tab_update
+[610/856] Linking target libmount/test_mount_utils
+[611/856] Linking target libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so
+[612/856] Linking target liblastlog2/test_lastlog2_dlopen
+[613/856] Linking target liblastlog2/test_lastlog2_remove_entry
+[614/856] Linking target liblastlog2/test_lastlog2_write_read_user
+[615/856] Compiling C object test_boilerplate.p/Documentation_boilerplate.c.o
+[616/856] Linking target liblastlog2/test_lastlog2_y2038_ll2_read_all
+[617/856] Linking target liblastlog2/test_lastlog2_rename_user
+[618/856] Linking target liblastlog2/test_lastlog2_y2038_sqlite3_time
+[619/856] Linking target pam_lastlog2/pam_lastlog2.so
+[620/856] Building translation po/da/LC_MESSAGES/util-linux-da.mo
+[621/856] Building translation po/et/LC_MESSAGES/util-linux-et.mo
+[622/856] Building translation po/es/LC_MESSAGES/util-linux-es.mo
+[623/856] Compiling C object test_fdisk_script.p/libfdisk_src_script.c.o
+[624/856] Building translation po/fi/LC_MESSAGES/util-linux-fi.mo
+[625/856] Compiling C object sample-scols-fromfile.p/libsmartcols_samples_fromfile.c.o
+[626/856] Building translation po/ar/LC_MESSAGES/util-linux-ar.mo
+[627/856] Building translation po/cs/LC_MESSAGES/util-linux-cs.mo
+[628/856] Building translation po/de/LC_MESSAGES/util-linux-de.mo
+[629/856] Building translation po/eu/LC_MESSAGES/util-linux-eu.mo
+[630/856] Building translation po/fr/LC_MESSAGES/util-linux-fr.mo
+[631/856] Building translation po/ka/LC_MESSAGES/util-linux-ka.mo
+[632/856] Building translation po/ca/LC_MESSAGES/util-linux-ca.mo
+[633/856] Building translation po/it/LC_MESSAGES/util-linux-it.mo
+[634/856] Building translation po/id/LC_MESSAGES/util-linux-id.mo
+[635/856] Building translation po/gl/LC_MESSAGES/util-linux-gl.mo
+[636/856] Building translation po/hr/LC_MESSAGES/util-linux-hr.mo
+[637/856] Building translation po/hu/LC_MESSAGES/util-linux-hu.mo
+[638/856] Building translation po/nl/LC_MESSAGES/util-linux-nl.mo
+[639/856] Building translation po/ja/LC_MESSAGES/util-linux-ja.mo
+[640/856] Building translation po/pl/LC_MESSAGES/util-linux-pl.mo
+[641/856] Building translation po/ko/LC_MESSAGES/util-linux-ko.mo
+[642/856] Building translation po/ru/LC_MESSAGES/util-linux-ru.mo
+[643/856] Building translation po/sk/LC_MESSAGES/util-linux-sk.mo
+[644/856] Building translation po/ro/LC_MESSAGES/util-linux-ro.mo
+[645/856] Linking target chfn
+[646/856] Building translation po/sv/LC_MESSAGES/util-linux-sv.mo
+[647/856] Linking target chsh
+[648/856] Linking target test_islocal
+[649/856] Linking target last
+[650/856] Building translation po/sr/LC_MESSAGES/util-linux-sr.mo
+[651/856] Building translation po/pt/LC_MESSAGES/util-linux-pt.mo
+[652/856] Building translation po/sl/LC_MESSAGES/util-linux-sl.mo
+[653/856] Linking target test-consoles
+[654/856] Building translation po/pt_BR/LC_MESSAGES/util-linux-pt_BR.mo
+[655/856] Linking target nologin
+[656/856] Linking target su
+[657/856] Building translation po/vi/LC_MESSAGES/util-linux-vi.mo
+[658/856] Building translation po/zh_TW/LC_MESSAGES/util-linux-zh_TW.mo
+[659/856] Linking target vipw
+[660/856] Linking target lslogins
+[661/856] Linking target newgrp
+[662/856] Linking target utmpdump
+[663/856] Linking target runuser
+[664/856] Building translation po/tr/LC_MESSAGES/util-linux-tr.mo
+[665/856] Linking target bits
+[666/856] Linking target colrm
+[667/856] Building translation po/zh_CN/LC_MESSAGES/util-linux-zh_CN.mo
+[668/856] Building translation po/uk/LC_MESSAGES/util-linux-uk.mo
+[669/856] Compiling C object test_fdisk_gpt.p/libfdisk_src_gpt.c.o
+[670/856] Linking target col
+[671/856] Linking target column
+[672/856] Linking target pg
+[673/856] Linking target colcrt
+[674/856] Linking target more
+[675/856] Linking target rev
+[676/856] Linking target ul
+[677/856] Linking target ipcmk
+[678/856] Linking target lsmem
+[679/856] Linking target hexdump
+[680/856] Linking target test_more
+[681/856] Linking target ipcrm
+[682/856] Linking target chmem
+[683/856] Linking target ipcs
+[684/856] Linking target setsid
+[685/856] Linking target choom
+[686/856] Linking target renice
+[687/856] Linking target tunelp
+[688/856] Linking target rfkill
+[689/856] Linking target setpgid
+[690/856] Linking target ctrlaltdel
+[691/856] Linking target test_dmesg
+[692/856] Linking target fstrim
+[693/856] Linking target dmesg
+[694/856] Linking target readprofile
+[695/856] Linking target fsfreeze
+[696/856] Linking target blkdiscard
+[697/856] Linking target rtcwake
+[698/856] Linking target ldattach
+[699/856] Linking target eject
+[700/856] Linking target blkzone
+[701/856] Linking target blkpr
+[702/856] Linking target setarch
+[703/856] Linking target losetup
+[704/856] Linking target prlimit
+[705/856] Linking target umount
+[706/856] Linking target swapoff
+[707/856] Linking target zramctl
+[708/856] Linking target lsns
+[709/856] Linking target swapon
+[710/856] Linking target wdctl
+[711/856] Linking target lscpu
+[712/856] Linking target mount
+[713/856] Linking target pivot_root
+[714/856] Linking target mountpoint
+[715/856] Linking target fallocate
+[716/856] Linking target switch_root
+[717/856] Linking target chcpu
+[718/856] Linking target nsenter
+[719/856] Linking target setpriv
+[720/856] Linking target unshare
+[721/856] Linking target lsirq
+[722/856] Linking target lsipc
+[723/856] Linking target hwclock
+[724/856] Linking target mkfs.bfs
+[725/856] Linking target isosize
+[726/856] Linking target irqtop
+[727/856] Linking target flock
+[728/856] Linking target test_mkfs_minix
+[729/856] Linking target swaplabel
+[730/856] Linking target mkfs
+[731/856] Linking target mkswap
+[732/856] Linking target mkfs.minix
+[733/856] Linking target fsck.minix
+[734/856] Linking target mkfs.cramfs
+[735/856] Linking target fsck
+[736/856] Linking target fsck.cramfs
+[737/856] Linking target fdisk
+[738/856] Linking target blockdev
+[739/856] Linking target addpart
+[740/856] Linking target resizepart
+[741/856] Linking target test_script
+[742/856] Linking target sfdisk
+[743/856] Linking target cfdisk
+[744/856] Linking target delpart
+[745/856] Linking target scriptlive
+[746/856] Linking target script
+[747/856] Linking target mesg
+[748/856] Linking target setterm
+[749/856] Linking target partx
+[750/856] Linking target scriptreplay
+[751/856] Linking target wall
+[752/856] Linking target write
+[753/856] Linking target login
+[754/856] Linking target agetty
+[755/856] Linking target sulogin
+[756/856] Linking target test_logger
+[757/856] Linking target mcookie
+[758/856] Linking target logger
+[759/856] Linking target lastlog2
+[760/856] Linking target cal
+[761/856] Linking target whereis
+[762/856] Linking target namei
+[763/856] Linking target lsblk
+[764/856] Linking target lslocks
+[765/856] Linking target look
+[766/856] Linking target lsfd
+[767/856] Linking target uuidparse
+[768/856] Linking target uuidd
+[769/856] Linking target uuidgen
+[770/856] Linking target test_uuidd
+[771/856] Linking target blkid
+[772/856] Linking target copyfilerange
+[773/856] Linking target sample-mkfs
+[774/856] Linking target sample-topology
+[775/856] Linking target test_blkid_fuzz_sample
+[776/856] Linking target wipefs
+[777/856] Linking target sample-partitions
+[778/856] Linking target rename
+[779/856] Linking target sample-superblocks
+[780/856] Linking target findfs
+[781/856] Linking target findmnt
+[782/856] Linking target kill
+[783/856] Linking target fincore
+[784/856] Linking target getopt
+[785/856] Linking target waitpid
+[786/856] Linking target hardlink
+[787/856] Linking target pipesz
+[788/856] Linking target fadvise
+[789/856] Linking target test_cal
+[790/856] Linking target ionice
+[791/856] Linking target lsclocks
+[792/856] Linking target getino
+[793/856] Linking target exch
+[794/856] Linking target uclampset
+[795/856] Linking target enosys
+[796/856] Linking target taskset
+[797/856] Linking target test_ttyutils
+[798/856] Linking target test_ismounted
+[799/856] Linking target chrt
+[800/856] Compiling C object test_mkfds.p/tests_helpers_test_mkfds.c.o
+[801/856] Linking target test_colors
+[802/856] Linking target test_strutils
+[803/856] Linking target coresched
+[804/856] Linking target test_blkdev
+[805/856] Linking target test_mangle
+[806/856] Linking target test_pager
+[807/856] Linking target test_randutils
+[808/856] Linking target test_procfs
+[809/856] Linking target test_pty
+[810/856] Linking target test_cpuset
+[811/856] Linking target test_fileutils
+[812/856] Linking target test_linux_version
+[813/856] Linking target test_sysfs
+[814/856] Linking target test_uuid_parser
+[815/856] Linking target test_path
+[816/856] Linking target test_logindefs
+[817/856] Linking target test_canonicalize
+[818/856] Linking target test_configs
+[819/856] Linking target test_uuid_time
+[820/856] Linking target test_timeutils
+[821/856] Linking target test_pwdutils
+[822/856] Linking target test_fdisk_ask
+[823/856] Linking target test_fdisk_utils
+[824/856] Linking target test_fdisk_item
+[825/856] Linking target test_fdisk_gpt
+[826/856] Linking target test_fdisk_version
+[827/856] Linking target sample-fdisk-mkpart
+[828/856] Linking target test_fdisk_script
+[829/856] Linking target test_cap
+[830/856] Linking target test_byteswap
+[831/856] Linking target test_mbsencode
+[832/856] Linking target test_strerror
+[833/856] Linking target sample-fdisk-mkpart-fullspec
+[834/856] Linking target test_sha1
+[835/856] Linking target test_sysinfo
+[836/856] Linking target test_pathnames
+[837/856] Linking target test_md5
+[838/856] Linking target test_sigstate
+[839/856] Linking target test_tiocsti
+[840/856] Linking target test_enosys
+[841/856] Linking target test_sigreceive
+[842/856] Linking target test_kill_pidfdino
+[843/856] Linking target test_open_twice
+[844/856] Linking target sample-scols-tree
+[845/856] Linking target test_uuid_namespace
+[846/856] Linking target test_mkfds
+[847/856] Linking target sample-scols-title
+[848/856] Linking target sample-scols-continuous
+[849/856] Linking target sample-scols-continuous-json
+[850/856] Linking target sample-scols-wrap
+[851/856] Linking target sample-scols-fromfile
+[852/856] Linking target sample-scols-grouping-simple
+[853/856] Linking target sample-scols-maxout
+[854/856] Linking target test_boilerplate
+[855/856] Linking target sample-scols-grouping-overlay
+[856/856] Linking target sample-mount-overwrite
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package_util-linux()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+mkdir: created directory '/home/builder/build/pkg/util-linux/usr/share/man'
+mkdir: created directory '/home/builder/build/pkg/util-linux/usr/share/man/man8'
+Compiling '/home/builder/build/pkg/util-linux/usr/lib/python3.14/site-packages/libmount/__init__.py'...
+Compiling '/home/builder/build/pkg/util-linux/usr/lib/python3.14/site-packages/libmount/__init__.py'...
+Installing libblkid/libblkid.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing libblkid/libblkid.a to /home/builder/build/pkg/util-linux/usr/lib
+Installing libmount/libmount.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing libmount/python/pylibmount.cpython-314-x86_64-linux-gnu.so to /home/builder/build/pkg/util-linux/usr/lib/python3.14/site-packages/libmount
+Installing libsmartcols/libsmartcols.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing libsmartcols/libsmartcols.a to /home/builder/build/pkg/util-linux/usr/lib
+Installing libuuid/libuuid.so.1.3.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing liblastlog2/liblastlog2.so.2.0.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing libfdisk/libfdisk.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib
+Installing libfdisk/libfdisk.a to /home/builder/build/pkg/util-linux/usr/lib
+Installing pam_lastlog2/pam_lastlog2.so to /home/builder/build/pkg/util-linux/usr/lib/security
+Installing po/ar/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ar/LC_MESSAGES
+Installing po/ca/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ca/LC_MESSAGES
+Installing po/cs/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/cs/LC_MESSAGES
+Installing po/da/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/da/LC_MESSAGES
+Installing po/de/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/de/LC_MESSAGES
+Installing po/es/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/es/LC_MESSAGES
+Installing po/et/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/et/LC_MESSAGES
+Installing po/eu/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/eu/LC_MESSAGES
+Installing po/fi/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/fi/LC_MESSAGES
+Installing po/fr/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/fr/LC_MESSAGES
+Installing po/gl/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/gl/LC_MESSAGES
+Installing po/hr/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/hr/LC_MESSAGES
+Installing po/hu/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/hu/LC_MESSAGES
+Installing po/id/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/id/LC_MESSAGES
+Installing po/it/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/it/LC_MESSAGES
+Installing po/ja/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ja/LC_MESSAGES
+Installing po/ka/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ka/LC_MESSAGES
+Installing po/ko/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ko/LC_MESSAGES
+Installing po/nl/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/nl/LC_MESSAGES
+Installing po/pl/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/pl/LC_MESSAGES
+Installing po/pt/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/pt/LC_MESSAGES
+Installing po/pt_BR/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/pt_BR/LC_MESSAGES
+Installing po/ro/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ro/LC_MESSAGES
+Installing po/ru/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/ru/LC_MESSAGES
+Installing po/sk/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/sk/LC_MESSAGES
+Installing po/sl/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/sl/LC_MESSAGES
+Installing po/sr/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/sr/LC_MESSAGES
+Installing po/sv/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/sv/LC_MESSAGES
+Installing po/tr/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/tr/LC_MESSAGES
+Installing po/uk/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/uk/LC_MESSAGES
+Installing po/vi/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/vi/LC_MESSAGES
+Installing po/zh_CN/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/zh_CN/LC_MESSAGES
+Installing po/zh_TW/LC_MESSAGES/util-linux.mo to /home/builder/build/pkg/util-linux/usr/share/locale/zh_TW/LC_MESSAGES
+Installing chfn to /home/builder/build/pkg/util-linux/usr/bin
+Installing chsh to /home/builder/build/pkg/util-linux/usr/bin
+Installing last to /home/builder/build/pkg/util-linux/usr/bin
+Installing nologin to /home/builder/build/pkg/util-linux/usr/bin
+Installing utmpdump to /home/builder/build/pkg/util-linux/usr/bin
+Installing su to /home/builder/build/pkg/util-linux/usr/bin
+Installing newgrp to /home/builder/build/pkg/util-linux/usr/bin
+Installing lslogins to /home/builder/build/pkg/util-linux/usr/bin
+Installing vipw to /home/builder/build/pkg/util-linux/usr/bin
+Installing runuser to /home/builder/build/pkg/util-linux/usr/bin
+Installing bits to /home/builder/build/pkg/util-linux/usr/bin
+Installing col to /home/builder/build/pkg/util-linux/usr/bin
+Installing colcrt to /home/builder/build/pkg/util-linux/usr/bin
+Installing colrm to /home/builder/build/pkg/util-linux/usr/bin
+Installing rev to /home/builder/build/pkg/util-linux/usr/bin
+Installing column to /home/builder/build/pkg/util-linux/usr/bin
+Installing pg to /home/builder/build/pkg/util-linux/usr/bin
+Installing ul to /home/builder/build/pkg/util-linux/usr/bin
+Installing more to /home/builder/build/pkg/util-linux/usr/bin
+Installing hexdump to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsmem to /home/builder/build/pkg/util-linux/usr/bin
+Installing chmem to /home/builder/build/pkg/util-linux/usr/bin
+Installing choom to /home/builder/build/pkg/util-linux/usr/bin
+Installing ipcmk to /home/builder/build/pkg/util-linux/usr/bin
+Installing ipcrm to /home/builder/build/pkg/util-linux/usr/bin
+Installing ipcs to /home/builder/build/pkg/util-linux/usr/bin
+Installing rfkill to /home/builder/build/pkg/util-linux/usr/bin
+Installing renice to /home/builder/build/pkg/util-linux/usr/bin
+Installing setpgid to /home/builder/build/pkg/util-linux/usr/bin
+Installing setsid to /home/builder/build/pkg/util-linux/usr/bin
+Installing readprofile to /home/builder/build/pkg/util-linux/usr/bin
+Installing tunelp to /home/builder/build/pkg/util-linux/usr/bin
+Installing fstrim to /home/builder/build/pkg/util-linux/usr/bin
+Installing dmesg to /home/builder/build/pkg/util-linux/usr/bin
+Installing ctrlaltdel to /home/builder/build/pkg/util-linux/usr/bin
+Installing fsfreeze to /home/builder/build/pkg/util-linux/usr/bin
+Installing blkdiscard to /home/builder/build/pkg/util-linux/usr/bin
+Installing blkzone to /home/builder/build/pkg/util-linux/usr/bin
+Installing blkpr to /home/builder/build/pkg/util-linux/usr/bin
+Installing ldattach to /home/builder/build/pkg/util-linux/usr/bin
+Installing rtcwake to /home/builder/build/pkg/util-linux/usr/bin
+Installing setarch to /home/builder/build/pkg/util-linux/usr/bin
+Installing eject to /home/builder/build/pkg/util-linux/usr/bin
+Installing losetup to /home/builder/build/pkg/util-linux/usr/bin
+Installing zramctl to /home/builder/build/pkg/util-linux/usr/bin
+Installing prlimit to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsns to /home/builder/build/pkg/util-linux/usr/bin
+Installing mount to /home/builder/build/pkg/util-linux/usr/bin
+Installing umount to /home/builder/build/pkg/util-linux/usr/bin
+Installing swapon to /home/builder/build/pkg/util-linux/usr/bin
+Installing swapoff to /home/builder/build/pkg/util-linux/usr/bin
+Installing lscpu to /home/builder/build/pkg/util-linux/usr/bin
+Installing chcpu to /home/builder/build/pkg/util-linux/usr/bin
+Installing wdctl to /home/builder/build/pkg/util-linux/usr/bin
+Installing mountpoint to /home/builder/build/pkg/util-linux/usr/bin
+Installing fallocate to /home/builder/build/pkg/util-linux/usr/bin
+Installing pivot_root to /home/builder/build/pkg/util-linux/usr/bin
+Installing switch_root to /home/builder/build/pkg/util-linux/usr/bin
+Installing unshare to /home/builder/build/pkg/util-linux/usr/bin
+Installing nsenter to /home/builder/build/pkg/util-linux/usr/bin
+Installing setpriv to /home/builder/build/pkg/util-linux/usr/bin
+Installing flock to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsirq to /home/builder/build/pkg/util-linux/usr/bin
+Installing irqtop to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsipc to /home/builder/build/pkg/util-linux/usr/bin
+Installing hwclock to /home/builder/build/pkg/util-linux/usr/bin
+Installing mkfs to /home/builder/build/pkg/util-linux/usr/bin
+Installing mkfs.bfs to /home/builder/build/pkg/util-linux/usr/bin
+Installing isosize to /home/builder/build/pkg/util-linux/usr/bin
+Installing mkswap to /home/builder/build/pkg/util-linux/usr/bin
+Installing swaplabel to /home/builder/build/pkg/util-linux/usr/bin
+Installing fsck to /home/builder/build/pkg/util-linux/usr/bin
+Installing mkfs.minix to /home/builder/build/pkg/util-linux/usr/bin
+Installing fsck.minix to /home/builder/build/pkg/util-linux/usr/bin
+Installing mkfs.cramfs to /home/builder/build/pkg/util-linux/usr/bin
+Installing fsck.cramfs to /home/builder/build/pkg/util-linux/usr/bin
+Installing blockdev to /home/builder/build/pkg/util-linux/usr/bin
+Installing fdisk to /home/builder/build/pkg/util-linux/usr/bin
+Installing sfdisk to /home/builder/build/pkg/util-linux/usr/bin
+Installing cfdisk to /home/builder/build/pkg/util-linux/usr/bin
+Installing addpart to /home/builder/build/pkg/util-linux/usr/bin
+Installing delpart to /home/builder/build/pkg/util-linux/usr/bin
+Installing resizepart to /home/builder/build/pkg/util-linux/usr/bin
+Installing partx to /home/builder/build/pkg/util-linux/usr/bin
+Installing script to /home/builder/build/pkg/util-linux/usr/bin
+Installing scriptlive to /home/builder/build/pkg/util-linux/usr/bin
+Installing scriptreplay to /home/builder/build/pkg/util-linux/usr/bin
+Installing agetty to /home/builder/build/pkg/util-linux/usr/bin
+Installing setterm to /home/builder/build/pkg/util-linux/usr/bin
+Installing mesg to /home/builder/build/pkg/util-linux/usr/bin
+Installing wall to /home/builder/build/pkg/util-linux/usr/bin
+Installing write to /home/builder/build/pkg/util-linux/usr/bin
+Installing login to /home/builder/build/pkg/util-linux/usr/bin
+Installing sulogin to /home/builder/build/pkg/util-linux/usr/bin
+Installing cal to /home/builder/build/pkg/util-linux/usr/bin
+Installing logger to /home/builder/build/pkg/util-linux/usr/bin
+Installing look to /home/builder/build/pkg/util-linux/usr/bin
+Installing mcookie to /home/builder/build/pkg/util-linux/usr/bin
+Installing lastlog2 to /home/builder/build/pkg/util-linux/usr/bin
+Installing namei to /home/builder/build/pkg/util-linux/usr/bin
+Installing whereis to /home/builder/build/pkg/util-linux/usr/bin
+Installing lslocks to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsblk to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsfd to /home/builder/build/pkg/util-linux/usr/bin
+Installing uuidgen to /home/builder/build/pkg/util-linux/usr/bin
+Installing uuidparse to /home/builder/build/pkg/util-linux/usr/bin
+Installing uuidd to /home/builder/build/pkg/util-linux/usr/bin
+Installing blkid to /home/builder/build/pkg/util-linux/usr/bin
+Installing copyfilerange to /home/builder/build/pkg/util-linux/usr/bin
+Installing findfs to /home/builder/build/pkg/util-linux/usr/bin
+Installing wipefs to /home/builder/build/pkg/util-linux/usr/bin
+Installing findmnt to /home/builder/build/pkg/util-linux/usr/bin
+Installing kill to /home/builder/build/pkg/util-linux/usr/bin
+Installing rename to /home/builder/build/pkg/util-linux/usr/bin
+Installing getopt to /home/builder/build/pkg/util-linux/usr/bin
+Installing fincore to /home/builder/build/pkg/util-linux/usr/bin
+Installing hardlink to /home/builder/build/pkg/util-linux/usr/bin
+Installing pipesz to /home/builder/build/pkg/util-linux/usr/bin
+Installing fadvise to /home/builder/build/pkg/util-linux/usr/bin
+Installing waitpid to /home/builder/build/pkg/util-linux/usr/bin
+Installing enosys to /home/builder/build/pkg/util-linux/usr/bin
+Installing lsclocks to /home/builder/build/pkg/util-linux/usr/bin
+Installing exch to /home/builder/build/pkg/util-linux/usr/bin
+Installing getino to /home/builder/build/pkg/util-linux/usr/bin
+Installing chrt to /home/builder/build/pkg/util-linux/usr/bin
+Installing ionice to /home/builder/build/pkg/util-linux/usr/bin
+Installing taskset to /home/builder/build/pkg/util-linux/usr/bin
+Installing uclampset to /home/builder/build/pkg/util-linux/usr/bin
+Installing coresched to /home/builder/build/pkg/util-linux/usr/bin
+Installing /home/builder/build/src/util-linux/libuuid/src/uuid.h to /home/builder/build/pkg/util-linux/usr/include/uuid
+Installing /home/builder/build/src/build/libblkid/blkid.h to /home/builder/build/pkg/util-linux/usr/include/blkid
+Installing /home/builder/build/src/build/meson-private/blkid.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/libmount/libmount.h to /home/builder/build/pkg/util-linux/usr/include/libmount
+Installing /home/builder/build/src/build/meson-private/mount.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/util-linux/libmount/python/__init__.py to /home/builder/build/pkg/util-linux/usr/lib/python3.14/site-packages/libmount
+Installing /home/builder/build/src/build/libsmartcols/libsmartcols.h to /home/builder/build/pkg/util-linux/usr/include/libsmartcols
+Installing /home/builder/build/src/build/meson-private/smartcols.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/meson-private/uuid.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/liblastlog2/lastlog2.h to /home/builder/build/pkg/util-linux/usr/include/liblastlog2
+Installing /home/builder/build/src/build/meson-private/lastlog2.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/libfdisk/libfdisk.h to /home/builder/build/pkg/util-linux/usr/include/libfdisk
+Installing /home/builder/build/src/build/meson-private/fdisk.pc to /home/builder/build/pkg/util-linux/usr/lib/pkgconfig
+Installing /home/builder/build/src/build/sys-utils/fstrim.service to /home/builder/build/pkg/util-linux/usr/lib/systemd/system
+Installing /home/builder/build/src/util-linux/sys-utils/fstrim.timer to /home/builder/build/pkg/util-linux/usr/lib/systemd/system
+Installing /home/builder/build/src/build/misc-utils/lastlog2-tmpfiles.conf to /home/builder/build/pkg/util-linux/usr/lib/tmpfiles.d
+Installing /home/builder/build/src/build/misc-utils/lastlog2-import.service to /home/builder/build/pkg/util-linux/usr/lib/systemd/system
+Installing /home/builder/build/src/build/misc-utils/uuidd-tmpfiles.conf to /home/builder/build/pkg/util-linux/usr/lib/tmpfiles.d
+Installing /home/builder/build/src/build/misc-utils/uuidd.service to /home/builder/build/pkg/util-linux/usr/lib/systemd/system
+Installing /home/builder/build/src/build/misc-utils/uuidd.socket to /home/builder/build/pkg/util-linux/usr/lib/systemd/system
+Installing /home/builder/build/src/build/misc-utils/uuidd-sysusers.conf to /home/builder/build/pkg/util-linux/usr/lib/sysusers.d
+Installing /home/builder/build/src/util-linux/misc-utils/getopt-example.bash to /home/builder/build/pkg/util-linux/usr/share/doc/util-linux
+Installing /home/builder/build/src/util-linux/misc-utils/getopt-example.tcsh to /home/builder/build/pkg/util-linux/usr/share/doc/util-linux
+Installing /home/builder/build/src/util-linux/bash-completion/chfn to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/chsh to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/last to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/utmpdump to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/su to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/newgrp to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lslogins to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/bits to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/col to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/colcrt to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/colrm to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/rev to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/column to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/pg to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ul to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/more to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/hexdump to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsmem to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/chmem to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/choom to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ipcmk to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ipcrm to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ipcs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/rfkill to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/renice to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/setpgid to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/setsid to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/readprofile to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/tunelp to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fstrim to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/dmesg to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ctrlaltdel to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fsfreeze to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/blkdiscard to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/blkzone to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/blkpr to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ldattach to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/rtcwake to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/setarch to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/eject to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/losetup to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/zramctl to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/prlimit to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsns to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mount to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/umount to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/swapon to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/swapoff to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lscpu to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/chcpu to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/wdctl to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mountpoint to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fallocate to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/pivot_root to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/unshare to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/nsenter to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/setpriv to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/flock to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsirq to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/irqtop to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsipc to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/hwclock to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mkfs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mkfs.bfs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/isosize to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mkswap to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/swaplabel to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fsck to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mkfs.minix to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fsck.minix to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mkfs.cramfs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fsck.cramfs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/blockdev to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fdisk to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/sfdisk to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/cfdisk to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/addpart to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/delpart to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/resizepart to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/partx to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/script to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/scriptlive to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/scriptreplay to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/setterm to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mesg to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/wall to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/write to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/cal to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/logger to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/look to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/mcookie to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lastlog2 to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/namei to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/whereis to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lslocks to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsblk to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsfd to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/uuidgen to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/uuidparse to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/uuidd to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/blkid to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/copyfilerange to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/findfs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/wipefs to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/findmnt to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/rename to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/getopt to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fincore to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/hardlink to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/pipesz to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/fadvise to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/waitpid to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/enosys to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/lsclocks to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/exch to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/getino to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/chrt to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/ionice to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/taskset to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/uclampset to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing /home/builder/build/src/util-linux/bash-completion/coresched to /home/builder/build/pkg/util-linux/usr/share/bash-completion/completions
+Installing symlink pointing to libblkid.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib/libblkid.so.1
+Installing symlink pointing to libblkid.so.1 to /home/builder/build/pkg/util-linux/usr/lib/libblkid.so
+Installing symlink pointing to libmount.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib/libmount.so.1
+Installing symlink pointing to libmount.so.1 to /home/builder/build/pkg/util-linux/usr/lib/libmount.so
+Installing symlink pointing to libsmartcols.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib/libsmartcols.so.1
+Installing symlink pointing to libsmartcols.so.1 to /home/builder/build/pkg/util-linux/usr/lib/libsmartcols.so
+Installing symlink pointing to libuuid.so.1.3.0 to /home/builder/build/pkg/util-linux/usr/lib/libuuid.so.1
+Installing symlink pointing to libuuid.so.1 to /home/builder/build/pkg/util-linux/usr/lib/libuuid.so
+Installing symlink pointing to liblastlog2.so.2.0.0 to /home/builder/build/pkg/util-linux/usr/lib/liblastlog2.so.2
+Installing symlink pointing to liblastlog2.so.2 to /home/builder/build/pkg/util-linux/usr/lib/liblastlog2.so
+Installing symlink pointing to libfdisk.so.1.1.0 to /home/builder/build/pkg/util-linux/usr/lib/libfdisk.so.1
+Installing symlink pointing to libfdisk.so.1 to /home/builder/build/pkg/util-linux/usr/lib/libfdisk.so
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh last /usr/bin/lastb'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh vipw /usr/bin/vigr'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh vipw.8 /usr/share/man/man8/vigr.8'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh setarch /usr/bin/uname26'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh setarch /usr/bin/linux32'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh setarch /usr/bin/linux64'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh setarch /usr/bin/i386'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh setarch /usr/bin/x86_64'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh last /usr/share/bash-completion/completions/lastb'
+Running custom install script '/home/builder/build/src/util-linux/tools/meson-make-symlink.sh su /usr/share/bash-completion/completions/runuser'
+Running custom install script '/usr/sbin/python3 /home/builder/build/src/build/meson-private/pycompile.py python-3.14-installed.json 1'
+install: creating directory '/home/builder/build/pkg/util-linux/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux'
+'util-linux/Documentation/licenses/COPYING.BSD-2-Clause' -> '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux/COPYING.BSD-2-Clause'
+'util-linux/Documentation/licenses/COPYING.BSD-3-Clause' -> '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux/COPYING.BSD-3-Clause'
+'util-linux/Documentation/licenses/COPYING.BSD-4-Clause-UC' -> '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux/COPYING.BSD-4-Clause-UC'
+'util-linux/Documentation/licenses/COPYING.ISC' -> '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux/COPYING.ISC'
+'util-linux-BSD-2-Clause.txt' -> '/home/builder/build/pkg/util-linux/usr/share/licenses/util-linux/util-linux-BSD-2-Clause.txt'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "util-linux"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_util-linux-libs()...
+install: creating directory '/home/builder/build/pkg/util-linux-libs/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs'
+'util-linux/Documentation/licenses/COPYING.BSD-2-Clause' -> '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs/COPYING.BSD-2-Clause'
+'util-linux/Documentation/licenses/COPYING.BSD-3-Clause' -> '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs/COPYING.BSD-3-Clause'
+'util-linux/Documentation/licenses/COPYING.BSD-4-Clause-UC' -> '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs/COPYING.BSD-4-Clause-UC'
+'util-linux/Documentation/licenses/COPYING.ISC' -> '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs/COPYING.ISC'
+'util-linux-BSD-2-Clause.txt' -> '/home/builder/build/pkg/util-linux-libs/usr/share/licenses/util-linux-libs/util-linux-BSD-2-Clause.txt'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "util-linux-libs"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+sed: -e expression #1, char 9: unknown option to 's'
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: util-linux 2.42.3-1 (Sun Sep 20 08:09:28 2026)

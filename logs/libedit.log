@@ -1,0 +1,504 @@
+== build libedit (deps: glibc libncursesw.so ncurses )
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (1) ncurses-6.6-2
+
+Total Download Size:    1.14 MiB
+Total Installed Size:   6.03 MiB
+Net Upgrade Size:      -2.92 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ ncurses-6.6-2-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libedit 20260512_3.1-1 (Sun Sep 20 04:54:39 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found libedit-20260512-3.1.tar.gz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    libedit-20260512-3.1.tar.gz ... Passed
+==> Validating source files with b2sums...
+    libedit-20260512-3.1.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting libedit-20260512-3.1.tar.gz with bsdtar
+==> Starting build()...
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking for vfork.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports the include directive... yes (GNU style)
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking dependency style of clang -std=gnu23... gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C23 features... (cached) -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... (cached) yes
+checking whether ln -s works... yes
+checking for gawk... (cached) gawk
+checking for nroff... /usr/bin/nroff
+checking for tgetent in -lncurses... yes
+checking if you want wide-character code... no
+configure: WARNING: --enable-widec is deprecated, wide-character/UTF-8 is always enabled
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for egrep... (cached) /usr/sbin/grep -E
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for fcntl.h... yes
+checking for limits.h... yes
+checking for malloc.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/ioctl.h... yes
+checking for sys/param.h... yes
+checking for unistd.h... (cached) yes
+checking for curses.h... yes
+checking for ncurses.h... yes
+checking for sys/cdefs.h... yes
+checking for termcap.h... yes
+checking for ncurses.h... (cached) yes
+checking for termios.h... yes
+checking for term.h... yes
+checking for struct dirent.d_namlen... no
+checking for an ANSI C-conforming const... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for u_int32_t... yes
+checking whether closedir returns void... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for gcc... (cached) clang
+checking whether the compiler supports GNU C... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to enable C23 features... (cached) -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... (cached) yes
+checking whether lstat correctly handles trailing slash... yes
+checking whether stat accepts an empty string... no
+checking for endpwent... yes
+checking for isascii... yes
+checking for memchr... yes
+checking for memset... yes
+checking for re_comp... yes
+checking for regcomp... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strrchr... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for issetugid... no
+checking for wcsdup... yes
+checking for strlcpy... yes
+checking for strlcat... yes
+checking for vis... no
+checking for strvis... no
+checking for strunvis... no
+checking for __secure_getenv... no
+checking for secure_getenv... yes
+checking for reallocarr... no
+checking for strlcpy... (cached) yes
+checking for strlcat... (cached) yes
+checking for getline... yes
+checking for vis... (cached) no
+checking for unvis... no
+checking whether getpwnam_r and getpwuid_r are posix like... yes
+checking whether getpwnam_r and getpwuid_r are posix _draft_ like... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libedit.pc
+config.status: creating src/Makefile
+config.status: creating doc/Makefile
+config.status: creating examples/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/libedit-20260512-3.1'
+Making all in src
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/src'
+AWK=gawk sh ./makelist -h ./vi.c > vi.h
+AWK=gawk sh ./makelist -h ./emacs.c > emacs.h
+AWK=gawk sh ./makelist -h ./common.c > common.h
+AWK=gawk sh ./makelist -bh ./vi.c ./emacs.c ./common.c > help.h
+AWK=gawk sh ./makelist -fh vi.h emacs.h common.h  > fcns.h
+AWK=gawk sh ./makelist -fc vi.h emacs.h common.h  > func.h
+make  all-am
+make[3]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/src'
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chared.lo -MD -MP -MF .deps/chared.Tpo -c -o chared.lo chared.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT common.lo -MD -MP -MF .deps/common.Tpo -c -o common.lo common.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT el.lo -MD -MP -MF .deps/el.Tpo -c -o el.lo el.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT eln.lo -MD -MP -MF .deps/eln.Tpo -c -o eln.lo eln.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emacs.lo -MD -MP -MF .deps/emacs.Tpo -c -o emacs.lo emacs.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT hist.lo -MD -MP -MF .deps/hist.Tpo -c -o hist.lo hist.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT keymacro.lo -MD -MP -MF .deps/keymacro.Tpo -c -o keymacro.lo keymacro.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT map.lo -MD -MP -MF .deps/map.Tpo -c -o map.lo map.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chartype.lo -MD -MP -MF .deps/chartype.Tpo -c -o chartype.lo chartype.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parse.lo -MD -MP -MF .deps/parse.Tpo -c -o parse.lo parse.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT prompt.lo -MD -MP -MF .deps/prompt.Tpo -c -o prompt.lo prompt.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT read.lo -MD -MP -MF .deps/read.Tpo -c -o read.lo read.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT refresh.lo -MD -MP -MF .deps/refresh.Tpo -c -o refresh.lo refresh.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT search.lo -MD -MP -MF .deps/search.Tpo -c -o search.lo search.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c -o sig.lo sig.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT terminal.lo -MD -MP -MF .deps/terminal.Tpo -c -o terminal.lo terminal.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT map.lo -MD -MP -MF .deps/map.Tpo -c map.c  -fPIC -DPIC -o .libs/map.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT read.lo -MD -MP -MF .deps/read.Tpo -c read.c  -fPIC -DPIC -o .libs/read.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT prompt.lo -MD -MP -MF .deps/prompt.Tpo -c prompt.c  -fPIC -DPIC -o .libs/prompt.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parse.lo -MD -MP -MF .deps/parse.Tpo -c parse.c  -fPIC -DPIC -o .libs/parse.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT refresh.lo -MD -MP -MF .deps/refresh.Tpo -c refresh.c  -fPIC -DPIC -o .libs/refresh.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT el.lo -MD -MP -MF .deps/el.Tpo -c el.c  -fPIC -DPIC -o .libs/el.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chartype.lo -MD -MP -MF .deps/chartype.Tpo -c chartype.c  -fPIC -DPIC -o .libs/chartype.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT terminal.lo -MD -MP -MF .deps/terminal.Tpo -c terminal.c  -fPIC -DPIC -o .libs/terminal.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chared.lo -MD -MP -MF .deps/chared.Tpo -c chared.c  -fPIC -DPIC -o .libs/chared.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT eln.lo -MD -MP -MF .deps/eln.Tpo -c eln.c  -fPIC -DPIC -o .libs/eln.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emacs.lo -MD -MP -MF .deps/emacs.Tpo -c emacs.c  -fPIC -DPIC -o .libs/emacs.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT common.lo -MD -MP -MF .deps/common.Tpo -c common.c  -fPIC -DPIC -o .libs/common.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c sig.c  -fPIC -DPIC -o .libs/sig.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT keymacro.lo -MD -MP -MF .deps/keymacro.Tpo -c keymacro.c  -fPIC -DPIC -o .libs/keymacro.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT search.lo -MD -MP -MF .deps/search.Tpo -c search.c  -fPIC -DPIC -o .libs/search.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT hist.lo -MD -MP -MF .deps/hist.Tpo -c hist.c  -fPIC -DPIC -o .libs/hist.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT prompt.lo -MD -MP -MF .deps/prompt.Tpo -c prompt.c -o prompt.o >/dev/null 2>&1
+chartype.c:209:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  209 |                 wctomb(NULL, L'\0');
+      |                 ^~~~~~~~~~~~~~~~~~~
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c sig.c -o sig.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT eln.lo -MD -MP -MF .deps/eln.Tpo -c eln.c -o eln.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT parse.lo -MD -MP -MF .deps/parse.Tpo -c parse.c -o parse.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT keymacro.lo -MD -MP -MF .deps/keymacro.Tpo -c keymacro.c -o keymacro.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT hist.lo -MD -MP -MF .deps/hist.Tpo -c hist.c -o hist.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT el.lo -MD -MP -MF .deps/el.Tpo -c el.c -o el.o >/dev/null 2>&1
+1 warning generated.
+mv -f .deps/prompt.Tpo .deps/prompt.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tty.lo -MD -MP -MF .deps/tty.Tpo -c -o tty.lo tty.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chartype.lo -MD -MP -MF .deps/chartype.Tpo -c chartype.c -o chartype.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT emacs.lo -MD -MP -MF .deps/emacs.Tpo -c emacs.c -o emacs.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT read.lo -MD -MP -MF .deps/read.Tpo -c read.c -o read.o >/dev/null 2>&1
+mv -f .deps/sig.Tpo .deps/sig.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vi.lo -MD -MP -MF .deps/vi.Tpo -c -o vi.lo vi.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tty.lo -MD -MP -MF .deps/tty.Tpo -c tty.c  -fPIC -DPIC -o .libs/tty.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT search.lo -MD -MP -MF .deps/search.Tpo -c search.c -o search.o >/dev/null 2>&1
+mv -f .deps/parse.Tpo .deps/parse.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT map.lo -MD -MP -MF .deps/map.Tpo -c map.c -o map.o >/dev/null 2>&1
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reallocarr.lo -MD -MP -MF .deps/reallocarr.Tpo -c -o reallocarr.lo reallocarr.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT common.lo -MD -MP -MF .deps/common.Tpo -c common.c -o common.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vi.lo -MD -MP -MF .deps/vi.Tpo -c vi.c  -fPIC -DPIC -o .libs/vi.o
+mv -f .deps/eln.Tpo .deps/eln.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT wcsdup.lo -MD -MP -MF .deps/wcsdup.Tpo -c -o wcsdup.lo wcsdup.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reallocarr.lo -MD -MP -MF .deps/reallocarr.Tpo -c reallocarr.c  -fPIC -DPIC -o .libs/reallocarr.o
+vi.c:libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT wcsdup.lo -MD -MP -MF .deps/wcsdup.Tpo -c wcsdup.c  -fPIC -DPIC -o .libs/wcsdup.o
+1036:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1036 |         write(fd, cp, len);
+      |         ^~~~~~~~~~~~~~~~~~
+vi.c:1037:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+ 1037 |         write(fd, "\n", (size_t)1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/el.Tpo .deps/el.Plo
+mv -f .deps/hist.Tpo .deps/hist.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizer.lo -MD -MP -MF .deps/tokenizer.Tpo -c -o tokenizer.lo tokenizer.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizern.lo -MD -MP -MF .deps/tokenizern.Tpo -c -o tokenizern.lo tokenizern.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT chared.lo -MD -MP -MF .deps/chared.Tpo -c chared.c -o chared.o >/dev/null 2>&1
+mv -f .deps/read.Tpo .deps/read.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT reallocarr.lo -MD -MP -MF .deps/reallocarr.Tpo -c reallocarr.c -o reallocarr.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT terminal.lo -MD -MP -MF .deps/terminal.Tpo -c terminal.c -o terminal.o >/dev/null 2>&1
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT history.lo -MD -MP -MF .deps/history.Tpo -c -o history.lo history.c
+mv -f .deps/keymacro.Tpo .deps/keymacro.Plo
+mv -f .deps/chartype.Tpo .deps/chartype.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT historyn.lo -MD -MP -MF .deps/historyn.Tpo -c -o historyn.lo historyn.c
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT filecomplete.lo -MD -MP -MF .deps/filecomplete.Tpo -c -o filecomplete.lo filecomplete.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizer.lo -MD -MP -MF .deps/tokenizer.Tpo -c tokenizer.c  -fPIC -DPIC -o .libs/tokenizer.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizern.lo -MD -MP -MF .deps/tokenizern.Tpo -c tokenizern.c  -fPIC -DPIC -o .libs/tokenizern.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT wcsdup.lo -MD -MP -MF .deps/wcsdup.Tpo -c wcsdup.c -o wcsdup.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT history.lo -MD -MP -MF .deps/history.Tpo -c history.c  -fPIC -DPIC -o .libs/history.o
+mv -f .deps/reallocarr.Tpo .deps/reallocarr.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT readline.lo -MD -MP -MF .deps/readline.Tpo -c -o readline.lo readline.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT historyn.lo -MD -MP -MF .deps/historyn.Tpo -c historyn.c  -fPIC -DPIC -o .libs/historyn.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT filecomplete.lo -MD -MP -MF .deps/filecomplete.Tpo -c filecomplete.c  -fPIC -DPIC -o .libs/filecomplete.o
+mv -f .deps/common.Tpo .deps/common.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT literal.lo -MD -MP -MF .deps/literal.Tpo -c -o literal.lo literal.c
+mv -f .deps/emacs.Tpo .deps/emacs.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vis.lo -MD -MP -MF .deps/vis.Tpo -c -o vis.lo vis.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT refresh.lo -MD -MP -MF .deps/refresh.Tpo -c refresh.c -o refresh.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT readline.lo -MD -MP -MF .deps/readline.Tpo -c readline.c  -fPIC -DPIC -o .libs/readline.o
+2 warnings generated.
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vi.lo -MD -MP -MF .deps/vi.Tpo -c vi.c -o vi.o >/dev/null 2>&1
+mv -f .deps/search.Tpo .deps/search.Plo
+/bin/sh ../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..     -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT unvis.lo -MD -MP -MF .deps/unvis.Tpo -c -o unvis.lo unvis.c
+mv -f .deps/wcsdup.Tpo .deps/wcsdup.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT literal.lo -MD -MP -MF .deps/literal.Tpo -c literal.c  -fPIC -DPIC -o .libs/literal.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vis.lo -MD -MP -MF .deps/vis.Tpo -c vis.c  -fPIC -DPIC -o .libs/vis.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizern.lo -MD -MP -MF .deps/tokenizern.Tpo -c tokenizern.c -o tokenizern.o >/dev/null 2>&1
+mv -f .deps/map.Tpo .deps/map.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT unvis.lo -MD -MP -MF .deps/unvis.Tpo -c unvis.c  -fPIC -DPIC -o .libs/unvis.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tokenizer.lo -MD -MP -MF .deps/tokenizer.Tpo -c tokenizer.c -o tokenizer.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tty.lo -MD -MP -MF .deps/tty.Tpo -c tty.c -o tty.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT literal.lo -MD -MP -MF .deps/literal.Tpo -c literal.c -o literal.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT filecomplete.lo -MD -MP -MF .deps/filecomplete.Tpo -c filecomplete.c -o filecomplete.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT history.lo -MD -MP -MF .deps/history.Tpo -c history.c -o history.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT historyn.lo -MD -MP -MF .deps/historyn.Tpo -c historyn.c -o historyn.o >/dev/null 2>&1
+mv -f .deps/tokenizern.Tpo .deps/tokenizern.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT unvis.lo -MD -MP -MF .deps/unvis.Tpo -c unvis.c -o unvis.o >/dev/null 2>&1
+mv -f .deps/tokenizer.Tpo .deps/tokenizer.Plo
+mv -f .deps/chared.Tpo .deps/chared.Plo
+mv -f .deps/literal.Tpo .deps/literal.Plo
+mv -f .deps/terminal.Tpo .deps/terminal.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT vis.lo -MD -MP -MF .deps/vis.Tpo -c vis.c -o vis.o >/dev/null 2>&1
+mv -f .deps/unvis.Tpo .deps/unvis.Plo
+mv -f .deps/vi.Tpo .deps/vi.Plo
+mv -f .deps/historyn.Tpo .deps/historyn.Plo
+mv -f .deps/history.Tpo .deps/history.Plo
+mv -f .deps/filecomplete.Tpo .deps/filecomplete.Plo
+mv -f .deps/tty.Tpo .deps/tty.Plo
+mv -f .deps/refresh.Tpo .deps/refresh.Plo
+mv -f .deps/vis.Tpo .deps/vis.Plo
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I.. -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT readline.lo -MD -MP -MF .deps/readline.Tpo -c readline.c -o readline.o >/dev/null 2>&1
+mv -f .deps/readline.Tpo .deps/readline.Plo
+/bin/sh ../libtool  --tag=CC   --mode=link clang -std=gnu23  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -no-undefined -version-info 0:78:0 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libedit.la -rpath /usr/lib chared.lo common.lo el.lo eln.lo emacs.lo hist.lo keymacro.lo map.lo chartype.lo parse.lo prompt.lo read.lo refresh.lo search.lo sig.lo terminal.lo tty.lo vi.lo reallocarr.lo wcsdup.lo tokenizer.lo tokenizern.lo history.lo historyn.lo filecomplete.lo readline.lo literal.lo    vis.lo unvis.lo   -lncurses 
+libtool: link: clang -std=gnu23 -shared  -fPIC -DPIC  .libs/chared.o .libs/common.o .libs/el.o .libs/eln.o .libs/emacs.o .libs/hist.o .libs/keymacro.o .libs/map.o .libs/chartype.o .libs/parse.o .libs/prompt.o .libs/read.o .libs/refresh.o .libs/search.o .libs/sig.o .libs/terminal.o .libs/tty.o .libs/vi.o .libs/reallocarr.o .libs/wcsdup.o .libs/tokenizer.o .libs/tokenizern.o .libs/history.o .libs/historyn.o .libs/filecomplete.o .libs/readline.o .libs/literal.o .libs/vis.o .libs/unvis.o   -lncurses  -march=x86-64-v3 -O2 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd   -Wl,-soname -Wl,libedit.so.0 -o .libs/libedit.so.0.0.78
+libtool: link: (cd ".libs" && rm -f "libedit.so.0" && ln -s "libedit.so.0.0.78" "libedit.so.0")
+libtool: link: (cd ".libs" && rm -f "libedit.so" && ln -s "libedit.so.0.0.78" "libedit.so")
+libtool: link: llvm-ar cr .libs/libedit.a  chared.o common.o el.o eln.o emacs.o hist.o keymacro.o map.o chartype.o parse.o prompt.o read.o refresh.o search.o sig.o terminal.o tty.o vi.o reallocarr.o wcsdup.o tokenizer.o tokenizern.o history.o historyn.o filecomplete.o readline.o literal.o vis.o unvis.o
+libtool: link: llvm-ranlib .libs/libedit.a
+libtool: link: ( cd ".libs" && rm -f "libedit.la" && ln -s "../libedit.la" "libedit.la" )
+make[3]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/src'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/src'
+Making all in examples
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..    -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT tc1.o -MD -MP -MF .deps/tc1.Tpo -c -o tc1.o tc1.c
+clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..    -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT fileman.o -MD -MP -MF .deps/fileman.Tpo -c -o fileman.o fileman.c
+clang -std=gnu23 -DHAVE_CONFIG_H -I. -I..    -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -MT wtc1.o -MD -MP -MF .deps/wtc1.Tpo -c -o wtc1.o wtc1.c
+wtc1.c:75:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+   75 |         wctomb(NULL, 0); /* Reset shift state */
+      |         ^~~~~~~~~~~~~~~
+mv -f .deps/tc1.Tpo .deps/tc1.Po
+1 warning generated.
+/bin/sh ../libtool  --tag=CC   --mode=link clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o tc1 tc1.o ../src/libedit.la -lncurses 
+mv -f .deps/wtc1.Tpo .deps/wtc1.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o wtc1 wtc1.o ../src/libedit.la -lncurses 
+mv -f .deps/fileman.Tpo .deps/fileman.Po
+/bin/sh ../libtool  --tag=CC   --mode=link clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o fileman fileman.o ../src/libedit.la -lncurses 
+libtool: link: clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/tc1 tc1.o  ../src/.libs/libedit.so -lncurses
+libtool: link: clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/wtc1 wtc1.o  ../src/.libs/libedit.so -lncurses
+libtool: link: clang -std=gnu23 -I../src -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/fileman fileman.o  ../src/.libs/libedit.so -lncurses
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1'
+make[1]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/src'
+make  install-am
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/src'
+make[3]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/src'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/include'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libedit.la '/home/builder/build/pkg/libedit/usr/lib'
+ /usr/bin/install -c -m 644  histedit.h '/home/builder/build/pkg/libedit/usr/include/.'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/include/editline'
+ /usr/bin/install -c -m 644  editline/readline.h '/home/builder/build/pkg/libedit/usr/include/editline'
+libtool: install: /usr/bin/install -c .libs/libedit.so.0.0.78 /home/builder/build/pkg/libedit/usr/lib/libedit.so.0.0.78
+libtool: install: (cd /home/builder/build/pkg/libedit/usr/lib && { ln -s -f libedit.so.0.0.78 libedit.so.0 || { rm -f libedit.so.0 && ln -s libedit.so.0.0.78 libedit.so.0; }; })
+libtool: install: (cd /home/builder/build/pkg/libedit/usr/lib && { ln -s -f libedit.so.0.0.78 libedit.so || { rm -f libedit.so && ln -s libedit.so.0.0.78 libedit.so; }; })
+libtool: install: /usr/bin/install -c .libs/libedit.lai /home/builder/build/pkg/libedit/usr/lib/libedit.la
+libtool: install: /usr/bin/install -c .libs/libedit.a /home/builder/build/pkg/libedit/usr/lib/libedit.a
+libtool: install: chmod 644 /home/builder/build/pkg/libedit/usr/lib/libedit.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/libedit/usr/lib/libedit.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[3]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/src'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/src'
+make[1]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/src'
+Making install in examples
+make[1]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+make[1]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/examples'
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/share/man/man5'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/share/man/man7'
+ /usr/bin/install -c -m 644 editline.3 '/home/builder/build/pkg/libedit/usr/share/man/man3'
+ /usr/bin/install -c -m 644 editline.7 '/home/builder/build/pkg/libedit/usr/share/man/man7'
+ /usr/bin/install -c -m 644 editrc.5 '/home/builder/build/pkg/libedit/usr/share/man/man5'
+make  install-data-hook
+make[3]: Entering directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_deletestr.3 && ln -s editline.3 el_deletestr.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_end.3 && ln -s editline.3 el_end.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_get.3 && ln -s editline.3 el_get.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_getc.3 && ln -s editline.3 el_getc.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_gets.3 && ln -s editline.3 el_gets.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_init.3 && ln -s editline.3 el_init.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_init_fd.3 && ln -s editline.3 el_init_fd.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_insertstr.3 && ln -s editline.3 el_insertstr.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_line.3 && ln -s editline.3 el_line.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_parse.3 && ln -s editline.3 el_parse.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_push.3 && ln -s editline.3 el_push.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_reset.3 && ln -s editline.3 el_reset.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_resize.3 && ln -s editline.3 el_resize.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_set.3 && ln -s editline.3 el_set.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_source.3 && ln -s editline.3 el_source.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history.3 && ln -s editline.3 el_history.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history_end.3 && ln -s editline.3 el_history_end.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history_init.3 && ln -s editline.3 el_history_init.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_end.3 && ln -s editline.3 el_tok_end.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_init.3 && ln -s editline.3 el_tok_init.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_line.3 && ln -s editline.3 el_tok_line.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_reset.3 && ln -s editline.3 el_tok_reset.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_str.3 && ln -s editline.3 el_tok_str.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wdeletestr.3 && ln -s editline.3 el_wdeletestr.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wget.3 && ln -s editline.3 el_wget.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wgetc.3 && ln -s editline.3 el_wgetc.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wgets.3 && ln -s editline.3 el_wgets.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_winsertstr.3 && ln -s editline.3 el_winsertstr.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wline.3 && ln -s editline.3 el_wline.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wparse.3 && ln -s editline.3 el_wparse.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wpush.3 && ln -s editline.3 el_wpush.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_wset.3 && ln -s editline.3 el_wset.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history_w.3 && ln -s editline.3 el_history_w.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history_wend.3 && ln -s editline.3 el_history_wend.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_history_winit.3 && ln -s editline.3 el_history_winit.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_wend.3 && ln -s editline.3 el_tok_wend.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_winit.3 && ln -s editline.3 el_tok_winit.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_wline.3 && ln -s editline.3 el_tok_wline.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_wreset.3 && ln -s editline.3 el_tok_wreset.3)
+(cd /home/builder/build/pkg/libedit/usr/share/man/man3 && rm -f el_tok_wstr.3 && ln -s editline.3 el_tok_wstr.3)
+make[3]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[1]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1/doc'
+make[1]: Entering directory '/home/builder/build/src/libedit-20260512-3.1'
+make[2]: Entering directory '/home/builder/build/src/libedit-20260512-3.1'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libedit/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libedit.pc '/home/builder/build/pkg/libedit/usr/lib/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1'
+make[1]: Leaving directory '/home/builder/build/src/libedit-20260512-3.1'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libedit"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libedit 20260512_3.1-1 (Sun Sep 20 04:55:06 2026)

@@ -1,0 +1,540 @@
+== build pcre2 (deps: bzip2 git glibc readline zlib )
+resolving dependencies...
+warning: glibc-2.44-2 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (7) ncurses-6.6-2  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  bzip2-1.0.8-6  git-2.55.0-1  readline-8.3.6-1
+
+Total Download Size:    8.45 MiB
+Total Installed Size:  54.06 MiB
+Net Upgrade Size:      37.79 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ readline-8.3.6-1-x86_64 downloading...
+ bzip2-1.0.8-6-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+upgrading readline...
+upgrading bzip2...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: pcre2 10.48-1 (Sun Sep 20 05:44:16 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning pcre2 git repo...
+Cloning into bare repository '/sources/pcre2'...
+  -> Cloning sljit git repo...
+Cloning into bare repository '/sources/sljit'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    pcre2 ... Passed
+    sljit ... Skipped
+==> Validating source files with b2sums...
+    pcre2 ... Passed
+    sljit ... Skipped
+==> Extracting sources...
+  -> Creating working copy of pcre2 git repo...
+Cloning into 'pcre2'...
+done.
+Switched to a new branch 'makepkg'
+  -> Creating working copy of sljit git repo...
+Cloning into 'sljit'...
+done.
+==> Starting prepare()...
+Submodule 'deps/sljit' (https://github.com/zherczeg/sljit.git) registered for path 'deps/sljit'
+Cloning into '/home/builder/build/src/pcre2/deps/sljit'...
+done.
+Submodule path 'deps/sljit': checked out 'de0259c7aaf36aa40cba8014f3fad3edde9307f9'
+Looking for a version of libtoolize (which can have different names)...
+Did not find glibtoolize
+Did not find libtoolize15
+Did not find libtoolize14
+Found libtoolize
+libtoolize (GNU libtool) 2.6.2
+autoconf (GNU Autoconf) 2.73
+automake (GNU automake) 1.18.1
++ libtoolize -c -f
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
++ rm -rf autom4te.cache Makefile.in aclocal.m4
++ aclocal --force -I m4
++ autoconf -f -W all,no-obsolete
++ autoheader -f -W all
++ automake -a -c -f -W all,no-portability
+configure.ac:54: installing './compile'
+configure.ac:28: installing './missing'
+Makefile.am: installing './depcomp'
++ rm -rf autom4te.cache
++ exit 0
+'deps/sljit/LICENSE' -> '../BSD-2-Clause.txt'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for wchar.h... yes
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking the archiver (llvm-ar) interface... ar
+checking for int64_t... yes
+checking for OS/390 (z/OS)... no
+checking whether ln -s works... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating ./config.lt
+config.lt: creating libtool
+checking for clang -std=gnu23 option to support large files... none needed
+checking whether the -Werror option is usable... yes
+checking for GCC compatible visibility declarations... yes
+checking linker version script flag... --version-script
+checking if version scripts work without wildcard... yes
+checking for __attribute__((uninitialized))... yes
+checking for __assume()... no
+checking for __builtin_mul_overflow()... yes
+checking for __builtin_unreachable()... yes
+checking for assert.h... yes
+checking for limits.h... yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for dirent.h... yes
+checking for windows.h... no
+checking for sys/wait.h... yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking for memfd_create... yes
+checking for mkostemp... yes
+checking for secure_getenv... yes
+checking for setrlimit... yes
+checking for realpath... yes
+checking for zlib.h... yes
+checking for gzopen in -lz... yes
+checking for bzlib.h... yes
+checking for libbz2... yes
+checking for readline/readline.h... yes
+checking for readline/history.h... yes
+checking for readline in -lreadline... yes
+checking how to run the C preprocessor... clang-cpp
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking whether clang -std=gnu23 is Clang... yes
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking whether Intel CET is enabled... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libpcre2-8.pc
+config.status: creating libpcre2-16.pc
+config.status: creating libpcre2-32.pc
+config.status: creating libpcre2-posix.pc
+config.status: creating pcre2-config
+config.status: creating src/pcre2.h
+config.status: creating src/libpcre2-8.sym
+config.status: creating src/libpcre2-16.sym
+config.status: creating src/libpcre2-32.sym
+config.status: creating src/libpcre2-posix.sym
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing script-chmod commands
+config.status: executing delete-old-chartables commands
+
+pcre2-10.48 configuration summary:
+
+    Install prefix ..................... : /usr
+    C preprocessor ..................... : clang-cpp
+    C compiler ......................... : clang -std=gnu23
+    Linker ............................. : ld.lld -m elf_x86_64
+    C preprocessor flags ............... : 
+    C compiler flags ................... : -pthread -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -ffat-lto-objects -fvisibility=hidden
+    Linker flags ....................... : -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd
+    Extra libraries .................... : -lpthread 
+
+    Build 8-bit pcre2 library .......... : yes
+    Build 16-bit pcre2 library ......... : yes
+    Build 32-bit pcre2 library ......... : yes
+    Include debugging code ............. : no
+    Enable JIT compiling support ....... : yes
+    Use SELinux allocator in JIT ....... : no
+    Enable Unicode support ............. : yes
+    Newline char/sequence .............. : lf
+    \R matches only ANYCRLF ............ : no
+    \C is disabled ..................... : no
+    EBCDIC coding ...................... : no
+    EBCDIC code for NL ................. : n/a
+    EBCDIC coding ignoring compiler .... : no
+    Rebuild char tables ................ : no
+    Internal link size ................. : 2
+    Maximum variable lookbehind ........ : 255
+    Nested parentheses limit ........... : 250
+    Heap limit ......................... : 20000000 kibibytes
+    Match limit ........................ : 10000000
+    Match depth limit .................. : MATCH_LIMIT
+    Build shared libs .................. : yes
+        with symbol versioning ......... : yes
+    Build static libs .................. : yes
+    Enable JIT in pcre2grep ............ : yes
+    Enable callouts in pcre2grep ....... : yes
+    Enable fork in pcre2grep callouts .. : yes
+    Initial buffer size for pcre2grep .. : 20480
+    Maximum buffer size for pcre2grep .. : 1048576
+    Link pcre2grep with libz ........... : yes
+    Link pcre2grep with libbz2 ......... : yes
+    Link pcre2test with libedit ........ : no
+    Link pcre2test with libreadline .... : yes
+    Enable Valgrind support ............ : no
+    Code coverage ...................... : no
+    Fuzzer support ..................... : no
+    Differential fuzzer support ........ : no
+    Use %zu and %td .................... : auto
+
+rm -f src/pcre2_chartables.c
+ln -s /home/builder/build/src/pcre2/src/pcre2_chartables.c.dist /home/builder/build/src/pcre2/src/pcre2_chartables.c
+make  all-am
+make[1]: Entering directory '/home/builder/build/src/pcre2'
+  CC       src/pcre2grep-pcre2grep.o
+  CC       src/libpcre2_8_la-pcre2_chkdint.lo
+  CC       src/libpcre2_8_la-pcre2_auto_possess.lo
+  CC       src/libpcre2_8_la-pcre2_compile_class.lo
+  CC       src/libpcre2_8_la-pcre2_compile_cgroup.lo
+  CC       src/libpcre2_8_la-pcre2_compile.lo
+  CC       src/libpcre2_8_la-pcre2_config.lo
+  CC       src/libpcre2_8_la-pcre2_dfa_match.lo
+  CC       src/libpcre2_8_la-pcre2_context.lo
+  CC       src/libpcre2_8_la-pcre2_convert.lo
+  CC       src/libpcre2_8_la-pcre2_extuni.lo
+  CC       src/libpcre2_8_la-pcre2_error.lo
+  CC       src/libpcre2_8_la-pcre2_find_bracket.lo
+  CC       src/libpcre2_8_la-pcre2_jit_compile.lo
+  CC       src/libpcre2_8_la-pcre2_match.lo
+  CC       src/libpcre2_8_la-pcre2_maketables.lo
+  CC       src/libpcre2_8_la-pcre2_match_data.lo
+  CC       src/libpcre2_8_la-pcre2_match_next.lo
+  CC       src/libpcre2_8_la-pcre2_newline.lo
+  CC       src/libpcre2_8_la-pcre2_ord2utf.lo
+  CC       src/libpcre2_8_la-pcre2_pattern_info.lo
+  CC       src/libpcre2_8_la-pcre2_script_run.lo
+  CC       src/libpcre2_8_la-pcre2_serialize.lo
+  CC       src/libpcre2_8_la-pcre2_string_utils.lo
+  CC       src/libpcre2_8_la-pcre2_study.lo
+  CC       src/libpcre2_8_la-pcre2_substitute.lo
+  CC       src/libpcre2_8_la-pcre2_substring.lo
+  CC       src/libpcre2_8_la-pcre2_tables.lo
+  CC       src/libpcre2_8_la-pcre2_ucd.lo
+  CC       src/libpcre2_8_la-pcre2_valid_utf.lo
+  CC       src/libpcre2_8_la-pcre2_xclass.lo
+  CC       src/libpcre2_8_la-pcre2_chartables.lo
+  CC       src/pcre2test-pcre2test.o
+  CC       src/libpcre2_posix_la-pcre2posix.lo
+  CC       src/libpcre2_16_la-pcre2_auto_possess.lo
+  CC       src/libpcre2_16_la-pcre2_compile.lo
+  CC       src/libpcre2_16_la-pcre2_chkdint.lo
+  CC       src/libpcre2_16_la-pcre2_compile_cgroup.lo
+  CC       src/libpcre2_16_la-pcre2_compile_class.lo
+  CC       src/libpcre2_16_la-pcre2_config.lo
+  CC       src/libpcre2_16_la-pcre2_context.lo
+  CC       src/libpcre2_16_la-pcre2_convert.lo
+  CC       src/libpcre2_16_la-pcre2_dfa_match.lo
+  CC       src/libpcre2_16_la-pcre2_error.lo
+  CC       src/libpcre2_16_la-pcre2_extuni.lo
+  CC       src/libpcre2_16_la-pcre2_find_bracket.lo
+  CC       src/libpcre2_16_la-pcre2_jit_compile.lo
+  CC       src/libpcre2_16_la-pcre2_maketables.lo
+  CC       src/libpcre2_16_la-pcre2_match.lo
+  CC       src/libpcre2_16_la-pcre2_match_data.lo
+  CC       src/libpcre2_16_la-pcre2_match_next.lo
+  CC       src/libpcre2_16_la-pcre2_newline.lo
+  CC       src/libpcre2_16_la-pcre2_ord2utf.lo
+  CC       src/libpcre2_16_la-pcre2_pattern_info.lo
+  CC       src/libpcre2_16_la-pcre2_script_run.lo
+  CC       src/libpcre2_16_la-pcre2_serialize.lo
+  CC       src/libpcre2_16_la-pcre2_string_utils.lo
+  CC       src/libpcre2_16_la-pcre2_study.lo
+  CC       src/libpcre2_16_la-pcre2_substitute.lo
+  CC       src/libpcre2_16_la-pcre2_substring.lo
+  CC       src/libpcre2_16_la-pcre2_tables.lo
+  CC       src/libpcre2_16_la-pcre2_ucd.lo
+  CC       src/libpcre2_16_la-pcre2_valid_utf.lo
+  CC       src/libpcre2_16_la-pcre2_xclass.lo
+  CC       src/libpcre2_16_la-pcre2_chartables.lo
+  CC       src/libpcre2_32_la-pcre2_auto_possess.lo
+  CC       src/libpcre2_32_la-pcre2_chkdint.lo
+  CC       src/libpcre2_32_la-pcre2_compile.lo
+  CC       src/libpcre2_32_la-pcre2_compile_cgroup.lo
+  CC       src/libpcre2_32_la-pcre2_compile_class.lo
+  CC       src/libpcre2_32_la-pcre2_config.lo
+  CC       src/libpcre2_32_la-pcre2_context.lo
+  CC       src/libpcre2_32_la-pcre2_convert.lo
+  CC       src/libpcre2_32_la-pcre2_dfa_match.lo
+  CC       src/libpcre2_32_la-pcre2_error.lo
+  CC       src/libpcre2_32_la-pcre2_extuni.lo
+  CC       src/libpcre2_32_la-pcre2_find_bracket.lo
+  CC       src/libpcre2_32_la-pcre2_jit_compile.lo
+  CC       src/libpcre2_32_la-pcre2_maketables.lo
+  CC       src/libpcre2_32_la-pcre2_match.lo
+  CC       src/libpcre2_32_la-pcre2_match_data.lo
+  CC       src/libpcre2_32_la-pcre2_match_next.lo
+  CC       src/libpcre2_32_la-pcre2_newline.lo
+  CC       src/libpcre2_32_la-pcre2_ord2utf.lo
+  CC       src/libpcre2_32_la-pcre2_pattern_info.lo
+  CC       src/libpcre2_32_la-pcre2_script_run.lo
+  CC       src/libpcre2_32_la-pcre2_serialize.lo
+  CC       src/libpcre2_32_la-pcre2_string_utils.lo
+  CC       src/libpcre2_32_la-pcre2_study.lo
+  CC       src/libpcre2_32_la-pcre2_substitute.lo
+  CC       src/libpcre2_32_la-pcre2_substring.lo
+  CC       src/libpcre2_32_la-pcre2_tables.lo
+  CC       src/libpcre2_32_la-pcre2_ucd.lo
+  CC       src/libpcre2_32_la-pcre2_valid_utf.lo
+  CC       src/libpcre2_32_la-pcre2_xclass.lo
+  CC       src/libpcre2_32_la-pcre2_chartables.lo
+  CC       src/pcre2posix_test-pcre2posix_test.o
+  CC       src/pcre2_jit_test-pcre2_jit_test.o
+  CCLD     libpcre2-8.la
+  CCLD     libpcre2-16.la
+  CCLD     libpcre2-posix.la
+  CCLD     pcre2grep
+  CCLD     pcre2posix_test
+  CCLD     libpcre2-32.la
+  CCLD     pcre2_jit_test
+  CCLD     pcre2test
+make[1]: Leaving directory '/home/builder/build/src/pcre2'
+==> Entering fakeroot environment...
+==> Starting package()...
+make: Entering directory '/home/builder/build/src/pcre2'
+make  install-am
+make[1]: Entering directory '/home/builder/build/src/pcre2'
+make[2]: Entering directory '/home/builder/build/src/pcre2'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2/html'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/include'
+ /usr/bin/install -c pcre2-config '/home/builder/build/pkg/pcre2/usr/bin'
+ /usr/bin/install -c -m 644 AUTHORS.md COPYING ChangeLog LICENCE.md NEWS README SECURITY.md SUPPORT-LIFECYCLE.md doc/pcre2.txt doc/pcre2-config.txt doc/pcre2grep.txt doc/pcre2test.txt '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/share/man/man1'
+ /usr/bin/install -c -m 644 src/pcre2posix.h '/home/builder/build/pkg/pcre2/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/lib/pkgconfig'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/lib'
+ /usr/bin/install -c -m 644 doc/html/NON-AUTOTOOLS-BUILD.txt doc/html/README.txt doc/html/index.html doc/html/pcre2-config.html doc/html/pcre2.html doc/html/pcre2_callout_enumerate.html doc/html/pcre2_code_copy.html doc/html/pcre2_code_copy_with_tables.html doc/html/pcre2_code_free.html doc/html/pcre2_compile.html doc/html/pcre2_compile_context_copy.html doc/html/pcre2_compile_context_create.html doc/html/pcre2_compile_context_free.html doc/html/pcre2_config.html doc/html/pcre2_convert_context_copy.html doc/html/pcre2_convert_context_create.html doc/html/pcre2_convert_context_free.html doc/html/pcre2_converted_pattern_free.html doc/html/pcre2_dfa_match.html doc/html/pcre2_general_context_copy.html doc/html/pcre2_general_context_create.html doc/html/pcre2_general_context_free.html doc/html/pcre2_get_error_message.html doc/html/pcre2_get_mark.html doc/html/pcre2_get_match_data_heapframes_size.html doc/html/pcre2_get_match_data_size.html doc/html/pcre2_get_ovector_count.html doc/html/pcre2_get_ovector_pointer.html doc/html/pcre2_get_startchar.html doc/html/pcre2_jit_compile.html doc/html/pcre2_jit_free_unused_memory.html doc/html/pcre2_jit_match.html doc/html/pcre2_jit_stack_assign.html doc/html/pcre2_jit_stack_create.html doc/html/pcre2_jit_stack_free.html doc/html/pcre2_maketables.html doc/html/pcre2_maketables_free.html doc/html/pcre2_match.html doc/html/pcre2_match_context_copy.html doc/html/pcre2_match_context_create.html '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2/html'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libpcre2-8.la libpcre2-16.la libpcre2-32.la libpcre2-posix.la '/home/builder/build/pkg/pcre2/usr/lib'
+ /usr/bin/install -c -m 644 libpcre2-8.pc libpcre2-posix.pc libpcre2-16.pc libpcre2-32.pc '/home/builder/build/pkg/pcre2/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 src/pcre2.h '/home/builder/build/pkg/pcre2/usr/include'
+ /usr/bin/install -c -m 644 doc/pcre2-config.1 doc/pcre2grep.1 doc/pcre2test.1 '/home/builder/build/pkg/pcre2/usr/share/man/man1'
+ /usr/bin/install -c -m 644 doc/html/pcre2_match_context_free.html doc/html/pcre2_match_data_create.html doc/html/pcre2_match_data_create_from_pattern.html doc/html/pcre2_match_data_free.html doc/html/pcre2_next_match.html doc/html/pcre2_pattern_convert.html doc/html/pcre2_pattern_info.html doc/html/pcre2_serialize_decode.html doc/html/pcre2_serialize_encode.html doc/html/pcre2_serialize_free.html doc/html/pcre2_serialize_get_number_of_codes.html doc/html/pcre2_set_bsr.html doc/html/pcre2_set_callout.html doc/html/pcre2_set_character_tables.html doc/html/pcre2_set_compile_extra_options.html doc/html/pcre2_set_compile_recursion_guard.html doc/html/pcre2_set_depth_limit.html doc/html/pcre2_set_glob_escape.html doc/html/pcre2_set_glob_separator.html doc/html/pcre2_set_heap_limit.html doc/html/pcre2_set_match_limit.html doc/html/pcre2_set_max_pattern_compiled_length.html doc/html/pcre2_set_max_pattern_length.html doc/html/pcre2_set_max_varlookbehind.html doc/html/pcre2_set_offset_limit.html doc/html/pcre2_set_optimize.html doc/html/pcre2_set_newline.html doc/html/pcre2_set_parens_nest_limit.html doc/html/pcre2_set_recursion_limit.html doc/html/pcre2_set_recursion_memory_management.html doc/html/pcre2_set_substitute_callout.html doc/html/pcre2_set_substitute_case_callout.html doc/html/pcre2_substitute.html doc/html/pcre2_substring_copy_byname.html doc/html/pcre2_substring_copy_bynumber.html doc/html/pcre2_substring_free.html doc/html/pcre2_substring_get_byname.html doc/html/pcre2_substring_get_bynumber.html doc/html/pcre2_substring_length_byname.html doc/html/pcre2_substring_length_bynumber.html '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2/html'
+ /usr/bin/install -c -m 644 doc/html/pcre2_substring_list_free.html doc/html/pcre2_substring_list_get.html doc/html/pcre2_substring_nametable_scan.html doc/html/pcre2_substring_number_from_name.html doc/html/pcre2api.html doc/html/pcre2build.html doc/html/pcre2callout.html doc/html/pcre2compat.html doc/html/pcre2convert.html doc/html/pcre2demo.html doc/html/pcre2grep.html doc/html/pcre2jit.html doc/html/pcre2limits.html doc/html/pcre2matching.html doc/html/pcre2partial.html doc/html/pcre2pattern.html doc/html/pcre2perform.html doc/html/pcre2posix.html doc/html/pcre2sample.html doc/html/pcre2serialize.html doc/html/pcre2syntax.html doc/html/pcre2test.html doc/html/pcre2unicode.html '/home/builder/build/pkg/pcre2/usr/share/doc/pcre2/html'
+ /usr/bin/install -c -m 644 doc/pcre2.3 doc/pcre2_callout_enumerate.3 doc/pcre2_code_copy.3 doc/pcre2_code_copy_with_tables.3 doc/pcre2_code_free.3 doc/pcre2_compile.3 doc/pcre2_compile_context_copy.3 doc/pcre2_compile_context_create.3 doc/pcre2_compile_context_free.3 doc/pcre2_config.3 doc/pcre2_convert_context_copy.3 doc/pcre2_convert_context_create.3 doc/pcre2_convert_context_free.3 doc/pcre2_converted_pattern_free.3 doc/pcre2_dfa_match.3 doc/pcre2_general_context_copy.3 doc/pcre2_general_context_create.3 doc/pcre2_general_context_free.3 doc/pcre2_get_error_message.3 doc/pcre2_get_mark.3 doc/pcre2_get_match_data_heapframes_size.3 doc/pcre2_get_match_data_size.3 doc/pcre2_get_ovector_count.3 doc/pcre2_get_ovector_pointer.3 doc/pcre2_get_startchar.3 doc/pcre2_jit_compile.3 doc/pcre2_jit_free_unused_memory.3 doc/pcre2_jit_match.3 doc/pcre2_jit_stack_assign.3 doc/pcre2_jit_stack_create.3 doc/pcre2_jit_stack_free.3 doc/pcre2_maketables.3 doc/pcre2_maketables_free.3 doc/pcre2_match.3 doc/pcre2_match_context_copy.3 doc/pcre2_match_context_create.3 doc/pcre2_match_context_free.3 doc/pcre2_match_data_create.3 doc/pcre2_match_data_create_from_pattern.3 doc/pcre2_match_data_free.3 '/home/builder/build/pkg/pcre2/usr/share/man/man3'
+ /usr/bin/install -c -m 644 doc/pcre2_next_match.3 doc/pcre2_pattern_convert.3 doc/pcre2_pattern_info.3 doc/pcre2_serialize_decode.3 doc/pcre2_serialize_encode.3 doc/pcre2_serialize_free.3 doc/pcre2_serialize_get_number_of_codes.3 doc/pcre2_set_bsr.3 doc/pcre2_set_callout.3 doc/pcre2_set_character_tables.3 doc/pcre2_set_compile_extra_options.3 doc/pcre2_set_compile_recursion_guard.3 doc/pcre2_set_depth_limit.3 doc/pcre2_set_glob_escape.3 doc/pcre2_set_glob_separator.3 doc/pcre2_set_heap_limit.3 doc/pcre2_set_match_limit.3 doc/pcre2_set_max_pattern_compiled_length.3 doc/pcre2_set_max_pattern_length.3 doc/pcre2_set_max_varlookbehind.3 doc/pcre2_set_offset_limit.3 doc/pcre2_set_optimize.3 doc/pcre2_set_newline.3 doc/pcre2_set_parens_nest_limit.3 doc/pcre2_set_recursion_limit.3 doc/pcre2_set_recursion_memory_management.3 doc/pcre2_set_substitute_callout.3 doc/pcre2_set_substitute_case_callout.3 doc/pcre2_substitute.3 doc/pcre2_substring_copy_byname.3 doc/pcre2_substring_copy_bynumber.3 doc/pcre2_substring_free.3 doc/pcre2_substring_get_byname.3 doc/pcre2_substring_get_bynumber.3 doc/pcre2_substring_length_byname.3 doc/pcre2_substring_length_bynumber.3 doc/pcre2_substring_list_free.3 doc/pcre2_substring_list_get.3 doc/pcre2_substring_nametable_scan.3 doc/pcre2_substring_number_from_name.3 '/home/builder/build/pkg/pcre2/usr/share/man/man3'
+ /usr/bin/install -c -m 644 doc/pcre2api.3 doc/pcre2build.3 doc/pcre2callout.3 doc/pcre2compat.3 doc/pcre2convert.3 doc/pcre2demo.3 doc/pcre2jit.3 doc/pcre2limits.3 doc/pcre2matching.3 doc/pcre2partial.3 doc/pcre2pattern.3 doc/pcre2perform.3 doc/pcre2posix.3 doc/pcre2sample.3 doc/pcre2serialize.3 doc/pcre2syntax.3 doc/pcre2unicode.3 '/home/builder/build/pkg/pcre2/usr/share/man/man3'
+libtool: install: /usr/bin/install -c .libs/libpcre2-8.so.0.16.0 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-8.so.0.16.0
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-8.so.0.16.0 libpcre2-8.so.0 || { rm -f libpcre2-8.so.0 && ln -s libpcre2-8.so.0.16.0 libpcre2-8.so.0; }; })
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-8.so.0.16.0 libpcre2-8.so || { rm -f libpcre2-8.so && ln -s libpcre2-8.so.0.16.0 libpcre2-8.so; }; })
+libtool: install: /usr/bin/install -c .libs/libpcre2-8.lai /home/builder/build/pkg/pcre2/usr/lib/libpcre2-8.la
+libtool: install: /usr/bin/install -c .libs/libpcre2-16.so.0.16.0 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-16.so.0.16.0
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-16.so.0.16.0 libpcre2-16.so.0 || { rm -f libpcre2-16.so.0 && ln -s libpcre2-16.so.0.16.0 libpcre2-16.so.0; }; })
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-16.so.0.16.0 libpcre2-16.so || { rm -f libpcre2-16.so && ln -s libpcre2-16.so.0.16.0 libpcre2-16.so; }; })
+libtool: install: /usr/bin/install -c .libs/libpcre2-16.lai /home/builder/build/pkg/pcre2/usr/lib/libpcre2-16.la
+libtool: install: /usr/bin/install -c .libs/libpcre2-32.so.0.16.0 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-32.so.0.16.0
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-32.so.0.16.0 libpcre2-32.so.0 || { rm -f libpcre2-32.so.0 && ln -s libpcre2-32.so.0.16.0 libpcre2-32.so.0; }; })
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-32.so.0.16.0 libpcre2-32.so || { rm -f libpcre2-32.so && ln -s libpcre2-32.so.0.16.0 libpcre2-32.so; }; })
+libtool: install: /usr/bin/install -c .libs/libpcre2-32.lai /home/builder/build/pkg/pcre2/usr/lib/libpcre2-32.la
+libtool: warning: relinking 'libpcre2-posix.la'
+libtool: install: (cd /home/builder/build/src/pcre2; /bin/sh "/home/builder/build/src/pcre2/libtool"  --silent --tag CC --mode=relink clang -std=gnu23 -DPCRE2_CODE_UNIT_WIDTH=8 -DPCRE2POSIX_SHARED -fvisibility=hidden -pthread -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -ffat-lto-objects -version-info 3:8:0 -Wl,--version-script,./src/libpcre2-posix.sym -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libpcre2-posix.la -rpath /usr/lib src/libpcre2_posix_la-pcre2posix.lo libpcre2-8.la -lpthread -inst-prefix-dir /home/builder/build/pkg/pcre2)
+libtool: install: /usr/bin/install -c .libs/libpcre2-posix.so.3.0.8T /home/builder/build/pkg/pcre2/usr/lib/libpcre2-posix.so.3.0.8
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-posix.so.3.0.8 libpcre2-posix.so.3 || { rm -f libpcre2-posix.so.3 && ln -s libpcre2-posix.so.3.0.8 libpcre2-posix.so.3; }; })
+libtool: install: (cd /home/builder/build/pkg/pcre2/usr/lib && { ln -s -f libpcre2-posix.so.3.0.8 libpcre2-posix.so || { rm -f libpcre2-posix.so && ln -s libpcre2-posix.so.3.0.8 libpcre2-posix.so; }; })
+libtool: install: /usr/bin/install -c .libs/libpcre2-posix.lai /home/builder/build/pkg/pcre2/usr/lib/libpcre2-posix.la
+libtool: install: /usr/bin/install -c .libs/libpcre2-8.a /home/builder/build/pkg/pcre2/usr/lib/libpcre2-8.a
+libtool: install: chmod 644 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-8.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/pcre2/usr/lib/libpcre2-8.a
+libtool: install: /usr/bin/install -c .libs/libpcre2-16.a /home/builder/build/pkg/pcre2/usr/lib/libpcre2-16.a
+libtool: install: chmod 644 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-16.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/pcre2/usr/lib/libpcre2-16.a
+libtool: install: /usr/bin/install -c .libs/libpcre2-32.a /home/builder/build/pkg/pcre2/usr/lib/libpcre2-32.a
+libtool: install: chmod 644 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-32.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/pcre2/usr/lib/libpcre2-32.a
+libtool: install: /usr/bin/install -c .libs/libpcre2-posix.a /home/builder/build/pkg/pcre2/usr/lib/libpcre2-posix.a
+libtool: install: chmod 644 /home/builder/build/pkg/pcre2/usr/lib/libpcre2-posix.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/pcre2/usr/lib/libpcre2-posix.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/pcre2/usr/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c pcre2grep pcre2test '/home/builder/build/pkg/pcre2/usr/bin'
+libtool: warning: 'libpcre2-8.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/pcre2grep /home/builder/build/pkg/pcre2/usr/bin/pcre2grep
+libtool: warning: 'libpcre2-8.la' has not been installed in '/usr/lib'
+libtool: warning: 'libpcre2-posix.la' has not been installed in '/usr/lib'
+libtool: warning: '/home/builder/build/src/pcre2/libpcre2-8.la' has not been installed in '/usr/lib'
+libtool: warning: 'libpcre2-16.la' has not been installed in '/usr/lib'
+libtool: warning: 'libpcre2-32.la' has not been installed in '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/pcre2test /home/builder/build/pkg/pcre2/usr/bin/pcre2test
+make[2]: Leaving directory '/home/builder/build/src/pcre2'
+make[1]: Leaving directory '/home/builder/build/src/pcre2'
+make: Leaving directory '/home/builder/build/src/pcre2'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "pcre2"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: pcre2 10.48-1 (Sun Sep 20 05:46:31 2026)

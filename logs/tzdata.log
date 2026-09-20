@@ -1,0 +1,169 @@
+== build tzdata (deps: none)
+==> Making package: tzdata 2026d-1 (Sun Sep 20 04:49:00 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading tzcode2026d.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0           00:01              0  0      0   0      0   0      0      0      0           00:01              0
+  0      0   0      0   0      0      0      0           00:01              0 16 321.0k  16  53302   0      0  22214      0   00:14   00:02   00:12  53227100 321.0k 100 321.0k   0      0 117.7k      0   00:02   00:02          53227100 321.0k 100 321.0k   0      0 117.6k      0   00:02   00:02          53227100 321.0k 100 321.0k   0      0 117.6k      0   00:02   00:02          53227
+  -> Downloading tzcode2026d.tar.gz.asc...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100    833   0    833   0      0    449      0           00:01              0100    833   0    833   0      0    449      0           00:01              0100    833   0    833   0      0    449      0           00:01              0
+  -> Downloading tzdata2026d.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0           00:01              0  0      0   0      0   0      0      0      0           00:02              0
+curl: (22) The requested URL returned error: 502
+Warning: Problem : HTTP error. Retrying in 3 seconds. 3 retries left.
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0  6 468.1k   6  32000   0      0  22062      0   00:21   00:01   00:20  29120 64 468.1k  64 304.1k   0      0 121.8k      0   00:03   00:02   00:01 141.8k100 468.1k 100 468.1k   0      0 168.6k      0   00:02   00:02         141.8k100 468.1k 100 468.1k   0      0 168.6k      0   00:02   00:02         141.8k100 468.1k 100 468.1k   0      0 168.6k      0   00:02   00:02         141.8k
+  -> Downloading tzdata2026d.tar.gz.asc...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0           00:01              0  0      0   0      0   0      0      0      0           00:02              0
+curl: (22) The requested URL returned error: 502
+Warning: Problem : HTTP error. Retrying in 3 seconds. 3 retries left.
+  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0100    833   0    833   0      0    665      0           00:01              0100    833   0    833   0      0    665      0           00:01              0100    833   0    833   0      0    665      0           00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    tzcode2026d.tar.gz ... Passed
+    tzcode2026d.tar.gz.asc ... Skipped
+    tzdata2026d.tar.gz ... Passed
+    tzdata2026d.tar.gz.asc ... Skipped
+==> Extracting sources...
+  -> Extracting tzcode2026d.tar.gz with bsdtar
+  -> Extracting tzdata2026d.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+{ (type git) >/dev/null 2>&1 && \
+	  V=$(git describe --match '[0-9][0-9][0-9][0-9][a-z]*' --abbrev=7 --dirty) || \
+	  if test 'unknown' = unknown && read -r V <version; then \
+	    V=${V%-dirty}-dirty; \
+	  else \
+	    V='unknown'; \
+	  fi; } && \
+	printf '%s\n' "$V" >version.out
+printf '%s\n' >tzdir.h.out \
+	  '#ifndef TZDEFAULT' \
+	  '# define TZDEFAULT "/etc/localtime" /* default zone */' \
+	  '#endif' \
+	  '#ifndef TZDIR' \
+	  '# define TZDIR "/usr/share/zoneinfo" /* TZif directory */' \
+	  '#endif'
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o asctime.o asctime.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o difftime.o difftime.c
+awk \
+	  -v DATAFORM=main \
+	  -v PACKRATDATA='' \
+	  -v PACKRATLIST='' \
+	  -f ziguard.awk \
+	  africa antarctica asia australasia  europe northamerica southamerica etcetera factory backward  >main.zi.out
+awk \
+	  -v DATAFORM=vanguard \
+	  -v PACKRATDATA='' \
+	  -v PACKRATLIST='' \
+	  -f ziguard.awk \
+	  africa antarctica asia australasia  europe northamerica southamerica etcetera factory backward  >vanguard.zi.out
+awk \
+	  -v DATAFORM=rearguard \
+	  -v PACKRATDATA='' \
+	  -v PACKRATLIST='' \
+	  -f ziguard.awk \
+	  africa antarctica asia australasia  europe northamerica southamerica etcetera factory backward  >rearguard.zi.out
+mv tzdir.h.out tzdir.h
+mv version.out version
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o localtime.o localtime.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o strftime.o strftime.c
+read -r VERSION <version && sed \
+	  -e "s'#!/bin/bash'#!"'/bin/bash'\' \
+	  -e s\''\(AWK\)=[^}]*'\''\1=\'\''awk\'\'\' \
+	  -e s\''\(PKGVERSION\)=.*'\''\1=\'\''(tzcode) \'\'\' \
+	  -e s\''\(REPORT_BUGS_TO\)=.*'\''\1=\'\''tz@iana.org\'\'\' \
+	  -e s\''\(TZDIR\)=[^}]*'\''\1=\'\''/usr/share/zoneinfo\'\'\' \
+	  -e s\''\(TZVERSION\)=.*'\''\1=\'"'$VERSION\\''" \
+	  <tzselect.ksh >tzselect.out
+read -r VERSION <version && printf '%s\n' \
+	  'static char const PKGVERSION[]="(tzcode) ";' \
+	  "static char const TZVERSION[]=\"$VERSION\";" \
+	  'static char const REPORT_BUGS_TO[]="tz@iana.org";' \
+	  >version.h.out
+mv version.h.out version.h
+chmod +x tzselect.out
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o zic.o zic.c
+clang -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -c -o zdump.o zdump.c
+mv tzselect.out tzselect
+asctime.c:115:12: warning: result of comparison of constant 9223372036854773907 with expression of type 'int' is always true [-Wtautological-constant-out-of-range-compare]
+  115 |         if ((year <= LONG_MAX - TM_YEAR_BASE
+      |              ~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+mv main.zi.out main.zi
+read -r version <version && \
+	  LC_ALL=C awk \
+	    -v dataform='main' \
+	    -v deps='ziguard.awk africa antarctica asia australasia  europe northamerica southamerica etcetera factory backward   zishrink.awk' \
+	    -v redo='posix_only' \
+	    -v version="$version" \
+	    -f zishrink.awk \
+	    main.zi >tzdata.zi.out
+mv rearguard.zi.out rearguard.zi
+mv vanguard.zi.out vanguard.zi
+mv tzdata.zi.out tzdata.zi
+clang -o zdump -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd zdump.o localtime.o strftime.o 
+rm -f libtz.a
+llvm-ar -rv libtz.a localtime.o asctime.o difftime.o strftime.o
+llvm-ar: warning: creating libtz.a
+: libtz.a
+clang -o zic -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd zic.o 
+==> Entering fakeroot environment...
+==> Starting package()...
+./zic  -d '/home/builder/build/pkg/tzdata/usr/share/zoneinfo' tzdata.zi
+mkdir -p '/home/builder/build/pkg/tzdata/usr/bin' \
+		'/home/builder/build/pkg/tzdata/usr/bin' '/home/builder/build/pkg/tzdata/usr/bin' \
+		'/home/builder/build/pkg/tzdata/usr/lib' \
+		'/home/builder/build/pkg/tzdata/usr/share/man/man3' '/home/builder/build/pkg/tzdata/usr/share/man/man5' \
+		'/home/builder/build/pkg/tzdata/usr/share/man/man8'
+./zic  -d '/home/builder/build/pkg/tzdata/usr/share/zoneinfo' -l Factory \
+		-t '/home/builder/build/pkg/tzdata/etc/localtime'
+cp -f iso3166.tab leapseconds tzdata.zi zone.tab zone1970.tab zonenow.tab '/home/builder/build/pkg/tzdata/usr/share/zoneinfo/.'
+cp tzselect '/home/builder/build/pkg/tzdata/usr/bin/.'
+cp zdump '/home/builder/build/pkg/tzdata/usr/bin/.'
+cp zic '/home/builder/build/pkg/tzdata/usr/bin/.'
+cp libtz.a '/home/builder/build/pkg/tzdata/usr/lib/.'
+: '/home/builder/build/pkg/tzdata/usr/lib/libtz.a'
+cp -f newctime.3 newtzset.3 '/home/builder/build/pkg/tzdata/usr/share/man/man3/.'
+cp -f tzfile.5 '/home/builder/build/pkg/tzdata/usr/share/man/man5/.'
+cp -f tzselect.8 zdump.8 zic.8 '/home/builder/build/pkg/tzdata/usr/share/man/man8/.'
+warning: -p is obsolete and likely ineffective
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Removing empty directories...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "tzdata"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: tzdata 2026d-1 (Sun Sep 20 04:50:19 2026)

@@ -1,0 +1,261 @@
+== build less (deps: git glibc ncurses pcre2 )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: pcre2-10.47-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  git-2.55.0-1  ncurses-6.6-2
+
+Total Download Size:    8.07 MiB
+Total Installed Size:  52.07 MiB
+Net Upgrade Size:      43.11 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: less 1:710-1 (Sun Sep 20 04:54:09 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading less-710.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0  9 993.2k   9  98106   0      0  47336      0   00:21   00:02   00:19  98002 69 993.2k  69 687.6k   0      0 223.7k      0   00:04   00:03   00:01 343.5k100 993.2k 100 993.2k   0      0 278.8k      0   00:03   00:03         343.5k100 993.2k 100 993.2k   0      0 278.7k      0   00:03   00:03         343.5k100 993.2k 100 993.2k   0      0 278.7k      0   00:03   00:03         343.5k
+  -> Downloading less-710.tar.gz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:01              0100     95 100     95   0      0     60      0   00:01   00:01              0100     95 100     95   0      0     60      0   00:01   00:01              0100     95 100     95   0      0     60      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    less-710.tar.gz ... Passed
+    less-710.tar.gz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting less-710.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking for library containing strerror... none required
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for clang option to enable large file support... none needed
+checking for tgoto in -ltinfo... yes
+checking for tgoto in -ltinfow... no
+checking for initscr in -lxcurses... no
+checking for initscr in -lncursesw... yes
+checking for initscr in -lncurses... yes
+checking for initscr in -lcurses... yes
+checking for tgetent in -ltermcap... no
+checking for tgetent in -ltermlib... no
+checking for library containing regcmp... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for ctype.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for limits.h... yes
+checking for stdckdint.h... yes
+checking for termcap.h... yes
+checking for ncurses/termcap.h... no
+checking for ncursesw/termcap.h... no
+checking for termio.h... no
+checking for termios.h... yes
+checking for time.h... yes
+checking for values.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/stream.h... no
+checking for sys/wait.h... yes
+checking whether stat file-mode macros are broken... no
+checking for an ANSI C-conforming const... yes
+checking for off_t... yes
+checking for size_t... yes
+checking for working terminal libraries... using -ltinfo
+checking for terminfo... yes
+checking for void... yes
+checking for const... yes
+checking for time_t... yes
+checking for st_ino in struct stat... yes
+checking for ANSI function prototypes... no
+checking for fchmod... yes
+checking for fsync... yes
+checking for nanosleep... yes
+checking for poll... yes
+checking for popen... yes
+checking for realpath... yes
+checking for _setjmp... yes
+checking for sigprocmask... yes
+checking for sigsetmask... yes
+checking for snprintf... yes
+checking for stat... yes
+checking for strsignal... yes
+checking for system... yes
+checking for ttyname... yes
+checking for usleep... yes
+checking for clang options needed to detect all undeclared functions... none needed
+checking whether sigsetjmp is declared... yes
+checking for memcpy... yes
+checking for strchr... yes
+checking for strstr... yes
+checking for tcgetattr... yes
+checking for fileno... yes
+checking for strerror... yes
+checking for sys_errlist... yes
+checking for sigset_t... yes
+checking for sigemptyset... yes
+checking for errno... yes - in errno.h
+checking for settable errno... yes
+checking for locale... yes
+checking for ctype functions... yes
+checking termcap for ospeed... yes - in termcap.h
+checking for pcre2_compile_8 in -lpcre2-8... yes
+regular expression library:  pcre2
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating defines.h
+test ! -f stamp-h || CONFIG_FILES= CONFIG_HEADERS=defines.h ./config.status
+touch stamp-h
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o lessecho.o lessecho.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o main.o main.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o screen.o screen.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o brac.o brac.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o ch.o ch.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o charset.o charset.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o cmdbuf.o cmdbuf.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o command.o command.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o cvt.o cvt.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o decode.o decode.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o edit.o edit.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o evar.o evar.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o filename.o filename.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o forwback.o forwback.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o help.o help.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o ifile.o ifile.c
+ch.c:315:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  315 |                                 write(logfile, &bp->data[bp->datasize], (size_t) n);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o input.o input.c
+ch.c:467:5: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  467 |                                 write(logfile, bp->data, bp->datasize);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o jump.o jump.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o line.o line.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o linenum.o linenum.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o lmsg.o lmsg.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o lsystem.o lsystem.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o mark.o mark.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o optfunc.o optfunc.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o option.o option.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o opttbl.o opttbl.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o os.o os.c
+lsystem.c:123:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  123 |                 dup(inp);
+      |                 ^~~~~~~~
+lsystem.c:163:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  163 |         system(p);
+      |         ^~~~~~~~~
+lsystem.c:188:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+  188 |         dup(inp);
+      |         ^~~~~~~~
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o output.o output.c
+2 warnings generated.
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o pattern.o pattern.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o position.o position.c
+3 warnings generated.
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o prompt.o prompt.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o search.o search.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o signal.o signal.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o tags.o tags.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o ttyin.o ttyin.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o version.o version.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o xbuf.o xbuf.c
+clang -I. -c -DBINDIR=\"/usr/bin\" -DLIBEXECDIR=\"/usr/lib\" -DSYSDIR=\"/etc\"  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -o lesskey_parse.o lesskey_parse.c
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o lessecho lessecho.o version.o   -ltinfo -lpcre2-8
+clang -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o less main.o screen.o brac.o ch.o charset.o cmdbuf.o command.o cvt.o decode.o edit.o evar.o filename.o forwback.o help.o ifile.o input.o jump.o line.o linenum.o lmsg.o lsystem.o mark.o optfunc.o option.o opttbl.o os.o output.o pattern.o position.o prompt.o search.o signal.o tags.o ttyin.o version.o xbuf.o   lesskey_parse.o   -ltinfo -lpcre2-8
+==> Entering fakeroot environment...
+==> Starting package()...
+./mkinstalldirs /home/builder/build/pkg/less/usr/bin /home/builder/build/pkg/less/usr/lib /home/builder/build/pkg/less/usr/share/man/man1 /home/builder/build/pkg/less/usr/share/man/man5
+mkdir /home/builder/build/pkg/less/usr
+mkdir /home/builder/build/pkg/less/usr/bin
+mkdir /home/builder/build/pkg/less/usr/lib
+mkdir /home/builder/build/pkg/less/usr/share
+mkdir /home/builder/build/pkg/less/usr/share/man
+mkdir /home/builder/build/pkg/less/usr/share/man/man1
+mkdir /home/builder/build/pkg/less/usr/share/man/man5
+/usr/bin/install -c less /home/builder/build/pkg/less/usr/bin/less
+/usr/bin/install -c lessecho /home/builder/build/pkg/less/usr/lib/lessecho
+/usr/bin/install -c ./less-osc8-open.sh /home/builder/build/pkg/less/usr/lib/less-osc8-open
+/usr/bin/install -c -m 644 ./less.nro /home/builder/build/pkg/less/usr/share/man/man1/less.1
+/usr/bin/install -c -m 644 ./lesskey.nro /home/builder/build/pkg/less/usr/share/man/man5/lesskey.5
+/usr/bin/install -c -m 644 ./lessecho.nro /home/builder/build/pkg/less/usr/share/man/man1/lessecho.1
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "less"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: less 1:710-1 (Sun Sep 20 04:54:33 2026)

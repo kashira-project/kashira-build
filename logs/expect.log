@@ -1,0 +1,1701 @@
+== build expect (deps: tcl )
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (1) tcl-9.0.1-1
+
+Total Download Size:   2.56 MiB
+Total Installed Size:  8.74 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ tcl-9.0.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing tcl...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: expect 5.45.4-5 (Sun Sep 20 06:47:21 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found expect5.45.4.tar.gz
+  -> Found expect-configure-c99.patch
+  -> Found expect-c99.patch
+  -> Found expect-5.45.4-covscan-fixes.patch
+  -> Found expect-5.45-format-security.patch
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    expect5.45.4.tar.gz ... Passed
+    expect-configure-c99.patch ... Passed
+    expect-c99.patch ... Passed
+    expect-5.45.4-covscan-fixes.patch ... Passed
+    expect-5.45-format-security.patch ... Passed
+==> Extracting sources...
+  -> Extracting expect5.45.4.tar.gz with bsdtar
+==> Starting prepare()...
+patching file exp_clib.c
+Hunk #1 succeeded at 1476 (offset -462 lines).
+patching file exp_chan.c
+Hunk #1 succeeded at 58 (offset -2 lines).
+Hunk #2 succeeded at 68 (offset -2 lines).
+patching file exp_chan.c
+patching file exp_clib.c
+Hunk #2 succeeded at 1742 (offset -462 lines).
+Hunk #3 succeeded at 2262 (offset -462 lines).
+Hunk #4 succeeded at 2736 (offset -462 lines).
+Hunk #5 succeeded at 2802 (offset -462 lines).
+patching file exp_log.c
+Hunk #1 succeeded at 174 with fuzz 2.
+patching file exp_main_sub.c
+patching file pty_termios.c
+patching file configure.in
+patching file tclconfig/tcl.m4
+autoreconf: export WARNINGS=
+autoreconf: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+autoreconf: Entering directory '.'
+autoreconf: configure.in: no obvious need to run autopoint
+autoreconf: configure.in: not using aclocal
+autoreconf: configure.in: tracing
+autoreconf: configure.in: adding subdirectory testsuite to autoreconf
+autoreconf: Entering directory 'testsuite'
+autoreconf: configure.in: no obvious need to run autopoint
+autoreconf: configure.in: not using aclocal
+autoreconf: configure.in: tracing
+autoreconf: configure.in: not using Libtool
+autoreconf: configure.in: not using Intltool
+autoreconf: configure.in: not using Gtkdoc
+autoreconf: configure.in: no need to run autopoint (confirmed)
+autoreconf: running: /usr/bin/autoconf --force
+configure.in:8: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:8: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+../tclconfig/tcl.m4:45: TEA_PATH_TCLCONFIG is expanded from...
+configure.in:8: the top level
+configure.in:11: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:11: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+../tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:11: the top level
+configure.in:11: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:11: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+../tclconfig/tcl.m4:2159: TEA_MISSING_POSIX_HEADERS is expanded from...
+../tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:11: the top level
+configure.in:11: warning: The macro 'AC_HAVE_HEADERS' is obsolete.
+configure.in:11: You should run autoupdate.
+./lib/autoconf/oldnames.m4:36: AC_HAVE_HEADERS is expanded from...
+../tclconfig/tcl.m4:2159: TEA_MISSING_POSIX_HEADERS is expanded from...
+../tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:11: the top level
+configure.in:14: warning: AC_OUTPUT should be used without arguments.
+configure.in:14: You should run autoupdate.
+configure.in:14: warning: AC_C_BIGENDIAN should be used with AC_CONFIG_HEADERS
+autoreconf: configure.in: not running autoheader: no config headers
+autoreconf: configure.in: not using Automake
+autoreconf: '../tclconfig/install-sh' is updated
+autoreconf: configure.in: not running make: --make not given
+autoreconf: Leaving directory 'testsuite'
+autoreconf: configure.in: not using Libtool
+autoreconf: configure.in: not using Intltool
+autoreconf: configure.in: not using Gtkdoc
+autoreconf: configure.in: no need to run autopoint (confirmed)
+autoreconf: running: /usr/bin/autoconf --force
+configure.in:21: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:21: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+tclconfig/tcl.m4:45: TEA_PATH_TCLCONFIG is expanded from...
+configure.in:21: the top level
+configure.in:46: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:46: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:46: the top level
+configure.in:46: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:46: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+tclconfig/tcl.m4:2159: TEA_MISSING_POSIX_HEADERS is expanded from...
+tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:46: the top level
+configure.in:46: warning: The macro 'AC_HAVE_HEADERS' is obsolete.
+configure.in:46: You should run autoupdate.
+./lib/autoconf/oldnames.m4:36: AC_HAVE_HEADERS is expanded from...
+tclconfig/tcl.m4:2159: TEA_MISSING_POSIX_HEADERS is expanded from...
+tclconfig/tcl.m4:3121: TEA_SETUP_COMPILER is expanded from...
+configure.in:46: the top level
+configure.in:80: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:80: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+tclconfig/tcl.m4:738: TEA_ENABLE_THREADS is expanded from...
+configure.in:80: the top level
+configure.in:87: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:87: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+tclconfig/tcl.m4:680: TEA_ENABLE_SHARED is expanded from...
+configure.in:87: the top level
+configure.in:95: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+tclconfig/tcl.m4:2581: TEA_TCL_EARLY_FLAG is expanded from...
+tclconfig/tcl.m4:2594: TEA_TCL_EARLY_FLAGS is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+tclconfig/tcl.m4:2629: TEA_TCL_64BIT_FLAGS is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:95: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:95: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+tclconfig/tcl.m4:2629: TEA_TCL_64BIT_FLAGS is expanded from...
+tclconfig/tcl.m4:1051: TEA_CONFIG_CFLAGS is expanded from...
+configure.in:95: the top level
+configure.in:101: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.in:101: You should run autoupdate.
+./lib/autoconf/general.m4:205: AC_HELP_STRING is expanded from...
+tclconfig/tcl.m4:867: TEA_ENABLE_SYMBOLS is expanded from...
+configure.in:101: the top level
+configure.in:141: warning: The macro 'AC_HAVE_HEADERS' is obsolete.
+configure.in:141: You should run autoupdate.
+./lib/autoconf/oldnames.m4:36: AC_HAVE_HEADERS is expanded from...
+configure.in:141: the top level
+configure.in:150: warning: The macro 'AC_TYPE_SIGNAL' is obsolete.
+configure.in:150: You should run autoupdate.
+./lib/autoconf/types.m4:804: AC_TYPE_SIGNAL is expanded from...
+configure.in:150: the top level
+configure.in:156: warning: The macro 'AC_HEADER_TIME' is obsolete.
+configure.in:156: You should run autoupdate.
+./lib/autoconf/headers.m4:703: AC_HEADER_TIME is expanded from...
+tclconfig/tcl.m4:2374: TEA_TIME_HANDLER is expanded from...
+configure.in:156: the top level
+configure.in:156: warning: The macro 'AC_TRY_COMPILE' is obsolete.
+configure.in:156: You should run autoupdate.
+./lib/autoconf/general.m4:2903: AC_TRY_COMPILE is expanded from...
+lib/m4sugar/m4sh.m4:689: _AS_IF_ELSE is expanded from...
+lib/m4sugar/m4sh.m4:696: AS_IF is expanded from...
+./lib/autoconf/general.m4:2305: AC_CACHE_VAL is expanded from...
+./lib/autoconf/general.m4:2326: AC_CACHE_CHECK is expanded from...
+tclconfig/tcl.m4:2374: TEA_TIME_HANDLER is expanded from...
+configure.in:156: the top level
+configure.in:168: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:168: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+configure.in:168: the top level
+configure.in:254: warning: The macro 'AC_CANONICAL_SYSTEM' is obsolete.
+configure.in:254: You should run autoupdate.
+./lib/autoconf/general.m4:2137: AC_CANONICAL_SYSTEM is expanded from...
+configure.in:254: the top level
+configure.in:455: warning: The macro 'AC_TRY_LINK' is obsolete.
+configure.in:455: You should run autoupdate.
+./lib/autoconf/general.m4:2976: AC_TRY_LINK is expanded from...
+configure.in:455: the top level
+configure.in:474: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:474: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:474: the top level
+configure.in:494: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:494: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:494: the top level
+configure.in:536: warning: The macro 'AC_TYPE_SIGNAL' is obsolete.
+configure.in:536: You should run autoupdate.
+./lib/autoconf/types.m4:804: AC_TYPE_SIGNAL is expanded from...
+configure.in:536: the top level
+configure.in:540: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:540: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:540: the top level
+configure.in:654: warning: The macro 'AC_HEADER_EGREP' is obsolete.
+configure.in:654: You should run autoupdate.
+./lib/autoconf/oldnames.m4:38: AC_HEADER_EGREP is expanded from...
+configure.in:654: the top level
+configure.in:727: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:727: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:727: the top level
+configure.in:753: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:753: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:753: the top level
+configure.in:771: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:771: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:771: the top level
+configure.in:794: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:794: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:794: the top level
+configure.in:817: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:817: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:817: the top level
+configure.in:842: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:842: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:842: the top level
+configure.in:886: warning: The macro 'AC_HAVE_FUNCS' is obsolete.
+configure.in:886: You should run autoupdate.
+./lib/autoconf/functions.m4:231: AC_HAVE_FUNCS is expanded from...
+configure.in:886: the top level
+configure.in:887: warning: The macro 'AC_HAVE_FUNCS' is obsolete.
+configure.in:887: You should run autoupdate.
+./lib/autoconf/functions.m4:231: AC_HAVE_FUNCS is expanded from...
+configure.in:887: the top level
+configure.in:896: warning: The macro 'AC_TRY_RUN' is obsolete.
+configure.in:896: You should run autoupdate.
+./lib/autoconf/general.m4:3053: AC_TRY_RUN is expanded from...
+configure.in:896: the top level
+configure.in:1078: warning: AC_OUTPUT should be used without arguments.
+configure.in:1078: You should run autoupdate.
+configure.in:1078: warning: AC_C_BIGENDIAN should be used with AC_CONFIG_HEADERS
+autoreconf: configure.in: not running autoheader: no config headers
+autoreconf: configure.in: not using Automake
+autoreconf: 'tclconfig/config.sub' is updated
+autoreconf: 'tclconfig/config.guess' is updated
+autoreconf: configure.in: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+checking for correct TEA configuration... ok (TEA 3.9)
+configure: configuring expect 5.45.4
+checking for Tcl configuration... found /usr/lib/tclConfig.sh
+checking for existence of /usr/lib/tclConfig.sh... loading
+configure: --exec-prefix defaulting to TCL_EXEC_PREFIX /usr
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... unsupported
+checking for clang option to enable C11 features... none needed
+checking how to run the C preprocessor... clang-cpp
+checking whether make sets $(MAKE)... yes
+checking for ranlib... llvm-ranlib
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for sys/time.h... yes
+checking for egrep -e... /usr/sbin/grep -E
+checking if the compiler understands -pipe... yes
+checking whether byte ordering is bigendian... no
+checking for sin... no
+checking for main in -lieee... no
+checking for main in -linet... no
+checking for net/errno.h... no
+checking for connect... yes
+checking for gethostbyname... yes
+checking dirent.h... yes
+checking for errno.h... yes
+checking for float.h... yes
+checking for values.h... yes
+checking for limits.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/wait.h... yes
+checking for dlfcn.h... yes
+checking for sys/param.h... yes
+checking for Tcl public headers... /usr/include
+checking for Tcl private include files... private headers found with public headers
+checking for pthread_mutex_init in -lpthread... yes
+checking for building with threads... yes (default)
+configure: WARNING:
+    --enable-threads requested, but building against a Tcl that is NOT
+    thread-enabled.  This is an OK configuration that will also run in
+    a thread-enabled core.
+checking how to build libraries... shared
+checking if 64bit support is requested... no
+checking if 64bit Sparc VIS support is requested... no
+checking if compiler supports visibility "hidden"... yes
+checking if rpath support is requested... yes
+checking system version... Linux-7.2.6-1-cachyos
+checking for ar... llvm-ar
+checking for required early compiler flags...  _LARGEFILE64_SOURCE
+checking for 64-bit integer type... using long
+checking for build with symbols... no
+checking for sys/select.h... yes
+checking for sys/sysmacros.h... yes
+checking for varargs.h... no
+checking for sys/stropts.h... no
+checking for sys/sysconfig.h... no
+checking for sys/fcntl.h... yes
+checking for sys/ptem.h... no
+checking for sys/strredir.h... no
+checking for sys/strpty.h... no
+checking for sys/bsdtypes.h... no
+checking return type of signal handlers... void
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for clang options to detect undeclared functions... none needed
+checking for clang options to ignore future-version functions... none needed
+checking for sys/time.h... (cached) yes
+checking for struct tm.tm_zone... yes
+checking for gmtime_r... yes
+checking for localtime_r... yes
+checking tm_tzadj in struct tm... no
+checking tm_gmtoff in struct tm... yes
+checking long timezone variable... yes
+checking union wait... no
+checking for gethostname... yes
+checking for socket... yes
+checking for select... yes
+checking for getpseudotty... no
+checking for getpseudotty in -lseq... no
+checking for openpty... yes
+checking if running Sequent running SVR4... no
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for pid_t... yes
+checking if running Mach... no
+checking if running MachTen... no
+checking if on Pyramid... no
+checking if on Apollo... no
+checking if on Interactive... no
+checking stty to use... /bin/stty
+checking if stty reads stdout... no
+checking if running Solaris... no
+checking for memmove... yes
+checking for sysconf... yes
+checking for strftime... yes
+checking for strchr... yes
+checking for timezone... yes
+checking for siglongjmp... yes
+checking for memcpy... yes
+checking if WNOHANG requires _POSIX_SOURCE... no
+checking if any value exists for WNOHANG... yes
+checking mask type of select... none
+checking return type of signal handlers... (cached) void
+checking if signals need to be re-armed... no
+checking if on Convex... no
+checking if on HP... no
+checking sane default stty arguments... 
+checking for HP style pty allocation... no
+checking for HP style pty trapping... no
+checking for AIX new-style pty allocation... no
+checking for SGI old-style pty allocation... no
+checking for SCO style pty allocation... no
+checking for SVR4 style pty allocation... no
+checking for OSF/1 style pty allocation... no
+checking for tcgetattr... yes
+checking for tcsetattr... yes
+checking for struct sgttyb... no
+checking for struct termio... no
+checking for struct termios... yes
+checking if TCGETS or TCGETA in termios.h... no
+checking if TIOCGWINSZ in termios.h... no
+checking for Cray-style ptys... no
+checking for select... yes
+checking for poll... yes
+checking event handling... via select
+checking for _getpty... no
+checking for getpty... no
+checking whether setpgrp requires zero arguments... yes
+checking for SV-style timezone... yes
+checking for long file names... yes
+checking for tclsh... /usr/bin/tclsh9.0
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
+config.status: executing default commands
+chmod: cannot access './install-sh': No such file or directory
+=== configuring in testsuite (/home/builder/build/src/expect5.45.4/testsuite)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/usr'  '--mandir=/usr/share/man' 'CC=clang' 'CFLAGS=-march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17' 'LDFLAGS=-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd' 'CPPFLAGS=' 'CPP=clang-cpp' --cache-file=/dev/null --srcdir=.
+checking for correct TEA configuration... ok (TEA 3.9)
+configure: configuring exp_test 0.43
+checking for Tcl configuration... found /usr/lib/tclConfig.sh
+checking for existence of /usr/lib/tclConfig.sh... loading
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... unsupported
+checking for clang option to enable C11 features... none needed
+checking how to run the C preprocessor... clang-cpp
+checking whether make sets $(MAKE)... yes
+checking for ranlib... :
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for egrep -e... /usr/sbin/grep -E
+checking if the compiler understands -pipe... yes
+checking whether byte ordering is bigendian... no
+checking for sin... no
+checking for main in -lieee... no
+checking for main in -linet... no
+checking for net/errno.h... no
+checking for connect... yes
+checking for gethostbyname... yes
+checking dirent.h... yes
+checking for errno.h... yes
+checking for float.h... yes
+checking for values.h... yes
+checking for limits.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/wait.h... yes
+checking for dlfcn.h... yes
+checking for sys/param.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_command.c` -o exp_command.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo expect.c` -o expect.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_inter.c` -o exp_inter.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_regexp.c` -o exp_regexp.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_tty.c` -o exp_tty.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_log.c` -o exp_log.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_main_sub.c` -o exp_main_sub.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_pty.c` -o exp_pty.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_trap.c` -o exp_trap.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_strf.c` -o exp_strf.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_console.c` -o exp_console.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_glob.c` -o exp_glob.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_win.c` -o exp_win.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_clib.c` -o exp_clib.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_closetcl.c` -o exp_closetcl.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_memmove.c` -o exp_memmove.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_tty_comm.c` -o exp_tty_comm.o
+clang -DPACKAGE_NAME=\"expect\" -DPACKAGE_TARNAME=\"expect\" -DPACKAGE_VERSION=\"5.45.4\" -DPACKAGE_STRING=\"expect\ 5.45.4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DBUILD_expect=/\*\*/ -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_SYS_TIME_H=1 -DSTDC_HEADERS=1 -DHAVE_LIMITS_H=1 -DHAVE_SYS_PARAM_H=1 -DUSE_THREAD_ALLOC=1 -D_REENTRANT=1 -D_THREAD_SAFE=1 -DTCL_THREADS=1 -DMODULE_SCOPE=extern\ __attribute__\(\(__visibility__\(\"hidden\"\)\)\) -D_LARGEFILE64_SOURCE=1 -DTCL_WIDE_INT_IS_LONG=1 -DUSE_TCL_STUBS=1 -DUSE_TCL_STUBS=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYSMACROS_H=1 -DHAVE_SYS_FCNTL_H=1 -DRETSIGTYPE=void -DHAVE_SYS_TIME_H=1 -DTIME_WITH_SYS_TIME=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_GMTIME_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TM_GMTOFF=1 -DHAVE_TIMEZONE_VAR=1 -DNO_UNION_WAIT=1 -DHAVE_OPENPTY=1 -DHAVE_MEMMOVE=1 -DHAVE_SYSCONF=1 -DHAVE_STRFTIME=1 -DHAVE_STRCHR=1 -DHAVE_TIMEZONE=1 -DHAVE_SIGLONGJMP=1 -DHAVE_MEMCPY=1 -DWNOHANG_BACKUP_VALUE=1 -DSELECT_MASK_TYPE=fd_set -DRETSIGTYPE=void -DHAVE_TCSETATTR=1 -DPOSIX=1 -DHAVE_TERMIOS=1 -DSETPGRP_VOID=1 -DHAVE_SV_TIMEZONE=1 -DHAVE_LONG_FILE_NAMES=1 -DTCL_DEBUGGER -DUSE_NON_CONST -DSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DEXECSCRIPTDIR=\"/usr/lib/expect5.45.4\" -DSTTY_BIN=\"/bin/stty\" -DDFLT_STTY="\"sane\"" -I. -I"." -I"/usr/include"    -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -std=gnu17 -pipe -O2 -fomit-frame-pointer -Wall -fPIC  -c `echo exp_chan.c` -o exp_chan.o
+In file included from exp_glob.c:16:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+./exp_int.h:28:6: error: variable has incomplete type 'void'
+   28 | void    expDiagLogPtrStr    _ANSI_ARGS_((char *,char *));
+      |         ^
+./exp_int.h:28:22: error: expected ';' after top level declarator
+   28 | void    expDiagLogPtrStr    _ANSI_ARGS_((char *,char *));
+      |                         ^
+      |                         ;
+./exp_int.h:29:6: error: variable has incomplete type 'void'
+   29 | void    expDiagLogPtrStrStr _ANSI_ARGS_((char *,char *,char *));
+      |         ^
+./exp_int.h:29:25: error: expected ';' after top level declarator
+   29 | void    expDiagLogPtrStrStr _ANSI_ARGS_((char *,char *,char *));
+      |                            ^
+      |                            ;
+./exp_int.h:30:6: error: variable has incomplete type 'void'
+   30 | void    expErrnoMsgSet      _ANSI_ARGS_((char * (*) _ANSI_ARGS_((int))));
+      |         ^
+./exp_int.h:30:20: error: expected ';' after top level declarator
+   30 | void    expErrnoMsgSet      _ANSI_ARGS_((char * (*) _ANSI_ARGS_((int))));
+      |                       ^
+      |                       ;
+./exp_int.h:31:19: error: expected ';' after top level declarator
+   31 | char * expErrnoMsg    _ANSI_ARGS_((int));
+      |                   ^
+      |                   ;
+In file included from exp_trap.c:31:
+exp_glob.c:20:21: error: expected ';' after top level declarator
+   20 | Exp_StringCaseMatch2 _ANSI_ARGS_((CONST Tcl_UniChar *string, /* String. */
+      |                     ^
+      |                     ;
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+exp_glob.c   41: | 40E:X5T: ERerror: Nuse of undeclared identifier 'CONST' 
+void     exp_p   a40 | r s e _ aCrOgvN S_TA NTcSlI__UAnRiGCSh_a(r( *Tsc;l
+      _| I    ^~~~~n
+terp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | Eexp_glob.c:41:5: error: use of undeclared identifier 'CONST'
+X   41 |     CONST Tcl_UniChar *stop = string + strlen;
+      |     ^~~~~
+TERN int      exp_interpretexp_glob.cer _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+:42./expect_tcl.h:43:33: error: expected ';' after top level declarator
+:   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+5: error: ./expect_tcl.h:44:37: error: expected ';' after top level declarator
+use of undeclared identifier 'CONST'   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+
+   42./expect_tcl.h:45:34: error: expected ';' after top level declarator
+ |    45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+    ./expect_tcl.h:47:23: error: expected ';' after top level declarator
+   CONST Tcl_UniChar *pstop = pattern + plen;
+      |     ^~~~~
+47 | EXTERN char *   exp_cook _ANSI_ARGS_((charfatal error: too many errors emitted, stopping now [-ferror-limit=]
+ *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   52 | EXTERN 20 errors generated.
+void     (*exp_app_exit)_ANSI_ARGS_((Tcl_Interp *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_((ClientData));
+      |                                  ^
+      |                                  ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Interp *,interp));
+      |                          ^
+      |                          ;
+In file included from exp_trap.c:31:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | voidmake: *** [Makefile:318: exp_glob.o] Error 1
+    exmake: *** Waiting for unfinished jobs....
+p_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+In file included from exp_tty.c:34:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+   41 | EXTERN void     exp_parse_argv _ANSI_ARGS_((Tcl_Interp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN int      exp_interpreter _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:44:37: error: expected ';' after top level declarator
+   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+./expect_tcl.h:45:34: error: expected ';' after top level declarator
+   45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:47:23: error: expected ';' after top level declarator
+   47 | EXTERN char *   exp_cook _ANSI_ARGS_((char *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   52 | EXTERN void     (*exp_app_exit)_ANSI_ARGS_((Tcl_Interp *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_((ClientData));
+      |                                  ^
+      |                                  ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Interp *,interp));
+      |                          ^
+      |                          ;
+In file included from exp_tty.c:34:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+In file included from exp_console.c:36:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+   41 | EXTERN void     exp_parse_argv _ANSI_ARIn file included from GSexp_win.c_:(55(T:
+cl_I./exp_win.hn:t14e:r7p:  *,error: invariable has incomplete type 'void't
+ argc,char **a   r14g | vv)o)i;d
+        | e                              ^x
+p      _| w                              ;i
+n_rows_set    _ANSI_ARGS_ ((char* rows));
+      |       ^
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN int      exp_interpreter _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h./exp_win.h:44:37: error: expected ';' after top level declarator
+   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+:14:23: error: ./expect_tcl.hexpected ';' after top level declarator:
+45:34: error: expected ';' after top level declarator
+      45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+14 | void  exp_win_rows_set    _ANSI_ARGS_ ((char* ./expect_tcl.hr:47o:w23:s )error: )expected ';' after top level declarator
+;
+      |                       ^
+      |                       ;
+   47 | EXTERN char *   exp_cook _ANSI_ARGS_((char *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./exp_win.h:15:23: error: expected ';' after top level declarator
+   15 | char* exp_win_rows_get    ./expect_tcl.h_:52A:28N: SIerror: _expected ';' after top level declarator
+ARGS_ ((vo   i52 | dE)X)T;E
+R      N|                        ^
+v      o| i                      ;d
+     (*exp_app_exit)_A./exp_win.hN:S16I:_7A:R Gerror: Svariable has incomplete type 'void'
+_((Tcl_   I16n | tveoripd  * )e)x;p
+_      | w                               ^
+i      n| _                               ;
+columns_set _ANSI_ARGS_ ((char* columns));
+      |       ^
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_(./exp_win.h:(16C:26l:i eerror: nexpected ';' after top level declaratort
+Data));
+      |                                  ^
+         16|  |                                  ;v
+oid  exp_win_columns_set _ANSI_ARGS_ ((ch./expect_tcl.ha:55r:*22:  cerror: oexpected ';' after top level declarator
+lumns));
+         55|  |                          ^E
+X      T| E                         ;R
+N void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_In./exp_win.ht:17e:r26p:  *error: ,expected ';' after top level declaratori
+nterp)   );17
+ |       c| h                         ^a
+r      | *                         ;
+ exp_win_columns_get _ANSI_ARGS_ ((void));
+      |                          ^
+      |                          ;
+./exp_win.h:19:7: error: variable has incomplete type 'void'
+   19 | void  exp_win2_rows_set    _ANSI_ARGS_ ((int fd, char* rows));
+      |       ^
+./exp_win.h:19:24: error: expected ';' after top level declarator
+   19 | void  exp_win2_rows_set    _ANSI_ARGS_ ((int fd, char* rows));
+      |                        ^
+      |                        ;
+./exp_win.h:20:24: error: expected ';' after top level declarator
+   20 | char* exp_win2_rows_get    _ANSI_ARGS_ ((int fd));
+      |                        ^
+      |                        ;
+./exp_win.h:21:7: error: variable has incomplete type 'void'
+   21 | void  exp_win2_columns_set _ANSI_ARGS_ ((int fd, char* columns));
+      |       ^
+In file included from exp_console.c:36:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _AN./exp_win.hS:I21_:27A: Rerror: Gexpected ';' after top level declaratorS
+_((void));
+         21|  |         ^v
+oid  exp_win2_columns_set _ANSI_ARGS_ ((int fd, char* columns));
+      |                           ^
+      |                           ;
+./exp_int.h:./exp_win.h:22:27: error: expected ';' after top level declarator
+   22 | char* exp_win2_columns_get _ANSI_ARGS_ ((int fd));
+      |                           ^
+      |                           ;
+24:21: error: expected ';' after top level declarator
+   24 | void    exp_exp_strf.cco:ns138o:l1e:_ sewarning: t a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype] 
+   _ANSI_AR  G138S | _r(a(nvgoied()l)o;w
+      ,| i                       ^
+t      e| m                       ;,
+hi)
+      | ^
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22exp_win.c:81:5: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+   : 81 | error: iexpected ';' after top level declarator
+nt exp_window   _25s | ivzoied_    seextp(Dfida)gL
+o      g| Pt    ^r
+Set    _ANSI_In file included from Aexp_win.cR:G55S:
+_./exp_win.h(:(11v:o5i:d  (warning: *a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a subsequent definition [-Wdeprecated-non-prototype])
+_ANSI   _11A | RiGSn_t( (ecxhpar_ w*i)n)d)o)w;_
+      s| i                        ^z
+e_      s| e                        ;
+t();
+      |     ^
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+exp_win.c:92:5   :26  | warning: voa function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]i
+d    expDi   a92 | giLnotg Petxrp _ w i n d o w__AsNiSzIe__AgReGtS(_f(d()c
+h      a| r    ^ 
+*));
+      |         ^
+In file included from exp_win.c:55:
+./exp_win.h:12:5: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a subsequent definition [-Wdeprecated-non-prototype]
+   12 | int exp_window_size_get();
+      |     ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   exp_win.c:108:1: error: redefinition of 'exp_win_rows_set' as different kind of symbol
+  108 | exp_win_rows_set(rows)
+      | ^
+./exp_win.h26: | 14:v7o: idnote:     previous definition is heree
+xpDiagLogP   t14r |  v o i d     e_xApN_SwIi_nA_RrGoSw_s(_(scehta r   * )_)A;N
+S      | I                     ^_
+A      | R                     ;G
+S_ ((char* rows));
+./exp_int.h      :| 27:      ^6
+: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX     exp_win.c :_108A:N1:S Iwarning: _Aa function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+RGS_(  (108 | cehxapr_ w*i,ni_nrto)w)s;_
+s      e| t                      ^(
+r      o|                       ;w
+s)
+      | ^
+fatal error: exp_win.c:116:1: error: redefinition of 'exp_win_rows_get' as different kind of symbol
+  116 | exp_win_rows_get()
+      | ^
+./exp_win.h:15:7: note: previous definition is here
+   too many errors emitted, stopping now [-ferror-limit=]
+15 | char* exp_win_rows_get    _ANSI_ARGS_ ((void));
+      |       ^
+exp_win.c:125:1: error: redefinition of 'exp_win_columns_set' as different kind of symbol
+  125 | exp_win_columns_set(columns)
+      | ^
+./exp_win.h:16:7: note: previous definition is here
+   16 | void  exp_win_columns_set _ANSI_ARGS_ ((char* columns));
+      |       ^
+exp_win.c:125:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  125 | exp_win_columns_set(columns)
+      | ^
+exp_win.c:133:1: error: redefinition of 'exp_win_columns_get' as different kind of symbol
+  133 | exp_win_columns_get()
+      | ^
+./exp_win.h:17:7: note: previous definition is here
+   17 | char* exp_win_columns_get _ANSI_ARGS_ ((void));
+      |       ^
+exp_win.c:145:5: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  145 | int exp_win2_size_set(fd)
+      |     ^
+exp_win.c:156:5: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  156 | int exp_win2_size_get(fd)
+      |     ^
+exp_win.c:168:1: error: redefinition of 'exp_win2_rows_set' as different kind of symbol
+  168 | exp_win2_rows_set(fd,rows)
+      | ^
+./exp_win.h:19:7: note: previous definition is here
+   19 | void  exp_win2_rows_set    _ANSI_ARGS_ ((int fd, char* rows));
+      |       ^
+exp_win.c:168:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  168 | exp_win2_rows_set(fd,rows)
+      | ^
+exp_win.c:178:1: error: redefinition of 'exp_win2_rows_get' as different kind of symbol
+  178 | exp_win2_rows_get(fd)
+      | ^
+./exp_win.h:20:7: note: previous definition is here
+   20 | char* exp_win2_rows_get    _ANSI_ARGS_ ((int fd));
+      |       ^
+exp_win.c:178:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  178 | exp_win2_rows_get(fd)
+      | ^
+exp_win.c:192:1: error: redefinition of 'exp_win2_columns_set' as different kind of symbol
+  192 | exp_win2_columns_set(fd,columns)
+      | ^
+./exp_win.h:21:7: note: previous definition is here
+   21 | void  exp_win2_columns_set _ANSI_ARGS_ ((int fd, char* columns));
+      |       ^
+exp_win.c:192:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  192 | exp_win2_columns_set(fd,columns)
+      | ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+11 warnings and 20 errors generated.
+make: *** [Makefile:318: exp_win.o] Error 1
+In file included from exp_clib.c:126:
+./expect.h:321:26: error: expected ';' after top level declarator
+  321 | EXTERN regexp *TclRegComp _ANSI_ARGS_((char *exp));
+      |                          ^
+      |                          ;
+./expect.h:322:22: error: expected ';' after top level declarator
+  322 | EXTERN int TclRegExec _ANSI_ARGS_((regexp *prog, char *string, char *start));
+      |                      ^
+      |                      ;
+./expect.h:323:22: error: expected ';' after top level declarator
+  323 | EXTERN void TclRegSub _ANSI_ARGS_((regexp *prog, char *source, char *dest));
+      |                      ^
+      |                      ;
+./expect.h:324:28: error: expected ';' after top level declarator
+  324 | EXTERN void exp_TclRegError _ANSI_ARGS_((char *msg));
+      |                            ^
+      |                            ;
+./expect.h:325:28: error: expected ';' after top level declarator
+  325 | EXTERN char *TclGetRegError _ANSI_ARGS_((void));
+      |                            ^
+      |                            ;
+./expect.h:395:30: error: expected ';' after top level declarator
+  395 | EXTERN void exp_slave_control _ANSI_ARGS_((int,int));
+      |                              ^
+      |                              ;
+./expect.h:399:25: error: expected ';' after top level declarator
+  399 | extern void exp_debuglog _ANSI_ARGS_(TCL_VARARGS(char *,fmt));
+      |                         ^
+      |                         ;
+./expect.h:400:25: error: expected ';' after top level declarator
+  400 | extern void exp_errorlog _ANSI_ARGS_(TCL_VARARGS(char *,fmt));
+      |                         ^
+      |                         ;
+./expect.h:402:26: error: expected ';' after top level declarator
+  402 | EXTERN int exp_disconnect _ANSI_ARGS_((void));
+      |                          ^
+      |                          ;
+./expect.h:403:23: error: expected ';' after top level declarator
+  403 | EXTERN FILE *exp_popen  _ANSI_ARGS_((char *command));
+      |                       ^
+      |                       ;
+./expect.h:404:38: error: expected ';' after top level declarator
+  404 | EXTERN void (*exp_child_exec_prelude) _ANSI_ARGS_((void));
+      |                                      ^
+      |                                      ;
+./expect.h:407:22: error: expected ';' after top level declarator
+  407 | EXTERN int exp_spawnl   _ANSI_ARGS_(TCL_VARARGS(char *,file));
+      |                      ^
+      |                      ;
+./expect.h:408:23: error: expected ';' after top level declarator
+  408 | EXTERN int exp_expectl  _ANSI_ARGS_(TCL_VARARGS(int,fd));
+      |                       ^
+      |                       ;
+./expect.h:409:24: error: expected ';' after top level declarator
+  409 | EXTERN int exp_fexpectl _ANSI_ARGS_(TCL_VARARGS(FILE *,fp));
+      |                        ^
+      |                        ;
+./expect.h:412:22: error: expected ';' after top level declarator
+  412 | EXTERN int exp_spawnv   _ANSI_ARGS_((char *file, char *argv[]));
+      |                      ^
+      |                      ;
+./expect.h:413:23: error: expected ';' after top level declarator
+  413 | EXTERN int exp_expectv  _ANSI_ARGS_((int fd, struct exp_case *cases));
+      |                       ^
+      |                       ;
+./expect.h:414:24: error: expected ';' after top level declarator
+  414 | EXTERN int exp_fexpectv _ANSI_ARGS_((FILE *fp, struct exp_case *cases));
+      |                        ^
+      |                        ;
+./expect.h:416:23: error: expected ';' after top level declarator
+  416 | EXTERN int exp_spawnfd  _ANSI_ARGS_((int fd));
+      |                       ^
+      |                       ;
+exp_clib.c:334:19: error: expected ';' after top level declarator
+  334 | static char *           reg _ANSI_ARGS_((int paren, int *flagp,
+      |                            ^
+      |                            ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [Makefile:318: exp_tty.o] Error 1
+20 errors generated.
+make: *** [Makefile:318: exp_trap.o] Error 1
+In file included from exp_tty_comm.c:11:
+./exp_command.h:30:27: error: expected ';' after top level declarator
+   30 | EXTERN char *           exp_get_var _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                    ^
+      |                                    ;
+./exp_command.h:37:31: error: expected ';' after top level declarator
+   37 | EXTERN int              exp_one_arg_braced _ANSI_ARGS_((Tcl_Obj *));
+      |                                           ^
+      |                                           ;
+./exp_command.h:39:39: error: expected ';' after top level declarator
+   39 | EXTERN Tcl_Obj*         exp_eval_with_one_arg _ANSI_ARGS_((ClientData,
+      |                                              ^
+      |                                              ;
+./exp_command.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN void             exp_lowmemcpy _ANSI_ARGS_((char *,char *,int));
+      |                                      ^
+      |                                      ;
+./exp_command.h:44:27: error: expected ';' after top level declarator
+   44 | EXTERN int exp_flageq_code _ANSI_ARGS_((char *,char *,int));
+      |                           ^
+      |                           ;
+./exp_command.h:212:23: error: expected ';' after top level declarator
+  212 | EXTERN void             expAdjust _ANSI_ARGS_((ExpState *));
+      |                                  ^
+      |                                  ;
+./exp_command.h:213:26: error: expected ';' after top level declarator
+  213 | EXTERN int              expWriteChars _ANSI_ARGS_((ExpState *,char *,int));
+      |                                      ^
+      |                                      ;
+./exp_command.h:214:29: error: expected ';' after top level declarator
+  214 | EXTERN int              expWriteCharsUni _ANSI_ARGS_((ExpState *,Tcl_UniChar *,int));
+      |                                         ^
+      |                                         ;
+./exp_command.h:215:32: error: expected ';' after top level declarator
+  215 | EXTERN void             exp_buffer_shuffle _ANSI_ARGS_((Tcl_Interp *,ExpState *,int,char *,char *));
+      |                                           ^
+      |                                           ;
+./exp_command.h:216:22: error: expected ';' after top level declarator
+  216 | EXTERN int              exp_close _ANSI_ARGS_((Tcl_Interp *,ExpState *));
+      |                                  ^
+      |                                  ;
+./exp_command.h:217:27: error: expected ';' after top level declarator
+  217 | EXTERN void             exp_close_all _ANSI_ARGS_((Tcl_Interp *));
+      |                                      ^
+      |                                      ;
+./exp_command.h:218:52: error: expected ';' after top level declarator
+  218 | EXTERN void             exp_ecmd_remove_fd_direct_and_indirect 
+      |                                                               ^
+      |                                                               ;
+./exp_command.h:220:25: error: expected ';' after top level declarator
+  220 | EXTERN void             exp_trap_on _ANSI_ARGS_((int));
+      |                                    ^
+      |                                    ;
+./exp_command.h:221:25: error: expected ';' after top level declarator
+  221 | EXTERN int              exp_trap_off _ANSI_ARGS_((char *));
+      |                                     ^
+      |                                     ;
+./exp_command.h:234:26: error: expected ';' after top level declarator
+  234 | EXTERN void             exp_init_pty _ANSI_ARGS_((void));
+      |                                     ^
+      |                                     ;
+./exp_command.h:235:26: error: expected ';' after top level declarator
+  235 | EXTERN void             exp_pty_exit _ANSI_ARGS_((void));
+      |                                     ^
+      |                                     ;
+./exp_command.h:236:26: error: expected ';' after top level declarator
+  236 | EXTERN void             exp_init_tty 20_A errorNsS generatedI.
+_ARGS_((void));
+      |                                     ^
+      |                                     ;
+./exp_command.h:237:28: error: expected ';' after top level declarator
+  237 | EXTERN void             exp_init_stdio _ANSI_ARGS_((void));
+      |                                       ^
+      |                                       ;
+./exp_command.h:239:32: error: expected ';' after top level declarator
+  239 | EXTERN void             exp_init_spawn_ids _ANSI_ARGS_((Tcl_Interp *));
+      |                                           ^
+      |                                           ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [Makefile:318: exp_clib.o] Error 1
+make: *** [Makefile:318: exp_tty_comm.o] Error 1
+In file included from exp_pty.c:38:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+In file included from expect.c:33:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   40 | EXTERN    25i | ntv      oEixdp    eectx_pIDniiat g_ALNoSgI_PARtGrS_S(e(tT cl _ In t_erApN *S)I);_        A/R*G Sf_o(r( vTocild_A pp(I*n)it_ AapNpsS I*_/A
+      R| G                           ^
+S      _| (                           ;(
+char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr     ./expect_tcl.h : 41:_27:A error: Nexpected ';' after top level declaratorS
+I_ARGS_(   (41 | cEXhTaERrN  *v)o)i;d     
+e      x| p        ^_
+parse_argv _ANSI_ARGS_((Tcl_Interp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _./expect_tcl.hA:42:N27:S Ierror: _expected ';' after top level declarator
+ARGS_((c   h42 | aErX TE*)RN) ;i
+n      t|                            ^e
+x      p| _                     ;
+interpreter./exp_int.h :_27A:N6S:I _Aerror: Rvariable has incomplete type 'void'G
+S_((Tcl_In   t27e | rpv o*i,dT    celx_pODbija g*)L)o;g
+P      | t                               ^r
+X      |                                 ; 
+    _ANSI_ARGS_((char *,int));
+      |         ^
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_AR./exp_int.hG:S27_:(20(:T cerror: l_expected ';' after top level declaratorI
+nterp *,FIL   E27  | *v)o);i
+d      |                                          ^e
+      x| p                                     ;
+DiagLogPtrX      _ANSI_ARGS_((char *,./expect_tcl.h:i44:n37:t )error: )expected ';' after top level declarator
+;
+      |                       ^
+      |                       ;
+   44 | EXTERN int./exp_int.h      :e28x:p6_:i nerror: tevariable has incomplete type 'void'r
+pret_cmdfi   28l | envaomied     _eAxNSpID_iARaGgSL_o(g(PTtcrlS_tIrnt e r p  *_,AcNhaSrI _*A)R)G;S
+      _| (                                         ^
+(      c|                                          ;h
+ar *,char *));
+      |         ^
+./expect_tcl.h:45:34: error: expected ';' after top level declarator
+   45 | EXTER./exp_int.h:N28 :22v: oierror: dexpected ';' after top level declarator     
+exp_interpre   t28_ | rcvfoilieds     _eAxNpSDIi_AaRgGSL_o(g(PTctlr_SItntrer p  * , i_ntA NmSy_Ir_cA,iRnGt Ss_y(s(_crhca)r) ;*
+      ,| c                                     ^
+h      | a                                     ;r
+ *));
+      |                         ^
+      |                         ;
+./exp_int.h:29:6: error: variable has incomplete type 'void'
+   29 | voi./expect_tcl.hd:47    :e23: xerror: pexpected ';' after top level declarator
+DiagLog   P47 | tEXrTSEtRNr Schtarr  *_   AexNpS_Ic_ooAkR _GASN_S(I_(AcRhGaSr_( (*c,hcahra *rs ,i*n,tc h*alren ))*;)
+      )| ;                        ^
+
+            | |         ^                        ;
+
+./expect_tcl.h./exp_int.h::4929::2725::  error: error: expected ';' after top level declaratorexpected ';' after top level declarator
+
+   49 | E   X29T | EvRNo ivdo    ied     xepxDpCilaosgeLOongEPxtecr _SAtNrSSI_tArRG S__((AiNnStI)_);A
+R      | G                              ^S
+      _|                               ;(
+(char *,char *,char *));
+      |                            ^
+      |                            ;
+./exp_int.h:30:6: error: variable has incomplete type 'void'
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   30 | void    e   52x | pEEXrTrEnRoNM svgoSiedt      ( * e x p __aApNpS_Ie_xAiRtG)S__A(NS(I_cAhRaGrS _(*( T(cl*_)I n_tAerNpS I*_))A;R
+      G|                                ^S
+      _| (                               ;
+(int))));
+      |         ^
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+./exp_int.h   :5330 | :20E:X Terror: Eexpected ';' after top level declaratorR
+N void     exp_exi   t30_ | hvaondidl    eerxsp E_rArNnSoIM_sAgRSGeSt_ ( ( C li e nt_DAaNtSa)I)_;A
+      R| G                                 ^
+S      _| (                                 ;
+(char * (*) _ANSI_ARGS_((int))));
+      |                       ^
+      |                       ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Inter./exp_int.hp: 31*:,19i:n terror: erexpected ';' after top level declaratorp
+));
+      |                          ^
+      |                          ;   
+31 | char * expErrnoMsg    _ANSI_ARGS_((int));
+      |                   ^
+      |                   ;
+In file included from expect.c:33:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+In file included from exp_pty.c:41:
+./exp_pty.h:17:47: error: unknown type name 'CONST'
+   17 | int exp_getptyslave(int ttycopy, int ttyinit, CONST char *stty_args);
+      |                                               ^
+exp_pty.c:88:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+   88 | sigalarm_handler(n)
+      | ^
+exp_pty.c:106:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  106 | i_read(fd,buffer,length,timeout)
+      | ^
+make: *** [Makefile:318: exp_console.o] Error 1
+In file included from exp_log.c:20:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+exp_pty.c:305:33: error: expected ';' after top level declarator
+  305 | static void             (*expDiagLogPtrVal) _ANSI_ARGS_((char *));
+      |                                            ^
+      |                                            ;
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6exp_pty.c: :error: 309variable has incomplete type 'void':
+16: error: expected ';' at end of declaration
+   25 | void    ex  p309D | ia gL og Pt rS evto  i d  _A(N*SIf_nAR)GS __((AvoNiSd I(*_)A_ARNSGI_ASRGS__((((chcahr a*r) ))*));)
+      ;|         ^
+
+      |                ^
+      |                ;
+./exp_int.h:25:exp_pty.c22:: 308error: :expected ';' after top level declarator
+1: error: redefinition of 'expDiagLogPtrSet' as different kind of symbol
+   25 | void      e308x | peDixagpLoDgiPatgrSLeotg P  t _rANSSI_eAtRGS(_(f(vnoi)d 
+(      *| )_^A
+NSI_ARGS_((./exp_int.hc:h25a:r6 : *)note: )previous definition is here)
+);
+      |                         ^
+      |                         ;
+   25 | v./exp_int.ho:26:i6: derror: variable has incomplete type 'void'    
+expD   26 | ivoaidg    eLxpoDigaPgtLrogSPtert          _A NS_IA_ANRSGIS__(A(cRhaGrS *)_);(
+      (|         ^v
+oid (*)_ANSI_ARGS_((char *./exp_int.h):26):19): )error: ;expected ';' after top level declarator
+
+      |         ^
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: exp_pty.cvariable has incomplete type 'void':
+308:1:    27warning:  | voa function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]i
+d    expDi  a308g | LeogxPtprXD i a g  L _oAgNSPI_tArRGSSe_(t((cfhanr) *
+,      i| n^t
+));
+      |         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+./exp_int.h:28:6: error: variable has incomplete type 'void'
+   28 | void    expDiagLogPtrStr    _ANSI_ARGS_((char *,char *));
+      |         ^
+./exp_int.h:28:22: error: expected ';' after top level declarator
+   28 | void    expDiagLogPtrStr    _ANSI_ARGS_((char *,char *));
+      |                         ^
+      |                         ;
+./exp_int.h:29:6: error: variable has incomplete type 'void'
+   29 | void    expDiagLogPtrStrStr _ANSI_ARGS_((char *,char *,char *));
+      |         ^
+./exp_int.h:29:25: error: expected ';' after top level declarator
+   29 | void    expDiagLogPtrStrStr _ANSI_ARGS_((char *,char *,char *));
+      |                            ^
+      |                            ;
+./exp_int.h:30:6: error: variable has incomplete type 'void'
+   30 | void    expErrnoMsgSet      _ANSI_ARGS_((char * (*) _ANSI_ARGS_((int))));
+      |         ^
+./exp_int.h:30:20: error: expected ';' after top level declarator
+   30 | void    expErrnoMsgSet      _ANSI_ARGS_((char * (*) _ANSI_ARGS_((int))));
+      |                       ^
+      |                       ;
+./exp_int.h:31:19: error: expected ';' after top level declarator
+   31 | char * expErrnoMsg    _ANSI_ARGS_((int));
+      |                   ^
+      |                   ;
+3 warnings and 20 errors generated.
+In file included from exp_log.c:22:
+./exp_command.h:30:27: error: expected ';' after top level declarator
+   30 | EXTERN char *           exp_get_var _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                    ^
+      |                                    ;
+./exp_command.h:37:31: error: expected ';' after top level declarator
+   37 | EXTERN int              exp_one_arg_braced _ANSI_ARGS_((Tcl_Obj *));
+      |                                           ^
+      |                                           ;
+./exp_command.h:39:39: error: expected ';' after top level declarator
+   39 | EXTERN Tcl_Obj*         exp_eval_with_one_arg _ANSI_ARGS_((ClientData,
+      |                                              ^
+      |                                              ;
+./exp_command.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN void             exp_lowmemcpy _ANSI_ARGS_((char *,char *,int));
+      |                                      ^
+      |                                      ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+make: *** [Makefile:318: exp_pty.o] Error 1
+20 errors generated.
+make: *** [Makefile:318: exp_log.o] Error 1
+In file included from exp_inter.c:43:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+   41 | EXTERN void     exp_parse_argv _ANSI_ARGS_((Tcl_Interp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN int      exp_interpreter _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:44:37: error: expected ';' after top level declarator
+   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+./expect_tcl.h:45:34: error: expected ';' after top level declarator
+   45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:47:23: error: expected ';' after top level declarator
+   47 | EXTERN char *   exp_cook _ANSI_ARGS_((char *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   52 | EXTERN void     (*exp_app_exit)_ANSI_ARGS_((Tcl_Interp *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_((ClientData));
+      |                                  ^
+      |                                  ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Interp *,interp));
+      |                          ^
+      |                          ;
+In file included from exp_inter.c:43:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+1 warning generated.
+In file included from exp_main_sub.c:22:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+   41 | EXTERN void     exp_parse_argv _ANSI_ARGS_((Tcl_Interp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN int      exp_interpreter _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:44:37: error: expected ';' after top level declarator
+   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+./expect_tcl.h:45:34: error: expected ';' after top level declarator
+   45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:47:23: error: expected ';' after top level declarator
+   47 | EXTERN char *   exp_cook _ANSI_ARGS_((char *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   52 | EXTERN void     (*exp_app_exit)_ANSI_ARGS_((Tcl_Interp *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_((ClientData));
+      |                                  ^
+      |                                  ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Interp *,interp));
+      |                          ^
+      |                          ;
+In file included from exp_main_sub.c:22:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+In file included from exp_chan.c:35:
+In file included from ./exp_prog.h:13:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+./expect_tcl.h:41:27: error: expected ';' after top level declarator
+   41 | EXTERN void     exp_parse_argv make: *** [Makefile:318: expect.o] Error 1
+_ANSI_ARGS_((Tcl_Interp *,int argc,char **argv));
+      |                               ^
+      |                               ;
+./expect_tcl.h:42:27: error: expected ';' after top level declarator
+   42 | EXTERN int      exp_interpreter _ANSI_ARGS_((Tcl_Interp *,Tcl_Obj *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:43:33: error: expected ';' after top level declarator
+   43 | EXTERN int      exp_interpret_cmdfile _ANSI_ARGS_((Tcl_Interp *,FILE *));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:44:37: error: expected ';' after top level declarator
+   44 | EXTERN int      exp_interpret_cmdfilename _ANSI_ARGS_((Tcl_Interp *,char *));
+      |                                          ^
+      |                                          ;
+./expect_tcl.h:45:34: error: expected ';' after top level declarator
+   45 | EXTERN void     exp_interpret_rcfiles _ANSI_ARGS_((Tcl_Interp *,int my_rc,int sys_rc));
+      |                                      ^
+      |                                      ;
+./expect_tcl.h:47:23: error: expected ';' after top level declarator
+   47 | EXTERN char *   exp_cook _ANSI_ARGS_((char *s,int *len));
+      |                         ^
+      |                         ;
+./expect_tcl.h:49:27: error: expected ';' after top level declarator
+   49 | EXTERN void     expCloseOnExec _ANSI_ARGS_((int));
+      |                               ^
+      |                               ;
+./expect_tcl.h:52:28: error: expected ';' after top level declarator
+   52 | EXTERN void     (*exp_app_exit)_ANSI_ARGS_((Tcl_Interp *));
+      |                                ^
+      |                                ;
+./expect_tcl.h:53:30: error: expected ';' after top level declarator
+   53 | EXTERN void     exp_exit_handlers _ANSI_ARGS_((ClientData));
+      |                                  ^
+      |                                  ;
+./expect_tcl.h:55:22: error: expected ';' after top level declarator
+   55 | EXTERN void     exp_error _ANSI_ARGS_(TCL_VARARGS(Tcl_Interp *,interp));
+      |                          ^
+      |                          ;
+In file included from exp_chan.c:35:
+In file included from ./exp_prog.h:14:
+./exp_int.h:24:6: error: variable has incomplete type 'void'
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |         ^
+./exp_int.h:24:21: error: expected ';' after top level declarator
+   24 | void    exp_console_set     _ANSI_ARGS_((void));
+      |                        ^
+      |                        ;
+./exp_int.h:25:6: error: variable has incomplete type 'void'
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |         ^
+./exp_int.h:25:22: error: expected ';' after top level declarator
+   25 | void    expDiagLogPtrSet    _ANSI_ARGS_((void (*)_ANSI_ARGS_((char *))));
+      |                         ^
+      |                         ;
+./exp_int.h:26:6: error: variable has incomplete type 'void'
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |         ^
+./exp_int.h:26:19: error: expected ';' after top level declarator
+   26 | void    expDiagLogPtr       _ANSI_ARGS_((char *));
+      |                      ^
+      |                      ;
+./exp_int.h:27:6: error: variable has incomplete type 'void'
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |         ^
+./exp_int.h:27:20: error: expected ';' after top level declarator
+   27 | void    expDiagLogPtrX      _ANSI_ARGS_((char *,int));
+      |                       ^
+      |                       ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+20 errors generated.
+make: *** [Makefile:318: exp_chan.o] Error 1
+20 errors generated.
+make: *** [Makefile:318: exp_inter.o] Error 1
+make: *** [Makefile:318: exp_main_sub.o] Error 1
+In file included from exp_command.c:68:
+./expect.h:321:26: error: expected ';' after top level declarator
+  321 | EXTERN regexp *TclRegComp _ANSI_ARGS_((char *exp));
+      |                          ^
+      |                          ;
+./expect.h:322:22: error: expected ';' after top level declarator
+  322 | EXTERN int TclRegExec _ANSI_ARGS_((regexp *prog, char *string, char *start));
+      |                      ^
+      |                      ;
+./expect.h:323:22: error: expected ';' after top level declarator
+  323 | EXTERN void TclRegSub _ANSI_ARGS_((regexp *prog, char *source, char *dest));
+      |                      ^
+      |                      ;
+./expect.h:324:28: error: expected ';' after top level declarator
+  324 | EXTERN void exp_TclRegError _ANSI_ARGS_((char *msg));
+      |                            ^
+      |                            ;
+./expect.h:325:28: error: expected ';' after top level declarator
+  325 | EXTERN char *TclGetRegError _ANSI_ARGS_((void));
+      |                            ^
+      |                            ;
+./expect.h:395:30: error: expected ';' after top level declarator
+  395 | EXTERN void exp_slave_control _ANSI_ARGS_((int,int));
+      |                              ^
+      |                              ;
+./expect.h:399:25: error: expected ';' after top level declarator
+  399 | extern void exp_debuglog _ANSI_ARGS_(TCL_VARARGS(char *,fmt));
+      |                         ^
+      |                         ;
+./expect.h:400:25: error: expected ';' after top level declarator
+  400 | extern void exp_errorlog _ANSI_ARGS_(TCL_VARARGS(char *,fmt));
+      |                         ^
+      |                         ;
+./expect.h:402:26: error: expected ';' after top level declarator
+  402 | EXTERN int exp_disconnect _ANSI_ARGS_((void));
+      |                          ^
+      |                          ;
+./expect.h:403:23: error: expected ';' after top level declarator
+  403 | EXTERN FILE *exp_popen  _ANSI_ARGS_((char *command));
+      |                       ^
+      |                       ;
+./expect.h:404:38: error: expected ';' after top level declarator
+  404 | EXTERN void (*exp_child_exec_prelude) _ANSI_ARGS_((void));
+      |                                      ^
+      |                                      ;
+./expect.h:407:22: error: expected ';' after top level declarator
+  407 | EXTERN int exp_spawnl   _ANSI_ARGS_(TCL_VARARGS(char *,file));
+      |                      ^
+      |                      ;
+./expect.h:408:23: error: expected ';' after top level declarator
+  408 | EXTERN int exp_expectl  _ANSI_ARGS_(TCL_VARARGS(int,fd));
+      |                       ^
+      |                       ;
+./expect.h:409:24: error: expected ';' after top level declarator
+  409 | EXTERN int exp_fexpectl _ANSI_ARGS_(TCL_VARARGS(FILE *,fp));
+      |                        ^
+      |                        ;
+./expect.h:412:22: error: expected ';' after top level declarator
+  412 | EXTERN int exp_spawnv   _ANSI_ARGS_((char *file, char *argv[]));
+      |                      ^
+      |                      ;
+./expect.h:413:23: error: expected ';' after top level declarator
+  413 | EXTERN int exp_expectv  _ANSI_ARGS_((int fd, struct exp_case *cases));
+      |                       ^
+      |                       ;
+./expect.h:414:24: error: expected ';' after top level declarator
+  414 | EXTERN int exp_fexpectv _ANSI_ARGS_((FILE *fp, struct exp_case *cases));
+      |                        ^
+      |                        ;
+./expect.h:416:23: error: expected ';' after top level declarator
+  416 | EXTERN int exp_spawnfd  _ANSI_ARGS_((int fd));
+      |                       ^
+      |                       ;
+In file included from exp_command.c:69:
+./expect_tcl.h:40:23: error: expected ';' after top level declarator
+   40 | EXTERN int      Expect_Init _ANSI_ARGS_((Tcl_Interp *));        /* for Tcl_AppInit apps */
+      |                            ^
+      |                            ;
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [Makefile:318: exp_command.o] Error 1
+==> ERROR: A failure occurred in build().
+    Aborting...

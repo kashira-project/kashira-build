@@ -1,0 +1,2339 @@
+== build elfutils (deps: bzip2 curl gcc git glibc json-c libarchive libarchive.so libbz2.so libcurl.so libgcc libjson-c.so liblzma.so libmicrohttpd libmicrohttpd.so libsqlite3.so libstdc++ libzstd.so sh sqlite xz zlib zstd )
+warning: curl-8.22.0-2 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: json-c-0.19-1 is up to date -- skipping
+warning: libarchive-3.8.9-1 is up to date -- skipping
+warning: libarchive-3.8.9-1 is up to date -- skipping
+warning: curl-8.22.0-2 is up to date -- skipping
+warning: llvm-libgcc-23.1.1-5 is up to date -- skipping
+warning: json-c-0.19-1 is up to date -- skipping
+warning: sqlite-3.53.4-1 is up to date -- skipping
+warning: gcc-runtime-16.2.0-6 is up to date -- skipping
+warning: sqlite-3.53.4-1 is up to date -- skipping
+warning: zlib-ng-2.3.3-1 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (13) mpc-1.4.1-1  ncurses-6.6-2  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  readline-8.3.6-1  bash-5.3.20-1  bzip2-1.0.8-6  gcc-16.2.0-6  git-2.55.0-1  libmicrohttpd-1.0.10-1  xz-5.8.4-1  zstd-1.5.7-3
+
+Total Download Size:   101.67 MiB
+Total Installed Size:  400.39 MiB
+Net Upgrade Size:      370.21 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ git-2.55.0-1-x86_64 downloading...
+ bash-5.3.20-1-x86_64 downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ xz-5.8.4-1-x86_64 downloading...
+ zstd-1.5.7-3-x86_64 downloading...
+ readline-8.3.6-1-x86_64 downloading...
+ libmicrohttpd-1.0.10-1-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+ bzip2-1.0.8-6-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+upgrading ncurses...
+New optional dependencies for ncurses
+    bash: for ncursesw6-config [installed]
+upgrading readline...
+upgrading bash...
+New optional dependencies for bash
+    bash-completion: for tab completion
+upgrading bzip2...
+installing mpc...
+upgrading xz...
+upgrading zstd...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing libmicrohttpd...
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: elfutils 0.196-1 (Sun Sep 20 08:21:48 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Updating elfutils git repo...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    elfutils ... Passed
+==> Validating source files with b2sums...
+    elfutils ... Passed
+==> Extracting sources...
+  -> Creating working copy of elfutils git repo...
+Cloning into 'elfutils'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: running: autopoint --force
+autopoint: using AM_GNU_GETTEXT_REQUIRE_VERSION instead of AM_GNU_GETTEXT_VERSION
+Copying file ABOUT-NLS
+Copying file config/config.rpath
+Copying file m4/build-to-host.m4
+Copying file m4/gettext.m4
+Copying file m4/host-cpu-c-abi.m4
+Copying file m4/iconv.m4
+Copying file m4/intlmacosx.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/progtest.m4
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+Copying file po/Rules-quot
+Copying file po/boldquot.sed
+Copying file po/en@boldquot.header
+Copying file po/en@quot.header
+Copying file po/fetch-po
+Copying file po/insert-header.sed
+Copying file po/quot.sed
+Copying file po/remove-potcdate.sed
+autoreconf: running: aclocal --force -I m4
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: configure.ac: not running autopoint a second time
+autoreconf: running: aclocal --force -I m4 -I m4
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:99: installing 'config/ar-lib'
+configure.ac:91: installing 'config/compile'
+configure.ac:61: installing 'config/config.guess'
+configure.ac:61: installing 'config/config.sub'
+configure.ac:46: installing 'config/install-sh'
+configure.ac:46: installing 'config/missing'
+Makefile.am: installing './INSTALL'
+backends/Makefile.am: installing 'config/depcomp'
+configure.ac: installing 'config/ylwrap'
+parallel-tests: installing 'config/test-driver'
+autoreconf: 'config/config.sub' is updated
+autoreconf: 'config/config.guess' is updated
+autoreconf: configure.ac: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... gcc3
+checking whether the compiler supports GNU C++... yes
+checking whether clang++ accepts -g... yes
+checking dependency style of clang++... gcc3
+checking for ranlib... llvm-ranlib
+checking for bison... bison -y
+checking for flex... flex
+checking for lex output file root... lex.yy
+checking for lex library... none needed
+checking whether yytext is a pointer... yes
+checking the archiver (llvm-ar) interface... ar
+checking for readelf... readelf
+checking for nm... llvm-nm
+checking whether gcc supports __attribute__((visibility()))... yes
+checking whether gcc supports __attribute__((gcc_struct))... yes
+checking whether gcc supports -fPIC... yes
+checking whether gcc supports -fPIE... yes
+checking whether gcc supports -Wl,-z,defs... yes
+checking whether the compiler generates build-ids... yes
+checking whether gcc supports -Wl,-z,relro... yes
+checking for __thread support... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for stdatomic.h... yes
+checking for clang -std=gnu23 option to support large files... none needed
+checking whether fts.h is bad when included (with LFS)... no
+checking whether to add -D_FORTIFY_SOURCE=2 or =3 to CFLAGS... no, already there
+checking for openat2 with RESOLVE_IN_ROOT support... yes
+checking for library containing gzdirect... -lz
+checking for library containing BZ2_bzdopen... -lbz2
+checking for library containing lzma_auto_decoder... -llzma
+checking for library containing ZSTD_decompress... -lzstd
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libzstd >= 1.4.0... yes
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether memrchr is declared... yes
+checking whether powerof2 is declared... yes
+checking whether mempcpy is declared... yes
+checking whether reallocarray is declared... yes
+checking whether getentropy is declared... yes
+checking for sys/random.h... yes
+checking whether getrandom is declared... yes
+checking for process_vm_readv... yes
+checking for mremap... yes
+checking for error.h... yes
+checking for error... yes
+checking for err.h... yes
+checking for sched.h... yes
+checking for sched_getaffinity... yes
+checking for sys/resource.h... yes
+checking for getrlimit... yes
+checking for malloc.h... yes
+checking for malloc_trim... yes
+checking whether strerror_r is declared... yes
+checking whether strerror_r returns char *... yes
+checking for __cxa_demangle in -lstdc++... yes
+checking whether symbol versioning is supported... yes
+checking whether gcc accepts -Wstack-usage... no
+checking whether gcc has a sane -Wlogical-op... no
+checking whether gcc accepts -Wduplicated-cond... no
+checking whether gcc accepts -Wnull-dereference... yes
+checking whether gcc accepts -Wimplicit-fallthrough... yes
+checking whether the compiler accepts -Wimplicit-fallthrough=5... no
+checking whether the compiler accepts -Wtrampolines... no
+checking whether the compiler accepts -Wno-packed-not-aligned... no
+checking whether the compiler accepts -Wuse-after-free=3... no
+checking whether the compiler accepts -Wmissing-parameter-name... no
+checking whether the compiler accepts -Wdeprecated-non-prototype... yes
+checking whether the compiler accepts -Wfree_labels... no
+checking whether the compiler accepts -fno-addrsig... yes
+checking for library containing argp_parse... none required
+checking for library containing fts_close... none required
+checking for library containing _obstack_free... none required
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/sbin/msgfmt
+checking for gmsgfmt... /usr/sbin/msgfmt
+checking for xgettext... /usr/sbin/xgettext
+checking for msgmerge... /usr/sbin/msgmerge
+checking for ld... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for shared library run path origin... done
+checking 32-bit host C ABI... no
+checking how to run the C preprocessor... clang-cpp
+checking for egrep -e... /usr/sbin/grep -E
+checking for ELF binary format... yes
+checking for the common suffixes of directories in the library search path... lib,lib,lib64
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyPreferredLanguages... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking size of long... 8
+checking for struct user_regs_struct... yes
+checking for struct user_pac_mask... no
+checking clang -std=gnu23 option for 32-bit word size... -m32
+checking for 64-bit host... yes
+checking whether clang -std=gnu23 -m32 makes executables we can run... configure: WARNING: not running biarch tests, clang -std=gnu23 -m32 does not work
+no
+checking for flex... yes
+checking for bison... yes
+checking for gawk... yes
+checking for bunzip2... yes
+checking for zstd... yes
+checking whether clang++ supports C++20 features with -std=c++20... yes
+checking for pkg-config... (cached) /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libcurl >= 7.29.0... yes
+checking for json-c >= 0.11... yes
+checking for perfmon/pfmlib_perf_event.h... no
+checking for pfm_get_os_event_encoding in -lpfm... no
+checking for linux/perf_event.h... yes
+checking for struct perf_event_attr.build_id... yes
+checking for c++20 format.h... yes
+checking for execinfo.h... yes
+checking for libmicrohttpd >= 0.9.33... yes
+checking for libmicrohttpd < 0.9.51... no
+checking for sqlite3 >= 3.7.17... yes
+checking for libarchive >= 3.1.2... yes
+checking for headerGet in -lrpm... no
+checking for EVP_MD_CTX_new in -lcrypto... yes
+checking for imaevm.h... no
+checking for pthread_setname_np in -lpthread... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config/Makefile
+config.status: creating Makefile
+config.status: creating elfutils.spec
+config.status: creating debuginfod/Makefile
+config.status: creating debuginfod/debuginfod.h
+config.status: creating doc/Makefile
+config.status: creating lib/Makefile
+config.status: creating libelf/Makefile
+config.status: creating libebl/Makefile
+config.status: creating libdwelf/Makefile
+config.status: creating libdw/Makefile
+config.status: creating libdwfl/Makefile
+config.status: creating libdwfl_stacktrace/Makefile
+config.status: creating libcpu/Makefile
+config.status: creating libasm/Makefile
+config.status: creating backends/Makefile
+config.status: creating src/Makefile
+config.status: creating po/Makefile.in
+config.status: creating tests/Makefile
+config.status: creating config/libelf.pc
+config.status: creating config/libdw.pc
+config.status: creating config/libdebuginfod.pc
+config.status: creating version.h
+config.status: creating config/profile.sh
+config.status: creating config/profile.csh
+config.status: creating config/profile.fish
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing po-directories commands
+config.status: creating po/Makefile
+configure:
+=====================================================================
+        elfutils: 0.196 (eu_version: 196)
+=====================================================================
+
+    Prefix                             : /usr
+    Program prefix ("eu-" recommended) : eu-
+    Source code location               : .
+    Maintainer mode                    : yes
+    build arch                         : x86_64-pc-linux-gnu
+
+    CFLAGS=-march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=unused-parameter -Wno-error=unused-but-set-variable -Wno-error=unused-but-set-global -ffat-lto-objects -g -fno-addrsig
+    CXXFLAGS=-march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wno-error=unused-parameter
+
+  RECOMMENDED FEATURES (should all be yes)
+    gzip support                       : yes
+    bzip2 support                      : yes
+    lzma/xz support                    : yes
+    zstd support                       : yes
+    zstd compression support           : yes
+    libstdc++ demangle support         : yes
+    File textrel check                 : yes
+    Symbol versioning                  : yes
+
+  NOT RECOMMENDED FEATURES (should all be no)
+    Experimental thread safety         : no
+    install elf.h                      : no
+
+  OTHER FEATURES
+    Deterministic archives by default  : true
+    Native language support            : yes
+    Extra Valgrind annotations         : no
+    libdebuginfod client support       : yes
+    Debuginfod server support          : yes
+    Default DEBUGINFOD_URLS            : 
+    Debuginfod RPM sig checking        : no
+    Default DEBUGINFOD_IMA_CERT_PATH   : 
+    eu-stackprof support               : yes
+
+  EXTRA TEST FEATURES (used with make check)
+    have bunzip2 installed (required)  : yes
+    have zstd installed                : yes
+    C++11                              : no
+    C++20                              : yes
+    debug branch prediction            : no
+    gprof support                      : no
+    gcov support                       : no
+    run all tests under valgrind       : no
+    gcc undefined behaviour sanitizer  : no
+    gcc address sanitizer              : no
+    clang memory sanitizer             : no
+    use rpath in tests                 : no
+    test biarch                        : no
+
+make --no-print-directory all-recursive
+Making all in config
+sed -i 's/{prefix}/prefix/g' profile.fish
+Making all in lib
+  CC       xasprintf.o
+  CC       xstrdup.o
+  CC       xmalloc.o
+  CC       next_prime.o
+  CC       xstrndup.o
+  CC       crc32.o
+  CC       eu-search.o
+  CC       color.o
+  CC       crc32_file.o
+  CC       error.o
+  CC       printversion.o
+  GEN      libeu.manifest
+  AR       libeu.a
+Making all in libelf
+  CC       elf_hash.o
+  CC       elf_version.o
+  CC       elf_error.o
+  CC       elf_next.o
+  CC       elf_rand.o
+  CC       elf_fill.o
+  CC       elf_begin.o
+  CC       elf_end.o
+  CC       elf_kind.o
+  CC       elf_getbase.o
+  CC       gelf_getclass.o
+  CC       elf_getident.o
+  CC       elf32_fsize.o
+  CC       gelf_fsize.o
+  CC       elf64_fsize.o
+  CC       elf32_xlatetof.o
+  CC       elf64_xlatetom.o
+  CC       elf32_xlatetom.o
+  CC       elf64_xlatetof.o
+  CC       gelf_xlate.o
+  CC       elf32_getehdr.o
+  CC       elf64_getehdr.o
+  CC       gelf_getehdr.o
+  CC       elf32_newehdr.o
+  CC       elf64_newehdr.o
+  CC       gelf_update_ehdr.o
+  CC       gelf_newehdr.o
+  CC       elf32_getphdr.o
+  CC       elf64_getphdr.o
+  CC       gelf_getphdr.o
+  CC       elf32_newphdr.o
+  CC       elf64_newphdr.o
+  CC       gelf_newphdr.o
+  CC       gelf_update_phdr.o
+  CC       elf_getarhdr.o
+  CC       elf_getarsym.o
+  CC       elf_cntl.o
+  CC       elf_readall.o
+  CC       elf_rawfile.o
+  CC       elf_getscn.o
+  CC       elf_nextscn.o
+  CC       elf_ndxscn.o
+  CC       elf_newscn.o
+  CC       elf32_getshdr.o
+  CC       elf64_getshdr.o
+  CC       gelf_getshdr.o
+  CC       gelf_update_shdr.o
+  CC       elf_strptr.o
+  CC       elf_rawdata.o
+  CC       elf_getdata.o
+  CC       elf_newdata.o
+  CC       elf_getdata_rawchunk.o
+  CC       elf_flagelf.o
+  CC       elf_flagehdr.o
+  CC       elf_flagphdr.o
+  CC       elf_flagscn.o
+  CC       elf_flagshdr.o
+  CC       elf_flagdata.o
+  CC       elf_memory.o
+  CC       elf_update.o
+  CC       elf32_updatenull.o
+  CC       elf64_updatenull.o
+  CC       elf32_updatefile.o
+  CC       elf64_updatefile.o
+  CC       gelf_getsym.o
+  CC       gelf_update_sym.o
+  CC       gelf_getversym.o
+  CC       gelf_getverdef.o
+  CC       gelf_getverneed.o
+  CC       gelf_getverdaux.o
+  CC       gelf_getvernaux.o
+  CC       gelf_getrel.o
+  CC       gelf_getrela.o
+  CC       gelf_update_rel.o
+  CC       gelf_update_rela.o
+  CC       gelf_getdyn.o
+  CC       gelf_update_dyn.o
+  CC       gelf_getmove.o
+  CC       gelf_update_move.o
+  CC       gelf_getsyminfo.o
+  CC       gelf_update_syminfo.o
+  CC       gelf_update_auxv.o
+  CC       gelf_getauxv.o
+  CC       gelf_getnote.o
+  CC       gelf_xlatetof.o
+  CC       gelf_xlatetom.o
+  CC       nlist.o
+  CC       gelf_getsymshndx.o
+  CC       gelf_update_symshndx.o
+  CC       gelf_update_versym.o
+  CC       gelf_update_vernaux.o
+  CC       gelf_update_verneed.o
+  CC       gelf_update_verdef.o
+  CC       gelf_update_verdaux.o
+  CC       elf_getphdrnum.o
+  CC       elf_getshdrnum.o
+  CC       elf_getshdrstrndx.o
+  CC       gelf_checksum.o
+  CC       elf32_checksum.o
+  CC       elf64_checksum.o
+  CC       libelf_crc32.o
+  CC       libelf_next_prime.o
+  CC       elf_clone.o
+  CC       gelf_getlib.o
+  CC       gelf_update_lib.o
+  CC       elf32_offscn.o
+  CC       elf64_offscn.o
+  CC       gelf_offscn.o
+  CC       elf_getaroff.o
+  CC       elf_gnu_hash.o
+  CC       elf_scnshndx.o
+  CC       elf32_getchdr.o
+  CC       elf64_getchdr.o
+  CC       elf_compress.o
+  CC       gelf_getchdr.o
+  CC       elf_compress_gnu.o
+  CC       elf_version_.os
+  CC       elf_hash_.os
+  CC       elf_error_.os
+  CC       elf_fill_.os
+  CC       elf_begin_.os
+  CC       elf_next_.os
+  CC       elf_rand_.os
+  CC       elf_end_.os
+  CC       elf_kind_.os
+  CC       gelf_getclass_.os
+  CC       elf_getbase_.os
+  CC       elf_getident_.os
+  CC       elf32_fsize_.os
+  CC       elf64_fsize_.os
+  CC       gelf_fsize_.os
+  CC       elf32_xlatetof_.os
+  CC       elf32_xlatetom_.os
+  CC       elf64_xlatetof_.os
+  CC       elf64_xlatetom_.os
+  CC       elf32_getehdr_.os
+  CC       elf64_getehdr_.os
+  CC       elf32_newehdr_.os
+  CC       gelf_getehdr_.os
+  CC       gelf_newehdr_.os
+  CC       gelf_update_ehdr_.os
+  CC       elf64_newehdr_.os
+  CC       elf32_getphdr_.os
+  CC       elf64_getphdr_.os
+  CC       gelf_getphdr_.os
+  CC       elf32_newphdr_.os
+  CC       elf64_newphdr_.os
+  CC       gelf_newphdr_.os
+  CC       gelf_update_phdr_.os
+  CC       elf_getarhdr_.os
+  CC       elf_getarsym_.os
+  CC       elf_rawfile_.os
+  CC       elf_readall_.os
+  CC       elf_cntl_.os
+  CC       elf_getscn_.os
+  CC       elf_nextscn_.os
+  CC       elf_ndxscn_.os
+  CC       elf_newscn_.os
+  CC       elf32_getshdr_.os
+  CC       elf64_getshdr_.os
+  CC       gelf_getshdr_.os
+  CC       gelf_update_shdr_.os
+  CC       elf_strptr_.os
+  CC       elf_rawdata_.os
+  CC       elf_getdata_.os
+  CC       elf_newdata_.os
+  CC       elf_getdata_rawchunk_.os
+  CC       elf_flagelf_.os
+  CC       elf_flagehdr_.os
+  CC       elf_flagphdr_.os
+  CC       elf_flagscn_.os
+  CC       elf_flagshdr_.os
+  CC       elf_flagdata_.os
+  CC       elf_memory_.os
+  CC       elf_update_.os
+  CC       elf32_updatenull_.os
+  CC       elf64_updatenull_.os
+  CC       elf32_updatefile_.os
+  CC       elf64_updatefile_.os
+  CC       gelf_getsym_.os
+  CC       gelf_update_sym_.os
+  CC       gelf_getversym_.os
+  CC       gelf_getverneed_.os
+  CC       gelf_getvernaux_.os
+  CC       gelf_getverdef_.os
+  CC       gelf_getverdaux_.os
+  CC       gelf_getrel_.os
+  CC       gelf_getrela_.os
+  CC       gelf_update_rel_.os
+  CC       gelf_update_rela_.os
+  CC       gelf_getdyn_.os
+  CC       gelf_update_dyn_.os
+  CC       gelf_getmove_.os
+  CC       gelf_update_move_.os
+  CC       gelf_getsyminfo_.os
+  CC       gelf_update_syminfo_.os
+  CC       gelf_getauxv_.os
+  CC       gelf_update_auxv_.os
+  CC       gelf_getnote_.os
+  CC       gelf_xlatetof_.os
+  CC       gelf_xlatetom_.os
+  CC       nlist_.os
+  CC       gelf_getsymshndx_.os
+  CC       gelf_update_symshndx_.os
+  CC       gelf_update_versym_.os
+  CC       gelf_update_verneed_.os
+  CC       gelf_update_vernaux_.os
+  CC       gelf_update_verdef_.os
+  CC       gelf_update_verdaux_.os
+  CC       elf_getphdrnum_.os
+  CC       elf_getshdrnum_.os
+  CC       elf_getshdrstrndx_.os
+  CC       gelf_checksum_.os
+  CC       elf32_checksum_.os
+  CC       elf64_checksum_.os
+  CC       libelf_crc32_.os
+  CC       libelf_next_prime_.os
+  CC       gelf_getlib_.os
+  CC       elf_clone_.os
+  CC       gelf_update_lib_.os
+  CC       elf32_offscn_.os
+  CC       elf64_offscn_.os
+  CC       gelf_offscn_.os
+  CC       elf_getaroff_.os
+  CC       elf_gnu_hash_.os
+  CC       elf_scnshndx_.os
+  CC       elf32_getchdr_.os
+  CC       elf64_getchdr_.os
+  CC       gelf_getchdr_.os
+  CC       elf_compress_.os
+  CC       elf_compress_gnu_.os
+  GEN      libelf.manifest
+  CC       gelf_xlate_.os
+  AR       libelf.a
+  AR       libelf_pic.a
+  CCLD     libelf.so
+Making all in libcpu
+  CC       i386_gendis.o
+  LEX      i386_lex.c
+  GEN      i386_defs
+  YACC     i386_parse.c
+  CC       bpf_disasm.o
+  GEN      x86_64_defs
+  CC       riscv_disasm.o
+  GEN      i386.mnemonics
+  GEN      x86_64.mnemonics
+/home/builder/build/src/elfutils/libcpu/i386_parse.y:243.1-8: warning: POSIX Yacc does not support %defines [-Wyacc]
+  243 | %defines
+      | ^~~~~~~~
+  CC       bpf_disasm_.os
+updating i386_parse.h
+  CC       i386_lex.o
+  CC       i386_parse.o
+i386_parse.y:203:15: warning: variable 'ninstructions' set but not used [-Wunused-but-set-global]
+  203 | static size_t ninstructions;
+      |               ^
+i386_parse.y:897:12: warning: variable 'total_bits' set but not used [-Wunused-but-set-global]
+  897 | static int total_bits = 2;      // Already counted the rep/repe bits.
+      |            ^
+  CC       riscv_disasm_.os
+2 warnings generated.
+  CCLD     i386_gendis
+  GEN      i386_dis.h
+  GEN      x86_64_dis.h
+  CC       x86_64_disasm.o
+  CC       i386_disasm.o
+  CC       i386_disasm_.os
+  CC       x86_64_disasm_.os
+  GEN      libcpu.manifest
+  AR       libcpu.a
+  AR       libcpu_pic.a
+rm x86_64_defs i386_defs
+Making all in backends
+  CC       i386_cfi.o
+  CC       i386_init.o
+  CC       i386_symbol.o
+  CC       i386_regs.o
+  CC       i386_corenote.o
+  CC       i386_auxv.o
+  CC       i386_retval.o
+  CC       i386_initreg.o
+  CC       i386_initreg_sample.o
+  CC       sh_symbol.o
+  CC       i386_unwind.o
+  CC       sh_init.o
+  CC       sh_corenote.o
+  CC       sh_regs.o
+  CC       sh_retval.o
+  CC       x86_64_init.o
+  CC       x86_64_symbol.o
+  CC       x86_64_corenote.o
+  CC       x86_64_cfi.o
+  CC       x86_64_retval.o
+  CC       x86_64_regs.o
+  CC       x86_64_initreg.o
+  CC       x86_64_initreg_sample.o
+  CC       x86_64_unwind.o
+  CC       x32_corenote.o
+  CC       ia64_init.o
+  CC       ia64_regs.o
+  CC       ia64_symbol.o
+  CC       ia64_retval.o
+  CC       alpha_symbol.o
+  CC       alpha_init.o
+  CC       alpha_retval.o
+  CC       alpha_regs.o
+  CC       alpha_corenote.o
+  CC       alpha_auxv.o
+  CC       arm_init.o
+  CC       arm_symbol.o
+  CC       arm_regs.o
+  CC       arm_corenote.o
+  CC       arm_auxv.o
+  CC       arm_attrs.o
+  CC       arm_retval.o
+  CC       arm_cfi.o
+  CC       arm_initreg.o
+  CC       arm_initreg_sample.o
+  CC       arm_machineflagname.o
+  CC       aarch64_init.o
+  CC       aarch64_regs.o
+  CC       aarch64_symbol.o
+  CC       aarch64_corenote.o
+  CC       aarch64_retval.o
+  CC       aarch64_initreg_sample.o
+  CC       aarch64_cfi.o
+  CC       aarch64_initreg.o
+  CC       aarch64_unwind.o
+  CC       sparc_init.o
+  CC       sparc_symbol.o
+  CC       sparc_regs.o
+  CC       sparc_retval.o
+  CC       sparc_corenote.o
+  CC       sparc64_corenote.o
+  CC       sparc_auxv.o
+  CC       sparc_attrs.o
+  CC       sparc_cfi.o
+  CC       sparc_initreg.o
+  CC       ppc_init.o
+  CC       ppc_symbol.o
+  CC       ppc_retval.o
+  CC       ppc_regs.o
+  CC       ppc_corenote.o
+  CC       ppc_auxv.o
+  CC       ppc_attrs.o
+  CC       ppc_cfi.o
+  CC       ppc_initreg.o
+  CC       ppc64_symbol.o
+  CC       ppc64_init.o
+  CC       ppc64_retval.o
+  CC       ppc64_unwind.o
+  CC       ppc64_corenote.o
+  CC       ppc64_resolve_sym.o
+  CC       s390_init.o
+  CC       s390_symbol.o
+  CC       s390_regs.o
+  CC       s390_retval.o
+  CC       s390_corenote.o
+  CC       s390x_corenote.o
+  CC       s390_cfi.o
+  CC       s390_initreg.o
+  CC       s390_unwind.o
+  CC       m68k_init.o
+  CC       m68k_symbol.o
+  CC       m68k_regs.o
+  CC       m68k_retval.o
+  CC       m68k_corenote.o
+  CC       m68k_cfi.o
+  CC       m68k_initreg.o
+  CC       bpf_init.o
+  CC       bpf_regs.o
+  CC       bpf_symbol.o
+  CC       riscv_init.o
+  CC       riscv_symbol.o
+  CC       riscv_cfi.o
+  CC       riscv_regs.o
+  CC       riscv_initreg.o
+  CC       riscv_corenote.o
+  CC       riscv_retval.o
+  CC       csky_attrs.o
+  CC       riscv64_corenote.o
+  CC       csky_init.o
+  CC       csky_symbol.o
+  CC       csky_cfi.o
+  CC       csky_regs.o
+  CC       csky_initreg.o
+  CC       csky_corenote.o
+  CC       loongarch_init.o
+  CC       loongarch_symbol.o
+  CC       loongarch_cfi.o
+  CC       loongarch_regs.o
+  CC       loongarch_retval.o
+  CC       loongarch_initreg.o
+  CC       loongarch_unwind.o
+  CC       arc_init.o
+  CC       arc_symbol.o
+  CC       loongarch_corenote.o
+  CC       mips_init.o
+  CC       mips_symbol.o
+  CC       mips_initreg.o
+  CC       mips_cfi.o
+  CC       mips_unwind.o
+  CC       mips_regs.o
+  CC       mips_retval.o
+  CC       mips_corenote.o
+  CC       hexagon_init.o
+  CC       hexagon_symbol.o
+  CC       i386_init_.os
+  CC       i386_symbol_.os
+  CC       i386_corenote_.os
+  CC       i386_cfi_.os
+  CC       i386_retval_.os
+  CC       i386_regs_.os
+  CC       i386_auxv_.os
+  CC       i386_initreg_.os
+  CC       i386_initreg_sample_.os
+  CC       i386_unwind_.os
+  CC       sh_init_.os
+  CC       sh_symbol_.os
+  CC       sh_corenote_.os
+  CC       sh_regs_.os
+  CC       sh_retval_.os
+  CC       x86_64_init_.os
+  CC       x86_64_symbol_.os
+  CC       x86_64_corenote_.os
+  CC       x86_64_cfi_.os
+  CC       x86_64_retval_.os
+  CC       x86_64_regs_.os
+  CC       x86_64_initreg_.os
+  CC       x86_64_initreg_sample_.os
+  CC       x86_64_unwind_.os
+  CC       x32_corenote_.os
+  CC       ia64_init_.os
+  CC       ia64_symbol_.os
+  CC       ia64_regs_.os
+  CC       alpha_init_.os
+  CC       ia64_retval_.os
+  CC       alpha_symbol_.os
+  CC       alpha_retval_.os
+  CC       alpha_regs_.os
+  CC       alpha_corenote_.os
+  CC       alpha_auxv_.os
+  CC       arm_init_.os
+  CC       arm_symbol_.os
+  CC       arm_regs_.os
+  CC       arm_corenote_.os
+  CC       arm_auxv_.os
+  CC       arm_attrs_.os
+  CC       arm_retval_.os
+  CC       arm_cfi_.os
+  CC       arm_initreg_.os
+  CC       arm_initreg_sample_.os
+  CC       arm_machineflagname_.os
+  CC       aarch64_init_.os
+  CC       aarch64_regs_.os
+  CC       aarch64_symbol_.os
+  CC       aarch64_corenote_.os
+  CC       aarch64_retval_.os
+  CC       aarch64_cfi_.os
+  CC       aarch64_initreg_.os
+  CC       aarch64_initreg_sample_.os
+  CC       aarch64_unwind_.os
+  CC       sparc_init_.os
+  CC       sparc_symbol_.os
+  CC       sparc_regs_.os
+  CC       sparc_retval_.os
+  CC       sparc_corenote_.os
+  CC       sparc64_corenote_.os
+  CC       sparc_auxv_.os
+  CC       sparc_attrs_.os
+  CC       sparc_cfi_.os
+  CC       sparc_initreg_.os
+  CC       ppc_symbol_.os
+  CC       ppc_init_.os
+  CC       ppc_retval_.os
+  CC       ppc_regs_.os
+  CC       ppc_corenote_.os
+  CC       ppc_auxv_.os
+  CC       ppc_attrs_.os
+  CC       ppc_cfi_.os
+  CC       ppc_initreg_.os
+  CC       ppc64_init_.os
+  CC       ppc64_symbol_.os
+  CC       ppc64_retval_.os
+  CC       ppc64_corenote_.os
+  CC       ppc64_resolve_sym_.os
+  CC       ppc64_unwind_.os
+  CC       s390_symbol_.os
+  CC       s390_init_.os
+  CC       s390_regs_.os
+  CC       s390_retval_.os
+  CC       s390x_corenote_.os
+  CC       s390_corenote_.os
+  CC       s390_cfi_.os
+  CC       s390_initreg_.os
+  CC       s390_unwind_.os
+  CC       m68k_init_.os
+  CC       m68k_symbol_.os
+  CC       m68k_regs_.os
+  CC       m68k_retval_.os
+  CC       m68k_corenote_.os
+  CC       m68k_cfi_.os
+  CC       m68k_initreg_.os
+  CC       bpf_init_.os
+  CC       bpf_regs_.os
+  CC       bpf_symbol_.os
+  CC       riscv_init_.os
+  CC       riscv_symbol_.os
+  CC       riscv_cfi_.os
+  CC       riscv_regs_.os
+  CC       riscv_initreg_.os
+  CC       riscv_corenote_.os
+  CC       riscv_retval_.os
+  CC       riscv64_corenote_.os
+  CC       csky_attrs_.os
+  CC       csky_init_.os
+  CC       csky_symbol_.os
+  CC       csky_cfi_.os
+  CC       csky_initreg_.os
+  CC       csky_regs_.os
+  CC       loongarch_init_.os
+  CC       csky_corenote_.os
+  CC       loongarch_symbol_.os
+  CC       loongarch_regs_.os
+  CC       loongarch_cfi_.os
+  CC       loongarch_retval_.os
+  CC       loongarch_initreg_.os
+  CC       loongarch_unwind_.os
+  CC       loongarch_corenote_.os
+  CC       arc_init_.os
+  CC       arc_symbol_.os
+  CC       mips_init_.os
+  CC       mips_symbol_.os
+  CC       mips_initreg_.os
+  CC       mips_cfi_.os
+  CC       mips_unwind_.os
+  CC       mips_regs_.os
+  CC       mips_retval_.os
+  CC       mips_corenote_.os
+  CC       hexagon_init_.os
+  CC       hexagon_symbol_.os
+  GEN      libebl_backends.manifest
+  AR       libebl_backends.a
+  AR       libebl_backends_pic.a
+Making all in libebl
+  CC       eblopenbackend.o
+  CC       eblclosebackend.o
+  CC       eblsegmenttypename.o
+  CC       eblreloctypename.o
+  CC       eblsectiontypename.o
+  CC       ebldynamictagname.o
+  CC       eblmachineflagname.o
+  CC       eblsymboltypename.o
+  CC       eblsectionname.o
+  CC       eblbackendname.o
+  CC       eblsymbolbindingname.o
+  CC       eblosabiname.o
+  CC       eblmachineflagcheck.o
+  CC       eblreloctypecheck.o
+  CC       eblmachinesectionflagcheck.o
+  CC       eblrelocvaliduse.o
+  CC       eblrelocsimpletype.o
+  CC       ebldynamictagcheck.o
+  CC       eblobjnotetypename.o
+  CC       eblcorenotetypename.o
+  CC       eblcorenote.o
+  CC       eblobjnote.o
+  CC       eblgotpcreloccheck.o
+  CC       ebldebugscnp.o
+  CC       eblcopyrelocp.o
+  CC       eblsectionstripp.o
+  CC       eblelfclass.o
+  CC       eblelfdata.o
+  CC       eblelfmachine.o
+  CC       ebl_check_special_symbol.o
+  CC       eblbsspltp.o
+  CC       eblretval.o
+  CC       eblreginfo.o
+  CC       eblnonerelocp.o
+  CC       eblrelativerelocp.o
+  CC       eblsysvhashentrysize.o
+  CC       eblauxvinfo.o
+  CC       eblcheckobjattr.o
+  CC       ebl_check_special_section.o
+  CC       eblabicfi.o
+  CC       eblstother.o
+  CC       eblinitreg_sample.o
+  CC       eblinitreg.o
+  CC       ebldwarftoregno.o
+  CC       eblnormalizepc.o
+  CC       eblunwind.o
+  CC       eblresolvesym.o
+  CC       eblcheckreloctargettype.o
+  CC       eblclosebackend_.os
+  CC       ebl_data_marker_symbol.o
+  CC       eblsegmenttypename_.os
+  CC       eblreloctypename_.os
+  CC       eblsectiontypename_.os
+  CC       eblmachineflagname_.os
+  CC       eblsymboltypename_.os
+  CC       ebldynamictagname_.os
+  CC       eblsectionname_.os
+  CC       eblsymbolbindingname_.os
+  CC       eblbackendname_.os
+  CC       eblmachineflagcheck_.os
+  CC       eblosabiname_.os
+  CC       eblmachinesectionflagcheck_.os
+  CC       eblreloctypecheck_.os
+  CC       eblrelocvaliduse_.os
+  CC       eblrelocsimpletype_.os
+  CC       ebldynamictagcheck_.os
+  CC       eblcorenotetypename_.os
+  CC       eblobjnotetypename_.os
+  CC       eblcorenote_.os
+  CC       ebldebugscnp_.os
+  CC       eblgotpcreloccheck_.os
+  CC       eblcopyrelocp_.os
+  CC       eblsectionstripp_.os
+  CC       eblelfclass_.os
+  CC       eblelfdata_.os
+  CC       eblelfmachine_.os
+  CC       ebl_check_special_symbol_.os
+  CC       eblbsspltp_.os
+  CC       eblretval_.os
+  CC       eblreginfo_.os
+  CC       eblnonerelocp_.os
+  CC       eblsysvhashentrysize_.os
+  CC       eblrelativerelocp_.os
+  CC       eblauxvinfo_.os
+  CC       eblcheckobjattr_.os
+  CC       ebl_check_special_section_.os
+  CC       eblabicfi_.os
+  CC       eblstother_.os
+  CC       eblinitreg_.os
+  CC       eblinitreg_sample_.os
+  CC       ebldwarftoregno_.os
+  CC       eblnormalizepc_.os
+  CC       eblunwind_.os
+  CC       eblresolvesym_.os
+  CC       ebl_data_marker_symbol_.os
+  GEN      libebl.manifest
+  CC       eblopenbackend_.os
+  CC       eblcheckreloctargettype_.os
+  CC       eblobjnote_.os
+  AR       libebl.a
+  AR       libebl_pic.a
+Making all in libdwelf
+  CC       dwelf_elf_gnu_debuglink.o
+  CC       dwelf_scn_gnu_compressed_size.o
+  CC       dwelf_dwarf_gnu_debugaltlink.o
+  CC       dwelf_elf_gnu_build_id.o
+  CC       dwelf_elf_begin.o
+  CC       dwelf_elf_e_machine_string.o
+  CC       dwelf_strtab.o
+  CC       dwelf_dwarf_id_section.o
+  CC       dwelf_elf_e_machine_string_.os
+  CC       dwelf_dwarf_gnu_debugaltlink_.os
+  CC       dwelf_elf_begin_.os
+  CC       dwelf_dwarf_id_section_.os
+  CC       dwelf_scn_gnu_compressed_size_.os
+  CC       dwelf_elf_gnu_debuglink_.os
+  CC       dwelf_strtab_.os
+  GEN      libdwelf.manifest
+  CC       dwelf_elf_gnu_build_id_.os
+  AR       libdwelf.a
+  AR       libdwelf_pic.a
+Making all in libdwfl
+  CC       dwfl_end.o
+  CC       dwfl_begin.o
+  CC       dwfl_version.o
+  CC       dwfl_error.o
+  CC       dwfl_module.o
+  CC       dwfl_report_elf.o
+  CC       relocate.o
+  CC       dwfl_module_build_id.o
+  CC       derelocate.o
+  CC       offline.o
+  CC       dwfl_module_report_build_id.o
+  CC       dwfl_module_info.o
+  CC       segment.o
+  CC       dwfl_getdwarf.o
+  CC       dwfl_getmodules.o
+  CC       dwfl_module_getdwarf.o
+  CC       dwfl_module_getelf.o
+  CC       dwfl_validate_address.o
+  CC       argp-std.o
+  CC       find-debuginfo.o
+  CC       dwfl_build_id_find_elf.o
+  CC       dwfl_build_id_find_debuginfo.o
+  CC       dwfl_addrmodule.o
+  CC       linux-kernel-modules.o
+  CC       linux-proc-maps.o
+  CC       dwfl_addrdwarf.o
+  CC       cu.o
+  CC       dwfl_module_nextcu.o
+  CC       dwfl_nextcu.o
+  CC       dwfl_cumodule.o
+  CC       dwfl_module_addrdie.o
+  CC       dwfl_addrdie.o
+  CC       lines.o
+  CC       dwfl_lineinfo.o
+  CC       dwfl_line_comp_dir.o
+  CC       dwfl_linemodule.o
+  CC       dwfl_linecu.o
+  CC       dwfl_dwarf_line.o
+  CC       dwfl_getsrclines.o
+  CC       dwfl_onesrcline.o
+  CC       dwfl_module_getsrc.o
+  CC       dwfl_getsrc.o
+  CC       dwfl_module_getsrc_file.o
+  CC       libdwfl_crc32.o
+  CC       libdwfl_crc32_file.o
+  CC       elf-from-memory.o
+  CC       dwfl_module_dwarf_cfi.o
+  CC       dwfl_module_eh_cfi.o
+  CC       dwfl_module_getsym.o
+  CC       dwfl_module_addrname.o
+  CC       dwfl_module_addrsym.o
+  CC       dwfl_module_return_value_location.o
+  CC       dwfl_module_register_names.o
+  CC       dwfl_segment_report_module.o
+  CC       dwfl_set_sysroot.o
+  CC       link_map.o
+  CC       core-file.o
+  CC       open.o
+  CC       image-header.o
+  CC       dwfl_frame.o
+  CC       frame_unwind.o
+  CC       dwfl_frame_pc.o
+  CC       linux-pid-attach.o
+  CC       linux-core-attach.o
+  CC       dwfl_frame_regs.o
+  CC       gzip.o
+  CC       debuginfod-client.o
+  CC       bzip2.o
+  CC       lzma.o
+  CC       zstd.o
+  CC       dwfl_begin_.os
+  CC       dwfl_end_.os
+  CC       dwfl_error_.os
+  CC       dwfl_version_.os
+  CC       dwfl_module_.os
+  CC       dwfl_report_elf_.os
+  CC       relocate_.os
+  CC       dwfl_module_build_id_.os
+  CC       dwfl_module_report_build_id_.os
+  CC       derelocate_.os
+  CC       offline_.os
+  CC       segment_.os
+  CC       dwfl_module_info_.os
+  CC       dwfl_getmodules_.os
+  CC       dwfl_getdwarf_.os
+  CC       dwfl_module_getdwarf_.os
+  CC       dwfl_module_getelf_.os
+  CC       dwfl_validate_address_.os
+  CC       argp-std_.os
+  CC       find-debuginfo_.os
+  CC       dwfl_build_id_find_elf_.os
+  CC       dwfl_build_id_find_debuginfo_.os
+  CC       linux-kernel-modules_.os
+  CC       linux-proc-maps_.os
+  CC       dwfl_addrmodule_.os
+  CC       dwfl_addrdwarf_.os
+  CC       cu_.os
+  CC       dwfl_module_nextcu_.os
+  CC       dwfl_nextcu_.os
+  CC       dwfl_cumodule_.os
+  CC       dwfl_module_addrdie_.os
+  CC       dwfl_addrdie_.os
+  CC       lines_.os
+  CC       dwfl_lineinfo_.os
+  CC       dwfl_line_comp_dir_.os
+  CC       dwfl_linemodule_.os
+  CC       dwfl_linecu_.os
+  CC       dwfl_dwarf_line_.os
+  CC       dwfl_getsrclines_.os
+  CC       dwfl_onesrcline_.os
+  CC       dwfl_module_getsrc_.os
+  CC       dwfl_getsrc_.os
+  CC       dwfl_module_getsrc_file_.os
+  CC       libdwfl_crc32_.os
+  CC       libdwfl_crc32_file_.os
+  CC       elf-from-memory_.os
+  CC       dwfl_module_eh_cfi_.os
+  CC       dwfl_module_dwarf_cfi_.os
+  CC       dwfl_module_getsym_.os
+  CC       dwfl_module_addrname_.os
+  CC       dwfl_module_addrsym_.os
+  CC       dwfl_module_return_value_location_.os
+  CC       dwfl_module_register_names_.os
+  CC       dwfl_segment_report_module_.os
+  CC       dwfl_set_sysroot_.os
+  CC       link_map_.os
+  CC       core-file_.os
+  CC       open_.os
+  CC       image-header_.os
+  CC       dwfl_frame_.os
+  CC       frame_unwind_.os
+  CC       dwfl_frame_pc_.os
+  CC       linux-core-attach_.os
+  CC       linux-pid-attach_.os
+  CC       dwfl_frame_regs_.os
+  CC       gzip_.os
+  CC       debuginfod-client_.os
+  CC       bzip2_.os
+  CC       lzma_.os
+  CC       zstd_.os
+  GEN      libdwfl.manifest
+  AR       libdwfl.a
+  AR       libdwfl_pic.a
+Making all in libdwfl_stacktrace
+  CC       dwflst_process_tracker.o
+  CC       dwflst_tracker_find_elf.o
+  CC       dwflst_tracker_elftab.o
+  CC       dwflst_tracker_dwfltab.o
+  CC       libdwfl_stacktrace_next_prime.o
+  CC       dwflst_sample_frame.o
+  CC       libdwfl_stacktrace_next_prime_.os
+  CC       dwflst_process_tracker_.os
+  CC       dwflst_sample_frame_.os
+  CC       dwflst_tracker_find_elf_.os
+  CC       dwflst_tracker_elftab_.os
+  GEN      libdwfl_stacktrace.manifest
+  CC       dwflst_tracker_dwfltab_.os
+  AR       libdwfl_stacktrace.a
+  AR       libdwfl_stacktrace_pic.a
+Making all in libdw
+gawk -f ../config/known-dwarf.awk dwarf.h > known-dwarf.h.new
+mv -f known-dwarf.h.new known-dwarf.h
+make  all-am
+  CC       dwarf_begin.o
+  CC       dwarf_end.o
+  CC       dwarf_begin_elf.o
+  CC       dwarf_getpubnames.o
+  CC       dwarf_getelf.o
+  CC       dwarf_getabbrev.o
+  CC       dwarf_error.o
+  CC       dwarf_tag.o
+  CC       dwarf_nextcu.o
+  CC       dwarf_diename.o
+  CC       dwarf_attr.o
+  CC       dwarf_offdie.o
+  CC       dwarf_formstring.o
+  CC       dwarf_sig8_hash.o
+  CC       dwarf_abbrev_hash.o
+  CC       dwarf_attr_integrate.o
+  CC       dwarf_hasattr_integrate.o
+  CC       dwarf_child.o
+  CC       dwarf_haschildren.o
+  CC       dwarf_formaddr.o
+  CC       dwarf_formudata.o
+  CC       dwarf_formsdata.o
+  CC       dwarf_entrypc.o
+  CC       dwarf_lowpc.o
+  CC       dwarf_haspc.o
+  CC       dwarf_highpc.o
+  CC       dwarf_ranges.o
+  CC       dwarf_formref.o
+  CC       dwarf_formref_die.o
+  CC       dwarf_siblingof.o
+  CC       dwarf_dieoffset.o
+  CC       dwarf_cuoffset.o
+  CC       dwarf_diecu.o
+  CC       dwarf_hasattr.o
+  CC       dwarf_hasform.o
+  CC       dwarf_whatform.o
+  CC       dwarf_whatattr.o
+  CC       dwarf_bytesize.o
+  CC       dwarf_bitsize.o
+  CC       dwarf_arrayorder.o
+  CC       dwarf_bitoffset.o
+  CC       dwarf_srclang.o
+  CC       dwarf_getabbrevtag.o
+  CC       dwarf_getabbrevcode.o
+  CC       dwarf_abbrevhaschildren.o
+  CC       dwarf_getattrcnt.o
+  CC       dwarf_getabbrevattr.o
+  CC       dwarf_getsrclines.o
+  CC       dwarf_getsrc_die.o
+  CC       dwarf_getscopes_die.o
+  CC       dwarf_getscopes.o
+  CC       dwarf_getscopevar.o
+  CC       dwarf_linesrc.o
+  CC       dwarf_lineno.o
+  CC       dwarf_lineaddr.o
+  CC       dwarf_linecol.o
+  CC       dwarf_linebeginstatement.o
+  CC       dwarf_lineendsequence.o
+  CC       dwarf_lineblock.o
+  CC       dwarf_linecontext.o
+  CC       dwarf_linefunctionname.o
+  CC       dwarf_lineprologueend.o
+  CC       dwarf_lineepiloguebegin.o
+  CC       dwarf_lineisa.o
+  CC       dwarf_linediscriminator.o
+  CC       dwarf_lineop_index.o
+  CC       dwarf_line_file.o
+  CC       dwarf_onesrcline.o
+  CC       dwarf_formblock.o
+  CC       dwarf_getsrcfiles.o
+  CC       dwarf_getsrcdirs.o
+  CC       dwarf_filesrc.o
+  CC       dwarf_getlocation.o
+  CC       dwarf_getstring.o
+  CC       dwarf_offabbrev.o
+  CC       dwarf_getaranges.o
+  CC       dwarf_onearange.o
+  CC       dwarf_getarangeinfo.o
+  CC       dwarf_getattrs.o
+  CC       dwarf_getarange_addr.o
+  CC       dwarf_formflag.o
+  CC       dwarf_getmacros.o
+  CC       dwarf_macro_getparamcnt.o
+  CC       dwarf_macro_opcode.o
+  CC       dwarf_macro_param.o
+  CC       dwarf_macro_param1.o
+  CC       dwarf_macro_param2.o
+  CC       dwarf_macro_getsrcfiles.o
+  CC       dwarf_addrdie.o
+  CC       dwarf_getfuncs.o
+  CC       dwarf_decl_file.o
+  CC       dwarf_decl_line.o
+  CC       dwarf_decl_column.o
+  CC       dwarf_func_inline.o
+  CC       dwarf_getsrc_file.o
+  CC       libdw_findcu.o
+  CC       libdw_form.o
+  CC       libdw_alloc.o
+  CC       libdw_visit_scopes.o
+  CC       dwarf_entry_breakpoints.o
+  CC       dwarf_next_cfi.o
+  CC       cie.o
+  CC       fde.o
+  CC       cfi.o
+  CC       frame-cache.o
+  CC       dwarf_frame_info.o
+  CC       dwarf_frame_cfa.o
+  CC       dwarf_frame_register.o
+  CC       dwarf_cfi_addrframe.o
+  CC       dwarf_getcfi.o
+  CC       dwarf_getcfi_elf.o
+  CC       dwarf_cfi_end.o
+  CC       dwarf_aggregate_size.o
+  CC       dwarf_getlocation_implicit_pointer.o
+  CC       dwarf_getlocation_die.o
+  CC       dwarf_getlocation_attr.o
+  CC       dwarf_getalt.o
+  CC       dwarf_setalt.o
+  CC       dwarf_cu_getdwarf.o
+  CC       dwarf_peel_type.o
+  CC       dwarf_cu_die.o
+  CC       dwarf_default_lower_bound.o
+  CC       dwarf_die_addr_die.o
+  CC       dwarf_get_units.o
+  CC       libdw_find_split_unit.o
+  CC       dwarf_cu_info.o
+  CC       dwarf_next_lines.o
+  CC       dwarf_cu_dwp_section_info.o
+  CC       dwarf_begin_.os
+  CC       dwarf_begin_elf_.os
+  CC       dwarf_end_.os
+  CC       dwarf_getelf_.os
+  CC       dwarf_getpubnames_.os
+  CC       dwarf_getabbrev_.os
+  CC       dwarf_tag_.os
+  CC       dwarf_error_.os
+  CC       dwarf_nextcu_.os
+  CC       dwarf_diename_.os
+  CC       dwarf_offdie_.os
+  CC       dwarf_attr_.os
+  CC       dwarf_formstring_.os
+  CC       dwarf_abbrev_hash_.os
+  CC       dwarf_sig8_hash_.os
+  CC       dwarf_attr_integrate_.os
+  CC       dwarf_hasattr_integrate_.os
+  CC       dwarf_child_.os
+  CC       dwarf_haschildren_.os
+  CC       dwarf_formaddr_.os
+  CC       dwarf_formudata_.os
+  CC       dwarf_formsdata_.os
+  CC       dwarf_lowpc_.os
+  CC       dwarf_entrypc_.os
+  CC       dwarf_haspc_.os
+  CC       dwarf_highpc_.os
+  CC       dwarf_ranges_.os
+  CC       dwarf_formref_.os
+  CC       dwarf_formref_die_.os
+  CC       dwarf_siblingof_.os
+  CC       dwarf_dieoffset_.os
+  CC       dwarf_cuoffset_.os
+  CC       dwarf_diecu_.os
+  CC       dwarf_hasattr_.os
+  CC       dwarf_hasform_.os
+  CC       dwarf_whatform_.os
+  CC       dwarf_whatattr_.os
+  CC       dwarf_bytesize_.os
+  CC       dwarf_arrayorder_.os
+  CC       dwarf_bitoffset_.os
+  CC       dwarf_bitsize_.os
+  CC       dwarf_srclang_.os
+  CC       dwarf_getabbrevtag_.os
+  CC       dwarf_getabbrevcode_.os
+  CC       dwarf_abbrevhaschildren_.os
+  CC       dwarf_getattrcnt_.os
+  CC       dwarf_getabbrevattr_.os
+  CC       dwarf_getsrclines_.os
+  CC       dwarf_getsrc_die_.os
+  CC       dwarf_getscopes_.os
+  CC       dwarf_getscopes_die_.os
+  CC       dwarf_getscopevar_.os
+  CC       dwarf_linesrc_.os
+  CC       dwarf_lineno_.os
+  CC       dwarf_lineaddr_.os
+  CC       dwarf_linecol_.os
+  CC       dwarf_linebeginstatement_.os
+  CC       dwarf_lineblock_.os
+  CC       dwarf_lineendsequence_.os
+  CC       dwarf_linecontext_.os
+  CC       dwarf_linefunctionname_.os
+  CC       dwarf_lineprologueend_.os
+  CC       dwarf_lineepiloguebegin_.os
+  CC       dwarf_lineisa_.os
+  CC       dwarf_linediscriminator_.os
+  CC       dwarf_lineop_index_.os
+  CC       dwarf_line_file_.os
+  CC       dwarf_onesrcline_.os
+  CC       dwarf_formblock_.os
+  CC       dwarf_getsrcfiles_.os
+  CC       dwarf_filesrc_.os
+  CC       dwarf_getsrcdirs_.os
+  CC       dwarf_getlocation_.os
+  CC       dwarf_getstring_.os
+  CC       dwarf_offabbrev_.os
+  CC       dwarf_getaranges_.os
+  CC       dwarf_onearange_.os
+  CC       dwarf_getarangeinfo_.os
+  CC       dwarf_getarange_addr_.os
+  CC       dwarf_getattrs_.os
+  CC       dwarf_formflag_.os
+  CC       dwarf_getmacros_.os
+  CC       dwarf_macro_getparamcnt_.os
+  CC       dwarf_macro_opcode_.os
+  CC       dwarf_macro_param_.os
+  CC       dwarf_macro_param1_.os
+  CC       dwarf_macro_param2_.os
+  CC       dwarf_macro_getsrcfiles_.os
+  CC       dwarf_addrdie_.os
+  CC       dwarf_getfuncs_.os
+  CC       dwarf_decl_file_.os
+  CC       dwarf_decl_line_.os
+  CC       dwarf_decl_column_.os
+  CC       dwarf_func_inline_.os
+  CC       dwarf_getsrc_file_.os
+  CC       libdw_findcu_.os
+  CC       libdw_form_.os
+  CC       libdw_alloc_.os
+  CC       dwarf_entry_breakpoints_.os
+  CC       libdw_visit_scopes_.os
+  CC       dwarf_next_cfi_.os
+  CC       cie_.os
+  CC       fde_.os
+  CC       cfi_.os
+  CC       frame-cache_.os
+  CC       dwarf_frame_info_.os
+  CC       dwarf_frame_cfa_.os
+  CC       dwarf_frame_register_.os
+  CC       dwarf_cfi_addrframe_.os
+  CC       dwarf_getcfi_.os
+  CC       dwarf_getcfi_elf_.os
+  CC       dwarf_cfi_end_.os
+  CC       dwarf_aggregate_size_.os
+  CC       dwarf_getlocation_implicit_pointer_.os
+  CC       dwarf_getlocation_die_.os
+  CC       dwarf_getlocation_attr_.os
+  CC       dwarf_getalt_.os
+  CC       dwarf_setalt_.os
+  CC       dwarf_cu_getdwarf_.os
+  CC       dwarf_cu_die_.os
+  CC       dwarf_peel_type_.os
+  CC       dwarf_default_lower_bound_.os
+  CC       dwarf_die_addr_die_.os
+  CC       dwarf_get_units_.os
+  CC       libdw_find_split_unit_.os
+  CC       dwarf_cu_info_.os
+  CC       dwarf_next_lines_.os
+  CC       dwarf_cu_dwp_section_info_.os
+  GEN      libdw.manifest
+  AR       libdw.a
+  AR       libdw_pic.a
+  CCLD     libdw.so
+Making all in libasm
+  CC       asm_begin.o
+  CC       asm_error.o
+  CC       asm_abort.o
+  CC       asm_newscn.o
+  CC       asm_end.o
+  CC       asm_newsubscn.o
+  CC       asm_getelf.o
+  CC       asm_newscn_ingrp.o
+  CC       asm_newsym.o
+  CC       asm_newscngrp.o
+  CC       asm_newcomsym.o
+  CC       asm_newabssym.o
+  CC       asm_fill.o
+  CC       asm_scngrp_newsignature.o
+  CC       asm_addstrz.o
+  CC       asm_align.o
+  CC       asm_addint8.o
+  CC       asm_adduint8.o
+  CC       asm_addint16.o
+  CC       asm_adduint16.o
+  CC       asm_addint32.o
+  CC       asm_adduint32.o
+  CC       asm_adduint64.o
+  CC       asm_addint64.o
+  CC       asm_adduleb128.o
+  CC       disasm_begin.o
+  CC       asm_addsleb128.o
+  CC       disasm_end.o
+  CC       disasm_cb.o
+  CC       disasm_str.o
+  CC       symbolhash.o
+  CC       asm_begin_.os
+  CC       asm_abort_.os
+  CC       asm_error_.os
+  CC       asm_getelf_.os
+  CC       asm_newscn_.os
+  CC       asm_newscn_ingrp_.os
+  CC       asm_newsubscn_.os
+  CC       asm_newsym_.os
+  CC       asm_newcomsym_.os
+  CC       asm_newabssym_.os
+  CC       asm_newscngrp_.os
+  CC       asm_scngrp_newsignature_.os
+  CC       asm_fill_.os
+  CC       asm_align_.os
+  CC       asm_addstrz_.os
+  CC       asm_addint8_.os
+  CC       asm_adduint8_.os
+  CC       asm_adduint16_.os
+  CC       asm_addint16_.os
+  CC       asm_addint32_.os
+  CC       asm_adduint32_.os
+  CC       asm_addint64_.os
+  CC       asm_adduint64_.os
+  CC       asm_adduleb128_.os
+  CC       asm_addsleb128_.os
+  CC       disasm_begin_.os
+  CC       disasm_cb_.os
+  CC       disasm_end_.os
+  CC       disasm_str_.os
+  CC       symbolhash_.os
+  GEN      libasm.manifest
+  CC       asm_end_.os
+  AR       libasm.a
+  AR       libasm_pic.a
+  CCLD     libasm.so
+Making all in debuginfod
+  CXX      debuginfod.o
+  CC       debuginfod-find.o
+  CC       debuginfod-client.o
+  GEN      libdebuginfod.manifest
+  CC       debuginfod-client_.os
+  AR       libdebuginfod.a
+  AR       libdebuginfod_pic.a
+  CCLD     libdebuginfod.so.1
+ln -fs libdebuginfod.so.1 libdebuginfod.so
+  CCLD     debuginfod-find
+  CXXLD    debuginfod
+Making all in src
+  CC       readelf.o
+  CC       nm.o
+  CC       size.o
+  CC       strip.o
+  CC       elflint.o
+  CC       findtextrel.o
+  CC       addr2line.o
+  CC       elfcmp.o
+  CC       objdump.o
+  CC       ranlib.o
+  CC       arlib.o
+  CC       arlib2.o
+  CC       arlib-argp.o
+  CC       strings.o
+  CC       ar.o
+  CC       unstrip.o
+  CC       stack.o
+  CC       elfcompress.o
+  CC       elfclassify.o
+  CXX      srcfiles.o
+  CXX      stackprof-stackprof.o
+  GEN      make-debug-archive
+  CCLD     size
+  CCLD     findtextrel
+  GEN      libar.manifest
+  CCLD     strings
+  CCLD     addr2line
+  AR       libar.a
+  CCLD     nm
+  CCLD     ranlib
+  CCLD     objdump
+  CCLD     stack
+  CCLD     elfcmp
+  CCLD     ar
+  CCLD     elfclassify
+  CCLD     elfcompress
+  CCLD     strip
+  CCLD     unstrip
+  CXXLD    srcfiles
+  CCLD     elflint
+  CXXLD    stackprof
+  CCLD     readelf
+Making all in po
+make elfutils.pot-update
+package_gnu=""; \
+test -n "$package_gnu" || { \
+  if { if (LC_ALL=C find --version) 2>/dev/null | grep GNU >/dev/null; then \
+         LC_ALL=C find -L .. -maxdepth 1 -type f -size -10000000c -exec grep -i 'GNU elfutils' /dev/null '{}' ';' 2>/dev/null; \
+       else \
+         LC_ALL=C grep -i 'GNU elfutils' ../* 2>/dev/null; \
+       fi; \
+     } | grep -v 'libtool:' >/dev/null; then \
+     package_gnu=yes; \
+   else \
+     package_gnu=no; \
+   fi; \
+}; \
+if test "$package_gnu" = "yes"; then \
+  package_prefix='GNU '; \
+else \
+  package_prefix=''; \
+fi; \
+if test -n 'https://sourceware.org/bugzilla/' || test 'https://sourceware.org/bugzilla' = '@'PACKAGE_BUGREPORT'@'; then \
+  msgid_bugs_address='https://sourceware.org/bugzilla/'; \
+else \
+  msgid_bugs_address='https://sourceware.org/bugzilla'; \
+fi; \
+case `/usr/sbin/xgettext --version | sed 1q | sed -e 's,^[^0-9]*,,'` in \
+  '' | 0.[0-9] | 0.[0-9].* | 0.1[0-5] | 0.1[0-5].* | 0.16 | 0.16.[0-1]*) \
+    /usr/sbin/xgettext --default-domain=elfutils --directory=.. \
+      --add-comments=TRANSLATORS: \
+      --files-from=./POTFILES.in \
+      --copyright-holder='The elfutils developers' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+      --keyword=_ --keyword=N_ --keyword=sgettext:1g --flag=_:1:pass-c-format --flag=N_:1:pass-c-format --flag=sgettext:1:pass-c-format --flag=error:3:c-format --flag=ERROR:1:c-format --flag=argp_error:2:c-format --add-comments  \
+    ;; \
+  *) \
+    /usr/sbin/xgettext --default-domain=elfutils --directory=.. \
+      --add-comments=TRANSLATORS: \
+      --files-from=./POTFILES.in \
+      --copyright-holder='The elfutils developers' \
+      --package-name="${package_prefix}elfutils" \
+      --package-version='0.196' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+      --keyword=_ --keyword=N_ --keyword=sgettext:1g --flag=_:1:pass-c-format --flag=N_:1:pass-c-format --flag=sgettext:1:pass-c-format --flag=error:3:c-format --flag=ERROR:1:c-format --flag=argp_error:2:c-format --add-comments  \
+    ;; \
+esac
+/usr/sbin/xgettext: warning: file 'libcpu/i386_lex.l' extension 'l' is unknown; will try C
+/usr/sbin/xgettext: warning: file 'libcpu/i386_parse.y' extension 'y' is unknown; will try C
+test ! -f elfutils.po || { \
+  if test -f ./elfutils.pot-header; then \
+    sed -e '1,/^#$/d' < elfutils.po > elfutils.1po && \
+    cat ./elfutils.pot-header elfutils.1po > elfutils.po && \
+    rm -f elfutils.1po \
+    || exit 1; \
+  fi; \
+  if test -f ./elfutils.pot; then \
+    sed -f ./remove-potcdate.sed < ./elfutils.pot > elfutils.1po && \
+    sed -f ./remove-potcdate.sed < elfutils.po > elfutils.2po && \
+    if cmp elfutils.1po elfutils.2po >/dev/null 2>&1; then \
+      rm -f elfutils.1po elfutils.2po elfutils.po; \
+    else \
+      rm -f elfutils.1po elfutils.2po ./elfutils.pot && \
+      mv elfutils.po ./elfutils.pot; \
+    fi; \
+  else \
+    mv elfutils.po ./elfutils.pot; \
+  fi; \
+}
+test ! -f ./elfutils.pot || \
+  test -z "./de.gmo ./es.gmo ./ja.gmo ./ka.gmo ./pl.gmo ./uk.gmo ./en@quot.gmo ./en@boldquot.gmo" || make ./de.gmo ./es.gmo ./ja.gmo ./ka.gmo ./pl.gmo ./uk.gmo ./en@quot.gmo ./en@boldquot.gmo
+rm -f de.gmo && /usr/sbin/msgmerge --for-msgfmt -o de.gpo de.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o de.gmo de.gpo && rm -f de.gpo
+de.gpo: 224 translated messages.
+rm -f es.gmo && /usr/sbin/msgmerge --for-msgfmt -o es.gpo es.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o es.gmo es.gpo && rm -f es.gpo
+es.gpo: 847 translated messages.
+rm -f ja.gmo && /usr/sbin/msgmerge --for-msgfmt -o ja.gpo ja.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o ja.gmo ja.gpo && rm -f ja.gpo
+ja.gpo: 752 translated messages.
+rm -f ka.gmo && /usr/sbin/msgmerge --for-msgfmt -o ka.gpo ka.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o ka.gmo ka.gpo && rm -f ka.gpo
+ka.gpo: 1362 translated messages.
+rm -f pl.gmo && /usr/sbin/msgmerge --for-msgfmt -o pl.gpo pl.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o pl.gmo pl.gpo && rm -f pl.gpo
+pl.gpo: 1362 translated messages.
+rm -f uk.gmo && /usr/sbin/msgmerge --for-msgfmt -o uk.gpo uk.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o uk.gmo uk.gpo && rm -f uk.gpo
+uk.gpo: 1162 translated messages.
+make en@quot.po-update
+sed -e 's/HEADER/en@quot.header/g' ./insert-header.sed > en@quot.insert-header
+en@quot:
+rm -f en@quot.gmo && /usr/sbin/msgmerge --for-msgfmt -o en@quot.gpo en@quot.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o en@quot.gmo en@quot.gpo && rm -f en@quot.gpo
+en@quot.gpo: 1397 translated messages.
+make en@boldquot.po-update
+sed -e 's/HEADER/en@boldquot.header/g' ./insert-header.sed > en@boldquot.insert-header
+en@boldquot:
+rm -f en@boldquot.gmo && /usr/sbin/msgmerge --for-msgfmt -o en@boldquot.gpo en@boldquot.po elfutils.pot && /usr/sbin/msgfmt -c --statistics --verbose -o en@boldquot.gmo en@boldquot.gpo && rm -f en@boldquot.gpo
+en@boldquot.gpo: 1397 translated messages.
+touch ./stamp-po
+Making all in doc
+make[2]: Nothing to be done for 'all'.
+Making all in tests
+ln -s ../libelf/libelf.h libelf.h
+make  all-am
+make[3]: Nothing to be done for 'all-am'.
+==> Entering fakeroot environment...
+==> Starting package_elfutils()...
+make: Entering directory '/home/builder/build/src/elfutils'
+Making install in config
+sed -i 's/{prefix}/prefix/g' profile.fish
+make[2]: Nothing to be done for 'install-exec-am'.
+/usr/bin/install -c -m 644 -D profile.sh /home/builder/build/pkg/elfutils/etc/profile.d/debuginfod.sh
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/lib/pkgconfig'
+/usr/bin/install -c -m 644 -D profile.csh /home/builder/build/pkg/elfutils/etc/profile.d/debuginfod.csh
+/usr/bin/install -c -m 644 -D profile.fish /home/builder/build/pkg/elfutils/usr/share/fish/vendor_conf.d/debuginfod.fish
+ /usr/bin/install -c -m 644 libelf.pc libdw.pc libdebuginfod.pc '/home/builder/build/pkg/elfutils/usr/lib/pkgconfig'
+mkdir -p /home/builder/build/pkg/elfutils/etc/debuginfod
+if [ -n "" ]; then \
+	echo "" > /home/builder/build/pkg/elfutils/etc/debuginfod/elfutils.urls; \
+fi
+if [ -n "" ]; then \
+	echo "" > /home/builder/build/pkg/elfutils/etc/debuginfod/elfutils.certpath; \
+fi
+Making install in lib
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+Making install in libelf
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/bin/install -c -m 644  libelf.a '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/bin/install -c -m 644 libelf.h gelf.h nlist.h '/home/builder/build/pkg/elfutils/usr/include'
+ /usr/bin/install -c -m 644 elf-knowledge.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ ( cd '/home/builder/build/pkg/elfutils/usr/lib' && llvm-ranlib libelf.a )
+/bin/sh /home/builder/build/src/elfutils/config/install-sh -d /home/builder/build/pkg/elfutils/usr/lib
+/usr/bin/install -c libelf.so /home/builder/build/pkg/elfutils/usr/lib/libelf-0.196.so
+ln -fs libelf-0.196.so /home/builder/build/pkg/elfutils/usr/lib/libelf.so.1
+ln -fs libelf.so.1 /home/builder/build/pkg/elfutils/usr/lib/libelf.so
+Making install in libcpu
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+Making install in backends
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+Making install in libebl
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+Making install in libdwelf
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644 libdwelf.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+Making install in libdwfl
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644 libdwfl.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+Making install in libdwfl_stacktrace
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644 libdwfl_stacktrace.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+Making install in libdw
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/bin/install -c -m 644  libdw.a '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/bin/install -c -m 644 libdw.h known-dwarf.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644 dwarf.h '/home/builder/build/pkg/elfutils/usr/include'
+ ( cd '/home/builder/build/pkg/elfutils/usr/lib' && llvm-ranlib libdw.a )
+/bin/sh /home/builder/build/src/elfutils/config/install-sh -d /home/builder/build/pkg/elfutils/usr/lib
+/usr/bin/install -c libdw.so /home/builder/build/pkg/elfutils/usr/lib/libdw-0.196.so
+ln -fs libdw-0.196.so /home/builder/build/pkg/elfutils/usr/lib/libdw.so.1
+ln -fs libdw.so.1 /home/builder/build/pkg/elfutils/usr/lib/libdw.so
+Making install in libasm
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644  libasm.a '/home/builder/build/pkg/elfutils/usr/lib'
+ /usr/bin/install -c -m 644 libasm.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ ( cd '/home/builder/build/pkg/elfutils/usr/lib' && llvm-ranlib libasm.a )
+/bin/sh /home/builder/build/src/elfutils/config/install-sh -d /home/builder/build/pkg/elfutils/usr/lib
+/usr/bin/install -c libasm.so /home/builder/build/pkg/elfutils/usr/lib/libasm-0.196.so
+ln -fs libasm-0.196.so /home/builder/build/pkg/elfutils/usr/lib/libasm.so.1
+ln -fs libasm.so.1 /home/builder/build/pkg/elfutils/usr/lib/libasm.so
+Making install in debuginfod
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/bin'
+ /usr/bin/install -c -m 644 debuginfod.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+  /usr/bin/install -c debuginfod debuginfod-find '/home/builder/build/pkg/elfutils/usr/bin'
+/bin/sh /home/builder/build/src/elfutils/config/install-sh -d /home/builder/build/pkg/elfutils/usr/lib
+/usr/bin/install -c libdebuginfod.so.1 \
+	/home/builder/build/pkg/elfutils/usr/lib/libdebuginfod-0.196.so
+ln -fs libdebuginfod-0.196.so /home/builder/build/pkg/elfutils/usr/lib/libdebuginfod.so.1
+ln -fs libdebuginfod-0.196.so /home/builder/build/pkg/elfutils/usr/lib/libdebuginfod.so
+Making install in src
+make[2]: Nothing to be done for 'install-data-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/bin'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/bin'
+  /usr/bin/install -c readelf '/home/builder/build/pkg/elfutils/usr/bin/./eu-readelf'
+ /usr/bin/install -c make-debug-archive '/home/builder/build/pkg/elfutils/usr/bin/./eu-make-debug-archive'
+  /usr/bin/install -c nm '/home/builder/build/pkg/elfutils/usr/bin/./eu-nm'
+  /usr/bin/install -c size '/home/builder/build/pkg/elfutils/usr/bin/./eu-size'
+  /usr/bin/install -c strip '/home/builder/build/pkg/elfutils/usr/bin/./eu-strip'
+  /usr/bin/install -c elflint '/home/builder/build/pkg/elfutils/usr/bin/./eu-elflint'
+  /usr/bin/install -c findtextrel '/home/builder/build/pkg/elfutils/usr/bin/./eu-findtextrel'
+  /usr/bin/install -c addr2line '/home/builder/build/pkg/elfutils/usr/bin/./eu-addr2line'
+  /usr/bin/install -c elfcmp '/home/builder/build/pkg/elfutils/usr/bin/./eu-elfcmp'
+  /usr/bin/install -c objdump '/home/builder/build/pkg/elfutils/usr/bin/./eu-objdump'
+  /usr/bin/install -c ranlib '/home/builder/build/pkg/elfutils/usr/bin/./eu-ranlib'
+  /usr/bin/install -c strings '/home/builder/build/pkg/elfutils/usr/bin/./eu-strings'
+  /usr/bin/install -c ar '/home/builder/build/pkg/elfutils/usr/bin/./eu-ar'
+  /usr/bin/install -c unstrip '/home/builder/build/pkg/elfutils/usr/bin/./eu-unstrip'
+  /usr/bin/install -c stack '/home/builder/build/pkg/elfutils/usr/bin/./eu-stack'
+  /usr/bin/install -c elfcompress '/home/builder/build/pkg/elfutils/usr/bin/./eu-elfcompress'
+  /usr/bin/install -c elfclassify '/home/builder/build/pkg/elfutils/usr/bin/./eu-elfclassify'
+  /usr/bin/install -c srcfiles '/home/builder/build/pkg/elfutils/usr/bin/./eu-srcfiles'
+  /usr/bin/install -c stackprof '/home/builder/build/pkg/elfutils/usr/bin/./eu-stackprof'
+Making install in po
+installing de.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/de/LC_MESSAGES/elfutils.mo
+installing es.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/es/LC_MESSAGES/elfutils.mo
+installing ja.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/ja/LC_MESSAGES/elfutils.mo
+installing ka.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/ka/LC_MESSAGES/elfutils.mo
+installing pl.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/pl/LC_MESSAGES/elfutils.mo
+installing uk.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/uk/LC_MESSAGES/elfutils.mo
+installing en@quot.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/en@quot/LC_MESSAGES/elfutils.mo
+installing en@boldquot.gmo as /home/builder/build/pkg/elfutils/usr/share/locale/en@boldquot/LC_MESSAGES/elfutils.mo
+Making install in doc
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/share/man/man1'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/share/man/man7'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/share/man/man8'
+ /usr/bin/install -c -m 644 debuginfod-find.1 '/home/builder/build/pkg/elfutils/usr/share/man/man1'
+ /usr/bin/install -c -m 644 debuginfod-client-config.7 '/home/builder/build/pkg/elfutils/usr/share/man/man7'
+ /usr/bin/install -c -m 644 debuginfod.8 debuginfod.service.8 '/home/builder/build/pkg/elfutils/usr/share/man/man8'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/share/man/man1'
+ /usr/bin/install -c -m 644 elf32_checksum.3 elf32_fsize.3 elf32_getchdr.3 elf32_getehdr.3 elf32_getphdr.3 elf32_getshdr.3 elf32_newehdr.3 elf32_newphdr.3 elf32_offscn.3 elf32_xlatetof.3 elf32_xlatetom.3 elf64_checksum.3 elf64_fsize.3 elf64_getchdr.3 elf64_getehdr.3 elf64_getphdr.3 elf64_getshdr.3 elf64_newehdr.3 elf64_newphdr.3 elf64_offscn.3 elf64_xlatetof.3 elf64_xlatetom.3 elf_begin.3 elf_clone.3 elf_cntl.3 elf_end.3 elf_errmsg.3 elf_errno.3 elf_fill.3 elf_flagelf.3 elf_flagehdr.3 elf_flagphdr.3 elf_flagscn.3 elf_flagdata.3 elf_flagshdr.3 elf_getarhdr.3 elf_getaroff.3 elf_getarsym.3 elf_getbase.3 elf_getdata.3 '/home/builder/build/pkg/elfutils/usr/share/man/man3'
+ /usr/bin/install -c -m 644 'readelf.1' '/home/builder/build/pkg/elfutils/usr/share/man/man1/eu-readelf.1'
+ /usr/bin/install -c -m 644 'elfclassify.1' '/home/builder/build/pkg/elfutils/usr/share/man/man1/eu-elfclassify.1'
+ /usr/bin/install -c -m 644 elf_getdata_rawchunk.3 elf_getident.3 elf_getphdrnum.3 elf_getscn.3 elf_getshdrnum.3 elf_getshdrstrndx.3 elf_getshnum.3 elf_getshstrndx.3 elf_hash.3 elf_gnu_hash.3 elf_kind.3 elf_memory.3 elf_ndxscn.3 elf_newdata.3 elf_newscn.3 elf_next.3 elf_nextscn.3 elf_rand.3 elf_rawdata.3 elf_rawfile.3 elf_scnshndx.3 elf_strptr.3 elf_update.3 elf_version.3 gelf.3 gelf_checksum.3 gelf_fsize.3 gelf_getauxv.3 gelf_getchdr.3 gelf_getclass.3 gelf_getdyn.3 gelf_getehdr.3 gelf_getlib.3 gelf_getmove.3 gelf_getnote.3 gelf_getphdr.3 gelf_getrel.3 gelf_getrela.3 gelf_getsym.3 gelf_getsyminfo.3 '/home/builder/build/pkg/elfutils/usr/share/man/man3'
+ /usr/bin/install -c -m 644 'srcfiles.1' '/home/builder/build/pkg/elfutils/usr/share/man/man1/eu-srcfiles.1'
+ /usr/bin/install -c -m 644 'stackprof.1' '/home/builder/build/pkg/elfutils/usr/share/man/man1/eu-stackprof.1'
+ /usr/bin/install -c -m 644 gelf_getsymshndx.3 gelf_getversym.3 gelf_getverdef.3 gelf_getverdaux.3 gelf_getverneed.3 gelf_getvernaux.3 gelf_getshdr.3 gelf_newehdr.3 gelf_newphdr.3 gelf_offscn.3 gelf_update_auxv.3 gelf_update_ehdr.3 gelf_update_dyn.3 gelf_update_lib.3 gelf_update_move.3 gelf_update_phdr.3 gelf_update_shdr.3 gelf_update_rel.3 gelf_update_rela.3 gelf_update_sym.3 gelf_update_syminfo.3 gelf_update_symshndx.3 gelf_update_versym.3 gelf_update_verdef.3 gelf_update_verdaux.3 gelf_update_verneed.3 gelf_update_vernaux.3 gelf_xlatetof.3 gelf_xlatetom.3 libelf.3 debuginfod_add_http_header.3 debuginfod_begin.3 debuginfod_end.3 debuginfod_find_debuginfo.3 debuginfod_find_executable.3 debuginfod_find_source.3 debuginfod_find_section.3 debuginfod_find_metadata.3 debuginfod_get_user_data.3 debuginfod_get_url.3 '/home/builder/build/pkg/elfutils/usr/share/man/man3'
+ /usr/bin/install -c -m 644 debuginfod_set_progressfn.3 debuginfod_set_user_data.3 '/home/builder/build/pkg/elfutils/usr/share/man/man3'
+Making install in tests
+make  install-am
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+ /usr/bin/install -c -m 644 version.h '/home/builder/build/pkg/elfutils/usr/include/elfutils'
+make: Leaving directory '/home/builder/build/src/elfutils'
+install: creating directory '/home/builder/build/pkg/elfutils/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils'
+'elfutils/AUTHORS' -> '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils/AUTHORS'
+'elfutils/ChangeLog' -> '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils/ChangeLog'
+'elfutils/NEWS' -> '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils/NEWS'
+'elfutils/NOTES' -> '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils/NOTES'
+'elfutils/README' -> '/home/builder/build/pkg/elfutils/usr/share/doc/elfutils/README'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "elfutils"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_libelf()...
+renamed 'libelf/etc' -> '/home/builder/build/pkg/libelf/etc'
+renamed 'libelf/usr' -> '/home/builder/build/pkg/libelf/usr'
+install: creating directory '/home/builder/build/pkg/libelf/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/libelf/usr/share/doc/libelf'
+'elfutils/AUTHORS' -> '/home/builder/build/pkg/libelf/usr/share/doc/libelf/AUTHORS'
+'elfutils/ChangeLog' -> '/home/builder/build/pkg/libelf/usr/share/doc/libelf/ChangeLog'
+'elfutils/NEWS' -> '/home/builder/build/pkg/libelf/usr/share/doc/libelf/NEWS'
+'elfutils/NOTES' -> '/home/builder/build/pkg/libelf/usr/share/doc/libelf/NOTES'
+'elfutils/README' -> '/home/builder/build/pkg/libelf/usr/share/doc/libelf/README'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libelf"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Starting package_debuginfod()...
+renamed 'debuginfod/usr' -> '/home/builder/build/pkg/debuginfod/usr'
+install: creating directory '/home/builder/build/pkg/debuginfod/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod'
+'elfutils/AUTHORS' -> '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod/AUTHORS'
+'elfutils/ChangeLog' -> '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod/ChangeLog'
+'elfutils/NEWS' -> '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod/NEWS'
+'elfutils/NOTES' -> '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod/NOTES'
+'elfutils/README' -> '/home/builder/build/pkg/debuginfod/usr/share/doc/debuginfod/README'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "debuginfod"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: elfutils 0.196-1 (Sun Sep 20 08:24:15 2026)

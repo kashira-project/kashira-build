@@ -1,0 +1,427 @@
+== build libisl (deps: gcc gmp )
+resolving dependencies...
+warning: gmp-6.3.0-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (2) mpc-1.4.1-1  gcc-16.2.0-6
+
+Total Download Size:    90.21 MiB
+Total Installed Size:  331.29 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gcc-16.2.0-6-x86_64 downloading...
+ mpc-1.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing mpc...
+installing gcc...
+Optional dependencies for gcc
+    lib32-gcc-runtime: for generating code for the 32-bit ABI
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the info directory file...
+==> Making package: libisl 0.28-1 (Sun Sep 20 05:43:01 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Found isl-0.28.tar.xz
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    isl-0.28.tar.xz ... Passed
+==> Extracting sources...
+  -> Extracting isl-0.28.tar.xz with bsdtar
+==> Starting build()...
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking whether clang understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang... gcc3
+checking whether the compiler supports GNU C++... yes
+checking whether clang++ accepts -g... yes
+checking for clang++ option to enable C++11 features... none needed
+checking dependency style of clang++... gcc3
+checking how to run the C preprocessor... clang-cpp
+checking build system type... x86_64-pc-linux-gnu
+checking for x86_64-pc-linux-gnu-gcc... x86_64-pc-linux-gnu-gcc
+checking whether the compiler supports GNU C... yes
+checking whether x86_64-pc-linux-gnu-gcc accepts -g... yes
+checking for x86_64-pc-linux-gnu-gcc option to enable C11 features... none needed
+checking whether x86_64-pc-linux-gnu-gcc understands -c and -o together... yes
+checking dependency style of x86_64-pc-linux-gnu-gcc... gcc3
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking how to run the C preprocessor... x86_64-pc-linux-gnu-gcc -E
+checking for C compiler vendor... clang
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking whether C compiler accepts -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection... yes
+checking whether the compiler supports function __attribute__((__warn_unused_result__))... yes
+checking for __attribute__... yes
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking whether clang++ supports C++11 features with -std=c++11... yes
+checking whether clang++ -std=c++11 supports C++17 features by default... no
+checking whether clang++ -std=c++11 supports C++17 features with -std=gnu++17... yes
+checking for grep that handles long lines and -e... (cached) /usr/sbin/grep
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/sbin/sed
+checking for egrep... /usr/sbin/grep -E
+checking for fgrep... /usr/sbin/grep -F
+checking for ld used by clang... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang supports -fno-rtti -fno-exceptions... yes
+checking for clang option to produce PIC... -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... yes
+checking if clang static flag -static works... yes
+checking if clang supports -c -o file.o... yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... clang++ -std=c++11 -std=gnu++17 -E
+checking for ld used by clang++ -std=c++11 -std=gnu++17... ld.lld -m elf_x86_64
+checking if the linker (ld.lld -m elf_x86_64) is GNU ld... yes
+checking whether the clang++ -std=c++11 -std=gnu++17 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking for clang++ -std=c++11 -std=gnu++17 option to produce PIC... -fPIC -DPIC
+checking if clang++ -std=c++11 -std=gnu++17 PIC flag -fPIC -DPIC works... yes
+checking if clang++ -std=c++11 -std=gnu++17 static flag -static works... yes
+checking if clang++ -std=c++11 -std=gnu++17 supports -c -o file.o... yes
+checking if clang++ -std=c++11 -std=gnu++17 supports -c -o file.o... (cached) yes
+checking whether the clang++ -std=c++11 -std=gnu++17 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for a sed that does not truncate output... (cached) /usr/sbin/sed
+checking for a Python interpreter with version >= 3.6... python
+checking for python... /usr/sbin/python
+checking for python version... 3.14
+checking for python platform... linux
+checking for GNU default python prefix... ${prefix}
+checking for GNU default python exec_prefix... ${exec_prefix}
+checking for python script directory (pythondir)... ${PYTHON_PREFIX}/lib/python3.14/site-packages
+checking for python extension module directory (pyexecdir)... ${PYTHON_EXEC_PREFIX}/lib/python3.14/site-packages
+checking for cygpath... no
+checking for perl... perl
+checking for pdflatex... no
+checking for pod2html... pod2html
+checking for diff... /usr/sbin/diff
+checking for /usr/sbin/diff context option... -u
+checking for stdint types... stdint.h (shortcircuit)
+make use of stdint.h in include/isl/stdint.h (assuming C99 compatible system)
+checking for clang options needed to detect all undeclared functions... none needed
+checking which gmp to use... system
+checking for gmp.h... yes
+checking for main in -lgmp... yes
+checking whether mp_get_memory_functions is declared... yes
+checking whether ffs is declared... yes
+checking whether __builtin_ffs is declared... no
+checking whether _BitScanForward is declared... no
+checking whether strcasecmp is declared... yes
+checking whether strncasecmp is declared... yes
+checking whether _stricmp is declared... no
+checking whether _strnicmp is declared... no
+checking whether snprintf is declared... yes
+checking whether _snprintf is declared... no
+checking which clang to use... no
+checking for C compiler vendor... (cached) clang
+checking our pkgconfig libname... isl
+checking our pkgconfig version... 0.28
+checking our pkgconfig_libdir... ${libdir}/pkgconfig
+expanded our pkgconfig_libdir... /usr/lib/pkgconfig
+checking our pkgconfig_libfile... isl.pc
+checking our package / suffix... isl / 
+checking our pkgconfig description... isl Library
+checking our pkgconfig requires... 
+checking our pkgconfig ext libs... -lisl -lgmp
+checking our pkgconfig cppflags... 
+checking our pkgconfig ldflags... 
+noninstalled pkgconfig -L /home/builder/build/src/isl-0.28/.libs
+noninstalled pkgconfig -I /home/builder/build/src/isl-0.28/./include
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating isl_srcdir.c
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating bound_test.sh
+config.status: creating codegen_test.sh
+config.status: creating pip_test.sh
+config.status: creating flow_test.sh
+config.status: creating schedule_test.sh
+config.status: creating isl_config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing include/isl/stdint.h commands
+config.status: creating include/isl/stdint.h : _ISL_INCLUDE_ISL_STDINT_H
+config.status: executing isl.pc commands
+config.status: creating isl.pc.in
+config.status: creating isl.pc
+config.status: creating isl-uninstalled.pc
+config.status: creating isl-uninstalled.sh
+  GEN      gitversion.h
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/isl-0.28'
+Making all in .
+make[2]: Entering directory '/home/builder/build/src/isl-0.28'
+  CC       isl_test.o
+  CC       isl_gmp.lo
+  CC       isl_val_gmp.lo
+  CC       isl_affine_hull.lo
+  CC       isl_aff_map.lo
+  CC       isl_aff.lo
+  CC       isl_arg.lo
+  CC       isl_ast.lo
+  CC       isl_ast_build_expr.lo
+  CC       isl_ast_codegen.lo
+  CC       isl_ast_build.lo
+  CC       isl_ast_graft.lo
+  CC       basis_reduction_tab.lo
+  CC       isl_bernstein.lo
+  CC       isl_blk.lo
+  CC       isl_bound.lo
+  CC       isl_box.lo
+  CC       isl_coalesce.lo
+  CC       isl_constraint.lo
+  CC       isl_convex_hull.lo
+  CC       isl_ctx.lo
+  CC       isl_deprecated.lo
+  CC       isl_dim_map.lo
+  CC       isl_equalities.lo
+  CC       isl_factorization.lo
+  CC       isl_farkas.lo
+  CC       isl_ffs.lo
+  CC       isl_flow.lo
+  CC       isl_fold.lo
+  CC       isl_hash.lo
+  CC       isl_id_set.lo
+  CC       isl_id_to_ast_expr.lo
+  CC       isl_id_to_id.lo
+  CC       isl_id_to_pw_aff.lo
+  CC       isl_ilp.lo
+  CC       isl_input.lo
+  CC       isl_local.lo
+  CC       isl_local_space.lo
+  CC       isl_lp.lo
+  CC       isl_map.lo
+  CC       isl_map_list.lo
+  CC       isl_map_simplify.lo
+  CC       isl_map_subtract.lo
+  CC       isl_map_to_basic_set.lo
+  CC       isl_mat.lo
+  CC       isl_morph.lo
+  CC       isl_id.lo
+  CC       isl_obj.lo
+  CC       isl_options.lo
+  CC       isl_output.lo
+  CC       isl_point.lo
+  CC       isl_polynomial.lo
+  CC       isl_printer.lo
+  CC       isl_range.lo
+  CC       print.lo
+  CC       isl_reordering.lo
+  CC       isl_sample.lo
+  CC       isl_scan.lo
+  CC       isl_schedule.lo
+  CC       isl_schedule_band.lo
+  CC       isl_schedule_node.lo
+  CC       isl_schedule_read.lo
+  CC       isl_schedule_tree.lo
+  CC       isl_schedule_constraints.lo
+  CC       isl_scheduler.lo
+  CC       isl_scheduler_clustering.lo
+  CC       isl_scheduler_scc.lo
+  CC       isl_set_list.lo
+  CC       isl_sort.lo
+  CC       isl_space.lo
+  CC       isl_stream.lo
+  CC       isl_seq.lo
+  CC       isl_set_to_ast_graft_list.lo
+  CC       isl_stride.lo
+  CC       isl_tab.lo
+  CC       isl_tab_pip.lo
+  CC       isl_tarjan.lo
+  CC       isl_transitive_closure.lo
+  CC       isl_union_map.lo
+  CC       isl_val.lo
+  CC       isl_vec.lo
+  CC       isl_version.lo
+  CC       isl_vertices.lo
+  CC       polyhedron_sample.o
+  CC       pip.o
+  CC       polyhedron_minimize.o
+  CC       polytope_scan.o
+  CC       polyhedron_detect_equalities.o
+  CC       polyhedron_remove_redundant_equalities.o
+  CC       cat.o
+  CC       closure.o
+  CC       bound.o
+  CC       schedule.o
+  CC       codegen.o
+  CC       isl_test_int.o
+  CC       flow.o
+  CC       flow_cmp.o
+  CC       schedule_cmp.o
+  CXX      isl_test2.o
+  CXX      isl_test_cpp-isl_test_cpp.o
+  CXX      isl_test_cpp17.o
+  CXX      isl_test_cpp17-checked.o
+  CXX      isl_test_cpp-checked.o
+  CXX      isl_test_cpp-checked-conversion.o
+  CC       dep.o
+  AR       libdep.a
+  CCLD     libisl.la
+  CCLD     isl_test
+  CCLD     isl_polyhedron_sample
+  CCLD     isl_pip
+  CCLD     isl_polyhedron_minimize
+  CCLD     isl_polyhedron_remove_redundant_equalities
+  CCLD     isl_closure
+  CCLD     isl_polyhedron_detect_equalities
+  CCLD     isl_polytope_scan
+  CCLD     isl_bound
+  CCLD     isl_cat
+  CCLD     isl_flow
+  CCLD     isl_schedule
+  CCLD     isl_codegen
+  CCLD     isl_schedule_cmp
+  CCLD     isl_test_int
+  CCLD     isl_flow_cmp
+  CXXLD    isl_test2
+  CXXLD    isl_test_cpp
+  CXXLD    isl_test_cpp17
+  GEN      interface/isldlname.py
+  CXXLD    isl_test_cpp-checked-conversion
+  CXXLD    isl_test_cpp17-checked
+  CXXLD    isl_test_cpp-checked
+  GEN      interface/isl.py
+make[2]: Leaving directory '/home/builder/build/src/isl-0.28'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/isl-0.28/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/isl-0.28/doc'
+make[1]: Leaving directory '/home/builder/build/src/isl-0.28'
+==> Entering fakeroot environment...
+==> Starting package()...
+make  install-recursive
+make[1]: Entering directory '/home/builder/build/src/isl-0.28'
+Making install in .
+make[2]: Entering directory '/home/builder/build/src/isl-0.28'
+make[3]: Entering directory '/home/builder/build/src/isl-0.28'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libisl/usr/include/isl'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libisl/usr/share/aclocal'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libisl/usr/lib/pkgconfig'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libisl/usr/include/isl'
+/usr/bin/install -c -m 644 ./libisl-gdb.py /home/builder/build/pkg/libisl/usr/lib/libisl.so.23.5.0-gdb.py
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libisl/usr/lib'
+ /usr/bin/install -c -m 644 include/isl/stdint.h '/home/builder/build/pkg/libisl/usr/include/isl'
+ /usr/bin/install -c -m 644 m4/isl_detect_clang.m4 '/home/builder/build/pkg/libisl/usr/share/aclocal'
+ /usr/bin/install -c -m 644 isl.pc '/home/builder/build/pkg/libisl/usr/lib/pkgconfig'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libisl.la '/home/builder/build/pkg/libisl/usr/lib'
+ /usr/bin/install -c -m 644 ./include/isl/cpp.h ./include/isl/typed_cpp.h include/isl/val_gmp.h include/isl/aff.h include/isl/aff_type.h include/isl/arg.h include/isl/ast.h include/isl/ast_type.h include/isl/ast_build.h include/isl/constraint.h include/isl/ctx.h include/isl/fixed_box.h include/isl/flow.h include/isl/id.h include/isl/id_set.h include/isl/id_type.h include/isl/id_to_ast_expr.h include/isl/id_to_id.h include/isl/id_to_pw_aff.h include/isl/ilp.h include/isl/hash.h include/isl/hbase.h include/isl/hbase_templ.c include/isl/hmap.h include/isl/hmap_templ.c include/isl/hset.h include/isl/hset_templ.c include/isl/list.h include/isl/local_space.h include/isl/lp.h include/isl/mat.h include/isl/map.h include/isl/map_to_basic_set.h include/isl/map_type.h include/isl/maybe.h include/isl/maybe_ast_expr.h include/isl/maybe_basic_set.h include/isl/maybe_id.h include/isl/maybe_pw_aff.h include/isl/maybe_templ.h '/home/builder/build/pkg/libisl/usr/include/isl'
+ /usr/bin/install -c -m 644 include/isl/multi.h include/isl/obj.h include/isl/options.h include/isl/point.h include/isl/polynomial.h include/isl/polynomial_type.h include/isl/printer.h include/isl/printer_type.h include/isl/schedule.h include/isl/schedule_node.h include/isl/schedule_type.h include/isl/set.h include/isl/set_type.h include/isl/space.h include/isl/space_type.h include/isl/stream.h include/isl/stride_info.h include/isl/union_map.h include/isl/union_map_type.h include/isl/union_set.h include/isl/union_set_type.h include/isl/val.h include/isl/val_type.h include/isl/vec.h include/isl/version.h include/isl/vertices.h '/home/builder/build/pkg/libisl/usr/include/isl'
+libtool: install: /usr/bin/install -c .libs/libisl.so.23.5.0 /home/builder/build/pkg/libisl/usr/lib/libisl.so.23.5.0
+libtool: install: (cd /home/builder/build/pkg/libisl/usr/lib && { ln -s -f libisl.so.23.5.0 libisl.so.23 || { rm -f libisl.so.23 && ln -s libisl.so.23.5.0 libisl.so.23; }; })
+libtool: install: (cd /home/builder/build/pkg/libisl/usr/lib && { ln -s -f libisl.so.23.5.0 libisl.so || { rm -f libisl.so && ln -s libisl.so.23.5.0 libisl.so; }; })
+libtool: install: /usr/bin/install -c .libs/libisl.lai /home/builder/build/pkg/libisl/usr/lib/libisl.la
+libtool: install: /usr/bin/install -c .libs/libisl.a /home/builder/build/pkg/libisl/usr/lib/libisl.a
+libtool: install: chmod 644 /home/builder/build/pkg/libisl/usr/lib/libisl.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/libisl/usr/lib/libisl.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[3]: Leaving directory '/home/builder/build/src/isl-0.28'
+make[2]: Leaving directory '/home/builder/build/src/isl-0.28'
+Making install in doc
+make[2]: Entering directory '/home/builder/build/src/isl-0.28/doc'
+make[3]: Entering directory '/home/builder/build/src/isl-0.28/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/isl-0.28/doc'
+make[2]: Leaving directory '/home/builder/build/src/isl-0.28/doc'
+make[1]: Leaving directory '/home/builder/build/src/isl-0.28'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libisl"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libisl 0.28-1 (Sun Sep 20 05:44:10 2026)

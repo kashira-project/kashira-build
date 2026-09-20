@@ -1,0 +1,372 @@
+== build libpcap (deps: bluez-libs dbus git glibc libdbus-1.so libnl sh )
+resolving dependencies...
+warning: dbus-1.16.2-1 is up to date -- skipping
+warning: glibc-2.44-2 is up to date -- skipping
+warning: dbus-1.16.2-1 is up to date -- skipping
+warning: libnl-3.12.0-1 is up to date -- skipping
+warning: bash-5.3-1 is up to date -- skipping
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (5) perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  bluez-libs-5.87-2  git-2.55.0-1
+
+Total Download Size:    7.03 MiB
+Total Installed Size:  46.35 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ bluez-libs-5.87-2-x86_64 downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing bluez-libs...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: libpcap 1.11.0-1 (Sun Sep 20 04:55:11 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning libpcap git repo...
+Cloning into bare repository '/sources/libpcap'...
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha512sums...
+    libpcap ... Passed
+==> Validating source files with b2sums...
+    libpcap ... Passed
+==> Extracting sources...
+  -> Creating working copy of libpcap git repo...
+Cloning into 'libpcap'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: no obvious need to run autopoint
+autoreconf: configure.ac: not using aclocal
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: configure.ac: no need to run autopoint (confirmed)
+autoreconf: running: /usr/bin/autoconf --force
+configure.ac:114: warning: The macro 'AC_PROG_CC_C99' is obsolete.
+configure.ac:114: You should run autoupdate.
+./lib/autoconf/c.m4:1788: AC_PROG_CC_C99 is expanded from...
+configure.ac:114: the top level
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: configure.ac: not using Automake
+autoreconf: './install-sh' is updated
+autoreconf: configure.ac: not running make: --make not given
+autoreconf: Leaving directory '.'
+==> Starting build()...
+configure: WARNING: unrecognized options: --enable-ipv6
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking for clang -std=gnu23 option to support large files... none needed
+checking for declarations of fseeko and ftello... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking size of void *... 8
+checking size of time_t... 8
+checking whether the compiler supports the -fvisibility=hidden option... yes
+checking for strerror_r... yes
+checking whether strerror_r is GNU-style... yes
+checking whether snprintf is suitable... yes
+checking for vasprintf... yes
+checking for asprintf... yes
+checking for strlcat... yes
+checking for strlcpy... yes
+checking for strtok_r... yes
+checking for getaddrinfo... yes
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether getnetbyname_r is declared... yes
+checking for the Linux getnetbyname_r()... yes
+checking whether getprotobyname_r is declared... yes
+checking for the Linux getprotobyname_r()... yes
+checking for ether_hostton... yes
+checking whether ether_hostton is declared... no
+checking whether ether_hostton is declared... yes
+checking if features.h defines __GLIBC__... yes
+checking for pthread.h... yes
+checking for pthread_create... yes
+checking whether to enable the instrument functions code... no
+checking if --disable-protochain option is specified... enabled
+checking packet capture type... linux
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.17.0... yes
+checking for brew... no
+checking for libnl-genl-3.0 with pkg-config... found
+checking whether SKF_AD_VLAN_TAG_PRESENT is declared... yes
+checking for __atomic_load_n... yes
+checking for __atomic_store_n... yes
+checking for getifaddrs... yes
+checking for ifaddrs.h... yes
+checking for linux/net_tstamp.h... yes
+checking for socklen_t... yes
+checking for dagapi.h... no
+checking for snf.h... no
+checking whether to enable remote packet capture... no
+checking whether to build optimizer debugging code... no
+checking whether to build parser debugging code... no
+checking for flex... flex
+checking for lex output file root... lex.yy
+checking for lex library... none needed
+checking whether yytext is a pointer... yes
+checking for capable lex... yes
+checking for bison... bison
+checking for ranlib... llvm-ranlib
+checking for ar... llvm-ar
+checking whether ln -s works... yes
+checking whether the compiler implements __builtin_bswap16()... yes
+checking whether the compiler implements __builtin_bswap32()... yes
+checking whether the compiler implements __builtin_bswap64()... yes
+checking whether the compiler implements __builtin_ctz()... yes
+checking for struct sockaddr.sa_len... no
+checking for Linux usbmon USB sniffing support... yes
+checking for linux/compiler.h... no
+checking for linux/usbdevice_fs.h... yes
+checking for struct usbdevfs_ctrltransfer.bRequestType... yes
+checking whether we can compile the netfilter support... yes
+checking whether we can compile the netmap support... no
+checking for bluetooth/bluetooth.h... yes
+configure: Bluetooth sniffing is supported
+checking for struct sockaddr_hci.hci_channel... yes
+checking if HCI_CHANNEL_MONITOR is defined... yes
+checking for dbus-1 with pkg-config... found
+checking whether the D-Bus library defines dbus_connection_read_write... yes
+checking for libibverbs with pkg-config... not found
+checking for ibv_get_device_list in -libverbs... no
+checking for a BSD-compatible install... /usr/bin/install -c
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating grammar.y
+config.status: creating pcap-filter.manmisc
+config.status: creating pcap-linktype.manmisc
+config.status: creating pcap-tstamp.manmisc
+config.status: creating pcap-savefile.manfile
+config.status: creating pcap.3pcap
+config.status: creating pcap_compile.3pcap
+config.status: creating pcap_datalink.3pcap
+config.status: creating pcap_dump_open.3pcap
+config.status: creating pcap_get_tstamp_precision.3pcap
+config.status: creating pcap_list_datalinks.3pcap
+config.status: creating pcap_list_tstamp_types.3pcap
+config.status: creating pcap_open_dead.3pcap
+config.status: creating pcap_open_offline.3pcap
+config.status: creating pcap_set_immediate_mode.3pcap
+config.status: creating pcap_set_tstamp_precision.3pcap
+config.status: creating pcap_set_tstamp_type.3pcap
+config.status: creating rpcapd/Makefile
+config.status: creating rpcapd/rpcapd.manadmin
+config.status: creating rpcapd/rpcapd-config.manfile
+config.status: creating testprogs/Makefile
+config.status: creating config.h
+config.status: executing .devel commands
+configure: WARNING: unrecognized options: --enable-ipv6
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-linux.o pcap-linux.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o fad-getad.o fad-getad.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-usb-linux.o pcap-usb-linux.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-netfilter-linux.o pcap-netfilter-linux.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-bt-linux.o pcap-bt-linux.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-bt-monitor-linux.o pcap-bt-monitor-linux.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-dbus.o pcap-dbus.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap.o pcap.c
+bison -p pcap_ -o grammar.c -d grammar.y
+flex -P pcap_ --header-file=scanner.h --nounput -o scanner.c scanner.l
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o optimize.o optimize.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o nametoaddr.o nametoaddr.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o etherent.o etherent.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o fmtutils.o fmtutils.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-util.o pcap-util.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-new.o pcap-new.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o savefile.o savefile.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o sf-pcap.o sf-pcap.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o sf-pcapng.o sf-pcapng.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o pcap-common.o pcap-common.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o bpf_image.o bpf_image.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o bpf_filter.o bpf_filter.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c -o bpf_dump.o bpf_dump.c
+./config.status --file=libpcap.pc.tmp:./libpcap.pc.in
+./config.status --file=pcap-config.tmp:./pcap-config.in
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c grammar.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c ./gencode.c
+clang -std=gnu23 -fvisibility=hidden -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -fpic -I.  -I/usr/include/libnl3 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -DBUILDING_PCAP -Dpcap_EXPORTS -DHAVE_CONFIG_H  -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection    -c scanner.c
+config.status: creating libpcap.pc.tmp
+config.status: creating pcap-config.tmp
+mv libpcap.pc.tmp libpcap.pc
+mv pcap-config.tmp pcap-config
+chmod a+x pcap-config
+llvm-ar rc libpcap.a pcap-linux.o fad-getad.o pcap-usb-linux.o pcap-netfilter-linux.o pcap-bt-linux.o pcap-bt-monitor-linux.o pcap-dbus.o pcap.o gencode.o optimize.o nametoaddr.o etherent.o fmtutils.o pcap-util.o pcap-new.o savefile.o sf-pcap.o sf-pcapng.o pcap-common.o bpf_image.o bpf_filter.o bpf_dump.o scanner.o grammar.o  
+VER=`cat ./VERSION`; \
+MAJOR_VER=`sed 's/\([0-9][0-9]*\)\..*/\1/' ./VERSION`; \
+clang -std=gnu23 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd  -shared -Wl,-soname,libpcap.so.$MAJOR_VER \
+    -o libpcap.so.$VER pcap-linux.o fad-getad.o pcap-usb-linux.o pcap-netfilter-linux.o pcap-bt-linux.o pcap-bt-monitor-linux.o pcap-dbus.o pcap.o gencode.o optimize.o nametoaddr.o etherent.o fmtutils.o pcap-util.o pcap-new.o savefile.o sf-pcap.o sf-pcapng.o pcap-common.o bpf_image.o bpf_filter.o bpf_dump.o scanner.o grammar.o   -lnl-genl-3 -lnl-3  -ldbus-1 
+llvm-ranlib libpcap.a
+==> Entering fakeroot environment...
+==> Starting package()...
+[ -d /home/builder/build/pkg/libpcap/usr/lib ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/lib; chmod 755 /home/builder/build/pkg/libpcap/usr/lib)
+VER=`cat ./VERSION`; \
+MAJOR_VER=`sed 's/\([0-9][0-9]*\)\..*/\1/' ./VERSION`; \
+clang -std=gnu23 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd  -shared -Wl,-soname,libpcap.so.$MAJOR_VER \
+    -o libpcap.so.$VER pcap-linux.o fad-getad.o pcap-usb-linux.o pcap-netfilter-linux.o pcap-bt-linux.o pcap-bt-monitor-linux.o pcap-dbus.o pcap.o gencode.o optimize.o nametoaddr.o etherent.o fmtutils.o pcap-util.o pcap-new.o savefile.o sf-pcap.o sf-pcapng.o pcap-common.o bpf_image.o bpf_filter.o bpf_dump.o scanner.o grammar.o   -lnl-genl-3 -lnl-3  -ldbus-1 
+/usr/bin/install -c -m 644 libpcap.a /home/builder/build/pkg/libpcap/usr/lib/libpcap.a
+llvm-ranlib /home/builder/build/pkg/libpcap/usr/lib/libpcap.a
+[ -d /home/builder/build/pkg/libpcap/usr/lib ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/lib; chmod 755 /home/builder/build/pkg/libpcap/usr/lib)
+VER=`cat ./VERSION`; \
+MAJOR_VER=`sed 's/\([0-9][0-9]*\)\..*/\1/' ./VERSION`; \
+/usr/bin/install -c libpcap.so.$VER /home/builder/build/pkg/libpcap/usr/lib/libpcap.so.$VER; \
+ln -sf libpcap.so.$VER /home/builder/build/pkg/libpcap/usr/lib/libpcap.so.$MAJOR_VER; \
+ln -sf libpcap.so.$MAJOR_VER /home/builder/build/pkg/libpcap/usr/lib/libpcap.so
+[ -d /home/builder/build/pkg/libpcap/usr/lib ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/lib; chmod 755 /home/builder/build/pkg/libpcap/usr/lib)
+[ -d /home/builder/build/pkg/libpcap/usr/include ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/include; chmod 755 /home/builder/build/pkg/libpcap/usr/include)
+[ -d /home/builder/build/pkg/libpcap/usr/include/pcap ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/include/pcap; chmod 755 /home/builder/build/pkg/libpcap/usr/include/pcap)
+[ -d /home/builder/build/pkg/libpcap/usr/share/man/man1 ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/share/man/man1; chmod 755 /home/builder/build/pkg/libpcap/usr/share/man/man1)
+[ -d /home/builder/build/pkg/libpcap/usr/share/man/man3 ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/share/man/man3; chmod 755 /home/builder/build/pkg/libpcap/usr/share/man/man3)
+[ -d /home/builder/build/pkg/libpcap/usr/share/man/man5 ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/share/man/man5; chmod 755 /home/builder/build/pkg/libpcap/usr/share/man/man5)
+[ -d /home/builder/build/pkg/libpcap/usr/share/man/man7 ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/share/man/man7; chmod 755 /home/builder/build/pkg/libpcap/usr/share/man/man7)
+for i in pcap.h pcap-bpf.h pcap-namedb.h pcap/bluetooth.h pcap/bpf.h pcap/can_socketcan.h pcap/compiler-tests.h pcap/dlt.h pcap/funcattrs.h pcap/ipnet.h pcap/namedb.h pcap/nflog.h pcap/pcap-inttypes.h pcap/pcap.h pcap/sll.h pcap/socket.h pcap/usb.h pcap/vlan.h; do \
+	/usr/bin/install -c -m 644 ./$i \
+	    /home/builder/build/pkg/libpcap/usr/include/$i; done
+[ -d /home/builder/build/pkg/libpcap/usr/bin ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/bin; chmod 755 /home/builder/build/pkg/libpcap/usr/bin)
+/usr/bin/install -c pcap-config /home/builder/build/pkg/libpcap/usr/bin/pcap-config
+[ -d /home/builder/build/pkg/libpcap/usr/lib/pkgconfig ] || \
+    (mkdir -p /home/builder/build/pkg/libpcap/usr/lib/pkgconfig; chmod 755 /home/builder/build/pkg/libpcap/usr/lib/pkgconfig)
+/usr/bin/install -c -m 644 libpcap.pc /home/builder/build/pkg/libpcap/usr/lib/pkgconfig/libpcap.pc
+for i in pcap-config.1; do \
+	/usr/bin/install -c -m 644 ./$i \
+	    /home/builder/build/pkg/libpcap/usr/share/man/man1/$i; done
+for i in pcap_activate.3pcap pcap_breakloop.3pcap pcap_can_set_rfmon.3pcap pcap_close.3pcap pcap_create.3pcap pcap_datalink_name_to_val.3pcap pcap_datalink_val_to_name.3pcap pcap_dump.3pcap pcap_dump_close.3pcap pcap_dump_file.3pcap pcap_dump_flush.3pcap pcap_dump_ftell.3pcap pcap_file.3pcap pcap_fileno.3pcap pcap_findalldevs.3pcap pcap_freecode.3pcap pcap_get_required_select_timeout.3pcap pcap_get_selectable_fd.3pcap pcap_geterr.3pcap pcap_init.3pcap pcap_inject.3pcap pcap_is_swapped.3pcap pcap_lib_version.3pcap pcap_lookupdev.3pcap pcap_lookupnet.3pcap pcap_loop.3pcap pcap_major_version.3pcap pcap_next_ex.3pcap pcap_offline_filter.3pcap pcap_open_live.3pcap pcap_set_buffer_size.3pcap pcap_set_datalink.3pcap pcap_set_promisc.3pcap pcap_set_protocol_linux.3pcap pcap_set_rfmon.3pcap pcap_set_snaplen.3pcap pcap_set_timeout.3pcap pcap_setdirection.3pcap pcap_setfilter.3pcap pcap_setnonblock.3pcap pcap_snapshot.3pcap pcap_stats.3pcap pcap_statustostr.3pcap pcap_strerror.3pcap pcap_tstamp_type_name_to_val.3pcap pcap_tstamp_type_val_to_name.3pcap; do \
+	/usr/bin/install -c -m 644 ./$i \
+	    /home/builder/build/pkg/libpcap/usr/share/man/man3/$i; done
+for i in pcap.3pcap pcap_compile.3pcap pcap_datalink.3pcap pcap_dump_open.3pcap pcap_get_tstamp_precision.3pcap pcap_list_datalinks.3pcap pcap_list_tstamp_types.3pcap pcap_open_dead.3pcap pcap_open_offline.3pcap pcap_set_immediate_mode.3pcap pcap_set_tstamp_precision.3pcap pcap_set_tstamp_type.3pcap; do \
+	/usr/bin/install -c -m 644 $i \
+	    /home/builder/build/pkg/libpcap/usr/share/man/man3/$i; done
+(cd /home/builder/build/pkg/libpcap/usr/share/man/man3 && \
+rm -f pcap_datalink_val_to_description.3pcap && \
+ln -s pcap_datalink_val_to_name.3pcap \
+	 pcap_datalink_val_to_description.3pcap && \
+rm -f pcap_datalink_val_to_description_or_dlt.3pcap && \
+ln -s pcap_datalink_val_to_name.3pcap \
+	 pcap_datalink_val_to_description_or_dlt.3pcap && \
+rm -f pcap_dump_fopen.3pcap && \
+ln -s pcap_dump_open.3pcap pcap_dump_fopen.3pcap && \
+rm -f pcap_freealldevs.3pcap && \
+ln -s pcap_findalldevs.3pcap pcap_freealldevs.3pcap && \
+rm -f pcap_perror.3pcap && \
+ln -s pcap_geterr.3pcap pcap_perror.3pcap && \
+rm -f pcap_sendpacket.3pcap && \
+ln -s pcap_inject.3pcap pcap_sendpacket.3pcap && \
+rm -f pcap_free_datalinks.3pcap && \
+ln -s pcap_list_datalinks.3pcap pcap_free_datalinks.3pcap && \
+rm -f pcap_free_tstamp_types.3pcap && \
+ln -s pcap_list_tstamp_types.3pcap pcap_free_tstamp_types.3pcap && \
+rm -f pcap_dispatch.3pcap && \
+ln -s pcap_loop.3pcap pcap_dispatch.3pcap && \
+rm -f pcap_minor_version.3pcap && \
+ln -s pcap_major_version.3pcap pcap_minor_version.3pcap && \
+rm -f pcap_next.3pcap && \
+ln -s pcap_next_ex.3pcap pcap_next.3pcap && \
+rm -f pcap_open_dead_with_tstamp_precision.3pcap && \
+ln -s pcap_open_dead.3pcap \
+	 pcap_open_dead_with_tstamp_precision.3pcap && \
+rm -f pcap_open_offline_with_tstamp_precision.3pcap && \
+ln -s pcap_open_offline.3pcap pcap_open_offline_with_tstamp_precision.3pcap && \
+rm -f pcap_fopen_offline.3pcap && \
+ln -s pcap_open_offline.3pcap pcap_fopen_offline.3pcap && \
+rm -f pcap_fopen_offline_with_tstamp_precision.3pcap && \
+ln -s pcap_open_offline.3pcap pcap_fopen_offline_with_tstamp_precision.3pcap && \
+rm -f pcap_tstamp_type_val_to_description.3pcap && \
+ln -s pcap_tstamp_type_val_to_name.3pcap pcap_tstamp_type_val_to_description.3pcap && \
+rm -f pcap_getnonblock.3pcap && \
+ln -s pcap_setnonblock.3pcap pcap_getnonblock.3pcap)
+for i in pcap-savefile.manfile.in; do \
+	/usr/bin/install -c -m 644 `echo $i | sed 's/.manfile.in/.manfile/'` \
+	    /home/builder/build/pkg/libpcap/usr/share/man/man5/`echo $i | sed 's/.manfile.in/.5/'`; done
+for i in pcap-filter.manmisc.in pcap-linktype.manmisc.in pcap-tstamp.manmisc.in; do \
+	/usr/bin/install -c -m 644 `echo $i | sed 's/.manmisc.in/.manmisc/'` \
+	    /home/builder/build/pkg/libpcap/usr/share/man/man7/`echo $i | sed 's/.manmisc.in/.7/'`; done
+install: creating directory '/home/builder/build/pkg/libpcap/usr/share/licenses'
+install: creating directory '/home/builder/build/pkg/libpcap/usr/share/licenses/libpcap'
+'LICENSE' -> '/home/builder/build/pkg/libpcap/usr/share/licenses/libpcap/LICENSE'
+install: creating directory '/home/builder/build/pkg/libpcap/usr/share/doc'
+install: creating directory '/home/builder/build/pkg/libpcap/usr/share/doc/libpcap'
+'CHANGES' -> '/home/builder/build/pkg/libpcap/usr/share/doc/libpcap/CHANGES'
+'CONTRIBUTING.md' -> '/home/builder/build/pkg/libpcap/usr/share/doc/libpcap/CONTRIBUTING.md'
+'README.md' -> '/home/builder/build/pkg/libpcap/usr/share/doc/libpcap/README.md'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libpcap"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libpcap 1.11.0-1 (Sun Sep 20 04:56:13 2026)

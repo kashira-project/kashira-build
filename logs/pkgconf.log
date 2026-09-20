@@ -1,0 +1,260 @@
+== build pkgconf (deps: git glibc meson )
+warning: glibc-2.44-2 is up to date -- skipping
+resolving dependencies...
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+looking for conflicting packages...
+
+Packages (7) ninja-1.13.2-1  perl-error-0.17030-1  perl-mailtools-2.22-1  perl-timedate-2.35-1  python-tqdm-4.70.1-1  git-2.55.0-1  meson-1.12.0-1
+
+Total Download Size:    9.70 MiB
+Total Installed Size:  64.19 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ git-2.55.0-1-x86_64 downloading...
+ meson-1.12.0-1-any downloading...
+ ninja-1.13.2-1-x86_64 downloading...
+ python-tqdm-4.70.1-1-any downloading...
+ perl-mailtools-2.22-1-any downloading...
+ perl-timedate-2.35-1-any downloading...
+ perl-error-0.17030-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing perl-error...
+installing perl-timedate...
+installing perl-mailtools...
+installing git...
+Optional dependencies for git
+    libsecret: git-credential-libsecret credential helper [installed]
+installing ninja...
+installing python-tqdm...
+Optional dependencies for python-tqdm
+    python-requests: telegram
+installing meson...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Making package: pkgconf 3.0.7-1 (Sun Sep 20 04:53:21 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Cloning pkgconf git repo...
+Cloning into bare repository '/sources/pkgconf'...
+  -> Found x86_64-pc-linux-gnu.personality
+  -> Found i686-pc-linux-gnu.personality
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with b2sums...
+    pkgconf ... Passed
+    x86_64-pc-linux-gnu.personality ... Passed
+    i686-pc-linux-gnu.personality ... Passed
+==> Extracting sources...
+  -> Creating working copy of pkgconf git repo...
+Cloning into 'pkgconf'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting prepare()...
+==> Starting build()...
+pkgconf has no wrap files
++ exec meson setup --prefix /usr --libexecdir lib --sbindir bin --buildtype plain --auto-features enabled --wrap-mode nodownload -D b_pie=true -D python.bytecompile=1 pkgconf build
+Generating targets:   0%|          | 0/25 eta ?The Meson build system
+Version: 1.12.0
+Source dir: /home/builder/build/src/pkgconf
+Build dir: /home/builder/build/src/build
+Build type: native build
+Project name: pkgconf
+Project version: 3.0.7
+C compiler for the host machine: clang (clang 23.1.1 "clang version 23.1.1 (Kashira)")
+C linker for the host machine: clang ld.lld 23.1.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Compiler for C supports arguments -Wdate-time: YES 
+Compiler for C supports arguments -Wformat=2: YES 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Compiler for C supports arguments -Wmisleading-indentation: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wmissing-variable-declarations: YES 
+Compiler for C supports arguments -Wnested-externs: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wshadow: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Checking for function "getc_unlocked" : YES 
+Header "stdio.h" has symbol "getc_unlocked" : YES 
+Checking for function "strndup" : YES 
+Header "string.h" has symbol "strndup" : YES 
+Checking for function "strdup" : YES 
+Header "string.h" has symbol "strdup" : YES 
+Checking for function "strncasecmp" : YES 
+Header "strings.h" has symbol "strncasecmp" : YES 
+Checking for function "strcasecmp" : YES 
+Header "strings.h" has symbol "strcasecmp" : YES 
+Checking for function "reallocarray" : YES 
+Header "stdlib.h" has symbol "reallocarray" : YES 
+Checking for function "pledge" : NO 
+Checking for function "unveil" : NO 
+Checking for function "readlinkat" : YES 
+Header "unistd.h" has symbol "readlinkat" : YES 
+Checking for function "mkdtemp" : YES 
+Header "stdlib.h" has symbol "mkdtemp" : YES 
+Checking for function "nl_langinfo_l" : YES 
+Header "langinfo.h" has symbol "nl_langinfo_l" : YES 
+Configuring config.h using configuration
+Found pkg-config: YES (/usr/sbin/pkg-config) 3.0.5
+Compiler for C supports link arguments -Wl,--wrap=calloc: YES 
+Build targets in project: 25
+
+pkgconf 3.0.7
+
+  User defined options
+    auto_features     : enabled
+    b_pie             : true
+    buildtype         : plain
+    libexecdir        : lib
+    prefix            : /usr
+    python.bytecompile: 1
+    sbindir           : bin
+    wrap_mode         : nodownload
+
+Found ninja-1.13.2 at /usr/sbin/ninja
+Generating targets:  96%|█████████▌| 24/25 eta 00:00                                                    Writing build.ninja:   0%|          | 0/151 eta ?                                                 ninja: Entering directory `/home/builder/build/src/build'
+[1/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_audit.c.o
+[2/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_bsdstubs.c.o
+[3/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_parser.c.o
+[4/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_bufferset.c.o
+[5/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_cache.c.o
+[6/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_fileio.c.o
+[7/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_personality.c.o
+[8/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_output.c.o
+[9/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_argvsplit.c.o
+[10/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_path.c.o
+[11/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_license.c.o
+[12/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_dependency.c.o
+[13/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_tuple.c.o
+[14/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_client.c.o
+[15/66] Compiling C object pkgconf.p/cli_renderer-msvc.c.o
+[16/66] Compiling C object spdxtool.p/cli_spdxtool_main.c.o
+[17/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_queue.c.o
+[18/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_variable.c.o
+[19/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_bytecode.c.o
+[20/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_version.c.o
+[21/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_buffer.c.o
+[22/66] Compiling C object spdxtool.p/cli_spdxtool_simplelicensing.c.o
+[23/66] Compiling C object pkgconf.p/cli_getopt_long.c.o
+[24/66] Compiling C object bomtool.p/cli_getopt_long.c.o
+[25/66] Compiling C object spdxtool.p/cli_spdxtool_software.c.o
+[26/66] Compiling C object bomtool.p/cli_bomtool_main.c.o
+[27/66] Compiling C object spdxtool.p/cli_spdxtool_serialize.c.o
+[28/66] Compiling C object spdxtool.p/cli_spdxtool_util.c.o
+[29/66] Compiling C object pkgconf.p/cli_main.c.o
+[30/66] Compiling C object pccritic.p/cli_pccritic_main.c.o
+[31/66] Compiling C object spdxtool.p/cli_spdxtool_core.c.o
+[32/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_argvsplit.c.o
+[33/66] Compiling C object spdxtool.p/cli_spdxtool_generate.c.o
+[34/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_fragment.c.o
+[35/66] Compiling C object pkgconf.p/cli_core.c.o
+[36/66] Compiling C object libpkgconf.so.8.0.0.p/libpkgconf_pkg.c.o
+[37/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_bufferset.c.o
+[38/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_bsdstubs.c.o
+[39/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_audit.c.o
+[40/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_cache.c.o
+[41/66] Compiling C object spdxtool.p/cli_getopt_long.c.o
+[42/66] Compiling C object pccritic.p/cli_pccritic_critic.c.o
+[43/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_fileio.c.o
+[44/66] Compiling C object pccritic.p/cli_getopt_long.c.o
+[45/66] Linking target libpkgconf.so.8.0.0
+[46/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_output.c.o
+[47/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_client.c.o
+[48/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_parser.c.o
+[49/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_buffer.c.o
+[50/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_bytecode.c.o
+[51/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_personality.c.o
+[52/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_tuple.c.o
+[53/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_variable.c.o
+[54/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_path.c.o
+[55/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_queue.c.o
+[56/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_dependency.c.o
+[57/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_license.c.o
+[58/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_version.c.o
+[59/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_fragment.c.o
+[60/66] Generating symbol file libpkgconf.so.8.0.0.p/libpkgconf.so.8.0.0.symbols
+[61/66] Linking target bomtool
+[62/66] Linking target pkgconf
+[63/66] Linking target pccritic
+[64/66] Linking target spdxtool
+[65/66] Compiling C object libpkgconf-fault.a.p/libpkgconf_pkg.c.o
+[66/66] Linking static target libpkgconf-fault.a
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/sbin/ninja -C /home/builder/build/src/build
+==> Entering fakeroot environment...
+==> Starting package()...
+ninja: Entering directory `/home/builder/build/src/build'
+ninja: no work to do.
+Installing libpkgconf.so.8.0.0 to /home/builder/build/pkg/pkgconf/usr/lib
+Installing pkgconf to /home/builder/build/pkg/pkgconf/usr/bin
+Installing bomtool to /home/builder/build/pkg/pkgconf/usr/bin
+Installing spdxtool to /home/builder/build/pkg/pkgconf/usr/bin
+Installing pccritic to /home/builder/build/pkg/pkgconf/usr/bin
+Installing /home/builder/build/src/pkgconf/libpkgconf/libpkgconf.h to /home/builder/build/pkg/pkgconf/usr/include/pkgconf/libpkgconf
+Installing /home/builder/build/src/pkgconf/libpkgconf/stdinc.h to /home/builder/build/pkg/pkgconf/usr/include/pkgconf/libpkgconf
+Installing /home/builder/build/src/pkgconf/libpkgconf/iter.h to /home/builder/build/pkg/pkgconf/usr/include/pkgconf/libpkgconf
+Installing /home/builder/build/src/pkgconf/libpkgconf/bsdstubs.h to /home/builder/build/pkg/pkgconf/usr/include/pkgconf/libpkgconf
+Installing /home/builder/build/src/pkgconf/libpkgconf/libpkgconf-api.h to /home/builder/build/pkg/pkgconf/usr/include/pkgconf/libpkgconf
+Installing /home/builder/build/src/pkgconf/man/bomtool.1 to /home/builder/build/pkg/pkgconf/usr/share/man/man1
+Installing /home/builder/build/src/pkgconf/man/pkgconf.1 to /home/builder/build/pkg/pkgconf/usr/share/man/man1
+Installing /home/builder/build/src/pkgconf/man/pkg.m4.7 to /home/builder/build/pkg/pkgconf/usr/share/man/man7
+Installing /home/builder/build/src/pkgconf/man/pc.5 to /home/builder/build/pkg/pkgconf/usr/share/man/man5
+Installing /home/builder/build/src/pkgconf/man/pkgconf-personality.5 to /home/builder/build/pkg/pkgconf/usr/share/man/man5
+Installing /home/builder/build/src/pkgconf/man/spdxtool.1 to /home/builder/build/pkg/pkgconf/usr/share/man/man1
+Installing /home/builder/build/src/pkgconf/man/pccritic.1 to /home/builder/build/pkg/pkgconf/usr/share/man/man1
+Installing /home/builder/build/src/build/meson-private/libpkgconf.pc to /home/builder/build/pkg/pkgconf/usr/lib/pkgconfig
+Installing /home/builder/build/src/pkgconf/pkg.m4 to /home/builder/build/pkg/pkgconf/usr/share/aclocal
+Installing /home/builder/build/src/pkgconf/AUTHORS to /home/builder/build/pkg/pkgconf/usr/share/doc/pkgconf
+Installing /home/builder/build/src/pkgconf/README.md to /home/builder/build/pkg/pkgconf/usr/share/doc/pkgconf
+Installing /home/builder/build/src/pkgconf/COPYING to /home/builder/build/pkg/pkgconf/usr/share/doc/pkgconf
+Installing symlink pointing to libpkgconf.so.8.0.0 to /home/builder/build/pkg/pkgconf/usr/lib/libpkgconf.so.8
+Installing symlink pointing to libpkgconf.so.8 to /home/builder/build/pkg/pkgconf/usr/lib/libpkgconf.so
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "pkgconf"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: pkgconf 3.0.7-1 (Sun Sep 20 04:53:41 2026)

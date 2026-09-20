@@ -1,0 +1,764 @@
+== build libmicrohttpd (deps: glibc gnutls )
+warning: glibc-2.44-2 is up to date -- skipping
+warning: gnutls-3.8.13-1 is up to date -- skipping
+ there is nothing to do
+==> Making package: libmicrohttpd 1.0.10-1 (Sun Sep 20 04:18:17 2026)
+==> WARNING: Skipping dependency checks.
+==> Retrieving sources...
+  -> Downloading libmicrohttpd-1.0.10.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  3  2.50M   3  95493   0      0  51408      0   00:51   00:01   00:50  91998 29  2.50M  29 757.3k   0      0 231.7k      0   00:11   00:03   00:08 309.3k 64  2.50M  64  1.62M   0      0 384.9k      0   00:06   00:04   00:02 475.0k100  2.50M 100  2.50M   0      0 512.7k      0   00:05   00:05         475.0k100  2.50M 100  2.50M   0      0 512.7k      0   00:05   00:05         475.0k100  2.50M 100  2.50M   0      0 512.7k      0   00:05   00:05         475.0k
+  -> Downloading libmicrohttpd-1.0.10.tar.gz.sig...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    833 100    833   0      0    790      0   00:01   00:01              0100    833 100    833   0      0    790      0   00:01   00:01              0100    833 100    833   0      0    790      0   00:01   00:01              0
+==> WARNING: Skipping verification of source file PGP signatures.
+==> Validating source files with sha256sums...
+    libmicrohttpd-1.0.10.tar.gz ... Passed
+    libmicrohttpd-1.0.10.tar.gz.sig ... Skipped
+==> Extracting sources...
+  -> Extracting libmicrohttpd-1.0.10.tar.gz with bsdtar
+==> Starting prepare()...
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:137: installing 'build-aux/compile'
+configure.ac:127: installing 'build-aux/missing'
+doc/examples/Makefile.am: installing 'build-aux/depcomp'
+==> Starting build()...
+checking for build type... neutral. Defaults: use only user-specified compiler and linker flags
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/sbin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking for gawk... (cached) gawk
+checking for grep that handles long lines and -e... /usr/sbin/grep
+checking for fgrep... /usr/sbin/grep -F
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C23 features... -std=gnu23
+checking whether clang -std=gnu23 understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang -std=gnu23... none
+checking for clang -std=gnu23 options to detect undeclared functions... none needed
+checking how to run the C preprocessor... clang-cpp
+checking for presence of stdio.h... yes
+checking for presence of wchar.h... yes
+checking for presence of stdlib.h... yes
+checking for presence of string.h... yes
+checking for presence of strings.h... yes
+checking for presence of stdint.h... yes
+checking for presence of fcntl.h... yes
+checking for presence of sys/types.h... yes
+checking for presence of time.h... yes
+checking for presence of unistd.h... yes
+checking whether _GNU_SOURCE is already defined... no
+checking whether headers accept _GNU_SOURCE... yes
+checking whether to try __BSD_VISIBLE macro... no
+checking whether to try _DARWIN_C_SOURCE macro... no
+checking whether to try __EXTENSIONS__ macro... no
+checking whether to try _NETBSD_SOURCE macro... no
+checking whether to try _BSD_SOURCE macro... no
+checking whether to try _TANDEM_SOURCE macro... no
+checking whether to try _ALL_SOURCE macro... no
+checking whether _XOPEN_SOURCE is already defined... no
+checking headers for POSIX.1-2008/SUSv4 features... available, works with _XOPEN_SOURCE=700, works with extension macro
+checking for useful system-specific features... no
+checking for final set of defined symbols... _GNU_SOURCE _XOPEN_SOURCE=700
+checking for clang -std=gnu23 option to support large files... none needed
+checking for clang -std=gnu23 option to support timestamps after 2038... none needed
+checking for declarations of fseeko and ftello... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/sbin/sed
+checking for egrep... /usr/sbin/grep -E
+checking for ld used by clang -std=gnu23... ld.lld
+checking if the linker (ld.lld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... llvm-nm
+checking the name lister (llvm-nm) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for ld.lld option to reload object files... -r
+checking for file... file
+checking for objdump... llvm-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... llvm-ranlib
+checking for archiver @FILE support... @
+checking for strip... llvm-strip
+checking command to parse llvm-nm output from clang -std=gnu23 object... ok
+checking for sysroot... no
+checking for a working dd... /usr/sbin/dd
+checking how to truncate binary pipes... /usr/sbin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for errno.h... yes
+checking for limits.h... yes
+checking for fcntl.h... yes
+checking for dlfcn.h... yes
+checking which variant of shared library versioning to provide... (default) aix
+checking for objdir... .libs
+checking if clang -std=gnu23 supports -fno-rtti -fno-exceptions... yes
+checking for clang -std=gnu23 option to produce PIC... -fPIC -DPIC
+checking if clang -std=gnu23 PIC flag -fPIC -DPIC works... yes
+checking if clang -std=gnu23 static flag -static works... yes
+checking if clang -std=gnu23 supports -c -o file.o... yes
+checking if clang -std=gnu23 supports -c -o file.o... (cached) yes
+checking whether the clang -std=gnu23 linker (ld.lld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for windres... windres
+checking for clang -std=gnu23 options to ignore future-version functions... none needed
+checking whether MHD_FAVOR_SMALL_CODE is declared... no
+checking whether MHD_FAVOR_FAST_CODE is declared... no
+checking whether compiler is configured to optimize for size... no
+checking whether to use a reduced size version of the code... no (by default)
+checking for clang -std=gnu23 flag to warn on unknown -W parameters... none needed
+checking whether clang -std=gnu23 supports -Wunused-command-line-argument flag... yes
+checking whether clang -std=gnu23 supports -Wignored-optimization-argument flag... yes
+checking whether clang -std=gnu23 supports -Winvalid-command-line-argument flag... yes
+checking whether clang -std=gnu23 supports -Wunknown-argument flag... yes
+checking whether clang -std=gnu23 supports -fno-strict-aliasing flag... yes
+checking whether clang -std=gnu23 supports -qlonglong flag... no
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/uio.h... yes
+checking for sys/time.h... yes
+checking for time.h... yes
+checking for endian.h... yes
+checking for machine/endian.h... no
+checking for sys/endian.h... no
+checking for sys/byteorder.h... no
+checking for sys/machine.h... no
+checking for machine/param.h... no
+checking for sys/param.h... yes
+checking for sys/isa_defs.h... no
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... yes
+checking for sys/select.h... yes
+checking for netinet/in_systm.h... yes
+checking for netinet/in.h... yes
+checking for arpa/inet.h... yes
+checking for netinet/ip.h... yes
+checking for netinet/tcp.h... yes
+checking for net/if.h... yes
+checking for netdb.h... yes
+checking for sockLib.h... no
+checking for inetLib.h... no
+checking for sys/msg.h... yes
+checking for sys/mman.h... yes
+checking for signal.h... yes
+checking for search.h... yes
+checking for proper tsearch(), tfind() and tdelete()... yes
+checking for sys/sysctl.h... no
+checking for netinet/ip_icmp.h... yes
+checking for netinet/icmp_var.h... no
+checking whether "bool", "true" and "false" work natively... yes
+checking for inline... inline
+checking whether clang -std=gnu23 supports -Werror=attributes flag... yes
+checking whether -Werror=attributes actually works... yes
+checking for function force inline keywords supported by clang -std=gnu23... inline __attribute__((always_inline))
+checking for stdalign.h... yes
+checking for C11 'alignof()' support... yes
+checking for target host OS... GNU/Linux
+checking for egrep -e... (cached) /usr/sbin/grep -E
+checking whether clang -std=gnu23 is Clang... yes
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking whether pthread_sigmask is declared... yes
+checking for function pthread_sigmask... yes
+checking for threading lib to use with libmicrohttpd (auto)... posix
+checking for pthread_np.h... no
+checking whether pthread_attr_setname_np is declared... no
+checking whether pthread_setname_np is declared... yes
+checking for pthread_setname_np(3) in NetBSD or OSF1 form... no
+checking for pthread_setname_np(3) in GNU/Linux form... yes
+checking whether to enable thread names... yes
+checking whether socket is declared... yes
+checking for library containing function socket... none required
+checking for sys/time.h... (cached) yes
+checking for time.h... (cached) yes
+checking whether gettimeofday is declared... yes
+checking for function gettimeofday... yes
+checking whether usleep is declared... yes
+checking for function usleep... yes
+checking whether nanosleep is declared... yes
+checking for function nanosleep... yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking for netinet/in.h... (cached) yes
+checking for time.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking for netinet/tcp.h... (cached) yes
+checking whether shutdown of listen socket triggers select()... yes
+checking for system default FD_SETSIZE value... 1024
+checking for current FD_SETSIZE value... 1024
+checking whether FD_SETSIZE is overridable... no
+checking whether socket value is a signed type... yes
+checking whether writev is declared... yes
+checking for function writev... yes
+checking whether sendmsg is declared... yes
+checking for library containing function sendmsg... none required
+checking whether byte ordering is bigendian... no
+checking for variable-length arrays... yes
+checking whether __func__ magic-macro is available... yes
+checking whether __builtin_bswap32() is available... yes
+checking whether __builtin_bswap64() is available... yes
+checking for curl... yes
+checking for makeinfo... yes
+checking for poll.h... yes
+checking whether poll is declared... yes
+checking for function poll... yes
+checking whether epoll_create is declared... yes
+checking whether 'epoll_create' available and works... yes
+checking whether epoll_create1 is declared... yes
+checking for function epoll_create1... yes
+checking for supported 'noreturn' keyword... [[noreturn]]
+checking size of tv_sec member of struct timeval... 8
+checking size of int64_t... 8
+checking size of uint64_t... 8
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of unsigned long long... 8
+checking size of size_t... 8
+checking for dlfcn.h... (cached) yes
+checking for zlib.h... yes
+checking for jansson.h... yes
+checking whether random is declared... yes
+checking for function random... yes
+checking for struct sockaddr.sa_len... no
+checking for struct sockaddr_storage.ss_len... no
+checking for struct sockaddr_in.sin_len... no
+checking for struct sockaddr_in6.sin6_len... no
+checking whether getsockname is declared... yes
+checking whether 'getsockname' available and works... yes
+checking for usable PAGESIZE macro... no
+checking for usable PAGE_SIZE macro... no
+checking whether eventfd is declared... yes
+checking whether 'eventfd' available and works... yes
+checking whether accept4 is declared... yes
+checking for function accept4... yes
+checking whether gmtime_r is declared... yes
+checking for function gmtime_r... yes
+checking whether memmem is declared... yes
+checking for function memmem... yes
+checking whether snprintf is declared... yes
+checking for function snprintf... yes
+checking whether gmtime_s is declared... no
+checking whether SOCK_NONBLOCK is declared... yes
+checking whether clock_gettime is declared... yes
+checking for library containing function clock_gettime... none required
+checking whether clock_get_time is declared... no
+checking for function clock_get_time... (cached) no
+checking whether gethrtime is declared... no
+checking for function gethrtime... (cached) no
+checking whether timespec_get is declared... yes
+checking for function timespec_get... yes
+checking for sys/time.h... (cached) yes
+checking for time.h... (cached) yes
+checking for function gettimeofday... (cached) yes
+checking for IPv6... yes
+checking whether sysconf is declared... yes
+checking for function sysconf... yes
+checking whether sysctl is declared... no
+checking for function sysctl... (cached) no
+checking whether sysctlbyname is declared... no
+checking for function sysctlbyname... (cached) no
+checking for function usleep... (cached) yes
+checking for function nanosleep... (cached) yes
+checking whether clang -std=gnu23 supports -fvisibility=hidden flag... yes
+checking whether clang -std=gnu23 supports __attribute__((visibility("default")))... yes
+checking for gawk... (cached) gawk
+checking for curl-config... /usr/sbin/curl-config
+checking for the version of libcurl... 8.22.0
+checking for libcurl >= version 7.16.4... yes
+checking whether libcurl is usable... yes
+checking whether curl_free is declared... yes
+checking whether magic_open is declared... yes
+checking for function magic_open... yes
+checking whether lseek64 is declared... yes
+checking for function lseek64... yes
+checking whether pread64 is declared... yes
+checking for function pread64... yes
+checking whether pread is declared... yes
+checking for function pread... yes
+checking for Linux-style sendfile(2)... yes
+checking whether sendfile64 is declared... yes
+checking for function sendfile64... yes
+checking whether to generate text messages... yes
+checking whether to enable postprocessor... yes
+checking for pkg-config... /usr/sbin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking how to find GnuTLS library... automatically
+checking for gnutls... yes
+checking whether GnuTLS is usable... yes
+checking for gnutls_privkey_import_x509_raw()... yes
+checking whether GnuTLS require libgcrypt initialisation... no
+checking whether to support HTTPS... yes (using libgnutls)
+checking for GnuTLS quirks... no
+checking for gnutls-cli binary... yes
+checking whether to support HTTP Basic authentication... yes
+checking whether to support HTTP Digest authentication... yes
+checking for Digest Authentication default nonce timeout value... 90 seconds (default)
+checking for Digest Authentication default maximum nc value... 1000 (default)
+checking whether to support HTTP "Upgrade"... yes
+checking whether to support HTTP cookie parsing... yes
+checking whether to support MD5... yes, built-in
+checking whether to support SHA-256... yes, built-in
+checking whether to support SHA-512/256... yes, built-in
+checking for calloc()... yes
+checking whether IPv6 could be used for testing... yes
+checking for features.h... yes
+checking for sys/pstat.h... no
+checking for vxCpuLib.h... no
+checking whether _SC_NPROCESSORS_ONLN is declared... yes
+checking whether _SC_NPROC_ONLN is declared... no
+checking whether _SC_CRAY_NCPU is declared... no
+checking whether _SC_NPROCESSORS_CONF is declared... yes
+checking whether CTL_HW is declared... no
+checking whether HW_NCPUONLINE is declared... no
+checking whether HW_NCPU is declared... no
+checking whether HW_AVAILCPU is declared... no
+checking whether pstat_getdynamic is declared... no
+checking for function pstat_getdynamic... (cached) no
+checking whether vxCpuEnabledGet is declared... no
+checking for function vxCpuEnabledGet... (cached) no
+checking for sched.h... yes
+checking for sys/_cpuset.h... no
+checking for sys/cpuset.h... no
+checking whether getpid is declared... yes
+checking for function getpid... yes
+checking whether sched_getaffinity is declared... yes
+checking for function sched_getaffinity... yes
+checking whether CPU_COUNT is declared... yes
+checking for function CPU_COUNT... yes
+checking whether CPU_COUNT_S is declared... yes
+checking for function CPU_COUNT_S... yes
+checking whether CPU_SETSIZE is declared... yes
+checking whether sched_getaffinity_np is declared... no
+checking for function sched_getaffinity_np... (cached) no
+checking whether cpuset_getaffinity is declared... no
+checking for function cpuset_getaffinity... (cached) no
+checking whether CPU_COUNT_S() expects max CPU number as 'size' parameter... no
+checking for fork()... yes
+checking for waitpid()... yes
+checking whether to compile with support for code coverage analysis... no
+checking the number of available CPUs... 16
+checking for number of CPU cores to use in tests... 6
+checking whether NDEBUG macro is defined... no
+checking whether _DEBUG macro is defined... no
+checking whether DEBUG macro is defined... no
+checking whether to enable debug asserts... no
+checking whether to enable run-time sanitizers... no
+checking whether to build the fuzzing harnesses... no
+checking whether to compile experimental code... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating src/microhttpd/microhttpd_dll_res.rc
+config.status: creating po/po-configure.ac
+config.status: creating libmicrohttpd.pc
+config.status: creating w32/common/microhttpd_dll_res_vc.rc
+config.status: creating Makefile
+config.status: creating contrib/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/doxygen/libmicrohttpd.doxy
+config.status: creating doc/doxygen/Makefile
+config.status: creating doc/examples/Makefile
+config.status: creating m4/Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/microhttpd/Makefile
+config.status: creating src/examples/Makefile
+config.status: creating src/tools/Makefile
+config.status: creating src/testcurl/Makefile
+config.status: creating src/testcurl/https/Makefile
+config.status: creating src/testzzuf/Makefile
+config.status: creating src/fuzz/Makefile
+config.status: creating MHD_config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po/Makefile.in commands
+Skipping update of po/Makefile.in
+Real update of po/Makefile.in for 'make dist' is performed by po-config.status
+config.status: executing po-directories commands
+Skipping po-directories command.
+Real po-directories command for 'make dist' is implemented in po-config.status
+configure: Toolchain settings:
+  CC=clang -std=gnu23
+  User/system/default flags:
+    CPPFLAGS=""
+    CFLAGS=  "-march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection"
+    LDFLAGS= "-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd"
+  Final set of the flags for tests and examples:
+    CPPFLAGS="-DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700"
+    CFLAGS=  "-fno-strict-aliasing -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection"
+    LDFLAGS= "-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd"
+  Final set of the flags for GNU libmicrohttpd library:
+    CPPFLAGS="-DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700"
+    CFLAGS=  "-fno-strict-aliasing  -pthread -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection"
+    LDFLAGS= "-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd"
+
+configure: GNU libmicrohttpd 1.0.10 Configuration Summary:
+  Target directory:  /usr
+  Cross-compiling:   no
+  Operating System:  GNU/Linux
+  Threading lib:     posix
+  Inter-thread comm: eventfd
+  Shutdown of listening socket triggers select: yes
+  poll support:      yes
+  epoll support:     yes
+  sendfile used:     yes, Linux-style
+  HTTPS support:     yes (using libgnutls)
+  Messages:          yes
+  Cookie parsing:    yes
+  Postproc:          yes
+  Basic auth.:       yes
+  Digest auth.:      yes
+  Digest auth. defaults: timeout: 90 seconds (default), max nc: 1000 (default)
+  MD5:               yes, built-in
+  SHA-256:           yes, built-in
+  SHA-512/256:       yes, built-in
+  HTTP "Upgrade":    yes
+  Compact code:      no (by default)
+  Use thread names:  yes
+  Use debug asserts: no
+  Use sanitizers:    no
+  Build static lib:  yes
+  Build shared lib:  yes
+  Build docs:        yes
+  Build examples:    no
+  Build tools:       yes
+  Test with libcurl: yes
+  Heavy tests:       no
+  Fuzzing tests:     no, heavy tests are not enabled
+
+configure: HTTPS subsystem configuration:
+  License         :  LGPL version 2.1 or any later version
+ 
+make  all-recursive
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+Making all in contrib
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+Making all in m4
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+Making all in src
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making all in include
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+Making all in .
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+Making all in microhttpd
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-connection.lo `test -f 'connection.c' || echo './'`connection.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-reason_phrase.lo `test -f 'reason_phrase.c' || echo './'`reason_phrase.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-daemon.lo `test -f 'daemon.c' || echo './'`daemon.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-internal.lo `test -f 'internal.c' || echo './'`internal.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-memorypool.lo `test -f 'memorypool.c' || echo './'`memorypool.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_mono_clock.lo `test -f 'mhd_mono_clock.c' || echo './'`mhd_mono_clock.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_str.lo `test -f 'mhd_str.c' || echo './'`mhd_str.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_send.lo `test -f 'mhd_send.c' || echo './'`mhd_send.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_sockets.lo `test -f 'mhd_sockets.c' || echo './'`mhd_sockets.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_itc.lo `test -f 'mhd_itc.c' || echo './'`mhd_itc.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_compat.lo `test -f 'mhd_compat.c' || echo './'`mhd_compat.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_panic.lo `test -f 'mhd_panic.c' || echo './'`mhd_panic.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-response.lo `test -f 'response.c' || echo './'`response.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-mhd_threads.lo `test -f 'mhd_threads.c' || echo './'`mhd_threads.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-postprocessor.lo `test -f 'postprocessor.c' || echo './'`postprocessor.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-gen_auth.lo `test -f 'gen_auth.c' || echo './'`gen_auth.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c internal.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-internal.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c memorypool.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-memorypool.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_itc.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_itc.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c gen_auth.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-gen_auth.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_str.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_str.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c response.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-response.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_mono_clock.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_mono_clock.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_compat.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_compat.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c reason_phrase.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-reason_phrase.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c daemon.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-daemon.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_threads.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_threads.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_send.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_send.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c connection.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-connection.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_sockets.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_sockets.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c postprocessor.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-postprocessor.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_panic.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-mhd_panic.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_compat.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_compat.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_mono_clock.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_mono_clock.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_threads.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_threads.o >/dev/null 2>&1
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-digestauth.lo `test -f 'digestauth.c' || echo './'`digestauth.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_sockets.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_sockets.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_itc.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_itc.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c reason_phrase.c  -fPIC -DPIC -o libmicrohttpd_la-reason_phrase.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_panic.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_panic.o >/dev/null 2>&1
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-md5.lo `test -f 'md5.c' || echo './'`md5.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c memorypool.c  -fPIC -DPIC -o libmicrohttpd_la-memorypool.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c digestauth.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-digestauth.o
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-sha256.lo `test -f 'sha256.c' || echo './'`sha256.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c md5.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-md5.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c internal.c  -fPIC -DPIC -o libmicrohttpd_la-internal.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c gen_auth.c  -fPIC -DPIC -o libmicrohttpd_la-gen_auth.o >/dev/null 2>&1
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-sha512_256.lo `test -f 'sha512_256.c' || echo './'`sha512_256.c
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-basicauth.lo `test -f 'basicauth.c' || echo './'`basicauth.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c sha256.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-sha256.o
+/bin/sh ../../libtool  --tag=CC   --mode=compile clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700  -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1  -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o libmicrohttpd_la-connection_https.lo `test -f 'connection_https.c' || echo './'`connection_https.c
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_send.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_send.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c sha512_256.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-sha512_256.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c basicauth.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-basicauth.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c connection_https.c  -fPIC -DPIC -o .libs/libmicrohttpd_la-connection_https.o
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c md5.c  -fPIC -DPIC -o libmicrohttpd_la-md5.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c response.c  -fPIC -DPIC -o libmicrohttpd_la-response.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c postprocessor.c  -fPIC -DPIC -o libmicrohttpd_la-postprocessor.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c mhd_str.c  -fPIC -DPIC -o libmicrohttpd_la-mhd_str.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c basicauth.c  -fPIC -DPIC -o libmicrohttpd_la-basicauth.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c connection_https.c  -fPIC -DPIC -o libmicrohttpd_la-connection_https.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c digestauth.c  -fPIC -DPIC -o libmicrohttpd_la-digestauth.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c sha256.c  -fPIC -DPIC -o libmicrohttpd_la-sha256.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c sha512_256.c  -fPIC -DPIC -o libmicrohttpd_la-sha512_256.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c daemon.c  -fPIC -DPIC -o libmicrohttpd_la-daemon.o >/dev/null 2>&1
+libtool: compile:  clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../.. -I../../src/include -DNDEBUG=1 -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -I/usr/include/p11-kit-1 -DBUILDING_MHD_LIB=1 -fno-strict-aliasing -fvisibility=hidden -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c connection.c  -fPIC -DPIC -o libmicrohttpd_la-connection.o >/dev/null 2>&1
+/bin/sh ../../libtool  --tag=CC   --mode=link clang -std=gnu23 -fno-strict-aliasing -fvisibility=hidden  -pthread -I/usr/include/p11-kit-1 -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection   -lgnutls  -export-dynamic -no-undefined -version-info 74:8:62 -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o libmicrohttpd.la -rpath /usr/lib libmicrohttpd_la-connection.lo libmicrohttpd_la-reason_phrase.lo libmicrohttpd_la-daemon.lo libmicrohttpd_la-internal.lo libmicrohttpd_la-memorypool.lo libmicrohttpd_la-mhd_mono_clock.lo libmicrohttpd_la-mhd_str.lo libmicrohttpd_la-mhd_send.lo libmicrohttpd_la-mhd_sockets.lo libmicrohttpd_la-mhd_itc.lo libmicrohttpd_la-mhd_compat.lo libmicrohttpd_la-mhd_panic.lo libmicrohttpd_la-response.lo libmicrohttpd_la-mhd_threads.lo    libmicrohttpd_la-postprocessor.lo libmicrohttpd_la-gen_auth.lo libmicrohttpd_la-digestauth.lo  libmicrohttpd_la-md5.lo   libmicrohttpd_la-sha256.lo  libmicrohttpd_la-sha512_256.lo libmicrohttpd_la-basicauth.lo libmicrohttpd_la-connection_https.lo -lpthread  -lgnutls  
+libtool: link: clang -std=gnu23 -shared  -fPIC -DPIC  .libs/libmicrohttpd_la-connection.o .libs/libmicrohttpd_la-reason_phrase.o .libs/libmicrohttpd_la-daemon.o .libs/libmicrohttpd_la-internal.o .libs/libmicrohttpd_la-memorypool.o .libs/libmicrohttpd_la-mhd_mono_clock.o .libs/libmicrohttpd_la-mhd_str.o .libs/libmicrohttpd_la-mhd_send.o .libs/libmicrohttpd_la-mhd_sockets.o .libs/libmicrohttpd_la-mhd_itc.o .libs/libmicrohttpd_la-mhd_compat.o .libs/libmicrohttpd_la-mhd_panic.o .libs/libmicrohttpd_la-response.o .libs/libmicrohttpd_la-mhd_threads.o .libs/libmicrohttpd_la-postprocessor.o .libs/libmicrohttpd_la-gen_auth.o .libs/libmicrohttpd_la-digestauth.o .libs/libmicrohttpd_la-md5.o .libs/libmicrohttpd_la-sha256.o .libs/libmicrohttpd_la-sha512_256.o .libs/libmicrohttpd_la-basicauth.o .libs/libmicrohttpd_la-connection_https.o   -Wl,--as-needed -lpthread -lgnutls  -march=x86-64-v3 -O2 -Wp,-D_FORTIFY_SOURCE=3 -Wl,-O1 -Wl,--sort-common -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd   -pthread -Wl,-soname -Wl,libmicrohttpd.so.12 -o .libs/libmicrohttpd.so.12.62.8
+libtool: link: (cd ".libs" && rm -f "libmicrohttpd.so.12" && ln -s "libmicrohttpd.so.12.62.8" "libmicrohttpd.so.12")
+libtool: link: (cd ".libs" && rm -f "libmicrohttpd.so" && ln -s "libmicrohttpd.so.12.62.8" "libmicrohttpd.so")
+libtool: link: llvm-ar cr .libs/libmicrohttpd.a libmicrohttpd_la-connection.o libmicrohttpd_la-reason_phrase.o libmicrohttpd_la-daemon.o libmicrohttpd_la-internal.o libmicrohttpd_la-memorypool.o libmicrohttpd_la-mhd_mono_clock.o libmicrohttpd_la-mhd_str.o libmicrohttpd_la-mhd_send.o libmicrohttpd_la-mhd_sockets.o libmicrohttpd_la-mhd_itc.o libmicrohttpd_la-mhd_compat.o libmicrohttpd_la-mhd_panic.o libmicrohttpd_la-response.o libmicrohttpd_la-mhd_threads.o libmicrohttpd_la-postprocessor.o libmicrohttpd_la-gen_auth.o libmicrohttpd_la-digestauth.o libmicrohttpd_la-md5.o libmicrohttpd_la-sha256.o libmicrohttpd_la-sha512_256.o libmicrohttpd_la-basicauth.o libmicrohttpd_la-connection_https.o
+libtool: link: llvm-ranlib .libs/libmicrohttpd.a
+libtool: link: ( cd ".libs" && rm -f "libmicrohttpd.la" && ln -s "../libmicrohttpd.la" "libmicrohttpd.la" )
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+Making all in .
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making all in testcurl
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making all in .
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making all in https
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+Making all in .
+make[5]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making all in tools
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+Making all in .
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DMHD_REAL_CPU_COUNT=16 -DMHD_CPU_COUNT=6 -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -DDATA_DIR=\"../../src/datadir/\"  -fno-strict-aliasing   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o perf_replies.o perf_replies.c
+clang -std=gnu23 -DHAVE_CONFIG_H -I. -I../..  -I../../src/include -DMHD_REAL_CPU_COUNT=16 -DMHD_CPU_COUNT=6 -DNDEBUG=1  -D_GNU_SOURCE -D_XOPEN_SOURCE=700 -DDATA_DIR=\"../../src/datadir/\"  -fno-strict-aliasing   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -c -o mhd_tool_get_cpu_count.o mhd_tool_get_cpu_count.c
+/bin/sh ../../libtool  --tag=CC   --mode=link clang -std=gnu23 -fno-strict-aliasing   -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions         -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection  -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o perf_replies perf_replies.o mhd_tool_get_cpu_count.o ../../src/microhttpd/libmicrohttpd.la 
+libtool: link: clang -std=gnu23 -fno-strict-aliasing -march=x86-64-v3 -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -fstack-clash-protection -fcf-protection -Wl,-O1 -Wl,--sort-common -Wl,-z -Wl,relro -Wl,-z -Wl,now -Wl,--undefined-version -Wl,--hash-style=gnu -Wl,--compress-debug-sections=zstd -o .libs/perf_replies perf_replies.o mhd_tool_get_cpu_count.o  -Wl,--as-needed ../../src/microhttpd/.libs/libmicrohttpd.so -lpthread -lgnutls -pthread
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making all in .
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+Making all in doc
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+Making all in .
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+Making all in doxygen
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+Generate doxygen additional documentation:
+ 	make full - full documentation with dependency graphs (slow)
+ 	make fast - fast mode without dependency graphs
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+==> Entering fakeroot environment...
+==> Starting package()...
+Making install in contrib
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/contrib'
+Making install in m4
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/m4'
+Making install in src
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making install in include
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+Making install in .
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/include'
+ /usr/bin/install -c -m 644 microhttpd.h '/home/builder/build/pkg/libmicrohttpd/usr/include'
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/include'
+Making install in microhttpd
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+make[3]: Nothing to be done for 'install-data-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/lib'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libmicrohttpd.la '/home/builder/build/pkg/libmicrohttpd/usr/lib'
+libtool: install: /usr/bin/install -c .libs/libmicrohttpd.so.12.62.8 /home/builder/build/pkg/libmicrohttpd/usr/lib/libmicrohttpd.so.12.62.8
+libtool: install: (cd /home/builder/build/pkg/libmicrohttpd/usr/lib && { ln -s -f libmicrohttpd.so.12.62.8 libmicrohttpd.so.12 || { rm -f libmicrohttpd.so.12 && ln -s libmicrohttpd.so.12.62.8 libmicrohttpd.so.12; }; })
+libtool: install: (cd /home/builder/build/pkg/libmicrohttpd/usr/lib && { ln -s -f libmicrohttpd.so.12.62.8 libmicrohttpd.so || { rm -f libmicrohttpd.so && ln -s libmicrohttpd.so.12.62.8 libmicrohttpd.so; }; })
+libtool: install: /usr/bin/install -c .libs/libmicrohttpd.lai /home/builder/build/pkg/libmicrohttpd/usr/lib/libmicrohttpd.la
+libtool: install: /usr/bin/install -c .libs/libmicrohttpd.a /home/builder/build/pkg/libmicrohttpd/usr/lib/libmicrohttpd.a
+libtool: install: chmod 644 /home/builder/build/pkg/libmicrohttpd/usr/lib/libmicrohttpd.a
+libtool: install: llvm-ranlib /home/builder/build/pkg/libmicrohttpd/usr/lib/libmicrohttpd.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/microhttpd'
+Making install in .
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making install in testcurl
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making install in .
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making install in https
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+Making install in .
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[5]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl/https'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/testcurl'
+Making install in tools
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+Making install in .
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[4]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src/tools'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/src'
+Making install in .
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libmicrohttpd.pc '/home/builder/build/pkg/libmicrohttpd/usr/lib/pkgconfig'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10'
+Making install in doc
+make[1]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+Making install in .
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/share/info'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/share/man/man3'
+ /usr/bin/install -c -m 644 libmicrohttpd_performance_data.png '/home/builder/build/pkg/libmicrohttpd/usr/share/info'
+ /usr/bin/install -c -m 644 libmicrohttpd.3 '/home/builder/build/pkg/libmicrohttpd/usr/share/man/man3'
+ /usr/sbin/mkdir -p '/home/builder/build/pkg/libmicrohttpd/usr/share/info'
+ /usr/bin/install -c -m 644 ./libmicrohttpd.info ./libmicrohttpd-tutorial.info '/home/builder/build/pkg/libmicrohttpd/usr/share/info'
+ install-info --info-dir='/home/builder/build/pkg/libmicrohttpd/usr/share/info' '/home/builder/build/pkg/libmicrohttpd/usr/share/info/libmicrohttpd.info'
+ install-info --info-dir='/home/builder/build/pkg/libmicrohttpd/usr/share/info' '/home/builder/build/pkg/libmicrohttpd/usr/share/info/libmicrohttpd-tutorial.info'
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+Making install in doxygen
+make[2]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+make[3]: Entering directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+make[2]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc/doxygen'
+make[1]: Leaving directory '/home/builder/build/src/libmicrohttpd-1.0.10/doc'
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+==> Checking for packaging issues...
+==> Creating package "libmicrohttpd"...
+  -> Generating .PKGINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .BUILDINFO file...
+warning: Public keyring not found; have you run 'pacman-key --init'?
+error: kashira-v3: key "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E" is unknown
+error: keyring is not writable
+warning: base: unknown key '%INSTALLED_DB%' in local database
+warning: base-devel: unknown key '%INSTALLED_DB%' in local database
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: libmicrohttpd 1.0.10-1 (Sun Sep 20 04:19:40 2026)

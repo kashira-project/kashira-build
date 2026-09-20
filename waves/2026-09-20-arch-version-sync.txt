@@ -129,7 +129,9 @@
 /mnt/lfs/src/kashira-arch/pkgs/wayland-protocols
 /mnt/lfs/src/kashira-arch/pkgs/libxkbcommon
 /mnt/lfs/src/kashira-arch/pkgs/libmicrohttpd
+/mnt/lfs/src/kashira-arch/pkgs/libpng
 /mnt/lfs/src/kashira-arch/pkgs/qrencode
+/mnt/lfs/src/kashira-arch/pkgs/cracklib
 /mnt/lfs/src/kashira-arch/pkgs/libpwquality
 
 # Phase 2: the version bumps
@@ -145,8 +147,6 @@
 /mnt/lfs/src/kashira-arch/pkgs/pcre2
 /mnt/lfs/src/kashira-arch/pkgs/bash
 /mnt/lfs/src/kashira-arch/pkgs/tcl
-/mnt/lfs/src/kashira-arch/pkgs/expect
-/mnt/lfs/src/kashira-arch/pkgs/dejagnu
 /mnt/lfs/src/kashira-arch/pkgs/util-linux
 /mnt/lfs/src/kashira-arch/pkgs/elfutils
 /mnt/lfs/src/kashira-arch/pkgs/iproute2
