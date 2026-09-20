@@ -7,7 +7,7 @@ set -euo pipefail
 export PACKAGER="kashira build service <repo@kashiraproject.org>"
 export LC_ALL=C.UTF-8
 
-pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm >/dev/null
+pacman --config /kbuild/conf/pacman-kbuild.conf -Syu --noconfirm
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
