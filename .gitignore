@@ -1,3 +1,4 @@
 out/
 logs/
 staging/
+.srcinfo-cache.json
