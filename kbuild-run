@@ -1,0 +1,106 @@
+#!/bin/bash
+# kbuild-run — dep-aware parallel build orchestration (P1).
+#
+#   kbuild run <pkgbase...>     dirty closure + topo-ordered parallel build
+#   kbuild run --all            every pkgbase in both repos
+#   kbuild run --file <list>    explicit pkgdir list (one per line)
+#
+# Builds in clean containers via the kbuild primitives; parallel within a
+# topo level, memory-capped. repo-adds each success into the local repo so
+# later levels see it. Publishes the whole batch to the R2 test prefix at
+# the end (promote is a separate, human-gated step).
+set -uo pipefail
+
+HERE=$(cd "$(dirname "$0")" && pwd)
+# shellcheck source=kbuild
+source <(sed -n '/^pkg_deps/,/^}/p;/^repo_add/,/^}/p' "$HERE/kbuild")
+# pull the path vars + build_one from kbuild
+IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-09-19}
+REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
+SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
+OUT=${KBUILD_OUT:-$HERE/out}
+LOGS=${KBUILD_LOGS:-$HERE/logs}
+WORKERS=${KBUILD_WORKERS:-2}
+mkdir -p "$LOGS" "$OUT"
+
+sched() { python3 "$HERE/kbuild-sched.py" "$@"; }
+
+declare -A PKGDIR=()
+load_pkgdirs() { while IFS=$'\t' read -r n d; do PKGDIR[$n]=$d; done < <(sched path); }
+
+# build_one is the kbuild container build; re-declared here so this script
+# is self-contained when sourced pieces shift.
+build_one() {
+  local pkgdir=$1 name deps
+  pkgdir=$(realpath "$pkgdir")
+  [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
+  name=$(basename "$pkgdir")
+  deps=$(pkg_deps "$pkgdir")
+  mkdir -p "$OUT/$name"
+  sudo docker run --rm \
+    -e KBUILD_DEPS="$deps" \
+    -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
+    -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
+    -v "$pkgdir":/pkg:ro \
+    -v "$SOURCES":/sources \
+    -v "$OUT/$name":/out \
+    -v "$REPO":/repo:ro \
+    -v "$HERE":/kbuild:ro \
+    -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
+    ${KBUILD_KEEP_SRC:+-v "$OUT/$name/src":/work} \
+    "$IMAGE" /kbuild/kbuild-inside.sh
+}
+
+build_level() {
+  local -a pkgs=("$@") pids=() rc=0
+  for p in "${pkgs[@]}"; do
+    # memory-capped worker pool: wait if at the limit
+    while [ "$(jobs -rp | wc -l)" -ge "$WORKERS" ]; do sleep 2; done
+    ( dir=${PKGDIR[$p]:-$p}
+      if build_one "$dir" > "$LOGS/$(basename "$p")".log 2>&1 && repo_add "$OUT/$(basename "$p")"; then
+        touch "$LOGS/$(basename "$p").done"
+      else
+        echo "FAILED $(basename "$p")" > "$LOGS/$(basename "$p").failed"
+      fi ) &
+    pids+=($!)
+  done
+  wait
+  if compgen -G "$LOGS/*.failed" >/dev/null; then return 1; else return 0; fi
+}
+
+cmd_run() {
+  local -a targets=()
+  if [ "${1:-}" = "--all" ]; then
+    mapfile -t targets < <(sched graph | cut -d: -f1)
+  elif [ "${1:-}" = "--file" ]; then
+    mapfile -t targets < <(grep -v '^\s*#' "$2" | grep -v '^\s*$' | xargs -n1 basename)
+  else
+    # dirty closure of the named pkgbases
+    mapfile -t targets < <(sched dirty "$@" | awk '{print $1}')
+  fi
+  [ ${#targets[@]} -gt 0 ] || { echo "nothing to build"; return 0; }
+
+  load_pkgdirs
+  echo "== plan: ${#targets[@]} pkgbases"
+  local -a levels=()
+  mapfile -t levels < <(sched levels "${targets[@]}")
+  local nlvl=${#levels[@]} li=0
+  for lvl in "${levels[@]}"; do
+    li=$((li+1))
+    read -ra pkgs <<<"$lvl"
+    echo "== level $li/$nlvl: ${pkgs[*]}"
+    build_level "${pkgs[@]}" || { echo "== level $li failed"; return 1; }
+  done
+  echo "== build complete (${#targets[@]} pkgbases); publishing to test prefix"
+  # publish everything produced
+  local -a built=()
+  for p in "${targets[@]}"; do
+    [ -d "$OUT/$p" ] && built+=("$OUT/$p"/*.pkg.tar.zst)
+  done
+  [ ${#built[@]} -gt 0 ] && "$HERE/kbuild-publish" test "${built[@]}"
+}
+
+case "${1:-}" in
+  run) shift; cmd_run "$@" ;;
+  *) echo "usage: kbuild-run run [--all|--file <list>|<pkgbase...>]" >&2; exit 2 ;;
+esac
