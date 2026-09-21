@@ -28,6 +28,6 @@ cp -a /pkg/. "$BUILDDIR/"
 chown -R builder:builder "$BUILDDIR"
 
 su builder -c "cd $BUILDDIR && \
-  PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR
+  PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR \
   MAKEFLAGS='-j$(nproc)' \
   makepkg --config /kbuild/conf/${KBUILD_MAKEPKG_CONF:-makepkg.conf} -sf --noconfirm --skippgpcheck --nodeps"

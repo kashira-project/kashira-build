@@ -213,6 +213,40 @@ def main():
             print(f"{name}  {u[name]['pkgdir']}")
         return 0
 
+    if cmd == "path":
+        for name in sorted(u):
+            print(f"{name}\t{u[name]['pkgdir']}")
+        return 0
+
+    if cmd == "levels":
+        # topo levels: pkgbases with no unbuilt deps first. Prints one level
+        # per line, space-separated pkgbase names. Accepts name/path subset.
+        bypath = {}
+        for name, info in u.items():
+            bypath[info["pkgdir"]] = name
+            bypath[os.path.basename(info["pkgdir"])] = name
+            bypath[name] = name
+        wanted = {bypath.get(a, a) for a in sys.argv[2:]} or set(g)
+        level = {}
+        def lvl(n, _seen=None):
+            if n in level:
+                return level[n]
+            _seen = _seen or set()
+            if n in _seen:  # cycle guard
+                return 0
+            _seen.add(n)
+            deps = [d for d in g.get(n, ()) if d in wanted]
+            level[n] = 1 + max((lvl(d, _seen) for d in deps), default=-1)
+            return level[n]
+        for n in wanted:
+            lvl(n)
+        if level:
+            for l in range(max(level.values()) + 1):
+                members = sorted(n for n in level if level[n] == l)
+                if members:
+                    print(" ".join(members))
+        return 0
+
     print(f"unknown command: {cmd}", file=sys.stderr)
     return 2
 
