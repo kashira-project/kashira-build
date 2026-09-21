@@ -62,11 +62,14 @@ build_one() {
   sudo docker run --rm \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
+    -e KBUILD_KEEP_SRC="${KBUILD_KEEP_SRC:-}" \
+    -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
     -v "$pkgdir":/pkg:ro \
     -v "$SOURCES":/sources \
     -v "$OUT/$name":/out \
     -v "$REPO":/repo:ro \
     -v "$HERE":/kbuild:ro \
+    ${KBUILD_KEEP_SRC:+-v "$OUT/$name/src":/work} \
     -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
     "$IMAGE" /kbuild/kbuild-inside.sh
 }

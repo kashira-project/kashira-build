@@ -16,12 +16,18 @@ if [ -n "${KBUILD_DEPS:-}" ]; then
 fi
 
 id builder &>/dev/null || useradd -m builder
-mkdir -p /home/builder/build
-cp -a /pkg/. /home/builder/build/
-chown -R builder:builder /home/builder/build
+# KBUILD_KEEP_SRC: build into /work (a mounted rw volume) so failed build
+# trees survive for inspection
+if [ -n "${KBUILD_KEEP_SRC:-}" ]; then
+  BUILDDIR=/work
+else
+  BUILDDIR=/home/builder/build
+fi
+mkdir -p "$BUILDDIR"
+cp -a /pkg/. "$BUILDDIR/"
+chown -R builder:builder "$BUILDDIR"
 
-cd /home/builder/build
-su builder -c "cd /home/builder/build && \
-  PKGDEST=/out SRCDEST=/sources BUILDDIR=/home/builder/build \
+su builder -c "cd $BUILDDIR && \
+  PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR
   MAKEFLAGS='-j$(nproc)' \
-  makepkg --config /kbuild/conf/makepkg.conf -sf --noconfirm --skippgpcheck --nodeps"
+  makepkg --config /kbuild/conf/${KBUILD_MAKEPKG_CONF:-makepkg.conf} -sf --noconfirm --skippgpcheck --nodeps"
