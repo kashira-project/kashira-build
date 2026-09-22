@@ -1,0 +1,8 @@
+# mkosi runs `systemctl preset-all` at build time and kashira has no default
+# "disable *" preset yet, so every unit with an [Install] section gets enabled.
+# A headless node is not a Kerberos KDC; these fail without realm config and
+# leave the system "degraded".
+disable krb5-kdc.service
+disable krb5-kadmind.service
+disable krb5-kpropd.service
+disable krb5-kpropd.socket
