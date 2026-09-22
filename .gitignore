@@ -2,3 +2,9 @@ out/
 logs/
 staging/
 .srcinfo-cache.json
+image/*/kashira-*.raw
+image/*/kashira-*.efi
+image/*/kashira-*.vmlinuz
+image/*/kashira-*.initrd
+image/*/initrd.cpio.zst
+image/*/mkosi.output/

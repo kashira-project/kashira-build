@@ -1,0 +1,24 @@
+#!/bin/sh
+# Runs chrooted inside the image (mkosi runs *.chroot postinst scripts in the image root).
+# Headless bring-up profile: passwordless root on the serial console, and the
+# local (unsigned) kashira build repo enabled instead of the placeholder
+# network repo so `pacman -Sy` works when the repo dir is available.
+set -e
+
+passwd -d root
+
+mkdir -p /etc/systemd/system/serial-getty@ttyS0.service.d
+cat > /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf <<'EOF'
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin root --noclear %I $TERM
+EOF
+
+sed -i \
+    -e 's|^\[kashira-v3\]|#[kashira-v3]|' \
+    -e 's|^SigLevel = Required DatabaseRequired|#SigLevel = Required DatabaseRequired|' \
+    -e 's|^Server = https://repo.kashiraproject.org/x86_64-v3|#Server = https://repo.kashiraproject.org/x86_64-v3|' \
+    -e 's|^#\[kashira\]|[kashira]|' \
+    -e 's|^#SigLevel = Never|SigLevel = Never|' \
+    -e 's|^#Server = file:///var/cache/pacman/kashira|Server = file:///var/cache/pacman/kashira|' \
+    /etc/pacman.conf
