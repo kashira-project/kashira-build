@@ -25,7 +25,7 @@ die() { echo "kbuild: $*" >&2; exit 1; }
 
 # pkg_deps <pkgdir> -> space-separated depends+makedepends (names only)
 pkg_deps() {
-  local info names
+  local info names ownprovides
   info=$(cd "$1" && makepkg --printsrcinfo 2>/dev/null) || return 0
   # split pkgnames of this pkgbase that are NOT yet in the repo (true
   # bootstrap) must be filtered; names already in the repo (e.g. gcc
@@ -34,16 +34,15 @@ pkg_deps() {
     while read -r n; do
       grep -q "^$n-" "$REPO/.kbuild-pkglist" 2>/dev/null || echo "$n"
     done)
+  # provides declared by this pkgbase's own split packages
+  ownprovides=$(grep -E "^\s*provides = " <<<"$info" | sed -E 's/.*= //; s/[<>=].*//' | sort -u)
   grep -E "^\s+(make)?depends(_x86_64)? = " <<<"$info" | \
     sed -E 's/.*= //; s/[<>=].*//' | sort -u | \
     grep -vxF "$names" | \
     while read -r dep; do
-      # skip soname deps provided by this same pkgbase (libfoo.so where a
-      # split pkgname starts with libfoo)
-      if [[ $dep == lib*.so ]]; then
-        local_base=${dep%.so}
-        grep -qF "$local_base" <<<"$names" && continue
-      fi
+      # skip deps provided by this same pkgbase via a split package's
+      # provides (e.g. harfbuzz provides libharfbuzz-gobject.so)
+      grep -qxF "$dep" <<<"$ownprovides" && continue
       printf '%s\n' "$dep"
     done | tr '\n' ' '
 }
