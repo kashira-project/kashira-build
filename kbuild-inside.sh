@@ -18,9 +18,9 @@ install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 # gcc is always installed (like Arch base-devel): libstdc++ headers are
 # needed by every C++ compile, and kashira's clang-first guarantee is
 # carried by makepkg.conf's CC=clang, not by gcc's absence.
-pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm gcc
+pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm --overwrite '*' gcc
 if [ -n "${KBUILD_DEPS:-}" ]; then
-  pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm $KBUILD_DEPS
+  pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm --overwrite '*' $KBUILD_DEPS
 fi
 
 id builder &>/dev/null || useradd -m builder
