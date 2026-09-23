@@ -11,6 +11,10 @@ export LC_ALL=C.UTF-8
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
+# gcc is always installed (like Arch base-devel): libstdc++ headers are
+# needed by every C++ compile, and kashira's clang-first guarantee is
+# carried by makepkg.conf's CC=clang, not by gcc's absence.
+pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm gcc
 if [ -n "${KBUILD_DEPS:-}" ]; then
   pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm $KBUILD_DEPS
 fi
