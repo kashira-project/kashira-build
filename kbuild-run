@@ -52,8 +52,10 @@ build_one() {
 }
 
 build_level() {
-  local -a pkgs=("$@") pids=() rc=0
+  local -a pkgs=("$@") pids=()
   for p in "${pkgs[@]}"; do
+    # incremental reruns: skip packages already built
+    [ -f "$LOGS/$(basename "$p").done" ] && continue
     # memory-capped worker pool: wait if at the limit
     while [ "$(jobs -rp | wc -l)" -ge "$WORKERS" ]; do sleep 2; done
     ( dir=${PKGDIR[$p]:-$p}
@@ -65,7 +67,6 @@ build_level() {
     pids+=($!)
   done
   wait
-  if compgen -G "$LOGS/*.failed" >/dev/null; then return 1; else return 0; fi
 }
 
 cmd_run() {
@@ -82,14 +83,20 @@ cmd_run() {
 
   load_pkgdirs
   echo "== plan: ${#targets[@]} pkgbases"
+  # retry semantics: clear stale .failed markers for this run's targets
+  for p in "${targets[@]}"; do rm -f "$LOGS/$(basename "$p").failed"; done
   local -a levels=()
   mapfile -t levels < <(sched levels "${targets[@]}")
-  local nlvl=${#levels[@]} li=0
+  local nlvl=${#levels[@]} li=0 rc=0
   for lvl in "${levels[@]}"; do
     li=$((li+1))
     read -ra pkgs <<<"$lvl"
     echo "== level $li/$nlvl: ${pkgs[*]}"
-    build_level "${pkgs[@]}" || { echo "== level $li failed"; return 1; }
+    build_level "${pkgs[@]}"
+    local failed_now=($(compgen -G "$LOGS/*.failed" | xargs -r -n1 basename | sed 's/\.failed$//'))
+    if [ ${#failed_now[@]} -gt 0 ]; then
+      echo "== level $li: ${#failed_now[@]} failed so far (${failed_now[*]:0:8}...)"; rc=1
+    fi
   done
   echo "== build complete (${#targets[@]} pkgbases); publishing to test prefix"
   # publish everything produced
