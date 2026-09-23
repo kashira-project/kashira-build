@@ -6,8 +6,10 @@ set -euo pipefail
 
 export PACKAGER="kashira build service <repo@kashiraproject.org>"
 export LC_ALL=C.UTF-8
-# merged-/usr: force libdir=lib for all cmake builds (see conf file)
-export CMAKE_PROJECT_INCLUDE=/kbuild/conf/cmake-project-include.cmake
+# merged-/usr: force libdir=lib for all cmake builds (see conf file).
+# CMAKE_PROJECT_INCLUDE has no env-var form in cmake, so install a wrapper
+# ahead of /usr/bin in PATH that injects it on configure runs.
+install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 
 [ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm || pacman --config /kbuild/conf/pacman-kbuild.conf -Syu --noconfirm
 
