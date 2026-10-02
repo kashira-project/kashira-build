@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+"""kbuild-missing — dependency closure of a target set against the live repo DB.
+
+Answers the question the GNOME waves keep needing: given these targets, which
+pkgbases must still be vendored or built before they can be scheduled?
+
+Reads the pkgbase DAG from kbuild-sched.py and resolves each dependency
+against the repository database by package name or provides, so a package that
+is already installed is not reported as missing.
+
+  kbuild-missing <target...>       closure report (missing / satisfied / unknown)
+  kbuild-missing --frontier <t..>  missing pkgbases with no missing dependency
+  kbuild-missing --unvendored <t..>  missing pkgbases with no PKGBUILD on disk
+"""
+import importlib.util
+import os
+import sys
+import tarfile
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+_spec = importlib.util.spec_from_file_location("ksched", os.path.join(HERE, "kbuild-sched.py"))
+ks = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(ks)
+
+DB = os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira") + "/kashira.db.tar.gz"
+FORKS = ks.FORKS
+HEART = ks.HEART
+
+
+def repo_index():
+    """name-or-provide -> version, from the published repo database."""
+    idx = {}
+    with tarfile.open(DB) as t:
+        for m in t:
+            if not m.name.endswith("/desc"):
+                continue
+            d = {}
+            key = None
+            for line in t.extractfile(m).read().decode().splitlines():
+                if line.startswith("%") and line.endswith("%"):
+                    key = line.strip("%")
+                    d[key] = []
+                elif line and key:
+                    d[key].append(line)
+            name = d["NAME"][0]
+            idx[name] = d["VERSION"][0]
+            for p in d.get("PROVIDES", []):
+                idx.setdefault(p.split("=")[0].split(":")[-1], d["VERSION"][0])
+            for p in d.get("CONFLICTS", []):
+                idx.pop(p.split("=")[0].split(":")[-1], None)
+    return idx
+
+
+def pkgdir_of(base, universe):
+    return universe[base]["pkgdir"]
+
+
+def closure(targets, universe, graph, repo):
+    """Return (missing, satisfied_count, unknown) for the forward closure."""
+    wanted = ks._resolve_targets(universe, list(targets))
+    missing, satisfied, unknown = set(), set(), {}
+    seen = set()
+    stack = list(wanted)
+    while stack:
+        base = stack.pop()
+        if base in seen:
+            continue
+        seen.add(base)
+        for dep in graph.get(base, ()):
+            # already satisfiable by what is installed?
+            info = universe.get(dep)
+            if info:
+                names = set(info["pkgnames"]) | set(info["provides"])
+                if any(n in repo for n in names):
+                    satisfied.add(dep)
+                    continue
+            missing.add(dep)
+            stack.append(dep)
+    # a missing pkgbase whose deps are all satisfied is a buildable frontier leaf
+    frontier = sorted(
+        b for b in missing
+        if all(
+            (universe.get(d) and any(n in repo for n in set(universe[d]["pkgnames"]) | set(universe[d]["provides"])))
+            or d not in universe
+            for d in graph.get(b, ())
+        )
+    )
+    return missing, satisfied, unknown, frontier
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        print(__doc__)
+        return 2
+    mode = "report"
+    if args[0] in ("--frontier", "--unvendored"):
+        mode, args = args[0][2:], args[1:]
+    universe = ks.universe()
+    graph = ks.build_graph(universe)
+    repo = repo_index()
+    missing, satisfied, _, frontier = closure(args, universe, graph, repo)
+    print(f"repo packages: {len(set(repo.values()) and set(repo))} (name+provides index: {len(repo)})")
+    print(f"closure of {len(args)} target(s): {len(missing)} missing, {len(satisfied)} already satisfiable")
+    if mode == "report":
+        for b in sorted(missing):
+            d = pkgdir_of(b, universe)
+            have = "vendored" if os.path.isfile(os.path.join(d, "PKGBUILD")) else "NOT VENDORED"
+            print(f"  {b:34} {have}")
+        return 0
+    if mode == "frontier":
+        print(f"\nfrontier ({len(frontier)} missing pkgbases with no missing dep):")
+        for b in frontier:
+            print(f"  {b}")
+        return 0
+    unvendored = [b for b in sorted(missing)
+                  if not os.path.isfile(os.path.join(pkgdir_of(b, universe), "PKGBUILD"))]
+    print(f"\nnot vendored ({len(unvendored)}):")
+    for b in unvendored:
+        print(f"  {b}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
