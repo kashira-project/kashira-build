@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""kcut — drop named dependency entries from PKGBUILDs as persistent deltas.
+
+The GNOME closure pulls optional-plugin and documentation/test build
+dependencies we deliberately do not ship (gnome-roadmap.md section 6 and
+Appendix B already call for cutting them). Editing those by hand across dozens
+of recipes is where mistakes creep in, so this applies a declarative cut list
+and regenerates each delta with diff(1), exactly like kdelta does for one file.
+
+  kcut apply cuts.txt     apply every "pkgbase<TAB>dep[,dep...]" line
+  kcut check cuts.txt     report what would change, without writing
+
+A line looks like:
+
+    gstreamer    qt5-base qt5-declarative qt5-tools qt5-wayland qt5-x11extras
+
+Only makedepends and checkdepends are touched by default; depends is opt-in per
+line with a "!" prefix on the dep, because dropping a runtime dep changes the
+package contract and must be deliberate.
+
+checkdepends are safe to drop globally: makepkg.conf sets !check, so they are
+never installed during a bootstrap build.
+"""
+import os
+import re
+import subprocess
+import sys
+
+ROOT = "/mnt/lfs/src/kashira-arch"
+FIELDS = ("makedepends", "checkdepends", "optdepends", "depends")
+
+
+def field_block(text, field):
+    """Return (start, end) span of a field's parenthesised array."""
+    m = re.search(r"^" + field + r"=\(", text, re.M)
+    if not m:
+        return None
+    i = text.index("(", m.start())
+    depth = 0
+    for j in range(i, len(text)):
+        if text[j] == "(":
+            depth += 1
+        elif text[j] == ")":
+            depth -= 1
+            if depth == 0:
+                return (i, j + 1)
+    return None
+
+
+def drop_dep(text, field, dep):
+    span = field_block(text, field)
+    if not span:
+        return text, False
+    i, j = span
+    block = text[i:j]
+    # match the dep as a quoted or bare list item, with leading indent
+    pat = re.compile(r"^[ \t]*(?:'" + re.escape(dep) + r"'|\"" + re.escape(dep) + r"\"|" + re.escape(dep) + r")[ \t]*\n", re.M)
+    new, n = pat.subn("", block)
+    if n:
+        return text[:i] + new + text[j:], True
+    return text, False
+
+
+def apply_pkg(base, deps, dry):
+    p = os.path.join(ROOT, "pkgs", base, "PKGBUILD")
+    if not os.path.isfile(p):
+        print(f"  !! {base}: no PKGBUILD, skipped")
+        return False
+    orig = open(p).read()
+    text = orig
+    changed = []
+    for spec in deps:
+        runtime = spec.startswith("!")
+        dep = spec[1:] if runtime else spec
+        fields = ("depends",) if runtime else ("makedepends", "checkdepends", "optdepends")
+        for f in fields:
+            text, hit = drop_dep(text, f, dep)
+            if hit:
+                changed.append(f"{f}:{dep}")
+    if text == orig:
+        print(f"  = {base}: nothing to cut")
+        return False
+    if dry:
+        print(f"  ~ {base}: would cut {changed}")
+        return True
+    tmp = f"/tmp/kcut-{base}.new"
+    open(tmp, "w").write(text)
+    r = subprocess.run(
+        ["python3", "/mnt/lfs/src/kashira-build/kdelta", base,
+         "--patch", "auto", tmp],
+        capture_output=True, text=True)
+    if "materialize failed" in (r.stdout + r.stderr):
+        print(f"  !! {base}: materialize FAILED")
+        print(r.stderr[-1500:])
+        return False
+    print(f"  + {base}: cut {changed}")
+    return True
+
+
+def main():
+    args = sys.argv[1:]
+    if len(args) != 2 or args[0] not in ("apply", "check"):
+        print(__doc__)
+        return 2
+    dry = args[0] == "check"
+    n = 0
+    for line in open(args[1]):
+        line = line.split("#")[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        base, deps = parts[0], parts[1:]
+        if apply_pkg(base, deps, dry):
+            n += 1
+    print(f"\n{'would change' if dry else 'changed'} {n} pkgbases")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
