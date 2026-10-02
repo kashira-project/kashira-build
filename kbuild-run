@@ -14,7 +14,7 @@ set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 # shellcheck source=kbuild
 source <(sed -n '/^pkg_deps/,/^}/p;/^repo_add/,/^}/p' "$HERE/kbuild")
-IMAGE=${KBUILD_IMAGE:-kashira:base-devel-2026-09-28}
+IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-10-03}
 REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
