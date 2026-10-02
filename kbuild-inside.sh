@@ -11,16 +11,22 @@ export LC_ALL=C.UTF-8
 # ahead of /usr/bin in PATH that injects it on configure runs.
 install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 
+# shellcheck disable=SC2015  # deliberate A&&B||C: -Sy only when asked, else -Syu
 [ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm || pacman --config /kbuild/conf/pacman-kbuild.conf -Syu --noconfirm
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
-# gcc is always installed (like Arch base-devel): libstdc++ headers are
-# needed by every C++ compile, and kashira's clang-first guarantee is
-# carried by makepkg.conf's CC=clang, not by gcc's absence.
-pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm --overwrite '*' gcc
+# gcc is NOT force-installed any more: gcc-runtime carries the libstdc++
+# headers and the GCC CRT objects clang needs for GCC-installation detection,
+# so clang++ builds C++ in a base-devel image with no gcc present. Packages
+# that genuinely need gcc declare it in makedepends, and that dep now decides.
+# Overwrite stays scoped to KBUILD_OVERWRITE for packages whose recipe
+# legitimately replaces a file (see note in the repo README).
+pacman_args=(-S --needed --noconfirm)
+[ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
-  pacman --config /kbuild/conf/pacman-kbuild.conf -S --needed --noconfirm --overwrite '*' $KBUILD_DEPS
+  # shellcheck disable=SC2086  # KBUILD_DEPS is a space-separated dep list
+  pacman --config /kbuild/conf/pacman-kbuild.conf "${pacman_args[@]}" $KBUILD_DEPS
 fi
 
 id builder &>/dev/null || useradd -m builder

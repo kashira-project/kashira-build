@@ -2,7 +2,7 @@
 # kbuild-publish — publish built packages to the R2 repos.
 #
 #   kbuild-publish test <pkgfile...>    sign + add to test repo, sync to R2
-#   kbuild-publish promote              promote entire test prefix to main
+#   kbuild-publish promote --candidate <receipt>  promote a validated test snapshot
 #
 # Staging dirs: staging/x86_64-v3-test and staging/x86_64-v3 (mirror of R2).
 # Key: repo signing key via gpg-agent on the host (GNUPGHOME env or
@@ -17,52 +17,331 @@ BUCKET=${KBUILD_R2_BUCKET:-r2:kashira-linux}
 
 die() { echo "kbuild-publish: $*" >&2; exit 1; }
 
+validate_pkg() {
+  local f=$1 info name version arch
+  [ -f "$f" ] && [ -s "$f" ] || die "candidate missing or empty: $f"
+  [[ "$f" == *.pkg.tar.zst ]] || die "candidate is not a package archive: $f"
+  bsdtar -tf "$f" >/dev/null || die "candidate is not a readable package archive: $f"
+  info=$(bsdtar -xOf "$f" .PKGINFO) || die "candidate has no readable .PKGINFO: $f"
+  name=$(awk '$1 == "pkgname" && $2 == "=" { print $3; exit }' <<<"$info")
+  version=$(awk '$1 == "pkgver" && $2 == "=" { print $3; exit }' <<<"$info")
+  arch=$(awk '$1 == "arch" && $2 == "=" { print $3; exit }' <<<"$info")
+  [ -n "$name" ] && [ -n "$version" ] && [ -n "$arch" ] || die "incomplete package metadata: $f"
+  local epochless=${version#*:}
+  case "$(basename "$f")" in
+    "$name-$version-$arch.pkg.tar.zst"|"$name-$epochless-$arch.pkg.tar.zst") ;;
+    *) die "candidate filename does not match package metadata: $f" ;;
+  esac
+  printf '%s\n' "$name"
+}
+
+verify_signature() {
+  local sig=$1 file=$2 fingerprints signer primary
+  fingerprints=$(gpg --batch --status-fd 1 --verify "$sig" "$file" 2>/dev/null | awk '$2 == "VALIDSIG" { print $3, $12 }') || return 1
+  [ -n "$fingerprints" ] || return 1
+  read -r signer primary <<<"$fingerprints"
+  [ "$signer" = "$KEY" ] || [ "$primary" = "$KEY" ]
+}
+
+desc_value() {
+  local desc=$1 field=$2
+  awk -v field="$field" '$0 == field { if (getline) print; exit }' <<<"$desc"
+}
+
+CANDIDATES=()
+validate_candidates() {
+  local f real base name i=0
+  local -A seen=() package_names=()
+  [ ${#CANDIDATES[@]} -gt 0 ] || die "no package candidates"
+  for f in "${CANDIDATES[@]}"; do
+    [ -n "$f" ] || die "empty package candidate"
+    real=$(realpath -e -- "$f") || die "cannot resolve candidate: $f"
+    name=$(validate_pkg "$real")
+    base=$(basename "$real")
+    [ -z "${seen[$base]+set}" ] || die "duplicate package candidate: $base"
+    [ -z "${package_names[$name]+set}" ] || die "duplicate package name: $name"
+    seen[$base]=1
+    package_names[$name]=1
+    CANDIDATES[i]=$real
+    i=$((i + 1))
+  done
+}
+
+declare -A MANIFEST_TARGETS=()
+declare -A MANIFEST_ARTIFACTS=()
+declare -A MANIFEST_REQUESTED=()
+
+read_manifest() {
+  local manifest=$1 line target path header=0
+  [ -f "$manifest" ] || die "no such manifest: $manifest"
+  [ -s "$manifest" ] || die "manifest is empty: $manifest"
+  while IFS= read -r line || [ -n "$line" ]; do
+    case "$line" in
+      kbuild-manifest-v1) [ "$header" -eq 0 ] || die "duplicate manifest header"; header=1 ;;
+      requested$'\t'*)
+        [ "$header" -eq 1 ] || die "manifest header missing"
+        target=${line#*$'\t'}
+        [[ "$target" =~ ^[A-Za-z0-9@._+-]+$ ]] || die "invalid requested target: $target"
+        [ -z "${MANIFEST_REQUESTED[$target]+set}" ] || die "duplicate requested target: $target"
+        MANIFEST_REQUESTED[$target]=1
+        ;;
+      target$'\t'*)
+        [ "$header" -eq 1 ] || die "manifest header missing"
+        target=${line#*$'\t'}
+        [[ "$target" =~ ^[A-Za-z0-9@._+-]+$ ]] || die "invalid target in manifest: $target"
+        [ -z "${MANIFEST_TARGETS[$target]+set}" ] || die "duplicate manifest target: $target"
+        [ -n "${MANIFEST_REQUESTED[$target]+set}" ] || die "unrequested manifest target: $target"
+        MANIFEST_TARGETS[$target]=1
+        ;;
+      artifact$'\t'*)
+        [ "$header" -eq 1 ] || die "manifest header missing"
+        target=${line#*$'\t'}
+        path=${target#*$'\t'}
+        target=${target%%$'\t'*}
+        [ "$path" != "$target" ] || die "malformed artifact entry: $line"
+        [ -n "${MANIFEST_TARGETS[$target]+set}" ] || die "artifact precedes or lacks target: $target"
+        [ -z "${MANIFEST_ARTIFACTS[$target]+set}" ] || MANIFEST_ARTIFACTS[$target]+=$'\n'
+        MANIFEST_ARTIFACTS[$target]+=$path
+        ;;
+      *) die "malformed manifest entry: $line" ;;
+    esac
+  done < "$manifest"
+  [ "$header" -eq 1 ] || die "manifest header missing"
+  [ ${#MANIFEST_REQUESTED[@]} -gt 0 ] || die "manifest has no requested targets"
+  [ ${#MANIFEST_TARGETS[@]} -eq ${#MANIFEST_REQUESTED[@]} ] || die "manifest target set is incomplete"
+  for target in "${!MANIFEST_REQUESTED[@]}"; do
+    [ -n "${MANIFEST_TARGETS[$target]+set}" ] || die "requested target missing from manifest: $target"
+  done
+  for target in "${!MANIFEST_TARGETS[@]}"; do
+    local files=${MANIFEST_ARTIFACTS[$target]:-} f real pkgbase
+    [ -n "$files" ] || die "manifest target has no artifacts: $target"
+    local -A seen_paths=()
+    while IFS= read -r f; do
+      [ -n "$f" ] || die "empty artifact for target: $target"
+      real=$(realpath -e -- "$f") || die "cannot resolve artifact: $f"
+      [ -z "${seen_paths[$real]+set}" ] || die "duplicate artifact for target $target: $real"
+      seen_paths[$real]=1
+      pkgbase=$(bsdtar -xOf "$real" .PKGINFO 2>/dev/null | awk -F ' = ' '$1 == "pkgbase" { print $2; exit }')
+      [ "$pkgbase" = "$target" ] || die "artifact pkgbase mismatch: target $target has $real ($pkgbase)"
+      [[ "$real" == *.pkg.tar.zst ]] || die "artifact is not a package archive: $real"
+      CANDIDATES+=("$real")
+    done <<<"$files"
+  done
+  [ ${#CANDIDATES[@]} -gt 0 ] || die "manifest has no artifacts"
+}
+
 sign_pkg() {
   local f=$1
-  [ -f "$f.sig" ] || gpg --batch --pinentry-mode loopback --detach-sign -u "$KEY" "$f"
+  rm -f "$f.sig"
+  gpg --batch --pinentry-mode loopback --detach-sign -u "$KEY" "$f"
+}
+
+sync_db_aliases() {
+  local dir=$1 prefix=$2
+  cp -f --remove-destination "$dir/$prefix.db.tar.gz" "$dir/$prefix.db"
+  cp -f --remove-destination "$dir/$prefix.db.tar.gz.sig" "$dir/$prefix.db.sig"
+  cp -f --remove-destination "$dir/$prefix.files.tar.gz" "$dir/$prefix.files"
+  cp -f --remove-destination "$dir/$prefix.files.tar.gz.sig" "$dir/$prefix.files.sig"
+}
+
+declare -A DBFILES=()
+validate_repo_dir() {
+  local dir=$1 prefix=$2 db=$1/$2.db.tar.gz stem entries entry desc pkg name info version csize sha256
+  local -A seen=() files_records=() file_names=() file_versions=() file_csizes=() file_sha256s=() db_names=() db_versions=() db_csizes=() db_sha256s=()
+  DBFILES=()
+  for stem in db files; do
+    for entry in "$dir/$prefix.$stem.tar.gz" "$dir/$prefix.$stem.tar.gz.sig" \
+                 "$dir/$prefix.$stem" "$dir/$prefix.$stem.sig"; do
+      [ -f "$entry" ] && [ -s "$entry" ] || die "repository object missing or empty: $entry"
+    done
+    bsdtar -tf "$dir/$prefix.$stem.tar.gz" >/dev/null || die "unreadable repository $stem archive"
+    verify_signature "$dir/$prefix.$stem.tar.gz.sig" "$dir/$prefix.$stem.tar.gz" || die "invalid or untrusted $stem signature"
+    cmp -s "$dir/$prefix.$stem.tar.gz" "$dir/$prefix.$stem" || die "repository alias differs: $stem"
+    cmp -s "$dir/$prefix.$stem.tar.gz.sig" "$dir/$prefix.$stem.sig" || die "repository signature alias differs: $stem"
+    entries=$(bsdtar -tf "$dir/$prefix.$stem.tar.gz") || die "cannot read repository $stem archive"
+    while IFS= read -r entry; do
+      [[ "$entry" == */desc ]] || continue
+      desc=$(bsdtar -xOf "$dir/$prefix.$stem.tar.gz" "$entry") || die "unreadable $stem record: $entry"
+      pkg=$(desc_value "$desc" %FILENAME%)
+      name=$(desc_value "$desc" %NAME%)
+      [ -n "$pkg" ] && [ -n "$name" ] && [ "$(basename "$pkg")" = "$pkg" ] || die "invalid $stem record: $entry"
+      if [ "$stem" = db ]; then
+        [ -z "${seen[$name]+set}" ] && [ -z "${DBFILES[$pkg]+set}" ] || die "duplicate database record: $entry"
+        info=$(bsdtar -xOf "$dir/$pkg" .PKGINFO) || die "unreadable package metadata: $pkg"
+        [ "$(validate_pkg "$dir/$pkg")" = "$name" ] || die "database package mismatch: $pkg"
+        version=$(awk -F ' = ' '$1 == "pkgver" { print $2; exit }' <<<"$info")
+        csize=$(stat -c %s -- "$dir/$pkg")
+        sha256=$(sha256sum "$dir/$pkg" | cut -d ' ' -f1)
+        [ "$(desc_value "$desc" %VERSION%)" = "$version" ] || die "database version mismatch: $pkg"
+        [ "$(desc_value "$desc" %CSIZE%)" = "$csize" ] || die "database size mismatch: $pkg"
+        [ "$(desc_value "$desc" %SHA256SUM%)" = "$sha256" ] || die "database checksum mismatch: $pkg"
+        [ -f "$dir/$pkg.sig" ] && [ -s "$dir/$pkg.sig" ] || die "missing package signature: $pkg"
+        verify_signature "$dir/$pkg.sig" "$dir/$pkg" || die "invalid or untrusted package signature: $pkg"
+        seen[$name]=1
+        db_names[$pkg]=$name
+        db_versions[$pkg]=$version
+        db_csizes[$pkg]=$csize
+        db_sha256s[$pkg]=$sha256
+        DBFILES[$pkg]=1
+      else
+        [ -z "${files_records[$pkg]+set}" ] && [ -z "${file_names[$pkg]+set}" ] || die "duplicate files record: $entry"
+        file_names[$pkg]=$name
+        file_versions[$pkg]=$(desc_value "$desc" %VERSION%)
+        file_csizes[$pkg]=$(desc_value "$desc" %CSIZE%)
+        file_sha256s[$pkg]=$(desc_value "$desc" %SHA256SUM%)
+        files_records[$pkg]=1
+      fi
+    done <<<"$entries"
+  done
+  [ ${#DBFILES[@]} -gt 0 ] || die "repository database has no package records: $db"
+  [ ${#files_records[@]} -eq ${#DBFILES[@]} ] || die "db/files package sets differ"
+  for pkg in "${!DBFILES[@]}"; do
+    [ -n "${files_records[$pkg]+set}" ] || die "files record missing: $pkg"
+    [ "${file_names[$pkg]}" = "${db_names[$pkg]}" ] && [ "${file_versions[$pkg]}" = "${db_versions[$pkg]}" ] && \
+      [ "${file_csizes[$pkg]}" = "${db_csizes[$pkg]}" ] && [ "${file_sha256s[$pkg]}" = "${db_sha256s[$pkg]}" ] || die "db/files record differs: $pkg"
+  done
+}
+
+prune_stale() {
+  local dir=$1 file base
+  shopt -s nullglob
+  for file in "$dir"/*.pkg.tar.zst "$dir"/*.pkg.tar.zst.sig; do
+    base=$(basename "$file")
+    base=${base%.sig}
+    if [ -z "${DBFILES[$base]+set}" ]; then
+      rm -f -- "$file"
+    fi
+  done
+  shopt -u nullglob
+}
+
+# Publish package objects before either database name; a failed transfer must
+# never advertise packages that have not reached the remote.
+upload_repo() {
+  local dir=$1 prefix=$2 remote=$3 stem
+  rclone copy "$dir" "$remote" --filter '+ *.pkg.tar.zst' --filter '+ *.pkg.tar.zst.sig' --filter '- *' --transfers 16
+  for stem in db files; do
+    rclone copyto "$dir/$prefix.$stem.tar.gz" "$remote/$prefix.$stem.tar.gz"
+    rclone copyto "$dir/$prefix.$stem.tar.gz.sig" "$remote/$prefix.$stem.tar.gz.sig"
+    rclone copyto "$dir/$prefix.$stem" "$remote/$prefix.$stem"
+    rclone copyto "$dir/$prefix.$stem.sig" "$remote/$prefix.$stem.sig"
+  done
 }
 
 cmd_test() {
-  local dir=$STAGING/x86_64-v3-test
-  mkdir -p "$dir"
-  for f in "$@"; do
-    f=$(realpath "$f")
-    cp "$f" "$dir/"
-    sign_pkg "$dir/$(basename "$f")"
-  done
+  local dir=$STAGING/x86_64-v3-test f base receipt hash
+  local -a names=() existing=()
+  if [ "${1:-}" = --manifest ]; then
+    [ $# -eq 2 ] || die "usage: kbuild-publish test --manifest <file>"
+    read_manifest "$2"
+  else
+    CANDIDATES=("$@")
+  fi
+  validate_candidates
+  mkdir -p "$dir" "$STAGING/candidates"
   ( flock 9
-    cd "$dir"
-    repo-add --sign --key "$KEY" kashira-v3-test.db.tar.gz "${@##*/}" >/dev/null
+    if [ -e "$dir/kashira-v3-test.db.tar.gz" ]; then
+      validate_repo_dir "$dir" kashira-v3-test
+    else
+      shopt -s nullglob
+      existing=("$dir"/*.pkg.tar.zst)
+      shopt -u nullglob
+      [ ${#existing[@]} -eq 0 ] || die "test staging has packages without a database"
+    fi
+    for f in "${CANDIDATES[@]}"; do
+      base=$(basename "$f")
+      cp -f -- "$f" "$dir/$base"
+      cmp -s "$f" "$dir/$base" || die "candidate copy differs: $base"
+      sign_pkg "$dir/$base"
+      names+=("$base")
+    done
+    ( cd "$dir" && repo-add --sign --key "$KEY" kashira-v3-test.db.tar.gz "${names[@]}" >/dev/null )
+    sync_db_aliases "$dir" kashira-v3-test
+    validate_repo_dir "$dir" kashira-v3-test
+    for base in "${names[@]}"; do
+      [ -n "${DBFILES[$base]+set}" ] || die "candidate absent from test database: $base"
+    done
+    prune_stale "$dir"
+    upload_repo "$dir" kashira-v3-test "$BUCKET/x86_64-v3-test"
+    receipt=$(mktemp "$STAGING/candidates/.candidate.XXXXXX")
+    ( cd "$dir" && sha256sum kashira-v3-test.db.tar.gz "${names[@]}" "${names[@]/%/.sig}" ) > "$receipt"
+    hash=$(sha256sum "$receipt" | cut -d ' ' -f1)
+    mv -- "$receipt" "$STAGING/candidates/$hash.candidate"
+    echo "candidate: $STAGING/candidates/$hash.candidate"
   ) 9>"$dir/.lock"
-  # R2 has no symlinks: ensure both db names exist as real files
-  ( cd "$dir" && cp -f --remove-destination kashira-v3-test.db.tar.gz kashira-v3-test.db && cp -f --remove-destination kashira-v3-test.db.tar.gz.sig kashira-v3-test.db.sig
-    cp -f --remove-destination kashira-v3-test.files.tar.gz kashira-v3-test.files && cp -f --remove-destination kashira-v3-test.files.tar.gz.sig kashira-v3-test.files.sig )
-  rclone sync "$dir" "$BUCKET/x86_64-v3-test" --transfers 16
-  echo "published ${#@} package(s) to x86_64-v3-test"
+  echo "published ${#CANDIDATES[@]} package(s) to x86_64-v3-test"
+}
+
+cmd_verify() {
+  [ $# -eq 2 ] || die "usage: kbuild-publish verify <dir> <repo-prefix>"
+  [ -d "$1" ] || die "repository directory does not exist: $1"
+  validate_repo_dir "$(realpath -e -- "$1")" "$2"
+  echo "verified $2 repository in $1"
 }
 
 cmd_promote() {
-  # merge test packages into main: main staging must mirror the full repo
-  local src=$STAGING/x86_64-v3-test dst=$STAGING/x86_64-v3
+  local receipt=$1 src=$STAGING/x86_64-v3-test dst=$STAGING/x86_64-v3 base digest file remote_db
+  local -a pkgs=()
+  local -A seen=() signatures=()
+  local db_seen=0
+  [ -f "$receipt" ] || die "candidate receipt missing: $receipt"
+  [ "$(realpath -e -- "$(dirname "$receipt")")" = "$(realpath -e -- "$STAGING/candidates")" ] || die "candidate receipt is not from local test publication"
   [ -d "$src" ] || die "no test staging dir"
   mkdir -p "$dst"
-  if [ ! -f "$dst/kashira-v3.db.tar.gz" ]; then
-    echo "priming main staging from R2..."
-    rclone copy "$BUCKET/x86_64-v3" "$dst" >/dev/null
-  fi
-  ( flock 9
-    cd "$dst"
-    cp "$src"/*.pkg.tar.zst "$src"/*.pkg.tar.zst.sig .
-    repo-add --sign --key "$KEY" kashira-v3.db.tar.gz ./*.pkg.tar.zst >/dev/null
-    cp -f --remove-destination kashira-v3.db.tar.gz kashira-v3.db && cp -f --remove-destination kashira-v3.db.tar.gz.sig kashira-v3.db.sig
-    cp -f --remove-destination kashira-v3.files.tar.gz kashira-v3.files && cp -f --remove-destination kashira-v3.files.tar.gz.sig kashira-v3.files.sig
-  ) 9>"$dst/.lock"
-  rclone sync "$dst" "$BUCKET/x86_64-v3" --transfers 16
-  echo "promoted test -> x86_64-v3 (main)"
+  ( flock 8
+    [[ "$(basename "$receipt")" =~ ^[0-9a-f]{64}\.candidate$ ]] || die "invalid candidate receipt name"
+    [ "$(sha256sum "$receipt" | cut -d ' ' -f1).candidate" = "$(basename "$receipt")" ] || die "candidate receipt changed"
+    validate_repo_dir "$src" kashira-v3-test
+    while read -r digest file; do
+      [[ "$digest" =~ ^[0-9a-f]{64}$ ]] || die "invalid candidate digest"
+      if [ "$file" = kashira-v3-test.db.tar.gz ]; then
+        [ "$db_seen" -eq 0 ] && [ ${#seen[@]} -eq 0 ] || die "database must lead candidate receipt exactly once"
+        db_seen=1
+      elif [[ "$file" == *.pkg.tar.zst ]]; then
+        [ "$db_seen" -eq 1 ] && [ -n "${DBFILES[$file]+set}" ] || die "candidate not in test database: $file"
+        [ -z "${seen[$file]+set}" ] || die "duplicate candidate: $file"
+        seen[$file]=1
+        pkgs+=("$file")
+      elif [[ "$file" == *.pkg.tar.zst.sig ]]; then
+        base=${file%.sig}
+        [ -n "${seen[$base]+set}" ] && [ -z "${signatures[$base]+set}" ] || die "unexpected candidate signature: $file"
+        signatures[$base]=1
+      else
+        die "invalid candidate receipt entry: $file"
+      fi
+      [ -f "$src/$file" ] && [ "$(sha256sum "$src/$file" | cut -d ' ' -f1)" = "$digest" ] || die "test snapshot changed: $file"
+    done < "$receipt"
+    [ "$db_seen" -eq 1 ] && [ ${#pkgs[@]} -gt 0 ] && [ ${#signatures[@]} -eq ${#pkgs[@]} ] || die "candidate receipt incomplete"
+    remote_db=$(mktemp)
+    for file in kashira-v3-test.db.tar.gz "${pkgs[@]}" "${pkgs[@]/%/.sig}"; do
+      rclone copyto "$BUCKET/x86_64-v3-test/$file" "$remote_db" || die "cannot fetch remote test object: $file"
+      cmp -s "$remote_db" "$src/$file" || die "remote test object changed: $file"
+    done
+    rm -f "$remote_db"
+    ( flock 9
+      echo "refreshing main staging from R2..."
+      rclone sync "$BUCKET/x86_64-v3" "$dst" --exclude '.lock'
+      validate_repo_dir "$dst" kashira-v3
+      for base in "${pkgs[@]}"; do
+        cp -f -- "$src/$base" "$src/$base.sig" "$dst/"
+        cmp -s "$src/$base" "$dst/$base" || die "promotion copy differs: $base"
+      done
+      ( cd "$dst" && repo-add --sign --key "$KEY" kashira-v3.db.tar.gz "${pkgs[@]}" >/dev/null )
+      sync_db_aliases "$dst" kashira-v3
+      validate_repo_dir "$dst" kashira-v3
+      for base in "${pkgs[@]}"; do
+        [ -n "${DBFILES[$base]+set}" ] || die "package absent from main database: $base"
+      done
+      prune_stale "$dst"
+      upload_repo "$dst" kashira-v3 "$BUCKET/x86_64-v3"
+    ) 9>"$dst/.lock"
+    echo "promoted ${#pkgs[@]} candidate packages -> x86_64-v3 (main)"
+  ) 8>"$src/.lock"
 }
 
 case "${1:-}" in
   test) shift; cmd_test "$@" ;;
-  promote) cmd_promote ;;
-  *) die "usage: kbuild-publish test <pkg...> | promote" ;;
+  promote) [ $# -eq 3 ] && [ "$2" = --candidate ] || die "usage: kbuild-publish promote --candidate <receipt>"; cmd_promote "$3" ;;
+  verify) shift; cmd_verify "$@" ;;
+  *) die "usage: kbuild-publish test <pkg...> | test --manifest <file> | promote --candidate <receipt> | verify <dir> <repo-prefix>" ;;
 esac

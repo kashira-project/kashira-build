@@ -7,7 +7,7 @@
 #                                       entries see earlier builds
 #
 # Host layout (paths overridable via env):
-#   KBUILD_IMAGE   container image     (dakkshesh07/kashira:base-devel-2026-09-19)
+#   KBUILD_IMAGE   container image     (kashira:base-devel-2026-09-28)
 #   KBUILD_REPO    local repo dir      (/mnt/lfs/var/cache/pacman/kashira)
 #   KBUILD_SOURCES source cache        (/mnt/lfs/sources)
 #   KBUILD_OUT     artifacts root      (<here>/out)
@@ -15,7 +15,7 @@
 set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
-IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-09-19}
+IMAGE=${KBUILD_IMAGE:-kashira:base-devel-2026-09-28}
 REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
@@ -23,39 +23,59 @@ LOGS=${KBUILD_LOGS:-$HERE/logs}
 
 die() { echo "kbuild: $*" >&2; exit 1; }
 
-# pkg_deps <pkgdir> -> space-separated depends+makedepends (names only)
+# pkg_deps <pkgdir> -> space-separated pacman dependency expressions
 pkg_deps() {
-  local info names ownprovides
-  info=$(cd "$1" && makepkg --printsrcinfo 2>/dev/null) || return 0
-  # split pkgnames of this pkgbase that are NOT yet in the repo (true
-  # bootstrap) must be filtered; names already in the repo (e.g. gcc
-  # self-hosting) install the previous version and must stay.
-  names=$(grep -E "^\s*pkgname = " <<<"$info" | sed 's/.*= //' | sort -u | \
-    while read -r n; do
-      grep -q "^$n-" "$REPO/.kbuild-pkglist" 2>/dev/null || echo "$n"
-    done)
-  # provides declared by this pkgbase's own split packages
-  ownprovides=$(grep -E "^\s*provides = " <<<"$info" | sed -E 's/.*= //; s/[<>=].*//' | sort -u)
-  grep -E "^\s+(make)?depends(_x86_64)? = " <<<"$info" | \
-    sed -E 's/.*= //; s/[<>=].*//' | sort -u | \
-    grep -vxF "$names" | \
-    while read -r dep; do
-      # skip deps provided by this same pkgbase via a split package's
-      # provides (e.g. harfbuzz provides libharfbuzz-gobject.so)
-      grep -qxF "$dep" <<<"$ownprovides" && continue
-      printf '%s\n' "$dep"
-    done | tr '\n' ' '
+  local info entries line field expr name
+  local -A own=() provided=() seen=()
+  local scratch
+  scratch=$(mktemp -d) || return 1
+  info=$(cd "$1" && BUILDDIR="$scratch" PKGDEST="$scratch" SRCDEST="$scratch" SRCPKGDEST="$scratch" LOGDEST="$scratch" makepkg --printsrcinfo)
+  local rc=$?
+  rm -rf -- "$scratch"
+  [ "$rc" -eq 0 ] || return "$rc"
+  entries=$(bsdtar -tf "$REPO/kashira.db.tar.gz") || return 1
+  while IFS= read -r line; do
+    [[ "$line" =~ ^[[:space:]]*([a-z_0-9]+)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    field=${BASH_REMATCH[1]} expr=${BASH_REMATCH[2]}
+    [ -n "$expr" ] || continue
+    case "$field" in
+      pkgname) own[$expr]=1 ;;
+      provides|provides_x86_64)
+        name=${expr%%[\<\>\=]*}; provided[$name]=1 ;;
+    esac
+  done <<<"$info"
+  while IFS= read -r line; do
+    [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    expr=${BASH_REMATCH[2]}
+    [ -n "$expr" ] || continue
+    name=${expr%%[\<\>\=]*}
+    name=${name%:any}; name=${name%:x86_64}
+    [ -z "${provided[$name]+set}" ] || continue
+    if [ -n "${own[$name]+set}" ]; then
+      # Self-hosting split: the version we are building right now is not in the
+      # repo yet, so a versioned self-dep (gcc-runtime=$pkgver-$pkgrel) can
+      # never resolve. Keep the dep only when that exact name is already in the
+      # repo (true bootstrap), otherwise fall back to the unversioned name so
+      # pacman can satisfy self-hosting with the current repo version.
+      if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
+        expr=$name
+      else
+        continue
+      fi
+    fi
+    [ -z "${seen[$expr]+set}" ] || continue
+    seen[$expr]=1
+    printf '%s ' "$expr"
+  done <<<"$info"
 }
 
 # build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/
 build_one() {
   local pkgdir=$1 name deps
-  bsdtar -tf "$REPO/kashira.db.tar.gz" 2>/dev/null | grep '/desc$' | \
-    sed 's|/desc$||' > "$REPO/.kbuild-pkglist"
   pkgdir=$(realpath "$pkgdir")
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
   name=$(basename "$pkgdir")
-  deps=$(pkg_deps "$pkgdir")
+  deps=$(pkg_deps "$pkgdir") || return 1
   mkdir -p "$OUT/$name"
   echo "== build $name (deps: ${deps:-none})"
   sudo docker run --rm \
@@ -75,14 +95,20 @@ build_one() {
 
 # repo_add <outdir>: add built packages to the local repo (serialized)
 repo_add() {
-  local outdir=$1 pkg
+  local outdir=$1 pkg destination
+  local -a inrepo=()
   shopt -s nullglob
   local pkgs=("$outdir"/*.pkg.tar.zst)
+  shopt -u nullglob
   [ ${#pkgs[@]} -gt 0 ] || return 1
-  cp "${pkgs[@]}" "$REPO/"
-  local inrepo=("${pkgs[@]/#$outdir\//$REPO/}")
   (
-    flock 9
+    flock 9 || exit 1
+    for pkg in "${pkgs[@]}"; do
+      destination=$REPO/$(basename "$pkg")
+      cp -f -- "$pkg" "$destination" || exit 1
+      cmp -s -- "$pkg" "$destination" || exit 1
+      inrepo+=("$destination")
+    done
     repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}"
   ) 9>"$REPO/.kbuild.lock"
 }
