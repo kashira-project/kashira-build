@@ -8,3 +8,4 @@ image/*/kashira-*.vmlinuz
 image/*/kashira-*.initrd
 image/*/initrd.cpio.zst
 image/*/mkosi.output/
+__pycache__/

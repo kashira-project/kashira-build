@@ -4,110 +4,420 @@
 #   kbuild run <pkgbase...>     dirty closure + topo-ordered parallel build
 #   kbuild run --all            every pkgbase in both repos
 #   kbuild run --file <list>    explicit pkgdir list (one per line)
+#   kbuild run --no-publish --file <list>  prepare locally without publishing
 #
-# Builds in clean containers via the kbuild primitives; parallel within a
-# topo level, memory-capped. repo-adds each success into the local repo so
-# later levels see it. Publishes the whole batch to the R2 test prefix at
-# the end (promote is a separate, human-gated step).
+# Builds in fresh containers, with bounded workers within each topo level.
+# Successful packages enter the local repo; only a fully successful run may
+# publish to testing. Remote publication is ordered, not atomic.
 set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
 # shellcheck source=kbuild
 source <(sed -n '/^pkg_deps/,/^}/p;/^repo_add/,/^}/p' "$HERE/kbuild")
-# pull the path vars + build_one from kbuild
-IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-09-19}
+IMAGE=${KBUILD_IMAGE:-kashira:base-devel-2026-09-28}
 REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
 LOGS=${KBUILD_LOGS:-$HERE/logs}
 WORKERS=${KBUILD_WORKERS:-2}
+[[ "$WORKERS" =~ ^[1-9][0-9]*$ ]] || { echo "invalid KBUILD_WORKERS: $WORKERS" >&2; exit 2; }
 mkdir -p "$LOGS" "$OUT"
 
 sched() { python3 "$HERE/kbuild-sched.py" "$@"; }
 
-declare -A PKGDIR=()
-load_pkgdirs() { while IFS=$'\t' read -r n d; do PKGDIR[$n]=$d; done < <(sched path); }
+# A run has isolated logs, output, status, and candidate manifest. Canonical
+# output remains in OUT so a later run can reuse verified artifacts.
+RUNS=$LOGS/runs
+RUN_ID=${KBUILD_RUN_ID:-$(date +%Y%m%d-%H%M%S)-$$}
+[[ "$RUN_ID" =~ ^[A-Za-z0-9_.-]+$ && "$RUN_ID" != . && "$RUN_ID" != .. ]] || { echo "invalid KBUILD_RUN_ID" >&2; exit 2; }
+RUN_DIR=$RUNS/$RUN_ID
+RUN_OUT=$RUN_DIR/out
+MANIFEST=$RUN_DIR/candidates.manifest
 
-# build_one is the kbuild container build; re-declared here so this script
-# is self-contained when sourced pieces shift.
+mkdir_run() {
+  mkdir -p "$RUNS" || return 1
+  mkdir "$RUN_DIR" "$RUN_OUT" || return 1
+  printf '%s\n' running > "$RUN_DIR/status"
+}
+
+run_status() {
+  printf '%s\n' "$1" > "$RUN_DIR/status"
+}
+
+declare -A PKGDIR=()
+declare -A DIRPKG=()
+declare -A BASEPKG=()
+load_pkgdirs() {
+  local data n d real base
+  data=$(sched path) || return 1
+  while IFS=$'\t' read -r n d; do
+    [ -n "$n" ] || continue
+    real=$(realpath "$d") || return 1
+    [ -f "$real/PKGBUILD" ] || return 1
+    [ -z "${PKGDIR[$n]+set}" ] || { echo "duplicate pkgbase: $n" >&2; return 1; }
+    [ -z "${DIRPKG[$real]+set}" ] || { echo "duplicate pkgdir: $real" >&2; return 1; }
+    base=$(basename "$real")
+    [ -z "${BASEPKG[$base]+set}" ] || { echo "ambiguous pkgdir basename: $base" >&2; return 1; }
+    PKGDIR[$n]=$real
+    DIRPKG[$real]=$n
+    BASEPKG[$base]=$n
+  done <<<"$data"
+  [ ${#PKGDIR[@]} -gt 0 ] || { echo "scheduler returned no package directories" >&2; return 1; }
+}
+
+resolve_target() {
+  local arg=$1 real
+  if [ -n "${PKGDIR[$arg]+set}" ]; then
+    printf '%s\n' "$arg"
+    return 0
+  fi
+  real=$(realpath "$arg" 2>/dev/null) || real=
+  if [ -n "$real" ] && [ -n "${DIRPKG[$real]+set}" ]; then
+    printf '%s\n' "${DIRPKG[$real]}"
+    return 0
+  fi
+  if [ -n "${BASEPKG[$arg]+set}" ]; then
+    printf '%s\n' "${BASEPKG[$arg]}"
+    return 0
+  fi
+  echo "unknown target: $arg" >&2
+  return 1
+}
+
+# build_one is the kbuild container build; its output is isolated to this run.
 build_one() {
-  local pkgdir=$1 name deps
-  pkgdir=$(realpath "$pkgdir")
+  local pkgbase=$1 pkgdir=$2 deps
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
-  name=$(basename "$pkgdir")
-  deps=$(pkg_deps "$pkgdir")
-  mkdir -p "$OUT/$name"
+  deps=$(pkg_deps "$pkgdir") || return 1
+  mkdir -p "$RUN_OUT/$pkgbase" || return 1
+  [ -z "${KBUILD_KEEP_SRC:-}" ] || mkdir -p "$RUN_OUT/$pkgbase/src" || return 1
   sudo docker run --rm \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
+    -e KBUILD_KEEP_SRC="${KBUILD_KEEP_SRC:-}" \
     -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
     -v "$pkgdir":/pkg:ro \
     -v "$SOURCES":/sources \
-    -v "$OUT/$name":/out \
+    -v "$RUN_OUT/$pkgbase":/out \
     -v "$REPO":/repo:ro \
     -v "$HERE":/kbuild:ro \
     -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
-    ${KBUILD_KEEP_SRC:+-v "$OUT/$name/src":/work} \
+    ${KBUILD_KEEP_SRC:+-v "$RUN_OUT/$pkgbase/src":/work} \
     "$IMAGE" /kbuild/kbuild-inside.sh
+}
+
+artifact_list() {
+  local dir=$1 pkgbase=$2 f info base
+  local -a files=()
+  shopt -s nullglob
+  files=("$dir"/*.pkg.tar.zst)
+  shopt -u nullglob
+  [ ${#files[@]} -gt 0 ] || return 1
+  for f in "${files[@]}"; do
+    [ -s "$f" ] || return 1
+    info=$(bsdtar -xOf "$f" .PKGINFO 2>/dev/null) || return 1
+    base=$(awk -F ' = ' '$1 == "pkgbase" { print $2; exit }' <<<"$info")
+    [ "$base" = "$pkgbase" ] || return 1
+  done
+  printf '%s\n' "${files[@]}"
+}
+
+copy_canonical() {
+  local pkgbase=$1 src=$2 f files recorded=$LOGS/$1.artifacts
+  files=$(artifact_list "$src" "$pkgbase") || return 1
+  mkdir -p "$OUT/$pkgbase" || return 1
+  : > "$recorded"
+  while IFS= read -r f; do
+    cp -f "$f" "$OUT/$pkgbase/" || return 1
+    sha256sum "$OUT/$pkgbase/$(basename "$f")" >> "$recorded" || return 1
+  done <<<"$files"
+}
+
+recipe_fingerprint() {
+  local pkgdir=$1 listing digest
+  [ -f "$pkgdir/PKGBUILD" ] || return 1
+  listing=$(mktemp) || return 1
+  if ! find "$pkgdir" -mindepth 1 -type d \( -name .git -o -name src -o -name pkg \) -prune -o \
+      \( -type f -o -type l \) -print0 > "$listing"; then
+    rm -f "$listing"
+    return 1
+  fi
+  digest=$(sort -z "$listing" | xargs -0 -r sha256sum | sha256sum | cut -d ' ' -f1)
+  local rc=$?
+  rm -f "$listing"
+  [ "$rc" -eq 0 ] || return 1
+  printf '%s\n' "$digest"
+}
+
+build_fingerprint() {
+  local pkgbase=$1 dep
+  printf 'image: %s\nconfig: %s\nskip-upgrade: %s\n' "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}"
+  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
+  recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
+  for dep in ${GRAPH[$pkgbase]:-}; do
+    [ -s "$LOGS/$dep.identity" ] && [ -f "$LOGS/$dep.done" ] || return 1
+    sha256sum "$LOGS/$dep.identity" || return 1
+    recipe_fingerprint "${PKGDIR[$dep]}" || return 1
+  done
+}
+
+build_fingerprint_for_build() {
+  local pkgbase=$1 dep
+  printf 'image: %s\nconfig: %s\nskip-upgrade: %s\n' "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}"
+  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
+  recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
+  for dep in ${GRAPH[$pkgbase]:-}; do
+    if [ -s "$LOGS/$dep.identity" ] && [ -f "$LOGS/$dep.done" ]; then
+      sha256sum "$LOGS/$dep.identity" || return 1
+    else
+      printf 'unrecorded dependency: %s\n' "$dep"
+    fi
+    recipe_fingerprint "${PKGDIR[$dep]}" || return 1
+  done
+}
+
+repo_matches() {
+  local file=$1 entry desc entries filename=${1##*/} digest
+  cmp -s -- "$file" "$REPO/$filename" || return 1
+  digest=$(sha256sum "$file") || return 1
+  digest=${digest%% *}
+  entries=$(bsdtar -tf "$REPO/kashira.db.tar.gz") || return 1
+  while IFS= read -r entry; do
+    [[ "$entry" == */desc ]] || continue
+    desc=$(bsdtar -xOf "$REPO/kashira.db.tar.gz" "$entry") || return 1
+    if awk -v filename="$filename" -v digest="$digest" '
+      /^%FILENAME%$/ { getline; name=$0 }
+      /^%SHA256SUM%$/ { getline; sum=$0 }
+      END { exit !(name == filename && sum == digest) }
+    ' <<<"$desc"; then
+      return 0
+    fi
+  done <<<"$entries"
+  return 1
+}
+
+reusable_artifacts() {
+  local pkgbase=$1 record=$LOGS/$1.artifacts file digest info base fingerprint
+  [ -f "$LOGS/$pkgbase.done" ] && [ -s "$LOGS/$pkgbase.recipe" ] && [ -s "$LOGS/$pkgbase.identity" ] || return 1
+  fingerprint=$(build_fingerprint "$pkgbase") || return 1
+  [ "$(<"$LOGS/$pkgbase.recipe")" = "$fingerprint" ] || return 1
+  [ -s "$record" ] || return 1
+  [ "$(sha256sum "$LOGS/$pkgbase.recipe" "$record" | sha256sum | cut -d ' ' -f1)" = "$(<"$LOGS/$pkgbase.identity")" ] || return 1
+  while read -r digest file; do
+    [ -n "$digest" ] && [ -n "$file" ] && [ -s "$file" ] || return 1
+    [[ "$file" == "$OUT/$pkgbase/"*.pkg.tar.zst ]] || return 1
+    [ "$(sha256sum "$file")" = "$digest  $file" ] || return 1
+    info=$(bsdtar -xOf "$file" .PKGINFO 2>/dev/null) || return 1
+    base=$(awk -F ' = ' '$1 == "pkgbase" { print $2; exit }' <<<"$info")
+    [ "$base" = "$pkgbase" ] || return 1
+    repo_matches "$file" || return 1
+    printf '%s\n' "$file"
+  done < "$record"
+}
+
+build_package() {
+  local pkgbase=$1 pkgdir=${PKGDIR[$1]} log="$RUN_DIR/$1.log" fingerprint current
+  if [ "$FORCE_REBUILD" != 1 ] && [ -f "$LOGS/$pkgbase.done" ] && reusable_artifacts "$pkgbase" >/dev/null; then
+    printf '%s\n' skipped > "$RUN_DIR/$pkgbase.status"
+    return 0
+  fi
+  rm -f "$LOGS/$pkgbase.done"
+  if fingerprint=$(build_fingerprint_for_build "$pkgbase") \
+      && rm -rf "${RUN_OUT:?}/$pkgbase" \
+      && build_one "$pkgbase" "$pkgdir" >"$log" 2>&1 \
+      && artifact_list "$RUN_OUT/$pkgbase" "$pkgbase" >/dev/null \
+      && current=$(build_fingerprint_for_build "$pkgbase") \
+      && [ "$current" = "$fingerprint" ] \
+      && repo_add "$RUN_OUT/$pkgbase" \
+      && copy_canonical "$pkgbase" "$RUN_OUT/$pkgbase" \
+      && printf '%s\n' "$fingerprint" > "$LOGS/$pkgbase.recipe" \
+      && sha256sum "$LOGS/$pkgbase.recipe" "$LOGS/$pkgbase.artifacts" | sha256sum | cut -d ' ' -f1 > "$LOGS/$pkgbase.identity" \
+      && touch "$LOGS/$pkgbase.done"; then
+    rm -f "$LOGS/$pkgbase.failed"
+    printf '%s\n' built > "$RUN_DIR/$pkgbase.status"
+    return 0
+  fi
+  if [ -n "${current:-}" ] && [ "$current" != "$fingerprint" ]; then
+    echo "recipe or dependency changed during build: $pkgbase" >&2
+  fi
+  cp -f "$log" "$LOGS/$pkgbase.log" 2>/dev/null || true
+  printf '%s\n' failed > "$RUN_DIR/$pkgbase.status"
+  printf 'FAILED %s\n' "$pkgbase" > "$LOGS/$pkgbase.failed"
+  return 1
 }
 
 build_level() {
   local -a pkgs=("$@") pids=()
+  local p pid rc=0
   for p in "${pkgs[@]}"; do
-    # incremental reruns: skip packages already built
-    [ -f "$LOGS/$(basename "$p").done" ] && continue
-    # memory-capped worker pool: wait if at the limit
+    [ -n "$p" ] || continue
     while [ "$(jobs -rp | wc -l)" -ge "$WORKERS" ]; do sleep 2; done
-    ( dir=${PKGDIR[$p]:-$p}
-      if build_one "$dir" > "$LOGS/$(basename "$p")".log 2>&1 && repo_add "$OUT/$(basename "$p")"; then
-        touch "$LOGS/$(basename "$p").done"
-      else
-        echo "FAILED $(basename "$p")" > "$LOGS/$(basename "$p").failed"
-      fi ) &
+    ( build_package "$p" ) &
     pids+=($!)
   done
-  wait
+  for pid in "${pids[@]}"; do
+    wait "$pid" || rc=1
+  done
+  return $rc
+}
+
+append_candidates() {
+  local p f files status
+  for p in "${targets[@]}"; do
+    printf 'target\t%s\n' "$p" >> "$MANIFEST" || return 1
+    status=$(cat "$RUN_DIR/$p.status" 2>/dev/null) || return 1
+    case "$status" in
+      skipped) files=$(reusable_artifacts "$p") || return 1 ;;
+      built) files=$(artifact_list "$RUN_OUT/$p" "$p") || return 1 ;;
+      *) return 1 ;;
+    esac
+    while IFS= read -r f; do
+      printf 'artifact\t%s\t%s\n' "$p" "$(realpath "$f")" >> "$MANIFEST" || return 1
+    done <<<"$files"
+  done
+}
+
+capture_targets() {
+  local mode=$1 listfile=${2:-} data line
+  case "$mode" in
+    all)
+      data=$(sched graph) || return 1
+      while IFS= read -r line; do
+        [ -n "$line" ] || continue
+        targets+=("${line%%:*}")
+      done <<<"$data"
+      ;;
+    file)
+      [ -f "$listfile" ] || { echo "no such target list: $listfile" >&2; return 1; }
+      while IFS= read -r line || [ -n "$line" ]; do
+        line=${line%%#*}
+        line=${line#"${line%%[![:space:]]*}"}
+        line=${line%"${line##*[![:space:]]}"}
+        [ -n "$line" ] || continue
+        p=$(resolve_target "$line") || return 1
+        targets+=("$p")
+      done < "$listfile"
+      ;;
+    dirty)
+      shift
+      data=$(sched dirty "$@") || return 1
+      while IFS= read -r line; do
+        [ -n "$line" ] || continue
+        p=${line%%[[:space:]]*}
+        targets+=("$p")
+      done <<<"$data"
+      ;;
+  esac
+}
+
+dedupe_targets() {
+  local -A seen=() out=() p
+  for p in "${targets[@]}"; do
+    p=$(resolve_target "$p") || return 1
+    [ -n "${seen[$p]+set}" ] || { seen[$p]=1; out[${#out[@]}]=$p; }
+  done
+  targets=()
+  for p in "${out[@]}"; do targets+=("$p"); done
 }
 
 cmd_run() {
-  local -a targets=()
-  if [ "${1:-}" = "--all" ]; then
-    mapfile -t targets < <(sched graph | cut -d: -f1)
-  elif [ "${1:-}" = "--file" ]; then
-    mapfile -t targets < <(grep -v '^\s*#' "$2" | grep -v '^\s*$' | xargs -n1 basename)
-  else
-    # dirty closure of the named pkgbases
-    mapfile -t targets < <(sched dirty "$@" | awk '{print $1}')
+  local -a targets=() levels=() pkgs=()
+  local data lvl p li=0 nlvl rc=0 no_publish=0 FORCE_REBUILD=0 IMAGE_ID MAKEPKG_CONF
+  if [ "${1:-}" = --no-publish ]; then
+    no_publish=1
+    shift
   fi
-  [ ${#targets[@]} -gt 0 ] || { echo "nothing to build"; return 0; }
-
-  load_pkgdirs
+  exec 8>"$LOGS/.kbuild-run.lock" 9>"$OUT/.kbuild-run.lock" || return 1
+  flock 8 && flock 9 || return 1
+  mkdir_run || { echo "cannot create run directory: $RUN_DIR" >&2; return 1; }
+  load_pkgdirs || { run_status failed; return 1; }
+  if [ "${1:-}" = --all ]; then
+    capture_targets all || { run_status failed; return 1; }
+  elif [ "${1:-}" = --file ]; then
+    [ $# -eq 2 ] || { echo "--file requires a list" >&2; run_status failed; return 2; }
+    capture_targets file "$2" || { run_status failed; return 1; }
+  else
+    [ $# -gt 0 ] && [[ "$1" != --* ]] || { echo "missing or invalid targets" >&2; run_status failed; return 2; }
+    FORCE_REBUILD=1
+    capture_targets dirty "$@" || { run_status failed; return 1; }
+  fi
+  dedupe_targets || { run_status failed; return 1; }
+  [ ${#targets[@]} -gt 0 ] || { echo "nothing to build"; run_status prepared; return 0; }
+  MAKEPKG_CONF=${KBUILD_MAKEPKG_CONF:-makepkg.conf}
+  if [[ "$MAKEPKG_CONF" == */* || "$MAKEPKG_CONF" == . || "$MAKEPKG_CONF" == .. ]] || [ ! -f "$HERE/conf/$MAKEPKG_CONF" ]; then
+    echo "invalid KBUILD_MAKEPKG_CONF: $MAKEPKG_CONF" >&2
+    run_status failed
+    return 2
+  fi
+  IMAGE_ID=$(sudo docker image inspect --format '{{.Id}}' "$IMAGE") || { run_status failed; return 1; }
+  [ -n "$IMAGE_ID" ] || { run_status failed; return 1; }
+  if ! {
+    printf 'kbuild-manifest-v1\n'
+    printf 'requested\t%s\n' "${targets[@]}"
+  } > "$MANIFEST" || ! printf '%s\n' "${targets[@]}" > "$RUN_DIR/targets"; then
+    run_status failed
+    return 1
+  fi
+  echo "== run: $RUN_ID"
   echo "== plan: ${#targets[@]} pkgbases"
-  # retry semantics: clear stale .failed markers for this run's targets
-  for p in "${targets[@]}"; do rm -f "$LOGS/$(basename "$p").failed"; done
-  local -a levels=()
-  mapfile -t levels < <(sched levels "${targets[@]}")
-  local nlvl=${#levels[@]} li=0 rc=0
+  for p in "${targets[@]}"; do
+    rm -f "$LOGS/$p.failed"
+  done
+  data=$(sched graph) || { run_status failed; return 1; }
+  local -A GRAPH=()
+  while IFS= read -r lvl; do
+    [ -n "$lvl" ] || continue
+    GRAPH[${lvl%%:*}]=${lvl#*: }
+  done <<<"$data"
+  data=$(sched levels "${targets[@]}") || { run_status failed; return 1; }
+  while IFS= read -r lvl; do
+    [ -n "$lvl" ] || continue
+    levels+=("$lvl")
+  done <<<"$data"
+  nlvl=${#levels[@]}
+  local -A scheduled=() wanted=()
+  for p in "${targets[@]}"; do wanted[$p]=1; done
   for lvl in "${levels[@]}"; do
-    li=$((li+1))
+    read -ra pkgs <<<"$lvl"
+    for p in "${pkgs[@]}"; do
+      if [ -z "${wanted[$p]+set}" ] || [ -n "${scheduled[$p]+set}" ]; then
+        echo "invalid scheduler level target: $p" >&2
+        run_status failed
+        return 1
+      fi
+      scheduled[$p]=1
+    done
+  done
+  if [ ${#scheduled[@]} -ne ${#targets[@]} ]; then
+    echo "scheduler omitted requested targets" >&2
+    run_status failed
+    return 1
+  fi
+  for lvl in "${levels[@]}"; do
+    li=$((li + 1))
     read -ra pkgs <<<"$lvl"
     echo "== level $li/$nlvl: ${pkgs[*]}"
-    build_level "${pkgs[@]}"
-    local failed_now=($(compgen -G "$LOGS/*.failed" | xargs -r -n1 basename | sed 's/\.failed$//'))
-    if [ ${#failed_now[@]} -gt 0 ]; then
-      echo "== level $li: ${#failed_now[@]} failed so far (${failed_now[*]:0:8}...)"; rc=1
-    fi
+    build_level "${pkgs[@]}" || rc=1
   done
+  if [ "$rc" -ne 0 ]; then
+    echo "== build failed; test publication skipped"
+    run_status failed
+    return 1
+  fi
+  append_candidates || { echo "invalid or missing run artifact" >&2; run_status failed; return 1; }
+  [ -s "$MANIFEST" ] || { echo "run produced no artifacts" >&2; run_status failed; return 1; }
+  if [ "$no_publish" -eq 1 ]; then
+    echo "== build complete (${#targets[@]} pkgbases); prepared: $MANIFEST"
+    run_status prepared
+    return 0
+  fi
   echo "== build complete (${#targets[@]} pkgbases); publishing to test prefix"
-  # publish everything produced
-  local -a built=()
-  for p in "${targets[@]}"; do
-    [ -d "$OUT/$p" ] && built+=("$OUT/$p"/*.pkg.tar.zst)
-  done
-  [ ${#built[@]} -gt 0 ] && "$HERE/kbuild-publish" test "${built[@]}"
+  "$HERE/kbuild-publish" test --manifest "$MANIFEST" || { run_status failed; return 1; }
+  run_status published
+  return 0
 }
 
 case "${1:-}" in
-  run) shift; cmd_run "$@" ;;
+  run) shift; cmd_run "$@"; exit $? ;;
   *) echo "usage: kbuild-run run [--all|--file <list>|<pkgbase...>]" >&2; exit 2 ;;
 esac
