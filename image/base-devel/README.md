@@ -9,7 +9,7 @@ sudo /mnt/lfs/src/kashira-build/image/base-devel/build.sh
 sudo /mnt/lfs/src/kashira-build/image/base-devel/build.sh /mnt/lfs/tmp/kbi-mybuild
 ```
 
-`IMAGE_TAG` overrides the tag (default `kashira:base-devel-2026-09-28`). The
+`IMAGE_TAG` overrides the tag (default `dakkshesh07/kashira:base-devel-2026-10-03`). The
 workspace holds the rootfs, bootstrap config, install log and tmpfiles log for
 inspection; the script refuses to reuse one. Nothing outside the fresh workspace
 is deleted, and nothing is pushed anywhere.

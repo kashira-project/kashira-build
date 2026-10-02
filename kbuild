@@ -7,7 +7,7 @@
 #                                       entries see earlier builds
 #
 # Host layout (paths overridable via env):
-#   KBUILD_IMAGE   container image     (kashira:base-devel-2026-09-28)
+#   KBUILD_IMAGE   container image     (dakkshesh07/kashira:base-devel-2026-10-03)
 #   KBUILD_REPO    local repo dir      (/mnt/lfs/var/cache/pacman/kashira)
 #   KBUILD_SOURCES source cache        (/mnt/lfs/sources)
 #   KBUILD_OUT     artifacts root      (<here>/out)
@@ -15,7 +15,7 @@
 set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
-IMAGE=${KBUILD_IMAGE:-kashira:base-devel-2026-09-28}
+IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-10-03}
 REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
@@ -25,7 +25,7 @@ die() { echo "kbuild: $*" >&2; exit 1; }
 
 # pkg_deps <pkgdir> -> space-separated pacman dependency expressions
 pkg_deps() {
-  local info entries line field expr name
+  local info entries line field expr name base
   local -A own=() provided=() seen=()
   local scratch
   scratch=$(mktemp -d) || return 1
@@ -39,6 +39,7 @@ pkg_deps() {
     field=${BASH_REMATCH[1]} expr=${BASH_REMATCH[2]}
     [ -n "$expr" ] || continue
     case "$field" in
+      pkgbase) base=$expr ;;
       pkgname) own[$expr]=1 ;;
       provides|provides_x86_64)
         name=${expr%%[\<\>\=]*}; provided[$name]=1 ;;
@@ -52,11 +53,13 @@ pkg_deps() {
     name=${name%:any}; name=${name%:x86_64}
     [ -z "${provided[$name]+set}" ] || continue
     if [ -n "${own[$name]+set}" ]; then
-      # Self-hosting split: the version we are building right now is not in the
-      # repo yet, so a versioned self-dep (gcc-runtime=$pkgver-$pkgrel) can
-      # never resolve. Keep the dep only when that exact name is already in the
-      # repo (true bootstrap), otherwise fall back to the unversioned name so
-      # pacman can satisfy self-hosting with the current repo version.
+      # Never ask pacman to install the pkgbase we are building: that would pull
+      # the previous release of this very package (stale metadata, and it can
+      # drag in deps we are about to replace). Sibling splits are different —
+      # gcc-runtime legitimately provides the libstdc++ headers and CRT objects
+      # clang++ needs to build the compiler, so keep those when the repo has
+      # them, unversioned so the version we are producing cannot leak in.
+      [ "$name" = "$base" ] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       else

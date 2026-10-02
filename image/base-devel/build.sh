@@ -3,7 +3,7 @@ set -euo pipefail
 
 repo=/mnt/lfs/var/cache/pacman/kashira
 output=/mnt/lfs/tmp/kbimg
-tag=${IMAGE_TAG:-kashira:base-devel-2026-09-28}
+tag=${IMAGE_TAG:-dakkshesh07/kashira:base-devel-2026-10-03}
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 
