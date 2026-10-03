@@ -52,6 +52,19 @@ def repo_index():
     return idx
 
 
+def split_owner(name, universe):
+    """Which vendored pkgbase produces `name` as one of its splits?
+
+    Arch splits like gtk-update-icon-cache and pipewire-system-services have no
+    packaging repo of their own; another pkgbase produces them. Without this, a
+    plan reports a "missing" package that cannot possibly be imported.
+    """
+    for base, info in universe.items():
+        if name in info["pkgnames"]:
+            return base
+    return None
+
+
 def pkgdir_of(base, universe):
     return universe[base]["pkgdir"]
 

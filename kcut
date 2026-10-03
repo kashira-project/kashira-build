@@ -48,16 +48,36 @@ def field_block(text, field):
 
 
 def drop_dep(text, field, dep):
+    """Remove one list item from a parenthesised array field.
+
+    Handles every layout an Arch PKGBUILD uses: the dep alone on its own line,
+    quoted inline ('dep' 'other'), and as the last entry before the closing
+    paren (dep)).
+    """
     span = field_block(text, field)
     if not span:
         return text, False
     i, j = span
     block = text[i:j]
-    # match the dep as a quoted or bare list item, with leading indent
-    pat = re.compile(r"^[ \t]*(?:'" + re.escape(dep) + r"'|\"" + re.escape(dep) + r"\"|" + re.escape(dep) + r")[ \t]*\n", re.M)
-    new, n = pat.subn("", block)
+    d = re.escape(dep)
+    # dep sharing the line with the array opening: makedepends=(chrpath
+    block, n = re.subn(r"(\b\w+=\()[ \t]*(?:'" + d + r"'|\"" + d + r"\"|" + d + r")[ \t]*", r"\1", block, count=1)
     if n:
-        return text[:i] + new + text[j:], True
+        block = re.sub(r"^[ \t]*\n", "", block, flags=re.M)
+        return text[:i] + block + text[j:], True
+    # whole-line form: optional indent, optional quotes, then end of line
+    block, n = re.subn(r"^[ \t]*(?:'" + d + r"'|\"" + d + r"\"|" + d + r")[ \t]*\n", "", block, flags=re.M)
+    if not n:
+        # inline form: the dep as a token inside a quoted/bare list, optionally
+        # carrying the closing paren of the array.
+        block, n = re.subn(r"[ \t]*(?:'" + d + r"'|\"" + d + r"\")(?=[ \t\)]|$)[ \t]*", "", block)
+        if not n:
+            block, n = re.subn(r"(?<![\w.-])" + d + r"(?=\)|,|$)[ \t]*", "", block)
+    if n:
+        # tidy the leftovers: collapse runs of spaces, drop blank lines
+        block = re.sub(r"[ \t]{2,}(?=\S)", " ", block)
+        block = re.sub(r"^[ \t]*\n", "", block, flags=re.M)
+        return text[:i] + block + text[j:], True
     return text, False
 
 
@@ -97,14 +117,52 @@ def apply_pkg(base, deps, dry):
     return True
 
 
+def verify_parse(base):
+    """Confirm the materialized recipe still produces valid .SRCINFO.
+
+    Dropping a split package is only safe if its name leaves the pkgname array
+    AND its package_*() function disappears; leaving either behind produces a
+    recipe makepkg silently refuses. This catches that before the next wave
+    wastes a build cycle on it.
+    """
+    import shutil
+    import tempfile
+    src = os.path.join(ROOT, "pkgs", base)
+    if not os.path.isfile(os.path.join(src, "PKGBUILD")):
+        return True
+    d = tempfile.mkdtemp(prefix="kcut-verify-", dir="/mnt/lfs/tmp")
+    try:
+        shutil.copytree(src, d, dirs_exist_ok=True)
+        env = dict(os.environ)
+        env.update({k: d for k in ("BUILDDIR", "PKGDEST", "SRCDEST", "SRCPKGDEST", "LOGDEST")})
+        r = subprocess.run(["makepkg", "--printsrcinfo"], cwd=d,
+                           capture_output=True, text=True, env=env)
+        if r.returncode != 0:
+            tail = (r.stderr or r.stdout).strip().splitlines()
+            print(f"  !! {base} no longer produces .SRCINFO: {tail[-1] if tail else '?'}")
+            return False
+        return True
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 def main():
     args = sys.argv[1:]
-    if len(args) != 2 or args[0] not in ("apply", "check"):
+    if len(args) not in (2, 3) or args[0] not in ("apply", "check", "verify"):
         print(__doc__)
         return 2
-    dry = args[0] == "check"
+    mode, cutfile = args[0], args[1]
+    dry = mode == "check"
     n = 0
-    for line in open(args[1]):
+    if mode == "verify":
+        bases = args[2:] or sorted(
+            d for d in os.listdir(os.path.join(ROOT, "pkgs"))
+            if os.path.isfile(os.path.join(ROOT, "pkgs", d, "PKGBUILD")))
+        bad = [b for b in bases if not verify_parse(b)]
+        print(f"verified {len(bases) - len(bad)}/{len(bases)} recipes parse")
+        return 1 if bad else 0
+    touched = []
+    for line in open(cutfile):
         line = line.split("#")[0].strip()
         if not line:
             continue
@@ -112,7 +170,14 @@ def main():
         base, deps = parts[0], parts[1:]
         if apply_pkg(base, deps, dry):
             n += 1
+            touched.append(base)
     print(f"\n{'would change' if dry else 'changed'} {n} pkgbases")
+    if touched and not dry:
+        bad = [b for b in touched if not verify_parse(b)]
+        if bad:
+            print(f"post-apply verification FAILED for: {', '.join(bad)}")
+            return 1
+        print(f"post-apply .SRCINFO verification: {len(touched)}/{len(touched)} parse")
     return 0
 
 
