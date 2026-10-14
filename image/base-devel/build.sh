@@ -36,6 +36,14 @@ EOF
     if grep -Eiq '(^|[[:space:]])(error:|failed to|failure:)|command failed to execute correctly|install scriptlet.*(fail|error)|hook.*(fail|error)' "$work/install.log"; then
         die "pacman reported an install-script or hook error; see $work/install.log"
     fi
+    printf '#include <stdio.h>\nint main(void) { puts("kashira-c-smoke"); }\n' |
+        chroot "$root" /usr/bin/clang -x c -o /tmp/kashira-c-smoke - || die 'clang C smoke test failed'
+    printf '#include <vector>\nint main(void) { std::vector<int> v{1, 2, 3}; return v.size() != 3; }\n' |
+        chroot "$root" /usr/bin/clang++ -std=c++17 -x c++ -o /tmp/kashira-cxx-smoke - || die 'clang++ C++ smoke test failed'
+    chroot "$root" /tmp/kashira-c-smoke || die 'clang C runtime smoke test failed'
+    chroot "$root" /tmp/kashira-cxx-smoke || die 'clang++ C++ runtime smoke test failed'
+    [[ ! -e $root/usr/bin/gcc ]] || die 'unexpected GCC compiler in base-devel image'
+    rm -f "$root/tmp/kashira-c-smoke" "$root/tmp/kashira-cxx-smoke"
     for path in / /etc /usr /var /var/lib/pacman /root /tmp; do
         [[ $(stat -c '%u:%g' -- "$root$path") == 0:0 ]] || die "wrong ownership: $root$path"
     done

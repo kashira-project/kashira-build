@@ -8,8 +8,8 @@ always applies cleanly.
 
   kdelta <pkgbase>            show the current materialized PKGBUILD
   kdelta <pkgbase> --edit     open an interactive-ish edit session (see below)
-  kdelta <pkgbase> --patch F  replace delta/<pkgbase>/patches/F with a patch that
-                              turns upstream/<pkgbase>/PKGBUILD into F
+  kdelta <pkgbase> --patch F  write delta/<pkgbase>/patches/F with a patch that
+                              updates the current materialized PKGBUILD to F
 
 The --patch flow is the one to use from a script:
 
@@ -25,6 +25,10 @@ import subprocess
 import sys
 
 ROOT = "/mnt/lfs/src/kashira-arch"
+
+
+def valid_name(value):
+    return value and value not in (".", "..") and os.path.basename(value) == value
 
 
 def sh(*cmd, **kw):
@@ -47,6 +51,10 @@ def show(base):
 
 
 def make_patch(base, name, newfile):
+    if not valid_name(base):
+        sys.exit(f"kdelta: invalid package name: {base}")
+    if name != "auto" and not valid_name(name):
+        sys.exit(f"kdelta: invalid patch name: {name}")
     # Diff against the CURRENT MATERIALIZED PKGBUILD, not upstream: deltas are
     # replayed in order (upstream + 0001 + 0002 ...), so patch N must be the
     # delta from the state the previous patches produce. Diffing against
@@ -72,12 +80,16 @@ def make_patch(base, name, newfile):
                 n = max(n, int(m.group(1)) + 1)
         name = f"{n:04d}-cut-optional-build-deps.patch"
     dest = os.path.join(d, name)
+    if os.path.exists(dest):
+        sys.exit(f"kdelta: refusing to overwrite existing patch: {name}")
     open(dest, "w").write(r.stdout)
     print(f"wrote {dest} ({len(r.stdout.splitlines())} lines)")
     return dest
 
 
 def materialize(base):
+    if not valid_name(base):
+        sys.exit(f"kdelta: invalid package name: {base}")
     r = sh("python3", "tools/sync.py", "materialize", base, cwd=ROOT)
     sys.stdout.write(r.stdout)
     sys.stderr.write(r.stderr)
@@ -94,6 +106,9 @@ def main():
         print(__doc__)
         return 2
     base = args[0]
+    if not valid_name(base):
+        print(f"kdelta: invalid package name: {base}")
+        return 2
     if len(args) == 1:
         show(base)
         return 0
@@ -101,7 +116,7 @@ def main():
         make_patch(base, args[2], args[3])
         materialize(base)
         return 0
-    if args[1] == "--materialize":
+    if args[1] == "--materialize" and len(args) == 2:
         materialize(base)
         return 0
     print(__doc__)

@@ -1,0 +1,96 @@
+# Maintainer: Kashira bootstrap
+
+pkgbase=kashira-bootstrap-libcolord
+pkgname=(libcolord)
+pkgver=1.4.8
+pkgrel=0.1
+pkgdesc="Temporary bootstrap client library provider for colord"
+url="https://www.freedesktop.org/software/colord/"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  glib2
+  glibc
+  lcms2
+  libgcc
+  libgudev
+  systemd-libs
+)
+makedepends=(
+  git
+  gobject-introspection
+  libgusb
+  meson
+  sqlite
+  vala
+)
+options=(!emptydirs)
+source=("git+https://github.com/hughsie/colord?signed#tag=$pkgver")
+b2sums=('451c9571241278fb3347dd928370f3e350645c1cb2736beda37e7e5d3c1d374d49626298f0ab96d457de6ec3633fda1057d992aa833bf4f8042e29fcc4162a66')
+validpgpkeys=(
+  163EB50119225DB3DF8F49EA17ACBA8DFA970E17
+)
+
+build() {
+  local meson_options=(
+    -D daemon=false
+    -D sane=false
+    -D libcolordcompat=true
+    -D introspection=true
+    -D vapi=true
+    -D print_profiles=false
+    -D argyllcms_sensor=false
+    -D bash_completion=false
+    -D udev_rules=false
+    -D systemd=false
+    -D docs=false
+    -D man=false
+    -D tests=false
+  )
+
+  arch-meson colord build "${meson_options[@]}"
+  meson compile -C build
+}
+
+package_libcolord() {
+  pkgdesc="System daemon for managing color devices (client library; temporary bootstrap)"
+  provides=(libcolord.so)
+
+  local staged="$srcdir/installed" file
+  meson install -C build --destdir "$staged"
+  cd "$staged"
+
+  for file in \
+    usr/include/colord-1/colord.h \
+    usr/include/colord-1/colord-private.h \
+    usr/include/colord-1/colord/cd-client.h \
+    usr/include/colord-1/colord/cd-version.h \
+    usr/include/colord-1/colord/cd-compat-edid.h \
+    usr/lib/libcolord.so \
+    usr/lib/libcolord.so.2 \
+    usr/lib/libcolordprivate.so.2 \
+    usr/lib/libcolordcompat.so \
+    usr/lib/girepository-1.0/Colord-1.0.typelib \
+    usr/lib/pkgconfig/colord.pc \
+    usr/share/gir-1.0/Colord-1.0.gir \
+    usr/share/vala/vapi/colord.vapi \
+    usr/share/vala/vapi/colord.deps; do
+    [[ -e $file ]] || { error "Missing client artifact: $file"; return 1; }
+  done
+
+  shopt -s nullglob
+  local files=(
+    usr/include/colord-1/colord.h
+    usr/include/colord-1/colord-private.h
+    usr/include/colord-1/colord/*
+    usr/lib/libcolord{,private,compat}.so*
+    usr/lib/girepository-1.0/Colord-1.0.typelib
+    usr/lib/pkgconfig/colord.pc
+    usr/share/gir-1.0/Colord-1.0.gir
+    usr/share/vala/vapi/colord.{vapi,deps}
+  )
+  (( ${#files[@]} > 0 )) || { error 'No client artifacts staged'; return 1; }
+  cp -a --parents -- "${files[@]}" "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

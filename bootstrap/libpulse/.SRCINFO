@@ -1,0 +1,37 @@
+pkgbase = kashira-bootstrap-libpulse
+	pkgdesc = Temporary bootstrap client library provider for PulseAudio
+	pkgver = 17.0+r98+gb096704c0
+	pkgrel = 0.1
+	url = https://www.freedesktop.org/wiki/Software/PulseAudio/
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	makedepends = bash
+	makedepends = dbus
+	makedepends = git
+	makedepends = glib2
+	makedepends = glibc
+	makedepends = libasyncns
+	makedepends = libsndfile
+	makedepends = libxcb
+	makedepends = meson
+	makedepends = systemd-libs
+	source = git+https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git#commit=b096704c0d42c5e784deb781a07b23cfb5286a82
+	source = 0001-alsa-ucm-Fix-segfault-from-recursion-due-to-too-many.patch
+	b2sums = 3b800dc84b1ccb0f1252e9c55390842d0d63c004393f3271daa7dcdcaa6b2351ca129d2a268855c57ec6c03e14bf1a571deac6c4bb89ac1e08a83cf910834490
+	b2sums = 73f93801069b2c5b09646870269c0f42cefc2183a73b47c78fd160c978a841c11c5146b98351a11be24d4785181f361a455534e6f6ca2d977cf585044836f8ed
+
+pkgname = libpulse
+	pkgdesc = Temporary bootstrap client library provider for PulseAudio
+	depends = bash
+	depends = dbus
+	depends = glib2
+	depends = glibc
+	depends = libasyncns
+	depends = libsndfile
+	depends = libxcb
+	depends = systemd-libs
+	optdepends = pulse-native-provider: PulseAudio backend
+	provides = libpulse-mainloop-glib.so
+	provides = libpulse-simple.so
+	provides = libpulse.so
+	backup = etc/pulse/client.conf

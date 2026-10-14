@@ -1,0 +1,20 @@
+# Maintainer: Kashira bootstrap
+
+pkgbase=kashira-bootstrap-frei0r
+pkgname=(frei0r-headers)
+pkgver=3.6.0
+pkgrel=0.1
+pkgdesc="frei0r plugin API headers"
+url="https://frei0r.dyne.org/"
+arch=(any)
+license=(GPL-2.0-or-later)
+makedepends=(git)
+source=("git+https://github.com/dyne/frei0r#tag=v$pkgver")
+b2sums=('66b143abc8807d4d64e32ceefd939b537a18c0534ad559f2d53f2cbfc33c722ba620432b9679a5fa1dcc8c3ad2fe0e999ac352c6464df991be771aa1fd59f492')
+
+package_frei0r-headers() {
+  install -Dm644 frei0r/include/frei0r.h "$pkgdir/usr/include/frei0r.h"
+  install -Dm644 frei0r/COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+}
+
+# vim:set sw=2 sts=-1 et:

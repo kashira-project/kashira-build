@@ -39,7 +39,7 @@ soname_provides() {
 			LC_ALL=C readelf -h "$fn" 2>/dev/null | grep -q '.*Type:.*DYN (Shared object file).*' || continue
 			sofile=$(LC_ALL=C readelf -d "$fn" 2>/dev/null | sed -n 's/.*Library soname: \[\(.*\)\].*/\1/p')
 			[[ -z "$sofile" ]] && continue
-			if [[ $sofile =~ ^(.*\.so)\.([0-9]+) ]]; then
+			if [[ $sofile =~ ^(.*\.so)\.([0-9]+([.][0-9]+)*)$ ]]; then
 				provides+=("${BASH_REMATCH[1]}=${BASH_REMATCH[2]}-$suffix")
 			else
 				provides+=("$sofile")

@@ -20,7 +20,7 @@ gpg-agent creates its socket plus per-role auxiliary sockets inside the target
 keyring (`root/etc/pacman.d/gnupg`). All of those must fit in `sun_path` (108
 bytes). A long workspace path pushes them over the limit: gpg-agent exits 2,
 `pacstrap -K` cannot generate a master key, and `kashira-keyring` then fails with
-"There is no secret key available to sign with" — **while pacman still exits 0**.
+"There is no secret key available to sign with" while pacman still exits 0.
 The script therefore defaults to `/mnt/lfs/tmp/kbimg` and rejects any workspace
 whose keyring path would exceed the limit. Keep custom workspaces short.
 
@@ -37,17 +37,19 @@ which produces the same silent-hook-failure class.
   `pacman.conf`, keyring presence, and an offline `systemd-tmpfiles --create`.
 - Leaves `/etc/machine-id` empty (fresh image identity) and removes pacman's
   package cache from the target.
+- Compiles, links and executes one C and one C++17 program with the target's
+  `clang` and `clang++`, verifies no GCC compiler was installed, then removes the
+  temporary binaries. This catches compiler, loader and runtime mismatches that
+  a package install alone can miss.
 
 ## Limits
 
-The bootstrap repository is **unsigned** (`SigLevel = Never`) because the local
+The bootstrap repository is unsigned (`SigLevel = Never`) because the local
 cache is unsigned; use a trusted local cache. The image keeps the
 package-shipped `/etc/pacman.conf` for real public-repo signature checks. Docker
 supplies `/etc/resolv.conf` at runtime. Runs are reproducible only while the
 local repository is held fixed.
 
-The script does not run a compiler smoke test. The imported image was verified
-separately: root-owned paths, uutils as coreutils, working CA bundle, clean
-tmpfiles, `clang` C, and `clang++` C++ with **no gcc installed** (gcc-runtime
-carries the libstdc++ headers and the GCC CRT objects clang needs to detect the
-GCC installation).
+The compiler smoke test does not require `gcc`; `gcc-runtime` carries the
+libstdc++ headers and GCC CRT objects that clang needs to detect the GCC
+installation.

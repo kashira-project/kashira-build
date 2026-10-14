@@ -1,0 +1,17 @@
+pkgbase = kashira-bootstrap-openssl3
+	pkgdesc = OpenSSL 3 runtime compatibility libraries for Kashira bootstrap
+	pkgver = 3.5.9
+	pkgrel = 0.1
+	url = https://www.openssl.org/
+	arch = x86_64
+	license = Apache-2.0
+	makedepends = clang
+	makedepends = lld
+	makedepends = perl
+	depends = glibc
+	depends = zlib-ng
+	options = !strip
+	source = https://github.com/openssl/openssl/releases/download/openssl-3.5.9/openssl-3.5.9.tar.gz
+	sha256sums = 603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a
+
+pkgname = openssl3-compat

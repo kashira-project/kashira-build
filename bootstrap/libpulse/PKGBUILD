@@ -1,0 +1,123 @@
+# Maintainer: Kashira bootstrap
+
+pkgbase=kashira-bootstrap-libpulse
+pkgname=(libpulse)
+pkgver=17.0+r98+gb096704c0
+pkgrel=0.1
+pkgdesc="Temporary bootstrap client library provider for PulseAudio"
+url="https://www.freedesktop.org/wiki/Software/PulseAudio/"
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+packager="Kashira bootstrap maintainer"
+makedepends=(
+  bash
+  dbus
+  git
+  glib2
+  glibc
+  libasyncns
+  libsndfile
+  libxcb
+  meson
+  systemd-libs
+)
+_commit=b096704c0d42c5e784deb781a07b23cfb5286a82
+source=(
+  "git+https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git#commit=$_commit"
+  0001-alsa-ucm-Fix-segfault-from-recursion-due-to-too-many.patch
+)
+b2sums=('3b800dc84b1ccb0f1252e9c55390842d0d63c004393f3271daa7dcdcaa6b2351ca129d2a268855c57ec6c03e14bf1a571deac6c4bb89ac1e08a83cf910834490'
+        '73f93801069b2c5b09646870269c0f42cefc2183a73b47c78fd160c978a841c11c5146b98351a11be24d4785181f361a455534e6f6ca2d977cf585044836f8ed')
+
+pkgver() {
+  cd pulseaudio
+  git describe --tags | sed 's/^v//;s/[^-]*-g/r&/;s/-/+/g'
+}
+
+prepare() {
+  cd pulseaudio
+
+  ./git-version-gen doesnt-exist >.tarball-version
+
+  for option in \
+    "daemon:boolean" \
+    "client:boolean" \
+    "gstreamer:feature" \
+    "gtk:feature" \
+    "bluez5-gstreamer:feature"; do
+    name=${option%%:*}
+    type=${option##*:}
+    grep -A3 -- "option('$name'," meson_options.txt | grep -q -- "type[[:space:]]*:[[:space:]]*'$type'" || {
+      error "Pinned meson_options.txt lacks option '$name' with type '$type'"
+      return 1
+    }
+  done
+
+  git apply -3 ../0001-alsa-ucm-Fix-segfault-from-recursion-due-to-too-many.patch
+}
+
+build() {
+  local meson_options=(
+    -Ddaemon=false
+    -Dclient=true
+    -Dalsa=disabled
+    -Dasyncns=enabled
+    -Davahi=disabled
+    -Dbluez5=disabled
+    -Dbluez5-gstreamer=disabled
+    -Dbluez5-native-headset=false
+    -Dbluez5-ofono-headset=false
+    -Dconsolekit=disabled
+    -Ddbus=enabled
+    -Ddoxygen=disabled
+    -Delogind=disabled
+    -Dfftw=disabled
+    -Dglib=enabled
+    -Dgstreamer=disabled
+    -Dgtk=disabled
+    -Djack=disabled
+    -Dlirc=disabled
+    -Dman=false
+    -Dopenssl=disabled
+    -Dorc=disabled
+    -Doss-output=disabled
+    -Dsamplerate=disabled
+    -Dsoxr=disabled
+    -Dspeex=disabled
+    -Dsystemd=enabled
+    -Dtcpwrap=disabled
+    -Dtests=disabled
+    -Dudev=disabled
+    -Dvalgrind=disabled
+    -Dwebrtc-aec=disabled
+    -Dx11=disabled
+  )
+
+  arch-meson pulseaudio build "${meson_options[@]}"
+  meson compile -C build
+}
+
+package_libpulse() {
+  pkgdesc="Temporary bootstrap client library provider for PulseAudio"
+  depends=(
+    bash
+    dbus
+    glib2
+    glibc
+    libasyncns
+    libsndfile
+    libxcb
+    systemd-libs
+  )
+  optdepends=('pulse-native-provider: PulseAudio backend')
+  provides=(
+    libpulse-mainloop-glib.so
+    libpulse-simple.so
+    libpulse.so
+  )
+  backup=(etc/pulse/client.conf)
+
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

@@ -1,0 +1,71 @@
+# Maintainer: Kashira bootstrap
+
+pkgbase=kashira-bootstrap-openssl3
+pkgname=openssl3-compat
+pkgver=3.5.9
+pkgrel=0.1
+pkgdesc="OpenSSL 3 runtime compatibility libraries for Kashira bootstrap"
+url="https://www.openssl.org/"
+arch=(x86_64)
+license=(Apache-2.0)
+depends=(glibc zlib-ng)
+makedepends=(clang lld perl)
+options=(!strip)
+source=("https://github.com/openssl/openssl/releases/download/openssl-${pkgver}/openssl-${pkgver}.tar.gz")
+sha256sums=('603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a')
+
+build() {
+  cd "openssl-${pkgver}"
+
+  CC=clang LD=ld.lld ./Configure linux-x86_64 \
+    --prefix=/usr \
+    --openssldir=/etc/ssl/openssl3 \
+    --libdir=lib/openssl3 \
+    shared \
+    no-apps \
+    no-docs \
+    no-tests \
+    zlib-dynamic
+
+  make
+}
+
+package() {
+  cd "openssl-${pkgver}"
+
+  local staged="$srcdir/installed" file
+  make DESTDIR="$staged" install_runtime_libs install_modules
+
+  for file in \
+    usr/lib/openssl3/libcrypto.so.3 \
+    usr/lib/openssl3/libssl.so.3 \
+    usr/lib/openssl3/ossl-modules/legacy.so \
+    apps/openssl.cnf; do
+    if [[ $file == apps/* ]]; then
+      [[ -f $file ]] || { error "Missing upstream config: $file"; return 1; }
+    else
+      [[ -f "$staged/$file" ]] || { error "Missing runtime artifact: $file"; return 1; }
+    fi
+  done
+
+  install -Dm755 "$staged/usr/lib/openssl3/libcrypto.so.3" "$pkgdir/usr/lib/libcrypto.so.3"
+  install -Dm755 "$staged/usr/lib/openssl3/libssl.so.3" "$pkgdir/usr/lib/libssl.so.3"
+  install -Dm755 "$staged/usr/lib/openssl3/ossl-modules/legacy.so" \
+    "$pkgdir/usr/lib/openssl3/ossl-modules/legacy.so"
+  install -Dm644 apps/openssl.cnf "$pkgdir/etc/ssl/openssl3/openssl.cnf"
+  ln -s ../certs "$pkgdir/etc/ssl/openssl3/certs"
+  ln -s ../cert.pem "$pkgdir/etc/ssl/openssl3/cert.pem"
+
+  local files=("$pkgdir/usr/lib/libcrypto.so.3" "$pkgdir/usr/lib/libssl.so.3"
+    "$pkgdir/usr/lib/openssl3/ossl-modules/legacy.so"
+    "$pkgdir/etc/ssl/openssl3/openssl.cnf"
+    "$pkgdir/etc/ssl/openssl3/certs" "$pkgdir/etc/ssl/openssl3/cert.pem")
+  while IFS= read -r -d '' file; do
+    [[ " ${files[*]} " == *" $file "* ]] || {
+      error "Unexpected package artifact: ${file#"$pkgdir/"}"
+      return 1
+    }
+  done < <(find "$pkgdir" \( -type f -o -type l \) -print0)
+}
+
+# vim:set sw=2 sts=-1 et:

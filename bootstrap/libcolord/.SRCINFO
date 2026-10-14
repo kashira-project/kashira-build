@@ -1,0 +1,27 @@
+pkgbase = kashira-bootstrap-libcolord
+	pkgdesc = Temporary bootstrap client library provider for colord
+	pkgver = 1.4.8
+	pkgrel = 0.1
+	url = https://www.freedesktop.org/software/colord/
+	arch = x86_64
+	license = GPL-2.0-or-later
+	makedepends = git
+	makedepends = gobject-introspection
+	makedepends = libgusb
+	makedepends = meson
+	makedepends = sqlite
+	makedepends = vala
+	depends = glib2
+	depends = glibc
+	depends = lcms2
+	depends = libgcc
+	depends = libgudev
+	depends = systemd-libs
+	options = !emptydirs
+	source = git+https://github.com/hughsie/colord?signed#tag=1.4.8
+	validpgpkeys = 163EB50119225DB3DF8F49EA17ACBA8DFA970E17
+	b2sums = 451c9571241278fb3347dd928370f3e350645c1cb2736beda37e7e5d3c1d374d49626298f0ab96d457de6ec3633fda1057d992aa833bf4f8042e29fcc4162a66
+
+pkgname = libcolord
+	pkgdesc = System daemon for managing color devices (client library; temporary bootstrap)
+	provides = libcolord.so

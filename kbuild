@@ -20,8 +20,48 @@ REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
 LOGS=${KBUILD_LOGS:-$HERE/logs}
+KBUILD_MEMORY=${KBUILD_MEMORY:-12g}
+KBUILD_MEMORY_SWAP=${KBUILD_MEMORY_SWAP:-16g}
+KBUILD_CPUS=${KBUILD_CPUS:-8}
+KBUILD_JOBS=${KBUILD_JOBS:-8}
 
 die() { echo "kbuild: $*" >&2; exit 1; }
+
+build_repo_guard() {
+  local canonical resolved state
+  canonical=$(realpath -e /mnt/lfs/var/cache/pacman/kashira) || return 1
+  resolved=$(realpath -e "$REPO") || return 1
+  state=$("$HERE/kbuild-arch-bootstrap" state "$resolved") || return 1
+  KBUILD_MIXED_REPO=0
+  if [ "$state" = mixed ]; then
+    [ "$resolved" != "$canonical" ] || { echo "mixed canonical repository forbidden" >&2; return 1; }
+    KBUILD_MIXED_REPO=1
+    case "$(realpath -m "$OUT")/" in
+      "$(realpath -m /mnt/lfs/tmp)/"*) ;;
+      *) echo "mixed build output must stay under /mnt/lfs/tmp" >&2; return 1 ;;
+    esac
+  fi
+}
+
+mixed_repo() {
+  [ "${KBUILD_MIXED_REPO:-0}" = 1 ]
+}
+
+validate_build_settings() {
+  [[ "$KBUILD_MEMORY" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY: $KBUILD_MEMORY" >&2; return 1; }
+  [[ "$KBUILD_MEMORY_SWAP" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY_SWAP: $KBUILD_MEMORY_SWAP" >&2; return 1; }
+  awk -v c="$KBUILD_CPUS" 'BEGIN { exit !(c ~ /^[0-9]+(\.[0-9]+)?$/ && c > 0 && c <= 16) }' || { echo "invalid KBUILD_CPUS: $KBUILD_CPUS" >&2; return 1; }
+  [[ "$KBUILD_JOBS" =~ ^[1-9][0-9]*$ ]] && [ "$KBUILD_JOBS" -le 16 ] || { echo "invalid KBUILD_JOBS: $KBUILD_JOBS" >&2; return 1; }
+  awk -v m="$KBUILD_MEMORY" -v s="$KBUILD_MEMORY_SWAP" 'function bytes(v, n, u) { n=v; sub(/[mMgG]$/, "", n); u=substr(v, length(v), 1); return n * (u ~ /[gG]/ ? 1024 : 1) } BEGIN { exit !(bytes(s) >= bytes(m)) }' || { echo "KBUILD_MEMORY_SWAP must be at least KBUILD_MEMORY" >&2; return 1; }
+}
+
+bootstrap_demoted() {
+  local owner expr
+  while IFS=$'\t' read -r owner expr; do
+    [ "$owner" = "$1" ] && [ "$expr" = "$2" ] && return 0
+  done <<<"${KBUILD_BOOTSTRAP_DEMOTED:-}"
+  return 1
+}
 
 # pkg_deps <pkgdir> -> space-separated pacman dependency expressions
 pkg_deps() {
@@ -35,7 +75,7 @@ pkg_deps() {
   [ "$rc" -eq 0 ] || return "$rc"
   entries=$(bsdtar -tf "$REPO/kashira.db.tar.gz") || return 1
   while IFS= read -r line; do
-    [[ "$line" =~ ^[[:space:]]*([a-z_0-9]+)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    [[ "$line" =~ ^[[:space:]]*([a-z_0-9-]+)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]} expr=${BASH_REMATCH[2]}
     [ -n "$expr" ] || continue
     case "$field" in
@@ -47,8 +87,12 @@ pkg_deps() {
   done <<<"$info"
   while IFS= read -r line; do
     [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    field=${BASH_REMATCH[1]}
     expr=${BASH_REMATCH[2]}
     [ -n "$expr" ] || continue
+    if [[ "$field" == depends* ]] && bootstrap_demoted "$base" "$expr"; then
+      continue
+    fi
     name=${expr%%[\<\>\=]*}
     name=${name%:any}; name=${name%:x86_64}
     [ -z "${provided[$name]+set}" ] || continue
@@ -72,20 +116,162 @@ pkg_deps() {
   done <<<"$info"
 }
 
+# expected_outputs <pkgdir> -> pkgname<TAB>pkgbase<TAB>pkgver<TAB>arch
+expected_outputs() {
+  local info line key value pkgbase='' pkgver='' pkgrel='' epoch='' pkgname='' version
+  local base_arch='' current_arch='' output_arch
+  local -A packages=() architectures=()
+  info=$(cd "$1" && makepkg --printsrcinfo) || return 1
+  while IFS= read -r line; do
+    [[ "$line" =~ ^[[:space:]]*([a-z_0-9]+)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    key=${BASH_REMATCH[1]} value=${BASH_REMATCH[2]}
+    case "$key" in
+      pkgbase) pkgbase=$value ;;
+      pkgver) pkgver=$value ;;
+      pkgrel) pkgrel=$value ;;
+      epoch) epoch=$value ;;
+      pkgname)
+        pkgname=$value
+        [ -z "${packages[$pkgname]+set}" ] || { echo "duplicate SRCINFO pkgname: $pkgname" >&2; return 1; }
+        packages[$pkgname]=1
+        ;;
+      arch)
+        case "$pkgname" in
+          '') base_arch+=" $value" ;;
+          *) case "$value" in x86_64|any) architectures[$pkgname]+=" $value" ;; esac ;;
+        esac
+        ;;
+    esac
+  done <<<"$info"
+  [[ "$pkgbase" && "$pkgver" && "$pkgrel" && ${#packages[@]} -gt 0 ]] || { echo "incomplete SRCINFO output metadata" >&2; return 1; }
+  version=${epoch:+$epoch:}$pkgver-$pkgrel
+  for pkgname in "${!packages[@]}"; do
+    current_arch=${architectures[$pkgname]:-$base_arch}
+    output_arch=
+    for value in $current_arch; do
+      case "$value" in x86_64) output_arch=x86_64 ;; any) [ -n "$output_arch" ] || output_arch=any ;; esac
+    done
+    [ -n "$output_arch" ] || { echo "no supported architecture for $pkgname" >&2; return 1; }
+    printf '%s\t%s\t%s\t%s\n' "$pkgname" "$pkgbase" "$version" "$output_arch"
+  done | sort
+}
+
+# artifact_list <outdir> <pkgdir> <pkgbase> -> complete validated archive paths
+artifact_list() {
+  local dir=$1 pkgdir=$2 pkgbase=$3 f info name base version arch expected key
+  local expected_file actual_file
+  local -A expected=() actual=()
+  expected_file=$(mktemp) || return 1
+  actual_file=$(mktemp) || { rm -f "$expected_file"; return 1; }
+  if ! expected_outputs "$pkgdir" >"$expected_file"; then rm -f "$expected_file" "$actual_file"; return 1; fi
+  [ "$(awk -F '\t' 'NR == 1 { print $2 }' "$expected_file")" = "$pkgbase" ] || { rm -f "$expected_file" "$actual_file"; echo "pkgbase mismatch for $pkgdir" >&2; return 1; }
+  while IFS=$'\t' read -r name base version arch; do expected["$name|$base|$version|$arch"]=1; done <"$expected_file"
+  shopt -s nullglob
+  local -a files=("$dir"/*.pkg.tar.zst)
+  shopt -u nullglob
+  [ ${#files[@]} -gt 0 ] || { rm -f "$expected_file" "$actual_file"; echo "no package archives in $dir" >&2; return 1; }
+  for f in "${files[@]}"; do
+    [ -s "$f" ] || { rm -f "$expected_file" "$actual_file"; return 1; }
+    info=$(bsdtar -xOf "$f" .PKGINFO 2>/dev/null) || { rm -f "$expected_file" "$actual_file"; return 1; }
+    name=$(awk -F ' = ' '$1 == "pkgname" { print $2; exit }' <<<"$info")
+    base=$(awk -F ' = ' '$1 == "pkgbase" { print $2; exit }' <<<"$info")
+    version=$(awk -F ' = ' '$1 == "pkgver" { print $2; exit }' <<<"$info")
+    arch=$(awk -F ' = ' '$1 == "arch" { print $2; exit }' <<<"$info")
+    key="$name|$base|$version|$arch"
+    [ "${f##*/}" = "$name-$version-$arch.pkg.tar.zst" ] || { rm -f "$expected_file" "$actual_file"; echo "unexpected archive filename: $f" >&2; return 1; }
+    [ -n "${expected[$key]+set}" ] || { rm -f "$expected_file" "$actual_file"; echo "unexpected or stale archive: $f" >&2; return 1; }
+    [ -z "${actual[$key]+set}" ] || { rm -f "$expected_file" "$actual_file"; echo "duplicate output archive: $key" >&2; return 1; }
+    actual[$key]=1
+    printf '%s\n' "$f" >>"$actual_file"
+  done
+  [ ${#actual[@]} -eq ${#expected[@]} ] || { rm -f "$expected_file" "$actual_file"; echo "incomplete split outputs for $pkgbase" >&2; return 1; }
+  while IFS= read -r expected; do
+    [ -n "${actual[$expected]+set}" ] || { rm -f "$expected_file" "$actual_file"; echo "missing output: $expected" >&2; return 1; }
+  done < <(awk -F '\t' '{ print $1 "|" $2 "|" $3 "|" $4 }' "$expected_file")
+  sort -o "$actual_file" "$actual_file"
+  cat "$actual_file"
+  rm -f "$expected_file" "$actual_file"
+}
+
+pkgbase_for() {
+  (cd "$1" && makepkg --printsrcinfo) | awk -F ' = ' '$1 == "pkgbase" { print $2; exit }'
+}
+
+bootstrap_prepare() {
+  local d name
+  local -a names=()
+  for d in "$@"; do
+    name=$(pkgbase_for "$d") || return 1
+    [ -n "$name" ] || { echo "missing pkgbase in $d" >&2; return 1; }
+    names+=("$name")
+  done
+  [ ${#names[@]} -gt 0 ] || return 0
+  python3 "$HERE/kbuild-sched.py" preflight --repo "$REPO" "${names[@]}" >/dev/null || return 1
+  KBUILD_BOOTSTRAP_DEMOTED=$(python3 "$HERE/kbuild-sched.py" demoted "${names[@]}") || return 1
+  export KBUILD_BOOTSTRAP_DEMOTED
+}
+
+snapshot_additive() {
+  python3 - "$1" "$2" <<'PY'
+import re
+import sys
+
+def read_snapshot(path):
+    with open(path, encoding='utf-8') as stream:
+        text = stream.read()
+    if text and not text.endswith('\n'):
+        raise ValueError(f'{path}: missing final newline')
+    rows = {}
+    for number, line in enumerate(text.splitlines(), 1):
+        fields = line.split('\t')
+        if (len(fields) != 3 or not all(fields) or
+                not re.fullmatch(r'[a-z0-9@._+-]+', fields[0]) or
+                fields[2] not in ('native', 'arch')):
+            raise ValueError(f'{path}:{number}: malformed snapshot row')
+        name, version, origin = fields
+        if name in rows:
+            raise ValueError(f'{path}:{number}: duplicate package name {name}')
+        rows[name] = (version, origin)
+    return rows
+
+try:
+    before = read_snapshot(sys.argv[1])
+    after = read_snapshot(sys.argv[2])
+    for name, identity in before.items():
+        if after.get(name) != identity:
+            raise ValueError(f'{name}: removed or changed in repository snapshot')
+except (OSError, UnicodeError, ValueError) as error:
+    print(error, file=sys.stderr)
+    sys.exit(1)
+PY
+}
+
 # build_one <pkgdir>: returns 0/1, artifacts land in $OUT/<pkgbase>/
 build_one() {
   local pkgdir=$1 name deps
+  validate_build_settings && build_repo_guard || return 1
   pkgdir=$(realpath "$pkgdir")
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
-  name=$(basename "$pkgdir")
+  name=$(pkgbase_for "$pkgdir")
+  [ -n "$name" ] || { echo "missing pkgbase in $pkgdir" >&2; return 1; }
   deps=$(pkg_deps "$pkgdir") || return 1
   mkdir -p "$OUT/$name"
+  find "$OUT/$name" -maxdepth 1 -type f -name '*.pkg.tar.zst' -delete || return 1
+  if mixed_repo; then
+    "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$OUT/$name/.origin-snapshot" || return 1
+  fi
   echo "== build $name (deps: ${deps:-none})"
   sudo docker run --rm \
+    --memory "$KBUILD_MEMORY" \
+    --memory-swap "$KBUILD_MEMORY_SWAP" \
+    --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
+    -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \
+    -e KBUILD_OVERWRITE="${KBUILD_OVERWRITE:-}" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
     -e KBUILD_KEEP_SRC="${KBUILD_KEEP_SRC:-}" \
     -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
+    -e KBUILD_JOBS="$KBUILD_JOBS" \
     -v "$pkgdir":/pkg:ro \
     -v "$SOURCES":/sources \
     -v "$OUT/$name":/out \
@@ -93,31 +279,46 @@ build_one() {
     -v "$HERE":/kbuild:ro \
     ${KBUILD_KEEP_SRC:+-v "$OUT/$name/src":/work} \
     -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
-    "$IMAGE" /kbuild/kbuild-inside.sh
+    "$IMAGE" /kbuild/kbuild-inside.sh && \
+    artifact_list "$OUT/$name" "$pkgdir" "$name" >/dev/null || return 1
+  if mixed_repo; then
+    [ -s "$OUT/$name/.installed-packages" ] || return 1
+    "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$OUT/$name/.origin-snapshot.after" || return 1
+    snapshot_additive "$OUT/$name/.origin-snapshot" "$OUT/$name/.origin-snapshot.after" || return 1
+    for pkg in "$OUT/$name"/*.pkg.tar.zst; do
+      "$HERE/kbuild-arch-bootstrap" record "$REPO" "$pkg" || return 1
+    done
+  fi
 }
 
-# repo_add <outdir>: add built packages to the local repo (serialized)
+# repo_add <outdir> <pkgdir> <pkgbase>: add validated packages to the local repo
 repo_add() {
-  local outdir=$1 pkg destination
+  local outdir=$1 pkgdir=$2 pkgbase=$3 pkg destination
   local -a inrepo=()
-  shopt -s nullglob
-  local pkgs=("$outdir"/*.pkg.tar.zst)
-  shopt -u nullglob
-  [ ${#pkgs[@]} -gt 0 ] || return 1
+  local validated
+  build_repo_guard || return 1
+  validated=$(artifact_list "$outdir" "$pkgdir" "$pkgbase") || return 1
   (
     flock 9 || exit 1
-    for pkg in "${pkgs[@]}"; do
+    for pkg in $validated; do
       destination=$REPO/$(basename "$pkg")
       cp -f -- "$pkg" "$destination" || exit 1
       cmp -s -- "$pkg" "$destination" || exit 1
       inrepo+=("$destination")
     done
-    repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}"
+    repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}" || exit 1
+    if mixed_repo; then
+      for pkg in "${inrepo[@]}"; do
+        "$HERE/kbuild-arch-bootstrap" record "$REPO" "$pkg" || exit 1
+        "$HERE/kbuild-arch-bootstrap" retire "$REPO" "$pkg" 2>/dev/null || true
+      done
+    fi
   ) 9>"$REPO/.kbuild.lock"
 }
 
 cmd_build() {
   local rc=0
+  bootstrap_prepare "$@" || return 1
   for d in "$@"; do
     build_one "$d" || rc=1
   done
@@ -126,14 +327,27 @@ cmd_build() {
 
 cmd_wave() {
   local listfile=$1 line done_marker
+  local -a dirs=()
   [ -f "$listfile" ] || die "no such listfile: $listfile"
+  build_repo_guard || return 1
+  if mixed_repo; then
+    case "$(realpath -m "$LOGS")/" in
+      "$(realpath -m /mnt/lfs/tmp)/"*) ;;
+      *) echo "mixed wave logs must stay under /mnt/lfs/tmp" >&2; return 1 ;;
+    esac
+  fi
   mkdir -p "$LOGS"
   while read -r line; do
     [[ "$line" =~ ^\s*(#|$) ]] && continue
-    local name; name=$(basename "$line")
+    dirs+=("$line")
+  done < "$listfile"
+  bootstrap_prepare "${dirs[@]}" || return 1
+  for line in "${dirs[@]}"; do
+    local name; name=$(pkgbase_for "$line") || return 1
+    [ -n "$name" ] || { echo "missing pkgbase in $line" >&2; return 1; }
     done_marker="$LOGS/$name.done"
     if [ -f "$done_marker" ]; then echo "== wave: $name already done"; continue; fi
-    if build_one "$line" > "$LOGS/$name.log" 2>&1 && repo_add "$OUT/$name"; then
+    if build_one "$line" > "$LOGS/$name.log" 2>&1 && repo_add "$OUT/$name" "$line" "$name"; then
       touch "$done_marker"
       echo "== wave: $name OK"
     else

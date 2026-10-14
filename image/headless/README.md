@@ -1,73 +1,94 @@
 # kashira headless image (mkosi)
 
-Bootable kashira disk image: systemd init, kashira `linux` kernel as a UKI
-signed with the Secure Boot db key, systemd-boot in the ESP, ext4 rootfs.
+Bootable kashira disk image with systemd-boot and a signed UKI. Signing is
+kept for artifacts, but the normal image never enrolls firmware keys.
 
 ## Build
 
-Host needs: `mkosi`, `systemd-ukify`, `sbsigntools` (and `qemu-base`,
-`edk2-ovmf` for boot testing).
+Host needs `mkosi` v27, `systemd-ukify`, `sbsigntools`, and the existing local
+package cache. Run the existing documented builder from this directory:
 
 ```sh
 cd /mnt/lfs/src/kashira-build/image/headless
-sudo mkosi build            # add --force to rebuild over existing output
+tools/make-stubrepo.sh   # audit only; must pass before building
+sudo mkosi summary
+sudo mkosi build          # add --force to rebuild over existing output
 ```
 
-Artifacts (next to this file):
+The unsigned Secure-Boot-off local acceptance build uses no production signing
+key and keeps old outputs intact:
 
-- `kashira-headless.raw` — bootable GPT disk image (ESP + root-x86-64), 4.2G
-- `kashira-headless.efi` / `.vmlinuz` / `.initrd` — split UKI/kernel/initrd
-  outputs (same content as what's in the ESP)
+```sh
+sudo -n mkosi --secure-boot=no --secure-boot-auto-enroll=no \
+  --output=kashira-headless-networked \
+  --output-directory=/mnt/lfs/tmp/kashira-headless-networked \
+  --workspace-directory=/mnt/lfs/tmp/khi build
+```
 
-## How it works
+This produces a tested disk/USB image, not a validated installer ISO. Signed
+builds and Secure Boot-on acceptance remain separate validation steps.
 
-- `Distribution=arch`; mkosi runs the host's pacman in a sandbox.
-- `mkosi.sandbox/etc/pacman.conf` is copied into that sandbox. mkosi leaves a
-  pre-existing sandbox pacman.conf untouched, so it is the single source of
-  truth: the unsigned local kashira repo
-  (`file:///mnt/lfs/var/cache/pacman/kashira`), plus the stub repo below.
-  `ExtraSearchPaths=` in mkosi.conf bind-mounts both repo dirs into the
-  sandbox (the sandbox otherwise only sees /usr, /etc, /home, ...).
-- UKI + systemd-boot are signed by mkosi with
-  `/mnt/lfs/src/kashira/keys/secureboot/db.{key,crt}` (sbsign). The ESP also
-  carries `loader/keys/auto/{PK,KEK,db}.auth`, so firmware in setup mode
-  auto-enrolls kashira's Secure Boot keys on first boot.
-- `stubrepo/` holds empty packages for btrfs-progs, xfsprogs, dosfstools and
-  libfido2, which mkosi's bundled initrd profile (`mkosi-initrd`) requires on
-  arch but the kashira repo doesn't ship. Regenerate with
-  `tools/make-stubrepo.sh`.
-- `mkosi.skeleton/.../99-kashira-headless.preset` disables the Kerberos KDC
-  units: `systemctl preset-all` enables everything with an [Install] section
-  because kashira has no default `disable *` preset yet, and krb5-kdc /
-  krb5-kadmind fail without realm config.
-- `mkosi.postinst.chroot` empties the root password, adds serial-getty
-  autologin on ttyS0, and flips the image's /etc/pacman.conf from the
-  placeholder https repo to the local `file:///var/cache/pacman/kashira`
-  build repo.
+The audit must report real `btrfs-progs`, `xfsprogs`, `dosfstools`, and
+`libfido2` packages in `/mnt/lfs/var/cache/pacman/kashira`. Empty stand-ins are
+not supported. The build cache is unsigned bootstrap input only; the installed
+`/etc/pacman.conf` remains the package-shipped signed public repository config.
 
-## Boot test (qemu + Secure Boot)
+The normal image locks root, has no serial autologin, configures wired DHCP
+through networkd and uses systemd-resolved's DNS stub. Image builds use the
+isolated `/mnt/lfs/tmp/khi-pkg-cache` instead of the host distribution's package
+cache. The explicit headless preset is applied offline under `--root` and named
+`90-kashira-headless.preset` so its enable rules win before the packaged distro
+`99-kashira-default.preset` disable catch-all. Existing raw/EFI/kernel/initrd
+files are build outputs and are not changed by configuration validation.
 
-`tools/boot-test.py` boots the image with OVMF (secboot firmware, KVM) using
-the VARS file at `/tmp/kashira-secboot-vars.fd` (keys already enrolled), mounts
-the host's repo into the guest over 9p, and probes the root shell. Fresh
-enrollment from scratch: delete the VARS file, copy
-`/usr/share/edk2/x64/OVMF_VARS.4m.fd` in its place, boot once (sd-boot
-auto-enrolls PK/KEK/db from the ESP), then boot again.
+## Secure Boot
 
-Expected: `Secure Boot: enabled (user)` in `bootctl status`,
-`systemctl is-system-running` -> `running`, `pacman -Sy` syncs the kashira
-repo inside the guest.
+`SecureBoot=yes` signs systemd-boot and the UKI, while
+`SecureBootAutoEnroll=no` prevents the image from enrolling keys. Acceptance
+runs default to firmware Secure Boot off. `--secure-boot on` with the default
+fresh, unenrolled public OVMF vars template is a negative policy test and is
+expected to fail boot-policy. A positive Secure Boot test requires an
+explicitly supplied already-enrolled vars template through a future option;
+there is no automatic enrollment and no host firmware key access.
 
-Verified 2026-09-22: kernel 7.2.7-1, systemd 261.2-4, boots to a root shell
-on ttyS0 with Secure Boot enforcing.
+## Authoritative boot acceptance
 
-## Known gaps / follow-ups
+The standard-library harness uses fresh temporary paths and snapshot storage:
 
-- UKI is ~261MB because the default kernel-modules initrd is generous; ESP is
-  512MB. Fine for now, slim later (KernelModulesInitrdInclude=).
-- kashira should ship a default preset policy (e.g. `disable *` + targeted
-  enables in kashira-filesystem) instead of relying on per-image presets.
-- Rootfs is ext4; erofs/squashfs + dm-verity is a later profile concern.
-- The image's pacman.conf uses `file:///var/cache/pacman/kashira`; on real
-  systems this should become the real repo URL once repo.kashiraproject.org
-  exists.
+```sh
+python3 tools/boot-test.py \
+  --image ./kashira-headless.raw \
+  --firmware /usr/share/edk2/x64/OVMF_CODE.4m.fd \
+  --workdir /mnt/lfs/tmp/kashira-boot-logs
+```
+
+The default test boots the unmodified snapshot and accepts only a real serial
+login prompt. It does not send shell input, and fails if the prompt shows
+automatic login or a shell. Its report is explicitly `login-boot`; it does not
+claim the administrative probe suite passed. Network readiness is checked in
+the disposable administrative mode: a global IPv4 address, an IPv4 default
+route, and DNS resolution of `repo.kashiraproject.org` must all work.
+
+For disposable VM debugging only, `--debug-overlay` creates a temporary copied
+raw image, adds a serial root autologin drop-in, and runs the authoritative
+administrative probes, including root lock, failed-unit, package, preset, and
+network checks. The overlay is never part of the build output. A network
+failure is a real acceptance failure and requires a profile/network fix; it is
+not silently disabled:
+
+```sh
+sudo -n python3 tools/boot-test.py \
+  --image /mnt/lfs/tmp/kashira-headless-takeover/kashira-headless-takeover.raw \
+  --timeout 120 \
+  --workdir /mnt/lfs/tmp/kashira-headless-boot-r3
+
+sudo -n python3 tools/boot-test.py --debug-overlay \
+  --image /mnt/lfs/tmp/kashira-headless-takeover/kashira-headless-takeover.raw \
+  --timeout 120 \
+  --workdir /mnt/lfs/tmp/kashira-headless-boot-r3
+```
+
+The first command reports only `login-boot`; the second reports
+`administrative-checks`. Use the parent-supplied `--config` JSON for exact
+package versions and required units. No host repository keys, signing keys, or
+firmware vars are mounted read-write.

@@ -11,8 +11,8 @@ Usage:
   kbuild-sched.py dirty <pkgbase>...          reverse-dep closure of changed bases
   kbuild-sched.py graph                       debug: dump the DAG
 
-Cycle handling: pkgbase cycles (glibc<->gcc style bootstrap) are broken by
-dropping the back-edge; the broken pairs are reported on stderr.
+Cycle handling: cycles require explicit KBUILD_BOOTSTRAP_EDGES runtime policy;
+unapproved cycles fail with typed dependency edges.
 """
 import hashlib
 import json
@@ -20,6 +20,7 @@ import os
 import re
 import subprocess
 import sys
+import tarfile
 import tempfile
 
 HEART = os.environ.get("KBUILD_HEART", "/mnt/lfs/src/kashira/pkgs")
@@ -35,8 +36,13 @@ class SchedulerError(RuntimeError):
 
 _METADATA_FIELDS = {"depends", "makedepends", "provides"}
 _EXPRESSION_FIELDS = {"depends_exprs", "makedepends_exprs", "provides_exprs"}
-_FIELD_RE = re.compile(r"^(pkgbase|pkgname|(?:depends|makedepends|provides)(?:_x86_64)?)\s*=\s*(.*)$")
+_FIELD_RE = re.compile(r"^(pkgbase|pkgname|pkgver|pkgrel|epoch|(?:depends|makedepends|provides)(?:_x86_64)?)\s*=\s*(.*)$")
 _VERSION_RE = re.compile(r"(?:<=|>=|=|<|>).*", re.DOTALL)
+_APPROVED_BOOTSTRAP_EDGES = {
+    ("gtk4", "adwaita-icon-theme"),
+    ("gdm", "gnome-shell"),
+    ("pipewire", "wireplumber"),
+}
 
 
 def _metadata_name(value, field):
@@ -48,8 +54,34 @@ def _metadata_name(value, field):
     return _VERSION_RE.sub("", value).strip()
 
 
+def _split_expr(expr):
+    expr = expr.strip()
+    match = re.match(r"^(.+?)(<=|>=|=|<|>)(.+)$", expr)
+    if match:
+        name, op, version = match.groups()
+    else:
+        name, op, version = expr, None, None
+    if name.endswith((":any", ":x86_64")):
+        name = name.rsplit(":", 1)[0]
+    return name, op, version.strip() if version else None
+
+
+def _version_matches(version, op, wanted):
+    if op is None:
+        return True
+    if version is None:
+        return False
+    try:
+        result = subprocess.run(["vercmp", version, wanted], capture_output=True, text=True, check=True)
+        comparison = int(result.stdout.strip())
+    except (OSError, subprocess.CalledProcessError, ValueError) as exc:
+        raise SchedulerError(f"vercmp unavailable or failed for {version!r}, {wanted!r}: {exc}") from exc
+    return {"=": comparison == 0, ">": comparison > 0, ">=": comparison >= 0,
+            "<": comparison < 0, "<=": comparison <= 0}[op]
+
+
 def _srcinfo_parse(pkgdir):
-    """Parse one pkgdir -> dict(pkgbase, pkgnames, depends, makedepends, provides)."""
+    """Parse one pkgdir, retaining effective dependency metadata per output."""
     pkgdir = os.path.realpath(pkgdir)
     try:
         with tempfile.TemporaryDirectory(prefix="kbuild-srcinfo-") as scratch:
@@ -64,24 +96,53 @@ def _srcinfo_parse(pkgdir):
         raise SchedulerError(f"{pkgdir}: makepkg --printsrcinfo failed: {detail}") from exc
     d = {"pkgbase": os.path.basename(pkgdir), "pkgdir": os.path.abspath(pkgdir),
          "pkgnames": set(), "depends": set(), "makedepends": set(), "provides": set(),
-         "depends_exprs": set(), "makedepends_exprs": set(), "provides_exprs": set()}
+         "depends_exprs": set(), "makedepends_exprs": set(), "provides_exprs": set(),
+         "outputs": {}, "pkgver": "", "pkgrel": "", "epoch": "0"}
+    global_fields = {field: [] for field in _METADATA_FIELDS}
+    global_arch_fields = {field: [] for field in _METADATA_FIELDS}
+    raw_outputs = {}
+    current = None
     for raw_line in result.stdout.splitlines():
         match = _FIELD_RE.match(raw_line.strip())
         if not match:
             continue
-        field, value = match.groups()
-        field = field.removesuffix("_x86_64")
+        raw_field, value = match.groups()
+        arch_specific = raw_field.endswith("_x86_64")
+        field = raw_field.removesuffix("_x86_64")
+        value = value.strip()
         if field == "pkgbase":
-            d["pkgbase"] = value.strip()
+            d["pkgbase"] = value
+            current = None
         elif field == "pkgname":
-            d["pkgnames"].add(value.strip())
+            current = value
+            d["pkgnames"].add(value)
+            raw_outputs.setdefault(value, {})
+        elif field in ("pkgver", "pkgrel", "epoch") and current is None:
+            d[field] = value
         elif field in _METADATA_FIELDS:
-            d[field + "_exprs"].add(value.strip())
-            name = _metadata_name(value, field)
-            if name:
-                d[field].add(name)
+            if value:
+                d[field + "_exprs"].add(value)
+                name = _metadata_name(value, field)
+                if name:
+                    d[field].add(name)
+            if current is None:
+                (global_arch_fields if arch_specific else global_fields)[field].append(value)
+            else:
+                raw_outputs[current].setdefault(field + ("_arch" if arch_specific else ""), []).append(value)
     if not d["pkgbase"] or not d["pkgnames"]:
         raise SchedulerError(f"{pkgdir}: makepkg --printsrcinfo returned no pkgbase/pkgname")
+    version = d["pkgver"]
+    if d["pkgrel"]:
+        version += "-" + d["pkgrel"]
+    if d["epoch"] != "0":
+        version = d["epoch"] + ":" + version
+    for pkgname, values in raw_outputs.items():
+        output = {"version": version}
+        for field in _METADATA_FIELDS:
+            generic = values[field] if field in values else global_fields[field]
+            arch = values[field + "_arch"] if field + "_arch" in values else global_arch_fields[field]
+            output[field + "_exprs"] = sorted(set(value for value in generic + arch if value))
+        d["outputs"][pkgname] = output
     return d
 
 
@@ -147,12 +208,14 @@ def srcinfo(pkgdir):
         _SRCINFO_CACHE_DATA = _load_cache()
     stamp = _recipe_stamp(pkgdir)
     ent = _SRCINFO_CACHE_DATA.get(pkgdir)
-    if isinstance(ent, dict) and ent.get("version") == 4 and ent.get("stamp") == stamp:
+    if isinstance(ent, dict) and ent.get("version") == 7 and ent.get("stamp") == stamp:
         data = ent.get("data")
         required = ("pkgbase", "pkgdir", "pkgnames", "depends", "makedepends", "provides",
-                    "depends_exprs", "makedepends_exprs", "provides_exprs")
-        if (isinstance(data, dict) and all(isinstance(data.get(k), list) for k in required[2:])
-                and all(isinstance(data.get(k), str) for k in required[:2])):
+                    "depends_exprs", "makedepends_exprs", "provides_exprs", "outputs",
+                    "pkgver", "pkgrel", "epoch")
+        if (isinstance(data, dict) and all(isinstance(data.get(k), list) for k in required[2:10] if k != "outputs")
+                and isinstance(data.get("outputs"), dict)
+                and all(isinstance(data.get(k), str) for k in required[:2] + required[10:])):
             return {k: (set(v) if k in _METADATA_FIELDS | _EXPRESSION_FIELDS or k == "pkgnames" else v) for k, v in data.items()}
     try:
         data = _srcinfo_parse(pkgdir)
@@ -161,7 +224,7 @@ def srcinfo(pkgdir):
         _save_cache(_SRCINFO_CACHE_DATA)
         raise
     _SRCINFO_CACHE_DATA[pkgdir] = {
-        "version": 4,
+        "version": 7,
         "stamp": stamp,
         "data": {k: (sorted(v) if isinstance(v, set) else v) for k, v in data.items()},
     }
@@ -185,31 +248,140 @@ def universe():
     return u
 
 
+def _provider_map(u):
+    providers = {}
+    for base, info in u.items():
+        for pkgname, output in info["outputs"].items():
+            capabilities = [(pkgname, output["version"])]
+            capabilities.extend((_split_expr(expr)[0], _split_expr(expr)[2])
+                                for expr in output.get("provides_exprs", ()))
+            for capability, version in capabilities:
+                providers.setdefault(capability, []).append((base, pkgname, version))
+    return providers
+
+
+def _resolve_provider(providers, expr):
+    name, op, wanted = _split_expr(expr)
+    candidates = [candidate for candidate in providers.get(name, ())
+                  if _version_matches(candidate[2], op, wanted)]
+    if not candidates:
+        return None
+    return candidates[0]
+
+
 def provider_map(u):
     """package/provide name -> pkgbase (first writer wins; heart before forks)."""
-    m = {}
-    for name, info in u.items():
-        for capability in sorted(info["pkgnames"] | info["provides"]):
-            m.setdefault(capability, name)
-            unversioned = _VERSION_RE.sub("", capability).strip()
-            if unversioned:
-                m.setdefault(unversioned, name)
-        m.setdefault(name, name)
-    return m
+    return {name: candidates[0][0] for name, candidates in _provider_map(u).items()}
+
+
+def build_edges(u):
+    providers = _provider_map(u)
+    graph = {base: set() for base in u}
+    edges = {}
+    for base, info in u.items():
+        for output_name, output in info["outputs"].items():
+            for field in ("depends_exprs", "makedepends_exprs"):
+                for expr in output.get(field, ()):
+                    provider = _resolve_provider(providers, expr)
+                    if provider and provider[0] != base:
+                        target = provider[0]
+                        graph[base].add(target)
+                        edges.setdefault((base, target), []).append({
+                            "field": field.removesuffix("_exprs"),
+                            "expr": expr,
+                            "output": output_name,
+                            "provider": provider[1],
+                        })
+    return graph, edges
 
 
 def build_graph(u):
     """pkgbase -> set of pkgbases it build-depends on (in-universe only)."""
-    prov = provider_map(u)
-    g = {}
-    for name, info in u.items():
-        deps = set()
-        for dep in info["depends"] | info["makedepends"]:
-            p = prov.get(dep)
-            if p and p != name:
-                deps.add(p)
-        g[name] = deps
-    return g
+    return build_edges(u)[0]
+
+
+def parse_policy(value=None):
+    value = os.environ.get("KBUILD_BOOTSTRAP_EDGES", "") if value is None else value
+    tokens = [token for token in re.split(r"[\s,]+", value.strip()) if token]
+    result = []
+    seen = set()
+    for token in tokens:
+        match = re.fullmatch(r"([A-Za-z0-9@._+:-]+)>([A-Za-z0-9@._+:-]+)", token)
+        if not match:
+            raise SchedulerError(f"invalid KBUILD_BOOTSTRAP_EDGES entry: {token}")
+        edge = match.groups()
+        if edge in seen:
+            raise SchedulerError(f"duplicate KBUILD_BOOTSTRAP_EDGES entry: {token}")
+        seen.add(edge)
+        result.append(edge)
+    return sorted(result)
+
+
+def _cycle_path(graph, source, target, ignored=()):
+    ignored = set(ignored)
+    stack = [(target, [target])]
+    seen = set()
+    while stack:
+        node, path = stack.pop()
+        if node == source:
+            return path
+        if node in seen:
+            continue
+        seen.add(node)
+        for dep in sorted(graph.get(node, ())):
+            if (node, dep) in ignored:
+                continue
+            stack.append((dep, path + [dep]))
+    return None
+
+
+def validate_policy(u, graph, edges, subset=None):
+    selected = set(u) if subset is None else set(subset)
+    policy = parse_policy()
+    for source, target in policy:
+        if (source, target) not in _APPROVED_BOOTSTRAP_EDGES:
+            raise SchedulerError(f"bootstrap edge {source}>{target}: not approved")
+        if source not in u or target not in u:
+            raise SchedulerError(f"bootstrap edge {source}>{target}: unknown pkgbase")
+        if source not in selected or target not in selected:
+            raise SchedulerError(f"bootstrap edge {source}>{target}: outside selected run")
+        records = edges.get((source, target), ())
+        runtime = [record for record in records if record["field"] == "depends"]
+        makedep = [record for record in records if record["field"] == "makedepends"]
+        if makedep:
+            if runtime:
+                exprs = ", ".join(sorted({record["expr"] for record in makedep}))
+                raise SchedulerError(f"bootstrap edge {source}>{target}: mixed depends/makedepends provenance; retained makedepends: {exprs}")
+            raise SchedulerError(f"bootstrap edge {source}>{target}: only makedepends, not runtime depends")
+        if not runtime:
+            raise SchedulerError(f"bootstrap edge {source}>{target}: not a dependency edge")
+        scoped_graph = {node: set(graph.get(node, ())) & selected for node in selected}
+        path = _cycle_path(scoped_graph, source, target, ignored={(source, target)})
+        if not path:
+            raise SchedulerError(f"bootstrap edge {source}>{target}: not part of a cycle")
+    return policy
+
+
+def _cycle_edges(graph, subset):
+    nodes = set(subset)
+    remaining = {node: set(graph.get(node, ())) & nodes for node in nodes}
+    visiting, visited, found = set(), set(), []
+
+    def visit(node, path):
+        visiting.add(node)
+        for dep in sorted(remaining[node]):
+            if dep in visiting:
+                start = path.index(dep)
+                found.extend(zip(path[start:], path[start + 1:] + [dep]))
+            elif dep not in visited:
+                visit(dep, path + [dep])
+        visiting.remove(node)
+        visited.add(node)
+
+    for node in sorted(nodes):
+        if node not in visited:
+            visit(node, [node])
+    return sorted(set(found))
 
 
 def _resolve_targets(u, args, default_all=False):
@@ -239,52 +411,38 @@ def _resolve_targets(u, args, default_all=False):
     return wanted
 
 
-def _topology(g, subset=None):
-    """Return deps-first order, levels, and explicitly broken cycle edges."""
-    nodes = set(g) if subset is None else set(subset)
-    remaining = {n: set(g.get(n, ())) & nodes for n in nodes}
-    ordered = []
+def _topology(u, graph, edges, subset=None):
+    """Return deps-first order after removing only validated runtime policy edges."""
+    nodes = set(graph) if subset is None else set(subset)
+    policy = validate_policy(u, graph, edges, nodes)
+    ignored = set(policy)
+    cycles = _cycle_edges({node: {dep for dep in graph.get(node, ())
+                                  if (node, dep) not in ignored} for node in nodes}, nodes)
+    if cycles:
+        typed = []
+        for source, target in cycles:
+            details = edges.get((source, target), ())
+            kinds = ",".join(sorted({detail["field"] for detail in details})) or "unknown"
+            typed.append(f"{source}>{target} ({kinds})")
+        raise SchedulerError("unapproved dependency cycle: " + ", ".join(typed))
+    remaining = {node: {dep for dep in graph.get(node, ()) if dep in nodes and (node, dep) not in ignored}
+                 for node in nodes}
     levels = []
-    broken = []
     while remaining:
-        ready = sorted(n for n, deps in remaining.items() if not deps)
+        ready = sorted(node for node, deps in remaining.items() if not deps)
         if not ready:
-            visiting = set()
-            visited = set()
-
-            def cycle_edge(node):
-                visiting.add(node)
-                for dep in sorted(remaining[node]):
-                    if dep in visiting:
-                        return node, dep
-                    if dep not in visited:
-                        edge = cycle_edge(dep)
-                        if edge:
-                            return edge
-                visiting.remove(node)
-                visited.add(node)
-                return None
-
-            edge = next((edge for n in sorted(remaining) if n not in visited
-                         for edge in [cycle_edge(n)] if edge), None)
-            if edge is None:
-                raise SchedulerError("no ready node or cyclic edge in dependency graph")
-            remaining[edge[0]].remove(edge[1])
-            broken.append(edge)
-            continue
+            raise SchedulerError("unapproved dependency cycle")
         levels.append(ready)
-        ordered.extend(ready)
-        for name in ready:
-            del remaining[name]
+        for node in ready:
+            del remaining[node]
         for deps in remaining.values():
             deps.difference_update(ready)
-    return ordered, levels, broken
+    return [node for level in levels for node in level], levels, policy
 
 
-def topo_order(g, subset=None):
-    """Topological order (deps first), breaking cycles. Returns (ordered, broken_edges)."""
-    ordered, _levels, broken = _topology(g, subset)
-    return ordered, broken
+def topo_order(u, graph, edges, subset=None):
+    ordered, _levels, policy = _topology(u, graph, edges, subset)
+    return ordered, policy
 
 
 def reverse_closure(g, changed):
@@ -304,6 +462,67 @@ def reverse_closure(g, changed):
     return seen
 
 
+def _repo_capabilities(repo_path):
+    records = {}
+    if not os.path.isfile(repo_path):
+        raise SchedulerError(f"missing read-only package repo: {repo_path}")
+    try:
+        with tarfile.open(repo_path) as archive:
+            for member in archive:
+                if not member.name.endswith("/desc"):
+                    continue
+                fields = {}
+                key = None
+                data = archive.extractfile(member).read().decode(errors="replace")
+                for line in data.splitlines():
+                    if line.startswith("%") and line.endswith("%"):
+                        key = line.strip("%")
+                        fields[key] = []
+                    elif line and key:
+                        fields[key].append(line)
+                name = (fields.get("NAME") or [""])[0]
+                version = (fields.get("VERSION") or [""])[0]
+                arch = (fields.get("ARCH") or [""])[0]
+                if name and version and arch in ("x86_64", "any", ""):
+                    capabilities = [(name, version)]
+                    capabilities.extend((_split_expr(expr)[0], _split_expr(expr)[2])
+                                        for expr in fields.get("PROVIDES", ()))
+                    records.setdefault(name, []).extend(capabilities)
+                    for capability in capabilities:
+                        records.setdefault(capability[0], []).append(capability)
+    except (OSError, tarfile.TarError) as exc:
+        raise SchedulerError(f"cannot read package repo {repo_path}: {exc}") from exc
+    return records
+
+
+def preflight(u, graph, edges, targets, repo_path):
+    selected = set(targets)
+    policy = set(validate_policy(u, graph, edges, selected))
+    repo = _repo_capabilities(repo_path)
+    providers = _provider_map(u)
+    for base in sorted(selected):
+        for output_name, output in u[base]["outputs"].items():
+            for field in ("depends_exprs", "makedepends_exprs"):
+                for expr in output.get(field, ()):
+                    edge = _resolve_provider(providers, expr)
+                    if field == "depends_exprs" and edge and (base, edge[0]) in policy:
+                        continue
+                    if edge and edge[0] in selected:
+                        continue
+                    name, op, version = _split_expr(expr)
+                    if any(_version_matches(cap_version, op, version)
+                           for cap_name, cap_version in repo.get(name, ()) if cap_name == name):
+                        continue
+                    raise SchedulerError(f"preflight missing retained provider: {base}/{output_name}: {expr}")
+    return sorted(policy)
+
+
+def demoted_exprs(u, graph, edges, targets):
+    policy = validate_policy(u, graph, edges, set(targets))
+    return sorted(f"{source}\t{record['expr']}" for source, target in policy
+                  for record in edges[(source, target)] if record["field"] == "depends")
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -311,18 +530,42 @@ def main():
     cmd = sys.argv[1]
     try:
         u = universe()
-        g = build_graph(u)
+        g, edges = build_edges(u)
 
         if cmd == "graph":
             for name in sorted(g):
                 print(f"{name}: {' '.join(sorted(g[name]))}")
             return 0
 
+        if cmd == "policy":
+            wanted = _resolve_targets(u, sys.argv[2:], default_all=True)
+            for source, target in validate_policy(u, g, edges, wanted):
+                print(f"{source}>{target}")
+            return 0
+
+        if cmd == "demoted":
+            wanted = _resolve_targets(u, sys.argv[2:])
+            for expr in demoted_exprs(u, g, edges, wanted):
+                print(expr)
+            return 0
+
+        if cmd == "preflight":
+            repo_path = os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira")
+            args = sys.argv[2:]
+            if args[:1] == ["--repo"]:
+                if len(args) < 2:
+                    raise SchedulerError("preflight: missing --repo path or targets")
+                repo_path, args = args[1], args[2:]
+            wanted = _resolve_targets(u, args, default_all=not args)
+            for source, target in preflight(u, g, edges, wanted, os.path.join(repo_path, "kashira.db.tar.gz")):
+                print(f"{source}>{target}")
+            return 0
+
         if cmd == "plan":
             wanted = _resolve_targets(u, sys.argv[2:])
-            order, broken = topo_order(g, wanted)
-            for b in broken:
-                print(f"cycle-break: {b[0]} -> {b[1]}", file=sys.stderr)
+            order, policy = topo_order(u, g, edges, wanted)
+            for source, target in policy:
+                print(f"bootstrap-edge: {source} -> {target}", file=sys.stderr)
             for name in order:
                 print(u[name]["pkgdir"])
             return 0
@@ -333,14 +576,12 @@ def main():
                 return 2
             outfile = sys.argv[2]
             wanted = _resolve_targets(u, sys.argv[3:])
-            order, broken = topo_order(g, wanted)
-            for b in broken:
-                print(f"cycle-break: {b[0]} -> {b[1]}", file=sys.stderr)
+            order, policy = topo_order(u, g, edges, wanted)
             with open(outfile, "w", encoding="utf-8") as stream:
                 stream.write("# generated by kbuild-sched\n")
                 for name in order:
                     stream.write(u[name]["pkgdir"] + "\n")
-            print(f"wave: {len(order)} pkgbases -> {outfile} (cycles broken: {len(broken)})")
+            print(f"wave: {len(order)} pkgbases -> {outfile} (bootstrap edges: {len(policy)})")
             return 0
 
         if cmd == "dirty":
@@ -356,9 +597,9 @@ def main():
 
         if cmd == "levels":
             wanted = _resolve_targets(u, sys.argv[2:], default_all=True)
-            _order, levels, broken = _topology(g, wanted)
-            for b in broken:
-                print(f"cycle-break: {b[0]} -> {b[1]}", file=sys.stderr)
+            _order, levels, policy = _topology(u, g, edges, wanted)
+            for source, target in policy:
+                print(f"bootstrap-edge: {source} -> {target}", file=sys.stderr)
             for members in levels:
                 print(" ".join(members))
             return 0

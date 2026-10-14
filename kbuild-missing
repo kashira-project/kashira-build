@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
-"""kbuild-missing — dependency closure of a target set against the live repo DB.
+"""kbuild-missing — dependency closure of requested outputs against the live repo DB.
 
-Answers the question the GNOME waves keep needing: given these targets, which
-pkgbases must still be vendored or built before they can be scheduled?
-
-Reads the pkgbase DAG from kbuild-sched.py and resolves each dependency
-against the repository database by package name or provides, so a package that
-is already installed is not reported as missing.
-
-  kbuild-missing <target...>       closure report (missing / satisfied / unknown)
-  kbuild-missing --frontier <t..>  missing pkgbases with no missing dependency
-  kbuild-missing --unvendored <t..>  missing pkgbases with no PKGBUILD on disk
+  kbuild-missing <target...>          closure report
+  kbuild-missing --frontier <target...>  missing build frontiers
+  kbuild-missing --unvendored <target...>  missing bases without PKGBUILDs
 """
 import importlib.util
 import os
+import re
+import subprocess
 import sys
 import tarfile
+from functools import cmp_to_key, lru_cache
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -23,83 +19,313 @@ _spec = importlib.util.spec_from_file_location("ksched", os.path.join(HERE, "kbu
 ks = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ks)
 
-DB = os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira") + "/kashira.db.tar.gz"
-FORKS = ks.FORKS
-HEART = ks.HEART
+DB = os.path.join(os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira"), "kashira.db.tar.gz")
+
+_REQ_RE = re.compile(r"^(.+?)(<=|>=|=|<|>)(.+)$")
+
+
+def _split_expr(expr):
+    expr = expr.strip()
+    if not expr:
+        return None
+    match = _REQ_RE.match(expr)
+    if match:
+        name, op, version = match.groups()
+    else:
+        name, op, version = expr, None, None
+    name = name.strip()
+    if name.endswith((":any", ":x86_64")):
+        name = name.rsplit(":", 1)[0]
+    return name, op, version.strip() if version else None
+
+
+@lru_cache(maxsize=None)
+def _vercmp(left, right):
+    try:
+        result = subprocess.run(["vercmp", left, right], capture_output=True, text=True,
+                                check=True)
+        return int(result.stdout.strip())
+    except (OSError, subprocess.CalledProcessError, ValueError) as exc:
+        raise ks.SchedulerError(f"vercmp unavailable or failed for {left!r}, {right!r}: {exc}") from exc
+
+
+def _matches(version, op, wanted):
+    if op is None:
+        return True
+    if version is None:
+        return False
+    result = _vercmp(version, wanted)
+    return {"=": result == 0, ">": result > 0, ">=": result >= 0,
+            "<": result < 0, "<=": result <= 0}[op]
+
+
+def _record_fields(member):
+    fields = {}
+    key = None
+    data = member.read().decode(errors="replace")
+    for line in data.splitlines():
+        if line.startswith("%") and line.endswith("%"):
+            key = line.strip("%")
+            fields[key] = []
+        elif line and key:
+            fields[key].append(line)
+    return fields
+
+
+class RepoIndex:
+    def __init__(self, records):
+        self.records = records
+        self.by_name = {}
+        for record in records:
+            for capability in record["capabilities"]:
+                self.by_name.setdefault(capability[0], []).append(record)
+
+    @property
+    def record_count(self):
+        return len(self.records)
+
+    def candidates(self, name, op=None, version=None):
+        result = []
+        for record in self.by_name.get(name, ()):
+            if any(cap_name == name and _matches(cap_version, op, version)
+                   for cap_name, cap_version in record["capabilities"]):
+                result.append(record)
+        def compare(left, right):
+            exact = (left["name"] == name) - (right["name"] == name)
+            if exact:
+                return -exact
+            versions = _vercmp(left["version"], right["version"])
+            if versions:
+                return -versions
+            return (left["name"] > right["name"]) - (left["name"] < right["name"])
+
+        return sorted(result, key=cmp_to_key(compare))
 
 
 def repo_index():
-    """name-or-provide -> version, from the published repo database."""
-    idx = {}
-    with tarfile.open(DB) as t:
-        for m in t:
-            if not m.name.endswith("/desc"):
+    """Return published package records and a capability index."""
+    records = []
+    with tarfile.open(DB) as archive:
+        for member in archive:
+            if not member.name.endswith("/desc"):
                 continue
-            d = {}
-            key = None
-            for line in t.extractfile(m).read().decode().splitlines():
-                if line.startswith("%") and line.endswith("%"):
-                    key = line.strip("%")
-                    d[key] = []
-                elif line and key:
-                    d[key].append(line)
-            name = d["NAME"][0]
-            idx[name] = d["VERSION"][0]
-            for p in d.get("PROVIDES", []):
-                idx.setdefault(p.split("=")[0].split(":")[-1], d["VERSION"][0])
-            for p in d.get("CONFLICTS", []):
-                idx.pop(p.split("=")[0].split(":")[-1], None)
-    return idx
+            fields = _record_fields(archive.extractfile(member))
+            name = (fields.get("NAME") or [""])[0]
+            version = (fields.get("VERSION") or [""])[0]
+            arch = (fields.get("ARCH") or [""])[0]
+            if not name or not version or arch not in ("x86_64", "any", ""):
+                continue
+            capabilities = [(name, version)]
+            for value in fields.get("PROVIDES", []):
+                parsed = _split_expr(value)
+                if parsed:
+                    cap_name, _op, cap_version = parsed
+                    capabilities.append((cap_name, cap_version))
+            records.append({"name": name, "version": version,
+                            "capabilities": tuple(dict.fromkeys(capabilities)),
+                            "depends": tuple(fields.get("DEPENDS", []))})
+    return RepoIndex(records)
 
 
-def split_owner(name, universe):
-    """Which vendored pkgbase produces `name` as one of its splits?
+def _output_names(info):
+    return sorted(info.get("pkgnames", ()))
 
-    Arch splits like gtk-update-icon-cache and pipewire-system-services have no
-    packaging repo of their own; another pkgbase produces them. Without this, a
-    plan reports a "missing" package that cannot possibly be imported.
-    """
+
+def _output(info, pkgname):
+    data = info.get("outputs", {}).get(pkgname)
+    if data:
+        return data
+    return {
+        "depends_exprs": sorted(info.get("depends_exprs", ())),
+        "makedepends_exprs": sorted(info.get("makedepends_exprs", ())),
+        "provides_exprs": sorted(info.get("provides_exprs", ())),
+        "version": info.get("version", info.get("pkgver", "")),
+    }
+
+
+def _local_outputs(universe):
+    result = {}
     for base, info in universe.items():
-        if name in info["pkgnames"]:
-            return base
-    return None
+        for pkgname in _output_names(info):
+            output = _output(info, pkgname)
+            capabilities = [(pkgname, output.get("version") or None)]
+            for expr in output.get("provides_exprs", ()):
+                parsed = _split_expr(expr)
+                if parsed:
+                    name, _op, version = parsed
+                    capabilities.append((name, version))
+            for name, version in dict.fromkeys(capabilities):
+                result.setdefault(name, []).append((base, pkgname, version, tuple(capabilities)))
+    return result
 
 
-def pkgdir_of(base, universe):
-    return universe[base]["pkgdir"]
+def _target_outputs(args, universe, repo):
+    aliases = {}
+    local_by_capability = _local_outputs(universe)
+    for base, info in universe.items():
+        pkgdir = os.path.realpath(info["pkgdir"])
+        for alias in (base, os.path.basename(pkgdir), pkgdir, os.path.abspath(info["pkgdir"]), *_output_names(info)):
+            aliases.setdefault(alias, (base, alias if alias in info.get("pkgnames", ()) else None))
+    wanted = []
+    unknown = []
+    for arg in args:
+        match = aliases.get(arg) or aliases.get(os.path.realpath(arg))
+        if not match:
+            parsed = _split_expr(arg)
+            if parsed and (repo.candidates(*parsed) or local_by_capability.get(parsed[0])):
+                wanted.append((None, arg))
+            else:
+                unknown.append(arg)
+            continue
+        base, output = match
+        info = universe[base]
+        if output is None:
+            output = base if base in info.get("pkgnames", ()) else None
+        if output is None:
+            wanted.extend((base, name) for name in _output_names(info))
+        else:
+            wanted.append((base, output))
+    return wanted, unknown
+
+
+def _is_vendored(base, universe):
+    return os.path.isfile(os.path.join(universe[base]["pkgdir"], "PKGBUILD"))
 
 
 def closure(targets, universe, graph, repo):
-    """Return (missing, satisfied_count, unknown) for the forward closure."""
-    wanted = ks._resolve_targets(universe, list(targets))
-    missing, satisfied, unknown = set(), set(), {}
-    seen = set()
-    stack = list(wanted)
-    while stack:
-        base = stack.pop()
-        if base in seen:
+    """Return a planning result while retaining the historical closure signature."""
+    del graph
+    local_by_capability = _local_outputs(universe)
+    wanted, unknown = _target_outputs(list(targets), universe, repo)
+    result = {"missing": set(), "satisfied": set(), "unknown": set(unknown),
+              "unvendored": set(), "frontier": set(), "blocked": {},
+              "selected_outputs": {}, "repo_records": set()}
+    pending = []
+    for base, pkgname in wanted:
+        parsed = _split_expr(pkgname)
+        if base is None:
+            name, op, version = parsed
+            repo_candidates = repo.candidates(name, op, version)
+            if repo_candidates:
+                result["satisfied"].add(name)
+                pending.append(("repo", repo_candidates[0]))
+                continue
+            local_candidates = []
+            for candidate_base, candidate_pkgname, _provided_version, capabilities in local_by_capability.get(name, ()):
+                if any(cap_name == name and _matches(cap_version, op, version)
+                       for cap_name, cap_version in capabilities):
+                    local_candidates.append((candidate_base, candidate_pkgname))
+            if local_candidates:
+                base, pkgname = sorted(local_candidates)[0]
+            else:
+                result["unknown"].add(pkgname)
+                continue
+        output = _output(universe[base], pkgname)
+        repo_candidates = repo.candidates(pkgname)
+        if repo_candidates:
+            result["satisfied"].add(pkgname)
+            pending.append(("repo", repo_candidates[0]))
+        else:
+            result["missing"].add(base)
+            result["selected_outputs"].setdefault(base, set()).add(pkgname)
+            if not _is_vendored(base, universe):
+                result["unvendored"].add(base)
+            pending.append(("local", (base, pkgname, output)))
+
+    processed = set()
+    edges = {}
+    unknown_by_base = {}
+
+    def add_unknown(expr, owner):
+        result["unknown"].add(f"{owner}: {expr}")
+
+    def select_local(base, pkgname, owner_base=None):
+        result["missing"].add(base)
+        result["selected_outputs"].setdefault(base, set()).add(pkgname)
+        if not _is_vendored(base, universe):
+            result["unvendored"].add(base)
+        if owner_base is not None and base != owner_base:
+            edges.setdefault(owner_base, set()).add(base)
+        pending.append(("local", (base, pkgname, _output(universe[base], pkgname))))
+
+    def resolve(expr, owner_base, owner_output):
+        parsed = _split_expr(expr)
+        if not parsed:
+            return
+        name, op, version = parsed
+        repo_candidates = repo.candidates(name, op, version)
+        if repo_candidates:
+            record = repo_candidates[0]
+            result["satisfied"].add(name)
+            pending.append(("repo", record))
+            return
+        local_candidates = []
+        for base, pkgname, provided_version, capabilities in local_by_capability.get(name, ()):
+            if any(cap_name == name and _matches(cap_version, op, version)
+                   for cap_name, cap_version in capabilities):
+                local_candidates.append((base, pkgname, provided_version))
+        if local_candidates:
+            local_candidates.sort(key=lambda item: (item[0] != owner_base, item[0], item[1]))
+            base, pkgname, _provided_version = local_candidates[0]
+            select_local(base, pkgname, owner_base)
+            return
+        add_unknown(expr, owner_output)
+        if owner_base in universe:
+            unknown_by_base.setdefault(owner_base, set()).add(expr)
+
+    while pending:
+        kind, item = pending.pop()
+        if kind == "repo":
+            identity = ("repo", item["name"], item["version"])
+            if identity in processed:
+                continue
+            processed.add(identity)
+            for expr in item["depends"]:
+                resolve(expr, "<repo>", item["name"])
+            result["repo_records"].add(identity)
             continue
-        seen.add(base)
-        for dep in graph.get(base, ()):
-            # already satisfiable by what is installed?
-            info = universe.get(dep)
-            if info:
-                names = set(info["pkgnames"]) | set(info["provides"])
-                if any(n in repo for n in names):
-                    satisfied.add(dep)
-                    continue
-            missing.add(dep)
-            stack.append(dep)
-    # a missing pkgbase whose deps are all satisfied is a buildable frontier leaf
-    frontier = sorted(
-        b for b in missing
-        if all(
-            (universe.get(d) and any(n in repo for n in set(universe[d]["pkgnames"]) | set(universe[d]["provides"])))
-            or d not in universe
-            for d in graph.get(b, ())
-        )
-    )
-    return missing, satisfied, unknown, frontier
+        base, _pkgname, _output_data = item
+        identity = ("local", base)
+        if identity in processed:
+            continue
+        processed.add(identity)
+        for pkgname in _output_names(universe[base]):
+            output = _output(universe[base], pkgname)
+            for expr in output.get("depends_exprs", ()):
+                resolve(expr, base, pkgname)
+            for expr in output.get("makedepends_exprs", ()):
+                resolve(expr, base, pkgname)
+
+    missing = result["missing"]
+    result["frontier"] = {
+        base for base in missing
+        if not (edges.get(base, set()) & missing) and base not in unknown_by_base
+    }
+    result["blocked"] = {
+        base: sorted(edges[base] & missing)
+        for base in sorted(missing - result["frontier"])
+        if edges.get(base, set()) & missing
+    }
+    return result
+
+
+def _print_common(result, args, repo):
+    print(f"repo packages: {repo.record_count}")
+    print(f"closure of {len(args)} target(s): {len(result['missing'])} missing, "
+          f"{len(result['satisfied'])} already satisfiable")
+    for base in sorted(result["missing"]):
+        info = result["selected_outputs"].get(base, ())
+        have = "vendored" if base not in result["unvendored"] else "NOT VENDORED"
+        outputs = ",".join(sorted(info))
+        print(f"  {base:34} {have} [{outputs}]")
+    if result["unknown"]:
+        print(f"\nunknown dependencies ({len(result['unknown'])}):")
+        for dep in sorted(result["unknown"]):
+            print(f"  {dep}")
+    if result["blocked"]:
+        print(f"\nblocked dependency edges ({sum(map(len, result['blocked'].values()))}):")
+        for base in sorted(result["blocked"]):
+            print(f"  {base} <- {' '.join(result['blocked'][base])}")
 
 
 def main():
@@ -110,29 +336,24 @@ def main():
     mode = "report"
     if args[0] in ("--frontier", "--unvendored"):
         mode, args = args[0][2:], args[1:]
-    universe = ks.universe()
-    graph = ks.build_graph(universe)
-    repo = repo_index()
-    missing, satisfied, _, frontier = closure(args, universe, graph, repo)
-    print(f"repo packages: {len(set(repo.values()) and set(repo))} (name+provides index: {len(repo)})")
-    print(f"closure of {len(args)} target(s): {len(missing)} missing, {len(satisfied)} already satisfiable")
-    if mode == "report":
-        for b in sorted(missing):
-            d = pkgdir_of(b, universe)
-            have = "vendored" if os.path.isfile(os.path.join(d, "PKGBUILD")) else "NOT VENDORED"
-            print(f"  {b:34} {have}")
-        return 0
+    try:
+        universe = ks.universe()
+        repo = repo_index()
+        result = closure(args, universe, None, repo)
+    except (OSError, tarfile.TarError, ks.SchedulerError) as exc:
+        print(f"kbuild-missing: {exc}", file=sys.stderr)
+        return 2
+    _print_common(result, args, repo)
     if mode == "frontier":
-        print(f"\nfrontier ({len(frontier)} missing pkgbases with no missing dep):")
-        for b in frontier:
-            print(f"  {b}")
-        return 0
-    unvendored = [b for b in sorted(missing)
-                  if not os.path.isfile(os.path.join(pkgdir_of(b, universe), "PKGBUILD"))]
-    print(f"\nnot vendored ({len(unvendored)}):")
-    for b in unvendored:
-        print(f"  {b}")
-    return 0
+        print(f"\nfrontier ({len(result['frontier'])} missing pkgbases with no missing dep):")
+        for base in sorted(result["frontier"]):
+            print(f"  {base}")
+    elif mode == "unvendored":
+        print(f"\nnot vendored ({len(result['unvendored'])}):")
+        for base in sorted(result["unvendored"]):
+            print(f"  {base}")
+    incomplete = result["unknown"] or result["unvendored"] or result["blocked"]
+    return 1 if incomplete else 0
 
 
 if __name__ == "__main__":

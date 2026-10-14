@@ -9,3 +9,8 @@ image/*/kashira-*.initrd
 image/*/initrd.cpio.zst
 image/*/mkosi.output/
 __pycache__/
+bootstrap/*/src/
+bootstrap/*/pkg/
+bootstrap/*/*.tar.*
+bootstrap/*/*.pkg.tar.*
+__pycache__/

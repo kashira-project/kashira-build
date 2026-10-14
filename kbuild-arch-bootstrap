@@ -1,0 +1,476 @@
+#!/usr/bin/env python3
+"""Import explicitly reviewed Arch archives into a marked, isolated build repository."""
+import argparse
+from contextlib import contextmanager
+import fcntl
+import hashlib
+import os
+import posixpath
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from urllib.parse import unquote, urlsplit
+
+HERE = Path(__file__).resolve().parent
+CANONICAL = Path('/mnt/lfs/var/cache/pacman/kashira')
+LEDGER = HERE / 'logs' / 'arch-bootstrap-ledger.tsv'
+FIELDS = ('pkgname', 'pkgbase', 'pkgver', 'arch')
+PROTECTED = {'glibc', 'gcc', 'gcc-libs', 'gcc-runtime', 'linux-api-headers', 'filesystem',
+             'bash', 'pacman', 'libarchive', 'openssl', 'zlib', 'zstd', 'xz', 'coreutils',
+             'binutils', 'clang', 'llvm', 'lld', 'lib32-glibc', 'kashira-keyring',
+             'systemd', 'systemd-libs', 'systemd-sysvcompat', 'compiler-rt',
+             'libunwind', 'libc++', 'libc++abi', 'llvm-libs', 'llvm-runtime',
+             'uutils-coreutils', 'uutils-diffutils', 'uutils-findutils'}
+PROTECTED_PREFIXES = ('linux-', 'lib32-', 'gcc-', 'llvm-', 'clang-', 'systemd-', 'uutils-')
+
+
+def fail(message):
+    raise ValueError(message)
+
+
+def command(*args, input=None):
+    p = subprocess.run(args, input=input, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                       text=True, check=False)
+    if p.returncode:
+        fail(f'{args[0]} failed: {p.stderr.strip()}')
+    return p.stdout
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def repo_path(raw):
+    repo = Path(raw).resolve(strict=True)
+    if not repo.is_dir() or repo == CANONICAL.resolve(strict=True):
+        fail('isolated repository required; canonical repository or alias refused')
+    if not repo.is_relative_to('/mnt/lfs/tmp'):
+        fail('mixed repository must be below /mnt/lfs/tmp')
+    return repo
+
+
+def marker(repo):
+    return repo / '.kbuild-arch-mixed'
+
+
+def ledger_rows():
+    if not LEDGER.exists():
+        return []
+    rows = [line.split('\t') for line in LEDGER.read_text().splitlines()]
+    if any(len(row) != 9 or row[0] not in ('init', 'arch', 'assisted', 'retire') for row in rows):
+        fail('corrupt bootstrap ledger')
+    return rows
+
+
+def append(row):
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    with open(LEDGER, 'a') as f:
+        f.write('\t'.join(row) + '\n')
+        f.flush()
+        os.fsync(f.fileno())
+
+
+def meta(archive):
+    text = command('bsdtar', '-xOf', str(archive), '.PKGINFO')
+    fields = {}
+    for line in text.splitlines():
+        if ' = ' in line:
+            key, value = line.split(' = ', 1)
+            fields.setdefault(key, []).append(value)
+    for key in FIELDS:
+        if len(fields.get(key, [])) != 1 or not fields[key][0]:
+            fail(f'invalid {key}: {archive}')
+    if not re.fullmatch(r'[a-z0-9@._+-]+', fields['pkgname'][0]) or not re.fullmatch(r'[a-z0-9@._+-]+', fields['pkgbase'][0]):
+        fail('invalid package identity')
+    for key in ('depend', 'provides', 'conflict', 'replaces'):
+        fields.setdefault(key, [])
+    return fields
+
+
+def val(fields, key):
+    return fields[key][0]
+
+
+def package_files(path):
+    names = command('bsdtar', '-tf', str(path)).splitlines()
+    details = command('bsdtar', '-tvf', str(path)).splitlines()
+    if len(names) != len(details):
+        fail(f'archive entry mismatch: {path}')
+    paths, links, directories = set(), {}, set()
+    for raw, detail in zip(names, details):
+        normalized = raw.removeprefix('./').rstrip('/')
+        if raw.startswith('/') or '..' in normalized.split('/') or posixpath.normpath(normalized) != normalized:
+            fail(f'unsafe archive path: {raw}')
+        if not normalized or normalized.startswith('.'):
+            continue
+        parts = normalized.split('/')
+        directories.update('/'.join(parts[:n]) for n in range(1, len(parts)))
+        if detail.startswith('l'):
+            if ' -> ' not in detail or not detail.split(' -> ', 1)[0].endswith(' ' + raw):
+                fail(f'ambiguous archive symlink: {raw}')
+            target = detail.rsplit(' -> ', 1)[1]
+            if target.startswith('/'):
+                resolved = posixpath.normpath(target.lstrip('/'))
+            else:
+                resolved = posixpath.normpath(posixpath.join(posixpath.dirname(normalized), target))
+            if resolved in ('', '.', '..') or resolved.startswith('../'):
+                fail(f'escaping archive symlink: {raw}')
+            links[normalized] = resolved
+        if raw.endswith('/') or detail.startswith('d'):
+            directories.add(normalized)
+        else:
+            paths.add(normalized)
+    return paths, links, directories
+
+
+def paths_collide(incoming, existing):
+    incoming_files, incoming_links, incoming_dirs = incoming
+    existing_files, existing_links, existing_dirs = existing
+    links = {**existing_links, **incoming_links}
+
+    def resolved_path(path, follow_last=True):
+        for _ in range(40):
+            parts = path.split('/')
+            for n in range(1, len(parts) + int(follow_last)):
+                prefix = '/'.join(parts[:n])
+                if prefix in links:
+                    path = posixpath.normpath(posixpath.join(links[prefix], *parts[n:]))
+                    if path == '..' or path.startswith('../'):
+                        fail('symlink path escapes repository root')
+                    break
+            else:
+                return path
+        fail('cyclic archive symlink')
+
+    for path in links:
+        resolved_path(path)
+
+    def owned(files, symlinks):
+        return {resolved_path(p, p not in symlinks) for p in files}
+
+    return bool(incoming_files & existing_files or
+                set(incoming_links) & set(existing_links) or
+                set(incoming_links) & existing_files or
+                incoming_files & set(existing_links) or
+                owned(incoming_files, incoming_links) & owned(existing_files, existing_links) or
+                owned(incoming_files, incoming_links) &
+                {resolved_path(p, False) for p in existing_dirs} or
+                owned(existing_files, existing_links) &
+                {resolved_path(p, False) for p in incoming_dirs} or
+                {resolved_path(p, False) for p in incoming_links} &
+                {resolved_path(p, False) for p in existing_dirs} or
+                {resolved_path(p, False) for p in existing_links} &
+                {resolved_path(p, False) for p in incoming_dirs})
+
+
+def capability(expr):
+    return re.split(r'[<>=]', expr, maxsplit=1)[0].removesuffix(':any')
+
+
+def repo_records(repo):
+    db = repo / 'kashira.db.tar.gz'
+    records = {}
+    for entry in command('bsdtar', '-tf', str(db)).splitlines():
+        if not entry.endswith('/desc'):
+            continue
+        lines = command('bsdtar', '-xOf', str(db), entry).splitlines()
+        fields = {}
+        for i, line in enumerate(lines[:-1]):
+            if line.startswith('%') and line.endswith('%'):
+                key = line.strip('%')
+                fields[key] = []
+                for value in lines[i + 1:]:
+                    if not value:
+                        break
+                    fields[key].append(value)
+        if len(fields.get('NAME', [])) != 1 or len(fields.get('VERSION', [])) != 1:
+            fail('invalid repository database record')
+        name = fields['NAME'][0]
+        if name in records:
+            fail('duplicate repository name')
+        records[name] = fields
+    return records
+
+
+def origins(repo, records):
+    state = {}
+    for row in ledger_rows():
+        if row[8] == str(repo) and row[0] in ('arch', 'retire'):
+            state[row[1]] = 'arch' if row[0] == 'arch' else 'native'
+    return {name: state.get(name, 'native') for name in records}
+
+
+def snapshot(repo):
+    records = repo_records(repo)
+    origin = origins(repo, records)
+    return ''.join(f'{name}\t{records[name]["VERSION"][0]}\t{origin[name]}\n'
+                   for name in sorted(records))
+
+
+@contextmanager
+def locked(repo=None):
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    with open(LEDGER.parent / '.arch-bootstrap.lock', 'a') as ledger_lock:
+        if repo is None:
+            fcntl.flock(ledger_lock, fcntl.LOCK_EX)
+            yield
+        else:
+            with open(repo / '.kbuild.lock', 'a') as repo_lock:
+                fcntl.flock(repo_lock, fcntl.LOCK_EX)
+                fcntl.flock(ledger_lock, fcntl.LOCK_EX)
+                yield
+
+
+def registered(repo):
+    return any(row[8] == str(repo) for row in ledger_rows())
+
+
+def check_marker(repo):
+    if not registered(repo):
+        fail('isolated repository is not registered in bootstrap ledger')
+    if not marker(repo).is_file() or marker(repo).read_text() != 'kbuild-arch-mixed-v1\n':
+        fail('isolated repository has no valid mixed marker')
+    if (repo / '.kbuild-arch-pending').exists():
+        fail('incomplete import; repository is blocked until manually recovered')
+
+
+def guard(repo):
+    repo = repo_path(repo)
+    if registered(repo) or marker(repo).exists() or (repo / '.kbuild-arch-pending').exists():
+        check_marker(repo)
+    return repo
+
+
+def archive_filenames(name, version, arch):
+    version_without_epoch = version.partition(':')[2] if ':' in version else version
+    return {f'{name}-{version}-{arch}.pkg.tar.zst',
+            f'{name}-{version_without_epoch}-{arch}.pkg.tar.zst'}
+
+
+def source_url_filename(url, expected_filename):
+    if not re.fullmatch(r'https://[a-zA-Z0-9.-]+/[a-zA-Z0-9_./+%:-]+', url) or '..' in url:
+        fail('reviewed HTTPS Arch mirror URL required')
+    parsed = urlsplit(url)
+    try:
+        valid_authority = (parsed.hostname and parsed.port is None and
+                           parsed.netloc == parsed.hostname and
+                           not parsed.username and not parsed.password)
+    except ValueError:
+        valid_authority = False
+    if parsed.query or parsed.fragment or not valid_authority:
+        fail('reviewed HTTPS Arch mirror URL required')
+    components = [unquote(component) for component in parsed.path.split('/')]
+    if any(component in ('.', '..') for component in components):
+        fail('unsafe source URL path')
+    if any('/' in component for component in components):
+        fail('ambiguous source URL path')
+    if components[-1] != expected_filename:
+        fail('source URL does not identify archive')
+    return components[-1]
+
+
+def verify(archive, keyring, signer):
+    if not re.fullmatch('[A-F0-9]{40}', signer):
+        fail('expected full uppercase signer fingerprint')
+    keyring = Path(keyring).resolve(strict=True)
+    if not keyring.is_file() or keyring.stat().st_mode & 0o022:
+        fail('verifier keyring must be a non-writable public-only file')
+    # The caller must pin a signer reviewed against Arch master-key certification out of band.
+    result = command('gpgv', '--keyring', str(keyring), '--status-fd', '1',
+                     str(archive) + '.sig', str(archive))
+    valid = [line.split() for line in result.splitlines() if line.startswith('[GNUPG:] VALIDSIG ')]
+    if len(valid) != 1 or valid[0][2] != signer:
+        fail('signature signer does not match reviewed fingerprint')
+
+
+def import_archive(repo, archive, url, digest, signer, keyring):
+    check_marker(repo)
+    archive = Path(archive).resolve(strict=True)
+    if not archive.is_file() or not Path(str(archive) + '.sig').is_file():
+        fail('archive and detached signature required')
+    if not re.fullmatch('[a-f0-9]{64}', digest) or sha(archive) != digest:
+        fail('archive SHA256 mismatch')
+    verify(archive, keyring, signer)
+    info = meta(archive)
+    name, version, arch = (val(info, key) for key in ('pkgname', 'pkgver', 'arch'))
+    accepted_filenames = archive_filenames(name, version, arch)
+    if arch not in ('x86_64', 'any') or archive.name not in accepted_filenames:
+        fail('archive metadata/filename/architecture mismatch')
+    source_url_filename(url, archive.name)
+    records = repo_records(repo)
+    if name in PROTECTED or name.startswith(PROTECTED_PREFIXES) or name in records:
+        fail('native package name or protected core collision')
+    borrowed = {r[1] for r in ledger_rows() if r[0] == 'arch' and r[8] == str(repo)}
+    if name in borrowed:
+        fail('borrowed name already recorded; never overwrite an import')
+    all_caps = set(records)
+    for record in records.values():
+        all_caps.update(capability(x) for x in record.get('PROVIDES', []))
+    supplied = {name} | {capability(x) for x in info['provides']}
+    strict_caps = {cap for cap in supplied if cap.startswith('lib:') or '.so' in cap}
+    if (supplied & PROTECTED or any(cap.startswith(PROTECTED_PREFIXES) for cap in supplied)
+            or strict_caps & all_caps):
+        fail('package or provided capability collision')
+    if any(capability(x) in all_caps for x in info['conflict'] + info['replaces']):
+        fail('import would conflict with or replace existing capability')
+    for record in records.values():
+        if any(capability(x) in supplied for x in record.get('CONFLICTS', []) + record.get('REPLACES', [])):
+            fail('existing package conflicts with import')
+    # Only exact pre-existing names/capabilities qualify; unresolved/ambiguous deps fail closed.
+    available = {k: v['VERSION'][0] for k, v in records.items()}
+    for k, v in records.items():
+        for provision in v.get('PROVIDES', []):
+            if '=' in provision:
+                available[capability(provision)] = provision.split('=', 1)[1]
+            else:
+                available.setdefault(capability(provision), '')
+    for dep in info['depend']:
+        match = re.fullmatch(r'([^<>=]+)(>=|<=|=|>|<)?(.*)', dep)
+        depname, operator, required = match.groups()
+        if depname not in available:
+            fail(f'unresolved dependency: {dep}')
+        if operator:
+            installed = available[depname]
+            if not installed:
+                fail(f'unversioned capability cannot satisfy {dep}')
+            order = int(command('vercmp', installed, required).strip())
+            if not {'=': order == 0, '>': order > 0, '<': order < 0,
+                    '>=': order >= 0, '<=': order <= 0}[operator]:
+                fail(f'unsatisfied dependency: {dep}')
+    incoming = package_files(archive)
+    existing_files, existing_links, existing_dirs = set(), {}, set()
+    for existing_name, record in records.items():
+        filename = record.get('FILENAME', [])
+        if len(filename) != 1 or Path(filename[0]).name != filename[0] or not (repo / filename[0]).is_file():
+            fail(f'archive unavailable for path check: {existing_name}')
+        paths, links, directories = package_files(repo / filename[0])
+        existing_files.update(paths)
+        existing_links.update(links)
+        existing_dirs.update(directories)
+    if paths_collide(incoming, (existing_files, existing_links, existing_dirs)):
+        fail('import file collision with existing package')
+    destination = repo / archive.name
+    if destination.exists():
+        fail('repository archive filename already exists')
+    db_files = ('kashira.db.tar.gz', 'kashira.files.tar.gz')
+    with tempfile.TemporaryDirectory(prefix='.kbuild-arch-stage-', dir=repo) as scratch:
+        stage = Path(scratch)
+        for filename in db_files:
+            if not (repo / filename).is_file():
+                fail(f'missing repository database: {filename}')
+            shutil.copy2(repo / filename, stage / filename)
+            shutil.copy2(repo / filename, stage / (filename + '.backup'))
+        shutil.copyfile(archive, stage / archive.name)
+        command('repo-add', str(stage / db_files[0]), str(stage / archive.name))
+        staged = repo_records(stage)
+        if name not in staged or staged[name].get('VERSION') != [version]:
+            fail('staged repository lacks imported package')
+        pending = repo / '.kbuild-arch-pending'
+        pending.write_text(name + '\n')
+        size = LEDGER.stat().st_size
+        try:
+            append(['arch', name, val(info, 'pkgbase'), version, digest,
+                    sha(Path(str(archive) + '.sig')), url, signer, str(repo)])
+            shutil.copyfile(stage / archive.name, destination)
+            for filename in db_files:
+                os.replace(stage / filename, repo / filename)
+        except Exception:
+            for filename in db_files:
+                shutil.copy2(stage / (filename + '.backup'), repo / filename)
+            destination.unlink(missing_ok=True)
+            with open(LEDGER, 'r+b') as ledger:
+                ledger.truncate(size)
+                ledger.flush()
+                os.fsync(ledger.fileno())
+            pending.unlink()
+            raise
+        pending.unlink()
+    print(f'imported {name} {version} into build-only {repo}')
+
+
+def record(repo, archive, kind):
+    check_marker(repo)
+    archive = Path(archive).resolve(strict=True)
+    info = meta(archive)
+    name, version = val(info, 'pkgname'), val(info, 'pkgver')
+    digest = sha(archive)
+    if kind == 'retire':
+        records = repo_records(repo)
+        if name not in records or records[name]['VERSION'] != [version]:
+            fail('retirement requires complete validated native repository replacement')
+        borrowed = [r for r in ledger_rows() if r[0] == 'arch' and r[1] == name and r[8] == str(repo)]
+        if not borrowed or any(r[4] == digest for r in borrowed):
+            fail('retirement requires different native archive')
+        filename = records[name].get('FILENAME', [])
+        if len(filename) != 1 or (repo / filename[0]).resolve() != archive or records[name].get('SHA256SUM') != [digest]:
+            fail('retirement archive does not match repository database')
+    row = [kind, name, val(info, 'pkgbase'), version, digest, '-', '-', '-', str(repo)]
+    if row not in ledger_rows():
+        append(row)
+
+
+def reject(archive):
+    digest = sha(archive)
+    if any(row[4] == digest and row[0] in ('arch', 'assisted') for row in ledger_rows()):
+        fail('borrowed or Arch-assisted artifact hash is forbidden for publication')
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('action', choices=['init', 'import', 'snapshot', 'record', 'retire', 'reject', 'guard', 'mixed', 'state'])
+    p.add_argument('args', nargs='*')
+    a = p.parse_args()
+    if a.action == 'reject':
+        if len(a.args) != 1: fail('reject <archive>')
+        reject(a.args[0]); return
+    if len(a.args) < 1: fail('repository path required')
+    if a.action == 'guard':
+        if len(a.args) != 1: fail('guard <repo>')
+        guard(a.args[0]); return
+    if a.action == 'state':
+        if len(a.args) != 1: fail('state <repo>')
+        repo = Path(a.args[0]).resolve(strict=True)
+        if registered(repo) or marker(repo).exists() or (repo / '.kbuild-arch-pending').exists():
+            guard(repo)
+            print('mixed')
+        else:
+            print('native')
+        return
+    if a.action == 'mixed':
+        if len(a.args) != 1: fail('mixed <repo>')
+        repo = guard(a.args[0]); print('1' if marker(repo).exists() else '0'); return
+    repo = repo_path(a.args[0])
+    if a.action in ('record', 'retire'):
+        if len(a.args) != 2: fail(f'{a.action} <repo> <archive>')
+        with locked():
+            record(repo, a.args[1], 'assisted' if a.action == 'record' else 'retire')
+        return
+    with locked(repo):
+        if a.action == 'init':
+            if len(a.args) != 1: fail('init <repo>')
+            if not (repo / 'kashira.db.tar.gz').is_file(): fail('existing native kashira.db required')
+            if marker(repo).exists(): fail('repository already marked')
+            if registered(repo): fail('ledger already records repository')
+            append(['init', '-', '-', '-', '-', '-', '-', '-', str(repo)])
+            marker(repo).write_text('kbuild-arch-mixed-v1\n')
+        elif a.action == 'import':
+            if len(a.args) != 6: fail('import <repo> <archive> <url> <sha256> <signer-fingerprint> <public-keyring>')
+            import_archive(repo, *a.args[1:])
+        elif a.action == 'snapshot':
+            if len(a.args) != 1: fail('snapshot <repo>')
+            check_marker(repo); print(snapshot(repo), end='')
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except (ValueError, OSError) as e:
+        print(f'kbuild-arch-bootstrap: {e}', file=sys.stderr)
+        sys.exit(1)

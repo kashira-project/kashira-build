@@ -1,0 +1,10 @@
+# Keep the headless runtime small and make required services explicit. The
+# first matching rule wins, so these enables precede the catch-all disable.
+enable systemd-networkd.service
+enable systemd-resolved.service
+enable serial-getty@ttyS0.service
+disable krb5-kdc.service
+disable krb5-kadmind.service
+disable krb5-kpropd.service
+disable krb5-kpropd.socket
+disable *

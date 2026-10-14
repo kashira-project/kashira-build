@@ -1,24 +1,17 @@
 #!/bin/sh
-# Runs chrooted inside the image (mkosi runs *.chroot postinst scripts in the image root).
-# Headless bring-up profile: passwordless root on the serial console, and the
-# local (unsigned) kashira build repo enabled instead of the placeholder
-# network repo so `pacman -Sy` works when the repo dir is available.
-set -e
+set -eu
 
-passwd -d root
+passwd -l root
+rm -f /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
-mkdir -p /etc/systemd/system/serial-getty@ttyS0.service.d
-cat > /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf <<'EOF'
-[Service]
-ExecStart=
-ExecStart=-/usr/bin/agetty --autologin root --noclear %I $TERM
-EOF
+pacman_conf=/etc/pacman.conf
+grep -Fx '[kashira-v3]' "$pacman_conf" >/dev/null
+grep -Fx 'SigLevel = Required DatabaseRequired' "$pacman_conf" >/dev/null
+grep -Fx 'Server = https://repo.kashiraproject.org/x86_64-v3' "$pacman_conf" >/dev/null
+if grep -Eq '^\[kashira\]$|^Server = file:///var/cache/pacman/kashira$|^SigLevel = Never$' "$pacman_conf"; then
+    echo 'headless: refusing unsigned local runtime pacman repository configuration' >&2
+    exit 1
+fi
 
-sed -i \
-    -e 's|^\[kashira-v3\]|#[kashira-v3]|' \
-    -e 's|^SigLevel = Required DatabaseRequired|#SigLevel = Required DatabaseRequired|' \
-    -e 's|^Server = https://repo.kashiraproject.org/x86_64-v3|#Server = https://repo.kashiraproject.org/x86_64-v3|' \
-    -e 's|^#\[kashira\]|[kashira]|' \
-    -e 's|^#SigLevel = Never|SigLevel = Never|' \
-    -e 's|^#Server = file:///var/cache/pacman/kashira|Server = file:///var/cache/pacman/kashira|' \
-    /etc/pacman.conf
+systemctl --root=/ preset-all

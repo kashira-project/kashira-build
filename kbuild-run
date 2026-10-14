@@ -13,15 +13,22 @@ set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
 # shellcheck source=kbuild
-source <(sed -n '/^pkg_deps/,/^}/p;/^repo_add/,/^}/p' "$HERE/kbuild")
+source <(sed -n '/^build_repo_guard/,/^}/p;/^mixed_repo/,/^}/p;/^validate_build_settings/,/^}/p;/^bootstrap_demoted/,/^}/p;/^pkg_deps/,/^}/p;/^expected_outputs/,/^}/p;/^artifact_list/,/^}/p;/^repo_add/,/^}/p' "$HERE/kbuild")
 IMAGE=${KBUILD_IMAGE:-dakkshesh07/kashira:base-devel-2026-10-03}
 REPO=${KBUILD_REPO:-/mnt/lfs/var/cache/pacman/kashira}
 SOURCES=${KBUILD_SOURCES:-/mnt/lfs/sources}
 OUT=${KBUILD_OUT:-$HERE/out}
 LOGS=${KBUILD_LOGS:-$HERE/logs}
+KBUILD_MEMORY=${KBUILD_MEMORY:-12g}
+KBUILD_MEMORY_SWAP=${KBUILD_MEMORY_SWAP:-16g}
+KBUILD_CPUS=${KBUILD_CPUS:-8}
+KBUILD_JOBS=${KBUILD_JOBS:-8}
+KBUILD_BOOTSTRAP_EDGES=${KBUILD_BOOTSTRAP_EDGES:-}
+KBUILD_BOOTSTRAP_DEMOTED=${KBUILD_BOOTSTRAP_DEMOTED:-}
+export KBUILD_BOOTSTRAP_EDGES KBUILD_BOOTSTRAP_DEMOTED
 WORKERS=${KBUILD_WORKERS:-2}
 [[ "$WORKERS" =~ ^[1-9][0-9]*$ ]] || { echo "invalid KBUILD_WORKERS: $WORKERS" >&2; exit 2; }
-mkdir -p "$LOGS" "$OUT"
+validate_build_settings || exit 2
 
 sched() { python3 "$HERE/kbuild-sched.py" "$@"; }
 
@@ -84,18 +91,63 @@ resolve_target() {
   return 1
 }
 
+snapshot_additive() {
+  python3 - "$1" "$2" <<'PY'
+import re
+import sys
+
+def read_snapshot(path):
+    with open(path, encoding='utf-8') as stream:
+        text = stream.read()
+    if text and not text.endswith('\n'):
+        raise ValueError(f'{path}: missing final newline')
+    rows = {}
+    for number, line in enumerate(text.splitlines(), 1):
+        fields = line.split('\t')
+        if (len(fields) != 3 or not all(fields) or
+                not re.fullmatch(r'[a-z0-9@._+-]+', fields[0]) or
+                fields[2] not in ('native', 'arch')):
+            raise ValueError(f'{path}:{number}: malformed snapshot row')
+        name, version, origin = fields
+        if name in rows:
+            raise ValueError(f'{path}:{number}: duplicate package name {name}')
+        rows[name] = (version, origin)
+    return rows
+
+try:
+    before = read_snapshot(sys.argv[1])
+    after = read_snapshot(sys.argv[2])
+    for name, identity in before.items():
+        if after.get(name) != identity:
+            raise ValueError(f'{name}: removed or changed in repository snapshot')
+except (OSError, UnicodeError, ValueError) as error:
+    print(error, file=sys.stderr)
+    sys.exit(1)
+PY
+}
+
 # build_one is the kbuild container build; its output is isolated to this run.
 build_one() {
   local pkgbase=$1 pkgdir=$2 deps
+  validate_build_settings && build_repo_guard || return 1
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
   deps=$(pkg_deps "$pkgdir") || return 1
   mkdir -p "$RUN_OUT/$pkgbase" || return 1
   [ -z "${KBUILD_KEEP_SRC:-}" ] || mkdir -p "$RUN_OUT/$pkgbase/src" || return 1
+  if mixed_repo; then
+    "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$RUN_OUT/$pkgbase/.origin-snapshot" || return 1
+  fi
   sudo docker run --rm \
+    --memory "$KBUILD_MEMORY" \
+    --memory-swap "$KBUILD_MEMORY_SWAP" \
+    --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
+    -e KBUILD_BOOTSTRAP_EDGES="$KBUILD_BOOTSTRAP_EDGES" \
+    -e KBUILD_OVERWRITE="${KBUILD_OVERWRITE:-}" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
     -e KBUILD_KEEP_SRC="${KBUILD_KEEP_SRC:-}" \
     -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
+    -e KBUILD_JOBS="$KBUILD_JOBS" \
     -v "$pkgdir":/pkg:ro \
     -v "$SOURCES":/sources \
     -v "$RUN_OUT/$pkgbase":/out \
@@ -103,29 +155,19 @@ build_one() {
     -v "$HERE":/kbuild:ro \
     -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
     ${KBUILD_KEEP_SRC:+-v "$RUN_OUT/$pkgbase/src":/work} \
-    "$IMAGE" /kbuild/kbuild-inside.sh
-}
-
-artifact_list() {
-  local dir=$1 pkgbase=$2 f info base
-  local -a files=()
-  shopt -s nullglob
-  files=("$dir"/*.pkg.tar.zst)
-  shopt -u nullglob
-  [ ${#files[@]} -gt 0 ] || return 1
-  for f in "${files[@]}"; do
-    [ -s "$f" ] || return 1
-    info=$(bsdtar -xOf "$f" .PKGINFO 2>/dev/null) || return 1
-    base=$(awk -F ' = ' '$1 == "pkgbase" { print $2; exit }' <<<"$info")
-    [ "$base" = "$pkgbase" ] || return 1
-  done
-  printf '%s\n' "${files[@]}"
+    "$IMAGE" /kbuild/kbuild-inside.sh || return 1
+  if mixed_repo; then
+    [ -s "$RUN_OUT/$pkgbase/.installed-packages" ] || return 1
+    "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$RUN_OUT/$pkgbase/.origin-snapshot.after" || return 1
+    snapshot_additive "$RUN_OUT/$pkgbase/.origin-snapshot" "$RUN_OUT/$pkgbase/.origin-snapshot.after" || return 1
+  fi
 }
 
 copy_canonical() {
-  local pkgbase=$1 src=$2 f files recorded=$LOGS/$1.artifacts
-  files=$(artifact_list "$src" "$pkgbase") || return 1
+  local pkgbase=$1 pkgdir=$2 src=$3 f files recorded=$LOGS/$1.artifacts
+  files=$(artifact_list "$src" "$pkgdir" "$pkgbase") || return 1
   mkdir -p "$OUT/$pkgbase" || return 1
+  find "$OUT/$pkgbase" -maxdepth 1 -type f -name '*.pkg.tar.zst' -delete || return 1
   : > "$recorded"
   while IFS= read -r f; do
     cp -f "$f" "$OUT/$pkgbase/" || return 1
@@ -150,9 +192,9 @@ recipe_fingerprint() {
 }
 
 build_fingerprint() {
-  local pkgbase=$1 dep
-  printf 'image: %s\nconfig: %s\nskip-upgrade: %s\n' "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}"
-  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
+  local pkgbase=$1 dep ledger_digest=$LEDGER_DIGEST
+  printf 'repo: %s\nimage: %s\nconfig: %s\nskip-upgrade: %s\noverwrite: %s\nmemory: %s\nmemory-swap: %s\ncpus: %s\njobs: %s\nbootstrap-policy: %s\nbootstrap-selected: %s\nledger: %s\n' "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}" "${KBUILD_OVERWRITE:-}" "$KBUILD_MEMORY" "$KBUILD_MEMORY_SWAP" "$KBUILD_CPUS" "$KBUILD_JOBS" "$KBUILD_BOOTSTRAP_EDGES" "$BOOTSTRAP_SELECTED" "$ledger_digest"
+  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/kbuild-sched.py" "$HERE/kbuild-arch-bootstrap" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
   recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
   for dep in ${GRAPH[$pkgbase]:-}; do
     [ -s "$LOGS/$dep.identity" ] && [ -f "$LOGS/$dep.done" ] || return 1
@@ -162,9 +204,9 @@ build_fingerprint() {
 }
 
 build_fingerprint_for_build() {
-  local pkgbase=$1 dep
-  printf 'image: %s\nconfig: %s\nskip-upgrade: %s\n' "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}"
-  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
+  local pkgbase=$1 dep ledger_digest=$LEDGER_DIGEST
+  printf 'repo: %s\nimage: %s\nconfig: %s\nskip-upgrade: %s\noverwrite: %s\nmemory: %s\nmemory-swap: %s\ncpus: %s\njobs: %s\nbootstrap-policy: %s\nbootstrap-selected: %s\nledger: %s\n' "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}" "${KBUILD_OVERWRITE:-}" "$KBUILD_MEMORY" "$KBUILD_MEMORY_SWAP" "$KBUILD_CPUS" "$KBUILD_JOBS" "$KBUILD_BOOTSTRAP_EDGES" "$BOOTSTRAP_SELECTED" "$ledger_digest"
+  sha256sum "$HERE/kbuild" "$HERE/kbuild-inside.sh" "$HERE/kbuild-sched.py" "$HERE/kbuild-arch-bootstrap" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
   recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
   for dep in ${GRAPH[$pkgbase]:-}; do
     if [ -s "$LOGS/$dep.identity" ] && [ -f "$LOGS/$dep.done" ]; then
@@ -197,19 +239,19 @@ repo_matches() {
 }
 
 reusable_artifacts() {
-  local pkgbase=$1 record=$LOGS/$1.artifacts file digest info base fingerprint
+  local pkgbase=$1 record=$LOGS/$1.artifacts file digest fingerprint validated recorded
   [ -f "$LOGS/$pkgbase.done" ] && [ -s "$LOGS/$pkgbase.recipe" ] && [ -s "$LOGS/$pkgbase.identity" ] || return 1
   fingerprint=$(build_fingerprint "$pkgbase") || return 1
   [ "$(<"$LOGS/$pkgbase.recipe")" = "$fingerprint" ] || return 1
   [ -s "$record" ] || return 1
   [ "$(sha256sum "$LOGS/$pkgbase.recipe" "$record" | sha256sum | cut -d ' ' -f1)" = "$(<"$LOGS/$pkgbase.identity")" ] || return 1
+  validated=$(artifact_list "$OUT/$pkgbase" "${PKGDIR[$pkgbase]}" "$pkgbase") || return 1
+  recorded=$(awk '{print $2}' "$record" | sort) || return 1
+  [ "$(printf '%s\n' "$validated" | sort)" = "$recorded" ] || return 1
   while read -r digest file; do
     [ -n "$digest" ] && [ -n "$file" ] && [ -s "$file" ] || return 1
     [[ "$file" == "$OUT/$pkgbase/"*.pkg.tar.zst ]] || return 1
     [ "$(sha256sum "$file")" = "$digest  $file" ] || return 1
-    info=$(bsdtar -xOf "$file" .PKGINFO 2>/dev/null) || return 1
-    base=$(awk -F ' = ' '$1 == "pkgbase" { print $2; exit }' <<<"$info")
-    [ "$base" = "$pkgbase" ] || return 1
     repo_matches "$file" || return 1
     printf '%s\n' "$file"
   done < "$record"
@@ -217,7 +259,7 @@ reusable_artifacts() {
 
 build_package() {
   local pkgbase=$1 pkgdir=${PKGDIR[$1]} log="$RUN_DIR/$1.log" fingerprint current
-  if [ "$FORCE_REBUILD" != 1 ] && [ -f "$LOGS/$pkgbase.done" ] && reusable_artifacts "$pkgbase" >/dev/null; then
+  if ! mixed_repo && [ "$FORCE_REBUILD" != 1 ] && [ -f "$LOGS/$pkgbase.done" ] && reusable_artifacts "$pkgbase" >/dev/null; then
     printf '%s\n' skipped > "$RUN_DIR/$pkgbase.status"
     return 0
   fi
@@ -225,11 +267,14 @@ build_package() {
   if fingerprint=$(build_fingerprint_for_build "$pkgbase") \
       && rm -rf "${RUN_OUT:?}/$pkgbase" \
       && build_one "$pkgbase" "$pkgdir" >"$log" 2>&1 \
-      && artifact_list "$RUN_OUT/$pkgbase" "$pkgbase" >/dev/null \
+      && artifact_list "$RUN_OUT/$pkgbase" "$pkgdir" "$pkgbase" >/dev/null \
       && current=$(build_fingerprint_for_build "$pkgbase") \
       && [ "$current" = "$fingerprint" ] \
-      && repo_add "$RUN_OUT/$pkgbase" \
-      && copy_canonical "$pkgbase" "$RUN_OUT/$pkgbase" \
+      && { ! mixed_repo || { for f in "$RUN_OUT/$pkgbase"/*.pkg.tar.zst; do "$HERE/kbuild-arch-bootstrap" record "$REPO" "$f" || return 1; done; }; } \
+      && repo_add "$RUN_OUT/$pkgbase" "$pkgdir" "$pkgbase" \
+      && { mixed_repo || copy_canonical "$pkgbase" "$pkgdir" "$RUN_OUT/$pkgbase"; } \
+      && { ! mixed_repo || { cp "$RUN_OUT/$pkgbase/.installed-packages" "$RUN_DIR/$pkgbase.installed-packages" && cp "$RUN_OUT/$pkgbase/.origin-snapshot" "$RUN_DIR/$pkgbase.origin-snapshot" && : > "$LOGS/$pkgbase.artifacts" && for f in "$RUN_OUT/$pkgbase"/*.pkg.tar.zst; do sha256sum "$f" >> "$LOGS/$pkgbase.artifacts"; done; }; } \
+      && fingerprint=$(build_fingerprint_for_build "$pkgbase") \
       && printf '%s\n' "$fingerprint" > "$LOGS/$pkgbase.recipe" \
       && sha256sum "$LOGS/$pkgbase.recipe" "$LOGS/$pkgbase.artifacts" | sha256sum | cut -d ' ' -f1 > "$LOGS/$pkgbase.identity" \
       && touch "$LOGS/$pkgbase.done"; then
@@ -268,7 +313,7 @@ append_candidates() {
     status=$(cat "$RUN_DIR/$p.status" 2>/dev/null) || return 1
     case "$status" in
       skipped) files=$(reusable_artifacts "$p") || return 1 ;;
-      built) files=$(artifact_list "$RUN_OUT/$p" "$p") || return 1 ;;
+      built) files=$(artifact_list "$RUN_OUT/$p" "${PKGDIR[$p]}" "$p") || return 1 ;;
       *) return 1 ;;
     esac
     while IFS= read -r f; do
@@ -322,14 +367,27 @@ dedupe_targets() {
 
 cmd_run() {
   local -a targets=() levels=() pkgs=()
-  local data lvl p li=0 nlvl rc=0 no_publish=0 FORCE_REBUILD=0 IMAGE_ID MAKEPKG_CONF
+  local data lvl p li=0 nlvl rc=0 no_publish=0 FORCE_REBUILD=0 IMAGE_ID MAKEPKG_CONF BOOTSTRAP_SELECTED='' LEDGER_DIGEST=none
   if [ "${1:-}" = --no-publish ]; then
     no_publish=1
     shift
   fi
+  build_repo_guard || return 1
+  if mixed_repo; then
+    [ "$no_publish" -eq 1 ] || { echo "mixed repository is build-only; --no-publish required" >&2; return 1; }
+    case "$(realpath -m "$LOGS")/" in
+      "$(realpath -m /mnt/lfs/tmp)/"*) ;;
+      *) echo "mixed run logs must stay under /mnt/lfs/tmp" >&2; return 1 ;;
+    esac
+  fi
+  mkdir -p "$LOGS" "$OUT" || return 1
   exec 8>"$LOGS/.kbuild-run.lock" 9>"$OUT/.kbuild-run.lock" || return 1
   flock 8 && flock 9 || return 1
+  if mixed_repo && [ -f "$HERE/logs/arch-bootstrap-ledger.tsv" ]; then
+    LEDGER_DIGEST=$(sha256sum "$HERE/logs/arch-bootstrap-ledger.tsv" | cut -d ' ' -f1)
+  fi
   mkdir_run || { echo "cannot create run directory: $RUN_DIR" >&2; return 1; }
+  printf '%s\n' "$LEDGER_DIGEST" > "$RUN_DIR/ledger.sha256"
   load_pkgdirs || { run_status failed; return 1; }
   if [ "${1:-}" = --all ]; then
     capture_targets all || { run_status failed; return 1; }
@@ -349,6 +407,10 @@ cmd_run() {
     run_status failed
     return 2
   fi
+  data=$(sched preflight --repo "$REPO" "${targets[@]}") || { run_status failed; return 1; }
+  BOOTSTRAP_SELECTED=$(printf '%s\n' "$data" | sort)
+  KBUILD_BOOTSTRAP_DEMOTED=$(sched demoted "${targets[@]}" 2>/dev/null) || { run_status failed; return 1; }
+  export KBUILD_BOOTSTRAP_DEMOTED
   IMAGE_ID=$(sudo docker image inspect --format '{{.Id}}' "$IMAGE") || { run_status failed; return 1; }
   [ -n "$IMAGE_ID" ] || { run_status failed; return 1; }
   if ! {

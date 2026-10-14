@@ -9,6 +9,7 @@ and regenerates each delta with diff(1), exactly like kdelta does for one file.
 
   kcut apply cuts.txt     apply every "pkgbase<TAB>dep[,dep...]" line
   kcut check cuts.txt     report what would change, without writing
+  kcut verify [pkgbase ...] check named recipes, or all recipes when omitted
 
 A line looks like:
 
@@ -84,8 +85,8 @@ def drop_dep(text, field, dep):
 def apply_pkg(base, deps, dry):
     p = os.path.join(ROOT, "pkgs", base, "PKGBUILD")
     if not os.path.isfile(p):
-        print(f"  !! {base}: no PKGBUILD, skipped")
-        return False
+        print(f"  !! {base}: no PKGBUILD")
+        return None
     orig = open(p).read()
     text = orig
     changed = []
@@ -109,10 +110,10 @@ def apply_pkg(base, deps, dry):
         ["python3", "/mnt/lfs/src/kashira-build/kdelta", base,
          "--patch", "auto", tmp],
         capture_output=True, text=True)
-    if "materialize failed" in (r.stdout + r.stderr):
-        print(f"  !! {base}: materialize FAILED")
-        print(r.stderr[-1500:])
-        return False
+    if r.returncode != 0:
+        print(f"  !! {base}: kdelta FAILED (exit {r.returncode})")
+        print((r.stderr or r.stdout)[-1500:])
+        return None
     print(f"  + {base}: cut {changed}")
     return True
 
@@ -129,7 +130,8 @@ def verify_parse(base):
     import tempfile
     src = os.path.join(ROOT, "pkgs", base)
     if not os.path.isfile(os.path.join(src, "PKGBUILD")):
-        return True
+        print(f"  !! {base}: no PKGBUILD")
+        return False
     d = tempfile.mkdtemp(prefix="kcut-verify-", dir="/mnt/lfs/tmp")
     try:
         shutil.copytree(src, d, dirs_exist_ok=True)
@@ -148,19 +150,30 @@ def verify_parse(base):
 
 def main():
     args = sys.argv[1:]
-    if len(args) not in (2, 3) or args[0] not in ("apply", "check", "verify"):
+    if not args or args[0] not in ("apply", "check", "verify"):
         print(__doc__)
         return 2
-    mode, cutfile = args[0], args[1]
-    dry = mode == "check"
-    n = 0
+    mode = args[0]
     if mode == "verify":
-        bases = args[2:] or sorted(
-            d for d in os.listdir(os.path.join(ROOT, "pkgs"))
-            if os.path.isfile(os.path.join(ROOT, "pkgs", d, "PKGBUILD")))
+        if len(args) == 1:
+            bases = sorted(
+                d for d in os.listdir(os.path.join(ROOT, "pkgs"))
+                if os.path.isfile(os.path.join(ROOT, "pkgs", d, "PKGBUILD")))
+        elif len(args) >= 2:
+            bases = args[1:]
+        else:
+            print(__doc__)
+            return 2
         bad = [b for b in bases if not verify_parse(b)]
         print(f"verified {len(bases) - len(bad)}/{len(bases)} recipes parse")
         return 1 if bad else 0
+    if len(args) != 2:
+        print(__doc__)
+        return 2
+    cutfile = args[1]
+    dry = mode == "check"
+    n = 0
+    failed = []
     touched = []
     for line in open(cutfile):
         line = line.split("#")[0].strip()
@@ -168,10 +181,16 @@ def main():
             continue
         parts = line.split()
         base, deps = parts[0], parts[1:]
-        if apply_pkg(base, deps, dry):
+        result = apply_pkg(base, deps, dry)
+        if result is True:
             n += 1
             touched.append(base)
+        elif result is None:
+            failed.append(base)
     print(f"\n{'would change' if dry else 'changed'} {n} pkgbases")
+    if failed:
+        print(f"failed: {', '.join(failed)}")
+        return 1
     if touched and not dry:
         bad = [b for b in touched if not verify_parse(b)]
         if bad:
