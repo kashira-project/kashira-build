@@ -1,0 +1,2 @@
+# Live medium only: the live user administers the session without a password.
+kashira ALL=(ALL:ALL) NOPASSWD: ALL

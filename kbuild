@@ -48,11 +48,13 @@ mixed_repo() {
 }
 
 validate_build_settings() {
-  [[ "$KBUILD_MEMORY" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY: $KBUILD_MEMORY" >&2; return 1; }
-  [[ "$KBUILD_MEMORY_SWAP" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY_SWAP: $KBUILD_MEMORY_SWAP" >&2; return 1; }
   awk -v c="$KBUILD_CPUS" 'BEGIN { exit !(c ~ /^[0-9]+(\.[0-9]+)?$/ && c > 0 && c <= 16) }' || { echo "invalid KBUILD_CPUS: $KBUILD_CPUS" >&2; return 1; }
   [[ "$KBUILD_JOBS" =~ ^[1-9][0-9]*$ ]] && [ "$KBUILD_JOBS" -le 16 ] || { echo "invalid KBUILD_JOBS: $KBUILD_JOBS" >&2; return 1; }
+  if [ "$KBUILD_MEMORY" != unlimited ]; then
+  [[ "$KBUILD_MEMORY" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY: $KBUILD_MEMORY" >&2; return 1; }
+  [[ "$KBUILD_MEMORY_SWAP" =~ ^[1-9][0-9]*[mMgG]$ ]] || { echo "invalid KBUILD_MEMORY_SWAP: $KBUILD_MEMORY_SWAP" >&2; return 1; }
   awk -v m="$KBUILD_MEMORY" -v s="$KBUILD_MEMORY_SWAP" 'function bytes(v, n, u) { n=v; sub(/[mMgG]$/, "", n); u=substr(v, length(v), 1); return n * (u ~ /[gG]/ ? 1024 : 1) } BEGIN { exit !(bytes(s) >= bytes(m)) }' || { echo "KBUILD_MEMORY_SWAP must be at least KBUILD_MEMORY" >&2; return 1; }
+  fi
 }
 
 bootstrap_demoted() {
@@ -103,7 +105,9 @@ pkg_deps() {
       # gcc-runtime legitimately provides the libstdc++ headers and CRT objects
       # clang++ needs to build the compiler, so keep those when the repo has
       # them, unversioned so the version we are producing cannot leak in.
-      [ "$name" = "$base" ] && continue
+      # Exception: self-hosted compilers (KBUILD_SELF_DEPS="rust ...") need their
+      # own previous release installed as the stage0 toolchain.
+      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS:-} " != *" $base "* ]] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       else
@@ -261,9 +265,11 @@ build_one() {
     "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$OUT/$name/.origin-snapshot" || return 1
   fi
   echo "== build $name (deps: ${deps:-none})"
+  # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
+  local mem=()
+  [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
   sudo docker run --rm \
-    --memory "$KBUILD_MEMORY" \
-    --memory-swap "$KBUILD_MEMORY_SWAP" \
+    "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \

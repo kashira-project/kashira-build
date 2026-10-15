@@ -137,9 +137,11 @@ build_one() {
   if mixed_repo; then
     "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$RUN_OUT/$pkgbase/.origin-snapshot" || return 1
   fi
+  # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
+  local mem=()
+  [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
   sudo docker run --rm \
-    --memory "$KBUILD_MEMORY" \
-    --memory-swap "$KBUILD_MEMORY_SWAP" \
+    "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_BOOTSTRAP_EDGES="$KBUILD_BOOTSTRAP_EDGES" \

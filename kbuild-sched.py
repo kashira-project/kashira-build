@@ -42,6 +42,12 @@ _APPROVED_BOOTSTRAP_EDGES = {
     ("gtk4", "adwaita-icon-theme"),
     ("gdm", "gnome-shell"),
     ("pipewire", "wireplumber"),
+    # Runtime-only edge whose reverse edge is a build dependency (2026-10-14):
+    # the portal service is not needed to build flatpak.
+    ("flatpak", "xdg-desktop-portal"),
+    # gnome-shell build-depends on gnome-control-center (keybinding XML);
+    # control-center only needs the shell at runtime.
+    ("gnome-control-center", "gnome-shell"),
 }
 
 

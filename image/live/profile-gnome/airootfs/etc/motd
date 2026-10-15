@@ -1,0 +1,2 @@
+Kashira Linux live medium. Networking: Ethernet via systemd-networkd (DHCP),
+Wi-Fi via iwd (`iwctl`). This medium is unsigned test output.
