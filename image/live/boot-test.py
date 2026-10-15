@@ -2,11 +2,13 @@
 """Boot a Kashira live ISO in QEMU/OVMF and probe it over the serial console.
 
   image/live/boot-test.py <iso> <outdir> [--wait-graphical SECONDS]
-                          [--secureboot VARS.fd] [--screenshot-after SECONDS]
+                          [--secureboot VARS.fd] [--screenshot-after SECONDS] [--media usb]
 
 --secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
 variable store. --screenshot-after only takes a screenshot after SECONDS and
 exits (for boots that stop before a login prompt, e.g. MokManager).
+--media usb attaches the ISO as a USB stick instead of a CD-ROM, like a flashed
+drive (archiso then copies the root image to RAM).
 
 Logs in as root on ttyS0 (live media only: root has no password), runs the
 probe commands below, saves their output to <outdir>/probes.txt and takes QMP
@@ -97,6 +99,9 @@ def main():
     wait_graphical = int(opts.get("--wait-graphical", 0))
     sb_vars = opts.get("--secureboot")
     shot_after = opts.get("--screenshot-after")
+    media = ["-drive", f"if=none,id=stick,format=raw,readonly=on,file={iso}",
+             "-device", "qemu-xhci", "-device", "usb-storage,drive=stick,removable=on"] \
+        if opts.get("--media") == "usb" else ["-cdrom", iso]
     os.makedirs(out, exist_ok=True)
     vars_fd = os.path.join(out, "vars.fd")
     subprocess.run(["cp", sb_vars or OVMF_VARS, vars_fd], check=True)
@@ -112,7 +117,7 @@ def main():
         "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
         "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
         "-drive", f"if=pflash,format=raw,file={vars_fd}",
-        "-cdrom", iso, "-vga", "std", "-display", "none",
+        *media, "-vga", "std", "-display", "none",
         "-nic", "user,model=virtio-net-pci",
         "-audiodev", "none,id=snd0", "-device", "intel-hda", "-device", "hda-output,audiodev=snd0",
         "-serial", f"unix:{ser},server,nowait", "-qmp", f"unix:{mon},server,nowait",

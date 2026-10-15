@@ -81,6 +81,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 power-profiles-daemon
+pv
 rsync
 rtkit
 rygel

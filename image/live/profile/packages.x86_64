@@ -19,6 +19,7 @@ mkinitcpio-archiso
 mtools
 openssh
 parted
+pv
 rsync
 shim-signed
 squashfs-tools
