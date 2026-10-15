@@ -10,6 +10,10 @@ here=$(cd -- "$(dirname -- "$0")" && pwd)
 profile=$(cd -- "${1:-$here/profile}" && pwd)
 repo=${KISO_REPO:-/mnt/lfs/tmp/kashira-gnome-bootstrap-20261004/repo}
 image=${KISO_IMAGE:-kashira:base-devel-takeover-20261003}
+# Secure Boot signing keys (db.key/db.crt). Mounted read-only into the build
+# container only; the private key never enters the ISO. KISO_SB_KEYS= disables
+# signing (unsigned ISO, Secure Boot must then be off).
+sb_keys=${KISO_SB_KEYS-/mnt/lfs/src/kashira/keys/secureboot}
 out=${KISO_OUT:-/mnt/lfs/tmp/kashira-iso/$(basename -- "$profile")-$(date +%Y%m%d-%H%M%S)}
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
@@ -19,6 +23,12 @@ die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 # The profile's pacman.conf must point at the same repo this run mounts.
 grep -qx "Server = file://$repo" "$profile/pacman.conf" || die "profile pacman.conf does not use $repo"
 [[ ! -e $out ]] || die "output exists: $out"
+sb_args=()
+if [[ -n $sb_keys ]]; then
+    [[ -r $sb_keys/db.key && -r $sb_keys/db.crt ]] || die "Secure Boot keys not readable in $sb_keys"
+    sb_args=(-v "$sb_keys/db.key:/keys/db.key:ro" -v "$sb_keys/db.crt:/keys/db.crt:ro"
+             -e KASHIRA_SB_KEY=/keys/db.key -e KASHIRA_SB_CERT=/keys/db.crt)
+fi
 mkdir -p -- "$out"
 
 # --privileged: pacstrap bind-mounts /proc,/sys,/dev into the airootfs.
@@ -26,9 +36,10 @@ docker run --rm --privileged --network none \
     -v "$repo:$repo:ro" \
     -v "$profile:/profile:ro" \
     -v "$out:/out" \
+    "${sb_args[@]}" \
     "$image" bash -euo pipefail -c '
         cp /profile/pacman.conf /etc/pacman.conf
-        pacman -Sy --noconfirm --needed --noprogressbar archiso
+        pacman -Sy --noconfirm --needed --noprogressbar archiso sbsigntools openssl
         mkarchiso -v -r -w /work -o /out /profile
         ls /out/*.iso
     ' > "$out/build.log" 2>&1 || die "mkarchiso failed; see $out/build.log"

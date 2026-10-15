@@ -84,6 +84,7 @@ power-profiles-daemon
 rsync
 rtkit
 rygel
+shim-signed
 showtime
 simple-scan
 snapshot

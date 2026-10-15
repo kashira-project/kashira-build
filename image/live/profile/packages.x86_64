@@ -20,6 +20,7 @@ mtools
 openssh
 parted
 rsync
+shim-signed
 squashfs-tools
 sudo-rs
 vim

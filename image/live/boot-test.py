@@ -2,6 +2,11 @@
 """Boot a Kashira live ISO in QEMU/OVMF and probe it over the serial console.
 
   image/live/boot-test.py <iso> <outdir> [--wait-graphical SECONDS]
+                          [--secureboot VARS.fd] [--screenshot-after SECONDS]
+
+--secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
+variable store. --screenshot-after only takes a screenshot after SECONDS and
+exits (for boots that stop before a login prompt, e.g. MokManager).
 
 Logs in as root on ttyS0 (live media only: root has no password), runs the
 probe commands below, saves their output to <outdir>/probes.txt and takes QMP
@@ -13,8 +18,10 @@ import json, os, socket, subprocess, sys, time
 
 OVMF_CODE = "/usr/share/edk2-ovmf/x64/OVMF_CODE.4m.fd"
 OVMF_VARS = "/usr/share/edk2-ovmf/x64/OVMF_VARS.4m.fd"
+OVMF_CODE_SB = "/usr/share/edk2-ovmf/x64/OVMF_CODE.secboot.4m.fd"
 
 PROBES = [
+    ("secureboot", "od -An -tu1 /sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c | awk '{print \"SecureBoot=\" $5}'; journalctl -k -b --no-pager | grep -iE 'secure ?boot|lockdown' | head -n 3"),
     ("graphical-target", "systemctl is-active graphical.target"),
     ("gdm", "systemctl is-active gdm.service"),
     ("networkmanager", "systemctl is-active NetworkManager.service"),
@@ -86,18 +93,24 @@ def qmp(path, *commands):
 
 def main():
     iso, out = sys.argv[1], sys.argv[2]
-    wait_graphical = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[3] == "--wait-graphical" else 0
+    opts = dict(zip(sys.argv[3::2], sys.argv[4::2]))
+    wait_graphical = int(opts.get("--wait-graphical", 0))
+    sb_vars = opts.get("--secureboot")
+    shot_after = opts.get("--screenshot-after")
     os.makedirs(out, exist_ok=True)
     vars_fd = os.path.join(out, "vars.fd")
-    subprocess.run(["cp", OVMF_VARS, vars_fd], check=True)
+    subprocess.run(["cp", sb_vars or OVMF_VARS, vars_fd], check=True)
+    code = OVMF_CODE_SB if sb_vars else OVMF_CODE
+    machine = ["-machine", "q35,smm=on", "-global", "driver=cfi.pflash01,property=secure,value=on"] \
+        if sb_vars else ["-machine", "q35"]
     ser, mon = os.path.join(out, "serial.sock"), os.path.join(out, "qmp.sock")
     accel = ["-enable-kvm", "-cpu", "host"] if os.access("/dev/kvm", os.R_OK | os.W_OK) and \
         subprocess.run(["qemu-system-x86_64", "-enable-kvm", "-machine", "none", "-display", "none",
                         "-S", "-qmp", "stdio"], input=b'{"execute":"quit"}', capture_output=True,
                        timeout=20).returncode == 0 else ["-accel", "tcg,thread=multi", "-cpu", "max"]
     qemu = subprocess.Popen([
-        "qemu-system-x86_64", *accel, "-machine", "q35", "-m", "8192", "-smp", "8",
-        "-drive", f"if=pflash,format=raw,readonly=on,file={OVMF_CODE}",
+        "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
+        "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
         "-drive", f"if=pflash,format=raw,file={vars_fd}",
         "-cdrom", iso, "-vga", "std", "-display", "none",
         "-nic", "user,model=virtio-net-pci",
@@ -110,6 +123,12 @@ def main():
         if qemu.poll() is not None:
             print("FAIL: qemu exited:", open(os.path.join(out, "qemu.log")).read().strip()); return 1
         con = Serial(ser)
+        if shot_after:
+            con.read_until("@@never@@", int(shot_after))
+            log.write(con.buf); log.flush()
+            qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-1.ppm")}})
+            print("screenshot taken; serial bytes:", len(con.buf))
+            return 0
         ok = con.read_until("login:", 2400)
         log.write(con.buf); log.flush()
         if not ok:
