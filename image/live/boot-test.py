@@ -29,6 +29,9 @@ PROBES = [
     ("journal-errors", "journalctl -b -p err --no-pager | tail -n 25"),
     ("gdm-journal", "journalctl -b -u gdm --no-pager | tail -n 20"),
     ("shell-journal", "journalctl -b --no-pager _COMM=gnome-shell | tail -n 40"),
+    ("loops", "losetup -l -O NAME,BACK-FILE,RO; findmnt -rno TARGET,SOURCE,FSTYPE,OPTIONS | grep -E 'loop|sr0|vfat'"),
+    ("loop-units", "systemctl list-units --all --no-legend '*loop*' '*sr0*' '*udisks*' | head -n 20"),
+    ("loop-journal", "journalctl -b --no-pager | grep -iE 'loop1|udisks|vfat|FAT-fs|mounted' | head -n 30"),
     ("drm", "ls /dev/dri; cat /sys/class/drm/card*/device/uevent 2>/dev/null | grep DRIVER"),
 ]
 # probe name -> substring that must appear in its output

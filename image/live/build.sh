@@ -34,5 +34,5 @@ docker run --rm --privileged --network none \
     ' > "$out/build.log" 2>&1 || die "mkarchiso failed; see $out/build.log"
 
 iso=$(ls -- "$out"/*.iso)
-sha256sum -- "$iso" > "$iso.sha256"
+(cd -- "$out" && sha256sum -- "${iso##*/}") > "$iso.sha256"
 printf '%s\n' "$iso"
