@@ -23,8 +23,9 @@ import sys
 import tarfile
 import tempfile
 
-HEART = os.environ.get("KBUILD_HEART", "/mnt/lfs/src/kashira/pkgs")
-FORKS = os.environ.get("KBUILD_FORKS", "/mnt/lfs/src/kashira-arch/pkgs")
+ROOT = os.environ.get("KASHIRA_ROOT", "/mnt/kashira")
+HEART = os.environ.get("KBUILD_HEART", f"{ROOT}/src/kashira/pkgs")
+FORKS = os.environ.get("KBUILD_FORKS", f"{ROOT}/src/kashira-arch/pkgs")
 
 
 _SRCINFO_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".srcinfo-cache.json")
@@ -556,7 +557,7 @@ def main():
             return 0
 
         if cmd == "preflight":
-            repo_path = os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira")
+            repo_path = os.environ.get("KBUILD_REPO", f"{ROOT}/repos/candidate")
             args = sys.argv[2:]
             if args[:1] == ["--repo"]:
                 if len(args) < 2:

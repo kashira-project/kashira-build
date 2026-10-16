@@ -8,12 +8,13 @@
 set -euo pipefail
 base=$1 max=${2:-40}
 here=$(cd -- "$(dirname -- "$0")/.." && pwd)
-repo=${KBUILD_REPO:-/mnt/lfs/tmp/kashira-gnome-bootstrap-20261004/repo}
-pkgdir=/mnt/lfs/src/kashira-arch/pkgs/$base
+root=${KASHIRA_ROOT:-/mnt/kashira}
+repo=${KBUILD_REPO:-$root/repos/candidate}
+pkgdir=$root/src/kashira-arch/pkgs/$base
 [[ -f $pkgdir/PKGBUILD ]] || { echo "no recipe: $base" >&2; exit 2; }
 
 docker run --rm -i \
-    -v "$repo:/r:ro" -v "$pkgdir:/recipe:ro" -v /mnt/lfs/sources:/sources \
+    -v "$repo:/r:ro" -v "$pkgdir:/recipe:ro" -v "$root/cache/sources:/sources" \
     -v "$here/conf/makepkg.conf:/kconf/makepkg.conf:ro" \
     -e MAX="$max" kashira:base-devel-takeover-20261003 bash -s <<'IN'
 set -uo pipefail

@@ -19,7 +19,7 @@ _spec = importlib.util.spec_from_file_location("ksched", os.path.join(HERE, "kbu
 ks = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ks)
 
-DB = os.path.join(os.environ.get("KBUILD_REPO", "/mnt/lfs/var/cache/pacman/kashira"), "kashira.db.tar.gz")
+DB = os.path.join(os.environ.get("KBUILD_REPO", os.path.join(os.environ.get("KASHIRA_ROOT", "/mnt/kashira"), "repos/candidate")), "kashira.db.tar.gz")
 
 _REQ_RE = re.compile(r"^(.+?)(<=|>=|=|<|>)(.+)$")
 

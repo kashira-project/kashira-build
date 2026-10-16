@@ -1,9 +1,0 @@
-[Match]
-Name=en* eth*
-
-[Network]
-DHCP=ipv4
-IPv6AcceptRA=yes
-
-[DHCPv4]
-UseDNS=yes

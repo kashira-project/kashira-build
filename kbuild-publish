@@ -6,13 +6,13 @@
 #
 # Staging dirs: staging/x86_64-v3-test and staging/x86_64-v3 (mirror of R2).
 # Key: repo signing key via gpg-agent on the host (GNUPGHOME env or
-# /mnt/lfs/src/kashira/keys/gnupg).
+# /mnt/kashira/src/kashira/keys/gnupg).
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
 STAGING=${KBUILD_STAGING:-$HERE/staging}
 KEY=${KBUILD_SIGN_KEY:-E4DF524F75FE51DD5FB0C7BA1925D86CD662878E}
-export GNUPGHOME=${KBUILD_GNUPGHOME:-/mnt/lfs/src/kashira/keys/gnupg}
+export GNUPGHOME=${KBUILD_GNUPGHOME:-/mnt/kashira/src/kashira/keys/gnupg}
 BUCKET=${KBUILD_R2_BUCKET:-r2:kashira-linux}
 
 die() { echo "kbuild-publish: $*" >&2; exit 1; }

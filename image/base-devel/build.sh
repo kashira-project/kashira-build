@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo=/mnt/lfs/var/cache/pacman/kashira
-output=/mnt/lfs/tmp/kbimg
-tag=${IMAGE_TAG:-dakkshesh07/kashira:base-devel-2026-10-03}
+repo=${KIMG_REPO:-/mnt/kashira/repos/canonical}
+output=${KIMG_OUT:-/mnt/kashira/scratch/kbimg}
+tag=${IMAGE_TAG:-kashira:base-devel-$(date +%Y%m%d)}
+[[ -f $repo/kashira.db.tar.gz ]] || { printf 'error: no repo DB at %s\n' "$repo" >&2; exit 1; }
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 
@@ -15,13 +16,13 @@ if [[ ${1:-} == --inside ]]; then
     root=$work/root
     [[ -d $work && ! -e $root ]] || die 'workspace was reused'
     mkdir -m 0755 -- "$root"
-    cat > "$work/bootstrap.conf" <<'EOF'
+    cat > "$work/bootstrap.conf" <<EOF
 [options]
 Architecture = x86_64
 SigLevel = Never
 
 [kashira]
-Server = file:///mnt/lfs/var/cache/pacman/kashira
+Server = file://$repo
 EOF
     # The target root MUST be root-owned: systemd-tmpfiles --root refuses every
     # path when the root itself is foreign-owned. mkdir below runs as root.
@@ -80,7 +81,7 @@ done
 if (( $# )); then
     [[ $1 == /* && $1 != */ && $1 != *'/.' && $1 != *'/..' ]] || die 'NEW_WORKDIR must be an absolute non-root path'
     parent=$(realpath -e -- "$(dirname -- "$1")") || die 'workspace parent does not exist'
-    [[ $parent == /mnt/lfs || $parent == /mnt/lfs/* ]] || die 'workspace must be inside /mnt/lfs'
+    [[ $parent == /mnt/kashira || $parent == /mnt/kashira/* ]] || die 'workspace must be inside /mnt/kashira'
     work=$parent/$(basename -- "$1")
     [[ ! -e $work && ! -L $work ]] || die "workspace already exists: $work"
     mkdir -m 0700 -- "$work" || die 'cannot create fresh workspace'
@@ -94,7 +95,7 @@ fi
 # long workspace path makes gpg-agent exit 2 and pacstrap silently loses its
 # master key. Measured threshold: ~61 chars for the workspace itself.
 socket_dir="$work/root/etc/pacman.d/gnupg"
-(( ${#socket_dir} + 12 <= 90 )) || die "workspace path too long for gpg-agent sockets (${#socket_dir} chars): use a shorter path under /mnt/lfs"
+(( ${#socket_dir} + 12 <= 90 )) || die "workspace path too long for gpg-agent sockets (${#socket_dir} chars): use a shorter path under /mnt/kashira"
 printf 'Workspace: %s\n' "$work"
 unshare --mount --fork --kill-child --propagation private -- "$0" --inside "$work"
 root=$work/root

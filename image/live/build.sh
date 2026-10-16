@@ -8,13 +8,13 @@ set -euo pipefail
 
 here=$(cd -- "$(dirname -- "$0")" && pwd)
 profile=$(cd -- "${1:-$here/profile}" && pwd)
-repo=${KISO_REPO:-/mnt/lfs/tmp/kashira-gnome-bootstrap-20261004/repo}
+repo=${KISO_REPO:-/mnt/kashira/repos/candidate}
 image=${KISO_IMAGE:-kashira:base-devel-takeover-20261003}
 # Secure Boot signing keys (db.key/db.crt). Mounted read-only into the build
 # container only; the private key never enters the ISO. KISO_SB_KEYS= disables
 # signing (unsigned ISO, Secure Boot must then be off).
-sb_keys=${KISO_SB_KEYS-/mnt/lfs/src/kashira/keys/secureboot}
-out=${KISO_OUT:-/mnt/lfs/tmp/kashira-iso/$(basename -- "$profile")-$(date +%Y%m%d-%H%M%S)}
+sb_keys=${KISO_SB_KEYS-/mnt/kashira/src/kashira/keys/secureboot}
+out=${KISO_OUT:-/mnt/kashira/images/iso/$(basename -- "$profile")-$(date +%Y%m%d-%H%M%S)}
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 

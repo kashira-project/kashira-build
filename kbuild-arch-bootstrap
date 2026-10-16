@@ -15,8 +15,10 @@ import tempfile
 from urllib.parse import unquote, urlsplit
 
 HERE = Path(__file__).resolve().parent
-CANONICAL = Path('/mnt/lfs/var/cache/pacman/kashira')
-LEDGER = HERE / 'logs' / 'arch-bootstrap-ledger.tsv'
+ROOT = Path(os.environ.get('KASHIRA_ROOT', '/mnt/kashira'))
+CANONICAL = ROOT / 'repos' / 'canonical'
+# Ledger rows are keyed by the resolved repo path (column 9).
+LEDGER = ROOT / 'build' / 'logs' / 'arch-bootstrap-ledger.tsv'
 FIELDS = ('pkgname', 'pkgbase', 'pkgver', 'arch')
 PROTECTED = {'glibc', 'gcc', 'gcc-libs', 'gcc-runtime', 'linux-api-headers', 'filesystem',
              'bash', 'pacman', 'libarchive', 'openssl', 'zlib', 'zstd', 'xz', 'coreutils',
@@ -51,8 +53,9 @@ def repo_path(raw):
     repo = Path(raw).resolve(strict=True)
     if not repo.is_dir() or repo == CANONICAL.resolve(strict=True):
         fail('isolated repository required; canonical repository or alias refused')
-    if not repo.is_relative_to('/mnt/lfs/tmp'):
-        fail('mixed repository must be below /mnt/lfs/tmp')
+    if not (repo.is_relative_to((ROOT / 'repos' / 'candidate').resolve())
+            or repo.is_relative_to((ROOT / 'scratch').resolve())):
+        fail(f'mixed repository must be {ROOT}/repos/candidate or below {ROOT}/scratch')
     return repo
 
 

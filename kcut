@@ -27,7 +27,8 @@ import re
 import subprocess
 import sys
 
-ROOT = "/mnt/lfs/src/kashira-arch"
+HERE = os.path.dirname(os.path.realpath(__file__))
+ROOT = os.path.join(os.path.dirname(HERE), "kashira-arch")
 FIELDS = ("makedepends", "checkdepends", "optdepends", "depends")
 
 
@@ -107,7 +108,7 @@ def apply_pkg(base, deps, dry):
     tmp = f"/tmp/kcut-{base}.new"
     open(tmp, "w").write(text)
     r = subprocess.run(
-        ["python3", "/mnt/lfs/src/kashira-build/kdelta", base,
+        ["python3", os.path.join(HERE, "kdelta"), base,
          "--patch", "auto", tmp],
         capture_output=True, text=True)
     if r.returncode != 0:
@@ -132,7 +133,7 @@ def verify_parse(base):
     if not os.path.isfile(os.path.join(src, "PKGBUILD")):
         print(f"  !! {base}: no PKGBUILD")
         return False
-    d = tempfile.mkdtemp(prefix="kcut-verify-", dir="/mnt/lfs/tmp")
+    d = tempfile.mkdtemp(prefix="kcut-verify-", dir=os.path.join(os.environ.get("KASHIRA_ROOT", "/mnt/kashira"), "scratch"))
     try:
         shutil.copytree(src, d, dirs_exist_ok=True)
         env = dict(os.environ)
