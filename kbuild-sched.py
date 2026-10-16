@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """kbuild-sched — dependency graph + build queue for kashira.
 
-Parses PKGBUILDs (via makepkg --printsrcinfo) across the heart repo
-(kashira-pkgs) and the fork repo (kashira-arch/pkgs), builds the pkgbase
-DAG through provides, and emits a topological build plan.
+Parses PKGBUILDs (via makepkg --printsrcinfo) across the kashira-pkgs tree
+(<first-char>/<pkgbase>/PKGBUILD), builds the pkgbase DAG through provides, and emits a topological build plan.
 
 Usage:
   kbuild-sched.py plan <pkgdir>...            topo-order the given pkgbases
@@ -24,8 +23,7 @@ import tarfile
 import tempfile
 
 ROOT = os.environ.get("KASHIRA_ROOT", "/mnt/kashira")
-HEART = os.environ.get("KBUILD_HEART", f"{ROOT}/src/kashira/pkgs")
-FORKS = os.environ.get("KBUILD_FORKS", f"{ROOT}/src/kashira-arch/pkgs")
+PKGS = os.environ.get("KBUILD_PKGS", f"{ROOT}/src/kashira-pkgs")
 
 
 _SRCINFO_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".srcinfo-cache.json")
@@ -240,18 +238,22 @@ def srcinfo(pkgdir):
 
 
 def universe():
-    """All parseable pkgbases across both repos, keyed by pkgbase name."""
+    """All parseable pkgbases in the tree, keyed by pkgbase name."""
     u = {}
-    for root in (HEART, FORKS):
-        if not os.path.isdir(root):
+    if not os.path.isdir(PKGS):
+        return u
+    for shard in sorted(os.listdir(PKGS)):
+        sp = os.path.join(PKGS, shard)
+        if len(shard) != 1 or not os.path.isdir(sp):
             continue
-        for d in sorted(os.listdir(root)):
-            p = os.path.join(root, d)
+        for d in sorted(os.listdir(sp)):
+            p = os.path.join(sp, d)
             if not os.path.isfile(os.path.join(p, "PKGBUILD")):
                 continue
             info = srcinfo(p)
-            # The heart repo is visited first and wins collisions.
-            u.setdefault(info["pkgbase"], info)
+            if info["pkgbase"] in u:
+                raise SchedulerError(f"duplicate pkgbase {info['pkgbase']}: {p} and {u[info['pkgbase']]['pkgdir']}")
+            u[info["pkgbase"]] = info
     return u
 
 

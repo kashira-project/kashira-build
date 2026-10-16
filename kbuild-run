@@ -98,12 +98,15 @@ recipe_fingerprint() {
   local pkgdir=$1 listing digest
   [ -f "$pkgdir/PKGBUILD" ] || return 1
   listing=$(mktemp) || return 1
-  if ! find "$pkgdir" -mindepth 1 -type d \( -name .git -o -name src -o -name pkg \) -prune -o \
-      \( -type f -o -type l \) -print0 > "$listing"; then
+  # Relative paths, and no sync control files: moving a recipe or touching
+  # arch.ref/url.override/hold/arch.name must not change its fingerprint.
+  if ! (cd "$pkgdir" && find . -mindepth 1 -type d \( -name .git -o -name src -o -name pkg \) -prune -o \
+      \( -type f -o -type l \) ! -path ./arch.ref ! -path ./arch.name ! -path ./url.override ! -path ./hold \
+      -print0) > "$listing"; then
     rm -f "$listing"
     return 1
   fi
-  digest=$(sort -z "$listing" | xargs -0 -r sha256sum | sha256sum | cut -d ' ' -f1)
+  digest=$(cd "$pkgdir" && sort -z "$listing" | xargs -0 -r sha256sum | sha256sum | cut -d ' ' -f1)
   local rc=$?
   rm -f "$listing"
   [ "$rc" -eq 0 ] || return 1

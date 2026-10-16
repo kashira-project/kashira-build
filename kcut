@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""kcut — drop named dependency entries from PKGBUILDs as persistent deltas.
+"""kcut — drop named dependency entries from PKGBUILDs (edits kashira-pkgs in place).
 
 The GNOME closure pulls optional-plugin and documentation/test build
 dependencies we deliberately do not ship (gnome-roadmap.md section 6 and
 Appendix B already call for cutting them). Editing those by hand across dozens
 of recipes is where mistakes creep in, so this applies a declarative cut list
-and regenerates each delta with diff(1), exactly like kdelta does for one file.
+and edits each PKGBUILD in place, tagging every cut with a `# kashira-cut:`
+comment so `ksync` merges and humans can find it.
 
   kcut apply cuts.txt     apply every "pkgbase<TAB>dep[,dep...]" line
   kcut check cuts.txt     report what would change, without writing
@@ -28,7 +29,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.realpath(__file__))
-ROOT = os.path.join(os.path.dirname(HERE), "kashira-arch")
+ROOT = os.path.join(os.path.dirname(HERE), "kashira-pkgs")
+
+
+def pkgdir(base):
+    return os.path.join(ROOT, base[0].lower(), base)
+
 FIELDS = ("makedepends", "checkdepends", "optdepends", "depends")
 
 
@@ -84,7 +90,7 @@ def drop_dep(text, field, dep):
 
 
 def apply_pkg(base, deps, dry):
-    p = os.path.join(ROOT, "pkgs", base, "PKGBUILD")
+    p = os.path.join(pkgdir(base), "PKGBUILD")
     if not os.path.isfile(p):
         print(f"  !! {base}: no PKGBUILD")
         return None
@@ -105,16 +111,11 @@ def apply_pkg(base, deps, dry):
     if dry:
         print(f"  ~ {base}: would cut {changed}")
         return True
-    tmp = f"/tmp/kcut-{base}.new"
-    open(tmp, "w").write(text)
-    r = subprocess.run(
-        ["python3", os.path.join(HERE, "kdelta"), base,
-         "--patch", "auto", tmp],
-        capture_output=True, text=True)
-    if r.returncode != 0:
-        print(f"  !! {base}: kdelta FAILED (exit {r.returncode})")
-        print((r.stderr or r.stdout)[-1500:])
-        return None
+    for c in changed:
+        field, dep = c.split(":", 1)
+        text = re.sub(r"^(" + field + r"=\()", f"# kashira-cut: dropped {dep} (TODO restore or justify)\n\\1",
+                      text, count=1, flags=re.M)
+    open(p, "w").write(text)
     print(f"  + {base}: cut {changed}")
     return True
 
@@ -129,7 +130,7 @@ def verify_parse(base):
     """
     import shutil
     import tempfile
-    src = os.path.join(ROOT, "pkgs", base)
+    src = pkgdir(base)
     if not os.path.isfile(os.path.join(src, "PKGBUILD")):
         print(f"  !! {base}: no PKGBUILD")
         return False
@@ -158,8 +159,9 @@ def main():
     if mode == "verify":
         if len(args) == 1:
             bases = sorted(
-                d for d in os.listdir(os.path.join(ROOT, "pkgs"))
-                if os.path.isfile(os.path.join(ROOT, "pkgs", d, "PKGBUILD")))
+                d for sh in os.listdir(ROOT) if len(sh) == 1
+                for d in os.listdir(os.path.join(ROOT, sh))
+                if os.path.isfile(os.path.join(ROOT, sh, d, "PKGBUILD")))
         elif len(args) >= 2:
             bases = args[1:]
         else:

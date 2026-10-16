@@ -10,7 +10,7 @@ base=$1 max=${2:-40}
 here=$(cd -- "$(dirname -- "$0")/.." && pwd)
 root=${KASHIRA_ROOT:-/mnt/kashira}
 repo=${KBUILD_REPO:-$root/repos/candidate}
-pkgdir=$root/src/kashira-arch/pkgs/$base
+pkgdir=$root/src/kashira-pkgs/${base:0:1}/$base
 [[ -f $pkgdir/PKGBUILD ]] || { echo "no recipe: $base" >&2; exit 2; }
 
 docker run --rm -i \
