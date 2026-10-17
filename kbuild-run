@@ -194,6 +194,7 @@ build_package() {
       && [ "$current" = "$fingerprint" ] \
       && { ! mixed_repo || { for f in "$RUN_OUT/$pkgbase"/*.pkg.tar.zst; do "$HERE/kbuild-arch-bootstrap" record "$REPO" "$f" || return 1; done; }; } \
       && repo_add "$RUN_OUT/$pkgbase" "$pkgdir" "$pkgbase" \
+      && { record_build "$pkgbase"; true; } \
       && { mixed_repo || copy_canonical "$pkgbase" "$pkgdir" "$RUN_OUT/$pkgbase"; } \
       && { ! mixed_repo || { cp "$RUN_OUT/$pkgbase/.installed-packages" "$RUN_DIR/$pkgbase.installed-packages" && cp "$RUN_OUT/$pkgbase/.origin-snapshot" "$RUN_DIR/$pkgbase.origin-snapshot" && : > "$LOGS/$pkgbase.artifacts" && for f in "$RUN_OUT/$pkgbase"/*.pkg.tar.zst; do sha256sum "$f" >> "$LOGS/$pkgbase.artifacts"; done; }; } \
       && fingerprint=$(build_fingerprint_for_build "$pkgbase") \
@@ -226,6 +227,15 @@ build_level() {
     wait "$pid" || rc=1
   done
   return $rc
+}
+
+# record_build <pkgbase>: store ABI facts of the just-built packages and append their impact to the run report.
+record_build() {
+  local m=$RUN_DIR/$1.manifest f
+  for f in "$RUN_OUT/$1"/*.pkg.tar.*; do printf 'artifact\t%s\t%s\n' "$1" "$f"; done > "$m"
+  python3 "$HERE/../kashira-pkgs/tools/kplan/kplan.py" record "$m" --report "$m.impact" \
+    && cat "$m.impact" >> "$RUN_DIR/impact.tsv" \
+    || echo "warning: build record not stored for $1" >&2
 }
 
 append_candidates() {
@@ -387,8 +397,6 @@ cmd_run() {
   fi
   append_candidates || { echo "invalid or missing run artifact" >&2; run_status failed; return 1; }
   [ -s "$MANIFEST" ] || { echo "run produced no artifacts" >&2; run_status failed; return 1; }
-  python3 "$KASHIRA_ROOT/src/kashira-pkgs/tools/kplan/kplan.py" record "$MANIFEST" --report "$RUN_DIR/impact.tsv" \
-    || echo "warning: build records not stored (kplan record failed)" >&2
   if [ "$no_publish" -eq 1 ]; then
     echo "== build complete (${#targets[@]} pkgbases); prepared: $MANIFEST"
     run_status prepared
