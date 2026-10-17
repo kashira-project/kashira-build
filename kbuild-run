@@ -387,6 +387,8 @@ cmd_run() {
   fi
   append_candidates || { echo "invalid or missing run artifact" >&2; run_status failed; return 1; }
   [ -s "$MANIFEST" ] || { echo "run produced no artifacts" >&2; run_status failed; return 1; }
+  python3 "$KASHIRA_ROOT/src/kashira-pkgs/tools/kplan/kplan.py" record "$MANIFEST" --report "$RUN_DIR/impact.tsv" \
+    || echo "warning: build records not stored (kplan record failed)" >&2
   if [ "$no_publish" -eq 1 ]; then
     echo "== build complete (${#targets[@]} pkgbases); prepared: $MANIFEST"
     run_status prepared
