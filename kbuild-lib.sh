@@ -104,7 +104,7 @@ pkg_deps() {
       # them, unversioned so the version we are producing cannot leak in.
       # Exception: self-hosted compilers (KBUILD_SELF_DEPS="rust ...") need their
       # own previous release installed as the stage0 toolchain.
-      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS:-} " != *" $base "* ]] && continue
+      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS-rust} " != *" $base "* ]] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       else
