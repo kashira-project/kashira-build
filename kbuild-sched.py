@@ -47,6 +47,10 @@ _APPROVED_BOOTSTRAP_EDGES = {
     # gnome-shell build-depends on gnome-control-center (keybinding XML);
     # control-center only needs the shell at runtime.
     ("gnome-control-center", "gnome-shell"),
+    # sysprof's GTK UI needs gtk4 at runtime only; gtk4 build-depends sysprof (via gstreamer/libsoup3),
+    # so sysprof is built first against the previous gtk4 already in the candidate repo (2026-10-20).
+    ("sysprof", "gtk4"),
+    ("sysprof", "libadwaita"),
 }
 
 
