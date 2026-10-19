@@ -5,9 +5,10 @@
   kbuild-r2-merge plan --json F   also write the full plan to F
 
 Debug packages (*-debug) belong in x86_64-v3-debug and are split out by the plan.
-Applying is done by kbuild-publish (it owns signing and db regeneration).
+  kbuild-r2-merge apply           KBUILD_ALLOW_PUBLISH=1: mirror v3, drop superseded files, rebuild + sign the
+                                  db from the surviving set, upload, delete superseded objects, drop the test prefix
 """
-import json, re, subprocess, sys
+import glob, json, os, re, shutil, subprocess, sys
 sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.realpath(__file__)), "..", "kashira-pkgs", "tools", "ksync"))
 import alpm
 
@@ -56,7 +57,47 @@ def plan(v3, test):
     return {"keep": keep, "move_from_test": move, "remove_from_v3": remove, "debug": debug, "drop_test_only": drop}
 
 
+def apply(p):
+    if os.environ.get("KBUILD_ALLOW_PUBLISH") != "1":
+        raise SystemExit("publication disabled; set KBUILD_ALLOW_PUBLISH=1 with owner authorization")
+    here = os.path.dirname(os.path.realpath(__file__))
+    key = os.environ.get("KBUILD_SIGN_KEY", "E4DF524F75FE51DD5FB0C7BA1925D86CD662878E")
+    env = dict(os.environ, GNUPGHOME=os.environ.get("KBUILD_GNUPGHOME", "/mnt/kashira/src/kashira/keys/gnupg"))
+    stage = os.path.join(os.environ.get("KBUILD_STAGING", os.path.join(here, "staging")), "x86_64-v3")
+    os.makedirs(stage, exist_ok=True)
+    run = lambda *a, **k: subprocess.run(a, check=True, **k)
+    run("rclone", "copy", f"{BUCKET}/x86_64-v3", stage, "--filter", "+ *.pkg.tar.zst*", "--filter", "- *", "--transfers", "16")
+    for f in p["remove_from_v3"]:
+        for suf in ("", ".sig"):
+            if os.path.exists(f"{stage}/{f}{suf}"):
+                os.remove(f"{stage}/{f}{suf}")
+    pk = sorted(os.path.basename(x) for x in glob.glob(f"{stage}/*.pkg.tar.zst"))
+    miss = [x for x in pk if not os.path.exists(f"{stage}/{x}.sig")]
+    if miss:
+        raise SystemExit(f"unsigned packages, refusing: {miss[:5]}")
+    for x in glob.glob(f"{stage}/kashira-v3.*"):
+        os.remove(x)
+    run("repo-add", "--sign", "--key", key, "kashira-v3.db.tar.gz", *pk, cwd=stage, env=env, stdout=subprocess.DEVNULL)
+    for stem in ("db", "files"):          # repo-add leaves symlinks; R2 stores real copies
+        for suf in ("", ".sig"):
+            dst = f"{stage}/kashira-v3.{stem}{suf}"
+            if os.path.islink(dst):
+                os.remove(dst)
+            shutil.copy(f"{stage}/kashira-v3.{stem}.tar.gz{suf}", dst)
+    # database first: it only names surviving files, so clients never see a dangling entry
+    for stem in ("db", "files"):
+        for suf in (".tar.gz", ".tar.gz.sig", "", ".sig"):
+            run("rclone", "copyto", f"{stage}/kashira-v3.{stem}{suf}", f"{BUCKET}/x86_64-v3/kashira-v3.{stem}{suf}")
+    for f in p["remove_from_v3"]:
+        for suf in ("", ".sig"):
+            run("rclone", "deletefile", f"{BUCKET}/x86_64-v3/{f}{suf}")
+    run("rclone", "purge", f"{BUCKET}/x86_64-v3-test")
+
+
 def main(argv):
+    if argv[:1] == ["apply"]:
+        apply(plan(lsf("x86_64-v3"), lsf("x86_64-v3-test")))
+        return 0
     if argv[:1] != ["plan"]:
         print(__doc__)
         return 2
