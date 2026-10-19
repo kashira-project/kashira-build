@@ -397,6 +397,9 @@ cmd_run() {
   fi
   append_candidates || { echo "invalid or missing run artifact" >&2; run_status failed; return 1; }
   [ -s "$MANIFEST" ] || { echo "run produced no artifacts" >&2; run_status failed; return 1; }
+  # Hard gate: nothing this run produced may depend on something the repo cannot provide.
+  python3 "$HERE/../kashira-pkgs/tools/ksync/ksync.py" verify --repo "$REPO" --manifest "$MANIFEST" \
+    || { echo "== verify gate failed; see unsatisfied dependencies above" >&2; run_status failed; return 1; }
   if [ "$no_publish" -eq 1 ]; then
     echo "== build complete (${#targets[@]} pkgbases); prepared: $MANIFEST"
     run_status prepared

@@ -34,7 +34,10 @@ pacman_args=(-S --needed --noconfirm)
 [ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
   # shellcheck disable=SC2086  # KBUILD_DEPS is a space-separated dep list
-  pacman --config /kbuild/conf/pacman-kbuild.conf "${pacman_args[@]}" $KBUILD_DEPS
+  assume_args=()
+  for p in ${KBUILD_ASSUME:-}; do assume_args+=(--assume-installed "$p"); done
+  # shellcheck disable=SC2086
+  pacman --config /kbuild/conf/pacman-kbuild.conf "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
 fi
 if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages

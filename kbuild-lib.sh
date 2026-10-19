@@ -222,9 +222,13 @@ def read_snapshot(path):
 try:
     before = read_snapshot(sys.argv[1])
     after = read_snapshot(sys.argv[2])
+    # arch-origin rows are immutable; native rows may be superseded by a sibling build of the
+    # same level (new version of a native package) but never removed.
     for name, identity in before.items():
-        if after.get(name) != identity:
+        if identity[1] == 'arch' and after.get(name) != identity:
             raise ValueError(f'{name}: removed or changed in repository snapshot')
+        if name not in after:
+            raise ValueError(f'{name}: removed from repository snapshot')
 except (OSError, UnicodeError, ValueError) as error:
     print(error, file=sys.stderr)
     sys.exit(1)
@@ -267,7 +271,11 @@ build_one() {
   if mixed_repo; then
     "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$outdir/.origin-snapshot" || return 1
   fi
-  echo "== build $pkgbase (deps: ${deps:-none})"
+  # bootstrap.assume: provides pacman may treat as installed while resolving this package's deps
+  # (an already-published dependency carries a stale provide, e.g. rust needing libLLVM.so=23-64).
+  local assume=""
+  [ ! -f "$pkgdir/bootstrap.assume" ] || assume=$(sed 's/#.*//' "$pkgdir/bootstrap.assume" | tr -s ' \t\n' ' ')
+  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume})"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
@@ -275,6 +283,7 @@ build_one() {
     "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
+    -e KBUILD_ASSUME="$assume" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \
     -e KBUILD_OVERWRITE="${KBUILD_OVERWRITE:-}" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
