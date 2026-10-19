@@ -1,0 +1,4 @@
+# Live medium: root and the wheel group may run anything; drop-ins add the live user.
+root ALL=(ALL:ALL) ALL
+%wheel ALL=(ALL:ALL) ALL
+@includedir /etc/sudoers.d

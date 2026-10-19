@@ -1,0 +1,10 @@
+[Unit]
+Description=Compile Kashira live dconf defaults
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dconf update
+
+[Install]
+WantedBy=multi-user.target

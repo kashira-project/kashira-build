@@ -1,0 +1,11 @@
+# Live medium only: never lock or blank the session, so resume from suspend
+# lands on the desktop instead of a password prompt the password-less live user cannot answer.
+[org/gnome/desktop/screensaver]
+lock-enabled=false
+idle-activation-enabled=false
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/lockdown]
+disable-lock-screen=true
