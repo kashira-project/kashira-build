@@ -1,10 +1,10 @@
 #!/bin/bash
 # kbuild-publish — publish built packages to the R2 repos.
 #
-#   kbuild-publish test <pkgfile...>    sign + add to test repo, sync to R2
-#   kbuild-publish promote --candidate <receipt>  promote a validated test snapshot
+#   kbuild-publish publish <pkg...>            sign + add to x86_64-v3 (and *-debug to x86_64-v3-debug), sync to R2
+#   kbuild-publish publish --manifest <file>   same, for a kbuild run's validated manifest
 #
-# Staging dirs: staging/x86_64-v3-test and staging/x86_64-v3 (mirror of R2).
+# Staging dirs: staging/x86_64-v3 and staging/x86_64-v3-debug (mirrors of R2).
 # Key: repo signing key via gpg-agent on the host (GNUPGHOME env or
 # /mnt/kashira/src/kashira/keys/gnupg).
 set -euo pipefail
@@ -18,7 +18,7 @@ BUCKET=${KBUILD_R2_BUCKET:-r2:kashira-linux}
 die() { echo "kbuild-publish: $*" >&2; exit 1; }
 
 case "${1:-}" in
-  test|promote)
+  publish)
     [ "${KBUILD_ALLOW_PUBLISH:-0}" = 1 ] || die "publication disabled; set KBUILD_ALLOW_PUBLISH=1 only with explicit owner authorization"
     ;;
 esac
@@ -263,49 +263,65 @@ require_remote_baseline() (
   done
 )
 
-cmd_test() {
-  local dir=$STAGING/x86_64-v3-test f base receipt hash
-  local -a names=() existing=()
-  if [ "${1:-}" = --manifest ]; then
-    [ $# -eq 2 ] || die "usage: kbuild-publish test --manifest <file>"
-    read_manifest "$2"
-  else
-    CANDIDATES=("$@")
-  fi
-  validate_candidates
-  mkdir -p "$dir" "$STAGING/candidates"
+# Publish one repo's share of the candidates: validate, sign, add to the db, upload packages before the db,
+# then delete the superseded objects this publish replaced (R2 keeps exactly the db's package set).
+publish_set() {
+  local name=$1 prefix=$2; shift 2
+  local dir=$STAGING/$name f base
+  local -a names=() existing=() gone=()
+  mkdir -p "$dir"
   ( flock 9
-    require_remote_baseline "$dir" kashira-v3-test "$BUCKET/x86_64-v3-test"
-    if [ -e "$dir/kashira-v3-test.db.tar.gz" ]; then
-      validate_repo_dir "$dir" kashira-v3-test
+    require_remote_baseline "$dir" "$prefix" "$BUCKET/$name"
+    if [ -e "$dir/$prefix.db.tar.gz" ]; then
+      validate_repo_dir "$dir" "$prefix"
     else
       shopt -s nullglob
       existing=("$dir"/*.pkg.tar.zst)
       shopt -u nullglob
-      [ ${#existing[@]} -eq 0 ] || die "test staging has packages without a database"
+      [ ${#existing[@]} -eq 0 ] || die "staging has packages without a database: $name"
     fi
-    for f in "${CANDIDATES[@]}"; do
+    for f in "$@"; do
       base=$(basename "$f")
       cp -f -- "$f" "$dir/$base"
       cmp -s "$f" "$dir/$base" || die "candidate copy differs: $base"
       sign_pkg "$dir/$base"
       names+=("$base")
     done
-    ( cd "$dir" && repo-add --sign --key "$KEY" kashira-v3-test.db.tar.gz "${names[@]}" >/dev/null )
-    sync_db_aliases "$dir" kashira-v3-test
-    validate_repo_dir "$dir" kashira-v3-test
+    ( cd "$dir" && repo-add --sign --key "$KEY" "$prefix.db.tar.gz" "${names[@]}" >/dev/null )
+    sync_db_aliases "$dir" "$prefix"
+    validate_repo_dir "$dir" "$prefix"
     for base in "${names[@]}"; do
-      [ -n "${DBFILES[$base]+set}" ] || die "candidate absent from test database: $base"
+      [ -n "${DBFILES[$base]+set}" ] || die "candidate absent from $name database: $base"
     done
+    shopt -s nullglob
+    for f in "$dir"/*.pkg.tar.zst "$dir"/*.pkg.tar.zst.sig; do
+      base=$(basename "$f"); [ -n "${DBFILES[${base%.sig}]+set}" ] || gone+=("$base")
+    done
+    shopt -u nullglob
     prune_stale "$dir"
-    upload_repo "$dir" kashira-v3-test "$BUCKET/x86_64-v3-test"
-    receipt=$(mktemp "$STAGING/candidates/.candidate.XXXXXX")
-    ( cd "$dir" && sha256sum kashira-v3-test.db.tar.gz "${names[@]}" "${names[@]/%/.sig}" ) > "$receipt"
-    hash=$(sha256sum "$receipt" | cut -d ' ' -f1)
-    mv -- "$receipt" "$STAGING/candidates/$hash.candidate"
-    echo "candidate: $STAGING/candidates/$hash.candidate"
+    upload_repo "$dir" "$prefix" "$BUCKET/$name"
+    for base in "${gone[@]}"; do rclone deletefile "$BUCKET/$name/$base" 2>/dev/null || true; done
+    echo "published $# package(s) to $name (superseded removed: ${#gone[@]})"
   ) 9>"$dir/.lock"
-  echo "published ${#CANDIDATES[@]} package(s) to x86_64-v3-test"
+}
+
+# Two repos: x86_64-v3 (everything) and x86_64-v3-debug (*-debug packages).
+cmd_publish() {
+  local f base n
+  local -a main=() debug=()
+  if [ "${1:-}" = --manifest ]; then
+    [ $# -eq 2 ] || die "usage: kbuild-publish publish --manifest <file>"
+    read_manifest "$2"
+  else
+    CANDIDATES=("$@")
+  fi
+  validate_candidates
+  for f in "${CANDIDATES[@]}"; do
+    base=$(basename "$f"); n=${base%.pkg.tar.zst}; n=${n%-*}; n=${n%-*}; n=${n%-*}
+    if [[ "$n" == *-debug ]]; then debug+=("$f"); else main+=("$f"); fi
+  done
+  [ ${#main[@]} -eq 0 ] || publish_set x86_64-v3 kashira-v3 "${main[@]}"
+  [ ${#debug[@]} -eq 0 ] || KBUILD_ALLOW_NEW_REPO=1 publish_set x86_64-v3-debug kashira-v3-debug "${debug[@]}"
 }
 
 cmd_verify() {
@@ -315,70 +331,8 @@ cmd_verify() {
   echo "verified $2 repository in $1"
 }
 
-cmd_promote() {
-  local receipt=$1 src=$STAGING/x86_64-v3-test dst=$STAGING/x86_64-v3 base digest file remote_db
-  local -a pkgs=()
-  local -A seen=() signatures=()
-  local db_seen=0
-  [ -f "$receipt" ] || die "candidate receipt missing: $receipt"
-  [ "$(realpath -e -- "$(dirname "$receipt")")" = "$(realpath -e -- "$STAGING/candidates")" ] || die "candidate receipt is not from local test publication"
-  [ -d "$src" ] || die "no test staging dir"
-  mkdir -p "$dst"
-  ( flock 8
-    [[ "$(basename "$receipt")" =~ ^[0-9a-f]{64}\.candidate$ ]] || die "invalid candidate receipt name"
-    [ "$(sha256sum "$receipt" | cut -d ' ' -f1).candidate" = "$(basename "$receipt")" ] || die "candidate receipt changed"
-    validate_repo_dir "$src" kashira-v3-test
-    while read -r digest file; do
-      [[ "$digest" =~ ^[0-9a-f]{64}$ ]] || die "invalid candidate digest"
-      if [ "$file" = kashira-v3-test.db.tar.gz ]; then
-        [ "$db_seen" -eq 0 ] && [ ${#seen[@]} -eq 0 ] || die "database must lead candidate receipt exactly once"
-        db_seen=1
-      elif [[ "$file" == *.pkg.tar.zst ]]; then
-        [ "$db_seen" -eq 1 ] && [ -n "${DBFILES[$file]+set}" ] || die "candidate not in test database: $file"
-        [ -z "${seen[$file]+set}" ] || die "duplicate candidate: $file"
-        "$HERE/kbuild-arch-bootstrap" reject "$src/$file" || die "borrowed or Arch-assisted promotion forbidden: $file"
-        seen[$file]=1
-        pkgs+=("$file")
-      elif [[ "$file" == *.pkg.tar.zst.sig ]]; then
-        base=${file%.sig}
-        [ -n "${seen[$base]+set}" ] && [ -z "${signatures[$base]+set}" ] || die "unexpected candidate signature: $file"
-        signatures[$base]=1
-      else
-        die "invalid candidate receipt entry: $file"
-      fi
-      [ -f "$src/$file" ] && [ "$(sha256sum "$src/$file" | cut -d ' ' -f1)" = "$digest" ] || die "test snapshot changed: $file"
-    done < "$receipt"
-    [ "$db_seen" -eq 1 ] && [ ${#pkgs[@]} -gt 0 ] && [ ${#signatures[@]} -eq ${#pkgs[@]} ] || die "candidate receipt incomplete"
-    remote_db=$(mktemp)
-    for file in kashira-v3-test.db.tar.gz "${pkgs[@]}" "${pkgs[@]/%/.sig}"; do
-      rclone copyto "$BUCKET/x86_64-v3-test/$file" "$remote_db" || die "cannot fetch remote test object: $file"
-      cmp -s "$remote_db" "$src/$file" || die "remote test object changed: $file"
-    done
-    rm -f "$remote_db"
-    ( flock 9
-      echo "refreshing main staging from R2..."
-      rclone sync "$BUCKET/x86_64-v3" "$dst" --exclude '.lock'
-      validate_repo_dir "$dst" kashira-v3
-      for base in "${pkgs[@]}"; do
-        cp -f -- "$src/$base" "$src/$base.sig" "$dst/"
-        cmp -s "$src/$base" "$dst/$base" || die "promotion copy differs: $base"
-      done
-      ( cd "$dst" && repo-add --sign --key "$KEY" kashira-v3.db.tar.gz "${pkgs[@]}" >/dev/null )
-      sync_db_aliases "$dst" kashira-v3
-      validate_repo_dir "$dst" kashira-v3
-      for base in "${pkgs[@]}"; do
-        [ -n "${DBFILES[$base]+set}" ] || die "package absent from main database: $base"
-      done
-      prune_stale "$dst"
-      upload_repo "$dst" kashira-v3 "$BUCKET/x86_64-v3"
-    ) 9>"$dst/.lock"
-    echo "promoted ${#pkgs[@]} candidate packages -> x86_64-v3 (main)"
-  ) 8>"$src/.lock"
-}
-
 case "${1:-}" in
-  test) shift; cmd_test "$@" ;;
-  promote) [ $# -eq 3 ] && [ "$2" = --candidate ] || die "usage: kbuild-publish promote --candidate <receipt>"; cmd_promote "$3" ;;
+  publish) shift; cmd_publish "$@" ;;
   verify) shift; cmd_verify "$@" ;;
-  *) die "usage: kbuild-publish test <pkg...> | test --manifest <file> | promote --candidate <receipt> | verify <dir> <repo-prefix>" ;;
+  *) die "usage: kbuild-publish publish <pkg...> | publish --manifest <file> | verify <dir> <repo-prefix>" ;;
 esac

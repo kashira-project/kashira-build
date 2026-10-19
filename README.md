@@ -16,12 +16,12 @@ line. Positional targets use the dirty reverse-closure path and force rebuilds;
 use an explicit list when the candidate set must be reviewable. `--all` is also
 available, but is intentionally broad.
 
-Use `--no-publish` for local runs. Omitting it attempts test publication, but
-`kbuild-publish test` and `promote` deny publication unless
+Use `--no-publish` for local runs. Omitting it publishes to `x86_64-v3` (debug packages to `x86_64-v3-debug`), but
+`kbuild-publish publish` denies publication unless
 `KBUILD_ALLOW_PUBLISH=1` is set with explicit owner authorization. Inspect the
 run directory and `candidates.manifest` before authorizing publication.
 Archives must declare `pkgbase`; `kashira-bootstrap-*` bases cannot be published.
-Test publication requires the local database objects to match the remote baseline.
+Publication requires the local database objects to match the remote baseline.
 Empty staging cannot replace an existing remote repository. Initializing an empty
 remote requires separate `KBUILD_ALLOW_NEW_REPO=1` authorization.
 A run ends as `prepared` or `published`; any build, coverage, or publication

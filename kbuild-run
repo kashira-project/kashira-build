@@ -8,10 +8,12 @@
 #
 # Builds in fresh containers, with bounded workers within each topo level.
 # Successful packages enter the local repo; only a fully successful run may
-# publish to testing. Remote publication is ordered, not atomic.
+# publish to x86_64-v3. Remote publication is ordered, not atomic.
 set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
+# Packages tracked by reference in arch.manifest must exist as recipe dirs before scheduling.
+KSYNC_ROOT=${KBUILD_PKGS:-$HERE/../kashira-pkgs} python3 "$HERE/../kashira-pkgs/tools/ksync/ksync.py" materialize >/dev/null || { echo "kbuild-run: manifest materialize failed" >&2; exit 1; }
 # shellcheck source=kbuild-lib.sh
 source "$HERE/kbuild-lib.sh"
 KBUILD_BOOTSTRAP_EDGES=${KBUILD_BOOTSTRAP_EDGES:-}
@@ -405,8 +407,8 @@ cmd_run() {
     run_status prepared
     return 0
   fi
-  echo "== build complete (${#targets[@]} pkgbases); publishing to test prefix"
-  "$HERE/kbuild-publish" test --manifest "$MANIFEST" || { run_status failed; return 1; }
+  echo "== build complete (${#targets[@]} pkgbases); publishing to x86_64-v3"
+  "$HERE/kbuild-publish" publish --manifest "$MANIFEST" || { run_status failed; return 1; }
   run_status published
   return 0
 }
