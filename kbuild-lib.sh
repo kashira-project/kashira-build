@@ -275,7 +275,11 @@ build_one() {
   # (an already-published dependency carries a stale provide, e.g. rust needing libLLVM.so=23-64).
   local assume=""
   [ ! -f "$pkgdir/bootstrap.assume" ] || assume=$(sed 's/#.*//' "$pkgdir/bootstrap.assume" | tr -s ' \t\n' ' ')
-  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume})"
+  # bootstrap.remove: installed packages dropped (-Rdd) before deps install, for a stale pin of the package
+  # being replaced (e.g. systemd-sysvcompat=261.2-5 blocks installing systemd 262 while building its successor).
+  local drop=""
+  [ ! -f "$pkgdir/bootstrap.remove" ] || drop=$(sed 's/#.*//' "$pkgdir/bootstrap.remove" | tr -s ' \t\n' ' ')
+  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop})"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
@@ -284,6 +288,7 @@ build_one() {
     --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_ASSUME="$assume" \
+    -e KBUILD_REMOVE="$drop" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \
     -e KBUILD_OVERWRITE="${KBUILD_OVERWRITE:-}" \
     -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \

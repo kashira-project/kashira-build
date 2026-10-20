@@ -30,6 +30,7 @@ install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 # that genuinely need gcc declare it in makedepends, and that dep now decides.
 # Overwrite stays scoped to KBUILD_OVERWRITE for packages whose recipe
 # legitimately replaces a file (see note in the repo README).
+for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
 pacman_args=(-S --needed --noconfirm)
 [ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
