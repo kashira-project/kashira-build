@@ -19,6 +19,7 @@ export LC_ALL=C.UTF-8
 # ahead of /usr/bin in PATH that injects it on configure runs.
 install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 
+for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
 # shellcheck disable=SC2015  # deliberate A&&B||C: -Sy only when asked, else -Syu
 [ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm || pacman --config /kbuild/conf/pacman-kbuild.conf -Syu --noconfirm
 
@@ -30,7 +31,6 @@ install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 # that genuinely need gcc declare it in makedepends, and that dep now decides.
 # Overwrite stays scoped to KBUILD_OVERWRITE for packages whose recipe
 # legitimately replaces a file (see note in the repo README).
-for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
 pacman_args=(-S --needed --noconfirm)
 [ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
