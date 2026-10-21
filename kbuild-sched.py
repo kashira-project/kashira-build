@@ -357,7 +357,7 @@ def validate_policy(u, graph, edges, subset=None):
         if source not in u or target not in u:
             raise SchedulerError(f"bootstrap edge {source}>{target}: unknown pkgbase")
         if source not in selected or target not in selected:
-            raise SchedulerError(f"bootstrap edge {source}>{target}: outside selected run")
+            continue                       # cannot close a cycle inside this run; irrelevant here
         records = edges.get((source, target), ())
         runtime = [record for record in records if record["field"] == "depends"]
         makedep = [record for record in records if record["field"] == "makedepends"]
@@ -372,7 +372,7 @@ def validate_policy(u, graph, edges, subset=None):
         path = _cycle_path(scoped_graph, source, target, ignored={(source, target)})
         if not path:
             raise SchedulerError(f"bootstrap edge {source}>{target}: not part of a cycle")
-    return policy
+    return [(s, t) for s, t in policy if s in selected and t in selected]
 
 
 def _cycle_edges(graph, subset):
