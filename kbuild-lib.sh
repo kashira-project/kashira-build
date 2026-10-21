@@ -102,9 +102,9 @@ pkg_deps() {
       # gcc-runtime legitimately provides the libstdc++ headers and CRT objects
       # clang++ needs to build the compiler, so keep those when the repo has
       # them, unversioned so the version we are producing cannot leak in.
-      # Exception: self-hosted compilers (KBUILD_SELF_DEPS="rust ...") need their
+      # Exception: self-hosted compilers (KBUILD_SELF_DEPS="rust git ..."; git builds from a git+https source) need their
       # own previous release installed as the stage0 toolchain.
-      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS-rust} " != *" $base "* ]] && continue
+      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS-rust git} " != *" $base "* ]] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       else
