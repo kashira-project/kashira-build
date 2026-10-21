@@ -14,6 +14,11 @@ esac
 
 export PACKAGER="kashira build service <repo@kashiraproject.org>"
 export LC_ALL=C.UTF-8
+# Arch's build chroots (devtools) generate en_US.UTF-8 and C.UTF-8; recipes rely on it (e.g. LC_ALL=en_US.UTF-8).
+if ! locale -a 2>/dev/null | grep -qx 'en_US.utf8'; then
+  printf 'en_US.UTF-8 UTF-8\nC.UTF-8 UTF-8\n' > /etc/locale.gen
+  locale-gen >/dev/null
+fi
 # merged-/usr: force libdir=lib for all cmake builds (see conf file).
 # CMAKE_PROJECT_INCLUDE has no env-var form in cmake, so install a wrapper
 # ahead of /usr/bin in PATH that injects it on configure runs.
