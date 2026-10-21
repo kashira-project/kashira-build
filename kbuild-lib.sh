@@ -286,7 +286,13 @@ build_one() {
   # being replaced (e.g. systemd-sysvcompat=261.2-5 blocks installing systemd 262 while building its successor).
   local drop=""
   [ ! -f "$pkgdir/bootstrap.remove" ] || drop=$(sed 's/#.*//' "$pkgdir/bootstrap.remove" | tr -s ' \t\n' ' ')
-  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop})"
+  # toolchain.gnu (kashira-pkgs): an unmodified Arch recipe whose code only GCC compiles; built with gcc, as Arch does.
+  # shortcut: listing a package does not change its build fingerprint, so kplan rebuilds it only on its next change.
+  local toolchain=llvm
+  if awk -F'\t' -v b="$pkgbase" '$1 == b { f = 1 } END { exit !f }' "${KBUILD_PKGS:-$HERE/../kashira-pkgs}/toolchain.gnu" 2>/dev/null; then
+    toolchain=gnu deps+="gcc "
+  fi
+  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; toolchain: $toolchain)"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
@@ -294,6 +300,7 @@ build_one() {
     "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
     -e KBUILD_DEPS="$deps" \
+    -e KBUILD_TOOLCHAIN="$toolchain" \
     -e KBUILD_ASSUME="$assume" \
     -e KBUILD_REMOVE="$drop" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \
@@ -307,7 +314,6 @@ build_one() {
     -v "$outdir":/out \
     -v "$REPO":/repo:ro \
     -v "$HERE":/kbuild:ro \
-    -v "$HERE/conf/soname_provides.sh":/usr/share/makepkg/autodep/soname_provides.sh:ro \
     ${KBUILD_KEEP_SRC:+-v "$outdir/src":/work} \
     "$IMAGE" /kbuild/kbuild-inside.sh || return 1
   if mixed_repo; then

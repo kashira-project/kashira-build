@@ -49,6 +49,16 @@ if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages
 fi
 
+# our soname_provides drop-in wins over whatever libmakepkg-dropins version the deps installed
+# (copied, not bind-mounted: a mount makes the packaged file conflict on install)
+install -Dm644 /kbuild/conf/soname_provides.sh /usr/share/makepkg/autodep/soname_provides.sh
+# LLVM-first: base-devel has no gcc, yet many Arch recipes call `gcc`/`g++` by name. As on macOS, those names
+# run clang (the driver picks C/C++ mode from the name). A recipe that needs real GCC makedepends gcc, which wins.
+if [ ! -e /usr/bin/gcc ]; then
+  ln -sf /usr/bin/clang /usr/local/bin/gcc
+  ln -sf /usr/bin/clang++ /usr/local/bin/g++
+fi
+
 id builder &>/dev/null || useradd -m builder
 # KBUILD_KEEP_SRC: build into /work (a mounted rw volume) so failed build
 # trees survive for inspection
@@ -65,6 +75,7 @@ TEMP_CONF=$(mktemp)
 trap 'rm -f "$TEMP_CONF"' EXIT
 cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
 printf 'MAKEFLAGS="-j%s"\n' "$KBUILD_JOBS" >>"$TEMP_CONF"
+[ "${KBUILD_TOOLCHAIN:-llvm}" != gnu ] || printf 'export CC=gcc CXX=g++ CPP="gcc -E"\n' >>"$TEMP_CONF"
 chown builder:builder "$TEMP_CONF"
 
 su builder -c "cd $BUILDDIR && \

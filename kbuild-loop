@@ -21,6 +21,8 @@ for ((i = 1; i <= rounds; i++)); do
   KBUILD_RUN_ID=$id "$HERE/kbuild-run" run --no-publish --file "$cur" > "$LOGS/queue/$id.log" 2>&1
   # a run that died before building (scheduler/preflight error) has no per-package status: stop, never bump on it
   ls "$LOGS/runs/$id"/*.status >/dev/null 2>&1 || { echo "== run $id built nothing:"; tail -n 5 "$LOGS/queue/$id.log"; exit 2; }
+  # nothing built at all: the next round would fail the same way (environment problem), stop
+  grep -qlx built "$LOGS/runs/$id"/*.status 2>/dev/null || { echo "== run $id built no package; stopping"; exit 2; }
   failed=$(grep -lx failed "$LOGS/runs/$id"/*.status 2>/dev/null | xargs -rn1 basename | sed 's/\.status$//' | tr '\n' ' ')
   # stage-1 builds went without their cycle partners: rebuild them now that the partners exist
   stage1=$(cat "$LOGS/runs/$id/stage1.list" 2>/dev/null | tr '\n' ' ')
