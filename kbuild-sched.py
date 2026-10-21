@@ -434,11 +434,12 @@ def _resolve_targets(u, args, default_all=False):
 
 
 def _repo_satisfied(edges, cut, repo):
-    """Edges in `cut` whose every record is a makedepends the build repo already satisfies (any matching version)."""
+    """Edges in `cut` whose every record (depends or makedepends) the build repo already satisfies: the repo copy is
+    what gets installed for the build, so the edge need not order the run."""
     out = set()
     for source, target in cut:
         records = edges.get((source, target), ())
-        if records and all(r["field"] == "makedepends" and any(
+        if records and all(any(
                 _version_matches(v, _split_expr(r["expr"])[1], _split_expr(r["expr"])[2])
                 for n, v in repo.get(_split_expr(r["expr"])[0], ()) if n == _split_expr(r["expr"])[0])
                 for r in records):
@@ -481,8 +482,8 @@ def _sccs(graph):
 def stage1_cuts(u, graph, edges, nodes, ignored, repo):
     """Break the cycles left among `nodes` once repo-satisfied makedepends are ignored.
 
-    Returns (soft, stage1): soft edges are makedepends the repo already satisfies (the repo copy is installed, the
-    edge does not order the run); stage1 maps a pkgbase to the in-cycle edges it is built without. A stage-1 build is
+    Returns (soft, stage1): soft edges are deps the repo already satisfies (the repo copy is installed, the edge does
+    not order the run); stage1 maps a pkgbase to the in-cycle edges it is built without. A stage-1 build is
     never final: its partners are not installed, so it is rebuilt once the whole cycle exists in the repo.
     """
     live = {n: {d for d in graph.get(n, ()) if d in nodes and (n, d) not in ignored} for n in nodes}
@@ -490,17 +491,39 @@ def stage1_cuts(u, graph, edges, nodes, ignored, repo):
     for n, d in soft:
         live[n].discard(d)
     stage1 = {}
-    while True:
-        comps = _sccs(live)
-        if not comps:
-            return soft, stage1
-        for comp in comps:
-            members = set(comp)
-            # fewest in-cycle dependencies first: the cheapest member to build without its partners
-            pick = min(comp, key=lambda n: (len(live[n] & members), n))
-            cut = live[pick] & members
-            stage1.setdefault(pick, set()).update(cut)
-            live[pick] -= cut
+    for comp in _sccs(live):
+        for n, d in _feedback_edges(comp, live, edges):
+            stage1.setdefault(n, set()).add(d)
+    return soft, stage1
+
+
+def _feedback_edges(comp, live, edges):
+    """Edges to cut so `comp` becomes acyclic: weighted Eades-Lin-Smyth ordering of the build-before graph.
+    Cutting a makedepends (often docs/tooling) is cheap; cutting a runtime depends is avoided (weight 10)."""
+    members = set(comp)
+    weight = {(n, d): 10 if any(r["field"] == "depends" for r in edges.get((n, d), ())) else 1
+              for n in comp for d in live[n] & members}
+    need = {n: {d for d in live[n] & members} for n in comp}            # n needs d: d builds first
+    users = {n: set() for n in comp}
+    for n, ds in need.items():
+        for d in ds:
+            users[d].add(n)
+    front, back, left = [], [], set(comp)
+    while left:
+        moved = True
+        while moved:
+            moved = False
+            for n in sorted(left):
+                if not need[n] & left:                                   # nothing left to wait for
+                    front.append(n); left.discard(n); moved = True
+                elif not users[n] & left:                                # nothing left waits for it
+                    back.append(n); left.discard(n); moved = True
+        if left:
+            score = lambda n: (sum(weight[(u, n)] for u in users[n] & left) - sum(weight[(n, d)] for d in need[n] & left), n)
+            pick = max(sorted(left), key=score)                          # most wanted, least needy: build early
+            front.append(pick); left.discard(pick)
+    pos = {n: i for i, n in enumerate(front + back[::-1])}
+    return sorted((n, d) for n in comp for d in need[n] if pos[d] > pos[n])
 
 
 def _build_repo():
