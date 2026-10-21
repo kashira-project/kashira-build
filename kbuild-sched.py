@@ -526,6 +526,25 @@ def _feedback_edges(comp, live, edges):
     return sorted((n, d) for n in comp for d in need[n] if pos[d] > pos[n])
 
 
+def _retarget(u, graph, edges, nodes):
+    """A dep whose first provider is outside the run but another provider is in it (a seed: jdk-bootstrap provides
+    java-environment) orders against the one in the run."""
+    providers = _provider_map(u)
+    graph = {n: set(ds) for n, ds in graph.items()}
+    edges = dict(edges)
+    for (source, target), records in list(edges.items()):
+        if source not in nodes or target in nodes:
+            continue
+        for r in records:
+            name, op, wanted = _split_expr(r["expr"])
+            alt = next((c for c in providers.get(name, ()) if c[0] in nodes and c[0] != source
+                        and _version_matches(c[2], op, wanted)), None)
+            if alt:
+                graph[source].add(alt[0])
+                edges.setdefault((source, alt[0]), []).append(dict(r, provider=alt[1]))
+    return graph, edges
+
+
 def _build_repo():
     """Capabilities of the build repo (KBUILD_REPO), or {} when it has no db yet."""
     path = os.path.join(os.environ.get("KBUILD_REPO", f"{ROOT}/repos/candidate"), "kashira.db.tar.gz")
@@ -536,6 +555,7 @@ def _topology(u, graph, edges, subset=None, repo=None):
     """Return deps-first order after removing validated runtime policy edges, repo-satisfied makedepends, and
     stage-1 cuts (see stage1_cuts)."""
     nodes = set(graph) if subset is None else set(subset)
+    graph, edges = _retarget(u, graph, edges, nodes)
     policy = validate_policy(u, graph, edges, nodes)
     ignored = set(policy)
     if repo is not None:
@@ -732,6 +752,7 @@ def main():
         if cmd == "stage1":
             # "<pkgbase>\t<dependency expr>" per dependency a stage-1 build goes without (cycle among unbuilt targets)
             wanted = set(_resolve_targets(u, sys.argv[2:], default_all=True))
+            g, edges = _retarget(u, g, edges, wanted)
             ignored = set(validate_policy(u, g, edges, wanted))
             _soft, stage1 = stage1_cuts(u, g, edges, wanted, ignored, _build_repo())
             for base in sorted(stage1):

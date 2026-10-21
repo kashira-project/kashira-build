@@ -55,6 +55,13 @@ class T(unittest.TestCase):
         _soft, stage1 = ks.stage1_cuts(u, g, edges, set(u), set(), {})
         self.assertEqual(stage1, {"b": {"a"}})
 
+    def test_dep_orders_against_provider_in_the_run(self):
+        u = universe({"real": ((), ()), "seed": ((), ()), "user": (("env>=8",), ())})
+        u["real"]["outputs"]["real"]["provides_exprs"] = ["env=27"]
+        u["seed"]["outputs"]["seed"]["provides_exprs"] = ["env=8"]
+        g, edges = ks.build_edges(u)
+        self.assertEqual(ks._topology(u, g, edges, {"seed", "user"}, {})[1], [["seed"], ["user"]])
+
     def test_without_repo_cycles_still_fail(self):
         u = universe({"a": ((), ("b",)), "b": ((), ("a",))})
         g, edges = ks.build_edges(u)
