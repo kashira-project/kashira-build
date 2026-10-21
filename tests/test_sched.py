@@ -48,6 +48,12 @@ class T(unittest.TestCase):
         with self.assertRaises(ks.SchedulerError):
             ks._topology(u, g, edges, set(u))
 
+    def test_self_hosting_dep_orders_after_seed(self):
+        u = universe({"ghc": ((), ("ghc",)), "ghc-bootstrap": ((), ())})
+        u["ghc-bootstrap"]["outputs"]["ghc-bootstrap"]["provides_exprs"] = ["ghc=9.6.7"]
+        g, _edges = ks.build_edges(u)
+        self.assertEqual(g["ghc"], {"ghc-bootstrap"})
+
 
 if __name__ == "__main__":
     unittest.main()

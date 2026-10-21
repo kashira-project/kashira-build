@@ -300,6 +300,11 @@ def build_edges(u):
             for field in ("depends_exprs", "makedepends_exprs"):
                 for expr in output.get(field, ()):
                     provider = _resolve_provider(providers, expr)
+                    if provider and provider[0] == base:
+                        # self-hosting (ghc makedepends ghc-static): order after a seed that also provides it
+                        name, op, wanted = _split_expr(expr)
+                        provider = next((c for c in providers.get(name, ()) if c[0] != base
+                                         and _version_matches(c[2], op, wanted)), provider)
                     if provider and provider[0] != base:
                         target = provider[0]
                         graph[base].add(target)

@@ -84,6 +84,8 @@ pkg_deps() {
         name=${expr%%[\<\>\=]*}; provided[$name]=1 ;;
     esac
   done <<<"$info"
+  local selfhost=0
+  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java8-openjdk java11-openjdk java17-openjdk java21-openjdk java25-openjdk maven} " != *" $base "* ]] || selfhost=1
   while IFS= read -r line; do
     [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]}
@@ -95,7 +97,9 @@ pkg_deps() {
     fi
     name=${expr%%[\<\>\=]*}
     name=${name%:any}; name=${name%:x86_64}
-    [ -z "${provided[$name]+set}" ] || continue
+    # a self-hosting base keeps deps it provides itself (java-environment=21 for jdk21): the seed or the previous
+    # release in the repo satisfies them
+    [ -z "${provided[$name]+set}" ] || [ "$selfhost" = 1 ] || continue
     if [ -n "${own[$name]+set}" ]; then
       # Never ask pacman to install the pkgbase we are building: that would pull
       # the previous release of this very package (stale metadata, and it can
@@ -103,11 +107,13 @@ pkg_deps() {
       # gcc-runtime legitimately provides the libstdc++ headers and CRT objects
       # clang++ needs to build the compiler, so keep those when the repo has
       # them, unversioned so the version we are producing cannot leak in.
-      # Exception: self-hosted compilers (KBUILD_SELF_DEPS="rust git ..."; git builds from a git+https source) need their
+      # Exception: self-hosted compilers (KBUILD_SELF_DEPS, default: rust git, the seeded ghc/java/maven; git builds from a git+https source) need their
       # own previous release installed as the stage0 toolchain.
-      [ "$name" = "$base" ] && [[ " ${KBUILD_SELF_DEPS-rust git} " != *" $base "* ]] && continue
+      [ "$name" = "$base" ] && [ "$selfhost" = 0 ] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
+      elif [ "$selfhost" = 1 ]; then
+        expr=$name                      # not built yet: a seed (ghc-bootstrap, jdkN-bootstrap) provides it
       else
         continue
       fi
