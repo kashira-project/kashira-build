@@ -240,6 +240,14 @@ record_build() {
     || echo "warning: build record not stored for $1" >&2
 }
 
+# publish_snapshot: commit the slim build-record snapshot CI's sync reads for rebuild prediction (only that file).
+publish_snapshot() {
+  local pk=$HERE/../kashira-pkgs
+  python3 "$pk/tools/kplan/kplan.py" snapshot "$pk/kstate.jsonl" || return 1
+  git -C "$pk" diff --quiet -- kstate.jsonl && return 0
+  git -C "$pk" commit -q -m "kstate: refresh build-record snapshot (run $RUN_ID)" -- kstate.jsonl && git -C "$pk" push -q
+}
+
 append_candidates() {
   local p f files status
   for p in "${targets[@]}"; do
@@ -410,6 +418,7 @@ cmd_run() {
   echo "== build complete (${#targets[@]} pkgbases); publishing to x86_64-v3"
   "$HERE/kbuild-publish" publish --manifest "$MANIFEST" || { run_status failed; return 1; }
   run_status published
+  publish_snapshot || echo "warning: kstate.jsonl not refreshed; CI rebuild prediction is stale" >&2
   return 0
 }
 
