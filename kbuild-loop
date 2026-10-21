@@ -3,7 +3,7 @@
 #
 #   kbuild-loop <list> [rounds]    (env passes through to kbuild-run; never publishes)
 #
-# Each round: kbuild-run --no-publish on the list, then `ksync verify` on the candidate repo. A package whose
+# Each round: kbuild-run --no-publish on the list (cycles: see kbuild-sched), then `ksync verify` on the build repo. A package whose
 # dependency is now unsatisfied (a soname its built version needs went away) gets `ksync bump --rebuild`, committed
 # and pushed, and joins the next round with this round's failures. Stops when a round builds everything and the
 # repo verifies, or after <rounds> (default 3). Exit 0 only when consistent.
@@ -11,66 +11,19 @@ set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 PKGS=$HERE/../kashira-pkgs
 LOGS=${KBUILD_LOGS:-${KASHIRA_ROOT:-/mnt/kashira}/build/logs}
-CAND=${KBUILD_CANDIDATE:-${KASHIRA_ROOT:-/mnt/kashira}/repos/candidate}
+CAND=${KBUILD_REPO:-${KASHIRA_ROOT:-/mnt/kashira}/repos/candidate}
 list=$1 rounds=${2:-3} base=${KBUILD_RUN_ID:-loop-$(date +%m%d-%H%M)}
 [ -z "$(git -C "$PKGS" status --porcelain)" ] || { echo "kashira-pkgs tree is dirty" >&2; exit 1; }
 cur=$(mktemp) && cp "$list" "$cur"
-# stdin: `kbuild-sched graph`; argv[1]: target list. Prints members of dependency cycles among the targets,
-# dependencies first (fewest in-cycle dependencies first).
-SCC='
-import sys
-sel = set(open(sys.argv[1]).read().split())
-g = {}
-for line in sys.stdin:
-    n, _, ds = line.partition(":")
-    if n in sel:
-        g[n] = [d for d in ds.split() if d in sel and d != n]
-idx, low, st, on, out, k = {}, {}, [], set(), [], [0]
-sys.setrecursionlimit(10000)
-def visit(v):
-    idx[v] = low[v] = k[0]; k[0] += 1; st.append(v); on.add(v)
-    for w in g.get(v, ()):
-        if w not in idx:
-            visit(w); low[v] = min(low[v], low[w])
-        elif w in on:
-            low[v] = min(low[v], idx[w])
-    if low[v] == idx[v]:
-        comp = []
-        while True:
-            w = st.pop(); on.discard(w); comp.append(w)
-            if w == v:
-                break
-        if len(comp) > 1:
-            out.extend(sorted(comp, key=lambda n: (sum(d in comp for d in g[n]), n)))
-for v in sorted(g):
-    if v not in idx:
-        visit(v)
-print(" ".join(out))
-'
 for ((i = 1; i <= rounds; i++)); do
   id=$base-r$i
   echo "== round $i: $(wc -l < "$cur") targets (run $id)"
-  # Targets on a dependency cycle cannot share a run: build each alone (the repo's previous release satisfies the
-  # rest of the cycle, as for any bootstrap), in dependency order, then everything else in one run.
-  cyc=$(python3 "$HERE/kbuild-sched.py" graph | python3 -c "$SCC" "$cur")
-  rest=$(mktemp) && grep -vxF -f <(printf '%s\n' $cyc) "$cur" > "$rest" || true
-  ids=()
-  for p in $cyc; do
-    one=$(mktemp) && echo "$p" > "$one"
-    KBUILD_RUN_ID=$id-$p "$HERE/kbuild-run" run --no-publish --file "$one" > "$LOGS/queue/$id-$p.log" 2>&1
-    ids+=("$id-$p"); rm -f "$one"
-  done
-  if [ -s "$rest" ]; then
-    KBUILD_RUN_ID=$id "$HERE/kbuild-run" run --no-publish --file "$rest" > "$LOGS/queue/$id.log" 2>&1
-    ids+=("$id")
-  fi
-  rm -f "$rest"
-  failed=
-  for r in "${ids[@]}"; do
-    # a run that died before building (scheduler/preflight error) has no per-package status: stop, never bump on it
-    ls "$LOGS/runs/$r"/*.status >/dev/null 2>&1 || { echo "== run $r built nothing:"; tail -n 5 "$LOGS/queue/$r.log"; exit 2; }
-    failed+=" $(grep -lx failed "$LOGS/runs/$r"/*.status 2>/dev/null | xargs -rn1 basename | sed 's/\.status$//' | tr '\n' ' ')"
-  done
+  KBUILD_RUN_ID=$id "$HERE/kbuild-run" run --no-publish --file "$cur" > "$LOGS/queue/$id.log" 2>&1
+  # a run that died before building (scheduler/preflight error) has no per-package status: stop, never bump on it
+  ls "$LOGS/runs/$id"/*.status >/dev/null 2>&1 || { echo "== run $id built nothing:"; tail -n 5 "$LOGS/queue/$id.log"; exit 2; }
+  failed=$(grep -lx failed "$LOGS/runs/$id"/*.status 2>/dev/null | xargs -rn1 basename | sed 's/\.status$//' | tr '\n' ' ')
+  # stage-1 builds went without their cycle partners: rebuild them now that the partners exist
+  stage1=$(cat "$LOGS/runs/$id/stage1.list" 2>/dev/null | tr '\n' ' ')
   failed=$(echo $failed)
   bad=$(python3 "$PKGS/tools/ksync/ksync.py" verify --repo "$CAND" 2>&1 | sed -n 's/^verify: \([^:]*\): unsatisfied .*/\1/p' | sort -u)
   # unsatisfied package name -> pkgbase dir; only bump what is not already pending a build
@@ -92,10 +45,10 @@ EOF
     (cd "$PKGS" && git add -u && git commit -qm "rebuild: $todo(dependency no longer satisfied in the candidate repo)" && git push -q) \
       || echo "warning: rebuild bumps not pushed" >&2
   fi
-  echo "   failed: $(echo $failed)"
+  echo "   failed: $(echo $failed)   stage1: $(echo $stage1)"
   echo "   unsatisfied: $(echo $bad)   bumped: $todo"
-  [ -z "$failed" ] && [ -z "$bad" ] && { echo "== consistent after round $i"; rm -f "$cur"; exit 0; }
-  printf '%s\n' $failed $todo | sort -u | sed '/^$/d' > "$cur"
+  [ -z "$failed" ] && [ -z "$bad" ] && [ -z "$stage1" ] && { echo "== consistent after round $i"; rm -f "$cur"; exit 0; }
+  printf '%s\n' $failed $todo $stage1 | sort -u | sed '/^$/d' > "$cur"
 done
 echo "== not consistent after $rounds rounds; remaining: $(tr '\n' ' ' < "$cur")"
 exit 1

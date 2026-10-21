@@ -10,8 +10,12 @@ Usage:
   kbuild-sched.py dirty <pkgbase>...          reverse-dep closure of changed bases
   kbuild-sched.py graph                       debug: dump the DAG
 
-Cycle handling: cycles require explicit KBUILD_BOOTSTRAP_EDGES runtime policy;
-unapproved cycles fail with typed dependency edges.
+  kbuild-sched.py levels <pkgbase>...         build levels (cycles resolved as below)
+  kbuild-sched.py stage1 <pkgbase>...         dependencies stage-1 builds go without
+
+Cycle handling: runtime cycles through KBUILD_BOOTSTRAP_EDGES policy; a makedepends the build repo (KBUILD_REPO)
+already satisfies does not order the run (the repo copy is installed, as Arch does); a cycle left among unbuilt
+targets gets one stage-1 member built without its in-cycle partners and rebuilt once they exist.
 """
 import hashlib
 import json
@@ -424,11 +428,91 @@ def _resolve_targets(u, args, default_all=False):
     return wanted
 
 
-def _topology(u, graph, edges, subset=None):
-    """Return deps-first order after removing only validated runtime policy edges."""
+def _repo_satisfied(edges, cut, repo):
+    """Edges in `cut` whose every record is a makedepends the build repo already satisfies (any matching version)."""
+    out = set()
+    for source, target in cut:
+        records = edges.get((source, target), ())
+        if records and all(r["field"] == "makedepends" and any(
+                _version_matches(v, _split_expr(r["expr"])[1], _split_expr(r["expr"])[2])
+                for n, v in repo.get(_split_expr(r["expr"])[0], ()) if n == _split_expr(r["expr"])[0])
+                for r in records):
+            out.add((source, target))
+    return out
+
+
+def _sccs(graph):
+    """Strongly connected components with more than one node (iterative Tarjan)."""
+    index, low, on, stack, out, counter = {}, {}, set(), [], [], [0]
+    for root in sorted(graph):
+        if root in index:
+            continue
+        work = [(root, iter(sorted(graph[root])))]
+        index[root] = low[root] = counter[0]; counter[0] += 1; stack.append(root); on.add(root)
+        while work:
+            node, it = work[-1]
+            for dep in it:
+                if dep not in index:
+                    index[dep] = low[dep] = counter[0]; counter[0] += 1; stack.append(dep); on.add(dep)
+                    work.append((dep, iter(sorted(graph[dep]))))
+                    break
+                if dep in on:
+                    low[node] = min(low[node], index[dep])
+            else:
+                work.pop()
+                if work:
+                    low[work[-1][0]] = min(low[work[-1][0]], low[node])
+                if low[node] == index[node]:
+                    comp = []
+                    while True:
+                        x = stack.pop(); on.discard(x); comp.append(x)
+                        if x == node:
+                            break
+                    if len(comp) > 1:
+                        out.append(sorted(comp))
+    return out
+
+
+def stage1_cuts(u, graph, edges, nodes, ignored, repo):
+    """Break the cycles left among `nodes` once repo-satisfied makedepends are ignored.
+
+    Returns (soft, stage1): soft edges are makedepends the repo already satisfies (the repo copy is installed, the
+    edge does not order the run); stage1 maps a pkgbase to the in-cycle edges it is built without. A stage-1 build is
+    never final: its partners are not installed, so it is rebuilt once the whole cycle exists in the repo.
+    """
+    live = {n: {d for d in graph.get(n, ()) if d in nodes and (n, d) not in ignored} for n in nodes}
+    soft = _repo_satisfied(edges, {(n, d) for n, ds in live.items() for d in ds}, repo) if repo else set()
+    for n, d in soft:
+        live[n].discard(d)
+    stage1 = {}
+    while True:
+        comps = _sccs(live)
+        if not comps:
+            return soft, stage1
+        for comp in comps:
+            members = set(comp)
+            # fewest in-cycle dependencies first: the cheapest member to build without its partners
+            pick = min(comp, key=lambda n: (len(live[n] & members), n))
+            cut = live[pick] & members
+            stage1.setdefault(pick, set()).update(cut)
+            live[pick] -= cut
+
+
+def _build_repo():
+    """Capabilities of the build repo (KBUILD_REPO), or {} when it has no db yet."""
+    path = os.path.join(os.environ.get("KBUILD_REPO", f"{ROOT}/repos/candidate"), "kashira.db.tar.gz")
+    return _repo_capabilities(path) if os.path.isfile(path) else {}
+
+
+def _topology(u, graph, edges, subset=None, repo=None):
+    """Return deps-first order after removing validated runtime policy edges, repo-satisfied makedepends, and
+    stage-1 cuts (see stage1_cuts)."""
     nodes = set(graph) if subset is None else set(subset)
     policy = validate_policy(u, graph, edges, nodes)
     ignored = set(policy)
+    if repo is not None:
+        soft, stage1 = stage1_cuts(u, graph, edges, nodes, ignored, repo)
+        ignored |= soft | {(n, d) for n, ds in stage1.items() for d in ds}
     cycles = _cycle_edges({node: {dep for dep in graph.get(node, ())
                                   if (node, dep) not in ignored} for node in nodes}, nodes)
     if cycles:
@@ -610,11 +694,22 @@ def main():
 
         if cmd == "levels":
             wanted = _resolve_targets(u, sys.argv[2:], default_all=True)
-            _order, levels, policy = _topology(u, g, edges, wanted)
+            _order, levels, policy = _topology(u, g, edges, wanted, _build_repo())
             for source, target in policy:
                 print(f"bootstrap-edge: {source} -> {target}", file=sys.stderr)
             for members in levels:
                 print(" ".join(members))
+            return 0
+
+        if cmd == "stage1":
+            # "<pkgbase>\t<dependency expr>" per dependency a stage-1 build goes without (cycle among unbuilt targets)
+            wanted = set(_resolve_targets(u, sys.argv[2:], default_all=True))
+            ignored = set(validate_policy(u, g, edges, wanted))
+            _soft, stage1 = stage1_cuts(u, g, edges, wanted, ignored, _build_repo())
+            for base in sorted(stage1):
+                for target in sorted(stage1[base]):
+                    for record in edges[(base, target)]:
+                        print(f"{base}\t{record['expr']}")
             return 0
 
         print(f"unknown command: {cmd}", file=sys.stderr)

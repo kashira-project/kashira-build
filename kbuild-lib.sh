@@ -89,7 +89,8 @@ pkg_deps() {
     field=${BASH_REMATCH[1]}
     expr=${BASH_REMATCH[2]}
     [ -n "$expr" ] || continue
-    if [[ "$field" == depends* ]] && bootstrap_demoted "$base" "$expr"; then
+    # demoted: runtime bootstrap-policy edges, and stage-1 cuts (depends or makedepends) inside a build cycle
+    if bootstrap_demoted "$base" "$expr"; then
       continue
     fi
     name=${expr%%[\<\>\=]*}

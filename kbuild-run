@@ -118,6 +118,7 @@ recipe_fingerprint() {
 build_fingerprint() {
   local pkgbase=$1 dep ledger_digest=$LEDGER_DIGEST
   printf 'repo: %s\nimage: %s\nconfig: %s\nskip-upgrade: %s\noverwrite: %s\nmemory: %s\nmemory-swap: %s\ncpus: %s\njobs: %s\nbootstrap-policy: %s\nbootstrap-selected: %s\nledger: %s\n' "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}" "${KBUILD_OVERWRITE:-}" "$KBUILD_MEMORY" "$KBUILD_MEMORY_SWAP" "$KBUILD_CPUS" "$KBUILD_JOBS" "$KBUILD_BOOTSTRAP_EDGES" "$BOOTSTRAP_SELECTED" "$ledger_digest"
+  printf 'demoted: %s\n' "$(awk -F'\t' -v b="$pkgbase" '$1 == b' <<<"${KBUILD_BOOTSTRAP_DEMOTED:-}" | sort | tr '\n' ' ')"
   sha256sum "$HERE/kbuild-lib.sh" "$HERE/kbuild-inside.sh" "$HERE/kbuild-sched.py" "$HERE/kbuild-arch-bootstrap" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
   recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
   for dep in ${GRAPH[$pkgbase]:-}; do
@@ -130,6 +131,7 @@ build_fingerprint() {
 build_fingerprint_for_build() {
   local pkgbase=$1 dep ledger_digest=$LEDGER_DIGEST
   printf 'repo: %s\nimage: %s\nconfig: %s\nskip-upgrade: %s\noverwrite: %s\nmemory: %s\nmemory-swap: %s\ncpus: %s\njobs: %s\nbootstrap-policy: %s\nbootstrap-selected: %s\nledger: %s\n' "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}" "${KBUILD_OVERWRITE:-}" "$KBUILD_MEMORY" "$KBUILD_MEMORY_SWAP" "$KBUILD_CPUS" "$KBUILD_JOBS" "$KBUILD_BOOTSTRAP_EDGES" "$BOOTSTRAP_SELECTED" "$ledger_digest"
+  printf 'demoted: %s\n' "$(awk -F'\t' -v b="$pkgbase" '$1 == b' <<<"${KBUILD_BOOTSTRAP_DEMOTED:-}" | sort | tr '\n' ' ')"
   sha256sum "$HERE/kbuild-lib.sh" "$HERE/kbuild-inside.sh" "$HERE/kbuild-sched.py" "$HERE/kbuild-arch-bootstrap" "$HERE/conf/$MAKEPKG_CONF" "$HERE"/conf/* || return 1
   recipe_fingerprint "${PKGDIR[$pkgbase]}" || return 1
   for dep in ${GRAPH[$pkgbase]:-}; do
@@ -349,6 +351,10 @@ cmd_run() {
   data=$(sched preflight --repo "$REPO" "${targets[@]}") || { run_status failed; return 1; }
   BOOTSTRAP_SELECTED=$(printf '%s\n' "$data" | sort)
   KBUILD_BOOTSTRAP_DEMOTED=$(sched demoted "${targets[@]}" 2>/dev/null) || { run_status failed; return 1; }
+  # cycles among unbuilt targets: one member per cycle builds without its partners (stage 1, rebuilt later)
+  data=$(sched stage1 "${targets[@]}") || { run_status failed; return 1; }
+  printf '%s\n' "$data" | cut -f1 | sed '/^$/d' | sort -u > "$RUN_DIR/stage1.list"
+  [ -z "$data" ] || { KBUILD_BOOTSTRAP_DEMOTED+=$'\n'"$data"; echo "== stage 1 (rebuild after this run): $(tr '\n' ' ' < "$RUN_DIR/stage1.list")"; }
   export KBUILD_BOOTSTRAP_DEMOTED
   IMAGE_ID=$(sudo docker image inspect --format '{{.Id}}' "$IMAGE") || { run_status failed; return 1; }
   [ -n "$IMAGE_ID" ] || { run_status failed; return 1; }
@@ -414,6 +420,11 @@ cmd_run() {
     echo "== build complete (${#targets[@]} pkgbases); prepared: $MANIFEST"
     run_status prepared
     return 0
+  fi
+  if [ -s "$RUN_DIR/stage1.list" ]; then
+    echo "== stage-1 builds present ($(tr '\n' ' ' < "$RUN_DIR/stage1.list")); not publishing: rebuild them first" >&2
+    run_status prepared
+    return 1
   fi
   echo "== build complete (${#targets[@]} pkgbases); publishing to x86_64-v3"
   "$HERE/kbuild-publish" publish --manifest "$MANIFEST" || { run_status failed; return 1; }
