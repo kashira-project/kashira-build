@@ -274,6 +274,11 @@ def _provider_map(u):
                                 for expr in output.get("provides_exprs", ()))
             for capability, version in capabilities:
                 providers.setdefault(capability, []).append((base, pkgname, version))
+    extra = os.path.join(os.path.dirname(os.path.abspath(__file__)), "conf", "provides.extra")
+    for line in open(extra) if os.path.isfile(extra) else ():
+        fields = line.split("#")[0].split()
+        if len(fields) == 2 and fields[1] in u:
+            providers.setdefault(fields[0], []).append((fields[1], fields[1], ""))
     return providers
 
 

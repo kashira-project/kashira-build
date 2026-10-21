@@ -1,0 +1,3 @@
+# Provides that PKGBUILDs set at runtime (in helper functions), invisible to makepkg --printsrcinfo and so to the
+# scheduler until the package is in the repo db. One per line: <provided name> <pkgbase>
+texlive-core texlive-texmf
