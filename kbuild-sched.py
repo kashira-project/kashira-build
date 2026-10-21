@@ -632,9 +632,9 @@ def preflight(u, graph, edges, targets, repo_path):
                     edge = _resolve_provider(providers, expr)
                     if field == "depends_exprs" and edge and (base, edge[0]) in policy:
                         continue
-                    if edge and edge[0] in selected:
-                        continue
                     name, op, version = _split_expr(expr)
+                    if any(c[0] in selected and _version_matches(c[2], op, version) for c in providers.get(name, ())):
+                        continue                                  # any provider built in this run (e.g. a seed)
                     if any(_version_matches(cap_version, op, version)
                            for cap_name, cap_version in repo.get(name, ()) if cap_name == name):
                         continue
