@@ -15,8 +15,9 @@ REPO=${KBUILD_REPO:-$KASHIRA_ROOT/repos/candidate}
 SOURCES=${KBUILD_SOURCES:-$KASHIRA_ROOT/cache/sources}
 OUT=${KBUILD_OUT:-$KASHIRA_ROOT/build/out}
 LOGS=${KBUILD_LOGS:-$KASHIRA_ROOT/build/logs}
-KBUILD_MEMORY=${KBUILD_MEMORY:-unlimited}
-KBUILD_MEMORY_SWAP=${KBUILD_MEMORY_SWAP:-16g}
+# capped so a heavy C++ build (abseil-cpp at -j16) OOMs inside its own cgroup, not the 30 GB host
+KBUILD_MEMORY=${KBUILD_MEMORY:-22g}
+KBUILD_MEMORY_SWAP=${KBUILD_MEMORY_SWAP:-30g}
 KBUILD_CPUS=${KBUILD_CPUS:-16}
 KBUILD_JOBS=${KBUILD_JOBS:-16}
 
@@ -299,6 +300,7 @@ build_one() {
   sudo docker run --rm \
     "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
+    ${KBUILD_CPUSET:+--cpuset-cpus "$KBUILD_CPUSET"} \
     -e KBUILD_DEPS="$deps" \
     -e KBUILD_TOOLCHAIN="$toolchain" \
     -e KBUILD_ASSUME="$assume" \

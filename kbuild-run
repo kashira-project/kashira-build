@@ -183,6 +183,14 @@ reusable_artifacts() {
   done < "$record"
 }
 
+# A build that hit the container memory cap gets one retry on 4 CPUs: the cpuset lowers nproc, so ninja/meson/cargo
+# default to fewer jobs too (MAKEFLAGS alone does not reach them).
+oom_retry() {
+  grep -qE 'Killed|signal 9|Cannot allocate memory|std::bad_alloc|out of memory' "$3" || return 1
+  echo "== out of memory: retrying with 4 jobs" >>"$3"
+  rm -rf "${RUN_OUT:?}/$1" && KBUILD_JOBS=4 KBUILD_CPUSET=0-3 build_one "$1" "$2" "$RUN_OUT/$1" >>"$3" 2>&1
+}
+
 build_package() {
   local pkgbase=$1 pkgdir=${PKGDIR[$1]} log="$RUN_DIR/$1.log" fingerprint current
   if ! mixed_repo && [ "$FORCE_REBUILD" != 1 ] && [ -f "$LOGS/$pkgbase.done" ] && reusable_artifacts "$pkgbase" >/dev/null; then
@@ -192,7 +200,7 @@ build_package() {
   rm -f "$LOGS/$pkgbase.done"
   if fingerprint=$(build_fingerprint_for_build "$pkgbase") \
       && rm -rf "${RUN_OUT:?}/$pkgbase" \
-      && build_one "$pkgbase" "$pkgdir" "$RUN_OUT/$pkgbase" >"$log" 2>&1 \
+      && { build_one "$pkgbase" "$pkgdir" "$RUN_OUT/$pkgbase" >"$log" 2>&1 || oom_retry "$pkgbase" "$pkgdir" "$log"; } \
       && artifact_list "$RUN_OUT/$pkgbase" "$pkgdir" "$pkgbase" >/dev/null \
       && current=$(build_fingerprint_for_build "$pkgbase") \
       && [ "$current" = "$fingerprint" ] \
