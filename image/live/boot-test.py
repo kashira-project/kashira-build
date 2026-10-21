@@ -11,7 +11,8 @@ exits (for boots that stop before a login prompt, e.g. MokManager).
 drive (archiso then copies the root image to RAM).
 
 Logs in as root on ttyS0 (live media only: root has no password), runs the
-probe commands below, saves their output to <outdir>/probes.txt and takes QMP
+probe commands below (including a suspend, QMP wake and lock check), saves their output
+to <outdir>/probes.txt and takes QMP
 screendumps (<outdir>/screen-*.ppm). Uses KVM when /dev/kvm is usable, else TCG
 with -cpu max (x86-64-v3 needs AVX2). Exit status 0 only if every probe in
 REQUIRED passed.
@@ -42,6 +43,14 @@ PROBES = [
     ("loop-units", "systemctl list-units --all --no-legend '*loop*' '*sr0*' '*udisks*' | head -n 20"),
     ("loop-journal", "journalctl -b --no-pager | grep -iE 'loop1|udisks|vfat|FAT-fs|mounted' | head -n 30"),
     ("drm", "ls /dev/dri; cat /sys/class/drm/card*/device/uevent 2>/dev/null | grep DRIVER"),
+    # live-session fixes: sudo without a password, an empty (not locked) password, no lock on resume
+    ("sudo", "runuser -u kashira -- sudo -n true && echo SUDO_OK"),
+    ("live-password", "passwd -S kashira"),
+    ("lock-settings", "runuser -u kashira -- env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kashira)/bus gsettings get org.gnome.desktop.screensaver lock-enabled"),
+    ("suspend", "systemctl suspend; sleep 8; journalctl -k -b --no-pager | grep -q 'PM: suspend exit' && echo RESUMED"),
+    ("resume-unlocked", "for s in $(loginctl list-sessions --no-legend | awk '$3==\"kashira\"{print $1}'); do "
+     "loginctl show-session $s -p LockedHint -p State; done; runuser -u kashira -- env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kashira)/bus gdbus call --session "
+     "--dest org.gnome.ScreenSaver --object-path /org/gnome/ScreenSaver --method org.gnome.ScreenSaver.GetActive"),
 ]
 # probe name -> substring that must appear in its output
 REQUIRED = {
@@ -49,6 +58,11 @@ REQUIRED = {
     "networkmanager": "active",
     "session-type": "Type=wayland",
     "gnome-shell": "gnome-shell",
+    "sudo": "SUDO_OK",
+    "live-password": "kashira NP",
+    "lock-settings": "false",
+    "suspend": "RESUMED",
+    "resume-unlocked": "LockedHint=no",
 }
 
 
@@ -108,6 +122,7 @@ def main():
     code = OVMF_CODE_SB if sb_vars else OVMF_CODE
     machine = ["-machine", "q35,smm=on", "-global", "driver=cfi.pflash01,property=secure,value=on"] \
         if sb_vars else ["-machine", "q35"]
+    machine += ["-global", "ICH9-LPC.disable_s3=0"]           # S3, so the suspend probe really suspends
     ser, mon = os.path.join(out, "serial.sock"), os.path.join(out, "qmp.sock")
     accel = ["-enable-kvm", "-cpu", "host"] if os.access("/dev/kvm", os.R_OK | os.W_OK) and \
         subprocess.run(["qemu-system-x86_64", "-enable-kvm", "-machine", "none", "-display", "none",
@@ -149,6 +164,11 @@ def main():
             con.buf = b""
             # printf keeps the literal markers out of the terminal's echo of this line
             con.send(f"printf '@@%s@@\\n' BEGIN{i}; {cmd}; printf '@@%s@@\\n' END{i}\n")
+            if name == "suspend":                              # wake the guest the way a key press would
+                time.sleep(5)
+                qmp(mon, {"execute": "system_wakeup"})
+            if name == "resume-unlocked":
+                qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-resume.ppm")}})
             con.read_until(marker + "\r\n", 120) or con.read_until(marker, 5)
             text = con.buf.decode(errors="replace")
             body = text.split(f"@@BEGIN{i}@@", 2)[-1].split(marker)[0].strip()
