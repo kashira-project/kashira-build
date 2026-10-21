@@ -15,14 +15,63 @@ CAND=${KBUILD_CANDIDATE:-${KASHIRA_ROOT:-/mnt/kashira}/repos/candidate}
 list=$1 rounds=${2:-3} base=${KBUILD_RUN_ID:-loop-$(date +%m%d-%H%M)}
 [ -z "$(git -C "$PKGS" status --porcelain)" ] || { echo "kashira-pkgs tree is dirty" >&2; exit 1; }
 cur=$(mktemp) && cp "$list" "$cur"
+# stdin: `kbuild-sched graph`; argv[1]: target list. Prints members of dependency cycles among the targets,
+# dependencies first (fewest in-cycle dependencies first).
+SCC='
+import sys
+sel = set(open(sys.argv[1]).read().split())
+g = {}
+for line in sys.stdin:
+    n, _, ds = line.partition(":")
+    if n in sel:
+        g[n] = [d for d in ds.split() if d in sel and d != n]
+idx, low, st, on, out, k = {}, {}, [], set(), [], [0]
+sys.setrecursionlimit(10000)
+def visit(v):
+    idx[v] = low[v] = k[0]; k[0] += 1; st.append(v); on.add(v)
+    for w in g.get(v, ()):
+        if w not in idx:
+            visit(w); low[v] = min(low[v], low[w])
+        elif w in on:
+            low[v] = min(low[v], idx[w])
+    if low[v] == idx[v]:
+        comp = []
+        while True:
+            w = st.pop(); on.discard(w); comp.append(w)
+            if w == v:
+                break
+        if len(comp) > 1:
+            out.extend(sorted(comp, key=lambda n: (sum(d in comp for d in g[n]), n)))
+for v in sorted(g):
+    if v not in idx:
+        visit(v)
+print(" ".join(out))
+'
 for ((i = 1; i <= rounds; i++)); do
   id=$base-r$i
   echo "== round $i: $(wc -l < "$cur") targets (run $id)"
-  KBUILD_RUN_ID=$id "$HERE/kbuild-run" run --no-publish --file "$cur" > "$LOGS/queue/$id.log" 2>&1
-  runs=$LOGS/runs/$id
-  # a run that died before building (scheduler/preflight error) has no per-package status: stop, never bump on it
-  ls "$runs"/*.status >/dev/null 2>&1 || { echo "== run $id built nothing:"; tail -n 5 "$LOGS/queue/$id.log"; exit 2; }
-  failed=$(grep -lx failed "$runs"/*.status 2>/dev/null | xargs -rn1 basename | sed 's/\.status$//')
+  # Targets on a dependency cycle cannot share a run: build each alone (the repo's previous release satisfies the
+  # rest of the cycle, as for any bootstrap), in dependency order, then everything else in one run.
+  cyc=$(python3 "$HERE/kbuild-sched.py" graph | python3 -c "$SCC" "$cur")
+  rest=$(mktemp) && grep -vxF -f <(printf '%s\n' $cyc) "$cur" > "$rest" || true
+  ids=()
+  for p in $cyc; do
+    one=$(mktemp) && echo "$p" > "$one"
+    KBUILD_RUN_ID=$id-$p "$HERE/kbuild-run" run --no-publish --file "$one" > "$LOGS/queue/$id-$p.log" 2>&1
+    ids+=("$id-$p"); rm -f "$one"
+  done
+  if [ -s "$rest" ]; then
+    KBUILD_RUN_ID=$id "$HERE/kbuild-run" run --no-publish --file "$rest" > "$LOGS/queue/$id.log" 2>&1
+    ids+=("$id")
+  fi
+  rm -f "$rest"
+  failed=
+  for r in "${ids[@]}"; do
+    # a run that died before building (scheduler/preflight error) has no per-package status: stop, never bump on it
+    ls "$LOGS/runs/$r"/*.status >/dev/null 2>&1 || { echo "== run $r built nothing:"; tail -n 5 "$LOGS/queue/$r.log"; exit 2; }
+    failed+=" $(grep -lx failed "$LOGS/runs/$r"/*.status 2>/dev/null | xargs -rn1 basename | sed 's/\.status$//' | tr '\n' ' ')"
+  done
+  failed=$(echo $failed)
   bad=$(python3 "$PKGS/tools/ksync/ksync.py" verify --repo "$CAND" 2>&1 | sed -n 's/^verify: \([^:]*\): unsatisfied .*/\1/p' | sort -u)
   # unsatisfied package name -> pkgbase dir; only bump what is not already pending a build
   bump=$(cd "$PKGS" && python3 - $bad <<'EOF'
