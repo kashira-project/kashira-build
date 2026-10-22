@@ -34,7 +34,8 @@ PACMAN_CONF=/etc/kbuild-pacman.conf
 sig="Required DatabaseNever"
 pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyring image: TLS-only trust
 {
-  printf '[options]\nArchitecture = x86_64\nParallelDownloads = 8\nSigLevel = %s\nLocalFileSigLevel = Never\n' "$sig"
+  # the proxy answers a cache miss only after fetching the whole file from the archive
+  printf '[options]\nArchitecture = x86_64\nParallelDownloads = 8\nDisableDownloadTimeout\nSigLevel = %s\nLocalFileSigLevel = Never\n' "$sig"
   printf '[kashira]\nSigLevel = Never\nServer = file:///repo\n'
   if [ "${KBUILD_STANDIN:-1}" != 0 ]; then
     for r in core extra multilib; do
