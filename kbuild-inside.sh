@@ -74,6 +74,10 @@ for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noco
 pacman_args=(-S --needed --noconfirm --ask=4)
 [ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
+  # The base meta (no files) pins man-db and the like: a dep that conflicts with one of them (mandoc for
+  # efivar: "removing man-db breaks dependency 'man-db' required by base") could not replace it. Arch's
+  # clean chroots have no base meta either.
+  pacman -Qq base >/dev/null 2>&1 && pacman -Rdd --noconfirm base >/dev/null
   # shellcheck disable=SC2086  # KBUILD_DEPS is a space-separated dep list
   assume_args=()
   for p in ${KBUILD_ASSUME:-}; do assume_args+=(--assume-installed "$p"); done
