@@ -23,8 +23,6 @@ class Budget(kp.SimRunner):
         assert cpus <= kp.CPU_BUDGET, cpus
         assert pool.mem_used <= kp.MEM_BUDGET, pool.mem_used
         assert len({c for j in pool.running.values() for c in j.cpus}) == cpus, "cpusets overlap"
-        heavy = [j for j in pool.running.values() if j.cls == "heavy"]
-        assert not heavy or len(pool.running) == 1, "heavy is not exclusive"
         super().start(job)
 
 
@@ -94,6 +92,17 @@ class PoolTest(unittest.TestCase):
         pool, _ = make([("a", "small", [])], outcome=outcome)
         self.assertEqual(pool.run(), {"a": "built"})
         self.assertEqual(seen, ["small", "medium"])
+
+    def test_heavy_oom_gets_more_memory(self):
+        mems = []
+
+        def outcome(j):
+            mems.append(j.spec()[1])
+            return (137, "Killed") if len(mems) == 1 else (0, "")
+
+        pool, _ = make([("h", "heavy", [])], outcome=outcome)
+        self.assertEqual(pool.run(), {"h": "built"})
+        self.assertEqual(mems, [14, 26])
 
     def test_critical_path_first(self):
         # c heads a chain c -> x -> y; b is alone: c starts first though b sorts first by name
