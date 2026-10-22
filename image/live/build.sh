@@ -9,7 +9,7 @@ set -euo pipefail
 here=$(cd -- "$(dirname -- "$0")" && pwd)
 profile=$(cd -- "${1:-$here/profile}" && pwd)
 repo=${KISO_REPO:-/mnt/kashira/repos/v3}
-image=${KISO_IMAGE:-kashira:base-devel-takeover-20261003}
+image=${KISO_IMAGE:-kashira:base-devel-v3-20261022}
 # Secure Boot signing keys (db.key/db.crt). Mounted read-only into the build
 # container only; the private key never enters the ISO. KISO_SB_KEYS= disables
 # signing (unsigned ISO, Secure Boot must then be off).

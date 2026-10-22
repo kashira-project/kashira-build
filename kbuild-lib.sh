@@ -10,7 +10,7 @@
 #   KBUILD_OUT     artifacts root      ($KASHIRA_ROOT/build/out)
 #   KBUILD_LOGS    logs root           ($KASHIRA_ROOT/build/logs)
 KASHIRA_ROOT=${KASHIRA_ROOT:-/mnt/kashira}
-IMAGE=${KBUILD_IMAGE:-kashira:base-devel-takeover-20261003}
+IMAGE=${KBUILD_IMAGE:-kashira:base-devel-v3-20261022}
 REPO=${KBUILD_REPO:-$KASHIRA_ROOT/repos/v3}
 SOURCES=${KBUILD_SOURCES:-$KASHIRA_ROOT/cache/sources}
 KBUILD_CACHE=${KBUILD_CACHE:-$KASHIRA_ROOT/cache}
