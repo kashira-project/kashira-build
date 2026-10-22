@@ -119,6 +119,7 @@ class Job:
         self.oom_retried = False
         self.tier0_error = ""
         self.cpus = []
+        self.t0 = 0.0
         self.mem = 0             # granted at admit: the class memory, or the whole budget when alone
 
     def spec(self):
@@ -162,7 +163,19 @@ class Pool:
         cpus, mem, _ = job.spec()
         return len(self.free_cpus) >= cpus and self.mem_used + mem <= MEM_BUDGET
 
+    def shadow_time(self, job):
+        """When the running jobs (by expected end) will have freed enough CPUs and memory for job."""
+        cpus, mem, _ = job.spec()
+        now = self.runner.clock()
+        free, mem_free = len(self.free_cpus), MEM_BUDGET - self.mem_used
+        for j in sorted(self.running.values(), key=lambda j: j.t0 + self.duration(j.name)):
+            free, mem_free = free + len(j.cpus), mem_free + j.mem
+            if free >= cpus and mem_free >= mem:
+                return max(j.t0 + self.duration(j.name), now + 60)   # an overrunning job: assume it ends soon
+        return now
+
     def admit(self):
+        shadow = None    # a heavy head that does not fit reserves the machine from this time on
         for n in self.ready():
             job = self.jobs[n]
             if not self.standin and any(self.finished.get(d, "built") != "built" for d in self.deps[n]):
@@ -171,9 +184,11 @@ class Pool:
                 self.history.append(("skip", n, job.cls, job.tier, 0))
                 continue
             if not self.fits(job):
-                if job.cls == "heavy":
-                    break        # reserve the machine for the heavy head of the queue
+                if job.cls == "heavy" and shadow is None:
+                    shadow = self.shadow_time(job)
                 continue
+            if shadow is not None and self.runner.clock() + self.duration(n) > shadow:
+                continue         # backfill only what ends before the reserved heavy can start
             cpus, mem, _ = job.spec()
             if not self.running and len(self.ready()) == 1:
                 # alone with nothing else ready (a chain like glibc -> gcc -> llvm): take the whole machine
@@ -181,6 +196,7 @@ class Pool:
             job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
             self.free_cpus = self.free_cpus[len(job.cpus):]
             job.mem = mem
+            job.t0 = self.runner.clock()
             self.mem_used += mem
             self.pending.discard(n)
             self.running[n] = job
@@ -249,6 +265,9 @@ class SimRunner:
     def __init__(self, duration, outcome=None):
         self.duration, self.outcome, self.now, self.ends = duration, outcome or (lambda job: (0, "")), 0.0, {}
 
+    def clock(self):
+        return self.now
+
     def start(self, job):
         self.ends[job.name] = (self.now + self.duration(job.name), job)
 
@@ -269,6 +288,9 @@ class DockerRunner:
 
     def __init__(self, run_id, run_dir):
         self.run_id, self.run_dir, self.procs = run_id, run_dir, {}
+
+    def clock(self):
+        return time.time()
 
     def container(self, job):
         return "kb-" + self.run_id + "-" + re.sub(r"[^A-Za-z0-9_.-]", "_", job.name)
