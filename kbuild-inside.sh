@@ -126,6 +126,9 @@ cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
 } >>"$TEMP_CONF"
 chown builder:builder "$TEMP_CONF"
 
-su builder -c "cd $BUILDDIR && \
+# login shell, as Arch's makechrootpkg (sudo -iu builder): /etc/profile.d puts /usr/bin/core_perl (pod2man)
+# and the like on PATH (git: "pod2man: command not found")
+# (/usr/local first again afterwards: the login PATH puts it after /usr/bin, and conf/cmake-wrapper.sh lives there)
+su -l builder -c "export PATH=/usr/local/sbin:/usr/local/bin:\$PATH; cd $BUILDDIR && \
   PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR \
   makepkg --config $TEMP_CONF -sf --noconfirm --skippgpcheck --nodeps"

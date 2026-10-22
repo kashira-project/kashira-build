@@ -87,7 +87,7 @@ pkg_deps() {
     esac
   done <<<"$info"
   local selfhost=0
-  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven} " != *" $base "* ]] || selfhost=1
+  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven python-installer python-build python-flit-core python-wheel python-setuptools python-pyproject-hooks python-packaging} " != *" $base "* ]] || selfhost=1
   while IFS= read -r line; do
     [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]}
