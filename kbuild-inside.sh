@@ -98,7 +98,8 @@ install -Dm644 /kbuild/conf/soname_provides.sh /usr/share/makepkg/autodep/soname
 # run clang (the driver picks C/C++ mode from the name). A recipe that needs real GCC makedepends gcc, which wins.
 # Tier 2 builds like Arch: GNU ar/nm/ranlib (gcc-ar and libtool pass --plugin; llvm-ranlib: "Invalid option: '--plugin'")
 if [ "$TIER" = 2 ]; then
-  for t in ar nm ranlib; do ln -sf "/usr/bin/gnu-$t" "/usr/local/bin/$t"; done
+  # objcopy: gnu-efi's -O efi-app-x86_64 ("llvm-objcopy: invalid output format")
+  for t in ar nm ranlib objcopy objdump readelf; do ln -sf "/usr/bin/gnu-$t" "/usr/local/bin/$t"; done
 fi
 
 # Wrappers, not symlinks: clang hands languages it lacks (Ada, Fortran) back to `gcc` from PATH, which would be
