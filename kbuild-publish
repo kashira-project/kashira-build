@@ -272,7 +272,8 @@ publish_set() {
   mkdir -p "$dir"
   ( flock 9
     require_remote_baseline "$dir" "$prefix" "$BUCKET/$name"
-    if [ -e "$dir/$prefix.db.tar.gz" ]; then
+    # an empty database (a repo emptied by cleanup) has nothing to validate; treat it like no database
+    if [ -e "$dir/$prefix.db.tar.gz" ] && [ -n "$(bsdtar -tf "$dir/$prefix.db.tar.gz" | head -n 1)" ]; then
       validate_repo_dir "$dir" "$prefix"
     else
       shopt -s nullglob
