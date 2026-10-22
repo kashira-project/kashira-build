@@ -678,6 +678,7 @@ def preflight(u, graph, edges, targets, repo_path):
         for name, caps in _repo_capabilities(db).items():
             repo.setdefault(name, []).extend(caps)
     providers = _provider_map(u)
+    missing = []
     for base in sorted(selected):
         for output_name, output in u[base]["outputs"].items():
             for field in ("depends_exprs", "makedepends_exprs"):
@@ -691,7 +692,9 @@ def preflight(u, graph, edges, targets, repo_path):
                     if any(_version_matches(cap_version, op, version)
                            for cap_name, cap_version in repo.get(name, ()) if cap_name == name):
                         continue
-                    raise SchedulerError(f"preflight missing retained provider: {base}/{output_name}: {expr}")
+                    missing.append(f"{base}/{output_name}: {expr}")
+    if missing:  # all of them at once: one fix round instead of one per miss
+        raise SchedulerError("preflight missing retained provider: " + "; ".join(missing))
     return sorted(policy)
 
 
