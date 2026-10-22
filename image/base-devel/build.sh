@@ -33,7 +33,10 @@ EOF
     # longer calls `systemctl preset-all`), so host /run is never consulted.
     # ccache and archlinux-keyring: kbuild's shared compiler cache, and signature checks for Arch stand-ins
     # (archlinux-keyring's install script populates the keyring pacstrap -K initialized)
-    if ! pacstrap -C "$work/bootstrap.conf" -K -M "$root" base base-devel ccache archlinux-keyring 2>&1 | tee "$work/install.log"; then
+    # pacman first: scriptlets of earlier packages (fontconfig) call vercmp, and the error check below would trip on
+    # "vercmp: command not found"
+    if ! { pacstrap -C "$work/bootstrap.conf" -K -M "$root" pacman && \
+           pacstrap -C "$work/bootstrap.conf" -M "$root" base base-devel ccache archlinux-keyring; } 2>&1 | tee "$work/install.log"; then
         die "pacstrap failed; see $work/install.log"
     fi
     if grep -Eiq '(^|[[:space:]])(error:|failed to|failure:)|command failed to execute correctly|install scriptlet.*(fail|error)|hook.*(fail|error)' "$work/install.log"; then
