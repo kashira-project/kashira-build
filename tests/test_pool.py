@@ -132,6 +132,23 @@ class PoolTest(unittest.TestCase):
         order = starts(pool)
         self.assertLess(order.index("l"), order.index("h"))
 
+    def test_small_shares_cpu_when_host_idles(self):
+        class Idle(kp.SimRunner):
+            def spare(self):
+                return True
+        jobs = [kp.Job(n, "small", "A", []) for n in "abc"]
+        runner = Idle(lambda n: 10)
+        pool = kp.Pool(jobs, {}, lambda n: 10, runner, log=lambda m: None)
+        kp.CPU_BUDGET, old = 1, kp.CPU_BUDGET
+        try:
+            pool.free_cpus = [0]
+            self.assertEqual(pool.run(), {n: "built" for n in "abc"})
+        finally:
+            kp.CPU_BUDGET = old
+        self.assertEqual(len(runner.ends), 0)
+        self.assertEqual(starts(pool), ["a", "b", "c"])
+        self.assertEqual(pool.free_cpus, [0])       # shared jobs never return CPUs they did not own
+
     def test_lone_job_takes_machine(self):
         # b waits on a: a starts alone and gets every CPU; b is alone too once a is done
         pool, _ = make([("a", "heavy", []), ("b", "small", [])], deps={"b": {"a"}})

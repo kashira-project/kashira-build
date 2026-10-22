@@ -45,6 +45,7 @@ HEAVY = {"llvm", "gcc", "rust", "linux", "firefox", "thunderbird", "libreoffice-
          "blender", "texlive-bin"}
 WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 UNKNOWN_DURATION = 60
+MAX_SHARED = 8
 
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
@@ -128,6 +129,7 @@ class Job:
         self.tier0_error = ""
         self.cpus = []
         self.t0 = 0.0
+        self.shared = False      # a small job placed on a busy job's CPU while the host idled
         self.mem = 0             # granted at admit: the class memory, or the whole budget when alone
         self.reserve = 0         # what the budget counts: half the limit for small jobs, which rarely use 1 GiB
 
@@ -195,6 +197,8 @@ class Pool:
                 self.finished[n] = "fail:dep"
                 self.history.append(("skip", n, job.cls, job.tier, 0))
                 continue
+            if not self.fits(job) and job.cls == "small" and self.share(job):
+                continue
             if not self.fits(job):
                 if job.cls == "heavy" and shadow is None:
                     shadow, spare_cpus, spare_mem = self.shadow_time(job)
@@ -221,7 +225,30 @@ class Pool:
             self.history.append(("start", n, job.cls, job.tier, len(job.cpus)))
             self.runner.start(job)
 
+    def share(self, job):
+        """Start a small job on the CPU of a running job when the host measures idle (reservations are upper
+        bounds: ghc holding 8 CPUs and 14 GiB through a serial phase idled 60% of the machine). Its container keeps
+        its own limit; at most MAX_SHARED run this way."""
+        if sum(j.shared for j in self.running.values()) >= MAX_SHARED or not self.runner.spare():
+            return False
+        load = {c: 0 for c in range(CPU_BUDGET)}
+        for j in self.running.values():
+            for c in j.cpus:
+                load[c] += 1
+        job.cpus, job.shared = [min(load, key=lambda c: (load[c], c))], True
+        job.mem = job.spec()[1]
+        job.reserve, job.t0 = 0, self.runner.clock()
+        self.pending.discard(job.name)
+        self.running[job.name] = job
+        self.history.append(("start", job.name, job.cls, job.tier, 1))
+        self.runner.start(job)
+        return True
+
     def release(self, job):
+        if job.shared:
+            job.cpus, job.shared = [], False
+            del self.running[job.name]
+            return
         self.free_cpus = sorted(self.free_cpus + job.cpus)
         self.mem_used -= job.reserve
         job.cpus = []
@@ -289,6 +316,9 @@ class SimRunner:
     def clock(self):
         return self.now
 
+    def spare(self):
+        return False
+
     def start(self, job):
         self.ends[job.name] = (self.now + self.duration(job.name), job)
 
@@ -309,9 +339,29 @@ class DockerRunner:
 
     def __init__(self, run_id, run_dir):
         self.run_id, self.run_dir, self.procs = run_id, run_dir, {}
+        self.idle, self.stat, self.woke = 0.0, None, 0.0
+
+    def sample(self):
+        """Smoothed host idle fraction from /proc/stat."""
+        v = [int(x) for x in open("/proc/stat").readline().split()[1:]]
+        idle, total = v[3] + v[4], sum(v)
+        if self.stat:
+            dt = total - self.stat[1]
+            if dt > 0:
+                self.idle = 0.5 * self.idle + 0.5 * (idle - self.stat[0]) / dt
+        self.stat = (idle, total)
 
     def clock(self):
         return time.time()
+
+    def spare(self):
+        """Host idle > 30% over the last polls, >= 8 GiB available, low memory pressure."""
+        try:
+            mem = {l.split(":")[0]: int(l.split()[1]) for l in open("/proc/meminfo")}
+            some = float(open("/proc/pressure/memory").read().split()[1].split("=")[1])   # some avg10
+        except (OSError, ValueError, IndexError):
+            return False
+        return self.idle > 0.30 and mem["MemAvailable"] >= 8 << 20 and some < 5
 
     def container(self, job):
         return "kb-" + self.run_id + "-" + re.sub(r"[^A-Za-z0-9_.-]", "_", job.name)
@@ -370,7 +420,9 @@ class DockerRunner:
                 elif rc is not None:
                     del self.procs[name]
                     out.append((job, rc, self.tail(job), time.time() - t0))
-            if out:
+            self.sample()
+            if out or (self.idle > 0.30 and time.time() - self.woke > 15):
+                self.woke = time.time()   # an idle host re-runs admission even without completions
                 return out
             time.sleep(3)
 
