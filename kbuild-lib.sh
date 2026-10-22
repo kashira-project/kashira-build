@@ -302,7 +302,7 @@ build_one() {
   # KBUILD_KNOBS together with KBUILD_TIER (0 clang, 1 clang compat, 2 gcc), else they are read here.
   local knobs=${KBUILD_KNOBS-$(tune_knobs "$pkgbase")} tier=${KBUILD_TIER:-0}
   [[ ",$knobs," != *,gnu,* ]] || tier=2
-  [ "$tier" != 2 ] || deps+="gcc "
+  [ "$tier" != 2 ] || deps+="gcc gnu-binutils-tools "   # gcc-ar/libtool pass --plugin, which llvm-ar/ranlib reject
   local standin_db=filtered
   [[ ",$knobs," != *,standin=full,* ]] || standin_db=full
   echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; tier: $tier${knobs:+; knobs: $knobs})"
