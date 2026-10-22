@@ -58,8 +58,8 @@ pac() {
 }
 
 for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
-# shellcheck disable=SC2015  # deliberate A&&B||C: refresh only (default), or -Syu when asked
-[ "${KBUILD_SKIP_UPGRADE:-1}" = 1 ] && pac -Sy --noconfirm || pac -Syu --noconfirm
+# shellcheck disable=SC2015  # deliberate A&&B||C: -Syu (default: installed packages must match the repo, e.g. lib32-glibc with glibc), or refresh only
+[ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pac -Sy --noconfirm || pac -Syu --noconfirm
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.

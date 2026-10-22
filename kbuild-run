@@ -123,7 +123,7 @@ recipe_fingerprint() {
 fingerprint_head() {
   local pkgbase=$1 tier=$2
   printf 'repo: %s\nimage: %s\nconfig: %s\nskip-upgrade: %s\noverwrite: %s\nstandin: %s %s\ntune: %s\ntier: %s\n' \
-    "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-1}" "${KBUILD_OVERWRITE:-}" "${KBUILD_STANDIN:-1}" \
+    "$REPO" "$IMAGE_ID" "$MAKEPKG_CONF" "${KBUILD_SKIP_UPGRADE:-0}" "${KBUILD_OVERWRITE:-}" "${KBUILD_STANDIN:-1}" \
     "$(<"$HERE/conf/standin.date")" "$(tune_knobs "$pkgbase")" "$tier"
   (cd "$HERE" && sha256sum kbuild-inside.sh "conf/$MAKEPKG_CONF" conf/soname_provides.sh conf/cmake-wrapper.sh \
     conf/cmake-project-include.cmake) || return 1

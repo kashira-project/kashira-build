@@ -49,7 +49,8 @@ UNKNOWN_DURATION = 60
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
     ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
-    ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|could not satisfy dependencies")),
+    ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|"
+                        r"could not satisfy dependencies|conflicting dependencies|unresolvable package conflicts")),
     ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
 ]
 

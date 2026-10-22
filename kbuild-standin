@@ -77,8 +77,24 @@ def rewrite(src, dst, blocked):
     return len(drop)
 
 
+def replaced_names():
+    """Arch names kashira-pkgs ship/exclude drops that another Arch package provides (zlib: zlib-ng-compat).
+    A recipe asking for them must get the provider, not Arch's original."""
+    rx = [re.compile(l.split("\t")[0]) for l in open(os.path.join(PKGS, "ship/exclude"))
+          if l.strip() and not l.startswith("#")]
+    names, provided = set(), set()
+    for r in REPOS:
+        with tarfile.open(os.path.join(BASE, "raw", r + ".db")) as tf:
+            for m in tf:
+                if m.name.endswith("/desc"):
+                    f = desc_fields(tf.extractfile(m).read().decode())
+                    names.add(f["NAME"][0])
+                    provided |= {VER.sub("", p) for p in f.get("PROVIDES", [])}
+    return {n for n in names & provided if any(x.search(n) for x in rx)}
+
+
 def cmd_filter():
-    ctl = controlled_names()
+    ctl = controlled_names() | replaced_names()
 
     def full(name, provides):
         return name in ctl or name.startswith("kashira-") or any(p in ctl for p in provides)
