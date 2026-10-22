@@ -48,9 +48,17 @@ pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyr
 # ahead of /usr/bin in PATH that injects it on configure runs.
 install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 
+# pacman occasionally hangs after a finished transaction (its forked child sits in futex_wait, 2026-10-22,
+# glibc wave 0): bound every call and retry once; --needed makes the retry a no-op when the install finished.
+pac() {
+  timeout -k 10 1200 pacman --config "$PACMAN_CONF" "$@" && return 0
+  rm -f /var/lib/pacman/db.lck
+  timeout -k 10 1200 pacman --config "$PACMAN_CONF" "$@"
+}
+
 for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
 # shellcheck disable=SC2015  # deliberate A&&B||C: refresh only (default), or -Syu when asked
-[ "${KBUILD_SKIP_UPGRADE:-1}" = 1 ] && pacman --config "$PACMAN_CONF" -Sy --noconfirm || pacman --config "$PACMAN_CONF" -Syu --noconfirm
+[ "${KBUILD_SKIP_UPGRADE:-1}" = 1 ] && pac -Sy --noconfirm || pac -Syu --noconfirm
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
@@ -67,7 +75,7 @@ if [ -n "${KBUILD_DEPS:-}" ]; then
   assume_args=()
   for p in ${KBUILD_ASSUME:-}; do assume_args+=(--assume-installed "$p"); done
   # shellcheck disable=SC2086
-  pacman --config "$PACMAN_CONF" "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
+  pac "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
 fi
 if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages
