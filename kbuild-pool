@@ -293,8 +293,25 @@ class Pool:
     def on_failure(self, job, kind):
         pass
 
+    def requeue(self, names, tune):
+        """Build failed targets again (a fix landed): fresh tier ladder, knobs from the current build.tune."""
+        for n in names:
+            if not self.finished.get(n, "built").startswith("fail:"):
+                continue
+            old = self.jobs[n]
+            knobs = tune.get(n, [])
+            job = Job(n, old.cls, old.wave, knobs)
+            self.jobs[n] = job
+            del self.finished[n]
+            self.pending.add(n)
+            self.log(f"requeue {n}" + (f" (knobs {','.join(knobs)})" if knobs else ""))
+
+    def poll_requeue(self):
+        pass
+
     def run(self):
         while self.pending or self.running:
+            self.poll_requeue()
             self.admit()
             if not self.running:
                 if self.pending:     # nothing can start: a dependency is unreachable (must not happen after cuts)
@@ -500,6 +517,16 @@ class RealPool(Pool):
             with open(os.path.join(LOGS, "tiers.tsv"), "a") as f:
                 f.write(f"{job.name}\t{job.tier}\t{job.tier0_error}\n")
         self.progress()
+
+    def poll_requeue(self):
+        """Targets listed in <pool dir>/requeue (one per line) are built again; the file is consumed."""
+        path = os.path.join(self.run_dir, "requeue")
+        try:
+            os.replace(path, path + ".taken")
+        except FileNotFoundError:
+            return
+        names = [l.strip() for l in open(path + ".taken") if l.strip() and not l.startswith("#")]
+        self.requeue(names, read_tune())
 
     def on_failure(self, job, kind):
         self.status.write(f"{job.name}\tfail:{kind}\t{job.tier}\t{job.cls}\t{job.tier0_error}\n")

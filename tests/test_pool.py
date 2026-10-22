@@ -149,6 +149,14 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(starts(pool), ["a", "b", "c"])
         self.assertEqual(pool.free_cpus, [0])       # shared jobs never return CPUs they did not own
 
+    def test_requeue_failed(self):
+        pool, _ = make([("a", "small", [])], outcome=lambda j: (1, "==> ERROR: Failure while downloading x"))
+        self.assertEqual(pool.run(), {"a": "fail:source"})
+        pool.runner.outcome = lambda j: (0, "")
+        pool.requeue(["a"], {"a": ["openssl3"]})
+        self.assertEqual(pool.run(), {"a": "built"})
+        self.assertEqual(pool.jobs["a"].knobs, ["openssl3"])
+
     def test_lone_job_takes_machine(self):
         # b waits on a: a starts alone and gets every CPU; b is alone too once a is done
         pool, _ = make([("a", "heavy", []), ("b", "small", [])], deps={"b": {"a"}})
