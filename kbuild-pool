@@ -38,7 +38,7 @@ CPU_BUDGET = int(os.environ.get("KBUILD_POOL_CPUS", "16"))
 MEM_BUDGET = int(os.environ.get("KBUILD_POOL_MEM_GIB", "28"))
 CLASSES = ["small", "medium", "large", "heavy"]
 SPEC = {  # cpus, memory GiB, timeout hours
-    "small": (2, 4, 2), "medium": (4, 8, 4), "large": (8, 14, 8), "heavy": (8, 14, 20),  # not exclusive: gcc/llvm have long serial phases, a lone -j16 heavy idled half the CPUs
+    "small": (1, 4, 2), "medium": (4, 8, 4), "large": (8, 14, 8), "heavy": (8, 14, 20),  # not exclusive: gcc/llvm have long serial phases, a lone -j16 heavy idled half the CPUs
 }
 HEAVY = {"llvm", "gcc", "rust", "linux", "firefox", "thunderbird", "libreoffice-fresh", "electron", "qt6-webengine",
          "webkit2gtk-4.1", "webkitgtk-6.0", "wpewebkit", "nodejs", "ghc", "java-openjdk", "java21-openjdk", "kicad",
@@ -55,6 +55,11 @@ FAIL = [  # (kind, regex) checked in order on the log tail
 ]
 
 PACMAN_FAIL = re.compile(r"failed to commit transaction|could not satisfy dependencies")
+
+
+def reserve_of(cls, mem):
+    """Memory the budget counts for a job; the container limit stays mem."""
+    return mem // 2 if cls == "small" else mem
 
 
 def classify(rc, tail):
@@ -121,6 +126,7 @@ class Job:
         self.cpus = []
         self.t0 = 0.0
         self.mem = 0             # granted at admit: the class memory, or the whole budget when alone
+        self.reserve = 0         # what the budget counts: half the limit for small jobs, which rarely use 1 GiB
 
     def spec(self):
         cpus, mem, hours = SPEC[self.cls]
@@ -161,15 +167,16 @@ class Pool:
 
     def fits(self, job):
         cpus, mem, _ = job.spec()
-        return len(self.free_cpus) >= cpus and self.mem_used + mem <= MEM_BUDGET
+        return len(self.free_cpus) >= cpus and self.mem_used + reserve_of(job.cls, mem) <= MEM_BUDGET
 
     def shadow_time(self, job):
         """When the running jobs (by expected end) will have freed enough CPUs and memory for job."""
         cpus, mem, _ = job.spec()
         now = self.runner.clock()
         free, mem_free = len(self.free_cpus), MEM_BUDGET - self.mem_used
+        mem = reserve_of(job.cls, mem)
         for j in sorted(self.running.values(), key=lambda j: j.t0 + self.duration(j.name)):
-            free, mem_free = free + len(j.cpus), mem_free + j.mem
+            free, mem_free = free + len(j.cpus), mem_free + j.reserve
             if free >= cpus and mem_free >= mem:
                 return max(j.t0 + self.duration(j.name), now + 60)   # an overrunning job: assume it ends soon
         return now
@@ -196,8 +203,9 @@ class Pool:
             job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
             self.free_cpus = self.free_cpus[len(job.cpus):]
             job.mem = mem
+            job.reserve = reserve_of(job.cls, mem) if self.running or len(self.ready()) > 1 else mem
             job.t0 = self.runner.clock()
-            self.mem_used += mem
+            self.mem_used += job.reserve
             self.pending.discard(n)
             self.running[n] = job
             self.history.append(("start", n, job.cls, job.tier, len(job.cpus)))
@@ -205,7 +213,7 @@ class Pool:
 
     def release(self, job):
         self.free_cpus = sorted(self.free_cpus + job.cpus)
-        self.mem_used -= job.mem
+        self.mem_used -= job.reserve
         job.cpus = []
         del self.running[job.name]
 
