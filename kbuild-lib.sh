@@ -305,6 +305,9 @@ build_one() {
   [ "$tier" != 2 ] || deps+="gcc gnu-binutils-tools "   # gcc-ar/libtool pass --plugin, which llvm-ar/ranlib reject
   local standin_db=filtered
   [[ ",$knobs," != *,standin=full,* ]] || standin_db=full
+  # Arch's multilib gcc carries the 32-bit crtbegin.o and libgcc; ours splits them into lib32-gcc-runtime, which
+  # Arch's lib32-* recipes do not list (lib32-libnghttp3: "fatal error: 'cstring' file not found")
+  [[ "$pkgbase" != lib32-* ]] || [ "$pkgbase" = lib32-gcc-runtime ] || deps+="lib32-gcc-runtime "
   # Arch stand-ins link libssl.so.3 (ours is openssl 4): ruby-rdoc: "libssl.so.3: cannot open shared object file"
   [ "${KBUILD_STANDIN:-1}" = 0 ] || [ "$pkgbase" = openssl-3 ] || deps+="openssl-3 "
   echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; tier: $tier${knobs:+; knobs: $knobs})"
