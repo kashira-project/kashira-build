@@ -159,6 +159,8 @@ cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
 } >>"$TEMP_CONF"
 chown builder:builder "$TEMP_CONF"
 
+# skipinteg: Arch's own sums are stale for this source (re-rolled tarball, unsynced file); build.tune quotes the hash
+INTEG=; [[ "$KNOBS" != *,skipinteg,* ]] || INTEG=--skipinteg
 su builder -c "cd $BUILDDIR && \
   PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR \
-  makepkg --config $TEMP_CONF -sf --noconfirm --skippgpcheck --nodeps"
+  makepkg --config $TEMP_CONF -sf --noconfirm --skippgpcheck --nodeps $INTEG"
