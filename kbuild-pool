@@ -1,0 +1,504 @@
+#!/usr/bin/env python3
+"""kbuild-pool: resource-aware parallel builds of a prepared kbuild-run.
+
+  kbuild-pool --list <ship.list|file> [--waves 0,A] [--standin 0|1] [--publish] [--run-id ID] [--dry-run]
+
+The list holds one pkgbase per line, optionally `pkgbase<TAB>wave` (kashira-pkgs ship/ship.list); --waves selects
+lines by wave. The pool runs `kbuild-run prepare`, builds every target with `kbuild-run one`, then `kbuild-run finish`.
+
+Scheduling (no level barriers): a target is ready once each in-run dependency has finished, successfully or not
+(stand-ins satisfy failed or not-yet-built deps; with --standin 0 a failed dep fails its dependents). Cycles are cut
+with kbuild-sched's feedback-edge ordering. Ready targets start by wave, then critical-path length, then duration,
+while CPU and memory budgets allow; a heavy target at the head of the queue reserves the machine until it fits.
+
+Each class requests CPUs (a disjoint --cpuset-cpus range, so nproc follows), memory and a timeout:
+small 2/4G/2h, medium 4/8G/4h, large 8/14G/8h, heavy 16/26G/20h (exclusive). Failures climb a ladder:
+oom -> once one class up; compile errors -> tier 1 (clang compat) -> tier 2 (gcc) -> fail:build;
+source and deps failures are final. Results: build/logs/pool/<run>/status.tsv, pool.log, summary.txt,
+and build/logs/tiers.tsv for every success above tier 0.
+"""
+import fcntl
+import importlib.util
+import json
+import os
+import re
+import signal
+import subprocess
+import sys
+import tarfile
+import time
+
+HERE = os.path.dirname(os.path.realpath(__file__))
+PKGS = os.environ.get("KBUILD_PKGS") or os.path.join(HERE, "..", "kashira-pkgs")
+ROOT = os.environ.get("KASHIRA_ROOT", "/mnt/kashira")
+LOGS = os.environ.get("KBUILD_LOGS") or os.path.join(ROOT, "build/logs")
+OUT = os.environ.get("KBUILD_OUT") or os.path.join(ROOT, "build/out")
+
+CPU_BUDGET = int(os.environ.get("KBUILD_POOL_CPUS", "16"))
+MEM_BUDGET = int(os.environ.get("KBUILD_POOL_MEM_GIB", "28"))
+CLASSES = ["small", "medium", "large", "heavy"]
+SPEC = {  # cpus, memory GiB, timeout hours
+    "small": (2, 4, 2), "medium": (4, 8, 4), "large": (8, 14, 8), "heavy": (16, 26, 20),
+}
+HEAVY = {"llvm", "gcc", "rust", "linux", "firefox", "thunderbird", "libreoffice-fresh", "electron", "qt6-webengine",
+         "webkit2gtk-4.1", "webkitgtk-6.0", "wpewebkit", "nodejs", "ghc", "java-openjdk", "java21-openjdk", "kicad",
+         "blender", "texlive-bin"}
+WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
+UNKNOWN_DURATION = 60
+
+FAIL = [  # (kind, regex) checked in order on the log tail
+    ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
+    ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|could not satisfy dependencies")),
+    ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
+]
+
+
+def classify(rc, tail):
+    """source | deps | oom | build for a failed attempt (rc != 0)."""
+    if rc in (137, -9):
+        return "oom"
+    for kind, rx in FAIL:
+        if rx.search(tail):
+            return kind
+    return "build"
+
+
+def first_error(tail):
+    for line in tail.splitlines():
+        if re.search(r"\berror:", line):
+            return line.strip()[:300]
+    return ""
+
+
+def load_sched():
+    spec = importlib.util.spec_from_file_location("kbuild_sched", os.path.join(HERE, "kbuild-sched.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def cut_cycles(deps):
+    """deps: {node: set(in-run deps)} -> a copy with feedback edges removed (acyclic)."""
+    sched = load_sched()
+    live = {n: set(ds) for n, ds in deps.items()}
+    for comp in sched._sccs(live):
+        for n, d in sched._feedback_edges(comp, live, {}):
+            live[n].discard(d)
+    return live
+
+
+def critical_path(deps, duration):
+    """Longest chain of dependents starting at each node (its own duration included)."""
+    users = {n: set() for n in deps}
+    for n, ds in deps.items():
+        for d in ds:
+            users[d].add(n)
+    memo = {}
+    for start in deps:
+        stack = [(start, False)]
+        while stack:
+            n, done = stack.pop()
+            if n in memo:
+                continue
+            if done:
+                memo[n] = duration(n) + max((memo[u] for u in users[n]), default=0)
+                continue
+            stack.append((n, True))
+            stack.extend((u, False) for u in users[n] if u not in memo)
+    return memo
+
+
+class Job:
+    def __init__(self, name, cls, wave, knobs):
+        self.name, self.cls, self.wave, self.knobs = name, cls, wave, knobs
+        self.tier = 2 if "gnu" in knobs else 1 if "compat" in knobs else 0
+        self.oom_retried = False
+        self.tier0_error = ""
+        self.cpus = []
+
+    def spec(self):
+        cpus, mem, hours = SPEC[self.cls]
+        for k in self.knobs:
+            if k.startswith("mem="):
+                mem = int(k[4:-1])
+            elif k.startswith("timeout="):
+                hours = int(k[8:-1])
+        return cpus, mem, hours
+
+    def jobs(self):
+        return next((int(k[5:]) for k in self.knobs if k.startswith("jobs=")), len(self.cpus) or SPEC[self.cls][0])
+
+
+class Pool:
+    """The scheduler core. runner: start(job) and wait() -> [(job, rc, log tail, seconds)]."""
+
+    def __init__(self, jobs, deps, duration, runner, standin=True, log=print):
+        self.jobs = {j.name: j for j in jobs}
+        self.deps = cut_cycles({n: {d for d in deps.get(n, ()) if d in self.jobs and d != n} for n in self.jobs})
+        self.duration = duration
+        self.cp = critical_path(self.deps, duration)
+        self.runner, self.standin, self.log = runner, standin, log
+        self.pending = set(self.jobs)
+        self.running = {}
+        self.finished = {}       # name -> result: built | fail:<kind>
+        self.free_cpus = list(range(CPU_BUDGET))
+        self.mem_used = 0
+        self.history = []        # (event, name, class, tier, cpus) for tests and --dry-run
+
+    def ready(self):
+        out = []
+        for n in self.pending:
+            ds = self.deps[n]
+            if all(d in self.finished for d in ds):
+                out.append(n)
+        return sorted(out, key=lambda n: (WAVE_ORDER.get(self.jobs[n].wave, 5), -self.cp[n], -self.duration(n), n))
+
+    def fits(self, job):
+        cpus, mem, _ = job.spec()
+        if job.cls == "heavy":
+            return not self.running
+        if any(j.cls == "heavy" for j in self.running.values()):
+            return False
+        return len(self.free_cpus) >= cpus and self.mem_used + mem <= MEM_BUDGET
+
+    def admit(self):
+        for n in self.ready():
+            job = self.jobs[n]
+            if not self.standin and any(self.finished.get(d, "built") != "built" for d in self.deps[n]):
+                self.pending.discard(n)
+                self.finished[n] = "fail:dep"
+                self.history.append(("skip", n, job.cls, job.tier, 0))
+                continue
+            if not self.fits(job):
+                if job.cls == "heavy":
+                    break        # reserve the machine for the heavy head of the queue
+                continue
+            cpus, mem, _ = job.spec()
+            job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
+            self.free_cpus = self.free_cpus[len(job.cpus):]
+            self.mem_used += mem
+            self.pending.discard(n)
+            self.running[n] = job
+            self.history.append(("start", n, job.cls, job.tier, len(job.cpus)))
+            self.runner.start(job)
+
+    def release(self, job):
+        self.free_cpus = sorted(self.free_cpus + job.cpus)
+        self.mem_used -= job.spec()[1]
+        job.cpus = []
+        del self.running[job.name]
+
+    def complete(self, job, rc, tail, seconds):
+        self.release(job)
+        if rc == 0:
+            self.finished[job.name] = "built"
+            self.history.append(("built", job.name, job.cls, job.tier, 0))
+            self.on_success(job, seconds)
+            return
+        kind = classify(rc, tail)
+        if job.tier == 0 and not job.tier0_error:
+            job.tier0_error = first_error(tail)
+        retry = None
+        if kind == "oom" and not job.oom_retried and job.cls != "heavy":
+            job.oom_retried = True
+            job.cls = CLASSES[CLASSES.index(job.cls) + 1]
+            retry = "class " + job.cls
+        elif kind == "build" and job.tier < 2:
+            job.tier += 1
+            retry = f"tier {job.tier}"
+        if retry:
+            self.log(f"retry {job.name}: {kind} -> {retry}")
+            self.history.append(("retry", job.name, job.cls, job.tier, 0))
+            self.pending.add(job.name)
+        else:
+            self.finished[job.name] = "fail:" + kind
+            self.history.append(("fail", job.name, job.cls, job.tier, 0))
+            self.on_failure(job, kind)
+
+    def on_success(self, job, seconds):
+        pass
+
+    def on_failure(self, job, kind):
+        pass
+
+    def run(self):
+        while self.pending or self.running:
+            self.admit()
+            if not self.running:
+                if self.pending:     # nothing can start: a dependency is unreachable (must not happen after cuts)
+                    for n in sorted(self.pending):
+                        self.finished[n] = "fail:unschedulable"
+                    self.pending.clear()
+                break
+            for job, rc, tail, seconds in self.runner.wait():
+                self.complete(job, rc, tail, seconds)
+        return self.finished
+
+
+class SimRunner:
+    """Virtual-clock runner: every job takes its known duration and succeeds (--dry-run, tests)."""
+
+    def __init__(self, duration, outcome=None):
+        self.duration, self.outcome, self.now, self.ends = duration, outcome or (lambda job: (0, "")), 0.0, {}
+
+    def start(self, job):
+        self.ends[job.name] = (self.now + self.duration(job.name), job)
+
+    def wait(self):
+        t = min(e for e, _ in self.ends.values())
+        self.now = t
+        done = [(n, j) for n, (e, j) in self.ends.items() if e == t]
+        out = []
+        for n, j in done:
+            del self.ends[n]
+            rc, tail = self.outcome(j)
+            out.append((j, rc, tail, self.duration(n)))
+        return out
+
+
+class DockerRunner:
+    """Runs `kbuild-run one` per job; kills the container on timeout."""
+
+    def __init__(self, run_id, run_dir):
+        self.run_id, self.run_dir, self.procs = run_id, run_dir, {}
+
+    def container(self, job):
+        return "kb-" + self.run_id + "-" + re.sub(r"[^A-Za-z0-9_.-]", "_", job.name)
+
+    def start(self, job):
+        cpus, mem, hours = job.spec()
+        swap = 40 if job.cls == "heavy" else mem + mem // 2
+        env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus)),
+                   KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
+                   KBUILD_TIER=str(job.tier), KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
+        p = subprocess.Popen([os.path.join(HERE, "kbuild-run"), "one", self.run_id, job.name], env=env,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+        self.procs[job.name] = (p, job, time.time(), hours * 3600)
+
+    def tail(self, job, n=200):
+        path = os.path.join(self.run_dir, job.name + ".log")
+        try:
+            with open(path, "rb") as f:
+                f.seek(0, 2)
+                f.seek(max(0, f.tell() - 65536))
+                data = f.read().decode(errors="replace")
+        except OSError:
+            return ""
+        keep = os.path.join(self.run_dir, f"{job.name}.tier{job.tier}.log")
+        try:
+            os.replace(path, keep)
+        except OSError:
+            pass
+        return "\n".join(data.splitlines()[-n:])
+
+    def kill(self, job):
+        subprocess.run(["sudo", "docker", "kill", self.container(job)], capture_output=True)
+
+    def wait(self):
+        while True:
+            out = []
+            for name, (p, job, t0, limit) in list(self.procs.items()):
+                rc = p.poll()
+                if rc is None and time.time() - t0 > limit:
+                    self.kill(job)
+                    os.killpg(p.pid, signal.SIGKILL)
+                    p.wait()
+                    del self.procs[name]
+                    out.append((job, 124, "kbuild-pool: timeout", time.time() - t0))
+                elif rc is not None:
+                    del self.procs[name]
+                    out.append((job, rc, self.tail(job), time.time() - t0))
+            if out:
+                return out
+            time.sleep(3)
+
+    def stop(self):
+        for p, job, _, _ in self.procs.values():
+            self.kill(job)
+            os.killpg(p.pid, signal.SIGKILL)
+
+
+def read_list(path, waves):
+    out = []
+    for line in open(path):
+        line = line.split("#")[0].strip()
+        if not line:
+            continue
+        name, _, wave = line.partition("\t")
+        if waves and wave.strip() not in waves:
+            continue
+        out.append((name.strip(), wave.strip() or "D"))
+    return out
+
+
+def read_tune():
+    tune = {}
+    path = os.path.join(PKGS, "build.tune")
+    for line in open(path) if os.path.exists(path) else ():
+        if line.strip() and not line.startswith("#"):
+            f = line.rstrip("\n").split("\t")
+            tune[f[0]] = [k for k in f[1].split(",") if k]
+    return tune
+
+
+def snapshot_isize():
+    date = open(os.path.join(HERE, "conf/standin.date")).read().strip().replace("/", "-")
+    size = {}
+    for r in ("core", "extra", "multilib"):
+        path = os.path.join(ROOT, "cache/standin", date, "raw", r + ".db")
+        if not os.path.exists(path):
+            continue
+        with tarfile.open(path) as tf:
+            for m in tf:
+                if m.name.endswith("/desc"):
+                    t = tf.extractfile(m).read().decode()
+                    base = re.search(r"%BASE%\n(.*)\n", t) or re.search(r"%NAME%\n(.*)\n", t)
+                    isz = re.search(r"%ISIZE%\n(\d+)", t)
+                    size[base.group(1)] = size.get(base.group(1), 0) + int(isz.group(1) if isz else 0)
+    return size
+
+
+def pick_class(name, knobs, durations, isize):
+    for k in knobs:
+        if k.startswith("class="):
+            return k[6:]
+    d = durations.get(name)
+    if d is not None:
+        return "heavy" if d >= 2400 else "large" if d >= 720 else "medium" if d >= 180 else "small"
+    if name in HEAVY:
+        return "heavy"
+    s = isize.get(name, 0) >> 20
+    return "large" if s > 200 else "medium" if s > 50 else "small"
+
+
+class RealPool(Pool):
+    def __init__(self, *a, run_dir, durations, durations_path, **kw):
+        super().__init__(*a, **kw)
+        self.run_dir, self.durations, self.durations_path = run_dir, durations, durations_path
+        self.status = open(os.path.join(run_dir, "status.tsv"), "a")
+        self.t0 = self.last = time.time()
+
+    def on_success(self, job, seconds):
+        self.status.write(f"{job.name}\tbuilt\t{job.tier}\t{job.cls}\t{int(seconds)}\n")
+        self.status.flush()
+        self.durations[job.name] = max(int(seconds), 1)
+        if job.tier > 0:
+            with open(os.path.join(LOGS, "tiers.tsv"), "a") as f:
+                f.write(f"{job.name}\t{job.tier}\t{job.tier0_error}\n")
+        self.progress()
+
+    def on_failure(self, job, kind):
+        self.status.write(f"{job.name}\tfail:{kind}\t{job.tier}\t{job.cls}\t{job.tier0_error}\n")
+        self.status.flush()
+        self.progress()
+
+    def progress(self, force=False):
+        now = time.time()
+        if not force and now - self.last < 600:
+            return
+        self.last = now
+        tmp = self.durations_path + ".tmp"
+        json.dump(self.durations, open(tmp, "w"), indent=0, sort_keys=True)
+        os.replace(tmp, self.durations_path)
+        built = sum(1 for v in self.finished.values() if v == "built")
+        failed = len(self.finished) - built
+        left = sum(self.duration(n) * SPEC[self.jobs[n].cls][0] for n in self.pending) / CPU_BUDGET
+        self.log(f"progress {time.strftime('%H:%M')}: built {built}, failed {failed}, running {len(self.running)}, "
+                 f"pending {len(self.pending)}, eta ~{left / 3600:.1f}h")
+
+
+def main(argv):
+    def opt(name, default=None):
+        return argv[argv.index(name) + 1] if name in argv else default
+
+    lst = opt("--list")
+    if not lst:
+        print(__doc__, file=sys.stderr)
+        return 2
+    waves = set(opt("--waves", "").split(",")) - {""}
+    standin = opt("--standin", "1")
+    entries = read_list(lst, waves)
+    if not entries:
+        print("kbuild-pool: no targets", file=sys.stderr)
+        return 1
+    tune = read_tune()
+    dpath = os.path.join(HERE, "conf/durations.json")
+    durations = json.load(open(dpath)) if os.path.exists(dpath) else {}
+    isize = snapshot_isize()
+
+    def duration(n):
+        return durations.get(n, UNKNOWN_DURATION)
+
+    jobs = [Job(n, pick_class(n, tune.get(n, []), durations, isize), w, tune.get(n, [])) for n, w in entries]
+
+    if "--dry-run" in argv:
+        deps = {}
+        graph = subprocess.run([sys.executable, os.path.join(HERE, "kbuild-sched.py"), "graph"], capture_output=True, text=True, check=True).stdout
+        for line in graph.splitlines():
+            n, _, ds = line.partition(":")
+            deps[n] = set(ds.split())
+        sim = SimRunner(duration)
+        pool = Pool(jobs, deps, duration, sim, log=lambda m: None)
+        pool.run()
+        for ev, n, cls, tier, cpus in pool.history:
+            if ev == "start":
+                print(f"{n}\t{cls}\tcpus={cpus}")
+        print(f"dry-run: {len(jobs)} targets, simulated makespan {sim.now / 3600:.1f}h", file=sys.stderr)
+        return 0
+
+    os.makedirs(LOGS, exist_ok=True)
+    os.makedirs(OUT, exist_ok=True)
+    locks = [open(os.path.join(d, ".kbuild-run.lock"), "w") for d in (LOGS, OUT)]
+    for f in locks:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            print("kbuild-pool: another kbuild run holds the lock", file=sys.stderr)
+            return 1
+    run_id = opt("--run-id") or time.strftime("pool-%Y%m%d-%H%M%S")
+    env = dict(os.environ, KBUILD_STANDIN=standin, KBUILD_RUN_ID=run_id)
+    tfile = os.path.join(LOGS, f".pool-{run_id}.targets")
+    open(tfile, "w").write("".join(n + "\n" for n, _ in entries))
+    p = subprocess.run([os.path.join(HERE, "kbuild-run"), "prepare", "--file", tfile], env=env, capture_output=True, text=True)
+    if p.returncode:
+        print(p.stdout[-2000:] + p.stderr[-2000:], file=sys.stderr)
+        return 1
+    os.environ.update(KBUILD_STANDIN=standin)
+    run_dir = os.path.join(LOGS, "runs", run_id)
+    pool_dir = os.path.join(LOGS, "pool", run_id)
+    os.makedirs(pool_dir, exist_ok=True)
+    deps = {}
+    for line in open(os.path.join(run_dir, "graph.txt")):
+        n, _, ds = line.partition(":")
+        deps[n.strip()] = set(ds.split())
+    logf = open(os.path.join(pool_dir, "pool.log"), "a")
+
+    def log(msg):
+        logf.write(msg + "\n")
+        logf.flush()
+
+    runner = DockerRunner(run_id, run_dir)
+    pool = RealPool(jobs, deps, duration, runner, standin=standin != "0", log=log,
+                    run_dir=pool_dir, durations=durations, durations_path=dpath)
+    signal.signal(signal.SIGTERM, lambda *_: (runner.stop(), sys.exit(143)))
+    log(f"pool {run_id}: {len(jobs)} targets, standin={standin}")
+    try:
+        result = pool.run()
+    finally:
+        pool.progress(force=True)
+    counts = {}
+    for v in result.values():
+        counts[v] = counts.get(v, 0) + 1
+    fin = [os.path.join(HERE, "kbuild-run"), "finish", run_id] + (["--publish"] if "--publish" in argv else [])
+    f = subprocess.run(fin, env=env, capture_output=True, text=True)
+    summary = (f"run {run_id}: " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())) + "\n"
+               + "\n".join(f"{n}\t{v}" for n, v in sorted(result.items()) if v != "built") + "\n"
+               + f"finish rc={f.returncode}\n" + f.stdout[-3000:] + f.stderr[-3000:])
+    open(os.path.join(pool_dir, "summary.txt"), "w").write(summary)
+    log(summary)
+    print(summary.splitlines()[0])
+    return 0 if f.returncode == 0 else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

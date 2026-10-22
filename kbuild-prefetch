@@ -1,0 +1,35 @@
+#!/bin/bash
+# kbuild-prefetch <list> [workers]: download and verify every source of the listed pkgbases into SRCDEST before a
+# wave, so builds never wait on (or fail at) the network. Runs on the host; it only downloads.
+# Each pkgbase gets 3 tries 60 s apart; logs in build/logs/prefetch/<pkgbase>.log, failures in failed.tsv
+# (pkgbase<TAB>last error line). The list takes one pkgbase per line, optionally `pkgbase<TAB>wave` (ship.list).
+set -uo pipefail
+
+HERE=$(cd "$(dirname "$0")" && pwd)
+# shellcheck source=kbuild-lib.sh
+source "$HERE/kbuild-lib.sh"
+list=${1:?usage: kbuild-prefetch <list> [workers]}
+workers=${2:-8}
+dir=$LOGS/prefetch
+mkdir -p "$dir" "$SOURCES" || exit 1
+: > "$dir/failed.tsv"
+
+paths=$(python3 "$HERE/kbuild-sched.py" path) || exit 1
+
+one() {
+  local pkg=$1 pkgdir=$2 log=$dir/$1.log try
+  for try in 1 2 3; do
+    if (cd "$pkgdir" && SRCDEST=$SOURCES makepkg --verifysource --skippgpcheck -f) >"$log" 2>&1; then
+      return 0
+    fi
+    [ "$try" = 3 ] || sleep 60
+  done
+  printf '%s\t%s\n' "$pkg" "$(grep -E 'ERROR|error|Failure' "$log" | tail -n 1 | cut -c1-200)" >> "$dir/failed.tsv"
+}
+export -f one
+export dir SOURCES
+
+cut -f1 "$list" | sed 's/#.*//; /^[[:space:]]*$/d' | sort -u \
+  | join -t $'\t' - <(printf '%s\n' "$paths" | sort -t $'\t' -k1,1) \
+  | xargs -P "$workers" -d '\n' -I{} bash -c 'IFS=$'"'"'\t'"'"' read -r p d <<<"$1"; one "$p" "$d"' _ {}
+echo "kbuild-prefetch: $(wc -l < "$dir/failed.tsv") failed (see $dir/failed.tsv)"

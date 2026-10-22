@@ -645,10 +645,23 @@ def _repo_capabilities(repo_path):
     return records
 
 
+def _standin_dbs():
+    """The filtered stand-in DBs build containers see (kbuild-standin), unless KBUILD_STANDIN=0."""
+    if os.environ.get("KBUILD_STANDIN", "1") == "0":
+        return []
+    here = os.path.dirname(os.path.realpath(__file__))
+    date = open(os.path.join(here, "conf/standin.date")).read().strip().replace("/", "-")
+    base = os.path.join(os.environ.get("KASHIRA_ROOT", "/mnt/kashira"), "cache/standin", date, "filtered")
+    return [os.path.join(base, r + ".db") for r in ("core", "extra", "multilib")]
+
+
 def preflight(u, graph, edges, targets, repo_path):
     selected = set(targets)
     policy = set(validate_policy(u, graph, edges, selected))
     repo = _repo_capabilities(repo_path)
+    for db in _standin_dbs():                           # a stand-in satisfies what we have not built yet
+        for name, caps in _repo_capabilities(db).items():
+            repo.setdefault(name, []).extend(caps)
     providers = _provider_map(u)
     for base in sorted(selected):
         for output_name, output in u[base]["outputs"].items():

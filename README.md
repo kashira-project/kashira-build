@@ -43,9 +43,10 @@ The direct driver is useful for focused work, but `wave` has publication-like
 side effects in the local repository. Do not use it as a substitute for a
 reviewed `kbuild-run --no-publish` candidate.
 
-Every build runs in a fresh container. The container sees only the local
-kashira repository through `conf/pacman-kbuild.conf`; missing dependencies are
-errors. The normal builder performs `-Syu`. The default image is the local,
+Every build runs in a fresh container. `kbuild-inside.sh` generates its
+pacman.conf: the local kashira repository first, then Arch snapshot stand-ins
+(`kbuild-standin`, frozen at `conf/standin.date`) for anything not built yet.
+`kbuild-pool` is the parallel runner; see kashira `kb/30-build.md`. The default image is the local,
 package-owned `kashira:base-devel-takeover-20261003` (built by
 `image/base-devel/build.sh` on 2026-10-03); it has not been published and is not
 a portable CI default.

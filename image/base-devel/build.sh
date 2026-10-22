@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo=${KIMG_REPO:-/mnt/kashira/repos/canonical}
+repo=${KIMG_REPO:-/mnt/kashira/repos/v3}
 output=${KIMG_OUT:-/mnt/kashira/scratch/kbimg}
-tag=${IMAGE_TAG:-kashira:base-devel-$(date +%Y%m%d)}
+tag=${IMAGE_TAG:-kashira:base-devel-v3-$(date +%Y%m%d)}
 [[ -f $repo/kashira.db.tar.gz ]] || { printf 'error: no repo DB at %s\n' "$repo" >&2; exit 1; }
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
@@ -31,12 +31,16 @@ EOF
     # pacstrap -K must generate the master key before kashira-keyring populates
     # trust. Package scripts now target $root explicitly (systemd.install no
     # longer calls `systemctl preset-all`), so host /run is never consulted.
-    if ! pacstrap -C "$work/bootstrap.conf" -K -M "$root" base base-devel 2>&1 | tee "$work/install.log"; then
+    # ccache and archlinux-keyring: kbuild's shared compiler cache, and signature checks for Arch stand-ins
+    # (archlinux-keyring's install script populates the keyring pacstrap -K initialized)
+    if ! pacstrap -C "$work/bootstrap.conf" -K -M "$root" base base-devel ccache archlinux-keyring 2>&1 | tee "$work/install.log"; then
         die "pacstrap failed; see $work/install.log"
     fi
     if grep -Eiq '(^|[[:space:]])(error:|failed to|failure:)|command failed to execute correctly|install scriptlet.*(fail|error)|hook.*(fail|error)' "$work/install.log"; then
         die "pacman reported an install-script or hook error; see $work/install.log"
     fi
+    printf 'en_US.UTF-8 UTF-8\nC.UTF-8 UTF-8\n' > "$root/etc/locale.gen"
+    chroot "$root" locale-gen >/dev/null || die 'locale-gen failed'
     printf '#include <stdio.h>\nint main(void) { puts("kashira-c-smoke"); }\n' |
         chroot "$root" /usr/bin/clang -x c -o /tmp/kashira-c-smoke - || die 'clang C smoke test failed'
     printf '#include <vector>\nint main(void) { std::vector<int> v{1, 2, 3}; return v.size() != 3; }\n' |
@@ -54,7 +58,7 @@ EOF
         [[ $(stat -c '%u:%g' -- "$root$path") == 0:0 ]] || die "wrong package-owned directory: $path"
     done < "$work/package-paths"
     [[ -s $root/etc/ssl/certs/ca-certificates.crt ]] || die 'CA bundle is empty or missing'
-    [[ -e $root/etc/resolv.conf ]] || die 'packaged resolv.conf is missing'
+    # /etc/resolv.conf is a tmpfiles symlink to systemd-resolved's stub (kashira-filesystem); docker mounts its own
     [[ -f $root/etc/pacman.conf ]] || die 'package-shipped pacman.conf is missing'
     [[ -s $root/usr/share/pacman/keyrings/kashira.gpg ]] || die 'kashira-keyring is missing'
     keydir=$root/etc/pacman.d/gnupg

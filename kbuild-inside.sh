@@ -2,6 +2,9 @@
 # kbuild container entrypoint. Runs as root; the build itself runs as builder.
 # Mounts: /pkg (ro, recipe) /sources (rw, SRCDEST cache) /out (rw, PKGDEST)
 #         /repo (ro, local kashira repo) /kbuild (ro, this repo)
+#         /ccache /cargo /gomod /npm (rw, shared compiler and package-manager caches)
+# Env: KBUILD_STANDIN (1: Arch snapshot stand-ins via the host's kbuild-standin proxy), KBUILD_STANDIN_DB
+#      (filtered|full), KBUILD_TIER (0 clang, 1 clang compat, 2 gcc), KBUILD_KNOBS (build.tune knobs, comma list)
 set -euo pipefail
 
 KBUILD_JOBS=${KBUILD_JOBS:-8}
@@ -15,18 +18,39 @@ esac
 export PACKAGER="kashira build service <repo@kashiraproject.org>"
 export LC_ALL=C.UTF-8
 # Arch's build chroots (devtools) generate en_US.UTF-8 and C.UTF-8; recipes rely on it (e.g. LC_ALL=en_US.UTF-8).
+# The image generates them; older images get them here.
 if ! locale -a 2>/dev/null | grep -qx 'en_US.utf8'; then
   printf 'en_US.UTF-8 UTF-8\nC.UTF-8 UTF-8\n' > /etc/locale.gen
   locale-gen >/dev/null
 fi
+KNOBS=",${KBUILD_KNOBS:-},"
+TIER=${KBUILD_TIER:-0}
+[[ "$TIER" =~ ^[012]$ ]] || { echo "invalid KBUILD_TIER: $TIER" >&2; exit 2; }
+[[ "$KNOBS" != *,gnu,* ]] || TIER=2
+
+# Our repo first; a dependency we have not built (or that failed) resolves to Arch's binary of the same
+# version from the frozen snapshot. The proxy's DB never lists controlled or ABI-fragile packages.
+PACMAN_CONF=/etc/kbuild-pacman.conf
+sig="Required DatabaseNever"
+pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyring image: TLS-only trust
+{
+  printf '[options]\nArchitecture = x86_64\nParallelDownloads = 8\nSigLevel = %s\nLocalFileSigLevel = Never\n' "$sig"
+  printf '[kashira]\nSigLevel = Never\nServer = file:///repo\n'
+  if [ "${KBUILD_STANDIN:-1}" != 0 ]; then
+    for r in core extra multilib; do
+      printf '[arch-%s]\nServer = http://kbuild-standin:7878/%s/%s\n' "$r" "${KBUILD_STANDIN_DB:-filtered}" "$r"
+    done
+  fi
+} > "$PACMAN_CONF"
+
 # merged-/usr: force libdir=lib for all cmake builds (see conf file).
 # CMAKE_PROJECT_INCLUDE has no env-var form in cmake, so install a wrapper
 # ahead of /usr/bin in PATH that injects it on configure runs.
 install -Dm755 /kbuild/conf/cmake-wrapper.sh /usr/local/bin/cmake
 
 for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
-# shellcheck disable=SC2015  # deliberate A&&B||C: -Sy only when asked, else -Syu
-[ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pacman --config /kbuild/conf/pacman-kbuild.conf -Sy --noconfirm || pacman --config /kbuild/conf/pacman-kbuild.conf -Syu --noconfirm
+# shellcheck disable=SC2015  # deliberate A&&B||C: refresh only (default), or -Syu when asked
+[ "${KBUILD_SKIP_UPGRADE:-1}" = 1 ] && pacman --config "$PACMAN_CONF" -Sy --noconfirm || pacman --config "$PACMAN_CONF" -Syu --noconfirm
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
@@ -43,18 +67,21 @@ if [ -n "${KBUILD_DEPS:-}" ]; then
   assume_args=()
   for p in ${KBUILD_ASSUME:-}; do assume_args+=(--assume-installed "$p"); done
   # shellcheck disable=SC2086
-  pacman --config /kbuild/conf/pacman-kbuild.conf "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
+  pacman --config "$PACMAN_CONF" "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
 fi
 if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages
 fi
+# provenance: every installed package we did not build (a stand-in); wave P rebuilds whatever these touched
+pacman -Qi | awk -F' *: ' -v us="$PACKAGER" '$1 == "Name" { n = $2 } $1 == "Version" { v = $2 }
+  $1 == "Packager" && $2 != us { print n, v }' > /out/.standins
 
 # our soname_provides drop-in wins over whatever libmakepkg-dropins version the deps installed
 # (copied, not bind-mounted: a mount makes the packaged file conflict on install)
 install -Dm644 /kbuild/conf/soname_provides.sh /usr/share/makepkg/autodep/soname_provides.sh
 # LLVM-first: base-devel has no gcc, yet many Arch recipes call `gcc`/`g++` by name. As on macOS, those names
 # run clang (the driver picks C/C++ mode from the name). A recipe that needs real GCC makedepends gcc, which wins.
-if [ ! -e /usr/bin/gcc ]; then
+if [ ! -e /usr/bin/gcc ] && [ "$TIER" -lt 2 ]; then
   ln -sf /usr/bin/clang /usr/local/bin/gcc
   ln -sf /usr/bin/clang++ /usr/local/bin/g++
 fi
@@ -70,12 +97,48 @@ fi
 mkdir -p "$BUILDDIR"
 cp -a /pkg/. "$BUILDDIR/"
 chown -R builder:builder "$BUILDDIR"
+for c in /ccache /cargo /gomod /npm; do [ ! -d "$c" ] || chown builder:builder "$c"; done
 
 TEMP_CONF=$(mktemp)
 trap 'rm -f "$TEMP_CONF"' EXIT
 cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
-printf 'MAKEFLAGS="-j%s"\n' "$KBUILD_JOBS" >>"$TEMP_CONF"
-[ "${KBUILD_TOOLCHAIN:-llvm}" != gnu ] || printf 'export CC=gcc CXX=g++ CPP="gcc -E"\n' >>"$TEMP_CONF"
+{
+  printf 'MAKEFLAGS="-j%s"\n' "$KBUILD_JOBS"
+  # shared caches: ccache (C/C++), the ThinLTO cache, cargo, go modules, npm
+  if command -v ccache >/dev/null && [ -d /ccache ]; then
+    printf 'export CCACHE_DIR=/ccache CCACHE_BASEDIR=%s CCACHE_MAXSIZE=150G\n' "$BUILDDIR"
+    printf 'export CCACHE_SLOPPINESS=locale,time_macros,include_file_mtime,include_file_ctime\n'
+  else
+    printf 'BUILDENV=("${BUILDENV[@]/#ccache/!ccache}")\n'
+  fi
+  [ ! -d /cargo ] || printf 'export CARGO_HOME=/cargo\n'
+  [ ! -d /gomod ] || printf 'export GOMODCACHE=/gomod\n'
+  [ ! -d /npm ] || printf 'export npm_config_cache=/npm\n'
+  [ "$TIER" = 2 ] || printf 'LDFLAGS+=" -Wl,--thinlto-jobs=%s"\n' "$KBUILD_JOBS"
+  [ "$TIER" = 2 ] || [ ! -d /ccache ] || printf 'LDFLAGS+=" -Wl,--thinlto-cache-dir=/ccache/thinlto -Wl,--thinlto-cache-policy=cache_size_bytes=30g"\n'
+  # tier 1: clang with old-C defaults and no -Werror or LTO; tier 2: gcc (in the deps) with GNU ld, as Arch builds
+  case $TIER in
+    1) printf 'CFLAGS+=" -std=gnu17 -fcommon -Wno-error -Qunused-arguments"\n'
+       printf 'CXXFLAGS+=" -Wno-error -Wno-register -Qunused-arguments"\n'
+       printf 'OPTIONS=("${OPTIONS[@]/#lto/!lto}")\n' ;;
+    2) printf 'export CC=gcc CXX=g++ CPP="gcc -E" AR=gcc-ar NM=gcc-nm RANLIB=gcc-ranlib\n'
+       printf 'CFLAGS=$(printf %%s "$CFLAGS" | sed -E "s/ -mtls-dialect=gnu2| -Wno-error=[a-z0-9-]+//g")\n'
+       printf 'CXXFLAGS=$(printf %%s "$CXXFLAGS" | sed -E "s/ -mtls-dialect=gnu2| -Wno-error=[a-z0-9-]+//g")\n'
+       printf 'LDFLAGS=${LDFLAGS/ -Wl,--icf=safe/}\nLTOFLAGS="-flto=auto"\nunset LD\n' ;;
+  esac
+  [[ "$KNOBS" != *,o3,* ]] || printf 'CFLAGS=${CFLAGS/-O2/-O3}\nCXXFLAGS=${CXXFLAGS/-O2/-O3}\n'
+  [[ "$KNOBS" != *,nolto,* ]] || printf 'OPTIONS=("${OPTIONS[@]/#lto/!lto}")\n'
+  [[ "$KNOBS" != *,nodebug,* ]] || printf 'OPTIONS=("${OPTIONS[@]/#debug/!debug}")\n'
+  if [[ "$KNOBS" == *,openssl3,* ]]; then  # build against the openssl-3 compat package
+    mkdir -p /opt/openssl3
+    for f in openssl libssl libcrypto; do ln -sf "/usr/lib/pkgconfig/${f}-3.pc" "/opt/openssl3/$f.pc"; done
+    ln -sf /usr/lib/libssl.so.3 /opt/openssl3/libssl.so
+    ln -sf /usr/lib/libcrypto.so.3 /opt/openssl3/libcrypto.so
+    printf 'export PKG_CONFIG_PATH=/opt/openssl3${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}\n'
+    printf 'CPPFLAGS="-I/usr/include/openssl-3 $CPPFLAGS"\nCFLAGS="-I/usr/include/openssl-3 $CFLAGS"\n'
+    printf 'CXXFLAGS="-I/usr/include/openssl-3 $CXXFLAGS"\nLDFLAGS+=" -L/opt/openssl3"\n'
+  fi
+} >>"$TEMP_CONF"
 chown builder:builder "$TEMP_CONF"
 
 su builder -c "cd $BUILDDIR && \

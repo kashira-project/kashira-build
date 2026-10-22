@@ -11,8 +11,9 @@
 #   KBUILD_LOGS    logs root           ($KASHIRA_ROOT/build/logs)
 KASHIRA_ROOT=${KASHIRA_ROOT:-/mnt/kashira}
 IMAGE=${KBUILD_IMAGE:-kashira:base-devel-takeover-20261003}
-REPO=${KBUILD_REPO:-$KASHIRA_ROOT/repos/candidate}
+REPO=${KBUILD_REPO:-$KASHIRA_ROOT/repos/v3}
 SOURCES=${KBUILD_SOURCES:-$KASHIRA_ROOT/cache/sources}
+KBUILD_CACHE=${KBUILD_CACHE:-$KASHIRA_ROOT/cache}
 OUT=${KBUILD_OUT:-$KASHIRA_ROOT/build/out}
 LOGS=${KBUILD_LOGS:-$KASHIRA_ROOT/build/logs}
 # capped so a heavy C++ build (abseil-cpp at -j16) OOMs inside its own cgroup, not the 30 GB host
@@ -86,7 +87,7 @@ pkg_deps() {
     esac
   done <<<"$info"
   local selfhost=0
-  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java8-openjdk java11-openjdk java17-openjdk java21-openjdk java25-openjdk maven} " != *" $base "* ]] || selfhost=1
+  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven} " != *" $base "* ]] || selfhost=1
   while IFS= read -r line; do
     [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]}
@@ -108,13 +109,13 @@ pkg_deps() {
       # gcc-runtime legitimately provides the libstdc++ headers and CRT objects
       # clang++ needs to build the compiler, so keep those when the repo has
       # them, unversioned so the version we are producing cannot leak in.
-      # Exception: self-hosted compilers (KBUILD_SELF_DEPS, default: rust git, the seeded ghc/java/maven; git builds from a git+https source) need their
+      # Exception: self-hosted compilers (KBUILD_SELF_DEPS, default: rust git ghc java maven, bootstrapped from Arch stand-ins; git builds from a git+https source) need their
       # own previous release installed as the stage0 toolchain.
       [ "$name" = "$base" ] && [ "$selfhost" = 0 ] && continue
       if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       elif [ "$selfhost" = 1 ]; then
-        expr=$name                      # not built yet: a seed (ghc-bootstrap, jdkN-bootstrap) provides it
+        expr=$name                      # not built yet: the Arch stand-in provides it
       else
         continue
       fi
@@ -267,6 +268,11 @@ repo_add() {
   ) 9>"$REPO/.kbuild.lock"
 }
 
+# tune_knobs <pkgbase>: the package's build.tune knobs (comma list), empty if none.
+tune_knobs() {
+  awk -F'\t' -v b="$1" '$1 == b { print $2; exit }' "${KBUILD_PKGS:-$HERE/../kashira-pkgs}/build.tune" 2>/dev/null
+}
+
 # build_one <pkgbase> <pkgdir> <outdir>: build one pkgbase in a fresh container.
 # Callers validate artifacts, record mixed-repo packages and repo-add.
 build_one() {
@@ -287,27 +293,38 @@ build_one() {
   # being replaced (e.g. systemd-sysvcompat=261.2-5 blocks installing systemd 262 while building its successor).
   local drop=""
   [ ! -f "$pkgdir/bootstrap.remove" ] || drop=$(sed 's/#.*//' "$pkgdir/bootstrap.remove" | tr -s ' \t\n' ' ')
-  # toolchain.gnu (kashira-pkgs): an unmodified Arch recipe whose code only GCC compiles; built with gcc, as Arch does.
-  # shortcut: listing a package does not change its build fingerprint, so kplan rebuilds it only on its next change.
-  local toolchain=llvm
-  if awk -F'\t' -v b="$pkgbase" '$1 == b { f = 1 } END { exit !f }' "${KBUILD_PKGS:-$HERE/../kashira-pkgs}/toolchain.gnu" 2>/dev/null; then
-    toolchain=gnu deps+="gcc "
-  fi
-  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; toolchain: $toolchain)"
+  # build.tune (kashira-pkgs): per-package knobs (gnu, o3, nolto, standin=full, ...); the pool passes them in
+  # KBUILD_KNOBS together with KBUILD_TIER (0 clang, 1 clang compat, 2 gcc), else they are read here.
+  local knobs=${KBUILD_KNOBS-$(tune_knobs "$pkgbase")} tier=${KBUILD_TIER:-0}
+  [[ ",$knobs," != *,gnu,* ]] || tier=2
+  [ "$tier" != 2 ] || deps+="gcc "
+  local standin_db=filtered
+  [[ ",$knobs," != *,standin=full,* ]] || standin_db=full
+  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; tier: $tier${knobs:+; knobs: $knobs})"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
+  local caches=() c
+  for c in ccache cargo gomod npm; do
+    mkdir -p "$KBUILD_CACHE/$c" && caches+=(-v "$KBUILD_CACHE/$c:/$c")
+  done
   sudo docker run --rm \
+    --name "kb-${RUN_ID:-manual}-${pkgbase//[^A-Za-z0-9_.-]/_}" \
+    --network kbuild \
+    "${caches[@]}" \
     "${mem[@]}" \
     --cpus "$KBUILD_CPUS" \
     ${KBUILD_CPUSET:+--cpuset-cpus "$KBUILD_CPUSET"} \
     -e KBUILD_DEPS="$deps" \
-    -e KBUILD_TOOLCHAIN="$toolchain" \
+    -e KBUILD_TIER="$tier" \
+    -e KBUILD_KNOBS="$knobs" \
+    -e KBUILD_STANDIN="${KBUILD_STANDIN:-1}" \
+    -e KBUILD_STANDIN_DB="$standin_db" \
     -e KBUILD_ASSUME="$assume" \
     -e KBUILD_REMOVE="$drop" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \
     -e KBUILD_OVERWRITE="${KBUILD_OVERWRITE:-}" \
-    -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-0}" \
+    -e KBUILD_SKIP_UPGRADE="${KBUILD_SKIP_UPGRADE:-1}" \
     -e KBUILD_KEEP_SRC="${KBUILD_KEEP_SRC:-}" \
     -e KBUILD_MAKEPKG_CONF="${KBUILD_MAKEPKG_CONF:-}" \
     -e KBUILD_JOBS="$KBUILD_JOBS" \

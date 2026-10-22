@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""Arch snapshot stand-ins for build containers.
+
+A build container lists our repo first and then [arch-core] [arch-extra] [arch-multilib] served by this proxy:
+a dependency we have not built yet (or that failed) installs as Arch's binary from the frozen snapshot in
+conf/standin.date. Stand-ins only ever live inside build containers; each build records the ones it used
+(build/logs/<pkgbase>.standins) and wave P rebuilds everything they touched without them.
+
+  kbuild-standin filter                 write filtered/ and full/ DBs from the raw snapshot DBs
+  kbuild-standin up                     (re)start the proxy container `kbuild-standin` on docker network `kbuild`
+  kbuild-standin serve [--port 7878]    serve /<filtered|full>/<repo>/<file>; packages are fetched once and cached
+  kbuild-standin provenance <pkgbase>.. the stand-ins each build used
+
+filtered/ drops every pkgname or provide of a controlled kashira-pkgs dir, kashira-*, and the ABI-fragile
+ecosystems (ghc*, haskell-*, ocaml*), which always build natively. full/ drops only the controlled names
+(knob standin=full: ghc and ocaml bootstrap from Arch's previous build of themselves).
+"""
+import http.server
+import io
+import os
+import re
+import shutil
+import sys
+import tarfile
+import threading
+import urllib.error
+import urllib.request
+
+HERE = os.path.dirname(os.path.realpath(__file__))
+PKGS = os.environ.get("KBUILD_PKGS") or os.path.join(HERE, "..", "kashira-pkgs")
+ROOT = os.environ.get("KASHIRA_ROOT", "/mnt/kashira")
+DATE = open(os.path.join(HERE, "conf/standin.date")).read().strip()
+BASE = os.path.join(ROOT, "cache/standin", DATE.replace("/", "-"))
+LOGS = os.environ.get("KBUILD_LOGS") or os.path.join(ROOT, "build/logs")
+ARCHIVE = "https://archive.archlinux.org/repos/" + DATE + "/{repo}/os/x86_64/{file}"
+REPOS = ("core", "extra", "multilib")
+FRAGILE = re.compile(r"^(ghc|haskell-|ocaml)")
+VER = re.compile(r"[<>=].*$")
+
+
+def controlled_names():
+    sys.path.insert(0, os.path.join(PKGS, "tools/ship"))
+    import derive  # noqa: E402  (kashira-pkgs: .SRCINFO of every git-tracked recipe dir)
+    names = set()
+    for base, c in derive.controlled().items():
+        names |= {base, *c["pkgnames"], *c["provides"]}
+    return names
+
+
+def desc_fields(text):
+    out, key = {}, None
+    for line in text.splitlines():
+        if line.startswith("%") and line.endswith("%"):
+            key = line.strip("%")
+            out[key] = []
+        elif line and key:
+            out[key].append(line)
+    return out
+
+
+def rewrite(src, dst, blocked):
+    """Copy the sync DB at src to dst without the entries `blocked(name, provides)` rejects; return the drop count."""
+    with tarfile.open(src) as tf:
+        members = tf.getmembers()
+        drop = set()
+        for m in members:
+            if m.name.endswith("/desc"):
+                f = desc_fields(tf.extractfile(m).read().decode())
+                if blocked(f["NAME"][0], [VER.sub("", p) for p in f.get("PROVIDES", [])]):
+                    drop.add(m.name.split("/")[0])
+        tmp = dst + ".tmp"
+        with tarfile.open(tmp, "w:gz") as out:
+            for m in members:
+                if m.name.split("/")[0] not in drop:
+                    out.addfile(m, tf.extractfile(m) if m.isfile() else None)
+    os.replace(tmp, dst)
+    return len(drop)
+
+
+def cmd_filter():
+    ctl = controlled_names()
+
+    def full(name, provides):
+        return name in ctl or name.startswith("kashira-") or any(p in ctl for p in provides)
+
+    def filtered(name, provides):
+        return full(name, provides) or bool(FRAGILE.match(name))
+
+    for kind, fn in (("filtered", filtered), ("full", full)):
+        os.makedirs(os.path.join(BASE, kind), exist_ok=True)
+        for r in REPOS:
+            n = rewrite(os.path.join(BASE, "raw", r + ".db"), os.path.join(BASE, kind, r + ".db"), fn)
+            print(f"{kind}/{r}.db: {n} entries dropped")
+    return 0
+
+
+_locks, _locks_guard = {}, threading.Lock()
+
+
+def fetch(repo, name):
+    """The cached package file, downloaded from the snapshot on first use."""
+    dest = os.path.join(BASE, "pkgs", name)
+    if os.path.exists(dest):
+        return dest
+    with _locks_guard:
+        lock = _locks.setdefault(name, threading.Lock())
+    with lock:
+        if not os.path.exists(dest):
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            tmp = dest + ".part"
+            with urllib.request.urlopen(ARCHIVE.format(repo=repo, file=name), timeout=300) as r, open(tmp, "wb") as f:
+                shutil.copyfileobj(r, f, 1 << 20)
+            os.replace(tmp, dest)
+    return dest
+
+
+class Handler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send(True)
+
+    def do_HEAD(self):
+        self.send(False)
+
+    def send(self, body):
+        parts = self.path.lstrip("/").split("/")
+        if len(parts) != 3 or parts[0] not in ("filtered", "full") or parts[1] not in REPOS or "/" in parts[2] or parts[2].startswith("."):
+            return self.send_error(404)
+        kind, repo, name = parts
+        try:
+            if name.endswith((".db", ".files")):  # pacman asks for arch-<repo>.db
+                if not name.endswith(".db"):
+                    return self.send_error(404)
+                path = os.path.join(BASE, kind, repo + ".db")
+            else:
+                path = fetch(repo, name)
+        except Exception as e:  # upstream 404/5xx: pacman tries the next server or fails the build as fail:deps
+            return self.send_error(502 if not isinstance(e, urllib.error.HTTPError) else e.code, str(e)[:100])
+        self.send_response(200)
+        self.send_header("Content-Length", str(os.path.getsize(path)))
+        self.end_headers()
+        if body:
+            with open(path, "rb") as f:
+                shutil.copyfileobj(f, self.wfile, 1 << 20)
+
+    def log_message(self, fmt, *args):
+        pass
+
+
+def cmd_serve(argv):
+    port = int(argv[argv.index("--port") + 1]) if "--port" in argv else 7878
+    # docker0 only: containers reach it as host.docker.internal (host-gateway); nothing else should
+    srv = http.server.ThreadingHTTPServer((os.environ.get("KBUILD_STANDIN_BIND", "172.17.0.1"), port), Handler)
+    print(f"kbuild-standin: serving {BASE} on :{port}", flush=True)
+    srv.serve_forever()
+
+
+def cmd_up():
+    """The proxy runs as a container on a private network: the host firewall need not admit docker0."""
+    import subprocess
+    image = os.environ.get("KBUILD_IMAGE") or subprocess.run(
+        ["bash", "-c", f'source "{HERE}/kbuild-lib.sh" >/dev/null 2>&1; printf %s "$IMAGE"'], capture_output=True, text=True).stdout
+    docker = ["sudo", "docker"]
+    if subprocess.run(docker + ["network", "inspect", "kbuild"], capture_output=True).returncode:
+        subprocess.run(docker + ["network", "create", "kbuild"], check=True, capture_output=True)
+    subprocess.run(docker + ["rm", "-f", "kbuild-standin"], capture_output=True)
+    subprocess.run(docker + ["run", "-d", "--name", "kbuild-standin", "--network", "kbuild", "--restart", "unless-stopped",
+                             "-e", "KASHIRA_ROOT=" + ROOT, "-e", "KBUILD_STANDIN_BIND=0.0.0.0",
+                             "-v", HERE + ":/kbuild:ro", "-v", BASE + ":" + BASE, image,
+                             "python3", "/kbuild/kbuild-standin", "serve"], check=True, capture_output=True)
+    print(f"kbuild-standin: up ({image}, {BASE})")
+    return 0
+
+
+def cmd_provenance(names):
+    for n in names:
+        p = os.path.join(LOGS, n + ".standins")
+        lines = open(p).read().split("\n") if os.path.exists(p) else []
+        print(f"{n}: {' '.join(l.split()[0] for l in lines if l.strip()) or '-'}")
+    return 0
+
+
+def main(argv):
+    if argv[:1] == ["filter"]:
+        return cmd_filter()
+    if argv[:1] == ["up"]:
+        return cmd_up()
+    if argv[:1] == ["serve"]:
+        return cmd_serve(argv[1:])
+    if argv[:1] == ["provenance"] and argv[1:]:
+        return cmd_provenance(argv[1:])
+    print(__doc__, file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
