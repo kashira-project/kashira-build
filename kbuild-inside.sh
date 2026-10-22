@@ -122,17 +122,15 @@ cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
   [ ! -d /cargo ] || printf 'export CARGO_HOME=/cargo\n'
   [ ! -d /gomod ] || printf 'export GOMODCACHE=/gomod\n'
   [ ! -d /npm ] || printf 'export npm_config_cache=/npm\n'
-  [ "$TIER" = 2 ] || printf 'LDFLAGS+=" -Wl,--thinlto-jobs=%s"\n' "$KBUILD_JOBS"
-  [ "$TIER" = 2 ] || [ ! -d /ccache ] || printf 'LDFLAGS+=" -Wl,--thinlto-cache-dir=/ccache/thinlto -Wl,--thinlto-cache-policy=cache_size_bytes=30g"\n'
+  # lld-only ThinLTO knobs ride the clang driver hook (gcc recipes link with GNU ld)
+  printf 'CCC_OVERRIDE_OPTIONS+=" +-Wl,--thinlto-jobs=%s"\n' "$KBUILD_JOBS"
+  [ ! -d /ccache ] || printf 'CCC_OVERRIDE_OPTIONS+=" +-Wl,--thinlto-cache-dir=/ccache/thinlto +-Wl,--thinlto-cache-policy=cache_size_bytes=30g"\n'
   # tier 1: clang with old-C defaults and no -Werror or LTO; tier 2: gcc (in the deps) with GNU ld, as Arch builds
   case $TIER in
-    1) printf 'CFLAGS+=" -std=gnu17 -fcommon -Wno-error -Qunused-arguments"\n'
-       printf 'CXXFLAGS+=" -Wno-error -Wno-register -Qunused-arguments"\n'
+    1) printf 'CFLAGS+=" -std=gnu17 -fcommon -Wno-error"\nCXXFLAGS+=" -Wno-error -Wno-register"\n'
        printf 'OPTIONS=("${OPTIONS[@]/#lto/!lto}")\n' ;;
     2) printf 'export CC=gcc CXX=g++ CPP="gcc -E" AR=gcc-ar NM=gcc-nm RANLIB=gcc-ranlib\n'
-       printf 'CFLAGS=$(printf %%s "$CFLAGS" | sed -E "s/ -mtls-dialect=gnu2| -Wno-error=[a-z0-9-]+//g")\n'
-       printf 'CXXFLAGS=$(printf %%s "$CXXFLAGS" | sed -E "s/ -mtls-dialect=gnu2| -Wno-error=[a-z0-9-]+//g")\n'
-       printf 'LDFLAGS=${LDFLAGS/ -Wl,--icf=safe/}\nLTOFLAGS="-flto=auto"\nunset LD\n' ;;
+       printf 'LTOFLAGS="-flto=auto"\nunset LD CCC_OVERRIDE_OPTIONS\n' ;;
   esac
   [[ "$KNOBS" != *,o3,* ]] || printf 'CFLAGS=${CFLAGS/-O2/-O3}\nCXXFLAGS=${CXXFLAGS/-O2/-O3}\n'
   [[ "$KNOBS" != *,nolto,* ]] || printf 'OPTIONS=("${OPTIONS[@]/#lto/!lto}")\n'
