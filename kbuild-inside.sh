@@ -134,6 +134,9 @@ trap 'rm -f "$TEMP_CONF"' EXIT
 cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
 {
   printf 'MAKEFLAGS="-j%s"\n' "$KBUILD_JOBS"
+  # CMake 4 rejects cmake_minimum_required(VERSION < 3.5) ("Compatibility with CMake < 3.5 has been removed",
+  # libreplaygain); its documented escape hatch, as an environment variable for every legacy project
+  printf 'export CMAKE_POLICY_VERSION_MINIMUM=3.5\n'
   # shared caches: ccache (C/C++), the ThinLTO cache, cargo, go modules, npm
   if command -v ccache >/dev/null && [ -d /ccache ]; then
     printf 'export CCACHE_DIR=/ccache CCACHE_BASEDIR=%s CCACHE_MAXSIZE=150G\n' "$BUILDDIR"
