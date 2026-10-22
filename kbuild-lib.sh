@@ -187,6 +187,11 @@ artifact_list() {
     arch=$(awk -F ' = ' '$1 == "arch" { print $2; exit }' <<<"$info")
     key="$name|$base|$version|$arch"
     [ "${f##*/}" = "$name-$version-$arch.pkg.tar.zst" ] || { rm -f "$expected_file" "$actual_file"; echo "unexpected archive filename: $f" >&2; return 1; }
+    # makepkg's debug split (OPTIONS debug): optional, one per pkgbase, published to x86_64-v3-debug
+    if [ "$name" = "$pkgbase-debug" ] && [ "$base" = "$pkgbase" ]; then
+      printf '%s\n' "$f" >>"$actual_file"
+      continue
+    fi
     [ -n "${expected[$key]+set}" ] || { rm -f "$expected_file" "$actual_file"; echo "unexpected or stale archive: $f" >&2; return 1; }
     [ -z "${actual[$key]+set}" ] || { rm -f "$expected_file" "$actual_file"; echo "duplicate output archive: $key" >&2; return 1; }
     actual[$key]=1

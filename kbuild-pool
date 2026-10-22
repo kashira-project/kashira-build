@@ -47,6 +47,7 @@ WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 UNKNOWN_DURATION = 60
 
 FAIL = [  # (kind, regex) checked in order on the log tail
+    ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
     ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
     ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|could not satisfy dependencies")),
     ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
@@ -54,7 +55,7 @@ FAIL = [  # (kind, regex) checked in order on the log tail
 
 
 def classify(rc, tail):
-    """source | deps | oom | build for a failed attempt (rc != 0)."""
+    """post | source | deps | oom | build for a failed attempt (rc != 0)."""
     if rc in (137, -9):
         return "oom"
     for kind, rx in FAIL:
@@ -271,8 +272,10 @@ class DockerRunner:
         env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus)),
                    KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
                    KBUILD_TIER=str(job.tier), KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
+        out = open(os.path.join(self.run_dir, job.name + ".one.log"), "a")  # kbuild-run's own errors (artifact checks, repo-add)
         p = subprocess.Popen([os.path.join(HERE, "kbuild-run"), "one", self.run_id, job.name], env=env,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+                             stdout=out, stderr=subprocess.STDOUT, start_new_session=True)
+        out.close()
         self.procs[job.name] = (p, job, time.time(), hours * 3600)
 
     def tail(self, job, n=200):
@@ -287,6 +290,11 @@ class DockerRunner:
         keep = os.path.join(self.run_dir, f"{job.name}.tier{job.tier}.log")
         try:
             os.replace(path, keep)
+        except OSError:
+            pass
+        try:
+            with open(os.path.join(self.run_dir, job.name + ".one.log"), errors="replace") as f:
+                data += "\n" + f.read()[-4000:]
         except OSError:
             pass
         return "\n".join(data.splitlines()[-n:])
