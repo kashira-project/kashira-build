@@ -12,10 +12,9 @@ with kbuild-sched's feedback-edge ordering. Ready targets start by wave, then cr
 while CPU and memory budgets allow; a heavy target at the head of the queue reserves the machine until it fits.
 
 Each class requests CPUs (a disjoint --cpuset-cpus range, so nproc follows), memory and a timeout:
-small 2/4G/2h, medium 4/8G/4h, large 8/14G/8h, heavy 8/14G/20h (swap 40G; two fit side by side). Failures climb a ladder:
-oom -> once one class up; compile errors -> tier 1 (clang compat) -> tier 2 (gcc) -> fail:build;
-source and deps failures are final. Results: build/logs/pool/<run>/status.tsv, pool.log, summary.txt,
-and build/logs/tiers.tsv for every success above tier 0.
+small 1/4G/2h, medium 4/8G/4h, large 8/14G/8h, heavy 8/14G/20h (swap 40G; two fit side by side). Retries:
+oom -> once one class up; a compile error is final (fail:build: the fix goes into the PKGBUILD);
+source and deps failures are final. Results: build/logs/pool/<run>/status.tsv, pool.log, summary.txt.
 """
 import fcntl
 import importlib.util
@@ -123,7 +122,7 @@ def critical_path(deps, duration):
 class Job:
     def __init__(self, name, cls, wave, knobs):
         self.name, self.cls, self.wave, self.knobs = name, cls, wave, knobs
-        self.tier = 2 if "gnu" in knobs else 1 if "compat" in knobs else 0
+        self.tier = 0            # kept for status.tsv; toolchain and flags come from the PKGBUILD only
         self.oom_retried = False
         self.transient_retries = 0
         self.tier0_error = ""
@@ -275,9 +274,6 @@ class Pool:
         elif kind == "transient" and job.transient_retries < 2:
             job.transient_retries += 1
             retry = f"tier {job.tier} again"
-        elif kind == "build" and job.tier < 2:
-            job.tier += 1
-            retry = f"tier {job.tier}"
         if retry:
             self.log(f"retry {job.name}: {kind} -> {retry}")
             self.history.append(("retry", job.name, job.cls, job.tier, 0))
@@ -294,7 +290,7 @@ class Pool:
         pass
 
     def requeue(self, names, tune):
-        """Build failed targets again (a fix landed): fresh tier ladder, knobs from the current build.tune."""
+        """Build failed targets again (a fix landed), with the current build.tune resource hints."""
         for n in names:
             if not self.finished.get(n, "built").startswith("fail:"):
                 continue
@@ -389,7 +385,7 @@ class DockerRunner:
         swap = max(40, mem) if job.cls == "heavy" else mem + mem // 2
         env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus)),
                    KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
-                   KBUILD_TIER=str(job.tier), KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
+                   KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
         out = open(os.path.join(self.run_dir, job.name + ".one.log"), "a")  # kbuild-run's own errors (artifact checks, repo-add)
         p = subprocess.Popen([os.path.join(HERE, "kbuild-run"), "one", self.run_id, job.name], env=env,
                              stdout=out, stderr=subprocess.STDOUT, start_new_session=True)
@@ -513,9 +509,6 @@ class RealPool(Pool):
         self.status.write(f"{job.name}\tbuilt\t{job.tier}\t{job.cls}\t{int(seconds)}\n")
         self.status.flush()
         self.durations[job.name] = max(int(seconds), 1)
-        if job.tier > 0:
-            with open(os.path.join(LOGS, "tiers.tsv"), "a") as f:
-                f.write(f"{job.name}\t{job.tier}\t{job.tier0_error}\n")
         self.progress()
 
     def poll_requeue(self):

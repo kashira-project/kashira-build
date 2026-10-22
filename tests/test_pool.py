@@ -66,21 +66,11 @@ class PoolTest(unittest.TestCase):
         pool, _ = make([("a", "small", []), ("b", "small", [])], deps={"b": {"a"}}, outcome=fail, standin=False)
         self.assertEqual(pool.run(), {"a": "fail:deps", "b": "fail:dep"})
 
-    def test_tier_ladder(self):
-        tiers = []
-
-        def outcome(j):
-            tiers.append(j.tier)
-            return (0, "") if j.tier == 2 else (1, "foo.c:1: error: bad")
-
-        pool, _ = make([("a", "small", [])], outcome=outcome)
-        self.assertEqual(pool.run(), {"a": "built"})
-        self.assertEqual(tiers, [0, 1, 2])
-        self.assertEqual(pool.jobs["a"].tier0_error, "foo.c:1: error: bad")
-
-    def test_build_fails_after_gcc(self):
-        pool, _ = make([("a", "small", [])], outcome=lambda j: (1, "error: x"))
+    def test_build_failure_is_final(self):
+        tries = []
+        pool, _ = make([("a", "small", [])], outcome=lambda j: (tries.append(j.tier), (1, "error: x"))[1])
         self.assertEqual(pool.run(), {"a": "fail:build"})
+        self.assertEqual(tries, [0])
 
     def test_oom_escalates_one_class(self):
         seen = []

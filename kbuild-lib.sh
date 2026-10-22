@@ -10,7 +10,7 @@
 #   KBUILD_OUT     artifacts root      ($KASHIRA_ROOT/build/out)
 #   KBUILD_LOGS    logs root           ($KASHIRA_ROOT/build/logs)
 KASHIRA_ROOT=${KASHIRA_ROOT:-/mnt/kashira}
-IMAGE=${KBUILD_IMAGE:-kashira:base-devel-v3-20261022}
+IMAGE=${KBUILD_IMAGE:-kashira:base-devel-v3-20261023}
 REPO=${KBUILD_REPO:-$KASHIRA_ROOT/repos/v3}
 SOURCES=${KBUILD_SOURCES:-$KASHIRA_ROOT/cache/sources}
 KBUILD_CACHE=${KBUILD_CACHE:-$KASHIRA_ROOT/cache}
@@ -298,19 +298,14 @@ build_one() {
   # being replaced (e.g. systemd-sysvcompat=261.2-5 blocks installing systemd 262 while building its successor).
   local drop=""
   [ ! -f "$pkgdir/bootstrap.remove" ] || drop=$(sed 's/#.*//' "$pkgdir/bootstrap.remove" | tr -s ' \t\n' ' ')
-  # build.tune (kashira-pkgs): per-package knobs (gnu, o3, nolto, standin=full, ...); the pool passes them in
-  # KBUILD_KNOBS together with KBUILD_TIER (0 clang, 1 clang compat, 2 gcc), else they are read here.
-  local knobs=${KBUILD_KNOBS-$(tune_knobs "$pkgbase")} tier=${KBUILD_TIER:-0}
-  [[ ",$knobs," != *,gnu,* ]] || tier=2
-  [ "$tier" != 2 ] || deps+="gcc gnu-binutils-tools "   # gcc-ar/libtool pass --plugin, which llvm-ar/ranlib reject
+  # build.tune (kashira-pkgs) holds pool resource hints and the stand-in DB choice only; toolchain and flags
+  # come from makepkg.conf and the PKGBUILD
+  local knobs=${KBUILD_KNOBS-$(tune_knobs "$pkgbase")}
   local standin_db=filtered
   [[ ",$knobs," != *,standin=full,* ]] || standin_db=full
-  # Arch's multilib gcc carries the 32-bit crtbegin.o and libgcc; ours splits them into lib32-gcc-runtime, which
-  # Arch's lib32-* recipes do not list (lib32-libnghttp3: "fatal error: 'cstring' file not found")
-  [[ "$pkgbase" != lib32-* ]] || [ "$pkgbase" = lib32-gcc-runtime ] || deps+="lib32-gcc-runtime "
   # Arch stand-ins link libssl.so.3 (ours is openssl 4): ruby-rdoc: "libssl.so.3: cannot open shared object file"
   [ "${KBUILD_STANDIN:-1}" = 0 ] || [ "$pkgbase" = openssl-3 ] || deps+="openssl-3 "
-  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; tier: $tier${knobs:+; knobs: $knobs})"
+  echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}${knobs:+; tune: $knobs})"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
@@ -330,8 +325,6 @@ build_one() {
     --cpus "$KBUILD_CPUS" \
     ${KBUILD_CPUSET:+--cpuset-cpus "$KBUILD_CPUSET"} \
     -e KBUILD_DEPS="$deps" \
-    -e KBUILD_TIER="$tier" \
-    -e KBUILD_KNOBS="$knobs" \
     -e KBUILD_STANDIN="${KBUILD_STANDIN:-1}" \
     -e KBUILD_STANDIN_DB="$standin_db" \
     -e KBUILD_STANDIN_HOST="${standin_host:-kbuild-standin}" \
