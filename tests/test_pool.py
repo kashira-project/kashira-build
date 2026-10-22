@@ -104,6 +104,12 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(pool.run(), {"h": "built"})
         self.assertEqual(mems, [14, 26])
 
+    def test_lone_job_takes_machine(self):
+        # b waits on a: a starts alone and gets every CPU; b is alone too once a is done
+        pool, _ = make([("a", "heavy", []), ("b", "small", [])], deps={"b": {"a"}})
+        pool.run()
+        self.assertEqual([c for ev, n, cls, t, c in pool.history if ev == "start"], [kp.CPU_BUDGET] * 2)
+
     def test_critical_path_first(self):
         # c heads a chain c -> x -> y; b is alone: c starts first though b sorts first by name
         specs = [("b", "small", []), ("c", "small", []), ("x", "small", []), ("y", "small", [])]

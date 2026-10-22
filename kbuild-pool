@@ -119,6 +119,7 @@ class Job:
         self.oom_retried = False
         self.tier0_error = ""
         self.cpus = []
+        self.mem = 0             # granted at admit: the class memory, or the whole budget when alone
 
     def spec(self):
         cpus, mem, hours = SPEC[self.cls]
@@ -174,8 +175,12 @@ class Pool:
                     break        # reserve the machine for the heavy head of the queue
                 continue
             cpus, mem, _ = job.spec()
+            if not self.running and len(self.ready()) == 1:
+                # alone with nothing else ready (a chain like glibc -> gcc -> llvm): take the whole machine
+                cpus, mem = CPU_BUDGET, max(mem, MEM_BUDGET)
             job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
             self.free_cpus = self.free_cpus[len(job.cpus):]
+            job.mem = mem
             self.mem_used += mem
             self.pending.discard(n)
             self.running[n] = job
@@ -184,7 +189,7 @@ class Pool:
 
     def release(self, job):
         self.free_cpus = sorted(self.free_cpus + job.cpus)
-        self.mem_used -= job.spec()[1]
+        self.mem_used -= job.mem
         job.cpus = []
         del self.running[job.name]
 
@@ -269,8 +274,9 @@ class DockerRunner:
         return "kb-" + self.run_id + "-" + re.sub(r"[^A-Za-z0-9_.-]", "_", job.name)
 
     def start(self, job):
-        cpus, mem, hours = job.spec()
-        swap = 40 if job.cls == "heavy" else mem + mem // 2
+        _, _, hours = job.spec()
+        mem = job.mem
+        swap = max(40, mem) if job.cls == "heavy" else mem + mem // 2
         env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus)),
                    KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
                    KBUILD_TIER=str(job.tier), KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
