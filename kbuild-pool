@@ -54,6 +54,8 @@ FAIL = [  # (kind, regex) checked in order on the log tail
     ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
 ]
 
+PACMAN_FAIL = re.compile(r"failed to commit transaction|could not satisfy dependencies")
+
 
 def classify(rc, tail):
     """post | source | deps | oom | build for a failed attempt (rc != 0)."""
@@ -297,7 +299,10 @@ class DockerRunner:
                 data += "\n" + f.read()[-4000:]
         except OSError:
             pass
-        return "\n".join(data.splitlines()[-n:])
+        lines = data.splitlines()
+        # pacman lists every conflicting file after its error line: keep that line however long the list is
+        early = [l for l in lines[:-n] if PACMAN_FAIL.search(l)]
+        return "\n".join(early + lines[-n:])
 
     def kill(self, job):
         subprocess.run(["sudo", "docker", "kill", self.container(job)], capture_output=True)
