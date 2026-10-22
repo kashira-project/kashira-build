@@ -92,9 +92,18 @@ pacman -Qi | awk -F' *: ' -v us="$PACKAGER" '$1 == "Name" { n = $2 } $1 == "Vers
 install -Dm644 /kbuild/conf/soname_provides.sh /usr/share/makepkg/autodep/soname_provides.sh
 # LLVM-first: base-devel has no gcc, yet many Arch recipes call `gcc`/`g++` by name. As on macOS, those names
 # run clang (the driver picks C/C++ mode from the name). A recipe that needs real GCC makedepends gcc, which wins.
+# Wrappers, not symlinks: clang hands languages it lacks (Ada, Fortran) back to `gcc` from PATH, which would be
+# this shim again (a fork bomb in binutils' configure). Those fail fast instead, like a gcc without that frontend.
 if [ ! -e /usr/bin/gcc ] && [ "$TIER" -lt 2 ]; then
-  ln -sf /usr/bin/clang /usr/local/bin/gcc
-  ln -sf /usr/bin/clang++ /usr/local/bin/g++
+  for n in gcc:clang g++:clang++; do
+    {
+      printf '#!/bin/sh\n'
+      printf '[ -z "$KBUILD_GCC_SHIM" ] || { echo "%s (clang shim): language not supported" >&2; exit 1; }\n' "${n%%:*}"
+      printf 'for a; do case $a in ada|f77|f95|fortran|go|d|*.adb|*.ads|*.f|*.f90|*.f95) echo "%s (clang shim): no $a frontend" >&2; exit 1 ;; esac; done\n' "${n%%:*}"
+      printf 'KBUILD_GCC_SHIM=1 exec /usr/bin/%s "$@"\n' "${n#*:}"
+    } > "/usr/local/bin/${n%%:*}"
+    chmod 755 "/usr/local/bin/${n%%:*}"
+  done
 fi
 
 id builder &>/dev/null || useradd -m builder
