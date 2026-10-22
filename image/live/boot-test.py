@@ -3,12 +3,15 @@
 
   image/live/boot-test.py <iso> <outdir> [--wait-graphical SECONDS]
                           [--secureboot VARS.fd] [--screenshot-after SECONDS] [--media usb]
+                          [--install-repo REPO_DIR]
 
 --secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
 variable store. --screenshot-after only takes a screenshot after SECONDS and
 exits (for boots that stop before a login prompt, e.g. MokManager).
 --media usb attaches the ISO as a USB stick instead of a CD-ROM, like a flashed
 drive (archiso then copies the root image to RAM).
+--install-repo adds a blank 16 GiB virtio disk and a final `install` probe: a standard Arch install
+(sgdisk, mkfs, pacstrap base linux, genfstab, bootctl install) from REPO_DIR served over QEMU user-net.
 
 Logs in as root on ttyS0 (live media only: root has no password), runs the
 probe commands below (including a suspend, QMP wake and lock check), saves their output
@@ -52,6 +55,19 @@ PROBES = [
      "loginctl show-session $s -p LockedHint -p State; done; runuser -u kashira -- env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kashira)/bus gdbus call --session "
      "--dest org.gnome.ScreenSaver --object-path /org/gnome/ScreenSaver --method org.gnome.ScreenSaver.GetActive"),
 ]
+# --install-repo DIR: a standard Arch install onto a blank virtio disk from DIR (served to the guest at
+# 10.0.2.2:8079): partition, mkfs, pacstrap base linux, genfstab, bootctl install, pacman inside the chroot
+INSTALL = ("install",
+           "sgdisk -Z /dev/vda >/dev/null && sgdisk -n1:0:+512M -t1:ef00 -n2:0:0 -t2:8304 /dev/vda >/dev/null && "
+           "mkfs.fat -F32 /dev/vda1 >/dev/null && mkfs.ext4 -q /dev/vda2 && mount /dev/vda2 /mnt && "
+           "mount --mkdir /dev/vda1 /mnt/boot && "
+           "printf '[options]\\nArchitecture = x86_64\\nSigLevel = Never\\n[kashira]\\nServer = http://10.0.2.2:8079\\n' > /tmp/inst.conf && "
+           "pacstrap -C /tmp/inst.conf -K /mnt base linux > /tmp/pacstrap.log 2>&1 && echo PACSTRAP_OK; "
+           "tail -n 3 /tmp/pacstrap.log; genfstab -U /mnt >> /mnt/etc/fstab; "
+           "arch-chroot /mnt bootctl install > /tmp/bootctl.log 2>&1; "
+           "test -f /mnt/boot/EFI/systemd/systemd-bootx64.efi && echo BOOTCTL_OK; "
+           "arch-chroot /mnt pacman -Q pacman && echo CHROOT_OK")
+INSTALL_TIMEOUT = 1800
 # probe name -> substring that must appear in its output
 REQUIRED = {
     "gdm": "active",
@@ -113,6 +129,18 @@ def main():
     wait_graphical = int(opts.get("--wait-graphical", 0))
     sb_vars = opts.get("--secureboot")
     shot_after = opts.get("--screenshot-after")
+    install_repo = opts.get("--install-repo")
+    probes, disk, server = list(PROBES), [], None
+    if install_repo:
+        probes.append(INSTALL)
+        for needle in ("PACSTRAP_OK", "BOOTCTL_OK", "CHROOT_OK"):
+            REQUIRED[f"install:{needle}"] = needle
+        os.makedirs(out, exist_ok=True)
+        img = os.path.join(out, "disk.qcow2")
+        subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "16G"], check=True)
+        disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+        server = subprocess.Popen([sys.executable, "-m", "http.server", "8079", "--bind", "127.0.0.1",
+                                   "--directory", install_repo], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     media = ["-drive", f"if=none,id=stick,format=raw,readonly=on,file={iso}",
              "-device", "qemu-xhci", "-device", "usb-storage,drive=stick,removable=on"] \
         if opts.get("--media") == "usb" else ["-cdrom", iso]
@@ -132,7 +160,7 @@ def main():
         "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
         "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
         "-drive", f"if=pflash,format=raw,file={vars_fd}",
-        *media, "-vga", "std", "-display", "none",
+        *media, *disk, "-vga", "std", "-display", "none",
         "-nic", "user,model=virtio-net-pci",
         "-audiodev", "none,id=snd0", "-device", "intel-hda", "-device", "hda-output,audiodev=snd0",
         "-serial", f"unix:{ser},server,nowait", "-qmp", f"unix:{mon},server,nowait",
@@ -159,7 +187,7 @@ def main():
         time.sleep(wait_graphical)
         qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-1.ppm")}})
         results = {}
-        for i, (name, cmd) in enumerate(PROBES):
+        for i, (name, cmd) in enumerate(probes):
             marker = f"@@END{i}@@"
             con.buf = b""
             # printf keeps the literal markers out of the terminal's echo of this line
@@ -169,7 +197,7 @@ def main():
                 qmp(mon, {"execute": "system_wakeup"})
             if name == "resume-unlocked":
                 qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-resume.ppm")}})
-            con.read_until(marker + "\r\n", 120) or con.read_until(marker, 5)
+            con.read_until(marker + "\r\n", INSTALL_TIMEOUT if name == "install" else 120) or con.read_until(marker, 5)
             text = con.buf.decode(errors="replace")
             body = text.split(f"@@BEGIN{i}@@", 2)[-1].split(marker)[0].strip()
             results[name] = body
@@ -179,10 +207,12 @@ def main():
         with open(os.path.join(out, "probes.txt"), "w") as f:
             for name, body in results.items():
                 f.write(f"== {name}\n{body}\n")
-        failed = [n for n, needle in REQUIRED.items() if needle not in results.get(n, "")]
+        failed = [n for n, needle in REQUIRED.items() if needle not in results.get(n.split(":")[0], "")]
         print("accel:", accel[0], "| failed required probes:", failed or "none")
         return 1 if failed else 0
     finally:
+        if server:
+            server.kill()
         qemu.terminate()
         try:
             qemu.wait(30)
