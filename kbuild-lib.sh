@@ -305,6 +305,8 @@ build_one() {
   [ "$tier" != 2 ] || deps+="gcc gnu-binutils-tools "   # gcc-ar/libtool pass --plugin, which llvm-ar/ranlib reject
   local standin_db=filtered
   [[ ",$knobs," != *,standin=full,* ]] || standin_db=full
+  # Arch stand-ins link libssl.so.3 (ours is openssl 4): ruby-rdoc: "libssl.so.3: cannot open shared object file"
+  [ "${KBUILD_STANDIN:-1}" = 0 ] || [ "$pkgbase" = openssl-3 ] || deps+="openssl-3 "
   echo "== build $pkgbase (deps: ${deps:-none}${assume:+; assume: $assume}${drop:+; remove: $drop}; tier: $tier${knobs:+; knobs: $knobs})"
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
