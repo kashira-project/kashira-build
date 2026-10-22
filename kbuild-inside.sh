@@ -59,7 +59,7 @@ pac() {
 
 for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noconfirm "$p"; done
 # shellcheck disable=SC2015  # deliberate A&&B||C: -Syu (default: installed packages must match the repo, e.g. lib32-glibc with glibc), or refresh only
-[ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pac -Sy --noconfirm || pac -Syu --noconfirm
+[ "${KBUILD_SKIP_UPGRADE:-0}" = 1 ] && pac -Sy --noconfirm || pac -Syu --noconfirm --ask=4
 
 # Deps come from the host (parsed via makepkg --printsrcinfo). Install ONLY
 # from our repo: a failure here means a missing package in the distro.
@@ -69,7 +69,9 @@ for p in ${KBUILD_REMOVE:-}; do pacman -Q "$p" &>/dev/null && pacman -Rdd --noco
 # that genuinely need gcc declare it in makedepends, and that dep now decides.
 # Overwrite stays scoped to KBUILD_OVERWRITE for packages whose recipe
 # legitimately replaces a file (see note in the repo README).
-pacman_args=(-S --needed --noconfirm)
+# --ask=4: answer "remove the installed package?" with yes when a dep conflicts with an image package
+# (the image's compat-only zlib-ng vs zlib-ng-compat); --noconfirm alone answers no and fails
+pacman_args=(-S --needed --noconfirm --ask=4)
 [ -n "${KBUILD_OVERWRITE:-}" ] && pacman_args+=(--overwrite "$KBUILD_OVERWRITE")
 if [ -n "${KBUILD_DEPS:-}" ]; then
   # shellcheck disable=SC2086  # KBUILD_DEPS is a space-separated dep list

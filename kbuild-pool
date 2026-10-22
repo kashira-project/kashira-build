@@ -67,7 +67,7 @@ def classify(rc, tail):
 
 def first_error(tail):
     for line in tail.splitlines():
-        if re.search(r"\berror:", line):
+        if re.search(r"\berror:", line) and "resolv.conf" not in line:  # docker-mounted resolv.conf: harmless
             return line.strip()[:300]
     return ""
 
