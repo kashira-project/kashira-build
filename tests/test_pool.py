@@ -105,11 +105,11 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(mems, [14, 26])
 
     def test_backfill_before_heavy(self):
-        # after r: 4 CPUs free until 100 (m, q end); h (heavy, 8) waits for them, short s backfills, long l does not
+        # after r: 4 CPUs free until m ends at 100; h (heavy, 8) waits, short s backfills, long l (8) exceeds the spare 4
         after_r = {"h": {"r"}, "s": {"r"}, "l": {"r"}}
         pool, _ = make([("m", "large", []), ("q", "medium", []), ("r", "medium", []), ("h", "heavy", []),
-                        ("s", "small", []), ("l", "small", [])], deps=after_r,
-                       durations={"m": 100, "q": 100, "r": 5, "h": 500, "s": 10, "l": 300})
+                        ("s", "small", []), ("l", "large", [])], deps=after_r,
+                       durations={"m": 100, "q": 200, "r": 5, "h": 500, "s": 10, "l": 300})
         kp.MEM_BUDGET, old = 64, kp.MEM_BUDGET    # CPUs only: m, q and r start together
         try:
             pool.run()
@@ -118,6 +118,19 @@ class PoolTest(unittest.TestCase):
         order = starts(pool)
         self.assertLess(order.index("s"), order.index("h"))
         self.assertLess(order.index("h"), order.index("l"))
+
+    def test_backfill_in_spare(self):
+        # h needs 8 CPUs when m (8) ends at 100; q ends at 100 too, so 4 CPUs are spare then: long l still starts
+        after_r = {"h": {"r"}, "l": {"r"}}
+        pool, _ = make([("m", "large", []), ("q", "medium", []), ("r", "medium", []), ("h", "heavy", []),
+                        ("l", "medium", [])], deps=after_r, durations={"m": 100, "q": 100, "r": 5, "h": 500, "l": 300})
+        kp.MEM_BUDGET, old = 64, kp.MEM_BUDGET
+        try:
+            pool.run()
+        finally:
+            kp.MEM_BUDGET = old
+        order = starts(pool)
+        self.assertLess(order.index("l"), order.index("h"))
 
     def test_lone_job_takes_machine(self):
         # b waits on a: a starts alone and gets every CPU; b is alone too once a is done

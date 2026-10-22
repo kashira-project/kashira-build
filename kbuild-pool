@@ -173,7 +173,8 @@ class Pool:
         return len(self.free_cpus) >= cpus and self.mem_used + reserve_of(job.cls, mem) <= MEM_BUDGET
 
     def shadow_time(self, job):
-        """When the running jobs (by expected end) will have freed enough CPUs and memory for job."""
+        """(time, spare CPUs, spare GiB): when the running jobs (by expected end) will have freed enough for job,
+        and what is left over then, which jobs of any length may use."""
         cpus, mem, _ = job.spec()
         now = self.runner.clock()
         free, mem_free = len(self.free_cpus), MEM_BUDGET - self.mem_used
@@ -181,8 +182,9 @@ class Pool:
         for j in sorted(self.running.values(), key=lambda j: j.t0 + self.duration(j.name)):
             free, mem_free = free + len(j.cpus), mem_free + j.reserve
             if free >= cpus and mem_free >= mem:
-                return max(j.t0 + self.duration(j.name), now + 60)   # an overrunning job: assume it ends soon
-        return now
+                # an overrunning job: assume it ends soon. The rest of that time's resources is spare.
+                return max(j.t0 + self.duration(j.name), now + 60), free - cpus, mem_free - mem
+        return now, 0, 0
 
     def admit(self):
         shadow = None    # a heavy head that does not fit reserves the machine from this time on
@@ -195,10 +197,15 @@ class Pool:
                 continue
             if not self.fits(job):
                 if job.cls == "heavy" and shadow is None:
-                    shadow = self.shadow_time(job)
+                    shadow, spare_cpus, spare_mem = self.shadow_time(job)
                 continue
             if shadow is not None and self.runner.clock() + self.duration(n) > shadow:
-                continue         # backfill only what ends before the reserved heavy can start
+                # backfill only what ends before the reserved heavy can start, or fits in what it leaves spare
+                c, m, _ = job.spec()
+                m = reserve_of(job.cls, m)
+                if c > spare_cpus or m > spare_mem:
+                    continue
+                spare_cpus, spare_mem = spare_cpus - c, spare_mem - m
             cpus, mem, _ = job.spec()
             if not self.running and len(self.ready()) == 1:
                 # alone with nothing else ready (a chain like glibc -> gcc -> llvm): take the whole machine
