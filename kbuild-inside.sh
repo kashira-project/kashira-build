@@ -161,6 +161,12 @@ cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
     for f in openssl libssl libcrypto; do ln -sf "/usr/lib/pkgconfig/${f}-3.pc" "/opt/openssl3/$f.pc"; done
     ln -sf /usr/lib/libssl.so.3 /opt/openssl3/libssl.so
     ln -sf /usr/lib/libcrypto.so.3 /opt/openssl3/libcrypto.so
+    # an install-prefix layout for builds that take a prefix instead of flags (Net::SSLeay's OPENSSL_PREFIX,
+    # rust openssl-sys's OPENSSL_DIR); perl-net-ssleay ignored CFLAGS: "incomplete definition of type 'ASN1_TIME'"
+    mkdir -p /opt/openssl3/prefix
+    ln -sfn /usr/include/openssl-3 /opt/openssl3/prefix/include
+    ln -sfn /opt/openssl3 /opt/openssl3/prefix/lib
+    printf 'export OPENSSL_PREFIX=/opt/openssl3/prefix OPENSSL_DIR=/opt/openssl3/prefix\n'
     printf 'export PKG_CONFIG_PATH=/opt/openssl3${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}\n'
     printf 'CPPFLAGS="-I/usr/include/openssl-3 $CPPFLAGS"\nCFLAGS="-I/usr/include/openssl-3 $CFLAGS"\n'
     printf 'CXXFLAGS="-I/usr/include/openssl-3 $CXXFLAGS"\nLDFLAGS+=" -L/opt/openssl3"\n'
