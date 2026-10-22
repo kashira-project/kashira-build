@@ -304,6 +304,10 @@ build_one() {
   # KBUILD_MEMORY=unlimited: no cgroup memory cap (all RAM and swap).
   local mem=()
   [ "$KBUILD_MEMORY" = unlimited ] || mem=(--memory "$KBUILD_MEMORY" --memory-swap "$KBUILD_MEMORY_SWAP")
+  # the proxy by address: a container DNS lookup of kbuild-standin can leave pacman's download child hung in
+  # curl_multi_cleanup (threaded resolver) after a finished transaction
+  local standin_host
+  standin_host=$(sudo docker inspect -f '{{(index .NetworkSettings.Networks "kbuild").IPAddress}}' kbuild-standin 2>/dev/null) || standin_host=kbuild-standin
   local caches=() c
   for c in ccache cargo gomod npm; do
     mkdir -p "$KBUILD_CACHE/$c" && caches+=(-v "$KBUILD_CACHE/$c:/$c")
@@ -320,6 +324,7 @@ build_one() {
     -e KBUILD_KNOBS="$knobs" \
     -e KBUILD_STANDIN="${KBUILD_STANDIN:-1}" \
     -e KBUILD_STANDIN_DB="$standin_db" \
+    -e KBUILD_STANDIN_HOST="${standin_host:-kbuild-standin}" \
     -e KBUILD_ASSUME="$assume" \
     -e KBUILD_REMOVE="$drop" \
     -e KBUILD_BOOTSTRAP_EDGES="${KBUILD_BOOTSTRAP_EDGES:-}" \

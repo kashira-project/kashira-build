@@ -39,7 +39,7 @@ pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyr
   printf '[kashira]\nSigLevel = Never\nServer = file:///repo\n'
   if [ "${KBUILD_STANDIN:-1}" != 0 ]; then
     for r in core extra multilib; do
-      printf '[arch-%s]\nServer = http://kbuild-standin:7878/%s/%s\n' "$r" "${KBUILD_STANDIN_DB:-filtered}" "$r"
+      printf '[arch-%s]\nServer = http://%s:7878/%s/%s\n' "$r" "${KBUILD_STANDIN_HOST:-kbuild-standin}" "${KBUILD_STANDIN_DB:-filtered}" "$r"
     done
   fi
 } > "$PACMAN_CONF"
