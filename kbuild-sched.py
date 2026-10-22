@@ -172,7 +172,8 @@ def _recipe_stamp(pkgdir):
                 stat = os.stat(path)
                 with open(path, "rb") as stream:
                     digest = hashlib.sha256(stream.read()).hexdigest()
-                files.append({"path": os.path.relpath(path, pkgdir), "mtime_ns": stat.st_mtime_ns,
+                # content, not mtime: materialize rewrites identical PKGBUILDs
+                files.append({"path": os.path.relpath(path, pkgdir),
                               "size": stat.st_size, "sha256": digest,
                               "link": os.readlink(path) if os.path.islink(path) else None})
     except OSError as exc:
@@ -213,7 +214,7 @@ def _save_cache(cache):
 _SRCINFO_CACHE_DATA = None
 
 
-def srcinfo(pkgdir):
+def srcinfo(pkgdir, save=True):
     """Parse cached srcinfo, invalidating entries when any local recipe input changes."""
     global _SRCINFO_CACHE_DATA
     pkgdir = os.path.realpath(pkgdir)
@@ -221,7 +222,7 @@ def srcinfo(pkgdir):
         _SRCINFO_CACHE_DATA = _load_cache()
     stamp = _recipe_stamp(pkgdir)
     ent = _SRCINFO_CACHE_DATA.get(pkgdir)
-    if isinstance(ent, dict) and ent.get("version") == 7 and ent.get("stamp") == stamp:
+    if isinstance(ent, dict) and ent.get("version") == 8 and ent.get("stamp") == stamp:
         data = ent.get("data")
         required = ("pkgbase", "pkgdir", "pkgnames", "depends", "makedepends", "provides",
                     "depends_exprs", "makedepends_exprs", "provides_exprs", "outputs",
@@ -234,14 +235,16 @@ def srcinfo(pkgdir):
         data = _srcinfo_parse(pkgdir)
     except SchedulerError:
         _SRCINFO_CACHE_DATA.pop(pkgdir, None)
-        _save_cache(_SRCINFO_CACHE_DATA)
+        if save:
+            _save_cache(_SRCINFO_CACHE_DATA)
         raise
     _SRCINFO_CACHE_DATA[pkgdir] = {
-        "version": 7,
+        "version": 8,
         "stamp": stamp,
         "data": {k: (sorted(v) if isinstance(v, set) else v) for k, v in data.items()},
     }
-    _save_cache(_SRCINFO_CACHE_DATA)
+    if save:
+        _save_cache(_SRCINFO_CACHE_DATA)
     return data
 
 
@@ -250,18 +253,30 @@ def universe():
     u = {}
     if not os.path.isdir(PKGS):
         return u
-    for shard in sorted(os.listdir(PKGS)):
-        sp = os.path.join(PKGS, shard)
-        if len(shard) != 1 or not os.path.isdir(sp):
-            continue
-        for d in sorted(os.listdir(sp)):
-            p = os.path.join(sp, d)
-            if not os.path.isfile(os.path.join(p, "PKGBUILD")):
-                continue
-            info = srcinfo(p)
-            if info["pkgbase"] in u:
-                raise SchedulerError(f"duplicate pkgbase {info['pkgbase']}: {p} and {u[info['pkgbase']]['pkgdir']}")
-            u[info["pkgbase"]] = info
+    dirs = [os.path.join(PKGS, shard, d) for shard in sorted(os.listdir(PKGS))
+            if len(shard) == 1 and os.path.isdir(os.path.join(PKGS, shard))
+            for d in sorted(os.listdir(os.path.join(PKGS, shard)))
+            if os.path.isfile(os.path.join(PKGS, shard, d, "PKGBUILD"))]
+    # parse cache misses in parallel and write the cache once (per-entry saves are quadratic at 3000+ recipes)
+    from concurrent.futures import ThreadPoolExecutor
+    global _SRCINFO_CACHE_DATA
+    if _SRCINFO_CACHE_DATA is None:
+        _SRCINFO_CACHE_DATA = _load_cache()
+    infos = {}
+    with ThreadPoolExecutor(os.cpu_count() or 4) as ex:
+        for p, fut in [(p, ex.submit(srcinfo, p, False)) for p in dirs]:
+            try:
+                infos[p] = fut.result()
+            except SchedulerError as exc:
+                infos[p] = exc
+    _save_cache(_SRCINFO_CACHE_DATA)
+    for p in dirs:
+        info = infos[p]
+        if isinstance(info, SchedulerError):
+            raise info
+        if info["pkgbase"] in u:
+            raise SchedulerError(f"duplicate pkgbase {info['pkgbase']}: {p} and {u[info['pkgbase']]['pkgdir']}")
+        u[info["pkgbase"]] = info
     return u
 
 
