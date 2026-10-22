@@ -146,6 +146,8 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(kp.classify(137, ""), "oom")
         self.assertEqual(kp.classify(2, "c++: fatal error: Killed signal terminated program cc1plus"), "oom")
         self.assertEqual(kp.classify(2, "x.c:3:1: error: y"), "build")
+        self.assertEqual(kp.classify(1, "error: failed retrieving file 'tzdata-1-x86_64.pkg.tar.zst' from disk : Exceeded"
+                                        "\nerror: failed to commit transaction (download library error)"), "transient")
         self.assertEqual(kp.classify(1, "==> Finished making: z 1-1\nunexpected or stale archive: z"), "post")
 
 

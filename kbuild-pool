@@ -49,6 +49,8 @@ UNKNOWN_DURATION = 60
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
     ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
+    # a package rebuilt at the same version was repo-added while this container installed from the older db
+    ("transient", re.compile(r"failed retrieving file .* from disk|download library error")),
     ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|"
                         r"could not satisfy dependencies|conflicting dependencies|unresolvable package conflicts")),
     ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
@@ -122,6 +124,7 @@ class Job:
         self.name, self.cls, self.wave, self.knobs = name, cls, wave, knobs
         self.tier = 2 if "gnu" in knobs else 1 if "compat" in knobs else 0
         self.oom_retried = False
+        self.transient_retries = 0
         self.tier0_error = ""
         self.cpus = []
         self.t0 = 0.0
@@ -235,6 +238,9 @@ class Pool:
             else:
                 job.cls = CLASSES[CLASSES.index(job.cls) + 1]
             retry = "class " + job.cls + (" mem=26G" if job.cls == "heavy" else "")
+        elif kind == "transient" and job.transient_retries < 2:
+            job.transient_retries += 1
+            retry = f"tier {job.tier} again"
         elif kind == "build" and job.tier < 2:
             job.tier += 1
             retry = f"tier {job.tier}"
