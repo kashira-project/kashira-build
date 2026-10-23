@@ -44,7 +44,10 @@ def controlled_names():
     import derive  # noqa: E402  (kashira-pkgs: .SRCINFO of every git-tracked recipe dir)
     names = set()
     for base, c in derive.controlled().items():
-        names |= {base, *c["pkgnames"], *c["provides"]}
+        provides = c["provides"]
+        if base.startswith("lib32-"):  # its soname provides (libFLAC.so) are 32-bit: they must not block 64-bit flac
+            provides = [p for p in provides if p.startswith("lib32")]
+        names |= {base, *c["pkgnames"], *provides}
     return names
 
 
