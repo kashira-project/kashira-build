@@ -50,7 +50,7 @@ FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
     ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
     # a package rebuilt at the same version was repo-added while this container installed from the older db
-    ("transient", re.compile(r"failed retrieving file .* from disk|download library error")),
+    ("transient", re.compile(r"failed retrieving file .* from disk|download library error|is corrupted \\(invalid or corrupted package \\(checksum\\)\\)")),
     ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|"
                         r"could not satisfy dependencies|conflicting dependencies|unresolvable package conflicts")),
     ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
