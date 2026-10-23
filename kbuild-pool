@@ -296,7 +296,8 @@ class Pool:
                 continue
             old = self.jobs[n]
             knobs = tune.get(n, [])
-            job = Job(n, old.cls, old.wave, knobs)
+            cls = next((k[6:] for k in knobs if k.startswith("class=")), old.cls)
+            job = Job(n, cls, old.wave, knobs)
             self.jobs[n] = job
             del self.finished[n]
             self.pending.add(n)
