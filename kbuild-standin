@@ -36,6 +36,7 @@ ARCHIVE = "https://archive.archlinux.org/repos/" + DATE + "/{repo}/os/x86_64/{fi
 REPOS = ("core", "extra", "multilib")
 FRAGILE = re.compile(r"^(ghc|haskell-|ocaml)")
 VER = re.compile(r"[<>=].*$")
+SO32 = re.compile(r"\.so=[^=]*-32$")
 
 
 def controlled_names():
@@ -66,7 +67,9 @@ def rewrite(src, dst, blocked):
         for m in members:
             if m.name.endswith("/desc"):
                 f = desc_fields(tf.extractfile(m).read().decode())
-                if blocked(f["NAME"][0], [VER.sub("", p) for p in f.get("PROVIDES", [])]):
+                # a 32-bit soname provide (libgssapi_krb5.so=2-32) names a different library than the
+                # controlled 64-bit one it shares a stripped name with; lib32 controlled dirs block by name
+                if blocked(f["NAME"][0], [VER.sub("", p) for p in f.get("PROVIDES", []) if not SO32.search(p)]):
                     drop.add(m.name.split("/")[0])
         tmp = dst + ".tmp"
         with tarfile.open(tmp, "w:gz") as out:
