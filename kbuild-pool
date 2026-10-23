@@ -53,7 +53,7 @@ FAIL = [  # (kind, regex) checked in order on the log tail
     ("transient", re.compile(r"failed retrieving file .* from disk|download library error|is corrupted \(invalid or corrupted package \(checksum\)\)")),
     ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|"
                         r"could not satisfy dependencies|conflicting dependencies|unresolvable package conflicts")),
-    ("oom", re.compile(r"\bKilled\b|signal 9|Cannot allocate memory|std::bad_alloc|out of memory")),
+    ("oom", re.compile(r"\bKilled\b|signal 9|signal: 9, SIGKILL|Cannot allocate memory|std::bad_alloc|out of memory")),
 ]
 
 PACMAN_FAIL = re.compile(r"failed to commit transaction|could not satisfy dependencies")
