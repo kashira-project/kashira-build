@@ -89,9 +89,9 @@ pkg_deps() {
   local selfhost=0
   [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven python-installer python-build python-flit-core python-wheel python-setuptools python-pyproject-hooks python-packaging} " != *" $base "* ]] || selfhost=1
   while IFS= read -r line; do
-    # checkdepends too, as makechrootpkg installs them: configure steps look for test tools even with !check
-    # (re2: find_package(benchmark); pyalpm: "Program 'pytest' not found")
-    [[ "$line" =~ ^[[:space:]]*(depends|makedepends|checkdepends|depends_x86_64|makedepends_x86_64|checkdepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
+    # not checkdepends: with !check they only pull extra stand-ins, some unsatisfiable (meson's gcc-objc pins Arch's
+    # gcc version); a recipe whose configure needs test tools turns its tests off in the PKGBUILD (re2, pyalpm)
+    [[ "$line" =~ ^[[:space:]]*(depends|makedepends|depends_x86_64|makedepends_x86_64)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]}
     expr=${BASH_REMATCH[2]}
     [ -n "$expr" ] || continue
