@@ -120,9 +120,9 @@ cat "/kbuild/conf/$MAKEPKG_CONF" >"$TEMP_CONF"
   [ ! -d /cargo ] || printf 'export CARGO_HOME=/cargo\n'
   [ ! -d /gomod ] || printf 'export GOMODCACHE=/gomod\n'
   [ ! -d /npm ] || printf 'export npm_config_cache=/npm\n'
-  # lld-only ThinLTO knobs ride the clang driver hook (gcc recipes link with GNU ld)
-  printf 'CCC_OVERRIDE_OPTIONS+=" +-Wl,--thinlto-jobs=%s"\n' "$KBUILD_JOBS"
-  [ ! -d /ccache ] || printf 'CCC_OVERRIDE_OPTIONS+=" +-Wl,--thinlto-cache-dir=/ccache/thinlto +-Wl,--thinlto-cache-policy=cache_size_bytes=30g"\n'
+  # No -Wl,--thinlto-* through CCC_OVERRIDE_OPTIONS: in cpp mode clang takes a -Wl argument as an input file and
+  # then ignores stdin, so `cpp < conftest` prints nothing (xorg RAWCPP probe: "/usr/bin/cpp defines unix with or
+  # without -undef"). lld's ThinLTO thread count already follows the container's cpuset affinity.
 } >>"$TEMP_CONF"
 chown builder:builder "$TEMP_CONF"
 
