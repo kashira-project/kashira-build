@@ -87,7 +87,7 @@ pkg_deps() {
     esac
   done <<<"$info"
   local selfhost=0
-  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven python-installer python-build python-flit-core python-wheel python-setuptools python-pyproject-hooks python-packaging vala rustup} " != *" $base "* ]] || selfhost=1
+  [[ " ${KBUILD_SELF_DEPS-rust git ghc java-openjdk java21-openjdk maven python-installer python-build python-flit-core python-wheel python-setuptools python-pyproject-hooks python-packaging vala rustup yarn} " != *" $base "* ]] || selfhost=1
   while IFS= read -r line; do
     # not checkdepends: with !check they only pull extra stand-ins, some unsatisfiable (meson's gcc-objc pins Arch's
     # gcc version); a recipe whose configure needs test tools turns its tests off in the PKGBUILD (re2, pyalpm)
