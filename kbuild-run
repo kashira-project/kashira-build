@@ -170,8 +170,16 @@ repo_matches() {
 reusable_artifacts() {
   local pkgbase=$1 record=$LOGS/$1.artifacts file digest fingerprint validated recorded
   [ -f "$LOGS/$pkgbase.done" ] && [ -s "$LOGS/$pkgbase.recipe" ] && [ -s "$LOGS/$pkgbase.identity" ] || return 1
-  fingerprint=$(build_fingerprint "$pkgbase") || return 1
-  [ "$(<"$LOGS/$pkgbase.recipe")" = "$fingerprint" ] || return 1
+  if [ "${KBUILD_REUSE:-}" = recipe ]; then
+    # KBUILD_REUSE=recipe: keep a build whose own recipe and tune line are unchanged, whatever moved under it
+    # (image, kbuild-inside.sh, dependency builds). For fast passes only: the purity pass (Wave P) runs without
+    # it. shortcut: lines 7 (tune) and 14 (recipe) of fingerprint_head's layout; update both if the head changes.
+    [ "$(sed -n 7p "$LOGS/$pkgbase.recipe")" = "tune: $(tune_knobs "$pkgbase")" ] || return 1
+    [ "$(sed -n 14p "$LOGS/$pkgbase.recipe")" = "$(recipe_fingerprint "${PKGDIR[$pkgbase]}")" ] || return 1
+  else
+    fingerprint=$(build_fingerprint "$pkgbase") || return 1
+    [ "$(<"$LOGS/$pkgbase.recipe")" = "$fingerprint" ] || return 1
+  fi
   [ -s "$record" ] || return 1
   [ "$(sha256sum "$LOGS/$pkgbase.recipe" "$record" | sha256sum | cut -d ' ' -f1)" = "$(<"$LOGS/$pkgbase.identity")" ] || return 1
   validated=$(artifact_list "$OUT/$pkgbase" "${PKGDIR[$pkgbase]}" "$pkgbase") || return 1
