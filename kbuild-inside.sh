@@ -129,6 +129,8 @@ chown builder:builder "$TEMP_CONF"
 # login shell, as Arch's makechrootpkg (sudo -iu builder): /etc/profile.d puts /usr/bin/core_perl (pod2man)
 # and the like on PATH (git: "pod2man: command not found")
 # (/usr/local first again afterwards: the login PATH puts it after /usr/bin, and conf/cmake-wrapper.sh lives there)
+# no BUILDDIR in the environment: makepkg defaults it to the recipe dir ($BUILDDIR here), and an exported
+# BUILDDIR leaks into build() (capstone's Makefile writes libcapstone.a there)
 su -l builder -c "export PATH=/usr/local/sbin:/usr/local/bin:\$PATH; cd $BUILDDIR && \
-  PKGDEST=/out SRCDEST=/sources BUILDDIR=$BUILDDIR \
+  PKGDEST=/out SRCDEST=/sources \
   makepkg --config $TEMP_CONF -sf --noconfirm --skippgpcheck --nodeps"
