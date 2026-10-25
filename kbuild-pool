@@ -404,7 +404,7 @@ class DockerRunner:
         _, _, hours = job.spec()
         mem = job.mem
         swap = max(40, mem) if job.cls == "heavy" else mem + mem // 2
-        env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus)),
+        env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus) or job.jobs()),
                    KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
                    KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
         out = open(os.path.join(self.run_dir, job.name + ".one.log"), "a")  # kbuild-run's own errors (artifact checks, repo-add)
