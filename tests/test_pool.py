@@ -174,6 +174,13 @@ class PoolTest(unittest.TestCase):
         self.assertLess(ev.index(("start", "r")), ev.index(("built", "h")))  # r ran while h held the machine
         self.assertLess(ev.index(("start", "r")), ev.index(("start", "a")))
 
+    def test_reuse_ignores_deps(self):
+        pool, _ = make([("t", "heavy", []), ("r", "small", [])], deps={"r": {"t"}}, durations={"t": 100})
+        pool.jobs["r"].reuse = True
+        pool.run()
+        ev = [(e, n) for e, n, *_ in pool.history]
+        self.assertLess(ev.index(("start", "r")), ev.index(("built", "t")))
+
     def test_cycle_is_cut(self):
         pool, _ = make([("a", "small", []), ("b", "small", [])], deps={"a": {"b"}, "b": {"a"}})
         self.assertEqual(pool.run(), {"a": "built", "b": "built"})

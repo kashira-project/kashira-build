@@ -167,7 +167,8 @@ class Pool:
         out = []
         for n in self.pending:
             ds = self.deps[n]
-            if all(d in self.finished for d in ds):
+            # a reuse job only re-validates a recorded artifact: its dependencies need not be done
+            if self.jobs[n].reuse or all(d in self.finished for d in ds):
                 out.append(n)
         return sorted(out, key=lambda n: (WAVE_ORDER.get(self.jobs[n].wave, 5), -self.cp[n], -self.duration(n), n))
 
