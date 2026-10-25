@@ -160,11 +160,15 @@ repo_matches() {
   local file=$1 filename=${1##*/} digest
   cmp -s -- "$file" "$REPO/$filename" || return 1
   digest=$(sha256sum "$file") || return 1
-  # one pass over every desc in the db (per-entry extraction is quadratic in the repo size)
-  bsdtar -xOf "$REPO/kashira.db.tar.gz" '*/desc' | awk -v filename="$filename" -v digest="${digest%% *}" '
-    /^%FILENAME%$/ { getline; name = $0 }
-    /^%SHA256SUM%$/ { getline; if (name == filename && $0 == digest) found = 1 }
-    END { exit !found }'
+  # "filename digest" for every db entry, extracted once per db version (inode+mtime) and shared by all jobs
+  local db=$REPO/kashira.db.tar.gz cache
+  cache=$LOGS/.repo-digests.$(stat -c '%i.%Y' "$db") || return 1
+  if [ ! -s "$cache" ]; then
+    bsdtar -xOf "$db" '*/desc' | awk '/^%FILENAME%$/ { getline; name = $0 }
+      /^%SHA256SUM%$/ { getline; print name, $0 }' > "$cache.$$" && mv -f "$cache.$$" "$cache" || return 1
+    find "$LOGS" -maxdepth 1 -name '.repo-digests.*' ! -name "${cache##*/}" -mmin +5 -delete 2>/dev/null
+  fi
+  grep -qxF "$filename ${digest%% *}" "$cache"
 }
 
 reusable_artifacts() {
