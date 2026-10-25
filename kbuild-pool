@@ -45,6 +45,7 @@ HEAVY = {"llvm", "gcc", "rust", "linux", "firefox", "thunderbird", "libreoffice-
 WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 UNKNOWN_DURATION = 60
 MAX_SHARED = 8
+MAX_REUSE = 12        # concurrent reuse-only jobs (I/O: repo db scans)
 
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
@@ -129,6 +130,7 @@ class Job:
         self.cpus = []
         self.t0 = 0.0
         self.shared = False      # a small job placed on a busy job's CPU while the host idled
+        self.reuse = False       # KBUILD_REUSE=recipe and its recorded recipe still matches: no build, no budget
         self.mem = 0             # granted at admit: the class memory, or the whole budget when alone
         self.reserve = 0         # what the budget counts: half the limit for small jobs, which rarely use 1 GiB
 
@@ -196,6 +198,9 @@ class Pool:
                 self.finished[n] = "fail:dep"
                 self.history.append(("skip", n, job.cls, job.tier, 0))
                 continue
+            if job.reuse and sum(j.reuse for j in self.running.values()) < MAX_REUSE:
+                self.start_reuse(job)
+                continue
             if not self.fits(job) and job.cls == "small" and self.share(job):
                 continue
             if not self.fits(job):
@@ -243,7 +248,21 @@ class Pool:
         self.runner.start(job)
         return True
 
+    def start_reuse(self, job):
+        """A job whose recorded build kbuild-run will only re-validate and re-add (seconds, no container) runs
+        outside the CPU/memory budget: otherwise a heavy build holding the machine serialises thousands of them."""
+        job.reuse = True
+        job.cpus = []            # no cpuset: nothing to pin (a hint kbuild-run rejects builds unpinned)
+        job.mem, job.reserve, job.t0 = job.spec()[1], 0, self.runner.clock()
+        self.pending.discard(job.name)
+        self.running[job.name] = job
+        self.history.append(("start", job.name, job.cls, job.tier, 0))
+        self.runner.start(job)
+
     def release(self, job):
+        if job.reuse and not job.cpus:
+            del self.running[job.name]
+            return
         if job.shared:
             job.cpus, job.shared = [], False
             del self.running[job.name]
@@ -486,6 +505,29 @@ def snapshot_isize():
     return size
 
 
+def reuse_hints(names):
+    """Targets whose recorded build (<logs>/<name>.recipe line 14) still matches the recipe: kbuild-run's own
+    recipe_fingerprint, run once over every target dir. kbuild-run re-checks everything else."""
+    paths = dict(l.split("\t", 1) for l in subprocess.run([sys.executable, os.path.join(HERE, "kbuild-sched.py"), "path"],
+                                                        capture_output=True, text=True, check=True).stdout.splitlines())
+    want = [n for n in names if n in paths and os.path.exists(os.path.join(LOGS, n + ".done"))]
+    script = ('eval "$(sed -n \'/^recipe_fingerprint()/,/^}/p\' "$1")"; shift\n'
+              'while read -r n d; do printf "%s %s\\n" "$n" "$(recipe_fingerprint "$d")"; done')
+    feed = "".join(f"{n} {paths[n].strip()}\n" for n in want)
+    out = subprocess.run(["bash", "-c", script, "_", os.path.join(HERE, "kbuild-run")], input=feed,
+                         capture_output=True, text=True).stdout
+    hints = set()
+    for line in out.splitlines():
+        n, _, h = line.partition(" ")
+        try:
+            rec = open(os.path.join(LOGS, n + ".recipe")).read().splitlines()
+        except OSError:
+            continue
+        if h and len(rec) >= 14 and rec[13] == h:
+            hints.add(n)
+    return hints
+
+
 def pick_class(name, knobs, durations, isize):
     for k in knobs:
         if k.startswith("class="):
@@ -612,6 +654,11 @@ def main(argv):
         logf.write(msg + "\n")
         logf.flush()
 
+    if os.environ.get("KBUILD_REUSE") == "recipe":
+        for n in reuse_hints([j.name for j in jobs]):
+            pool_job = next(j for j in jobs if j.name == n)
+            pool_job.reuse = True
+        log(f"reuse hints: {sum(j.reuse for j in jobs)}")
     runner = DockerRunner(run_id, run_dir)
     pool = RealPool(jobs, deps, duration, runner, standin=standin != "0", log=log,
                     run_dir=pool_dir, durations=durations, durations_path=dpath)

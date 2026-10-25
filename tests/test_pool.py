@@ -165,6 +165,15 @@ class PoolTest(unittest.TestCase):
             kp.CPU_BUDGET = old
         self.assertEqual(starts(pool)[0], "c")
 
+    def test_reuse_runs_beside_heavy(self):
+        # h (heavy) holds the machine; r only re-validates a recorded build: it starts at once, outside the budget
+        pool, _ = make([("h", "heavy", []), ("a", "small", []), ("r", "small", [])], durations={"h": 100, "r": 100})
+        pool.jobs["r"].reuse = True
+        pool.run()
+        ev = [(e, n) for e, n, *_ in pool.history]
+        self.assertLess(ev.index(("start", "r")), ev.index(("built", "h")))  # r ran while h held the machine
+        self.assertLess(ev.index(("start", "r")), ev.index(("start", "a")))
+
     def test_cycle_is_cut(self):
         pool, _ = make([("a", "small", []), ("b", "small", [])], deps={"a": {"b"}, "b": {"a"}})
         self.assertEqual(pool.run(), {"a": "built", "b": "built"})
