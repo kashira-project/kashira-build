@@ -181,6 +181,13 @@ class PoolTest(unittest.TestCase):
         ev = [(e, n) for e, n, *_ in pool.history]
         self.assertLess(ev.index(("start", "r")), ev.index(("built", "t")))
 
+    def test_prebuilt_dep_does_not_gate(self):
+        pool, _ = make([("g", "heavy", []), ("b", "small", [])], deps={"b": {"g"}}, durations={"g": 100})
+        pool.prebuilt = {"g"}
+        pool.run()
+        ev = [(e, n) for e, n, *_ in pool.history]
+        self.assertLess(ev.index(("start", "b")), ev.index(("built", "g")))
+
     def test_cycle_is_cut(self):
         pool, _ = make([("a", "small", []), ("b", "small", [])], deps={"a": {"b"}, "b": {"a"}})
         self.assertEqual(pool.run(), {"a": "built", "b": "built"})

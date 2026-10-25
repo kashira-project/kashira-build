@@ -162,13 +162,14 @@ class Pool:
         self.free_cpus = list(range(CPU_BUDGET))
         self.mem_used = 0
         self.history = []        # (event, name, class, tier, cpus) for tests and --dry-run
+        self.prebuilt = set()    # KBUILD_REUSE=recipe: deps with a published earlier build; they do not gate
 
     def ready(self):
         out = []
         for n in self.pending:
             ds = self.deps[n]
             # a reuse job only re-validates a recorded artifact: its dependencies need not be done
-            if self.jobs[n].reuse or all(d in self.finished for d in ds):
+            if self.jobs[n].reuse or all(d in self.finished or d in self.prebuilt for d in ds):
                 out.append(n)
         return sorted(out, key=lambda n: (WAVE_ORDER.get(self.jobs[n].wave, 5), -self.cp[n], -self.duration(n), n))
 
@@ -660,9 +661,12 @@ def main(argv):
             pool_job = next(j for j in jobs if j.name == n)
             pool_job.reuse = True
         log(f"reuse hints: {sum(j.reuse for j in jobs)}")
+        prebuilt = {j.name for j in jobs if os.path.exists(os.path.join(LOGS, j.name + ".done"))}
     runner = DockerRunner(run_id, run_dir)
     pool = RealPool(jobs, deps, duration, runner, standin=standin != "0", log=log,
                     run_dir=pool_dir, durations=durations, durations_path=dpath)
+    if os.environ.get("KBUILD_REUSE") == "recipe":
+        pool.prebuilt = prebuilt   # build against the published copy instead of waiting for its rebuild (gcc)
     signal.signal(signal.SIGTERM, lambda *_: (runner.stop(), sys.exit(143)))
     log(f"pool {run_id}: {len(jobs)} targets, standin={standin}")
     try:
