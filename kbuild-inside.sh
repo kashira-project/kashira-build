@@ -33,6 +33,8 @@ pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyr
   # the proxy answers a cache miss only after fetching the whole file from the archive
   printf '[options]\nArchitecture = x86_64\nParallelDownloads = 8\nDisableDownloadTimeout\nSigLevel = %s\nLocalFileSigLevel = Never\n' "$sig"
   printf '[kashira]\nSigLevel = Never\nServer = file:///repo\n'
+  # Arch's order: main before multilib, so a 64-bit package wins over its lib32 build
+  [ ! -f /repo/kashira-multilib.db.tar.gz ] || printf '[kashira-multilib]\nSigLevel = Never\nServer = file:///repo\n'
   if [ "${KBUILD_STANDIN:-1}" != 0 ]; then
     for r in core extra multilib; do
       printf '[arch-%s]\nServer = http://%s:7878/%s/%s\n' "$r" "${KBUILD_STANDIN_HOST:-kbuild-standin}" "${KBUILD_STANDIN_DB:-filtered}" "$r"
@@ -77,17 +79,8 @@ if [ -n "${KBUILD_DEPS:-}" ]; then
   # shellcheck disable=SC2086  # KBUILD_DEPS is a space-separated dep list
   assume_args=()
   for p in ${KBUILD_ASSUME:-}; do assume_args+=(--assume-installed "$p"); done
-  # An unversioned soname dep (libvulkan.so) is satisfied by the lib32 build too (libvulkan.so=1-32), and in our
-  # single repo lib32-* sorts first, so pacman would install only the 32-bit library (wlroots: "Dependency vulkan not
-  # found"). Arch's repo order (extra before multilib) picks the 64-bit one; name that provider explicitly instead.
-  so64=$(for db in /var/lib/pacman/sync/*.db; do bsdtar -xOf "$db" '*/desc' 2>/dev/null; done | awk '
-    /^%NAME%$/ { getline; name = $0 }
-    /^%PROVIDES%$/ { while ((getline l) > 0 && l != "") if (l ~ /\.so=.*-64$/) { sub(/=.*/, "", l); if (!(l in seen)) { seen[l] = 1; print l, name } } }')
-  deps=()
-  for d in $KBUILD_DEPS; do
-    if [[ $d == *.so ]] && p=$(awk -v d="$d" '$1 == d { print $2; exit }' <<<"$so64") && [ -n "$p" ]; then deps+=("$p"); else deps+=("$d"); fi
-  done
-  pac "${pacman_args[@]}" "${assume_args[@]}" "${deps[@]}"
+  # shellcheck disable=SC2086
+  pac "${pacman_args[@]}" "${assume_args[@]}" $KBUILD_DEPS
 fi
 if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages

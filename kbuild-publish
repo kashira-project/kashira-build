@@ -306,10 +306,17 @@ publish_set() {
   ) 9>"$dir/.lock"
 }
 
-# Two repos: x86_64-v3 (everything) and x86_64-v3-debug (*-debug packages).
+# Four repos, as Arch's main/multilib each with a -debug twin: x86_64-v3 and x86_64-v3-debug, x86_64-v3-multilib and
+# x86_64-v3-multilib-debug. A package's repo is the build repo db that holds it (kbuild-lib.sh is_multilib: Arch's
+# multilib pkgbases).
 cmd_publish() {
-  local f base n
-  local -a main=() debug=()
+  local f base n ml
+  local -a main=() debug=() mlmain=() mldebug=()
+  local -A inml=()
+  ml=${KBUILD_REPO:-/mnt/kashira/repos/v3}/kashira-multilib.db.tar.gz
+  if [ -f "$ml" ]; then
+    while read -r base; do inml[$base]=1; done < <(bsdtar -xOf "$ml" '*/desc' | awk '/^%FILENAME%$/ { getline; print }')
+  fi
   if [ "${1:-}" = --manifest ]; then
     [ $# -eq 2 ] || die "usage: kbuild-publish publish --manifest <file>"
     read_manifest "$2"
@@ -319,10 +326,14 @@ cmd_publish() {
   validate_candidates
   for f in "${CANDIDATES[@]}"; do
     base=$(basename "$f"); n=${base%.pkg.tar.zst}; n=${n%-*}; n=${n%-*}; n=${n%-*}
-    if [[ "$n" == *-debug ]]; then debug+=("$f"); else main+=("$f"); fi
+    if [ -n "${inml[$base]+set}" ]; then
+      if [[ "$n" == *-debug ]]; then mldebug+=("$f"); else mlmain+=("$f"); fi
+    elif [[ "$n" == *-debug ]]; then debug+=("$f"); else main+=("$f"); fi
   done
   [ ${#main[@]} -eq 0 ] || publish_set x86_64-v3 kashira-v3 "${main[@]}"
   [ ${#debug[@]} -eq 0 ] || KBUILD_ALLOW_NEW_REPO=1 publish_set x86_64-v3-debug kashira-v3-debug "${debug[@]}"
+  [ ${#mlmain[@]} -eq 0 ] || KBUILD_ALLOW_NEW_REPO=1 publish_set x86_64-v3-multilib kashira-v3-multilib "${mlmain[@]}"
+  [ ${#mldebug[@]} -eq 0 ] || KBUILD_ALLOW_NEW_REPO=1 publish_set x86_64-v3-multilib-debug kashira-v3-multilib-debug "${mldebug[@]}"
 }
 
 cmd_verify() {

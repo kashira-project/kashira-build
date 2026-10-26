@@ -628,6 +628,17 @@ def reverse_closure(g, changed):
 
 
 def _repo_capabilities(repo_path):
+    """Capabilities of a repo db; for the build repo's kashira db, its kashira-multilib sibling too (one repo
+    split as Arch's main/multilib)."""
+    records = _repo_capabilities_one(repo_path)
+    sibling = os.path.join(os.path.dirname(repo_path), "kashira-multilib.db.tar.gz")
+    if os.path.basename(repo_path) == "kashira.db.tar.gz" and os.path.isfile(sibling):
+        for name, caps in _repo_capabilities_one(sibling).items():
+            records.setdefault(name, []).extend(caps)
+    return records
+
+
+def _repo_capabilities_one(repo_path):
     records = {}
     if not os.path.isfile(repo_path):
         raise SchedulerError(f"missing read-only package repo: {repo_path}")

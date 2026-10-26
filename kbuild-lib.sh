@@ -16,6 +16,9 @@ SOURCES=${KBUILD_SOURCES:-$KASHIRA_ROOT/cache/sources}
 KBUILD_CACHE=${KBUILD_CACHE:-$KASHIRA_ROOT/cache}
 OUT=${KBUILD_OUT:-$KASHIRA_ROOT/build/out}
 LOGS=${KBUILD_LOGS:-$KASHIRA_ROOT/build/logs}
+# Two databases in the build repo, as Arch's extra/multilib: kashira (everything else) and kashira-multilib (lib32-*
+# and what Arch ships in multilib). Containers list [kashira] first, so a 64-bit package wins over its lib32 build.
+MULTILIB_DB=kashira-multilib.db.tar.gz
 # capped so a heavy C++ build (abseil-cpp at -j16) OOMs inside its own cgroup, not the 30 GB host
 KBUILD_MEMORY=${KBUILD_MEMORY:-22g}
 KBUILD_MEMORY_SWAP=${KBUILD_MEMORY_SWAP:-30g}
@@ -74,7 +77,7 @@ pkg_deps() {
   local rc=$?
   rm -rf -- "$scratch"
   [ "$rc" -eq 0 ] || return "$rc"
-  entries=$(bsdtar -tf "$REPO/kashira.db.tar.gz") || return 1
+  entries=$(bsdtar -tf "$REPO/kashira.db.tar.gz"; [ ! -f "$REPO/$MULTILIB_DB" ] || bsdtar -tf "$REPO/$MULTILIB_DB") || return 1
   while IFS= read -r line; do
     [[ "$line" =~ ^[[:space:]]*([a-z_0-9-]+)[[:space:]]+=[[:space:]]+(.*)$ ]] || continue
     field=${BASH_REMATCH[1]} expr=${BASH_REMATCH[2]}
@@ -251,10 +254,21 @@ except (OSError, UnicodeError, ValueError) as error:
 PY
 }
 
+# is_multilib <pkgbase>: Arch's design: a pkgbase lives in one repo with all its split packages, and multilib holds
+# exactly the pkgbases Arch's multilib does (lib32-mesa, steam; lib32-glibc is core, as glibc). From the frozen
+# stand-in snapshot; a pkgbase Arch does not have stays in the main repo.
+is_multilib() {
+  local db
+  db=$KASHIRA_ROOT/cache/standin/$(tr / - < "$HERE/conf/standin.date")/raw/multilib.db
+  [ -f "$db" ] || return 1
+  bsdtar -xOf "$db" '*/desc' | awk '/^%BASE%$/ { getline; print }' | grep -qxF "$1"
+}
+
 repo_add() {
   local outdir=$1 pkgdir=$2 pkgbase=$3 pkg destination
-  local -a inrepo=()
-  local validated
+  local -a inrepo=() inmultilib=()
+  local validated multilib=0
+  is_multilib "$pkgbase" && multilib=1
   build_repo_guard || return 1
   validated=$(artifact_list "$outdir" "$pkgdir" "$pkgbase") || return 1
   (
@@ -263,11 +277,12 @@ repo_add() {
       destination=$REPO/$(basename "$pkg")
       cp -f -- "$pkg" "$destination" || exit 1
       cmp -s -- "$pkg" "$destination" || exit 1
-      inrepo+=("$destination")
+      if [ "$multilib" = 1 ]; then inmultilib+=("$destination"); else inrepo+=("$destination"); fi
     done
-    repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}" || exit 1
+    [ ${#inrepo[@]} -eq 0 ] || repo-add "$REPO/kashira.db.tar.gz" "${inrepo[@]}" || exit 1
+    [ ${#inmultilib[@]} -eq 0 ] || repo-add "$REPO/$MULTILIB_DB" "${inmultilib[@]}" || exit 1
     if mixed_repo; then
-      for pkg in "${inrepo[@]}"; do
+      for pkg in "${inrepo[@]}" "${inmultilib[@]}"; do
         "$HERE/kbuild-arch-bootstrap" record "$REPO" "$pkg" || exit 1
         "$HERE/kbuild-arch-bootstrap" retire "$REPO" "$pkg" 2>/dev/null || true
       done
