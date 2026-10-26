@@ -102,11 +102,16 @@ def replaced_names():
 def cmd_filter():
     ctl = controlled_names() | replaced_names()
 
-    def full(name, provides):
+    def controlled(name, provides):
         return name in ctl or name.startswith("kashira-") or any(p in ctl for p in provides)
 
     def filtered(name, provides):
-        return full(name, provides) or bool(FRAGILE.match(name))
+        return controlled(name, provides) or bool(FRAGILE.match(name))
+
+    # full (standin=full, a compiler bootstrap: ghc needs Arch's ghc-static): [kashira] comes first in pacman.conf,
+    # so a name we build still resolves to ours; only kashira-* are dropped
+    def full(name, provides):
+        return name.startswith("kashira-")
 
     for kind, fn in (("filtered", filtered), ("full", full)):
         os.makedirs(os.path.join(BASE, kind), exist_ok=True)
