@@ -42,13 +42,14 @@ SO32 = re.compile(r"\.so=[^=]*-32$")
 def controlled_names():
     sys.path.insert(0, os.path.join(PKGS, "tools/ship"))
     import derive  # noqa: E402  (kashira-pkgs: .SRCINFO of every git-tracked recipe dir)
-    names = set()
+    names, pkgnames = set(), set()
     for base, c in derive.controlled().items():
         provides = c["provides"]
         if base.startswith("lib32-"):  # its soname provides (libFLAC.so) are 32-bit: they must not block 64-bit flac
             provides = [p for p in provides if p.startswith("lib32")]
         names |= {base, *c["pkgnames"], *provides}
-    return names
+        pkgnames |= {base, *c["pkgnames"]}
+    return names, pkgnames
 
 
 def desc_fields(text):
@@ -100,10 +101,14 @@ def replaced_names():
 
 
 def cmd_filter():
-    ctl = controlled_names() | replaced_names()
+    ctl, ctl_pkgs = controlled_names()
+    ctl |= replaced_names()
 
     def controlled(name, provides):
-        return name in ctl or name.startswith("kashira-") or any(p in ctl for p in provides)
+        # by name: anything we build or provide (Arch clang: our llvm provides it); by provides: only our package
+        # names (Arch zlib-ng-compat provides zlib). Two packages that both provide a virtual name (nodejs: our
+        # nodejs-lts-iron, Arch's nodejs-lts-krypton) stay alternatives.
+        return name in ctl or name.startswith("kashira-") or any(p in ctl_pkgs for p in provides)
 
     def filtered(name, provides):
         return controlled(name, provides) or bool(FRAGILE.match(name))
