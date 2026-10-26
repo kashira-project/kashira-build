@@ -661,7 +661,8 @@ def main(argv):
             pool_job = next(j for j in jobs if j.name == n)
             pool_job.reuse = True
         log(f"reuse hints: {sum(j.reuse for j in jobs)}")
-        prebuilt = {j.name for j in jobs if os.path.exists(os.path.join(LOGS, j.name + ".done"))}
+        # a published earlier build: .artifacts outlives a rebuild that was started (and killed), .done does not
+        prebuilt = {j.name for j in jobs if os.path.exists(os.path.join(LOGS, j.name + ".artifacts"))}
     runner = DockerRunner(run_id, run_dir)
     pool = RealPool(jobs, deps, duration, runner, standin=standin != "0", log=log,
                     run_dir=pool_dir, durations=durations, durations_path=dpath)
