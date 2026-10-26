@@ -217,8 +217,9 @@ class Pool:
                     continue
                 spare_cpus, spare_mem = spare_cpus - c, spare_mem - m
             cpus, mem, _ = job.spec()
-            if not self.running and len(self.ready()) == 1:
-                # alone with nothing else ready (a chain like glibc -> gcc -> llvm): take the whole machine
+            if not self.running and len(self.ready()) == 1 and self.gates_all(n):
+                # alone, and every other pending job waits on it (a chain like glibc -> gcc -> llvm): take the whole
+                # machine. Not when others are merely not ready yet: electron44 held all 16 CPUs for hours that way.
                 cpus, mem = CPU_BUDGET, max(mem, MEM_BUDGET)
             job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
             self.free_cpus = self.free_cpus[len(job.cpus):]
@@ -230,6 +231,20 @@ class Pool:
             self.running[n] = job
             self.history.append(("start", n, job.cls, job.tier, len(job.cpus)))
             self.runner.start(job)
+
+    def gates_all(self, n):
+        """Every other pending job depends on n, directly or through other pending jobs."""
+        rdeps = {}
+        for m in self.pending:
+            for d in self.deps[m]:
+                rdeps.setdefault(d, set()).add(m)
+        seen, todo = set(), [n]
+        while todo:
+            for m in rdeps.get(todo.pop(), ()):
+                if m not in seen:
+                    seen.add(m)
+                    todo.append(m)
+        return self.pending - {n} <= seen
 
     def share(self, job):
         """Start a small job on the CPU of a running job when the host measures idle (reservations are upper

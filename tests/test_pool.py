@@ -153,6 +153,15 @@ class PoolTest(unittest.TestCase):
         pool.run()
         self.assertEqual([c for ev, n, cls, t, c in pool.history if ev == "start"], [kp.CPU_BUDGET] * 2)
 
+    def test_lone_job_shares_when_others_do_not_wait_on_it(self):
+        # h is alone ready only because b waits on a (not on h): h takes its class CPUs, not the machine
+        pool, _ = make([("h", "heavy", []), ("a", "small", []), ("b", "small", [])], deps={"b": {"a"}, "a": {"x"}},
+                       durations={"h": 100})
+        pool.jobs.pop("x", None)
+        pool.run()
+        first = [c for ev, n, cls, t, c in pool.history if ev == "start" and n == "h"][0]
+        self.assertLess(first, kp.CPU_BUDGET)
+
     def test_critical_path_first(self):
         # c heads a chain c -> x -> y; b is alone: c starts first though b sorts first by name
         specs = [("b", "small", []), ("c", "small", []), ("x", "small", []), ("y", "small", [])]
