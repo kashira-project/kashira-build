@@ -99,9 +99,6 @@ pacman -Qi | awk -F' *: ' -v us="$PACKAGER" '$1 == "Name" { n = $2 } $1 == "Vers
 # our soname_provides drop-in wins over whatever libmakepkg-dropins version the deps installed
 # (copied, not bind-mounted: a mount makes the packaged file conflict on install)
 install -Dm644 /kbuild/conf/soname_provides.sh /usr/share/makepkg/autodep/soname_provides.sh
-# ccache's masquerade dir carries gcc/g++ links whether or not gcc is installed; with no gcc behind them, tools that
-# look gcc up on PATH (ffado-diag, ghc's configure, scons probes) find it and fail. Keep only links to real compilers.
-for l in /usr/lib/ccache/bin/*; do [ -e "/usr/bin/${l##*/}" ] || rm -f "$l"; done
 # Toolchain and flags come only from makepkg.conf and the PKGBUILD: a recipe that needs gcc makedepends it and
 # exports CC/CXX itself. No name shims, tiers or per-package knobs here.
 id builder &>/dev/null || useradd -m builder
