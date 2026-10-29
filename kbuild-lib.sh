@@ -117,7 +117,7 @@ pkg_deps() {
       # Exception: self-hosted compilers (KBUILD_SELF_DEPS, default: rust git ghc java maven, bootstrapped from Arch stand-ins; git builds from a git+https source) need their
       # own previous release installed as the stage0 toolchain.
       [ "$name" = "$base" ] && [ "$selfhost" = 0 ] && continue
-      if awk -v n="$name" 'index($0, n "-") == 1 && /\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
+      if awk -v n="$name" 'index($0, n "-") == 1 && substr($0, length(n) + 2) ~ /^[^\/-]+-[^\/-]+\/desc$/ { found=1; exit } END { exit !found }' <<<"$entries"; then
         expr=$name
       elif [ "$selfhost" = 1 ]; then
         expr=$name                      # not built yet: the Arch stand-in provides it
