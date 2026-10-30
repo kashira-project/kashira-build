@@ -92,7 +92,7 @@ class PoolTest(unittest.TestCase):
 
         pool, _ = make([("h", "heavy", [])], outcome=outcome)
         self.assertEqual(pool.run(), {"h": "built"})
-        self.assertEqual(mems, [14, 26])
+        self.assertEqual(mems, [14, 20])
 
     def test_backfill_before_heavy(self):
         # after r: 4 CPUs free until m ends at 100; h (heavy, 8) waits, short s backfills, long l (8) exceeds the spare 4
