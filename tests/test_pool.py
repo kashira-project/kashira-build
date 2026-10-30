@@ -204,6 +204,7 @@ class PoolTest(unittest.TestCase):
     def test_classify(self):
         self.assertEqual(kp.classify(1, "error: target not found: foo"), "deps")
         self.assertEqual(kp.classify(137, ""), "oom")
+        self.assertEqual(kp.classify(1, "FAILED: [code=255] tools/flang/OpenMP.cpp.o"), "oom")  # cgroup kill of a clang child
         self.assertEqual(kp.classify(2, "c++: fatal error: Killed signal terminated program cc1plus"), "oom")
         self.assertEqual(kp.classify(2, "x.c:3:1: error: y"), "build")
         self.assertEqual(kp.classify(101, "process didn't exit successfully: `rustc ...` (signal: 9, SIGKILL: kill)"), "oom")
