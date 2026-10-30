@@ -12,7 +12,7 @@ with kbuild-sched's feedback-edge ordering. Ready targets start by wave, then cr
 while CPU and memory budgets allow; a heavy target at the head of the queue reserves the machine until it fits.
 
 Each class requests CPUs (a disjoint --cpuset-cpus range, so nproc follows), memory and a timeout:
-small 1/4G/2h, medium 4/8G/4h, large 8/14G/8h, heavy 8/14G/20h (swap 40G; two fit side by side). Retries:
+small 1/4G/2h, medium 4/8G/4h, large 8/14G/8h, heavy 8/14G/20h (swap mem+12G; two fit side by side). Retries:
 oom -> once one class up; a compile error is final (fail:build: the fix goes into the PKGBUILD);
 source and deps failures are final. Results: build/logs/pool/<run>/status.tsv, pool.log, summary.txt.
 """
@@ -303,10 +303,10 @@ class Pool:
         if kind == "oom" and not job.oom_retried:
             job.oom_retried = True
             if job.cls == "heavy":   # no class above: take the memory a lone heavy used to get
-                job.knobs = [k for k in job.knobs if not k.startswith("mem=")] + ["mem=26G"]
+                job.knobs = [k for k in job.knobs if not k.startswith("mem=")] + ["mem=20G"]
             else:
                 job.cls = CLASSES[CLASSES.index(job.cls) + 1]
-            retry = "class " + job.cls + (" mem=26G" if job.cls == "heavy" else "")
+            retry = "class " + job.cls + (" mem=20G" if job.cls == "heavy" else "")
         elif kind == "transient" and job.transient_retries < 2:
             job.transient_retries += 1
             retry = f"tier {job.tier} again"
@@ -419,7 +419,7 @@ class DockerRunner:
     def start(self, job):
         _, _, hours = job.spec()
         mem = job.mem
-        swap = max(40, mem) if job.cls == "heavy" else mem + mem // 2
+        swap = mem + 12 if job.cls == "heavy" else mem + mem // 2  # zram swap also costs RAM: leave the desktop room
         env = dict(os.environ, KBUILD_JOBS=str(job.jobs()), KBUILD_CPUS=str(len(job.cpus) or job.jobs()),
                    KBUILD_CPUSET=",".join(map(str, job.cpus)), KBUILD_MEMORY=f"{mem}g", KBUILD_MEMORY_SWAP=f"{swap}g",
                    KBUILD_KNOBS=",".join(job.knobs), KBUILD_RUN_ID=self.run_id)
