@@ -17,7 +17,10 @@ Logs in as root on ttyS0 (live media only: root has no password), runs the
 probe commands below (including a suspend, QMP wake and lock check), saves their output
 to <outdir>/probes.txt and takes QMP
 screendumps (<outdir>/screen-*.ppm). Uses KVM when /dev/kvm is usable, else TCG
-with -cpu max (x86-64-v3 needs AVX2). Exit status 0 only if every probe in
+with -cpu max (x86-64-v3 needs AVX2; a TCG boot takes ~10 minutes). /dev/kvm is root:kvm here and the build
+user is not in that group, so for a KVM run start the whole script as root:
+  sudo python3 image/live/boot-test.py <iso> <outdir> [...]
+Output files are chowned back to $SUDO_UID afterwards. Exit status 0 only if every probe in
 REQUIRED passed.
 """
 import json, os, socket, subprocess, sys, time
@@ -116,11 +119,29 @@ def qmp(path, *commands):
     s.connect(path)
     f = s.makefile("rw")
     f.readline()
+    out = []
     for cmd in [{"execute": "qmp_capabilities"}, *commands]:
         f.write(json.dumps(cmd) + "\n")
         f.flush()
-        f.readline()
+        while True:                                      # skip async events until the reply
+            r = json.loads(f.readline() or '{"error": "eof"}')
+            if "event" not in r:
+                break
+        out.append(r)
     s.close()
+    return out[1:]
+
+
+def wake_when_suspended(mon, con, timeout=600):
+    """system_wakeup only works once the guest is in S3, and a too-early wakeup is silently dropped, so poll the
+    run state instead of waking after a fixed delay. Keep reading the serial socket while polling: if the host stops
+    draining it, the guest's console TX stalls and the 8250 console suspend never completes (guest never reaches S3)."""
+    end = time.time() + timeout
+    while time.time() < end:
+        con.read_until("@@never@@", 1)
+        if qmp(mon, {"execute": "query-status"})[0].get("return", {}).get("status") == "suspended":
+            return "error" not in qmp(mon, {"execute": "system_wakeup"})[0]
+    return False
 
 
 def main():
@@ -154,7 +175,7 @@ def main():
     ser, mon = os.path.join(out, "serial.sock"), os.path.join(out, "qmp.sock")
     accel = ["-enable-kvm", "-cpu", "host"] if os.access("/dev/kvm", os.R_OK | os.W_OK) and \
         subprocess.run(["qemu-system-x86_64", "-enable-kvm", "-machine", "none", "-display", "none",
-                        "-S", "-qmp", "stdio"], input=b'{"execute":"quit"}', capture_output=True,
+                        "-S", "-qmp", "stdio"], input=b'{"execute":"qmp_capabilities"}{"execute":"quit"}', capture_output=True,
                        timeout=20).returncode == 0 else ["-accel", "tcg,thread=multi", "-cpu", "max"]
     qemu = subprocess.Popen([
         "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
@@ -193,8 +214,8 @@ def main():
             # printf keeps the literal markers out of the terminal's echo of this line
             con.send(f"printf '@@%s@@\\n' BEGIN{i}; {cmd}; printf '@@%s@@\\n' END{i}\n")
             if name == "suspend":                              # wake the guest the way a key press would
-                time.sleep(5)
-                qmp(mon, {"execute": "system_wakeup"})
+                if not wake_when_suspended(mon, con):
+                    print("suspend: guest never reached S3 or wakeup failed")
             if name == "resume-unlocked":
                 qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-resume.ppm")}})
             con.read_until(marker + "\r\n", INSTALL_TIMEOUT if name == "install" else 120) or con.read_until(marker, 5)
@@ -218,6 +239,8 @@ def main():
             qemu.wait(30)
         except subprocess.TimeoutExpired:
             qemu.kill()
+        if os.environ.get("SUDO_UID"):                     # sudo run for KVM: hand the output back to the invoker
+            subprocess.run(["chown", "-R", f"{os.environ['SUDO_UID']}:{os.environ.get('SUDO_GID', '')}", out])
 
 
 if __name__ == "__main__":
