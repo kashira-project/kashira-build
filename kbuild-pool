@@ -642,7 +642,9 @@ def main(argv):
 
     os.makedirs(LOGS, exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
-    locks = [open(os.path.join(d, ".kbuild-run.lock"), "w") for d in (LOGS, OUT)]
+    # a lane is a second concurrent pool over a disjoint target list, with its own lock and a smaller budget
+    lane = os.environ.get("KBUILD_POOL_LANE", "")
+    locks = [open(os.path.join(d, f".kbuild-run{'.' + lane if lane else ''}.lock"), "w") for d in (LOGS, OUT)]
     for f in locks:
         try:
             fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)

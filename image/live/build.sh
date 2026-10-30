@@ -46,4 +46,6 @@ docker run --rm --privileged --network none \
 
 iso=$(ls -- "$out"/*.iso)
 (cd -- "$out" && sha256sum -- "${iso##*/}") > "$iso.sha256"
+# run under sudo; the boot test writes next to the ISO as the invoking user
+[ -z "${SUDO_UID:-}" ] || chown -R "$SUDO_UID:${SUDO_GID:-$SUDO_UID}" -- "$out"
 printf '%s\n' "$iso"
