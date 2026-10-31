@@ -275,7 +275,7 @@ repo_add() {
     flock 9 || exit 1
     for pkg in $validated; do
       destination=$REPO/$(basename "$pkg")
-      cp -f -- "$pkg" "$destination" || exit 1
+      cp -fl -- "$pkg" "$destination" || exit 1
       cmp -s -- "$pkg" "$destination" || exit 1
       if [ "$multilib" = 1 ]; then inmultilib+=("$destination"); else inrepo+=("$destination"); fi
     done

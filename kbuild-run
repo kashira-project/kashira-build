@@ -94,7 +94,7 @@ copy_canonical() {
   find "$OUT/$pkgbase" -maxdepth 1 -type f -name '*.pkg.tar.zst' -delete || return 1
   : > "$recorded"
   while IFS= read -r f; do
-    cp -f "$f" "$OUT/$pkgbase/" || return 1
+    cp -fl "$f" "$OUT/$pkgbase/" || return 1
     sha256sum "$OUT/$pkgbase/$(basename "$f")" >> "$recorded" || return 1
   done <<<"$files"
 }
