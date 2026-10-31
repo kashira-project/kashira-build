@@ -122,6 +122,16 @@ class PoolTest(unittest.TestCase):
         order = starts(pool)
         self.assertLess(order.index("l"), order.index("h"))
 
+    def test_saturated_host_stops_admission_above_floor(self):
+        class Saturated(kp.SimRunner):
+            def saturated(self):
+                return True
+        jobs = [kp.Job(str(i), "small", "A", []) for i in range(10)]
+        pool = kp.Pool(jobs, {}, lambda n: 10, Saturated(lambda n: 10), log=lambda m: None)
+        pool.admit()
+        self.assertEqual(len(pool.running), kp.MIN_RUNNING)
+        self.assertEqual(pool.run(), {j.name: "built" for j in jobs})
+
     def test_small_shares_cpu_when_host_idles(self):
         class Idle(kp.SimRunner):
             def spare(self):

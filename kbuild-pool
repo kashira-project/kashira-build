@@ -46,6 +46,9 @@ WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 UNKNOWN_DURATION = 60
 MAX_SHARED = 8
 MAX_REUSE = 12        # concurrent reuse-only jobs (I/O: repo db scans)
+MIN_RUNNING = 4       # admission never stops below this, so pressure from outside the pool cannot starve it
+IO_FULL_LIMIT = 35    # /proc/pressure/io full avg10: above it new containers only slow the running ones
+MIN_AVAILABLE_KIB = 3 << 20
 
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
@@ -198,6 +201,8 @@ class Pool:
             if job.reuse and sum(j.reuse for j in self.running.values()) < MAX_REUSE:
                 self.start_reuse(job)
                 continue
+            if len(self.running) >= MIN_RUNNING and self.runner.saturated():
+                return
             if not self.fits(job) and job.cls == "small" and self.share(job):
                 continue
             if not self.fits(job):
@@ -364,6 +369,9 @@ class SimRunner:
     def spare(self):
         return False
 
+    def saturated(self):
+        return False
+
     def start(self, job):
         self.ends[job.name] = (self.now + self.duration(job.name), job)
 
@@ -389,7 +397,7 @@ class DockerRunner:
     def sample(self):
         """Smoothed host idle fraction from /proc/stat."""
         v = [int(x) for x in open("/proc/stat").readline().split()[1:]]
-        idle, total = v[3] + v[4], sum(v)
+        idle, total = v[3], sum(v)   # not iowait (v[4]): cores stalled on disk must not admit more disk work
         if self.stat:
             dt = total - self.stat[1]
             if dt > 0:
@@ -407,6 +415,15 @@ class DockerRunner:
         except (OSError, ValueError, IndexError):
             return False
         return self.idle > 0.30 and mem["MemAvailable"] >= 8 << 20 and some < 5
+
+    def saturated(self):
+        """Disk or memory is the limit right now: another container would slow the running ones."""
+        try:
+            full = float(open("/proc/pressure/io").read().split("\n")[1].split()[1].split("=")[1])  # full avg10
+            mem = {l.split(":")[0]: int(l.split()[1]) for l in open("/proc/meminfo")}
+        except (OSError, ValueError, IndexError):
+            return False
+        return full >= IO_FULL_LIMIT or mem["MemAvailable"] < MIN_AVAILABLE_KIB
 
     def container(self, job):
         return "kb-" + self.run_id + "-" + re.sub(r"[^A-Za-z0-9_.-]", "_", job.name)
@@ -466,8 +483,8 @@ class DockerRunner:
                     del self.procs[name]
                     out.append((job, rc, self.tail(job), time.time() - t0))
             self.sample()
-            if out or (self.idle > 0.30 and time.time() - self.woke > 15):
-                self.woke = time.time()   # an idle host re-runs admission even without completions
+            if out or time.time() - self.woke > 15:
+                self.woke = time.time()   # pressure or idle changes without completions: re-run admission
                 return out
             time.sleep(3)
 

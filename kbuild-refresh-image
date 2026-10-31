@@ -1,0 +1,21 @@
+#!/bin/bash
+# kbuild-refresh-image [TAG]: apply the pending `pacman -Syu` once and commit it, so every job does not repeat it.
+# A stale image cost each container 2.3 GB of writes and about 100 s (build/logs/io-bottleneck.md).
+# TAG defaults to the image the pool uses: running pools pick it up at their next container.
+# shortcut: each commit stacks a layer, rebuild from image/base-devel when the image grows too large.
+set -euo pipefail
+HERE=$(cd "$(dirname "$0")" && pwd)
+. "$HERE/kbuild-lib.sh"
+new=${1:-$IMAGE}
+stub=$(mktemp -d); out=$(mktemp -d)
+chmod 755 "$stub"
+printf 'pkgname=stub\npkgver=1\npkgrel=1\narch=(any)\npackage() { :; }\n' > "$stub/PKGBUILD"
+standin=$(sudo docker inspect -f '{{(index .NetworkSettings.Networks "kbuild").IPAddress}}' kbuild-standin)
+id=$(sudo docker create --network kbuild \
+  -e KBUILD_DEPS= -e KBUILD_STANDIN=1 -e KBUILD_STANDIN_DB=filtered -e KBUILD_STANDIN_HOST="$standin" -e KBUILD_JOBS=1 \
+  -v "$stub":/pkg:ro -v "$out":/out -v "$REPO":/repo:ro -v "$HERE":/kbuild:ro \
+  "$IMAGE" bash -c '/kbuild/kbuild-inside.sh; rc=$?; rm -rf /home/builder/build /etc/kbuild-pacman.conf; exit $rc')
+sudo docker start -a "$id"
+sudo docker commit "$id" "$new" >/dev/null
+sudo docker rm "$id" >/dev/null
+echo "refreshed: $new"
