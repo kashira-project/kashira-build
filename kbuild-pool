@@ -215,7 +215,7 @@ class Pool:
             if not self.running and len(self.ready()) == 1 and self.gates_all(n):
                 # alone, and every other pending job waits on it (a chain like glibc -> gcc -> llvm): take the whole
                 # machine. Not when others are merely not ready yet: electron44 held all 16 CPUs for hours that way.
-                cpus, mem = CPU_BUDGET, max(mem, MEM_BUDGET)
+                cpus, mem = CPU_BUDGET, max(mem, min(MEM_BUDGET, 22))  # 26G+14G swap OOM-killed the desktop
             job.cpus = self.free_cpus[:min(cpus, CPU_BUDGET)]
             self.free_cpus = self.free_cpus[len(job.cpus):]
             job.mem = mem
