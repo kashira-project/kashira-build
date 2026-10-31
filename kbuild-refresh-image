@@ -13,7 +13,7 @@ printf 'pkgname=stub\npkgver=1\npkgrel=1\narch=(any)\npackage() { :; }\n' > "$st
 standin=$(sudo docker inspect -f '{{(index .NetworkSettings.Networks "kbuild").IPAddress}}' kbuild-standin)
 id=$(sudo docker create --network kbuild \
   -e KBUILD_DEPS= -e KBUILD_STANDIN=1 -e KBUILD_STANDIN_DB=filtered -e KBUILD_STANDIN_HOST="$standin" -e KBUILD_JOBS=1 \
-  -v "$stub":/pkg:ro -v "$out":/out -v "$REPO":/repo:ro -v "$HERE":/kbuild:ro \
+  -v "$stub":/pkg:ro -v "$SOURCES":/sources -v "$out":/out -v "$REPO":/repo:ro -v "$HERE":/kbuild:ro \
   "$IMAGE" bash -c '/kbuild/kbuild-inside.sh; rc=$?; rm -rf /home/builder/build /etc/kbuild-pacman.conf; exit $rc')
 sudo docker start -a "$id"
 sudo docker commit "$id" "$new" >/dev/null
