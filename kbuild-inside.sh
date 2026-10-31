@@ -86,8 +86,8 @@ if [ -f /repo/.kbuild-arch-mixed ]; then
   pacman -Q > /out/.installed-packages
 fi
 # provenance: every installed package we did not build (a stand-in); wave P rebuilds whatever these touched
-pacman -Qi | awk -F' *: ' -v us="$PACKAGER" '$1 == "Name" { n = $2 } $1 == "Version" { v = $2 }
-  $1 == "Packager" && $2 != us { print n, v }' > /out/.standins
+pacman -Qi | awk -F' *: ' '$1 == "Name" { n = $2 } $1 == "Version" { v = $2 }
+  $1 == "Packager" && $2 !~ /^kashira / { print n, v }' > /out/.standins
 
 # our soname_provides drop-in wins over whatever libmakepkg-dropins version the deps installed
 # (copied, not bind-mounted: a mount makes the packaged file conflict on install)

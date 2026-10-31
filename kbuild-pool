@@ -7,7 +7,7 @@ The list holds one pkgbase per line, optionally `pkgbase<TAB>wave` (kashira-pkgs
 lines by wave. The pool runs `kbuild-run prepare`, builds every target with `kbuild-run one`, then `kbuild-run finish`.
 
 Scheduling (no level barriers): a target is ready once each in-run dependency has finished, successfully or not
-(stand-ins satisfy failed or not-yet-built deps; with --standin 0 a failed dep fails its dependents). Cycles are cut
+(stand-ins satisfy failed or not-yet-built deps; with --standin 0 the repo copy satisfies them, else fail:deps). Cycles are cut
 with kbuild-sched's feedback-edge ordering. Ready targets start by wave, then critical-path length, then duration,
 while CPU and memory budgets allow; a heavy target at the head of the queue reserves the machine until it fits.
 
@@ -195,11 +195,6 @@ class Pool:
         shadow = None    # a heavy head that does not fit reserves the machine from this time on
         for n in self.ready():
             job = self.jobs[n]
-            if not self.standin and any(self.finished.get(d, "built") != "built" for d in self.deps[n]):
-                self.pending.discard(n)
-                self.finished[n] = "fail:dep"
-                self.history.append(("skip", n, job.cls, job.tier, 0))
-                continue
             if job.reuse and sum(j.reuse for j in self.running.values()) < MAX_REUSE:
                 self.start_reuse(job)
                 continue

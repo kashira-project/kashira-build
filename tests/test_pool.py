@@ -61,10 +61,10 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(res, {"a": "fail:source", "b": "built"})
         self.assertLess(starts(pool).index("a"), starts(pool).index("b"))
 
-    def test_failed_dep_without_standins_fails_dependent(self):
+    def test_failed_dep_without_standins_still_runs_dependent(self):
         fail = lambda j: (1, "unable to satisfy dependency 'x'") if j.name == "a" else (0, "")  # noqa: E731
         pool, _ = make([("a", "small", []), ("b", "small", [])], deps={"b": {"a"}}, outcome=fail, standin=False)
-        self.assertEqual(pool.run(), {"a": "fail:deps", "b": "fail:dep"})
+        self.assertEqual(pool.run(), {"a": "fail:deps", "b": "built"})
 
     def test_build_failure_is_final(self):
         tries = []
