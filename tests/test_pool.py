@@ -1,5 +1,6 @@
 import importlib.machinery
 import importlib.util
+import io
 import os
 import unittest
 
@@ -131,6 +132,31 @@ class PoolTest(unittest.TestCase):
         pool.admit()
         self.assertEqual(len(pool.running), kp.MIN_RUNNING)
         self.assertEqual(pool.run(), {j.name: "built" for j in jobs})
+
+    def test_shared_job_goes_to_least_busy_cpu(self):
+        class Idle(kp.SimRunner):
+            def spare(self):
+                return True
+
+            def cpu_busy(self):
+                return {0: 0.9, 1: 0.1, 2: 0.2}
+        jobs = [kp.Job(n, "small", "A", []) for n in "ab"]
+        pool = kp.Pool(jobs, {}, lambda n: 10, Idle(lambda n: 10), log=lambda m: None)
+        kp.CPU_BUDGET, old = 3, kp.CPU_BUDGET
+        try:
+            pool.free_cpus = []
+            pool.admit()
+        finally:
+            kp.CPU_BUDGET = old
+        self.assertEqual(pool.jobs["a"].cpus, [1])
+        self.assertEqual(pool.jobs["b"].cpus, [2])  # a's share counts against CPU 1
+
+    def test_duration_keeps_the_longest_run(self):
+        pool = kp.RealPool.__new__(kp.RealPool)
+        pool.durations, pool.status = {"a": 100}, io.StringIO()
+        pool.progress = lambda: None
+        pool.on_success(kp.Job("a", "small", "A", []), 15)
+        self.assertEqual(pool.durations["a"], 100)
 
     def test_small_shares_cpu_when_host_idles(self):
         class Idle(kp.SimRunner):
