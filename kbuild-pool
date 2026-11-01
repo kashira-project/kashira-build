@@ -45,6 +45,7 @@ HEAVY = {"llvm", "gcc", "rust", "linux", "firefox", "thunderbird", "libreoffice-
 WAVE_ORDER = {"0": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 UNKNOWN_DURATION = 60
 MAX_SHARED = 12
+SHARED_CPUS = {"small": 1, "medium": 2, "large": 4}
 MAX_REUSE = 12        # concurrent reuse-only jobs (I/O: repo db scans)
 MIN_RUNNING = 4       # admission never stops below this, so pressure from outside the pool cannot starve it
 IO_FULL_LIMIT = 35    # /proc/pressure/io full avg10: above it new containers only slow the running ones
@@ -205,7 +206,7 @@ class Pool:
                 continue
             if len(self.running) >= MIN_RUNNING and self.runner.saturated():
                 return
-            if not self.fits(job) and job.cls in ("small", "medium") and self.share(job):
+            if not self.fits(job) and job.cls != "heavy" and self.share(job):
                 continue
             if not self.fits(job):
                 if job.cls == "heavy" and shadow is None:
@@ -249,7 +250,7 @@ class Pool:
         return self.pending - {n} <= seen
 
     def share(self, job):
-        """Start a small or medium job on the CPUs of running jobs when the host measures idle (reservations are upper
+        """Start a job below heavy on the CPUs of running jobs when the host measures idle (reservations are upper
         bounds: ghc holding 8 CPUs and 14 GiB through a serial phase idled 60% of the machine). Its container keeps
         its own limit; at most MAX_SHARED run this way."""
         if sum(j.shared for j in self.running.values()) >= MAX_SHARED or not self.runner.spare():
@@ -261,7 +262,7 @@ class Pool:
             if j.shared:         # placed since the last sample, or still busy: either way it is coming
                 for c in j.cpus:
                     load[c] += 1
-        job.cpus, job.shared = sorted(load, key=lambda c: (load[c], c))[:2 if job.cls == "medium" else 1], True
+        job.cpus, job.shared = sorted(load, key=lambda c: (load[c], c))[:SHARED_CPUS[job.cls]], True
         job.mem = job.spec()[1]
         job.reserve, job.t0 = 0, self.runner.clock()
         self.pending.discard(job.name)
@@ -401,7 +402,7 @@ class DockerRunner:
     def __init__(self, run_id, run_dir):
         self.run_id, self.run_dir, self.procs = run_id, run_dir, {}
         self.idle, self.stat, self.woke = 0.0, None, 0.0
-        self.percpu, self.busy = {}, {}
+        self.percpu, self.busy, self.shared_at = {}, {}, 0.0
 
     def sample(self):
         """Smoothed host idle fraction from /proc/stat."""
@@ -433,7 +434,11 @@ class DockerRunner:
             some = float(open("/proc/pressure/memory").read().split()[1].split("=")[1])   # some avg10
         except (OSError, ValueError, IndexError):
             return False
-        return self.idle > 0.15 and mem["MemAvailable"] >= 8 << 20 and some < 5
+        # one per minute: idle lags a new job's ramp-up, and every pass would see the same idle otherwise
+        if time.time() - self.shared_at < 60 or self.idle <= 0.15 or mem["MemAvailable"] < 8 << 20 or some >= 5:
+            return False
+        self.shared_at = time.time()
+        return True
 
     def saturated(self):
         """Disk or memory is the limit right now: another container would slow the running ones."""
