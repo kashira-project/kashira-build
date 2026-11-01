@@ -419,7 +419,9 @@ class DockerRunner:
     def saturated(self):
         """Disk or memory is the limit right now: another container would slow the running ones."""
         try:
-            full = float(open("/proc/pressure/io").read().split("\n")[1].split()[1].split("=")[1])  # full avg10
+            # containers only: an idle ghostty (io_uring wait) reads as 60% host-wide with the disk 2% busy
+            io = open("/sys/fs/cgroup/system.slice/io.pressure").read()
+            full = float(io.split("\n")[1].split()[1].split("=")[1])  # full avg10
             mem = {l.split(":")[0]: int(l.split()[1]) for l in open("/proc/meminfo")}
         except (OSError, ValueError, IndexError):
             return False
