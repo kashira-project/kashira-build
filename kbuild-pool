@@ -48,7 +48,8 @@ MAX_SHARED = 12
 MAX_REUSE = 12        # concurrent reuse-only jobs (I/O: repo db scans)
 MIN_RUNNING = 4       # admission never stops below this, so pressure from outside the pool cannot starve it
 IO_FULL_LIMIT = 35    # /proc/pressure/io full avg10: above it new containers only slow the running ones
-MIN_AVAILABLE_KIB = 3 << 20
+MIN_AVAILABLE_KIB = 5 << 20
+OVERRUN_GRACE = 600   # an overrunning job is assumed to end this soon; at 60 s nothing qualified and the pool idled
 
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
@@ -65,7 +66,8 @@ PACMAN_FAIL = re.compile(r"failed to commit transaction|could not satisfy depend
 
 def reserve_of(cls, mem):
     """Memory the budget counts for a job; the container limit stays mem."""
-    return mem // 2 if cls == "small" else mem
+    # a limit, not a use: full reservations held 20 GiB free with only pnpm running. saturated() guards real memory.
+    return mem if cls == "heavy" else mem // 2
 
 
 def classify(rc, tail):
@@ -191,7 +193,7 @@ class Pool:
             free, mem_free = free + len(j.cpus), mem_free + j.reserve
             if free >= cpus and mem_free >= mem:
                 # an overrunning job: assume it ends soon. The rest of that time's resources is spare.
-                return max(j.t0 + self.duration(j.name), now + 60), free - cpus, mem_free - mem
+                return max(j.t0 + self.duration(j.name), now + OVERRUN_GRACE), free - cpus, mem_free - mem
         return now, 0, 0
 
     def admit(self):
@@ -203,7 +205,7 @@ class Pool:
                 continue
             if len(self.running) >= MIN_RUNNING and self.runner.saturated():
                 return
-            if not self.fits(job) and job.cls == "small" and self.share(job):
+            if not self.fits(job) and job.cls in ("small", "medium") and self.share(job):
                 continue
             if not self.fits(job):
                 if job.cls == "heavy" and shadow is None:
@@ -247,7 +249,7 @@ class Pool:
         return self.pending - {n} <= seen
 
     def share(self, job):
-        """Start a small job on the CPU of a running job when the host measures idle (reservations are upper
+        """Start a small or medium job on the CPUs of running jobs when the host measures idle (reservations are upper
         bounds: ghc holding 8 CPUs and 14 GiB through a serial phase idled 60% of the machine). Its container keeps
         its own limit; at most MAX_SHARED run this way."""
         if sum(j.shared for j in self.running.values()) >= MAX_SHARED or not self.runner.spare():
@@ -257,8 +259,9 @@ class Pool:
         load = {c: busy.get(c, 0.0) for c in range(CPU_BUDGET)}
         for j in self.running.values():
             if j.shared:         # placed since the last sample, or still busy: either way it is coming
-                load[j.cpus[0]] += 1
-        job.cpus, job.shared = [min(load, key=lambda c: (load[c], c))], True
+                for c in j.cpus:
+                    load[c] += 1
+        job.cpus, job.shared = sorted(load, key=lambda c: (load[c], c))[:2 if job.cls == "medium" else 1], True
         job.mem = job.spec()[1]
         job.reserve, job.t0 = 0, self.runner.clock()
         self.pending.discard(job.name)

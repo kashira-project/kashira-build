@@ -151,6 +151,24 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(pool.jobs["a"].cpus, [1])
         self.assertEqual(pool.jobs["b"].cpus, [2])  # a's share counts against CPU 1
 
+    def test_medium_shares_two_cpus_and_reserves_half(self):
+        class Idle(kp.SimRunner):
+            def spare(self):
+                return True
+
+            def cpu_busy(self):
+                return {0: 0.9, 1: 0.1, 2: 0.2}
+        pool = kp.Pool([kp.Job("m", "medium", "A", [])], {}, lambda n: 10, Idle(lambda n: 10), log=lambda m: None)
+        kp.CPU_BUDGET, old = 3, kp.CPU_BUDGET
+        try:
+            pool.free_cpus = []
+            pool.admit()
+        finally:
+            kp.CPU_BUDGET = old
+        self.assertEqual(pool.jobs["m"].cpus, [1, 2])
+        self.assertEqual(kp.reserve_of("medium", 8), 4)
+        self.assertEqual(kp.reserve_of("heavy", 14), 14)
+
     def test_duration_keeps_the_longest_run(self):
         pool = kp.RealPool.__new__(kp.RealPool)
         pool.durations, pool.status = {"a": 100}, io.StringIO()
