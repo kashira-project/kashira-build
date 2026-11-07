@@ -262,9 +262,13 @@ class Pool:
             if j.shared:         # placed since the last sample, or still busy: either way it is coming
                 for c in j.cpus:
                     load[c] += 1
+        # shared CPUs, not shared memory: zero-reserve rust jobs beside firefox swapped 28 GiB and thrashed
+        mem = job.spec()[1]
+        if self.mem_used + reserve_of(job.cls, mem) > MEM_BUDGET:
+            return False
         job.cpus, job.shared = sorted(load, key=lambda c: (load[c], c))[:SHARED_CPUS[job.cls]], True
-        job.mem = job.spec()[1]
-        job.reserve, job.t0 = 0, self.runner.clock()
+        job.mem, job.reserve, job.t0 = mem, reserve_of(job.cls, mem), self.runner.clock()
+        self.mem_used += job.reserve
         self.pending.discard(job.name)
         self.running[job.name] = job
         self.history.append(("start", job.name, job.cls, job.tier, 1))

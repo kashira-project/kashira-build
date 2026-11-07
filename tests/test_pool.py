@@ -169,6 +169,19 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(kp.reserve_of("medium", 8), 4)
         self.assertEqual(kp.reserve_of("heavy", 14), 14)
 
+    def test_shared_job_needs_memory_budget(self):
+        class Idle(kp.SimRunner):
+            def spare(self):
+                return True
+        pool = kp.Pool([kp.Job("m", "medium", "A", [])], {}, lambda n: 10, Idle(lambda n: 10), log=lambda m: None)
+        pool.free_cpus, pool.mem_used = [], kp.MEM_BUDGET - 1
+        pool.admit()
+        self.assertNotIn("m", pool.running)
+        pool.mem_used = 0
+        pool.admit()
+        self.assertEqual(pool.mem_used, pool.jobs["m"].reserve)
+        self.assertGreater(pool.mem_used, 0)
+
     def test_duration_keeps_the_longest_run(self):
         pool = kp.RealPool.__new__(kp.RealPool)
         pool.durations, pool.status = {"a": 100}, io.StringIO()
