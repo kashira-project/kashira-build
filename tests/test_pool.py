@@ -205,6 +205,7 @@ class PoolTest(unittest.TestCase):
         self.assertEqual(len(runner.ends), 0)
         self.assertEqual(starts(pool), ["a", "b", "c"])
         self.assertEqual(pool.free_cpus, [0])       # shared jobs never return CPUs they did not own
+        self.assertEqual(pool.mem_used, 0)          # nor keep memory: a leak left 51 targets unschedulable
 
     def test_requeue_failed(self):
         pool, _ = make([("a", "small", [])], outcome=lambda j: (1, "==> ERROR: Failure while downloading x"))

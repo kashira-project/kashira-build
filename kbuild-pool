@@ -291,6 +291,7 @@ class Pool:
             del self.running[job.name]
             return
         if job.shared:
+            self.mem_used -= job.reserve
             job.cpus, job.shared = [], False
             del self.running[job.name]
             return
