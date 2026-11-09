@@ -49,6 +49,7 @@ pipewire-alsa
 pipewire-pulse
 power-profiles-daemon
 pv
+python-dnspython
 rsync
 sof-firmware
 sudo-rs

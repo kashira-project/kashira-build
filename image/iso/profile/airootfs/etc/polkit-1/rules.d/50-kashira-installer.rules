@@ -1,0 +1,9 @@
+// Live medium only: the live user (wheel) may run the installer backend through pkexec without a password.
+// Only this program; every other pkexec call keeps asking.
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.policykit.exec" &&
+        action.lookup("program") == "/usr/bin/kashira-install" &&
+        subject.isInGroup("wheel") && subject.local && subject.active) {
+        return polkit.Result.YES;
+    }
+});

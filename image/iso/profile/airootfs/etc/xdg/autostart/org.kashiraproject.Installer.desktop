@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Install Kashira
+Comment=Install Kashira Linux on this computer
+Exec=kashira-installer
+Icon=system-software-install
+Terminal=false
+Categories=System;
+StartupNotify=true

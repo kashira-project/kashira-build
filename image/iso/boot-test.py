@@ -4,12 +4,15 @@
   image/iso/boot-test.py <iso> <outdir> [--wait-graphical SECONDS]
                           [--secureboot VARS.fd] [--screenshot-after SECONDS] [--media usb]
                           [--install SERVER_URL] [--probe NAME=COMMAND]
+                          [--recipe RECIPE.json --secrets SECRETS.json --share INSTALLER_CHECKOUT]
 
 --secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
 variable store. --screenshot-after only takes a screenshot after SECONDS and
 exits (for boots that stop before a login prompt, e.g. MokManager).
 --media usb attaches the ISO as a USB stick instead of a CD-ROM, like a flashed
 drive (archiso then copies the root image to RAM).
+--recipe installs with kashira-install from the --share checkout (virtio-9p) onto a blank 40 GiB disk, then
+boots that disk without the ISO and checks it (POST_PROBES). The harness adds a VM-only serial root autologin.
 --install adds a blank 16 GiB virtio disk and a final `install` probe: a standard Arch install
 (sgdisk, mkfs, pacstrap base linux, genfstab, bootctl install) from SERVER_URL, signatures required
 (e.g. https://repo.kashiraproject.org/x86_64-v3).
@@ -24,7 +27,7 @@ user is not in that group, so for a KVM run start the whole script as root:
 Output files are chowned back to $SUDO_UID afterwards. Exit status 0 only if every probe in
 REQUIRED passed.
 """
-import json, os, socket, subprocess, sys, time
+import json, os, shutil, socket, subprocess, sys, time
 
 OVMF_CODE = "/usr/share/edk2-ovmf/x64/OVMF_CODE.4m.fd"
 OVMF_VARS = "/usr/share/edk2-ovmf/x64/OVMF_VARS.4m.fd"
@@ -144,6 +147,175 @@ def wake_when_suspended(mon, con, timeout=600):
     return False
 
 
+# --recipe: phase 2 boots the installed disk (no ISO) and checks the result.
+POST_PROBES = [
+    ("root-fs", "findmnt -no FSTYPE,OPTIONS /"),
+    ("blocks", "lsblk -o NAME,TYPE,FSTYPE,MOUNTPOINTS"),
+    ("zram", "cat /sys/block/zram0/comp_algorithm; zramctl --noheadings --output NAME,DISKSIZE,ALGORITHM"),
+    ("tier", "cat /etc/kashira/tier"),
+    ("dns", "ls /etc/systemd/resolved.conf.d/ /etc/NetworkManager/conf.d/ 2>&1; resolvectl status | sed -n '1,6p'"),
+    ("boot", "bootctl status 2>/dev/null | grep -E 'Product|Current Entry|Default Entry'; ls /boot/EFI/Linux"),
+    ("gdm", "systemctl is-active gdm.service"),
+    ("graphical-target", "systemctl is-active graphical.target"),
+    ("user", "getent passwd @USER@; id @USER@; sudo -l -U @USER@ | tail -n 2; passwd -S root"),
+    ("locale", "localectl status | sed -n '1,3p'; timedatectl show -p Timezone"),
+    ("pacman", "pacman -Q pacman linux; pacman -Qq | wc -l"),
+    ("failed-units", "systemctl --failed --no-legend"),
+    ("journal-errors", "journalctl -b -p err --no-pager | tail -n 25"),
+]
+SHARE_TAG = "kinst"
+
+
+def start_qemu(out, tag, accel, machine, code, vars_fd, media, disk, share=None):
+    ser, mon = os.path.join(out, f"serial-{tag}.sock"), os.path.join(out, f"qmp-{tag}.sock")
+    extra = ["-virtfs", f"local,path={share},mount_tag={SHARE_TAG},security_model=none,readonly=on"] if share else []
+    qemu = subprocess.Popen([
+        "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
+        "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
+        "-drive", f"if=pflash,format=raw,file={vars_fd}",
+        *media, *disk, *extra, "-vga", "std", "-display", "none",
+        "-nic", "user,model=virtio-net-pci",
+        "-audiodev", "none,id=snd0", "-device", "intel-hda", "-device", "hda-output,audiodev=snd0",
+        "-serial", f"unix:{ser},server,nowait", "-qmp", f"unix:{mon},server,nowait",
+    ], stdout=open(os.path.join(out, f"qemu-{tag}.log"), "w"), stderr=subprocess.STDOUT)
+    time.sleep(2)
+    return qemu, ser, mon
+
+
+def stop_qemu(qemu, mon=None):
+    """ACPI power-down first (a hard stop leaves the guest's ESP with its dirty bit set), then terminate."""
+    if mon and qemu.poll() is None:
+        try:
+            qmp(mon, {"execute": "system_powerdown"})
+            qemu.wait(90)
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+    qemu.terminate()
+    try:
+        qemu.wait(30)
+    except subprocess.TimeoutExpired:
+        qemu.kill()
+
+
+def type_text(mon, text):
+    """Type into the VM's keyboard (QMP send-key): the LUKS prompt on the console."""
+    keys = {" ": "spc", "-": "minus", ".": "dot", "_": "shift-minus"}
+    for ch in text:
+        k = keys.get(ch, ch.lower())
+        if ch.isupper():
+            k = "shift-" + k
+        qmp(mon, {"execute": "human-monitor-command", "arguments": {"command-line": f"sendkey {k}"}})
+        time.sleep(0.05)
+    qmp(mon, {"execute": "human-monitor-command", "arguments": {"command-line": "sendkey ret"}})
+
+
+def run_probes(con, mon, out, probes, log, timeouts=None):
+    results = {}
+    for i, (name, cmd) in enumerate(probes):
+        marker = f"@@END{i}@@"
+        con.buf = b""
+        # printf keeps the literal markers out of the terminal's echo of this line
+        con.send(f"printf '@@%s@@\\n' BEGIN{i}; {cmd}; printf '@@%s@@\\n' END{i}\n")
+        if name == "suspend":                              # wake the guest the way a key press would
+            if not wake_when_suspended(mon, con):
+                print("suspend: guest never reached S3 or wakeup failed")
+        if name == "resume-unlocked":
+            qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-resume.ppm")}})
+        con.read_until(marker + "\r\n", (timeouts or {}).get(name, 120)) or con.read_until(marker, 5)
+        text = con.buf.decode(errors="replace")
+        results[name] = text.split(f"@@BEGIN{i}@@", 2)[-1].split(marker)[0].strip()
+        log.write(con.buf); log.flush()
+    return results
+
+
+def login(con, log, timeout=2400):
+    ok = con.read_until("login:", timeout)
+    log.write(con.buf); log.flush()
+    if ok:
+        if b"automatic login" not in con.buf:
+            con.send("root\n")
+        con.read_until("#", 60)
+        con.send("export SYSTEMD_PAGER= TERM=dumb; stty cols 200\n")
+        con.read_until("#", 10)
+    return ok
+
+
+def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
+    """Phase 1: install from the live ISO with the shared checkout; phase 2: boot the disk and probe it."""
+    recipe = json.load(open(opts["--recipe"]))
+    secrets = json.load(open(opts["--secrets"]))
+    share = os.path.join(out, "share")
+    shutil.rmtree(share, ignore_errors=True)
+    shutil.copytree(opts["--share"], share, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+    json.dump(recipe, open(os.path.join(share, "recipe.json"), "w"))
+    json.dump(secrets, open(os.path.join(share, "secrets.json"), "w"))
+    img = os.path.join(out, "disk.qcow2")
+    subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "40G"], check=True)
+    disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+    fs, luks, user = recipe["disk"]["filesystem"], recipe["disk"].get("encrypt"), recipe["user"]["name"]
+    harness = ("set -e; dev=/dev/vda2; "
+               + (f"printf %s '{secrets['luks_passphrase']}' | cryptsetup open --key-file - $dev troot; dev=/dev/mapper/troot; " if luks else "")
+               + f"mount {'-o subvol=@ ' if fs == 'btrfs' else ''}$dev /mnt; "
+               "d=/mnt/etc/systemd/system/serial-getty@ttyS0.service.d; mkdir -p $d /mnt/etc/systemd/system/getty.target.wants; "
+               "printf '[Unit]\\nConditionVirtualization=vm\\n[Service]\\nExecStart=\\nExecStart=-/sbin/agetty --autologin root --noclear --keep-baud 115200,57600,38400,9600 - $TERM\\n' > $d/kashira-test.conf; "
+               "ln -sf /usr/lib/systemd/system/serial-getty@.service /mnt/etc/systemd/system/getty.target.wants/serial-getty@ttyS0.service; "
+               "umount /mnt; " + ("cryptsetup close troot; " if luks else "") + "echo HARNESS_OK")
+    phase1 = [
+        ("mount-share", f"modprobe 9pnet_virtio; mkdir -p /run/kinst; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG} /run/kinst && echo SHARE_OK"),
+        ("install", "cd /run/kinst && python3 -m kinst.cli --recipe /run/kinst/recipe.json --log /tmp/kinst.log < /run/kinst/secrets.json | tail -n 4; "
+                    "grep -aE '^(\\$ |== |FAILED)|==> (ERROR|WARNING)|rror|Building|UKI' /tmp/kinst.log | tail -n 60"),
+        ("harness", harness),
+    ]
+    results = {}
+    log = open(os.path.join(out, "serial.log"), "wb")
+    qemu, ser, mon = start_qemu(out, "install", accel, machine, code, vars_fd, ["-cdrom", iso], disk, share)
+    try:
+        con = Serial(ser)
+        if not login(con, log):
+            print("FAIL: live ISO gave no login prompt"); return 1
+        results.update(run_probes(con, mon, out, phase1, log, {"install": INSTALL_TIMEOUT}))
+        con.send("umount /run/kinst; sync\n")
+        con.read_until("#", 30)
+    finally:
+        stop_qemu(qemu, mon)
+    if '"type": "done"' not in results.get("install", "") or "HARNESS_OK" not in results.get("harness", ""):
+        write_results(out, results)
+        print("FAIL: install phase:", results.get("install", "")[-600:]); return 1
+    qemu, ser, mon = start_qemu(out, "installed", accel, machine, code, vars_fd, [], disk)
+    try:
+        con = Serial(ser)
+        if luks:                                           # the passphrase prompt is on the console
+            for _ in range(3):
+                time.sleep(25)
+                type_text(mon, secrets["luks_passphrase"])
+                if con.read_until("login:", 60):
+                    break
+        if not login(con, log, 600):
+            qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-installed.ppm")}})
+            print("FAIL: installed system gave no login prompt"); return 1
+        time.sleep(20)                                     # let gdm come up
+        probes = [(n, c.replace("@USER@", user)) for n, c in POST_PROBES]
+        results.update(run_probes(con, mon, out, probes, log))
+        qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-installed.ppm")}})
+    finally:
+        stop_qemu(qemu, mon)
+    write_results(out, results)
+    # 8 GiB VM: zstd is the expected zram algorithm (D4: lz4 only from 16 GiB)
+    required = {"gdm": "active", "graphical-target": "active", "root-fs": fs, "zram": "[zstd]",
+                "tier": "x86_64-v3", "user": "(ALL : ALL) ALL", "boot": "kashira-linux.efi"}
+    if luks:
+        required["blocks"] = "crypt"
+    failed = [n for n, needle in required.items() if needle not in results.get(n, "")]
+    print("accel:", accel[0], "| recipe:", fs, "luks" if luks else "plain", "| failed required probes:", failed or "none")
+    return 1 if failed else 0
+
+
+def write_results(out, results):
+    with open(os.path.join(out, "probes.txt"), "w") as f:
+        for name, body in results.items():
+            f.write(f"== {name}\n{body}\n")
+
+
 def main():
     iso, out = sys.argv[1], sys.argv[2]
     opts = dict(zip(sys.argv[3::2], sys.argv[4::2]))
@@ -151,21 +323,6 @@ def main():
     sb_vars = opts.get("--secureboot")
     shot_after = opts.get("--screenshot-after")
     install_url = opts.get("--install")
-    probes, disk = list(PROBES), []
-    if "--probe" in opts:                                   # one extra ad-hoc probe, run before install
-        name, _, cmd = opts["--probe"].partition("=")
-        probes.append((name, cmd))
-    if install_url:
-        probes.append((INSTALL[0], INSTALL[1].replace("@SERVER@", install_url)))
-        for needle in ("PACSTRAP_OK", "BOOTCTL_OK", "CHROOT_OK"):
-            REQUIRED[f"install:{needle}"] = needle
-        os.makedirs(out, exist_ok=True)
-        img = os.path.join(out, "disk.qcow2")
-        subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "16G"], check=True)
-        disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
-    media = ["-drive", f"if=none,id=stick,format=raw,readonly=on,file={iso}",
-             "-device", "qemu-xhci", "-device", "usb-storage,drive=stick,removable=on"] \
-        if opts.get("--media") == "usb" else ["-cdrom", iso]
     os.makedirs(out, exist_ok=True)
     vars_fd = os.path.join(out, "vars.fd")
     subprocess.run(["cp", sb_vars or OVMF_VARS, vars_fd], check=True)
@@ -173,71 +330,53 @@ def main():
     machine = ["-machine", "q35,smm=on", "-global", "driver=cfi.pflash01,property=secure,value=on"] \
         if sb_vars else ["-machine", "q35"]
     machine += ["-global", "ICH9-LPC.disable_s3=0"]           # S3, so the suspend probe really suspends
-    ser, mon = os.path.join(out, "serial.sock"), os.path.join(out, "qmp.sock")
     accel = ["-enable-kvm", "-cpu", "host"] if os.access("/dev/kvm", os.R_OK | os.W_OK) and \
         subprocess.run(["qemu-system-x86_64", "-enable-kvm", "-machine", "none", "-display", "none",
                         "-S", "-qmp", "stdio"], input=b'{"execute":"qmp_capabilities"}{"execute":"quit"}', capture_output=True,
                        timeout=20).returncode == 0 else ["-accel", "tcg,thread=multi", "-cpu", "max"]
-    qemu = subprocess.Popen([
-        "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
-        "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
-        "-drive", f"if=pflash,format=raw,file={vars_fd}",
-        *media, *disk, "-vga", "std", "-display", "none",
-        "-nic", "user,model=virtio-net-pci",
-        "-audiodev", "none,id=snd0", "-device", "intel-hda", "-device", "hda-output,audiodev=snd0",
-        "-serial", f"unix:{ser},server,nowait", "-qmp", f"unix:{mon},server,nowait",
-    ], stdout=open(os.path.join(out, "qemu.log"), "w"), stderr=subprocess.STDOUT)
-    log = open(os.path.join(out, "serial.log"), "wb")
     try:
-        time.sleep(2)
-        if qemu.poll() is not None:
-            print("FAIL: qemu exited:", open(os.path.join(out, "qemu.log")).read().strip()); return 1
-        con = Serial(ser)
-        if shot_after:
-            con.read_until("@@never@@", int(shot_after))
-            log.write(con.buf); log.flush()
+        if "--recipe" in opts:
+            return recipe_mode(out, iso, opts, accel, machine, code, vars_fd)
+        probes, disk = list(PROBES), []
+        if "--probe" in opts:                                   # one extra ad-hoc probe, run before install
+            name, _, cmd = opts["--probe"].partition("=")
+            probes.append((name, cmd))
+        if install_url:
+            probes.append((INSTALL[0], INSTALL[1].replace("@SERVER@", install_url)))
+            for needle in ("PACSTRAP_OK", "BOOTCTL_OK", "CHROOT_OK"):
+                REQUIRED[f"install:{needle}"] = needle
+            img = os.path.join(out, "disk.qcow2")
+            subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "16G"], check=True)
+            disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+        media = ["-drive", f"if=none,id=stick,format=raw,readonly=on,file={iso}",
+                 "-device", "qemu-xhci", "-device", "usb-storage,drive=stick,removable=on"] \
+            if opts.get("--media") == "usb" else ["-cdrom", iso]
+        qemu, ser, mon = start_qemu(out, "live", accel, machine, code, vars_fd, media, disk)
+        log = open(os.path.join(out, "serial.log"), "wb")
+        try:
+            if qemu.poll() is not None:
+                print("FAIL: qemu exited:", open(os.path.join(out, "qemu-live.log")).read().strip()); return 1
+            con = Serial(ser)
+            if shot_after:
+                con.read_until("@@never@@", int(shot_after))
+                log.write(con.buf); log.flush()
+                qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-1.ppm")}})
+                print("screenshot taken; serial bytes:", len(con.buf))
+                return 0
+            if not login(con, log):
+                print("FAIL: no login prompt"); return 1
+            time.sleep(wait_graphical)
             qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-1.ppm")}})
-            print("screenshot taken; serial bytes:", len(con.buf))
-            return 0
-        ok = con.read_until("login:", 2400)
-        log.write(con.buf); log.flush()
-        if not ok:
-            print("FAIL: no login prompt"); return 1
-        con.send("root\n")
-        con.read_until("#", 60)
-        con.send("export SYSTEMD_PAGER= TERM=dumb; stty cols 200\n")
-        time.sleep(wait_graphical)
-        qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-1.ppm")}})
-        results = {}
-        for i, (name, cmd) in enumerate(probes):
-            marker = f"@@END{i}@@"
-            con.buf = b""
-            # printf keeps the literal markers out of the terminal's echo of this line
-            con.send(f"printf '@@%s@@\\n' BEGIN{i}; {cmd}; printf '@@%s@@\\n' END{i}\n")
-            if name == "suspend":                              # wake the guest the way a key press would
-                if not wake_when_suspended(mon, con):
-                    print("suspend: guest never reached S3 or wakeup failed")
-            if name == "resume-unlocked":
-                qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-resume.ppm")}})
-            con.read_until(marker + "\r\n", INSTALL_TIMEOUT if name == "install" else 120) or con.read_until(marker, 5)
-            text = con.buf.decode(errors="replace")
-            body = text.split(f"@@BEGIN{i}@@", 2)[-1].split(marker)[0].strip()
-            results[name] = body
-            log.write(con.buf); log.flush()
-        time.sleep(5)
-        qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-2.ppm")}})
-        with open(os.path.join(out, "probes.txt"), "w") as f:
-            for name, body in results.items():
-                f.write(f"== {name}\n{body}\n")
+            results = run_probes(con, mon, out, probes, log, {"install": INSTALL_TIMEOUT})
+            time.sleep(5)
+            qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, "screen-2.ppm")}})
+        finally:
+            stop_qemu(qemu)
+        write_results(out, results)
         failed = [n for n, needle in REQUIRED.items() if needle not in results.get(n.split(":")[0], "")]
         print("accel:", accel[0], "| failed required probes:", failed or "none")
         return 1 if failed else 0
     finally:
-        qemu.terminate()
-        try:
-            qemu.wait(30)
-        except subprocess.TimeoutExpired:
-            qemu.kill()
         if os.environ.get("SUDO_UID"):                     # sudo run for KVM: hand the output back to the invoker
             subprocess.run(["chown", "-R", f"{os.environ['SUDO_UID']}:{os.environ.get('SUDO_GID', '')}", out])
 
