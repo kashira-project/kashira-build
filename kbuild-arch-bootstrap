@@ -51,7 +51,7 @@ def sha(path):
 
 def repo_path(raw):
     repo = Path(raw).resolve(strict=True)
-    if not repo.is_dir() or repo == CANONICAL.resolve(strict=True):
+    if not repo.is_dir() or repo == CANONICAL.resolve():
         fail('isolated repository required; canonical repository or alias refused')
     if not (repo.is_relative_to((ROOT / 'repos' / 'candidate').resolve())
             or repo.is_relative_to((ROOT / 'scratch').resolve())):

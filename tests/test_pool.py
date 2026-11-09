@@ -280,6 +280,13 @@ class PoolTest(unittest.TestCase):
                                         "\nerror: failed to commit transaction (download library error)"), "transient")
         self.assertEqual(kp.classify(1, "==> Finished making: z 1-1\nunexpected or stale archive: z"), "post")
 
+    def test_local_miss_before_r2_fallback_is_not_transient(self):
+        miss = "error: failed retrieving file 'z-1-1-x86_64.pkg.tar.zst' from disk : Could not open file /repo/z\n"
+        self.assertEqual(kp.classify(1, miss + "a.c:1: error: bad\n==> ERROR: A failure occurred in build()."), "build")
+        self.assertEqual(kp.first_error(miss + "a.c:1: error: bad"), "a.c:1: error: bad")
+        both = miss + "error: failed retrieving file 'z' from repo.kashiraproject.org : The requested URL returned error: 404\n"
+        self.assertEqual(kp.classify(1, both + "error: failed to retrieve some files"), "transient")
+
 
 if __name__ == "__main__":
     unittest.main()

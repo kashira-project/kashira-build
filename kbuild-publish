@@ -177,6 +177,14 @@ validate_repo_dir() {
       [ -n "$pkg" ] && [ -n "$name" ] && [ "$(basename "$pkg")" = "$pkg" ] || die "invalid $stem record: $entry"
       if [ "$stem" = db ]; then
         [ -z "${seen[$name]+set}" ] && [ -z "${DBFILES[$pkg]+set}" ] || die "duplicate database record: $entry"
+        if [ ! -e "$dir/$pkg" ]; then
+          # staging holds only the db and this publish's packages since 2026-11-09; the signed db (checked against
+          # R2 by require_remote_baseline) vouches for packages that live only on R2
+          seen[$name]=1 db_names[$pkg]=$name db_versions[$pkg]=$(desc_value "$desc" %VERSION%)
+          db_csizes[$pkg]=$(desc_value "$desc" %CSIZE%) db_sha256s[$pkg]=$(desc_value "$desc" %SHA256SUM%)
+          DBFILES[$pkg]=1
+          continue
+        fi
         info=$(bsdtar -xOf "$dir/$pkg" .PKGINFO) || die "unreadable package metadata: $pkg"
         [ "$(validate_pkg "$dir/$pkg")" = "$name" ] || die "database package mismatch: $pkg"
         version=$(awk -F ' = ' '$1 == "pkgver" { print $2; exit }' <<<"$info")
@@ -269,12 +277,14 @@ publish_set() {
   local name=$1 prefix=$2; shift 2
   local dir=$STAGING/$name f base
   local -a names=() existing=() gone=()
+  local -A before=()
   mkdir -p "$dir"
   ( flock 9
     require_remote_baseline "$dir" "$prefix" "$BUCKET/$name"
     # an empty database (a repo emptied by cleanup) has nothing to validate; treat it like no database
     if [ -e "$dir/$prefix.db.tar.gz" ] && [ -n "$(bsdtar -tf "$dir/$prefix.db.tar.gz" | head -n 1)" ]; then
       validate_repo_dir "$dir" "$prefix"
+      for base in "${!DBFILES[@]}"; do before[$base]=1; done
     else
       shopt -s nullglob
       existing=("$dir"/*.pkg.tar.zst)
@@ -294,11 +304,8 @@ publish_set() {
     for base in "${names[@]}"; do
       [ -n "${DBFILES[$base]+set}" ] || die "candidate absent from $name database: $base"
     done
-    shopt -s nullglob
-    for f in "$dir"/*.pkg.tar.zst "$dir"/*.pkg.tar.zst.sig; do
-      base=$(basename "$f"); [ -n "${DBFILES[${base%.sig}]+set}" ] || gone+=("$base")
-    done
-    shopt -u nullglob
+    # superseded = in the old db, not in the new one (staging no longer mirrors every package file)
+    for base in "${!before[@]}"; do [ -n "${DBFILES[$base]+set}" ] || gone+=("$base" "$base.sig"); done
     prune_stale "$dir"
     upload_repo "$dir" "$prefix" "$BUCKET/$name"
     for base in "${gone[@]}"; do rclone deletefile "$BUCKET/$name/$base" 2>/dev/null || true; done

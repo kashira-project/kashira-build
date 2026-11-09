@@ -567,7 +567,7 @@ def _retarget(u, graph, edges, nodes):
 
 def _build_repo():
     """Capabilities of the build repo (KBUILD_REPO), or {} when it has no db yet."""
-    path = os.path.join(os.environ.get("KBUILD_REPO", f"{ROOT}/repos/candidate"), "kashira.db.tar.gz")
+    path = os.path.join(os.environ.get("KBUILD_REPO", f"{ROOT}/repos/v3"), "kashira.db.tar.gz")
     return _repo_capabilities(path) if os.path.isfile(path) else {}
 
 
@@ -742,7 +742,7 @@ def main():
             return 0
 
         if cmd == "preflight":
-            repo_path = os.environ.get("KBUILD_REPO", f"{ROOT}/repos/candidate")
+            repo_path = os.environ.get("KBUILD_REPO", f"{ROOT}/repos/v3")
             args = sys.argv[2:]
             if args[:1] == ["--repo"]:
                 if len(args) < 2:

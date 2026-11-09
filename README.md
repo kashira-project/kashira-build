@@ -119,7 +119,8 @@ owner decision), `KBUILD_CPUS=16`, `KBUILD_JOBS=16`, and `KBUILD_WORKERS=2`. `KB
 needed and note that it is forwarded into the container.
 
 Paths default to the `/mnt/kashira` workspace (`KASHIRA_ROOT`): repo
-`repos/candidate`, sources `cache/sources`, output `build/out`, logs
+`repos/v3` (R2's databases plus this machine's fresh builds, seeded by `tools/repo-seed.sh`; package files
+missing locally come from R2), sources `cache/sources`, output `build/out`, logs
 `build/logs`. Override with `KASHIRA_ROOT`, `KBUILD_IMAGE`, `KBUILD_REPO`,
 `KBUILD_SOURCES`, `KBUILD_OUT`, `KBUILD_LOGS`, and `KBUILD_RUN_ID`. Build
 fingerprints include these absolute paths, so changing them resets artifact

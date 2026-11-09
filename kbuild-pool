@@ -54,9 +54,11 @@ OVERRUN_GRACE = 600   # an overrunning job is assumed to end this soon; at 60 s 
 
 FAIL = [  # (kind, regex) checked in order on the log tail
     ("post", re.compile(r"==> Finished making: ")),  # makepkg succeeded; kbuild's artifact/repo checks did not
+    # a package rebuilt at the same version was repo-added while this container installed from the older db. Every
+    # file not on local disk logs "failed retrieving file .. from disk" before the R2 fallback (kbuild-inside.sh), so
+    # only pacman's all-servers-failed summary counts; checked before "source" because R2's 404 says "returned error"
+    ("transient", re.compile(r"failed to retrieve some files|download library error|is corrupted \(invalid or corrupted package \(checksum\)\)")),
     ("source", re.compile(r"Failure while downloading|could not resolve|returned error: [45]|One or more files did not pass the validity check")),
-    # a package rebuilt at the same version was repo-added while this container installed from the older db
-    ("transient", re.compile(r"failed retrieving file .* from disk|download library error|is corrupted \(invalid or corrupted package \(checksum\)\)")),
     ("deps", re.compile(r"unable to satisfy dependency|target not found|conflicting files|failed to commit transaction|"
                         r"could not satisfy dependencies|conflicting dependencies|unresolvable package conflicts")),
     ("oom", re.compile(r"\bKilled\b|FAILED: \[code=255\]|signal 9|signal: 9, SIGKILL|Cannot allocate memory|std::bad_alloc|out of memory")),
@@ -83,7 +85,8 @@ def classify(rc, tail):
 
 def first_error(tail):
     for line in tail.splitlines():
-        if re.search(r"\berror:", line) and "resolv.conf" not in line:  # docker-mounted resolv.conf: harmless
+        # docker-mounted resolv.conf and the per-file local miss before the R2 fallback: harmless
+        if re.search(r"\berror:", line) and "resolv.conf" not in line and " from disk" not in line:
             return line.strip()[:300]
     return ""
 

@@ -23,6 +23,7 @@ SigLevel = Never
 
 [kashira]
 Server = file://$repo
+Server = https://repo.kashiraproject.org/x86_64-v3
 EOF
     # The target root MUST be root-owned: systemd-tmpfiles --root refuses every
     # path when the root itself is foreign-owned. mkdir below runs as root.

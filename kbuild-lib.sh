@@ -5,7 +5,7 @@
 # Host layout (override via env; see kashira kb/05-paths.md):
 #   KASHIRA_ROOT   workspace root      (/mnt/kashira)
 #   KBUILD_IMAGE   container image     (kashira:base-devel-takeover-20261003)
-#   KBUILD_REPO    local repo dir      ($KASHIRA_ROOT/repos/candidate)
+#   KBUILD_REPO    local repo dir      ($KASHIRA_ROOT/repos/v3: R2 db + fresh builds, tools/repo-seed.sh)
 #   KBUILD_SOURCES source cache        ($KASHIRA_ROOT/cache/sources)
 #   KBUILD_OUT     artifacts root      ($KASHIRA_ROOT/build/out)
 #   KBUILD_LOGS    logs root           ($KASHIRA_ROOT/build/logs)
@@ -27,7 +27,7 @@ KBUILD_JOBS=${KBUILD_JOBS:-16}
 
 build_repo_guard() {
   local canonical resolved state
-  canonical=$(realpath -e "$KASHIRA_ROOT/repos/canonical") || return 1
+  canonical=$(realpath -m "$KASHIRA_ROOT/repos/canonical") || return 1  # may not exist since 2026-11-09
   resolved=$(realpath -e "$REPO") || return 1
   state=$("$HERE/kbuild-arch-bootstrap" state "$resolved") || return 1
   KBUILD_MIXED_REPO=0
@@ -331,6 +331,9 @@ build_one() {
   local standin_host
   standin_host=$(sudo docker inspect -f '{{(index .NetworkSettings.Networks "kbuild").IPAddress}}' kbuild-standin 2>/dev/null) || standin_host=kbuild-standin
   local caches=() c
+  # create SRCDEST as the invoking user: a missing bind-mount source is created root-owned by docker, and
+  # makepkg then aborts "You do not have write permission for the directory $SRCDEST"
+  mkdir -p "$SOURCES" || return 1
   for c in ccache cargo gomod npm; do
     mkdir -p "$KBUILD_CACHE/$c" && caches+=(-v "$KBUILD_CACHE/$c:/$c")
   done

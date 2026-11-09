@@ -32,9 +32,11 @@ pacman-key --list-keys pierre@archlinux.org &>/dev/null || sig=Never  # pre-keyr
 {
   # the proxy answers a cache miss only after fetching the whole file from the archive
   printf '[options]\nArchitecture = x86_64\nParallelDownloads = 8\nDisableDownloadTimeout\nSigLevel = %s\nLocalFileSigLevel = Never\n' "$sig"
-  printf '[kashira]\nSigLevel = Never\nServer = file:///repo\n'
+  # The local repo holds R2's db plus fresh builds (tools/repo-seed.sh); a package file not on disk comes from R2.
+  r2=https://repo.kashiraproject.org
+  printf '[kashira]\nSigLevel = Never\nServer = file:///repo\nServer = %s/x86_64-v3\n' "$r2"
   # Arch's order: main before multilib, so a 64-bit package wins over its lib32 build
-  [ ! -f /repo/kashira-multilib.db.tar.gz ] || printf '[kashira-multilib]\nSigLevel = Never\nServer = file:///repo\n'
+  [ ! -f /repo/kashira-multilib.db.tar.gz ] || printf '[kashira-multilib]\nSigLevel = Never\nServer = file:///repo\nServer = %s/x86_64-v3-multilib\n' "$r2"
   if [ "${KBUILD_STANDIN:-1}" != 0 ]; then
     for r in core extra multilib; do
       printf '[arch-%s]\nServer = http://%s:7878/%s/%s\n' "$r" "${KBUILD_STANDIN_HOST:-kbuild-standin}" "${KBUILD_STANDIN_DB:-filtered}" "$r"
