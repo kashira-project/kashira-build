@@ -25,13 +25,6 @@ docker run --rm --privileged \
         cp /profile/pacman.conf /etc/pacman.conf
         pacman -Syu --noconfirm --needed --noprogressbar arch-install-scripts dosfstools e2fsprogs erofs-utils \
             libarchive libisoburn mtools squashfs-tools
-        # R2 now and then resets an HTTP/2 stream or stalls on a large file, and pacman does not retry a file on
-        # the same server: fetch the airootfs packages into the cache first (pacstrap -c reuses it), with retries.
-        for try in 1 2 3 4; do
-            pacman -Sw --noconfirm --noprogressbar $(grep -v "^#" /profile/packages.x86_64) && break
-            [ "$try" -lt 4 ] || exit 1
-            sleep 10
-        done
         /archiso/mkarchiso -v -r -w /work -o /out /profile
         ls /out/*.iso
     ' > "$out/build.log" 2>&1 || die "mkarchiso failed; see $out/build.log"
