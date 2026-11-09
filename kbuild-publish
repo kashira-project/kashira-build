@@ -53,11 +53,6 @@ verify_signature() {
   [ "$signer" = "$KEY" ] || [ "$primary" = "$KEY" ]
 }
 
-desc_value() {
-  local desc=$1 field=$2
-  awk -v field="$field" '$0 == field { if (getline) print; exit }' <<<"$desc"
-}
-
 CANDIDATES=()
 validate_candidates() {
   local f real base name i=0
@@ -156,7 +151,8 @@ sync_db_aliases() {
 
 declare -A DBFILES=()
 validate_repo_dir() {
-  local dir=$1 prefix=$2 db=$1/$2.db.tar.gz stem entries entry desc pkg name info version csize sha256
+  local dir=$1 prefix=$2 db=$1/$2.db.tar.gz stem entries entry records pkg name info version csize sha256
+  local dversion dcsize dsha256
   local -A seen=() files_records=() file_names=() file_versions=() file_csizes=() file_sha256s=() db_names=() db_versions=() db_csizes=() db_sha256s=()
   DBFILES=()
   for stem in db files; do
@@ -168,20 +164,23 @@ validate_repo_dir() {
     verify_signature "$dir/$prefix.$stem.tar.gz.sig" "$dir/$prefix.$stem.tar.gz" || die "invalid or untrusted $stem signature"
     cmp -s "$dir/$prefix.$stem.tar.gz" "$dir/$prefix.$stem" || die "repository alias differs: $stem"
     cmp -s "$dir/$prefix.$stem.tar.gz.sig" "$dir/$prefix.$stem.sig" || die "repository signature alias differs: $stem"
-    entries=$(bsdtar -tf "$dir/$prefix.$stem.tar.gz") || die "cannot read repository $stem archive"
-    while IFS= read -r entry; do
-      [[ "$entry" == */desc ]] || continue
-      desc=$(bsdtar -xOf "$dir/$prefix.$stem.tar.gz" "$entry") || die "unreadable $stem record: $entry"
-      pkg=$(desc_value "$desc" %FILENAME%)
-      name=$(desc_value "$desc" %NAME%)
-      [ -n "$pkg" ] && [ -n "$name" ] && [ "$(basename "$pkg")" = "$pkg" ] || die "invalid $stem record: $entry"
+    # One pass over the archive: a record per */desc as FILENAME US NAME US VERSION US CSIZE US SHA256SUM (US =
+    # \x1f, so an empty field cannot shift the rest the way a run of tabs would). A bsdtar plus up to six awk
+    # calls per record made each publish take 20-30 minutes on ~4900 packages.
+    entries=$(bsdtar -tf "$dir/$prefix.$stem.tar.gz" | grep -c '/desc$') || die "cannot read repository $stem archive"
+    records=$(bsdtar -xOf "$dir/$prefix.$stem.tar.gz" '*/desc' | awk '
+      function out() { if (have) printf "%s\x1f%s\x1f%s\x1f%s\x1f%s\n", f["%FILENAME%"], f["%NAME%"], f["%VERSION%"], f["%CSIZE%"], f["%SHA256SUM%"]; delete f; have = 0 }
+      /^%(FILENAME|NAME|VERSION|CSIZE|SHA256SUM)%$/ { k = $0; if (k == "%FILENAME%") out(); if ((getline v) > 0) f[k] = v; have = 1; next }
+      END { out() }') || die "unreadable repository $stem archive"
+    [ "$(grep -c . <<<"$records")" = "$entries" ] || die "repository $stem records do not match its $entries desc entries"
+    while IFS=$'\x1f' read -r pkg name dversion dcsize dsha256; do
+      [ -n "$pkg" ] && [ -n "$name" ] && [ "$(basename -- "$pkg")" = "$pkg" ] || die "invalid $stem record: ${pkg:-?}"
       if [ "$stem" = db ]; then
-        [ -z "${seen[$name]+set}" ] && [ -z "${DBFILES[$pkg]+set}" ] || die "duplicate database record: $entry"
+        [ -z "${seen[$name]+set}" ] && [ -z "${DBFILES[$pkg]+set}" ] || die "duplicate database record: $pkg"
         if [ ! -e "$dir/$pkg" ]; then
           # staging holds only the db and this publish's packages since 2026-11-09; the signed db (checked against
           # R2 by require_remote_baseline) vouches for packages that live only on R2
-          seen[$name]=1 db_names[$pkg]=$name db_versions[$pkg]=$(desc_value "$desc" %VERSION%)
-          db_csizes[$pkg]=$(desc_value "$desc" %CSIZE%) db_sha256s[$pkg]=$(desc_value "$desc" %SHA256SUM%)
+          seen[$name]=1 db_names[$pkg]=$name db_versions[$pkg]=$dversion db_csizes[$pkg]=$dcsize db_sha256s[$pkg]=$dsha256
           DBFILES[$pkg]=1
           continue
         fi
@@ -190,9 +189,9 @@ validate_repo_dir() {
         version=$(awk -F ' = ' '$1 == "pkgver" { print $2; exit }' <<<"$info")
         csize=$(stat -c %s -- "$dir/$pkg")
         sha256=$(sha256sum "$dir/$pkg" | cut -d ' ' -f1)
-        [ "$(desc_value "$desc" %VERSION%)" = "$version" ] || die "database version mismatch: $pkg"
-        [ "$(desc_value "$desc" %CSIZE%)" = "$csize" ] || die "database size mismatch: $pkg"
-        [ "$(desc_value "$desc" %SHA256SUM%)" = "$sha256" ] || die "database checksum mismatch: $pkg"
+        [ "$dversion" = "$version" ] || die "database version mismatch: $pkg"
+        [ "$dcsize" = "$csize" ] || die "database size mismatch: $pkg"
+        [ "$dsha256" = "$sha256" ] || die "database checksum mismatch: $pkg"
         [ -f "$dir/$pkg.sig" ] && [ -s "$dir/$pkg.sig" ] || die "missing package signature: $pkg"
         verify_signature "$dir/$pkg.sig" "$dir/$pkg" || die "invalid or untrusted package signature: $pkg"
         seen[$name]=1
@@ -202,14 +201,11 @@ validate_repo_dir() {
         db_sha256s[$pkg]=$sha256
         DBFILES[$pkg]=1
       else
-        [ -z "${files_records[$pkg]+set}" ] && [ -z "${file_names[$pkg]+set}" ] || die "duplicate files record: $entry"
-        file_names[$pkg]=$name
-        file_versions[$pkg]=$(desc_value "$desc" %VERSION%)
-        file_csizes[$pkg]=$(desc_value "$desc" %CSIZE%)
-        file_sha256s[$pkg]=$(desc_value "$desc" %SHA256SUM%)
+        [ -z "${files_records[$pkg]+set}" ] && [ -z "${file_names[$pkg]+set}" ] || die "duplicate files record: $pkg"
+        file_names[$pkg]=$name file_versions[$pkg]=$dversion file_csizes[$pkg]=$dcsize file_sha256s[$pkg]=$dsha256
         files_records[$pkg]=1
       fi
-    done <<<"$entries"
+    done <<<"$records"
   done
   [ ${#DBFILES[@]} -gt 0 ] || die "repository database has no package records: $db"
   [ ${#files_records[@]} -eq ${#DBFILES[@]} ] || die "db/files package sets differ"
