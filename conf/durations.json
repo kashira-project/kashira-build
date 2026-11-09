@@ -1215,6 +1215,7 @@
 "kashira-bootstrap-libpulse": 11,
 "kashira-bootstrap-openssl3": 38,
 "kashira-filesystem": 39,
+"kashira-installer": 48,
 "kashira-keyring": 39,
 "kasts": 1186,
 "kate": 1183,
