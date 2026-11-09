@@ -149,7 +149,7 @@ def wake_when_suspended(mon, con, timeout=600):
 
 # --recipe: phase 2 boots the installed disk (no ISO) and checks the result.
 POST_PROBES = [
-    ("root-fs", "findmnt -no FSTYPE,OPTIONS /"),
+    ("root-fs", "echo fstype=$(findmnt -no FSTYPE /); findmnt -no OPTIONS /"),
     ("blocks", "lsblk -o NAME,TYPE,FSTYPE,MOUNTPOINTS"),
     ("zram", "cat /sys/block/zram0/comp_algorithm; zramctl --noheadings --output NAME,DISKSIZE,ALGORITHM"),
     ("tier", "cat /etc/kashira/tier"),
@@ -160,7 +160,7 @@ POST_PROBES = [
     ("user", "getent passwd @USER@; id @USER@; sudo -l -U @USER@ | tail -n 2; passwd -S root"),
     ("locale", "localectl status | sed -n '1,3p'; timedatectl show -p Timezone"),
     ("pacman", "pacman -Q pacman linux; pacman -Qq | wc -l"),
-    ("failed-units", "systemctl --failed --no-legend"),
+    ("failed-units", "systemctl --failed --no-legend; echo FAILED_UNITS_END"),
     ("journal-errors", "journalctl -b -p err --no-pager | tail -n 25"),
 ]
 SHARE_TAG = "kinst"
@@ -301,11 +301,13 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
         stop_qemu(qemu, mon)
     write_results(out, results)
     # 8 GiB VM: zstd is the expected zram algorithm (D4: lz4 only from 16 GiB)
-    required = {"gdm": "active", "graphical-target": "active", "root-fs": fs, "zram": "[zstd]",
+    required = {"gdm": "active", "graphical-target": "active", "root-fs": f"fstype={fs}", "zram": "[zstd]",
                 "tier": "x86_64-v3", "user": "(ALL : ALL) ALL", "boot": "kashira-linux.efi"}
     if luks:
         required["blocks"] = "crypt"
     failed = [n for n, needle in required.items() if needle not in results.get(n, "")]
+    if results.get("failed-units", "").split("FAILED_UNITS_END")[0].strip():
+        failed.append("failed-units")
     print("accel:", accel[0], "| recipe:", fs, "luks" if luks else "plain", "| failed required probes:", failed or "none")
     return 1 if failed else 0
 
