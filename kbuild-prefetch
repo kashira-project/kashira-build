@@ -20,14 +20,14 @@ one() {
   local pkg=$1 pkgdir=$2 log=$dir/$1.log try
   for try in 1 2 3; do
     # BUILDDIR outside the recipe tree: makepkg would leave src/ in it
-    if (cd "$pkgdir" && SRCDEST=$SOURCES BUILDDIR=$KASHIRA_ROOT/scratch/prefetch makepkg --verifysource --skippgpcheck -f) >"$log" 2>&1; then
+    if private_sources "$pkgdir" && (cd "$pkgdir" && SRCDEST=$SOURCES BUILDDIR=$KASHIRA_ROOT/scratch/prefetch makepkg --verifysource --skippgpcheck -f) >"$log" 2>&1; then
       return 0
     fi
     [ "$try" = 3 ] || sleep 60
   done
   printf '%s\t%s\n' "$pkg" "$(grep -E 'ERROR|error|Failure' "$log" | tail -n 1 | cut -c1-200)" >> "$dir/failed.tsv"
 }
-export -f one
+export -f one private_sources
 export dir SOURCES KASHIRA_ROOT HERE
 
 cut -f1 "$list" | sed 's/#.*//; /^[[:space:]]*$/d' | sort -u \

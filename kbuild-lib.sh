@@ -297,12 +297,29 @@ tune_knobs() {
 
 # build_one <pkgbase> <pkgdir> <outdir>: build one pkgbase in a fresh container.
 # Callers validate artifacts, record mixed-repo packages and repo-add.
+# Sources from the private kashira-project GitHub org (e.g. kashira-installer) are fetched here, on the host, with
+# the gh CLI's token into SRCDEST; makepkg in the container then finds them there and never needs credentials.
+# Only api.github.com/repos/kashira-project/ URLs are fetched, and the token is passed on stdin, never in argv.
+private_sources() {
+  local pkgdir=$1 line name url
+  while IFS= read -r line; do
+    url=${line#*::}; name=${line%%::*}
+    [[ "$url" == https://api.github.com/repos/kashira-project/* && "$name" != "$line" ]] || continue
+    [ -s "$SOURCES/$name" ] && continue
+    # the header comes through a pipe (-H @/dev/fd/N): the token is in neither argv nor a file
+    curl -fsSL --retry 2 -H @<(printf 'Authorization: Bearer %s\n' "$(gh auth token)") \
+      -o "$SOURCES/$name.part" "$url" || { echo "private source failed: $url" >&2; return 1; }
+    mv -f "$SOURCES/$name.part" "$SOURCES/$name"
+  done < <(cd "$pkgdir" && makepkg --printsrcinfo | awk -F ' = ' '$1 ~ /^\tsource/ { print $2 }')
+}
+
 build_one() {
   local pkgbase=$1 pkgdir=$2 outdir=$3 deps
   validate_build_settings && build_repo_guard || return 1
   [ -f "$pkgdir/PKGBUILD" ] || { echo "SKIP $pkgdir (no PKGBUILD)"; return 1; }
   deps=$(pkg_deps "$pkgdir") || return 1
-  mkdir -p "$outdir" || return 1
+  mkdir -p "$outdir" "$SOURCES" || return 1
+  private_sources "$pkgdir" || return 1
   [ -z "${KBUILD_KEEP_SRC:-}" ] || mkdir -p "$outdir/src" || return 1
   if mixed_repo; then
     "$HERE/kbuild-arch-bootstrap" snapshot "$REPO" > "$outdir/.origin-snapshot" || return 1
