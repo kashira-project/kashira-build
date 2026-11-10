@@ -3,7 +3,7 @@
 
   image/iso/boot-test.py <iso> <outdir> [--wait-graphical SECONDS]
                           [--secureboot VARS.fd] [--screenshot-after SECONDS] [--media usb]
-                          [--install SERVER_URL] [--probe NAME=COMMAND]
+                          [--install SERVER_URL] [--probe NAME=COMMAND] [--disk SIZE]
                           [--recipe RECIPE.json --secrets SECRETS.json --share INSTALLER_CHECKOUT]
 
 --secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
@@ -349,6 +349,10 @@ def main():
                 REQUIRED[f"install:{needle}"] = needle
             img = os.path.join(out, "disk.qcow2")
             subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "16G"], check=True)
+            disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+        elif "--disk" in opts:                                  # a blank disk for the live GUI's checks
+            img = os.path.join(out, "disk.qcow2")
+            subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, opts["--disk"]], check=True)
             disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
         media = ["-drive", f"if=none,id=stick,format=raw,readonly=on,file={iso}",
                  "-device", "qemu-xhci", "-device", "usb-storage,drive=stick,removable=on"] \
