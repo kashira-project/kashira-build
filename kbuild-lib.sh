@@ -212,7 +212,7 @@ artifact_list() {
 }
 
 pkgbase_for() {
-  (cd "$1" && makepkg --printsrcinfo) | awk -F ' = ' '$1 == "pkgbase" { print $2; exit }'
+  (cd "$1" && makepkg --printsrcinfo) | awk -F ' = ' '$1 == "pkgbase" && !seen++ { print $2 }'
 }
 
 snapshot_additive() {
