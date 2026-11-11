@@ -168,7 +168,9 @@ SHARE_TAG = "kinst"
 
 def start_qemu(out, tag, accel, machine, code, vars_fd, media, disk, share=None):
     ser, mon = os.path.join(out, f"serial-{tag}.sock"), os.path.join(out, f"qmp-{tag}.sock")
-    extra = ["-virtfs", f"local,path={share},mount_tag={SHARE_TAG},security_model=none,readonly=on"] if share else []
+    extra = ["-virtfs", f"local,path={share},mount_tag={SHARE_TAG},security_model=none,readonly=on",
+             # writable second share: the guest tees the installer's JSON-line events into <out>/events/
+             "-virtfs", f"local,path={os.path.join(out, 'events')},mount_tag={SHARE_TAG}-out,security_model=none"] if share else []
     qemu = subprocess.Popen([
         "qemu-system-x86_64", *accel, *machine, "-m", "8192", "-smp", "8",
         "-drive", f"if=pflash,format=raw,readonly=on,file={code}",
@@ -246,6 +248,7 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
     secrets = json.load(open(opts["--secrets"]))
     share = os.path.join(out, "share")
     shutil.rmtree(share, ignore_errors=True)
+    os.makedirs(os.path.join(out, "events"), exist_ok=True)
     shutil.copytree(opts["--share"], share, ignore=shutil.ignore_patterns(".git", "__pycache__"))
     json.dump(recipe, open(os.path.join(share, "recipe.json"), "w"))
     json.dump(secrets, open(os.path.join(share, "secrets.json"), "w"))
@@ -261,8 +264,9 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
                "ln -sf /usr/lib/systemd/system/serial-getty@.service /mnt/etc/systemd/system/getty.target.wants/serial-getty@ttyS0.service; "
                "umount /mnt; " + ("cryptsetup close troot; " if luks else "") + "echo HARNESS_OK")
     phase1 = [
-        ("mount-share", f"modprobe 9pnet_virtio; mkdir -p /run/kinst; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG} /run/kinst && echo SHARE_OK"),
-        ("install", "cd /run/kinst && python3 -m kinst.cli --recipe /run/kinst/recipe.json --log /tmp/kinst.log < /run/kinst/secrets.json | tail -n 4; "
+        ("mount-share", f"modprobe 9pnet_virtio; mkdir -p /run/kinst; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG} /run/kinst && echo SHARE_OK; "
+                       f"mkdir -p /run/kout; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG}-out /run/kout && echo OUT_OK"),
+        ("install", "cd /run/kinst && python3 -m kinst.cli --recipe /run/kinst/recipe.json --log /tmp/kinst.log < /run/kinst/secrets.json | tee /run/kout/events.jsonl | tail -n 4; "
                     "grep -aE '^(\\$ |== |FAILED)|==> (ERROR|WARNING)|rror|Building|UKI' /tmp/kinst.log | tail -n 60"),
         ("harness", harness),
     ]
@@ -274,7 +278,7 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
         if not login(con, log):
             print("FAIL: live ISO gave no login prompt"); return 1
         results.update(run_probes(con, mon, out, phase1, log, {"install": INSTALL_TIMEOUT}))
-        con.send("umount /run/kinst; sync\n")
+        con.send("umount /run/kinst /run/kout; sync\n")
         con.read_until("#", 30)
     finally:
         stop_qemu(qemu, mon)
