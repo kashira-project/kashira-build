@@ -5,6 +5,7 @@
                           [--secureboot VARS.fd] [--screenshot-after SECONDS] [--media usb]
                           [--install SERVER_URL] [--probe NAME=COMMAND] [--disk SIZE]
                           [--recipe RECIPE.json --secrets SECRETS.json --share INSTALLER_CHECKOUT]
+                          [--gui-recipe AUTOPILOT.json --share INSTALLER_CHECKOUT]
 
 --secureboot boots the Secure Boot OVMF build (SMM) with the given enrolled
 variable store. --screenshot-after only takes a screenshot after SECONDS and
@@ -13,6 +14,12 @@ exits (for boots that stop before a login prompt, e.g. MokManager).
 drive (archiso then copies the root image to RAM).
 --recipe installs with kashira-install from the --share checkout (virtio-9p) onto a blank 40 GiB disk, then
 boots that disk without the ISO and checks it (POST_PROBES). The harness adds a VM-only serial root autologin.
+--gui-recipe drives the same install through the NEW GUI: the checkout (with its build/ dir, so the compiled
+gresource is there) is shared; the autostarted installer of the ISO is killed; `--autopilot try` runs first (the
+app must exit and leave the session active); then `--autopilot AUTOPILOT.json` ({"recipe": ..., "secrets": ...},
+no time zone in the recipe to test the geo lookup) installs with the backend started through sudo from the share.
+QMP screenshots land in <out>/screen-*.ppm; the guest's stderr and the backend's JSON events are in <out>/events/.
+Phase 2 is the --recipe one, plus the installed time zone against the geo lookup run from this host.
 --install adds a blank 16 GiB virtio disk and a final `install` probe: a standard Arch install
 (sgdisk, mkfs, pacstrap base linux, genfstab, bootctl install) from SERVER_URL, signatures required
 (e.g. https://repo.kashiraproject.org/x86_64-v3).
@@ -27,7 +34,7 @@ user is not in that group, so for a KVM run start the whole script as root:
 Output files are chowned back to $SUDO_UID afterwards. Exit status 0 only if every probe in
 REQUIRED passed.
 """
-import json, os, shutil, socket, subprocess, sys, time
+import json, os, shlex, shutil, socket, subprocess, sys, time
 
 OVMF_CODE = "/usr/share/edk2-ovmf/x64/OVMF_CODE.4m.fd"
 OVMF_VARS = "/usr/share/edk2-ovmf/x64/OVMF_VARS.4m.fd"
@@ -159,6 +166,7 @@ POST_PROBES = [
     ("graphical-target", "systemctl is-active graphical.target"),
     ("user", "getent passwd @USER@; id @USER@; sudo -l -U @USER@ | tail -n 2; passwd -S root"),
     ("locale", "localectl status | sed -n '1,3p'; timedatectl show -p Timezone"),
+    ("zone", "echo zone=$(readlink /etc/localtime)"),
     ("pacman", "pacman -Q pacman linux; pacman -Qq | wc -l"),
     ("failed-units", "systemctl --failed --no-legend; echo FAILED_UNITS_END"),
     ("journal-errors", "journalctl -b -p err --no-pager | tail -n 25"),
@@ -242,6 +250,165 @@ def login(con, log, timeout=2400):
     return ok
 
 
+def harness_cmd(fs, luks, secrets):
+    """Run on the live ISO after the install: a VM-only root autologin on the installed system's serial console."""
+    return ("set -e; dev=/dev/vda2; "
+            + (f"printf %s '{secrets['luks_passphrase']}' | cryptsetup open --key-file - $dev troot; dev=/dev/mapper/troot; " if luks else "")
+            + f"mount {'-o subvol=@ ' if fs == 'btrfs' else ''}$dev /mnt; "
+            "d=/mnt/etc/systemd/system/serial-getty@ttyS0.service.d; mkdir -p $d /mnt/etc/systemd/system/getty.target.wants; "
+            "printf '[Unit]\\nConditionVirtualization=vm\\n[Service]\\nExecStart=\\nExecStart=-/sbin/agetty --autologin root --noclear --keep-baud 115200,57600,38400,9600 - $TERM\\n' > $d/kashira-test.conf; "
+            "ln -sf /usr/lib/systemd/system/serial-getty@.service /mnt/etc/systemd/system/getty.target.wants/serial-getty@ttyS0.service; "
+            "umount /mnt; " + ("cryptsetup close troot; " if luks else "") + "echo HARNESS_OK")
+
+
+# --gui-recipe: the new GUI, started from the share inside the live user's Wayland session (root serial shell)
+GUI_ENV = ("runuser -u kashira -- env XDG_RUNTIME_DIR=/run/user/$(id -u kashira) WAYLAND_DISPLAY=wayland-0 "
+           "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kashira)/bus "
+           "KINST_RESOURCES=/run/kinst/build/kashira-installer.gresource ")
+# the GUI's backend: root through sudo from the share, its JSON events also copied to the writable share
+GUI_BACKEND = ["sudo", "-n", "bash", "-c", 'set -o pipefail; python3 /run/kinst/bin/kashira-install "$@" | tee /run/kout/events.jsonl',
+               "kashira-install"]
+GUI_OLD = "pkill -u kashira -f 'python3 .*kashira-installer'"
+TYPELIBS = """import gi
+for name, version in (("Gtk", "4.0"), ("Adw", "1"), ("GnomeDesktop", "4.0"), ("GWeather", "4.0"), ("NM", "1.0")):
+    try:
+        gi.require_version(name, version)
+        print(name, version, "OK")
+    except ValueError:
+        print(name, version, "MISSING")
+"""
+
+
+def gui_cmd(arg):
+    return f"{GUI_ENV}KINST_BACKEND_ARGV={shlex.quote(json.dumps(GUI_BACKEND))} python3 /run/kinst/bin/kashira-installer --autopilot {arg}"
+
+
+def shot(mon, out, name):
+    qmp(mon, {"execute": "screendump", "arguments": {"filename": os.path.join(out, f"screen-{name}.ppm")}})
+
+
+def host_zone(checkout):
+    """The zone the installer's own geo service returns from this host (same public address as the VM)."""
+    sys.dont_write_bytecode = True
+    sys.path.insert(0, checkout)
+    from kinst.gui.services import geo
+    found = geo.lookup()
+    return found[0] if found else None
+
+
+def watch_install(qemu, con, mon, out, timeout):
+    """Wait for `AUTOPILOT RESULT` in the guest's GUI log (shared dir), taking screenshots: 30 s into the install, at
+    ~50 % (first install-phase package past 10 %), every 3 minutes, and at the end. Returns (result line, event stats)."""
+    gui_log, ev_path = os.path.join(out, "events", "gui.log"), os.path.join(out, "events", "events.jsonl")
+    begin, started, shots, last, stats, pos = time.time(), None, set(), time.time(), {}, 0
+    while time.time() < begin + timeout and qemu.poll() is None:
+        con.read_until("@@never@@", 2)
+        con.buf = b""                                       # keep the console drained, nothing to keep
+        if time.time() - begin >= 5 and "gui-5s" not in shots:
+            shots.add("gui-5s"); shot(mon, out, "gui-5s")
+        try:
+            with open(ev_path, "rb") as f:
+                f.seek(pos)
+                chunk = f.read()
+            for line in chunk.split(b"\n")[:-1]:
+                pos += len(line) + 1
+                try:
+                    ev = json.loads(line)
+                except ValueError:
+                    continue
+                kind = ev.get("type") if ev.get("type") != "progress" else "progress:" + str(ev.get("phase"))
+                stats[kind] = stats.get(kind, 0) + 1
+                if ev.get("phase") == "install" and ev.get("of") and ev["n"] / ev["of"] >= 0.1 and "mid" not in shots:
+                    shots.add("mid"); shot(mon, out, "install-mid")
+                started = started or time.time()
+        except OSError:
+            pass
+        if started and time.time() - started >= 30 and "t30" not in shots:
+            shots.add("t30"); shot(mon, out, "install-30s")
+        if started and time.time() - last >= 180:
+            last = time.time(); shot(mon, out, f"install-{int(last - started)}s")
+        try:
+            text = open(gui_log, errors="replace").read()
+        except OSError:
+            text = ""
+        for line in text.splitlines():
+            if line.startswith("AUTOPILOT RESULT:"):
+                shot(mon, out, "install-end")
+                return line, stats
+    return None, stats
+
+
+def gui_mode(out, iso, opts, accel, machine, code, vars_fd):
+    """Phase 1: the live session runs the new GUI (autopilot) from the share; phase 2: as recipe mode."""
+    spec = json.load(open(opts["--gui-recipe"]))
+    recipe, secrets = spec["recipe"], spec["secrets"]
+    share = os.path.join(out, "share")
+    shutil.rmtree(share, ignore_errors=True)
+    os.makedirs(os.path.join(out, "events"), exist_ok=True)
+    shutil.copytree(opts["--share"], share, ignore=shutil.ignore_patterns(".git", "__pycache__"))   # build/ included
+    json.dump(spec, open(os.path.join(share, "autopilot.json"), "w"))
+    open(os.path.join(share, "typelibs.py"), "w").write(TYPELIBS)
+    img = os.path.join(out, "disk.qcow2")
+    subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "40G"], check=True)
+    disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+    fs, luks, user = recipe["disk"]["filesystem"], recipe["disk"].get("encrypt"), recipe["user"]["name"]
+    session = ("u=$(id -u kashira); for i in $(seq 150); do test -S /run/user/$u/wayland-0 && "
+               "pgrep -u kashira -f 'python3 .*kashira-installer' >/dev/null && break; sleep 2; done; sleep 8; "
+               "loginctl list-sessions --no-legend; pgrep -au kashira -f 'python3 .*kashira-installer' | cut -c1-100; echo WAITED")
+    probes = [
+        ("mount-share", f"modprobe 9pnet_virtio; mkdir -p /run/kinst; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG} /run/kinst && echo SHARE_OK; "
+                       f"mkdir -p /run/kout; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG}-out /run/kout && echo OUT_OK"),
+        ("typelibs", "python3 /run/kinst/typelibs.py 2>&1 | tail -n 8"),
+        ("live-session", session),
+    ]
+    after_try = [
+        ("kill-old", f"{GUI_OLD}; sleep 2; pgrep -u kashira -f 'python3 .*kashira-installer' >/dev/null && echo STILL_RUNNING || echo KILLED"),
+        ("gui-try", "cd /tmp; rm -f /run/kout/gui-try.log; timeout 90 " + gui_cmd("try") + " >/run/kout/gui-try.log 2>&1; echo rc=$?; tail -n 3 /run/kout/gui-try.log | cut -c1-200; "
+                    "pgrep -u kashira -f 'python3 .*kashira-installer' >/dev/null && echo LEFTOVER || echo NO_INSTALLER_PROCESS; "
+                    "loginctl show-session $(loginctl list-sessions --no-legend | awk '$3==\"kashira\"{print $1; exit}') -p State; "
+                    "pgrep -u kashira gnome-shell >/dev/null && echo SHELL_ALIVE"),
+    ]
+    start = ("cd /tmp; rm -f /run/kout/gui.log /run/kout/events.jsonl; (setsid " + gui_cmd("/run/kinst/autopilot.json") +
+             " >/run/kout/gui.log 2>&1 </dev/null &); echo STARTED")
+    results = {}
+    log = open(os.path.join(out, "serial.log"), "wb")
+    qemu, ser, mon = start_qemu(out, "install", accel, machine, code, vars_fd, ["-cdrom", iso], disk, share)
+    result = None
+    try:
+        con = Serial(ser)
+        if not login(con, log):
+            print("FAIL: live ISO gave no login prompt"); return 1
+        results.update(run_probes(con, mon, out, probes, log, {"live-session": 400}))
+        time.sleep(3)                                       # the display lags a frame or two behind the session
+        shot(mon, out, "live-old-installer")
+        results.update(run_probes(con, mon, out, after_try[:1], log))
+        results.update(run_probes(con, mon, out, after_try[1:], log, {"gui-try": 150}))
+        time.sleep(3)
+        shot(mon, out, "after-try")
+        results.update(run_probes(con, mon, out, [("gui-start", start)], log))
+        result, stats = watch_install(qemu, con, mon, out, INSTALL_TIMEOUT)
+        results["gui-result"] = f"{result}\nevents: {json.dumps(stats, sort_keys=True)}"
+        time.sleep(6)                                       # the autopilot holds the last page for 3 s, then quits
+        con.buf = b""
+        results.update(run_probes(con, mon, out, [
+            ("gui-leftover", "pgrep -au kashira -f 'python3 .*kashira-installer' | cut -c1-100; echo END"),
+            ("live-clock", "echo live=$(readlink /etc/localtime); timedatectl show -p Timezone; date"),
+            ("harness", harness_cmd(fs, luks, secrets))], log))
+        con.send("umount /run/kinst /run/kout; sync\n")
+        con.read_until("#", 30)
+    finally:
+        stop_qemu(qemu, mon)
+    ok_try = all(n in results.get("gui-try", "") for n in ("rc=0", "AUTOPILOT RESULT: done try", "NO_INSTALLER_PROCESS", "State=active", "SHELL_ALIVE"))
+    if not result or not result.endswith("done") or "HARNESS_OK" not in results.get("harness", ""):
+        write_results(out, results)
+        print("FAIL: GUI install:", result, "| try ok:", ok_try, "|", results.get("gui-result", "")[-300:]); return 1
+    zone = host_zone(opts["--share"])
+    results["expected-zone"] = f"{zone} (geo lookup from the host)"
+    print("autopilot try ok:", ok_try, "| expected zone:", zone)
+    code_ = boot_installed(out, accel, machine, code, vars_fd, disk, log, results, fs, luks, user, secrets, zone)
+    return code_ or (0 if ok_try else 1)
+
+
 def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
     """Phase 1: install from the live ISO with the shared checkout; phase 2: boot the disk and probe it."""
     recipe = json.load(open(opts["--recipe"]))
@@ -256,13 +423,7 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
     subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "40G"], check=True)
     disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
     fs, luks, user = recipe["disk"]["filesystem"], recipe["disk"].get("encrypt"), recipe["user"]["name"]
-    harness = ("set -e; dev=/dev/vda2; "
-               + (f"printf %s '{secrets['luks_passphrase']}' | cryptsetup open --key-file - $dev troot; dev=/dev/mapper/troot; " if luks else "")
-               + f"mount {'-o subvol=@ ' if fs == 'btrfs' else ''}$dev /mnt; "
-               "d=/mnt/etc/systemd/system/serial-getty@ttyS0.service.d; mkdir -p $d /mnt/etc/systemd/system/getty.target.wants; "
-               "printf '[Unit]\\nConditionVirtualization=vm\\n[Service]\\nExecStart=\\nExecStart=-/sbin/agetty --autologin root --noclear --keep-baud 115200,57600,38400,9600 - $TERM\\n' > $d/kashira-test.conf; "
-               "ln -sf /usr/lib/systemd/system/serial-getty@.service /mnt/etc/systemd/system/getty.target.wants/serial-getty@ttyS0.service; "
-               "umount /mnt; " + ("cryptsetup close troot; " if luks else "") + "echo HARNESS_OK")
+    harness = harness_cmd(fs, luks, secrets)
     phase1 = [
         ("mount-share", f"modprobe 9pnet_virtio; mkdir -p /run/kinst; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG} /run/kinst && echo SHARE_OK; "
                        f"mkdir -p /run/kout; mount -t 9p -o trans=virtio,version=9p2000.L {SHARE_TAG}-out /run/kout && echo OUT_OK"),
@@ -285,6 +446,13 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
     if '"type": "done"' not in results.get("install", "") or "HARNESS_OK" not in results.get("harness", ""):
         write_results(out, results)
         print("FAIL: install phase:", results.get("install", "")[-600:]); return 1
+    return boot_installed(out, accel, machine, code, vars_fd, disk, log, results, fs, luks, user, secrets,
+                          recipe.get("timezone"))
+
+
+def boot_installed(out, accel, machine, code, vars_fd, disk, log, results, fs, luks, user, secrets, zone=None):
+    """Phase 2: boot the installed disk without the ISO, run POST_PROBES and judge them. `zone` is the time zone the
+    installed system must have (None: not checked)."""
     qemu, ser, mon = start_qemu(out, "installed", accel, machine, code, vars_fd, [], disk)
     try:
         con = Serial(ser)
@@ -309,6 +477,8 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
                 "tier": "x86_64-v3", "user": "(ALL : ALL) ALL", "boot": "kashira-linux.efi"}
     if luks:
         required["blocks"] = "crypt"
+    if zone:
+        required["zone"] = f"zoneinfo/{zone}"
     failed = [n for n, needle in required.items() if needle not in results.get(n, "")]
     if results.get("failed-units", "").split("FAILED_UNITS_END")[0].strip():
         failed.append("failed-units")
@@ -343,6 +513,8 @@ def main():
     try:
         if "--recipe" in opts:
             return recipe_mode(out, iso, opts, accel, machine, code, vars_fd)
+        if "--gui-recipe" in opts:
+            return gui_mode(out, iso, opts, accel, machine, code, vars_fd)
         probes, disk = list(PROBES), []
         if "--probe" in opts:                                   # one extra ad-hoc probe, run before install
             name, _, cmd = opts["--probe"].partition("=")
