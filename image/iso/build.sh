@@ -25,6 +25,13 @@ docker run --rm --privileged \
         cp /profile/pacman.conf /etc/pacman.conf
         pacman -Syu --noconfirm --needed --noprogressbar arch-install-scripts dosfstools e2fsprogs erofs-utils \
             libarchive libisoburn mtools squashfs-tools
+        # A 10 s network stall makes pacman drop a file for good and aborts mkarchiso; fetch everything into
+        # the cache first, in a retry loop (the pacstrap -c of mkarchiso then installs from this cache).
+        for try in 1 2 3 4 5 6 7 8; do
+            pacman -Sw --noconfirm --noprogressbar $(grep -v "^#" /profile/packages.x86_64) && break
+            [ "$try" != 8 ] || exit 1
+            echo "prefetch attempt $try failed, retrying"; sleep 20
+        done
         /archiso/mkarchiso -v -r -w /work -o /out /profile
         ls /out/*.iso
     ' > "$out/build.log" 2>&1 || die "mkarchiso failed; see $out/build.log"
