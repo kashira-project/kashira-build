@@ -19,6 +19,8 @@ gnome-keyring
 gnome-session
 gnome-settings-daemon
 gnome-shell
+gnome-software
+gnome-system-monitor
 gnome-text-editor
 gptfdisk
 gvfs
