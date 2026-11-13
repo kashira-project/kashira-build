@@ -12,7 +12,8 @@ variable store. --screenshot-after only takes a screenshot after SECONDS and
 exits (for boots that stop before a login prompt, e.g. MokManager).
 --media usb attaches the ISO as a USB stick instead of a CD-ROM, like a flashed
 drive (archiso then copies the root image to RAM).
---recipe installs with kashira-install from the --share checkout (virtio-9p) onto a blank 40 GiB disk, then
+--recipe installs with kashira-install from the --share checkout (virtio-9p) onto a blank 40 GiB disk (or, with
+--base-disk RAW, an overlay of that image, e.g. a Windows layout for an alongside install), then
 boots that disk without the ISO and checks it (POST_PROBES). The harness adds a VM-only serial root autologin.
 --gui-recipe drives the same install through the NEW GUI: the checkout (with its build/ dir, so the compiled
 gresource is there) is shared; the autostarted installer of the ISO is killed; `--autopilot try` runs first (the
@@ -162,6 +163,7 @@ POST_PROBES = [
     ("tier", "cat /etc/kashira/tier"),
     ("dns", "ls /etc/systemd/resolved.conf.d/ /etc/NetworkManager/conf.d/ 2>&1; resolvectl status | sed -n '1,6p'"),
     ("boot", "bootctl status 2>/dev/null | grep -E 'Product|Current Entry|Default Entry'; ls /boot/EFI/Linux"),
+    ("boot-menu", "bootctl list --no-pager 2>/dev/null | grep -E 'title:|source:' | head -n 12"),
     ("gdm", "systemctl is-active gdm.service"),
     ("graphical-target", "systemctl is-active graphical.target"),
     ("user", "getent passwd @USER@; id @USER@; sudo -l -U @USER@ | tail -n 2; passwd -S root"),
@@ -252,7 +254,8 @@ def login(con, log, timeout=2400):
 
 def harness_cmd(fs, luks, secrets):
     """Run on the live ISO after the install: a VM-only root autologin on the installed system's serial console."""
-    return ("set -e; dev=/dev/vda2; "
+    # root by its Discoverable Partitions type: partition 2 after an erase install, a new one after alongside
+    return ("set -e; dev=$(lsblk -lnpo PATH,PARTTYPE /dev/vda | awk '$2==\"4f68bce3-e8cd-4db1-96e7-fbcaf984b709\"{print $1; exit}'); "
             + (f"printf %s '{secrets['luks_passphrase']}' | cryptsetup open --key-file - $dev troot; dev=/dev/mapper/troot; " if luks else "")
             + f"mount {'-o subvol=@ ' if fs == 'btrfs' else ''}$dev /mnt; "
             "d=/mnt/etc/systemd/system/serial-getty@ttyS0.service.d; mkdir -p $d /mnt/etc/systemd/system/getty.target.wants; "
@@ -338,6 +341,16 @@ def watch_install(qemu, con, mon, out, timeout):
     return None, stats
 
 
+def target_disk(out, opts):
+    """The install target: a blank 40 GiB disk, or with --base-disk a copy-on-write overlay of that raw image (e.g. a
+    Windows-like layout with unallocated space for an alongside install; the image itself is never written)."""
+    img = os.path.join(out, "disk.qcow2")
+    base = opts.get("--base-disk")
+    extra = ["-b", os.path.abspath(base), "-F", "raw"] if base else []
+    subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", *extra, img, *([] if base else ["40G"])], check=True)
+    return ["-drive", f"file={img},if=virtio,format=qcow2"]
+
+
 def gui_mode(out, iso, opts, accel, machine, code, vars_fd):
     """Phase 1: the live session runs the new GUI (autopilot) from the share; phase 2: as recipe mode."""
     spec = json.load(open(opts["--gui-recipe"]))
@@ -348,9 +361,7 @@ def gui_mode(out, iso, opts, accel, machine, code, vars_fd):
     shutil.copytree(opts["--share"], share, ignore=shutil.ignore_patterns(".git", "__pycache__"))   # build/ included
     json.dump(spec, open(os.path.join(share, "autopilot.json"), "w"))
     open(os.path.join(share, "typelibs.py"), "w").write(TYPELIBS)
-    img = os.path.join(out, "disk.qcow2")
-    subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "40G"], check=True)
-    disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+    disk = target_disk(out, opts)
     fs, luks, user = recipe["disk"]["filesystem"], recipe["disk"].get("encrypt"), recipe["user"]["name"]
     session = ("u=$(id -u kashira); for i in $(seq 150); do test -S /run/user/$u/wayland-0 && "
                "pgrep -u kashira -f 'python3 .*kashira-installer' >/dev/null && break; sleep 2; done; sleep 8; "
@@ -419,9 +430,7 @@ def recipe_mode(out, iso, opts, accel, machine, code, vars_fd):
     shutil.copytree(opts["--share"], share, ignore=shutil.ignore_patterns(".git", "__pycache__"))
     json.dump(recipe, open(os.path.join(share, "recipe.json"), "w"))
     json.dump(secrets, open(os.path.join(share, "secrets.json"), "w"))
-    img = os.path.join(out, "disk.qcow2")
-    subprocess.run(["qemu-img", "create", "-q", "-f", "qcow2", img, "40G"], check=True)
-    disk = ["-drive", f"file={img},if=virtio,format=qcow2"]
+    disk = target_disk(out, opts)
     fs, luks, user = recipe["disk"]["filesystem"], recipe["disk"].get("encrypt"), recipe["user"]["name"]
     harness = harness_cmd(fs, luks, secrets)
     phase1 = [
