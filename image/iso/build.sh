@@ -37,6 +37,24 @@ docker run --rm --privileged \
     ' > "$out/build.log" 2>&1 || die "mkarchiso failed; see $out/build.log"
 
 iso=$(ls -- "$out"/*.iso)
+# Ventoy normal mode (UEFI) only finds an EFI El Torito image placed after a section header (91 EF), as on
+# BIOS+UEFI media. A UEFI-only catalog has just validation(01 EF)+default entry, so Ventoy never swaps in its
+# initrd and archiso stops at "Device <uuid> not found". Append a final EFI section repeating the default entry.
+python3 -I - "$iso" <<'EOF' || die "El Torito catalog patch failed"
+import struct, sys
+with open(sys.argv[1], 'r+b') as f:
+    f.seek(17 * 2048)
+    brvd = f.read(2048)
+    assert brvd[1:6] == b'CD001' and brvd[7:30].rstrip(b'\0') == b'EL TORITO SPECIFICATION', 'no El Torito'
+    off = struct.unpack_from('<I', brvd, 71)[0] * 2048
+    f.seek(off)
+    cat = bytearray(f.read(128))
+    assert cat[0:2] == b'\x01\xef' and cat[32] == 0x88 and cat[64:128] == bytes(64), 'unexpected catalog layout'
+    cat[64:96] = b'\x91\xef\x01\x00' + bytes(28)
+    cat[96:128] = cat[32:64]
+    f.seek(off)
+    f.write(cat)
+EOF
 (cd -- "$out" && sha256sum -- "${iso##*/}") > "$iso.sha256"
 [ -z "${SUDO_UID:-}" ] || chown -R "$SUDO_UID:${SUDO_GID:-$SUDO_UID}" -- "$out"
 printf '%s\n' "$iso"
